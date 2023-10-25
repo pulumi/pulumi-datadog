@@ -15,6 +15,32 @@ import (
 
 // Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewApplicationKey(ctx, "foo", &datadog.ApplicationKeyArgs{
+//				Name: pulumi.String("foo-application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

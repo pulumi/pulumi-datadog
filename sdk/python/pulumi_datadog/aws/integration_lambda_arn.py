@@ -140,6 +140,18 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration Lambda ARN
+        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
+            account_id="1234567890",
+            lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
+        ```
+
         ## Import
 
         Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
@@ -163,6 +175,18 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration Lambda ARN
+        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
+            account_id="1234567890",
+            lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
+        ```
 
         ## Import
 

@@ -12,6 +12,25 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Manage Datadog Organization
+    ///     var organization = new Datadog.OrganizationSettings("organization", new()
+    ///     {
+    ///         Name = "foo-organization",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

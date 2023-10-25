@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog `serviceAccountApplicationKey` resource. This can be used to create and manage Datadog service account application keys.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create new service_account_application_key resource
+ * const foo = new datadog.ServiceAccountApplicationKey("foo", {
+ *     name: "Application key for managing dashboards",
+ *     serviceAccountId: "00000000-0000-1234-0000-000000000000",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Importing a service account's application key cannot import the value of the key.

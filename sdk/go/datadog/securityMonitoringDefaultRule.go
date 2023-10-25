@@ -14,6 +14,40 @@ import (
 
 // Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, "adefaultrule", &datadog.SecurityMonitoringDefaultRuleArgs{
+//				Cases: datadog.SecurityMonitoringDefaultRuleCaseArray{
+//					&datadog.SecurityMonitoringDefaultRuleCaseArgs{
+//						Notifications: pulumi.StringArray{
+//							pulumi.String("@me"),
+//						},
+//						Status: pulumi.String("high"),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }

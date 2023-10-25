@@ -12,6 +12,57 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Manage a tag configuration for a Datadog distribution metric with/without percentiles
+    ///     var exampleDistMetric = new Datadog.MetricTagConfiguration("exampleDistMetric", new()
+    ///     {
+    ///         IncludePercentiles = false,
+    ///         MetricName = "example.terraform.dist.metric",
+    ///         MetricType = "distribution",
+    ///         Tags = new[]
+    ///         {
+    ///             "sport",
+    ///             "datacenter",
+    ///         },
+    ///     });
+    /// 
+    ///     // Manage tag configurations for a Datadog count or gauge metric
+    ///     var exampleCountMetric = new Datadog.MetricTagConfiguration("exampleCountMetric", new()
+    ///     {
+    ///         Aggregations = new[]
+    ///         {
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Space = "min",
+    ///                 Time = "avg",
+    ///             },
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Space = "max",
+    ///                 Time = "avg",
+    ///             },
+    ///         },
+    ///         MetricName = "example.terraform.count.metric",
+    ///         MetricType = "count",
+    ///         Tags = new[]
+    ///         {
+    ///             "sport",
+    ///             "datacenter",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

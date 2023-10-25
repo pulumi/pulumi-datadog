@@ -6,6 +6,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const permissions = datadog.getPermissions({});
+ * ```
  */
 export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
     args = args || {};
@@ -45,6 +54,15 @@ export interface GetPermissionsResult {
 }
 /**
  * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const permissions = datadog.getPermissions({});
+ * ```
  */
 export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
     return pulumi.output(args).apply((a: any) => getPermissions(a, opts))

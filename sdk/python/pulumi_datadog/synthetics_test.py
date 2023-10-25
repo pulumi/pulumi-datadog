@@ -949,9 +949,278 @@ class SyntheticsTest(pulumi.CustomResource):
 
         In practice, it means going from (simplified configuration):
 
+        ```python
+        import pulumi
+        ```
+
         to
 
+        ```python
+        import pulumi
+        ```
+
         which you can now use in your request definition:
+        ```python
+        import pulumi
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_uptime = datadog.SyntheticsTest("testUptime",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                target="200",
+                type="statusCode",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An Uptime test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+            },
+            status="live",
+            subtype="http",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Authenticated API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_api = datadog.SyntheticsTest("testApi",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                target="200",
+                type="statusCode",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Authentication": "Token: 1234566789",
+                "Content-Type": "application/json",
+            },
+            status="live",
+            subtype="http",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics SSL test)
+        # Create a new Datadog Synthetics API/SSL test on example.org
+        test_ssl = datadog.SyntheticsTest("testSsl",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="isInMoreThan",
+                target="30",
+                type="certificate",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                accept_self_signed=True,
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            status="live",
+            subtype="ssl",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics TCP test)
+        # Create a new Datadog Synthetics API/TCP test on example.org
+        test_tcp = datadog.SyntheticsTest("testTcp",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="lessThan",
+                target="2000",
+                type="responseTime",
+            )],
+            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
+                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                name="MY_GLOBAL_VAR",
+                type="global",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            status="live",
+            subtype="tcp",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics DNS test)
+        # Create a new Datadog Synthetics API/DNS test on example.org
+        test_dns = datadog.SyntheticsTest("testDns",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                property="A",
+                target="0.0.0.0",
+                type="recordSome",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+            ),
+            status="live",
+            subtype="dns",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics Multistep API test)
+        # Create a new Datadog Synthetics Multistep API test
+        test_multi_step = datadog.SyntheticsTest("testMultiStep",
+            api_steps=[
+                datadog.SyntheticsTestApiStepArgs(
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        operator="is",
+                        target="200",
+                        type="statusCode",
+                    )],
+                    name="An API test on example.org",
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://example.org",
+                    ),
+                    request_headers={
+                        "Authentication": "Token: 1234566789",
+                        "Content-Type": "application/json",
+                    },
+                    subtype="http",
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        operator="is",
+                        target="200",
+                        type="statusCode",
+                    )],
+                    name="An API test on example.org",
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
+                    subtype="http",
+                ),
+            ],
+            locations=["aws:eu-central-1"],
+            name="Multistep API test",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                accept_self_signed=True,
+                tick_every=900,
+            ),
+            status="live",
+            subtype="multi",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics Browser test)
+        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
+        test_browser = datadog.SyntheticsTest("testBrowser",
+            browser_steps=[datadog.SyntheticsTestBrowserStepArgs(
+                name="Check current url",
+                params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                    check="contains",
+                    value="datadoghq",
+                ),
+                type="assertCurrentUrl",
+            )],
+            browser_variables=[
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    example="597",
+                    name="MY_PATTERN_VAR",
+                    pattern="{{numeric(3)}}",
+                    type="text",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                    name="MY_EMAIL_VAR",
+                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    type="email",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                    name="MY_GLOBAL_VAR",
+                    type="global",
+                ),
+            ],
+            device_ids=["laptop_large"],
+            locations=["aws:eu-central-1"],
+            message="Notify @qa",
+            name="A Browser test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=3600,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://app.datadoghq.com",
+            ),
+            status="paused",
+            tags=[],
+            type="browser")
+        ```
 
         ## Import
 
@@ -1001,9 +1270,278 @@ class SyntheticsTest(pulumi.CustomResource):
 
         In practice, it means going from (simplified configuration):
 
+        ```python
+        import pulumi
+        ```
+
         to
 
+        ```python
+        import pulumi
+        ```
+
         which you can now use in your request definition:
+        ```python
+        import pulumi
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_uptime = datadog.SyntheticsTest("testUptime",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                target="200",
+                type="statusCode",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An Uptime test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+            },
+            status="live",
+            subtype="http",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Authenticated API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_api = datadog.SyntheticsTest("testApi",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                target="200",
+                type="statusCode",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Authentication": "Token: 1234566789",
+                "Content-Type": "application/json",
+            },
+            status="live",
+            subtype="http",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics SSL test)
+        # Create a new Datadog Synthetics API/SSL test on example.org
+        test_ssl = datadog.SyntheticsTest("testSsl",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="isInMoreThan",
+                target="30",
+                type="certificate",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                accept_self_signed=True,
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            status="live",
+            subtype="ssl",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics TCP test)
+        # Create a new Datadog Synthetics API/TCP test on example.org
+        test_tcp = datadog.SyntheticsTest("testTcp",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="lessThan",
+                target="2000",
+                type="responseTime",
+            )],
+            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
+                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                name="MY_GLOBAL_VAR",
+                type="global",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            status="live",
+            subtype="tcp",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics DNS test)
+        # Create a new Datadog Synthetics API/DNS test on example.org
+        test_dns = datadog.SyntheticsTest("testDns",
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                operator="is",
+                property="A",
+                target="0.0.0.0",
+                type="recordSome",
+            )],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+            ),
+            status="live",
+            subtype="dns",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics Multistep API test)
+        # Create a new Datadog Synthetics Multistep API test
+        test_multi_step = datadog.SyntheticsTest("testMultiStep",
+            api_steps=[
+                datadog.SyntheticsTestApiStepArgs(
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        operator="is",
+                        target="200",
+                        type="statusCode",
+                    )],
+                    name="An API test on example.org",
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://example.org",
+                    ),
+                    request_headers={
+                        "Authentication": "Token: 1234566789",
+                        "Content-Type": "application/json",
+                    },
+                    subtype="http",
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        operator="is",
+                        target="200",
+                        type="statusCode",
+                    )],
+                    name="An API test on example.org",
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
+                    subtype="http",
+                ),
+            ],
+            locations=["aws:eu-central-1"],
+            name="Multistep API test",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                accept_self_signed=True,
+                tick_every=900,
+            ),
+            status="live",
+            subtype="multi",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        # Example Usage (Synthetics Browser test)
+        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
+        test_browser = datadog.SyntheticsTest("testBrowser",
+            browser_steps=[datadog.SyntheticsTestBrowserStepArgs(
+                name="Check current url",
+                params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                    check="contains",
+                    value="datadoghq",
+                ),
+                type="assertCurrentUrl",
+            )],
+            browser_variables=[
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    example="597",
+                    name="MY_PATTERN_VAR",
+                    pattern="{{numeric(3)}}",
+                    type="text",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                    name="MY_EMAIL_VAR",
+                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    type="email",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                    name="MY_GLOBAL_VAR",
+                    type="global",
+                ),
+            ],
+            device_ids=["laptop_large"],
+            locations=["aws:eu-central-1"],
+            message="Notify @qa",
+            name="A Browser test on example.org",
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=3600,
+            ),
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://app.datadoghq.com",
+            ),
+            status="paused",
+            tags=[],
+            type="browser")
+        ```
 
         ## Import
 

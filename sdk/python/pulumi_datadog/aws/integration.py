@@ -527,6 +527,31 @@ class Integration(pulumi.CustomResource):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration
+        sandbox = datadog.aws.Integration("sandbox",
+            account_id="1234567890",
+            account_specific_namespace_rules={
+                "auto_scaling": False,
+                "opsworks": False,
+            },
+            excluded_regions=[
+                "us-east-1",
+                "us-west-2",
+            ],
+            filter_tags=["key:value"],
+            host_tags=[
+                "key:value",
+                "key2:value2",
+            ],
+            role_name="DatadogAWSIntegrationRole")
+        ```
+
         ## Import
 
         Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
@@ -557,6 +582,31 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration
+        sandbox = datadog.aws.Integration("sandbox",
+            account_id="1234567890",
+            account_specific_namespace_rules={
+                "auto_scaling": False,
+                "opsworks": False,
+            },
+            excluded_regions=[
+                "us-east-1",
+                "us-west-2",
+            ],
+            filter_tags=["key:value"],
+            host_tags=[
+                "key:value",
+                "key2:value2",
+            ],
+            role_name="DatadogAWSIntegrationRole")
+        ```
 
         ## Import
 

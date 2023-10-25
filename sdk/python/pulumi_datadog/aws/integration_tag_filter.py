@@ -176,6 +176,19 @@ class IntegrationTagFilter(pulumi.CustomResource):
         """
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration tag filter
+        foo = datadog.aws.IntegrationTagFilter("foo",
+            account_id="123456789010",
+            namespace="sqs",
+            tag_filter_str="key:value")
+        ```
+
         ## Import
 
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
@@ -198,6 +211,19 @@ class IntegrationTagFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration tag filter
+        foo = datadog.aws.IntegrationTagFilter("foo",
+            account_id="123456789010",
+            namespace="sqs",
+            tag_filter_str="key:value")
+        ```
 
         ## Import
 

@@ -253,6 +253,22 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         """
         Provides a Sensitive Data Scanner group resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
+            description="A relevant description",
+            filter=datadog.SensitiveDataScannerGroupFilterArgs(
+                query="service:my-service",
+            ),
+            is_enabled=True,
+            name="My new scanning group",
+            product_lists=["apm"])
+        ```
+
         ## Import
 
         ```sh
@@ -275,6 +291,22 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Sensitive Data Scanner group resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
+            description="A relevant description",
+            filter=datadog.SensitiveDataScannerGroupFilterArgs(
+                query="service:my-service",
+            ),
+            is_enabled=True,
+            name="My new scanning group",
+            product_lists=["apm"])
+        ```
 
         ## Import
 

@@ -12,6 +12,34 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog user resource. This can be used to create and manage Datadog users.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roRole = Datadog.GetRole.Invoke(new()
+    ///     {
+    ///         Filter = "Datadog Read Only Role",
+    ///     });
+    /// 
+    ///     // Create a new Datadog user
+    ///     var foo = new Datadog.User("foo", new()
+    ///     {
+    ///         Email = "new@example.com",
+    ///         Roles = new[]
+    ///         {
+    ///             roRole.Apply(getRoleResult =&gt; getRoleResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

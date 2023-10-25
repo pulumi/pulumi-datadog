@@ -7,6 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog - Amazon Web Services integration tag filter
+ * const foo = new datadog.aws.IntegrationTagFilter("foo", {
+ *     accountId: "123456789010",
+ *     namespace: "sqs",
+ *     tagFilterStr: "key:value",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).

@@ -8,6 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing Datadog team memberships.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getTeamMemberships({
+ *     filterKeyword: "foo@example.com",
+ *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
+ * });
+ * ```
  */
 export function getTeamMemberships(args: GetTeamMembershipsArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamMembershipsResult> {
 
@@ -52,6 +64,18 @@ export interface GetTeamMembershipsResult {
 }
 /**
  * Use this data source to retrieve information about existing Datadog team memberships.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getTeamMemberships({
+ *     filterKeyword: "foo@example.com",
+ *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
+ * });
+ * ```
  */
 export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembershipsResult> {
     return pulumi.output(args).apply((a: any) => getTeamMemberships(a, opts))

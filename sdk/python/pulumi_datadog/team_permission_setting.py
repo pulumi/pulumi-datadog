@@ -172,6 +172,22 @@ class TeamPermissionSetting(pulumi.CustomResource):
         """
         Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        foo_team_permission_setting = datadog.TeamPermissionSetting("fooTeamPermissionSetting",
+            team_id=foo_team.id,
+            action="manage_membership",
+            value="organization")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
@@ -186,6 +202,22 @@ class TeamPermissionSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        foo_team_permission_setting = datadog.TeamPermissionSetting("fooTeamPermissionSetting",
+            team_id=foo_team.id,
+            action="manage_membership",
+            value="organization")
+        ```
 
         :param str resource_name: The name of the resource.
         :param TeamPermissionSettingArgs args: The arguments to use to populate this resource's properties.

@@ -12,6 +12,26 @@ namespace Pulumi.Datadog.Cloudflare
     /// <summary>
     /// Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.Cloudflare.IntegrationAccount("foo", new()
+    ///     {
+    ///         ApiKey = "12345678910abc",
+    ///         Email = "test-email@example.com",
+    ///         Name = "test-name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

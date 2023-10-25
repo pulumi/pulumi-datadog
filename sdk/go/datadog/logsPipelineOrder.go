@@ -15,6 +15,36 @@ import (
 
 // Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsPipelineOrder(ctx, "samplePipelineOrder", &datadog.LogsPipelineOrderArgs{
+//				Name: pulumi.String("sample_pipeline_order"),
+//				Pipelines: pulumi.StringArray{
+//					datadog_logs_custom_pipeline.Sample_pipeline.Id,
+//					datadog_logs_integration_pipeline.Python.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).

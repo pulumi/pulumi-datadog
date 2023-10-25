@@ -171,6 +171,18 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.cloudflare.IntegrationAccount("foo",
+            api_key="12345678910abc",
+            email="test-email@example.com",
+            name="test-name")
+        ```
+
         ## Import
 
         ```sh
@@ -191,6 +203,18 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.cloudflare.IntegrationAccount("foo",
+            api_key="12345678910abc",
+            email="test-email@example.com",
+            name="test-name")
+        ```
 
         ## Import
 

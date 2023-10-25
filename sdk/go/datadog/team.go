@@ -15,6 +15,34 @@ import (
 
 // Provides a Datadog Team resource. This can be used to create and manage Datadog team.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewTeam(ctx, "foo", &datadog.TeamArgs{
+//				Description: pulumi.String("Team description"),
+//				Handle:      pulumi.String("example-team"),
+//				Name:        pulumi.String("Example Team"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

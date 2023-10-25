@@ -95,6 +95,15 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         """
         Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `LogsPipelineOrder` resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
+        ```
+
         ## Import
 
         To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.
@@ -115,6 +124,15 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `LogsPipelineOrder` resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
+        ```
 
         ## Import
 

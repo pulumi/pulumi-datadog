@@ -474,6 +474,43 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        myrule = datadog.SecurityMonitoringRule("myrule",
+            cases=[datadog.SecurityMonitoringRuleCaseArgs(
+                condition="errors > 3 && warnings > 10",
+                notifications=["@user"],
+                status="high",
+            )],
+            enabled=True,
+            message="The rule has triggered.",
+            name="My rule",
+            options=datadog.SecurityMonitoringRuleOptionsArgs(
+                evaluation_window=300,
+                keep_alive=600,
+                max_signal_duration=900,
+            ),
+            queries=[
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="errors",
+                    query="status:error",
+                ),
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="warnings",
+                    query="status:warning",
+                ),
+            ],
+            tags=["type:dos"])
+        ```
+
         ## Import
 
         Security monitoring rules can be imported using ID, e.g.
@@ -504,6 +541,43 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        myrule = datadog.SecurityMonitoringRule("myrule",
+            cases=[datadog.SecurityMonitoringRuleCaseArgs(
+                condition="errors > 3 && warnings > 10",
+                notifications=["@user"],
+                status="high",
+            )],
+            enabled=True,
+            message="The rule has triggered.",
+            name="My rule",
+            options=datadog.SecurityMonitoringRuleOptionsArgs(
+                evaluation_window=300,
+                keep_alive=600,
+                max_signal_duration=900,
+            ),
+            queries=[
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="errors",
+                    query="status:error",
+                ),
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="warnings",
+                    query="status:warning",
+                ),
+            ],
+            tags=["type:dos"])
+        ```
 
         ## Import
 

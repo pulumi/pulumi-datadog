@@ -15,6 +15,44 @@ import (
 
 // Provides a Datadog role resource. This can be used to create and manage Datadog roles.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := datadog.GetPermissions(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
+//				Name: pulumi.String("foo"),
+//				Permissions: datadog.RolePermissionArray{
+//					&datadog.RolePermissionArgs{
+//						Id: *pulumi.String(bar.Permissions.MonitorsDowntime),
+//					},
+//					&datadog.RolePermissionArgs{
+//						Id: *pulumi.String(bar.Permissions.MonitorsWrite),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Roles can be imported using their ID, e.g.

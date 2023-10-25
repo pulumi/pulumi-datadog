@@ -9,6 +9,75 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Metric-Based SLO
+ * // Create a new Datadog service level objective
+ * const foo = new datadog.ServiceLevelObjective("foo", {
+ *     description: "My custom metric SLO",
+ *     name: "Example Metric SLO",
+ *     query: {
+ *         denominator: "sum:my.custom.count.metric{*}.as_count()",
+ *         numerator: "sum:my.custom.count.metric{type:good_events}.as_count()",
+ *     },
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
+ *     targetThreshold: 99.9,
+ *     thresholds: [
+ *         {
+ *             target: 99.9,
+ *             timeframe: "7d",
+ *             warning: 99.99,
+ *         },
+ *         {
+ *             target: 99.9,
+ *             timeframe: "30d",
+ *             warning: 99.99,
+ *         },
+ *     ],
+ *     timeframe: "30d",
+ *     type: "metric",
+ *     warningThreshold: 99.99,
+ * });
+ * // Monitor-Based SLO
+ * // Create a new Datadog service level objective
+ * const bar = new datadog.ServiceLevelObjective("bar", {
+ *     description: "My custom monitor SLO",
+ *     monitorIds: [
+ *         1,
+ *         2,
+ *         3,
+ *     ],
+ *     name: "Example Monitor SLO",
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
+ *     targetThreshold: 99.9,
+ *     thresholds: [
+ *         {
+ *             target: 99.9,
+ *             timeframe: "7d",
+ *             warning: 99.99,
+ *         },
+ *         {
+ *             target: 99.9,
+ *             timeframe: "30d",
+ *             warning: 99.99,
+ *         },
+ *     ],
+ *     timeframe: "30d",
+ *     type: "monitor",
+ *     warningThreshold: 99.99,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Service Level Objectives can be imported using their string ID, e.g.

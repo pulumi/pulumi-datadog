@@ -13,6 +13,36 @@ import (
 )
 
 // Use this data source to retrieve information about existing security monitoring rules for use in other resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetSecurityMonitoringRules(ctx, &datadog.GetSecurityMonitoringRulesArgs{
+//				DefaultOnlyFilter: pulumi.BoolRef(true),
+//				NameFilter:        pulumi.StringRef("attack"),
+//				TagsFilters: []string{
+//					"foo:bar",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoringRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityMonitoringRulesResult

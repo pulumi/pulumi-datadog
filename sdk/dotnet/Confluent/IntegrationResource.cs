@@ -12,6 +12,43 @@ namespace Pulumi.Datadog.Confluent
     /// <summary>
     /// Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooIntegrationAccount = new Datadog.Confluent.IntegrationAccount("fooIntegrationAccount", new()
+    ///     {
+    ///         ApiKey = "TESTAPIKEY123",
+    ///         ApiSecret = "test-api-secret-123",
+    ///         Tags = new[]
+    ///         {
+    ///             "mytag",
+    ///             "mytag2:myvalue",
+    ///         },
+    ///     });
+    /// 
+    ///     // Create new integration_confluent_resource resource
+    ///     var fooIntegrationResource = new Datadog.Confluent.IntegrationResource("fooIntegrationResource", new()
+    ///     {
+    ///         AccountId = fooIntegrationAccount.Id,
+    ///         ResourceId = "123456",
+    ///         ResourceType = "kafka",
+    ///         Tags = new[]
+    ///         {
+    ///             "mytag",
+    ///             "mytag2:myvalue",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

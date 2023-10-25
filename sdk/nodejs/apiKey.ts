@@ -7,6 +7,16 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog API Key
+ * const foo = new datadog.ApiKey("foo", {name: "foo-application"});
+ * ```
+ *
  * ## Import
  *
  * ```sh

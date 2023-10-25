@@ -11,6 +11,33 @@ namespace Pulumi.Datadog.OpsGenie
 {
     /// <summary>
     /// Resource for interacting with Datadog Opsgenie Service API.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fakeServiceName = new Datadog.OpsGenie.ServiceObject("fakeServiceName", new()
+    ///     {
+    ///         Name = "fake_service_name",
+    ///         OpsgenieApiKey = "00000000-0000-0000-0000-000000000000",
+    ///         Region = "us",
+    ///     });
+    /// 
+    ///     var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject("fakeServiceName2", new()
+    ///     {
+    ///         Name = "fake_service_name_2",
+    ///         OpsgenieApiKey = "11111111-1111-1111-1111-111111111111",
+    ///         Region = "eu",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:opsgenie/serviceObject:ServiceObject")]
     public partial class ServiceObject : global::Pulumi.CustomResource

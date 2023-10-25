@@ -445,6 +445,16 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
+        name_filter="My awesome monitor")
+    ```
+
 
     :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
     :param str name_filter: A monitor name to limit the search.
@@ -501,6 +511,16 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
+        name_filter="My awesome monitor")
+    ```
 
 
     :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.

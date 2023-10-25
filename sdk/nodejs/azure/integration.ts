@@ -7,6 +7,25 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog - Microsoft Azure integration
+ * const sandbox = new datadog.azure.Integration("sandbox", {
+ *     appServicePlanFilters: "examplefilter:true,example:another",
+ *     automute: true,
+ *     clientId: "<azure_client_id>",
+ *     clientSecret: "<azure_client_secret_key>",
+ *     cspmEnabled: true,
+ *     customMetricsEnabled: false,
+ *     hostFilters: "examplefilter:true,example:true",
+ *     tenantName: "<azure_tenant_name>",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).

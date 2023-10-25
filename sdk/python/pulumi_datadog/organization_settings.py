@@ -168,6 +168,16 @@ class OrganizationSettings(pulumi.CustomResource):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Manage Datadog Organization
+        organization = datadog.OrganizationSettings("organization", name="foo-organization")
+        ```
+
         ## Import
 
         ```sh
@@ -187,6 +197,16 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Manage Datadog Organization
+        organization = datadog.OrganizationSettings("organization", name="foo-organization")
+        ```
 
         ## Import
 

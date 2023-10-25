@@ -403,6 +403,22 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
+            description="Description of the variable",
+            name="EXAMPLE_VARIABLE",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            value="variable-value")
+        ```
+
         ## Import
 
         Synthetics global variables can be imported using their string ID, e.g.
@@ -431,6 +447,22 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
+            description="Description of the variable",
+            name="EXAMPLE_VARIABLE",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            value="variable-value")
+        ```
 
         ## Import
 

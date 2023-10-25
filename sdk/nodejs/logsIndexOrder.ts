@@ -7,6 +7,18 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const sampleIndexOrder = new datadog.LogsIndexOrder("sampleIndexOrder", {
+ *     name: "sample_index_order",
+ *     indexes: [datadog_logs_index.sample_index.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.

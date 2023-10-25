@@ -12,6 +12,32 @@ namespace Pulumi.Datadog.Azure
     /// <summary>
     /// Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new Datadog - Microsoft Azure integration
+    ///     var sandbox = new Datadog.Azure.Integration("sandbox", new()
+    ///     {
+    ///         AppServicePlanFilters = "examplefilter:true,example:another",
+    ///         Automute = true,
+    ///         ClientId = "&lt;azure_client_id&gt;",
+    ///         ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///         CspmEnabled = true,
+    ///         CustomMetricsEnabled = false,
+    ///         HostFilters = "examplefilter:true,example:true",
+    ///         TenantName = "&lt;azure_tenant_name&gt;",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).

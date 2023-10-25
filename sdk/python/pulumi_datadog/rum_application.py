@@ -149,6 +149,17 @@ class RumApplication(pulumi.CustomResource):
         """
         Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        rum_application = datadog.RumApplication("rumApplication",
+            name="my-application",
+            type="browser")
+        ```
+
         ## Import
 
         ```sh
@@ -168,6 +179,17 @@ class RumApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        rum_application = datadog.RumApplication("rumApplication",
+            name="my-application",
+            type="browser")
+        ```
 
         ## Import
 

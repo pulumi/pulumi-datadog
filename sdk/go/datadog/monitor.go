@@ -15,6 +15,45 @@ import (
 
 // Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
+//				EscalationMessage: pulumi.String("Escalation message @pagerduty"),
+//				IncludeTags:       pulumi.Bool(true),
+//				Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
+//				MonitorThresholds: &datadog.MonitorMonitorThresholdsArgs{
+//					Critical: pulumi.String("4"),
+//					Warning:  pulumi.String("2"),
+//				},
+//				Name:  pulumi.String("Name for monitor foo"),
+//				Query: pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("team:fooBar"),
+//				},
+//				Type: pulumi.String("metric alert"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

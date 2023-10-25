@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about multiple roles for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getRoles({
+ *     filter: "Datadog",
+ * });
+ * ```
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
@@ -47,6 +58,17 @@ export interface GetRolesResult {
 }
 /**
  * Use this data source to retrieve information about multiple roles for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getRoles({
+ *     filter: "Datadog",
+ * });
+ * ```
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
     return pulumi.output(args).apply((a: any) => getRoles(a, opts))

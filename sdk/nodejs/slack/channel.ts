@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
 /**
  * Resource for interacting with the Datadog Slack channel API
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testChannel = new datadog.slack.Channel("testChannel", {
+ *     accountName: "foo",
+ *     channelName: "#test_channel",
+ *     display: {
+ *         message: true,
+ *         notified: false,
+ *         snapshot: false,
+ *         tags: true,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).

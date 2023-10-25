@@ -174,6 +174,25 @@ class IntegrationService(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
+            api_key="ABCDEFG123",
+            name="test-name")
+        # Create new integration_fastly_service resource
+        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
+            account_id=foo_integration_account.id,
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ],
+            service_id="my-service-id")
+        ```
+
         ## Import
 
         ```sh
@@ -194,6 +213,25 @@ class IntegrationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
+            api_key="ABCDEFG123",
+            name="test-name")
+        # Create new integration_fastly_service resource
+        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
+            account_id=foo_integration_account.id,
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ],
+            service_id="my-service-id")
+        ```
 
         ## Import
 

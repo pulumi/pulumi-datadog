@@ -222,6 +222,20 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
+                notifications=["@me"],
+                status="high",
+            )],
+            enabled=True)
+        ```
+
         ## Import
 
         Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
@@ -245,6 +259,20 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
+                notifications=["@me"],
+                status="high",
+            )],
+            enabled=True)
+        ```
 
         ## Import
 

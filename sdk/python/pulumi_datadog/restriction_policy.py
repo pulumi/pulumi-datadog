@@ -127,6 +127,26 @@ class RestrictionPolicy(pulumi.CustomResource):
         """
         Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.RestrictionPolicy("foo",
+            bindings=[
+                datadog.RestrictionPolicyBindingArgs(
+                    principals=["role:00000000-0000-1111-0000-000000000000"],
+                    relation="editor",
+                ),
+                datadog.RestrictionPolicyBindingArgs(
+                    principals=["org:10000000-0000-1111-0000-000000000000"],
+                    relation="viewer",
+                ),
+            ],
+            resource_id="security-rule:abc-def-ghi")
+        ```
+
         ## Import
 
         ```sh
@@ -145,6 +165,26 @@ class RestrictionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.RestrictionPolicy("foo",
+            bindings=[
+                datadog.RestrictionPolicyBindingArgs(
+                    principals=["role:00000000-0000-1111-0000-000000000000"],
+                    relation="editor",
+                ),
+                datadog.RestrictionPolicyBindingArgs(
+                    principals=["org:10000000-0000-1111-0000-000000000000"],
+                    relation="viewer",
+                ),
+            ],
+            resource_id="security-rule:abc-def-ghi")
+        ```
 
         ## Import
 

@@ -12,6 +12,39 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooTeam = new Datadog.Team("fooTeam", new()
+    ///     {
+    ///         Description = "Example team",
+    ///         Handle = "example-team-updated",
+    ///         Name = "Example Team-updated",
+    ///     });
+    /// 
+    ///     var fooUser = new Datadog.User("fooUser", new()
+    ///     {
+    ///         Email = "new@example.com",
+    ///     });
+    /// 
+    ///     // Create new team_membership resource
+    ///     var fooTeamMembership = new Datadog.TeamMembership("fooTeamMembership", new()
+    ///     {
+    ///         TeamId = fooTeam.Id,
+    ///         UserId = fooUser.Id,
+    ///         Role = "admin",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// This resource is imported using team_id and user_id seperated by `:`.

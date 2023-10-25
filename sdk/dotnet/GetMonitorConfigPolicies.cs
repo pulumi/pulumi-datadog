@@ -13,12 +13,50 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to list existing monitor config policies for use in other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetMonitorConfigPolicies.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMonitorConfigPoliciesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorConfigPoliciesResult>("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Use this data source to list existing monitor config policies for use in other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Datadog.GetMonitorConfigPolicies.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMonitorConfigPoliciesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorConfigPoliciesResult>("datadog:index/getMonitorConfigPolicies:getMonitorConfigPolicies", InvokeArgs.Empty, options.WithDefaults());

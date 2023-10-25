@@ -274,6 +274,28 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Rule API resource for security filters.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_filter = datadog.SecurityMonitoringFilter("myFilter",
+            exclusion_filters=[
+                datadog.SecurityMonitoringFilterExclusionFilterArgs(
+                    name="first",
+                    query="exclude some logs",
+                ),
+                datadog.SecurityMonitoringFilterExclusionFilterArgs(
+                    name="second",
+                    query="exclude some other logs",
+                ),
+            ],
+            is_enabled=True,
+            name="My filter",
+            query="The filter is filtering.")
+        ```
+
         ## Import
 
         Security monitoring filters can be imported using ID, e.g.
@@ -298,6 +320,28 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Rule API resource for security filters.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_filter = datadog.SecurityMonitoringFilter("myFilter",
+            exclusion_filters=[
+                datadog.SecurityMonitoringFilterExclusionFilterArgs(
+                    name="first",
+                    query="exclude some logs",
+                ),
+                datadog.SecurityMonitoringFilterExclusionFilterArgs(
+                    name="second",
+                    query="exclude some other logs",
+                ),
+            ],
+            is_enabled=True,
+            name="My filter",
+            query="The filter is filtering.")
+        ```
 
         ## Import
 

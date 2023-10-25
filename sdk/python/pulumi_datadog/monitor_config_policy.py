@@ -139,6 +139,24 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test = datadog.MonitorConfigPolicy("test",
+            policy_type="tag",
+            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
+                tag_key="env",
+                tag_key_required=False,
+                valid_tag_values=[
+                    "staging",
+                    "prod",
+                ],
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
@@ -152,6 +170,24 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test = datadog.MonitorConfigPolicy("test",
+            policy_type="tag",
+            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
+                tag_key="env",
+                tag_key_required=False,
+                valid_tag_values=[
+                    "staging",
+                    "prod",
+                ],
+            ))
+        ```
 
         :param str resource_name: The name of the resource.
         :param MonitorConfigPolicyArgs args: The arguments to use to populate this resource's properties.

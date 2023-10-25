@@ -12,6 +12,94 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Metric-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var foo = new Datadog.ServiceLevelObjective("foo", new()
+    ///     {
+    ///         Description = "My custom metric SLO",
+    ///         Name = "Example Metric SLO",
+    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
+    ///         {
+    ///             Denominator = "sum:my.custom.count.metric{*}.as_count()",
+    ///             Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         TargetThreshold = 99.9,
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "7d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "30d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "30d",
+    ///         Type = "metric",
+    ///         WarningThreshold = 99.99,
+    ///     });
+    /// 
+    ///     // Monitor-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
+    ///     {
+    ///         Description = "My custom monitor SLO",
+    ///         MonitorIds = new[]
+    ///         {
+    ///             1,
+    ///             2,
+    ///             3,
+    ///         },
+    ///         Name = "Example Monitor SLO",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///         TargetThreshold = 99.9,
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "7d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Target = 99.9,
+    ///                 Timeframe = "30d",
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "30d",
+    ///         Type = "monitor",
+    ///         WarningThreshold = 99.99,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Level Objectives can be imported using their string ID, e.g.

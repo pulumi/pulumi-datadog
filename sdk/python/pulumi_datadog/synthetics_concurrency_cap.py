@@ -96,6 +96,16 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         """
         Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics Concurrency Cap Configuration)
+        this = datadog.SyntheticsConcurrencyCap("this", on_demand_concurrency_cap=1)
+        ```
+
         ## Import
 
         The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.
@@ -116,6 +126,16 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics Concurrency Cap Configuration)
+        this = datadog.SyntheticsConcurrencyCap("this", on_demand_concurrency_cap=1)
+        ```
 
         ## Import
 

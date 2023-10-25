@@ -12,6 +12,29 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mygrouporder = new Datadog.SensitiveDataScannerGroupOrder("mygrouporder", new()
+    ///     {
+    ///         GroupIds = new[]
+    ///         {
+    ///             "group-id-1",
+    ///             "group-id-2",
+    ///             "group-id-3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

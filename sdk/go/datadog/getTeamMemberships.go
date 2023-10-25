@@ -13,6 +13,33 @@ import (
 )
 
 // Use this data source to retrieve information about existing Datadog team memberships.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetTeamMemberships(ctx, &datadog.GetTeamMembershipsArgs{
+//				FilterKeyword: pulumi.StringRef("foo@example.com"),
+//				TeamId:        "e6723c40-edb1-11ed-b816-da7ad0900002",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetTeamMemberships(ctx *pulumi.Context, args *GetTeamMembershipsArgs, opts ...pulumi.InvokeOption) (*GetTeamMembershipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTeamMembershipsResult

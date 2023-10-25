@@ -6,6 +6,35 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Services as Individual Resources
+ * const pd = new datadog.pagerduty.Integration("pd", {
+ *     apiToken: "38457822378273432587234242874",
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ * });
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
+ *     serviceKey: "9876543210123456789",
+ *     serviceName: "testing_foo",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
+ *     serviceKey: "54321098765432109876",
+ *     serviceName: "testing_bar",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**

@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getDashboard({
+ *     name: "My super dashboard",
+ * });
+ * ```
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
 
@@ -48,6 +59,17 @@ export interface GetDashboardResult {
 }
 /**
  * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getDashboard({
+ *     name: "My super dashboard",
+ * });
+ * ```
  */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply((a: any) => getDashboard(a, opts))

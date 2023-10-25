@@ -15,6 +15,40 @@ import (
 
 // Provides a Sensitive Data Scanner group resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSensitiveDataScannerGroup(ctx, "mygroup", &datadog.SensitiveDataScannerGroupArgs{
+//				Description: pulumi.String("A relevant description"),
+//				Filter: &datadog.SensitiveDataScannerGroupFilterArgs{
+//					Query: pulumi.String("service:my-service"),
+//				},
+//				IsEnabled: pulumi.Bool(true),
+//				Name:      pulumi.String("My new scanning group"),
+//				ProductLists: pulumi.StringArray{
+//					pulumi.String("apm"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -15,6 +15,42 @@ import (
 
 // Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
+//				Filter: "Datadog Read Only Role",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewServiceAccount(ctx, "bar", &datadog.ServiceAccountArgs{
+//				Email: pulumi.String("new@example.com"),
+//				Name:  pulumi.String("Service Account Bar"),
+//				Roles: pulumi.StringArray{
+//					*pulumi.String(roRole.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

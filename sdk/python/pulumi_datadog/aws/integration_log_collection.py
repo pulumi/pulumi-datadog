@@ -134,6 +134,18 @@ class IntegrationLogCollection(pulumi.CustomResource):
         """
         Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration log collection
+        main = datadog.aws.IntegrationLogCollection("main",
+            account_id="1234567890",
+            services=["lambda"])
+        ```
+
         ## Import
 
         Amazon Web Services log collection integrations can be imported using the `account ID`.
@@ -155,6 +167,18 @@ class IntegrationLogCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration log collection
+        main = datadog.aws.IntegrationLogCollection("main",
+            account_id="1234567890",
+            services=["lambda"])
+        ```
 
         ## Import
 

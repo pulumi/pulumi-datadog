@@ -8,6 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getSecurityMonitoringFilters({});
+ * ```
  */
 export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringFiltersResult> {
 
@@ -35,6 +44,15 @@ export interface GetSecurityMonitoringFiltersResult {
 }
 /**
  * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getSecurityMonitoringFilters({});
+ * ```
  */
 export function getSecurityMonitoringFiltersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringFiltersResult> {
     return pulumi.output(getSecurityMonitoringFilters(opts))

@@ -175,6 +175,21 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.confluent.IntegrationAccount("foo",
+            api_key="TESTAPIKEY123",
+            api_secret="test-api-secret-123",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        ```
+
         ## Import
 
         ```sh
@@ -195,6 +210,21 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.confluent.IntegrationAccount("foo",
+            api_key="TESTAPIKEY123",
+            api_secret="test-api-secret-123",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        ```
 
         ## Import
 

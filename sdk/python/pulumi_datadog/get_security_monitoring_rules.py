@@ -125,6 +125,17 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
     """
     Use this data source to retrieve information about existing security monitoring rules for use in other resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_security_monitoring_rules(default_only_filter=True,
+        name_filter="attack",
+        tags_filters=["foo:bar"])
+    ```
+
 
     :param bool default_only_filter: Limit the search to default rules
     :param str name_filter: A rule name to limit the search
@@ -157,6 +168,17 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringRulesResult]:
     """
     Use this data source to retrieve information about existing security monitoring rules for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_security_monitoring_rules(default_only_filter=True,
+        name_filter="attack",
+        tags_filters=["foo:bar"])
+    ```
 
 
     :param bool default_only_filter: Limit the search to default rules

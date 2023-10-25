@@ -15,6 +15,32 @@ import (
 
 // Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSyntheticsConcurrencyCap(ctx, "this", &datadog.SyntheticsConcurrencyCapArgs{
+//				OnDemandConcurrencyCap: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.

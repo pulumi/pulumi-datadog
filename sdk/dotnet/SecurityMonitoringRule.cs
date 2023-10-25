@@ -12,6 +12,71 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myrule = new Datadog.SecurityMonitoringRule("myrule", new()
+    ///     {
+    ///         Cases = new[]
+    ///         {
+    ///             new Datadog.Inputs.SecurityMonitoringRuleCaseArgs
+    ///             {
+    ///                 Condition = "errors &gt; 3 &amp;&amp; warnings &gt; 10",
+    ///                 Notifications = new[]
+    ///                 {
+    ///                     "@user",
+    ///                 },
+    ///                 Status = "high",
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         Message = "The rule has triggered.",
+    ///         Name = "My rule",
+    ///         Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
+    ///         {
+    ///             EvaluationWindow = 300,
+    ///             KeepAlive = 600,
+    ///             MaxSignalDuration = 900,
+    ///         },
+    ///         Queries = new[]
+    ///         {
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
+    ///             {
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
+    ///                 {
+    ///                     "host",
+    ///                 },
+    ///                 Name = "errors",
+    ///                 Query = "status:error",
+    ///             },
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
+    ///             {
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
+    ///                 {
+    ///                     "host",
+    ///                 },
+    ///                 Name = "warnings",
+    ///                 Query = "status:warning",
+    ///             },
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "type:dos",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Security monitoring rules can be imported using ID, e.g.

@@ -13,6 +13,30 @@ import (
 )
 
 // Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.GetIntegrationNamespaceRules(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetIntegrationNamespaceRules(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetIntegrationNamespaceRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIntegrationNamespaceRulesResult

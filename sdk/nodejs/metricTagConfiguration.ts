@@ -9,6 +9,43 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Manage a tag configuration for a Datadog distribution metric with/without percentiles
+ * const exampleDistMetric = new datadog.MetricTagConfiguration("exampleDistMetric", {
+ *     includePercentiles: false,
+ *     metricName: "example.terraform.dist.metric",
+ *     metricType: "distribution",
+ *     tags: [
+ *         "sport",
+ *         "datacenter",
+ *     ],
+ * });
+ * // Manage tag configurations for a Datadog count or gauge metric
+ * const exampleCountMetric = new datadog.MetricTagConfiguration("exampleCountMetric", {
+ *     aggregations: [
+ *         {
+ *             space: "min",
+ *             time: "avg",
+ *         },
+ *         {
+ *             space: "max",
+ *             time: "avg",
+ *         },
+ *     ],
+ *     metricName: "example.terraform.count.metric",
+ *     metricType: "count",
+ *     tags: [
+ *         "sport",
+ *         "datacenter",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

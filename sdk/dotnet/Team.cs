@@ -12,6 +12,26 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Team resource. This can be used to create and manage Datadog team.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.Team("foo", new()
+    ///     {
+    ///         Description = "Team description",
+    ///         Handle = "example-team",
+    ///         Name = "Example Team",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

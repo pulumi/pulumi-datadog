@@ -15,6 +15,44 @@ import (
 
 // Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/fastly"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooIntegrationAccount, err := fastly.NewIntegrationAccount(ctx, "fooIntegrationAccount", &fastly.IntegrationAccountArgs{
+//				ApiKey: pulumi.String("ABCDEFG123"),
+//				Name:   pulumi.String("test-name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fastly.NewIntegrationService(ctx, "fooIntegrationService", &fastly.IntegrationServiceArgs{
+//				AccountId: fooIntegrationAccount.ID(),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("mytag"),
+//					pulumi.String("mytag2:myvalue"),
+//				},
+//				ServiceId: pulumi.String("my-service-id"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

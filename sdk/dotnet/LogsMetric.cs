@@ -12,6 +12,46 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Resource for interacting with the logs_metric API
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testingLogsMetric = new Datadog.LogsMetric("testingLogsMetric", new()
+    ///     {
+    ///         Compute = new Datadog.Inputs.LogsMetricComputeArgs
+    ///         {
+    ///             AggregationType = "distribution",
+    ///             Path = "@duration",
+    ///         },
+    ///         Filter = new Datadog.Inputs.LogsMetricFilterArgs
+    ///         {
+    ///             Query = "service:test",
+    ///         },
+    ///         GroupBies = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsMetricGroupByArgs
+    ///             {
+    ///                 Path = "@status",
+    ///                 TagName = "status",
+    ///             },
+    ///             new Datadog.Inputs.LogsMetricGroupByArgs
+    ///             {
+    ///                 Path = "@version",
+    ///                 TagName = "version",
+    ///             },
+    ///         },
+    ///         Name = "testing.logs.metric",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

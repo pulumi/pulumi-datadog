@@ -146,6 +146,15 @@ def get_team(filter_keyword: Optional[str] = None,
     """
     Use this data source to retrieve information about an existing Datadog team.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_team(team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    ```
+
 
     :param str filter_keyword: Search query. Can be team name, team handle, or email of team member.
     :param str team_id: The team's identifier.
@@ -174,6 +183,15 @@ def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to retrieve information about an existing Datadog team.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_team(team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    ```
 
 
     :param str filter_keyword: Search query. Can be team name, team handle, or email of team member.

@@ -178,6 +178,23 @@ class Channel(pulumi.CustomResource):
         """
         Resource for interacting with the Datadog Slack channel API
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_channel = datadog.slack.Channel("testChannel",
+            account_name="foo",
+            channel_name="#test_channel",
+            display=datadog.slack.ChannelDisplayArgs(
+                message=True,
+                notified=False,
+                snapshot=False,
+                tags=True,
+            ))
+        ```
+
         ## Import
 
         Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
@@ -200,6 +217,23 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with the Datadog Slack channel API
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_channel = datadog.slack.Channel("testChannel",
+            account_name="foo",
+            channel_name="#test_channel",
+            display=datadog.slack.ChannelDisplayArgs(
+                message=True,
+                notified=False,
+                snapshot=False,
+                tags=True,
+            ))
+        ```
 
         ## Import
 

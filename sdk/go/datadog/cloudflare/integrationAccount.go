@@ -15,6 +15,34 @@ import (
 
 // Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/cloudflare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudflare.NewIntegrationAccount(ctx, "foo", &cloudflare.IntegrationAccountArgs{
+//				ApiKey: pulumi.String("12345678910abc"),
+//				Email:  pulumi.String("test-email@example.com"),
+//				Name:   pulumi.String("test-name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -223,6 +223,21 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         """
         Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
+            description="Description of the private location",
+            name="First private location",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ])
+        ```
+
         ## Import
 
         Synthetics private locations can be imported using their string ID, e.g.
@@ -246,6 +261,21 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
+            description="Description of the private location",
+            name="First private location",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ])
+        ```
 
         ## Import
 

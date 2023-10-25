@@ -213,6 +213,22 @@ class ServiceObject(pulumi.CustomResource):
         """
         Resource for interacting with Datadog Opsgenie Service API.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
+            name="fake_service_name",
+            opsgenie_api_key="00000000-0000-0000-0000-000000000000",
+            region="us")
+        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
+            name="fake_service_name_2",
+            opsgenie_api_key="11111111-1111-1111-1111-111111111111",
+            region="eu")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
@@ -228,6 +244,22 @@ class ServiceObject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with Datadog Opsgenie Service API.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
+            name="fake_service_name",
+            opsgenie_api_key="00000000-0000-0000-0000-000000000000",
+            region="us")
+        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
+            name="fake_service_name_2",
+            opsgenie_api_key="11111111-1111-1111-1111-111111111111",
+            region="eu")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.

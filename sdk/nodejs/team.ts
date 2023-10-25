@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Team resource. This can be used to create and manage Datadog team.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = new datadog.Team("foo", {
+ *     description: "Team description",
+ *     handle: "example-team",
+ *     name: "Example Team",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

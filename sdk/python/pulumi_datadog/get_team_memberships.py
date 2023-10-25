@@ -87,6 +87,16 @@ def get_team_memberships(filter_keyword: Optional[str] = None,
     """
     Use this data source to retrieve information about existing Datadog team memberships.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
+        team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    ```
+
 
     :param str filter_keyword: Search query, can be user email or name.
     """
@@ -109,6 +119,16 @@ def get_team_memberships_output(filter_keyword: Optional[pulumi.Input[Optional[s
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamMembershipsResult]:
     """
     Use this data source to retrieve information about existing Datadog team memberships.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
+        team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    ```
 
 
     :param str filter_keyword: Search query, can be user email or name.

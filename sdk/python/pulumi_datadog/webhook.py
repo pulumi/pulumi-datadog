@@ -249,6 +249,26 @@ class Webhook(pulumi.CustomResource):
         """
         Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog webhook
+        foo = datadog.Webhook("foo",
+            name="test-webhook",
+            url="example.com",
+            encode_as="json",
+            custom_headers=json.dumps({
+                "custom": "header",
+            }),
+            payload=json.dumps({
+                "custom": "payload",
+            }))
+        ```
+
         ## Import
 
         ```sh
@@ -271,6 +291,26 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog webhook
+        foo = datadog.Webhook("foo",
+            name="test-webhook",
+            url="example.com",
+            encode_as="json",
+            custom_headers=json.dumps({
+                "custom": "header",
+            }),
+            payload=json.dumps({
+                "custom": "payload",
+            }))
+        ```
 
         ## Import
 

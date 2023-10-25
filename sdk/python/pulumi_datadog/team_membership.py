@@ -175,6 +175,24 @@ class TeamMembership(pulumi.CustomResource):
         """
         Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        foo_user = datadog.User("fooUser", email="new@example.com")
+        # Create new team_membership resource
+        foo_team_membership = datadog.TeamMembership("fooTeamMembership",
+            team_id=foo_team.id,
+            user_id=foo_user.id,
+            role="admin")
+        ```
+
         ## Import
 
         This resource is imported using team_id and user_id seperated by `:`.
@@ -197,6 +215,24 @@ class TeamMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        foo_user = datadog.User("fooUser", email="new@example.com")
+        # Create new team_membership resource
+        foo_team_membership = datadog.TeamMembership("fooTeamMembership",
+            team_id=foo_team.id,
+            user_id=foo_user.id,
+            role="admin")
+        ```
 
         ## Import
 

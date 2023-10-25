@@ -556,6 +556,73 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Metric-Based SLO
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            description="My custom metric SLO",
+            name="Example Metric SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                denominator="sum:my.custom.count.metric{*}.as_count()",
+                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
+            ),
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            target_threshold=99.9,
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="7d",
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="30d",
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            type="metric",
+            warning_threshold=99.99)
+        # Monitor-Based SLO
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            name="Example Monitor SLO",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            target_threshold=99.9,
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="7d",
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="30d",
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            type="monitor",
+            warning_threshold=99.99)
+        ```
+
         ## Import
 
         Service Level Objectives can be imported using their string ID, e.g.
@@ -588,6 +655,73 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Metric-Based SLO
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            description="My custom metric SLO",
+            name="Example Metric SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                denominator="sum:my.custom.count.metric{*}.as_count()",
+                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
+            ),
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            target_threshold=99.9,
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="7d",
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="30d",
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            type="metric",
+            warning_threshold=99.99)
+        # Monitor-Based SLO
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            name="Example Monitor SLO",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            target_threshold=99.9,
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="7d",
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="30d",
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            type="monitor",
+            warning_threshold=99.99)
+        ```
 
         ## Import
 

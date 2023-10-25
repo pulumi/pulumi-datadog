@@ -209,6 +209,24 @@ class TeamLink(pulumi.CustomResource):
         """
         Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        # Create new team_link resource
+        foo_team_link = datadog.TeamLink("fooTeamLink",
+            team_id=foo_team.id,
+            label="Link label",
+            position="Example link",
+            url="https://example.com")
+        ```
+
         ## Import
 
         ```sh
@@ -230,6 +248,24 @@ class TeamLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_team = datadog.Team("fooTeam",
+            description="Example team",
+            handle="example-team-updated",
+            name="Example Team-updated")
+        # Create new team_link resource
+        foo_team_link = datadog.TeamLink("fooTeamLink",
+            team_id=foo_team.id,
+            label="Link label",
+            position="Example link",
+            url="https://example.com")
+        ```
 
         ## Import
 

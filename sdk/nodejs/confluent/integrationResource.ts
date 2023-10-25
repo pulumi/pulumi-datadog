@@ -7,6 +7,32 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const fooIntegrationAccount = new datadog.confluent.IntegrationAccount("fooIntegrationAccount", {
+ *     apiKey: "TESTAPIKEY123",
+ *     apiSecret: "test-api-secret-123",
+ *     tags: [
+ *         "mytag",
+ *         "mytag2:myvalue",
+ *     ],
+ * });
+ * // Create new integration_confluent_resource resource
+ * const fooIntegrationResource = new datadog.confluent.IntegrationResource("fooIntegrationResource", {
+ *     accountId: fooIntegrationAccount.id,
+ *     resourceId: "123456",
+ *     resourceType: "kafka",
+ *     tags: [
+ *         "mytag",
+ *         "mytag2:myvalue",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

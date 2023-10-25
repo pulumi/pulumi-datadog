@@ -11,6 +11,55 @@ namespace Pulumi.Datadog.PagerDuty
 {
     /// <summary>
     /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Services as Individual Resources
+    ///     var pd = new Datadog.PagerDuty.Integration("pd", new()
+    ///     {
+    ///         ApiToken = "38457822378273432587234242874",
+    ///         Schedules = new[]
+    ///         {
+    ///             "https://ddog.pagerduty.com/schedules/X123VF",
+    ///             "https://ddog.pagerduty.com/schedules/X321XX",
+    ///         },
+    ///         Subdomain = "ddog",
+    ///     });
+    /// 
+    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
+    ///     {
+    ///         ServiceKey = "9876543210123456789",
+    ///         ServiceName = "testing_foo",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             "datadog_integration_pagerduty.pd",
+    ///         },
+    ///     });
+    /// 
+    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
+    ///     {
+    ///         ServiceKey = "54321098765432109876",
+    ///         ServiceName = "testing_bar",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             "datadog_integration_pagerduty.pd",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/integration:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

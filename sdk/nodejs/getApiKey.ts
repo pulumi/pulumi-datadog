@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing api key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getApiKey({
+ *     name: "foo-application",
+ * });
+ * ```
  */
 export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     args = args || {};
@@ -50,6 +61,17 @@ export interface GetApiKeyResult {
 }
 /**
  * Use this data source to retrieve information about an existing api key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getApiKey({
+ *     name: "foo-application",
+ * });
+ * ```
  */
 export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
     return pulumi.output(args).apply((a: any) => getApiKey(a, opts))

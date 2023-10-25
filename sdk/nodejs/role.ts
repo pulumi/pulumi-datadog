@@ -9,6 +9,27 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog role resource. This can be used to create and manage Datadog roles.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const bar = datadog.getPermissions({});
+ * // Create a new Datadog role
+ * const foo = new datadog.Role("foo", {
+ *     name: "foo",
+ *     permissions: [
+ *         {
+ *             id: bar.then(bar => bar.permissions?.monitorsDowntime),
+ *         },
+ *         {
+ *             id: bar.then(bar => bar.permissions?.monitorsWrite),
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Roles can be imported using their ID, e.g.

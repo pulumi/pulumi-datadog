@@ -13,12 +13,56 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about an existing Datadog team.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetTeam.Invoke(new()
+        ///     {
+        ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("datadog:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing Datadog team.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetTeam.Invoke(new()
+        ///     {
+        ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamResult>("datadog:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
