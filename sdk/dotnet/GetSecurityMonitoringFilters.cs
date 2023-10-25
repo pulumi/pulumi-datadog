@@ -13,50 +13,12 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring filters for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringFiltersResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring filters for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetSecurityMonitoringFilters.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityMonitoringFiltersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringFiltersResult>("datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters", InvokeArgs.Empty, options.WithDefaults());

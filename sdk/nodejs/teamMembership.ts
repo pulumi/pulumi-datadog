@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const fooTeam = new datadog.Team("fooTeam", {
- *     description: "Example team",
- *     handle: "example-team-updated",
- *     name: "Example Team-updated",
- * });
- * const fooUser = new datadog.User("fooUser", {email: "new@example.com"});
- * // Create new team_membership resource
- * const fooTeamMembership = new datadog.TeamMembership("fooTeamMembership", {
- *     teamId: fooTeam.id,
- *     userId: fooUser.id,
- *     role: "admin",
- * });
- * ```
- *
  * ## Import
  *
  * This resource is imported using team_id and user_id seperated by `:`.

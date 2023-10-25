@@ -35,11 +35,17 @@ class CloudWorkloadSecurityAgentRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             name: pulumi.Input[str],
+             expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("expression", expression)
         _setter("name", name)
         if description is not None:
@@ -124,7 +130,9 @@ class _CloudWorkloadSecurityAgentRuleState:
              enabled: Optional[pulumi.Input[bool]] = None,
              expression: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if enabled is not None:
@@ -196,19 +204,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         """
         Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("myAgentRule",
-            description="My agent rule",
-            enabled=True,
-            expression="exec.file.name == \\"java\\"",
-            name="my_agent_rule")
-        ```
-
         ## Import
 
         Cloud Workload Security Agent rules can be imported using ID, e.g.
@@ -232,19 +227,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("myAgentRule",
-            description="My agent rule",
-            enabled=True,
-            expression="exec.file.name == \\"java\\"",
-            name="my_agent_rule")
-        ```
 
         ## Import
 

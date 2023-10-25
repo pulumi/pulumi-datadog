@@ -15,46 +15,6 @@ import (
 
 // Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewRestrictionPolicy(ctx, "foo", &datadog.RestrictionPolicyArgs{
-//				Bindings: datadog.RestrictionPolicyBindingArray{
-//					&datadog.RestrictionPolicyBindingArgs{
-//						Principals: pulumi.StringArray{
-//							pulumi.String("role:00000000-0000-1111-0000-000000000000"),
-//						},
-//						Relation: pulumi.String("editor"),
-//					},
-//					&datadog.RestrictionPolicyBindingArgs{
-//						Principals: pulumi.StringArray{
-//							pulumi.String("org:10000000-0000-1111-0000-000000000000"),
-//						},
-//						Relation: pulumi.String("viewer"),
-//					},
-//				},
-//				ResourceId: pulumi.String("security-rule:abc-def-ghi"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

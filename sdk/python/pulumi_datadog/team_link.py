@@ -35,11 +35,21 @@ class TeamLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: pulumi.Input[str],
-             team_id: pulumi.Input[str],
-             url: pulumi.Input[str],
+             label: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              position: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("label", label)
         _setter("team_id", team_id)
         _setter("url", url)
@@ -123,7 +133,11 @@ class _TeamLinkState:
              position: Optional[pulumi.Input[int]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if label is not None:
             _setter("label", label)
         if position is not None:
@@ -195,24 +209,6 @@ class TeamLink(pulumi.CustomResource):
         """
         Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_team = datadog.Team("fooTeam",
-            description="Example team",
-            handle="example-team-updated",
-            name="Example Team-updated")
-        # Create new team_link resource
-        foo_team_link = datadog.TeamLink("fooTeamLink",
-            team_id=foo_team.id,
-            label="Link label",
-            position="Example link",
-            url="https://example.com")
-        ```
-
         ## Import
 
         ```sh
@@ -234,24 +230,6 @@ class TeamLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_team = datadog.Team("fooTeam",
-            description="Example team",
-            handle="example-team-updated",
-            name="Example Team-updated")
-        # Create new team_link resource
-        foo_team_link = datadog.TeamLink("fooTeamLink",
-            team_id=foo_team.id,
-            label="Link label",
-            position="Example link",
-            url="https://example.com")
-        ```
 
         ## Import
 

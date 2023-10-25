@@ -15,48 +15,6 @@ import (
 
 // Provides a Datadog TeamMembership resource. This can be used to create and manage Datadog team_membership.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := datadog.NewTeam(ctx, "fooTeam", &datadog.TeamArgs{
-//				Description: pulumi.String("Example team"),
-//				Handle:      pulumi.String("example-team-updated"),
-//				Name:        pulumi.String("Example Team-updated"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooUser, err := datadog.NewUser(ctx, "fooUser", &datadog.UserArgs{
-//				Email: pulumi.String("new@example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewTeamMembership(ctx, "fooTeamMembership", &datadog.TeamMembershipArgs{
-//				TeamId: fooTeam.ID(),
-//				UserId: fooUser.ID(),
-//				Role:   pulumi.String("admin"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // This resource is imported using team_id and user_id seperated by `:`.

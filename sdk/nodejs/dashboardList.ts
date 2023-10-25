@@ -9,69 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog dashboardList resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const time = new datadog.Dashboard("time", {
- *     title: "TF Test Layout Dashboard",
- *     description: "Created using the Datadog provider in Pulumi",
- *     layoutType: "ordered",
- *     isReadOnly: true,
- *     widgets: [{
- *         alertGraphDefinition: {
- *             alertId: "1234",
- *             vizType: "timeseries",
- *             title: "Widget Title",
- *             liveSpan: "1h",
- *         },
- *     }],
- * });
- * const screen = new datadog.Dashboard("screen", {
- *     title: "TF Test Free Layout Dashboard",
- *     description: "Created using the Datadog provider in Pulumi",
- *     layoutType: "free",
- *     isReadOnly: false,
- *     widgets: [{
- *         eventStreamDefinition: {
- *             query: "*",
- *             eventSize: "l",
- *             title: "Widget Title",
- *             titleSize: "16",
- *             titleAlign: "left",
- *             liveSpan: "1h",
- *         },
- *         widgetLayout: {
- *             height: 43,
- *             width: 32,
- *             x: 5,
- *             y: 5,
- *         },
- *     }],
- * });
- * // Create a new Dashboard List with two Dashboards
- * const newList = new datadog.DashboardList("newList", {
- *     name: "Automated Created List",
- *     dashItems: [
- *         {
- *             type: "custom_timeboard",
- *             dashId: time.id,
- *         },
- *         {
- *             type: "custom_screenboard",
- *             dashId: screen.id,
- *         },
- *     ],
- * }, {
- *     dependsOn: [
- *         screen,
- *         time,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

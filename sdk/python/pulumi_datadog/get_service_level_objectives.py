@@ -113,15 +113,6 @@ def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
     """
     Use this data source to retrieve information about multiple SLOs for use in other resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
-    ```
-
 
     :param Sequence[str] ids: An array of SLO IDs to limit the search.
     :param str metrics_query: Filter results based on SLO numerator and denominator.
@@ -153,15 +144,6 @@ def get_service_level_objectives_output(ids: Optional[pulumi.Input[Optional[Sequ
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
     """
     Use this data source to retrieve information about multiple SLOs for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
-    ```
 
 
     :param Sequence[str] ids: An array of SLO IDs to limit the search.

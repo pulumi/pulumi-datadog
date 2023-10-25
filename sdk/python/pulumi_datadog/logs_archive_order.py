@@ -27,7 +27,11 @@ class LogsArchiveOrderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_ids is None and 'archiveIds' in kwargs:
+            archive_ids = kwargs['archiveIds']
+
         if archive_ids is not None:
             _setter("archive_ids", archive_ids)
 
@@ -60,7 +64,11 @@ class _LogsArchiveOrderState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_ids is None and 'archiveIds' in kwargs:
+            archive_ids = kwargs['archiveIds']
+
         if archive_ids is not None:
             _setter("archive_ids", archive_ids)
 
@@ -87,18 +95,6 @@ class LogsArchiveOrder(pulumi.CustomResource):
         """
         Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_archive_order = datadog.LogsArchiveOrder("sampleArchiveOrder", archive_ids=[
-            datadog_logs_archive["sample_archive_1"]["id"],
-            datadog_logs_archive["sample_archive_2"]["id"],
-        ])
-        ```
-
         ## Import
 
         There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
@@ -119,18 +115,6 @@ class LogsArchiveOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_archive_order = datadog.LogsArchiveOrder("sampleArchiveOrder", archive_ids=[
-            datadog_logs_archive["sample_archive_1"]["id"],
-            datadog_logs_archive["sample_archive_2"]["id"],
-        ])
-        ```
 
         ## Import
 

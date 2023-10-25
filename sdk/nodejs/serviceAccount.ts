@@ -7,23 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const roRole = datadog.getRole({
- *     filter: "Datadog Read Only Role",
- * });
- * // Create a new Datadog service account
- * const bar = new datadog.ServiceAccount("bar", {
- *     email: "new@example.com",
- *     name: "Service Account Bar",
- *     roles: [roRole.then(roRole => roRole.id)],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

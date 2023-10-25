@@ -13,50 +13,12 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Get the current order of your log indexes.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetLogsIndexesOrder.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogsIndexesOrderResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Get the current order of your log indexes.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetLogsIndexesOrder.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLogsIndexesOrderResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsIndexesOrderResult>("datadog:index/getLogsIndexesOrder:getLogsIndexesOrder", InvokeArgs.Empty, options.WithDefaults());

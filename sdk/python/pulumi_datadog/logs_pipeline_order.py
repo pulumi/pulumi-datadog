@@ -29,9 +29,15 @@ class LogsPipelineOrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             pipelines: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if pipelines is None:
+            raise TypeError("Missing 'pipelines' argument")
+
         _setter("name", name)
         _setter("pipelines", pipelines)
 
@@ -80,7 +86,9 @@ class _LogsPipelineOrderState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if pipelines is not None:
@@ -122,20 +130,6 @@ class LogsPipelineOrder(pulumi.CustomResource):
         """
         Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
-            name="sample_pipeline_order",
-            pipelines=[
-                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
-                datadog_logs_integration_pipeline["python"]["id"],
-            ])
-        ```
-
         ## Import
 
         There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
@@ -157,20 +151,6 @@ class LogsPipelineOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
-            name="sample_pipeline_order",
-            pipelines=[
-                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
-                datadog_logs_integration_pipeline["python"]["id"],
-            ])
-        ```
 
         ## Import
 

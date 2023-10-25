@@ -11,31 +11,6 @@ namespace Pulumi.Datadog.PagerDuty
 {
     /// <summary>
     /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
-    ///     {
-    ///         ServiceKey = "9876543210123456789",
-    ///         ServiceName = "testing_foo",
-    ///     });
-    /// 
-    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
-    ///     {
-    ///         ServiceKey = "54321098765432109876",
-    ///         ServiceName = "testing_bar",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
     public partial class ServiceObject : global::Pulumi.CustomResource

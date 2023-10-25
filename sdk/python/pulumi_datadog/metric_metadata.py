@@ -44,14 +44,24 @@ class MetricMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric: pulumi.Input[str],
+             metric: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              per_unit: Optional[pulumi.Input[str]] = None,
              short_name: Optional[pulumi.Input[str]] = None,
              statsd_interval: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if per_unit is None and 'perUnit' in kwargs:
+            per_unit = kwargs['perUnit']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if statsd_interval is None and 'statsdInterval' in kwargs:
+            statsd_interval = kwargs['statsdInterval']
+
         _setter("metric", metric)
         if description is not None:
             _setter("description", description)
@@ -191,7 +201,15 @@ class _MetricMetadataState:
              statsd_interval: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if per_unit is None and 'perUnit' in kwargs:
+            per_unit = kwargs['perUnit']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if statsd_interval is None and 'statsdInterval' in kwargs:
+            statsd_interval = kwargs['statsdInterval']
+
         if description is not None:
             _setter("description", description)
         if metric is not None:
@@ -308,21 +326,6 @@ class MetricMetadata(pulumi.CustomResource):
         """
         Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Manage a Datadog metric's metadata
-        request_time = datadog.MetricMetadata("requestTime",
-            description="99th percentile request time in milliseconds",
-            metric="request.time",
-            short_name="Request time",
-            type="gauge",
-            unit="millisecond")
-        ```
-
         ## Import
 
         ```sh
@@ -347,21 +350,6 @@ class MetricMetadata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Manage a Datadog metric's metadata
-        request_time = datadog.MetricMetadata("requestTime",
-            description="99th percentile request time in milliseconds",
-            metric="request.time",
-            short_name="Request time",
-            type="gauge",
-            unit="millisecond")
-        ```
 
         ## Import
 

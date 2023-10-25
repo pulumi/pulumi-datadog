@@ -15,49 +15,6 @@ import (
 
 // Resource for interacting with the logsMetric API
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
-//				Compute: &datadog.LogsMetricComputeArgs{
-//					AggregationType: pulumi.String("distribution"),
-//					Path:            pulumi.String("@duration"),
-//				},
-//				Filter: &datadog.LogsMetricFilterArgs{
-//					Query: pulumi.String("service:test"),
-//				},
-//				GroupBies: datadog.LogsMetricGroupByArray{
-//					&datadog.LogsMetricGroupByArgs{
-//						Path:    pulumi.String("@status"),
-//						TagName: pulumi.String("status"),
-//					},
-//					&datadog.LogsMetricGroupByArgs{
-//						Path:    pulumi.String("@version"),
-//						TagName: pulumi.String("version"),
-//					},
-//				},
-//				Name: pulumi.String("testing.logs.metric"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

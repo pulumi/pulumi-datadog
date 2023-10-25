@@ -12,32 +12,6 @@ namespace Pulumi.Datadog.Slack
     /// <summary>
     /// Resource for interacting with the Datadog Slack channel API
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testChannel = new Datadog.Slack.Channel("testChannel", new()
-    ///     {
-    ///         AccountName = "foo",
-    ///         ChannelName = "#test_channel",
-    ///         Display = new Datadog.Slack.Inputs.ChannelDisplayArgs
-    ///         {
-    ///             Message = true,
-    ///             Notified = false,
-    ///             Snapshot = false,
-    ///             Tags = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).

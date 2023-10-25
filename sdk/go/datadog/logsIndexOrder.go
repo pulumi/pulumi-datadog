@@ -15,35 +15,6 @@ import (
 
 // Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
-//				Name: pulumi.String("sample_index_order"),
-//				Indexes: pulumi.StringArray{
-//					datadog_logs_index.Sample_index.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.

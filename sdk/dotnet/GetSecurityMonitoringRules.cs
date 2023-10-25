@@ -13,66 +13,12 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
-        ///     {
-        ///         DefaultOnlyFilter = true,
-        ///         NameFilter = "attack",
-        ///         TagsFilters = new[]
-        ///         {
-        ///             "foo:bar",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityMonitoringRulesResult> InvokeAsync(GetSecurityMonitoringRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
-        ///     {
-        ///         DefaultOnlyFilter = true,
-        ///         NameFilter = "attack",
-        ///         TagsFilters = new[]
-        ///         {
-        ///             "foo:bar",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityMonitoringRulesResult> Invoke(GetSecurityMonitoringRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());

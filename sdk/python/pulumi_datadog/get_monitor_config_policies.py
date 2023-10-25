@@ -60,15 +60,6 @@ class AwaitableGetMonitorConfigPoliciesResult(GetMonitorConfigPoliciesResult):
 def get_monitor_config_policies(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorConfigPoliciesResult:
     """
     Use this data source to list existing monitor config policies for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_monitor_config_policies()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,14 +74,5 @@ def get_monitor_config_policies(opts: Optional[pulumi.InvokeOptions] = None) -> 
 def get_monitor_config_policies_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorConfigPoliciesResult]:
     """
     Use this data source to list existing monitor config policies for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_monitor_config_policies()
-    ```
     """
     ...

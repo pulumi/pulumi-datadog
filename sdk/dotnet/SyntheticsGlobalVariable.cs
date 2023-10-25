@@ -12,31 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("testVariable", new()
-    ///     {
-    ///         Description = "Description of the variable",
-    ///         Name = "EXAMPLE_VARIABLE",
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///             "env:test",
-    ///         },
-    ///         Value = "variable-value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synthetics global variables can be imported using their string ID, e.g.

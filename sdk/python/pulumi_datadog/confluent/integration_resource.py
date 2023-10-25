@@ -38,12 +38,26 @@ class IntegrationResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             resource_id: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
              enable_custom_metrics: Optional[pulumi.Input[bool]] = None,
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if enable_custom_metrics is None and 'enableCustomMetrics' in kwargs:
+            enable_custom_metrics = kwargs['enableCustomMetrics']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("account_id", account_id)
         _setter("resource_id", resource_id)
         if enable_custom_metrics is not None:
@@ -146,7 +160,17 @@ class _IntegrationResourceState:
              resource_id: Optional[pulumi.Input[str]] = None,
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if enable_custom_metrics is None and 'enableCustomMetrics' in kwargs:
+            enable_custom_metrics = kwargs['enableCustomMetrics']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if enable_custom_metrics is not None:
@@ -233,30 +257,6 @@ class IntegrationResource(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
-            api_key="TESTAPIKEY123",
-            api_secret="test-api-secret-123",
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ])
-        # Create new integration_confluent_resource resource
-        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
-            account_id=foo_integration_account.id,
-            resource_id="123456",
-            resource_type="kafka",
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ])
-        ```
-
         ## Import
 
         ```sh
@@ -279,30 +279,6 @@ class IntegrationResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
-            api_key="TESTAPIKEY123",
-            api_secret="test-api-secret-123",
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ])
-        # Create new integration_confluent_resource resource
-        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
-            account_id=foo_integration_account.id,
-            resource_id="123456",
-            resource_type="kafka",
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ])
-        ```
 
         ## Import
 

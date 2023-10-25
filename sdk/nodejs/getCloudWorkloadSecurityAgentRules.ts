@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getCloudWorkloadSecurityAgentRules({});
- * ```
  */
 export function getCloudWorkloadSecurityAgentRules(opts?: pulumi.InvokeOptions): Promise<GetCloudWorkloadSecurityAgentRulesResult> {
 
@@ -40,15 +31,6 @@ export interface GetCloudWorkloadSecurityAgentRulesResult {
 }
 /**
  * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getCloudWorkloadSecurityAgentRules({});
- * ```
  */
 export function getCloudWorkloadSecurityAgentRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWorkloadSecurityAgentRulesResult> {
     return pulumi.output(getCloudWorkloadSecurityAgentRules(opts))

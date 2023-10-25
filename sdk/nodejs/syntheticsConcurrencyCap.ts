@@ -7,16 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Example Usage (Synthetics Concurrency Cap Configuration)
- * const _this = new datadog.SyntheticsConcurrencyCap("this", {onDemandConcurrencyCap: 1});
- * ```
- *
  * ## Import
  *
  * The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.

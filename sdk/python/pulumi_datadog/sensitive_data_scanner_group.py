@@ -40,12 +40,26 @@ class SensitiveDataScannerGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input['SensitiveDataScannerGroupFilterArgs'],
-             is_enabled: pulumi.Input[bool],
-             name: pulumi.Input[str],
-             product_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product_lists is None and 'productLists' in kwargs:
+            product_lists = kwargs['productLists']
+        if product_lists is None:
+            raise TypeError("Missing 'product_lists' argument")
+
         _setter("filter", filter)
         _setter("is_enabled", is_enabled)
         _setter("name", name)
@@ -146,7 +160,13 @@ class _SensitiveDataScannerGroupState:
              is_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if product_lists is None and 'productLists' in kwargs:
+            product_lists = kwargs['productLists']
+
         if description is not None:
             _setter("description", description)
         if filter is not None:
@@ -233,22 +253,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         """
         Provides a Sensitive Data Scanner group resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            name="My new scanning group",
-            product_lists=["apm"])
-        ```
-
         ## Import
 
         ```sh
@@ -271,22 +275,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Sensitive Data Scanner group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            name="My new scanning group",
-            product_lists=["apm"])
-        ```
 
         ## Import
 
@@ -328,11 +316,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             __props__ = SensitiveDataScannerGroupArgs.__new__(SensitiveDataScannerGroupArgs)
 
             __props__.__dict__["description"] = description
-            if filter is not None and not isinstance(filter, SensitiveDataScannerGroupFilterArgs):
-                filter = filter or {}
-                def _setter(key, value):
-                    filter[key] = value
-                SensitiveDataScannerGroupFilterArgs._configure(_setter, **filter)
+            filter = _utilities.configure(filter, SensitiveDataScannerGroupFilterArgs, True)
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter

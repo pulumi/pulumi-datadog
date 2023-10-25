@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const fooTeam = new datadog.Team("fooTeam", {
- *     description: "Example team",
- *     handle: "example-team-updated",
- *     name: "Example Team-updated",
- * });
- * // Create new team_link resource
- * const fooTeamLink = new datadog.TeamLink("fooTeamLink", {
- *     teamId: fooTeam.id,
- *     label: "Link label",
- *     position: "Example link",
- *     url: "https://example.com",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

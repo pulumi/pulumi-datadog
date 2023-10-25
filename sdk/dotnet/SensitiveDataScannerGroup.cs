@@ -12,34 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Sensitive Data Scanner group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mygroup = new Datadog.SensitiveDataScannerGroup("mygroup", new()
-    ///     {
-    ///         Description = "A relevant description",
-    ///         Filter = new Datadog.Inputs.SensitiveDataScannerGroupFilterArgs
-    ///         {
-    ///             Query = "service:my-service",
-    ///         },
-    ///         IsEnabled = true,
-    ///         Name = "My new scanning group",
-    ///         ProductLists = new[]
-    ///         {
-    ///             "apm",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

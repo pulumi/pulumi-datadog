@@ -37,11 +37,15 @@ class SyntheticsPrivateLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -131,7 +135,9 @@ class _SyntheticsPrivateLocationState:
              metadata: Optional[pulumi.Input['SyntheticsPrivateLocationMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if config is not None:
             _setter("config", config)
         if description is not None:
@@ -217,21 +223,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         """
         Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
-            description="Description of the private location",
-            name="First private location",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ])
-        ```
-
         ## Import
 
         Synthetics private locations can be imported using their string ID, e.g.
@@ -255,21 +246,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
-            description="Description of the private location",
-            name="First private location",
-            tags=[
-                "foo:bar",
-                "env:test",
-            ])
-        ```
 
         ## Import
 
@@ -312,11 +288,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             __props__ = SyntheticsPrivateLocationArgs.__new__(SyntheticsPrivateLocationArgs)
 
             __props__.__dict__["description"] = description
-            if metadata is not None and not isinstance(metadata, SyntheticsPrivateLocationMetadataArgs):
-                metadata = metadata or {}
-                def _setter(key, value):
-                    metadata[key] = value
-                SyntheticsPrivateLocationMetadataArgs._configure(_setter, **metadata)
+            metadata = _utilities.configure(metadata, SyntheticsPrivateLocationMetadataArgs, True)
             __props__.__dict__["metadata"] = metadata
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

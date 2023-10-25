@@ -7,18 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const rumApplication = new datadog.RumApplication("rumApplication", {
- *     name: "my-application",
- *     type: "browser",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

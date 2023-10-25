@@ -29,9 +29,19 @@ class IntegrationLambdaArnArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             lambda_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_id: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+
         _setter("account_id", account_id)
         _setter("lambda_arn", lambda_arn)
 
@@ -80,7 +90,13 @@ class _IntegrationLambdaArnState:
              _setter: Callable[[Any, Any], None],
              account_id: Optional[pulumi.Input[str]] = None,
              lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if lambda_arn is not None:
@@ -124,18 +140,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Amazon Web Services integration Lambda ARN
-        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
-            account_id="1234567890",
-            lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
-        ```
-
         ## Import
 
         Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
@@ -159,18 +163,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Amazon Web Services integration Lambda ARN
-        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
-            account_id="1234567890",
-            lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
-        ```
 
         ## Import
 

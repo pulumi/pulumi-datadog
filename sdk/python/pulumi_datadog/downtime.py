@@ -58,7 +58,7 @@ class DowntimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              end: Optional[pulumi.Input[int]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,21 @@ class DowntimeArgs:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_tags is None and 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("scopes", scopes)
         if end is not None:
             _setter("end", end)
@@ -293,7 +307,21 @@ class _DowntimeState:
              start: Optional[pulumi.Input[int]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_child_id is None and 'activeChildId' in kwargs:
+            active_child_id = kwargs['activeChildId']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_tags is None and 'monitorTags' in kwargs:
+            monitor_tags = kwargs['monitorTags']
+        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
+            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         if active is not None:
             _setter("active", active)
         if active_child_id is not None:
@@ -512,24 +540,6 @@ class Downtime(pulumi.CustomResource):
         """
         This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Example: downtime for all monitors
-        # Create a new daily 1700-0900 Datadog downtime for all monitors
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
-
         ## Import
 
         ```sh
@@ -558,24 +568,6 @@ class Downtime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Example: downtime for all monitors
-        # Create a new daily 1700-0900 Datadog downtime for all monitors
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
 
         ## Import
 
@@ -628,11 +620,7 @@ class Downtime(pulumi.CustomResource):
             __props__.__dict__["monitor_id"] = monitor_id
             __props__.__dict__["monitor_tags"] = monitor_tags
             __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
-            if recurrence is not None and not isinstance(recurrence, DowntimeRecurrenceArgs):
-                recurrence = recurrence or {}
-                def _setter(key, value):
-                    recurrence[key] = value
-                DowntimeRecurrenceArgs._configure(_setter, **recurrence)
+            recurrence = _utilities.configure(recurrence, DowntimeRecurrenceArgs, True)
             __props__.__dict__["recurrence"] = recurrence
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

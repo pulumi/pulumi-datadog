@@ -4,8 +4,12 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
@@ -25,4 +29,50 @@ type GetSyntheticsLocationsResult struct {
 	Id string `pulumi:"id"`
 	// A map of available Synthetics location IDs to names for Synthetics tests.
 	Locations map[string]interface{} `pulumi:"locations"`
+}
+
+func GetSyntheticsLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSyntheticsLocationsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSyntheticsLocationsResult, error) {
+		r, err := GetSyntheticsLocations(ctx, opts...)
+		var s GetSyntheticsLocationsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSyntheticsLocationsResultOutput)
+}
+
+// A collection of values returned by getSyntheticsLocations.
+type GetSyntheticsLocationsResultOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsLocationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsLocationsResult)(nil)).Elem()
+}
+
+func (o GetSyntheticsLocationsResultOutput) ToGetSyntheticsLocationsResultOutput() GetSyntheticsLocationsResultOutput {
+	return o
+}
+
+func (o GetSyntheticsLocationsResultOutput) ToGetSyntheticsLocationsResultOutputWithContext(ctx context.Context) GetSyntheticsLocationsResultOutput {
+	return o
+}
+
+func (o GetSyntheticsLocationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSyntheticsLocationsResult] {
+	return pulumix.Output[GetSyntheticsLocationsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSyntheticsLocationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsLocationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A map of available Synthetics location IDs to names for Synthetics tests.
+func (o GetSyntheticsLocationsResultOutput) Locations() pulumi.MapOutput {
+	return o.ApplyT(func(v GetSyntheticsLocationsResult) map[string]interface{} { return v.Locations }).(pulumi.MapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSyntheticsLocationsResultOutput{})
 }

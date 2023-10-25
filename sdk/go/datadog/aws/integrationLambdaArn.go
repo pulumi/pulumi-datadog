@@ -17,33 +17,6 @@ import (
 //
 // Update operations are currently not supported with datadog API so any change forces a new resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewIntegrationLambdaArn(ctx, "mainCollector", &aws.IntegrationLambdaArnArgs{
-//				AccountId: pulumi.String("1234567890"),
-//				LambdaArn: pulumi.String("arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).

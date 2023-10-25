@@ -4,8 +4,12 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve all AWS log ready services.
@@ -25,4 +29,52 @@ type GetIntegrationLogsServicesResult struct {
 	AwsLogsServices []GetIntegrationLogsServicesAwsLogsService `pulumi:"awsLogsServices"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetIntegrationLogsServicesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetIntegrationLogsServicesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetIntegrationLogsServicesResult, error) {
+		r, err := GetIntegrationLogsServices(ctx, opts...)
+		var s GetIntegrationLogsServicesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetIntegrationLogsServicesResultOutput)
+}
+
+// A collection of values returned by getIntegrationLogsServices.
+type GetIntegrationLogsServicesResultOutput struct{ *pulumi.OutputState }
+
+func (GetIntegrationLogsServicesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIntegrationLogsServicesResult)(nil)).Elem()
+}
+
+func (o GetIntegrationLogsServicesResultOutput) ToGetIntegrationLogsServicesResultOutput() GetIntegrationLogsServicesResultOutput {
+	return o
+}
+
+func (o GetIntegrationLogsServicesResultOutput) ToGetIntegrationLogsServicesResultOutputWithContext(ctx context.Context) GetIntegrationLogsServicesResultOutput {
+	return o
+}
+
+func (o GetIntegrationLogsServicesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationLogsServicesResult] {
+	return pulumix.Output[GetIntegrationLogsServicesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of AWS log ready services.
+func (o GetIntegrationLogsServicesResultOutput) AwsLogsServices() GetIntegrationLogsServicesAwsLogsServiceArrayOutput {
+	return o.ApplyT(func(v GetIntegrationLogsServicesResult) []GetIntegrationLogsServicesAwsLogsService {
+		return v.AwsLogsServices
+	}).(GetIntegrationLogsServicesAwsLogsServiceArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIntegrationLogsServicesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIntegrationLogsServicesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIntegrationLogsServicesResultOutput{})
 }

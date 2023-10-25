@@ -13,70 +13,12 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to list all existing logs pipelines for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
-        /// 
-        ///     // Using data source to set pipeline order
-        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
-        ///     {
-        ///         Name = "lpo",
-        ///         Pipelines = .Select(pipeline =&gt; 
-        ///         {
-        ///             return pipeline.Id;
-        ///         }).ToList(),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogsPipelinesResult> InvokeAsync(GetLogsPipelinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to list all existing logs pipelines for use in other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
-        /// 
-        ///     // Using data source to set pipeline order
-        ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
-        ///     {
-        ///         Name = "lpo",
-        ///         Pipelines = .Select(pipeline =&gt; 
-        ///         {
-        ///             return pipeline.Id;
-        ///         }).ToList(),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLogsPipelinesResult> Invoke(GetLogsPipelinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesInvokeArgs(), options.WithDefaults());

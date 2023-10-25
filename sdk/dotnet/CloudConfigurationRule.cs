@@ -12,67 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Cloud Configuration Rule resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myrule = new Datadog.CloudConfigurationRule("myrule", new()
-    ///     {
-    ///         Enabled = true,
-    ///         GroupBies = new[]
-    ///         {
-    ///             "@resource",
-    ///         },
-    ///         Message = "Rule has triggered",
-    ///         Name = "My cloud configuration rule",
-    ///         Notifications = new[]
-    ///         {
-    ///             "@channel",
-    ///         },
-    ///         Policy = @"        package datadog
-    /// 
-    ///         import data.datadog.output as dd_output
-    /// 
-    ///         import future.keywords.contains
-    ///         import future.keywords.if
-    ///         import future.keywords.in
-    /// 
-    ///         eval(resource) = ""skip"" if {
-    ///             # Logic that evaluates to true if the resource should be skipped
-    ///             true
-    ///         } else = ""pass"" {
-    ///             # Logic that evaluates to true if the resource is compliant
-    ///             true
-    ///         } else = ""fail"" {
-    ///             # Logic that evaluates to true if the resource is not compliant
-    ///             true
-    ///         }
-    /// 
-    ///         # This part remains unchanged for all rules
-    ///         results contains result if {
-    ///             some resource in input.resources[input.main_resource_type]
-    ///             result := dd_output.format(resource, eval(resource))
-    ///         }
-    /// 
-    /// ",
-    ///         RelatedResourceTypes = new[] {},
-    ///         ResourceType = "aws_s3_bucket",
-    ///         Severity = "high",
-    ///         Tags = new[]
-    ///         {
-    ///             "some:tag",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Security monitoring rules can be imported using ID, e.g.

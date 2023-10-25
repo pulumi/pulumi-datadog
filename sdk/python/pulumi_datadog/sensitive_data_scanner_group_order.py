@@ -26,8 +26,14 @@ class SensitiveDataScannerGroupOrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if group_ids is None:
+            raise TypeError("Missing 'group_ids' argument")
+
         _setter("group_ids", group_ids)
 
     @property
@@ -59,7 +65,11 @@ class _SensitiveDataScannerGroupOrderState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
         if group_ids is not None:
             _setter("group_ids", group_ids)
 
@@ -86,19 +96,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         """
         Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
-            "group-id-1",
-            "group-id-2",
-            "group-id-3",
-        ])
-        ```
-
         ## Import
 
         ```sh
@@ -117,19 +114,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
-            "group-id-1",
-            "group-id-2",
-            "group-id-3",
-        ])
-        ```
 
         ## Import
 

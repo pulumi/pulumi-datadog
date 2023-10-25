@@ -14,35 +14,6 @@ import (
 
 // Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
-//				ArchiveIds: pulumi.StringArray{
-//					datadog_logs_archive.Sample_archive_1.Id,
-//					datadog_logs_archive.Sample_archive_2.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.

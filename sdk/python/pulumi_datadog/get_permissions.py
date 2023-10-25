@@ -73,15 +73,6 @@ def get_permissions(include_restricted: Optional[bool] = None,
     """
     Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    permissions = datadog.get_permissions()
-    ```
-
 
     :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
     """
@@ -101,15 +92,6 @@ def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bo
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
     """
     Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    permissions = datadog.get_permissions()
-    ```
 
 
     :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.

@@ -12,27 +12,6 @@ namespace Pulumi.Datadog.Aws
     /// <summary>
     /// Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new Datadog - Amazon Web Services integration tag filter
-    ///     var foo = new Datadog.Aws.IntegrationTagFilter("foo", new()
-    ///     {
-    ///         AccountId = "123456789010",
-    ///         Namespace = "sqs",
-    ///         TagFilterStr = "key:value",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).

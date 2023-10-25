@@ -8,19 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getSecurityMonitoringRules({
- *     defaultOnlyFilter: true,
- *     nameFilter: "attack",
- *     tagsFilters: ["foo:bar"],
- * });
- * ```
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
     args = args || {};
@@ -91,19 +78,6 @@ export interface GetSecurityMonitoringRulesResult {
 }
 /**
  * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getSecurityMonitoringRules({
- *     defaultOnlyFilter: true,
- *     nameFilter: "attack",
- *     tagsFilters: ["foo:bar"],
- * });
- * ```
  */
 export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
     return pulumi.output(args).apply((a: any) => getSecurityMonitoringRules(a, opts))

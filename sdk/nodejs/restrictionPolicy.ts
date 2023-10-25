@@ -9,27 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const foo = new datadog.RestrictionPolicy("foo", {
- *     bindings: [
- *         {
- *             principals: ["role:00000000-0000-1111-0000-000000000000"],
- *             relation: "editor",
- *         },
- *         {
- *             principals: ["org:10000000-0000-1111-0000-000000000000"],
- *             relation: "viewer",
- *         },
- *     ],
- *     resourceId: "security-rule:abc-def-ghi",
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

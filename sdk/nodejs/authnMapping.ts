@@ -7,23 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog AuthN Mappings resource. This feature lets you automatically assign roles to users based on their SAML attributes.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const roRole = datadog.getRole({
- *     filter: "Datadog Read Only Role",
- * });
- * // Create a new AuthN mapping
- * const devRoRoleMapping = new datadog.AuthnMapping("devRoRoleMapping", {
- *     key: "Member-of",
- *     value: "Development",
- *     role: roRole.then(roRole => roRole.id),
- * });
- * ```
- *
  * ## Import
  *
  * AuthN mappings can be imported using their ID, e.g.

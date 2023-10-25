@@ -85,15 +85,6 @@ def get_role(filter: Optional[str] = None,
     """
     Use this data source to retrieve information about an existing role for use in other resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_role(filter="Datadog Standard Role")
-    ```
-
 
     :param str filter: A string on which to filter the roles.
     """
@@ -114,15 +105,6 @@ def get_role_output(filter: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
     """
     Use this data source to retrieve information about an existing role for use in other resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_role(filter="Datadog Standard Role")
-    ```
 
 
     :param str filter: A string on which to filter the roles.

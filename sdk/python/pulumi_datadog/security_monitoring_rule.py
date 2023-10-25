@@ -58,9 +58,9 @@ class SecurityMonitoringRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cases: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]],
-             message: pulumi.Input[str],
-             name: pulumi.Input[str],
+             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
              has_extended_title: Optional[pulumi.Input[bool]] = None,
@@ -69,7 +69,19 @@ class SecurityMonitoringRuleArgs:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cases is None:
+            raise TypeError("Missing 'cases' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if signal_queries is None and 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         _setter("cases", cases)
         _setter("message", message)
         _setter("name", name)
@@ -279,7 +291,13 @@ class _SecurityMonitoringRuleState:
              signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
+            has_extended_title = kwargs['hasExtendedTitle']
+        if signal_queries is None and 'signalQueries' in kwargs:
+            signal_queries = kwargs['signalQueries']
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:
@@ -456,43 +474,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        myrule = datadog.SecurityMonitoringRule("myrule",
-            cases=[datadog.SecurityMonitoringRuleCaseArgs(
-                condition="errors > 3 && warnings > 10",
-                notifications=["@user"],
-                status="high",
-            )],
-            enabled=True,
-            message="The rule has triggered.",
-            name="My rule",
-            options=datadog.SecurityMonitoringRuleOptionsArgs(
-                evaluation_window=300,
-                keep_alive=600,
-                max_signal_duration=900,
-            ),
-            queries=[
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="errors",
-                    query="status:error",
-                ),
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="warnings",
-                    query="status:warning",
-                ),
-            ],
-            tags=["type:dos"])
-        ```
-
         ## Import
 
         Security monitoring rules can be imported using ID, e.g.
@@ -523,43 +504,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        myrule = datadog.SecurityMonitoringRule("myrule",
-            cases=[datadog.SecurityMonitoringRuleCaseArgs(
-                condition="errors > 3 && warnings > 10",
-                notifications=["@user"],
-                status="high",
-            )],
-            enabled=True,
-            message="The rule has triggered.",
-            name="My rule",
-            options=datadog.SecurityMonitoringRuleOptionsArgs(
-                evaluation_window=300,
-                keep_alive=600,
-                max_signal_duration=900,
-            ),
-            queries=[
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="errors",
-                    query="status:error",
-                ),
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="warnings",
-                    query="status:warning",
-                ),
-            ],
-            tags=["type:dos"])
-        ```
 
         ## Import
 
@@ -620,11 +564,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if options is not None and not isinstance(options, SecurityMonitoringRuleOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                SecurityMonitoringRuleOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, SecurityMonitoringRuleOptionsArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["queries"] = queries
             __props__.__dict__["signal_queries"] = signal_queries

@@ -29,9 +29,13 @@ class LogsIndexOrderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             indexes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if indexes is None:
+            raise TypeError("Missing 'indexes' argument")
+
         _setter("indexes", indexes)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,9 @@ class _LogsIndexOrderState:
              _setter: Callable[[Any, Any], None],
              indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if indexes is not None:
             _setter("indexes", indexes)
         if name is not None:
@@ -123,17 +129,6 @@ class LogsIndexOrder(pulumi.CustomResource):
         """
         Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
-            name="sample_index_order",
-            indexes=[datadog_logs_index["sample_index"]["id"]])
-        ```
-
         ## Import
 
         The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
@@ -155,17 +150,6 @@ class LogsIndexOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
-            name="sample_index_order",
-            indexes=[datadog_logs_index["sample_index"]["id"]])
-        ```
 
         ## Import
 

@@ -41,7 +41,9 @@ class SecurityMonitoringDefaultRuleArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
              options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:
@@ -132,7 +134,9 @@ class _SecurityMonitoringDefaultRuleState:
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]]] = None,
              options: Optional[pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cases is not None:
             _setter("cases", cases)
         if enabled is not None:
@@ -218,20 +222,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
-            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
-                notifications=["@me"],
-                status="high",
-            )],
-            enabled=True)
-        ```
-
         ## Import
 
         Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
@@ -255,20 +245,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
-            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
-                notifications=["@me"],
-                status="high",
-            )],
-            enabled=True)
-        ```
 
         ## Import
 
@@ -313,11 +289,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
-            if options is not None and not isinstance(options, SecurityMonitoringDefaultRuleOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                SecurityMonitoringDefaultRuleOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, SecurityMonitoringDefaultRuleOptionsArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["type"] = None
         super(SecurityMonitoringDefaultRule, __self__).__init__(

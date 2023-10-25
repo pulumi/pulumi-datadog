@@ -59,15 +59,6 @@ class AwaitableGetLogsIndexesOrderResult(GetLogsIndexesOrderResult):
 def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogsIndexesOrderResult:
     """
     Get the current order of your log indexes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_logs_indexes_order()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -82,14 +73,5 @@ def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> Await
 def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogsIndexesOrderResult]:
     """
     Get the current order of your log indexes.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_datadog as datadog
-
-    test = datadog.get_logs_indexes_order()
-    ```
     """
     ...

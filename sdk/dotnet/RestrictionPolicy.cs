@@ -12,43 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Datadog.RestrictionPolicy("foo", new()
-    ///     {
-    ///         Bindings = new[]
-    ///         {
-    ///             new Datadog.Inputs.RestrictionPolicyBindingArgs
-    ///             {
-    ///                 Principals = new[]
-    ///                 {
-    ///                     "role:00000000-0000-1111-0000-000000000000",
-    ///                 },
-    ///                 Relation = "editor",
-    ///             },
-    ///             new Datadog.Inputs.RestrictionPolicyBindingArgs
-    ///             {
-    ///                 Principals = new[]
-    ///                 {
-    ///                     "org:10000000-0000-1111-0000-000000000000",
-    ///                 },
-    ///                 Relation = "viewer",
-    ///             },
-    ///         },
-    ///         ResourceId = "security-rule:abc-def-ghi",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

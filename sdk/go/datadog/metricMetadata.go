@@ -15,36 +15,6 @@ import (
 
 // Provides a Datadog metricMetadata resource. This can be used to manage a metric's metadata.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewMetricMetadata(ctx, "requestTime", &datadog.MetricMetadataArgs{
-//				Description: pulumi.String("99th percentile request time in milliseconds"),
-//				Metric:      pulumi.String("request.time"),
-//				ShortName:   pulumi.String("Request time"),
-//				Type:        pulumi.String("gauge"),
-//				Unit:        pulumi.String("millisecond"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
