@@ -7,18 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const sampleArchiveOrder = new datadog.LogsArchiveOrder("sampleArchiveOrder", {archiveIds: [
- *     datadog_logs_archive.sample_archive_1.id,
- *     datadog_logs_archive.sample_archive_2.id,
- * ]});
- * ```
- *
  * ## Import
  *
  * There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.

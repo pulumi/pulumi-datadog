@@ -15,33 +15,6 @@ import (
 
 // Provides a Datadog `serviceAccountApplicationKey` resource. This can be used to create and manage Datadog service account application keys.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewServiceAccountApplicationKey(ctx, "foo", &datadog.ServiceAccountApplicationKeyArgs{
-//				Name:             pulumi.String("Application key for managing dashboards"),
-//				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Importing a service account's application key cannot import the value of the key.

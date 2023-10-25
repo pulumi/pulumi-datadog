@@ -14,40 +14,6 @@ import (
 )
 
 // Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("9876543210123456789"),
-//				ServiceName: pulumi.String("testing_foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("54321098765432109876"),
-//				ServiceName: pulumi.String("testing_bar"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ServiceObject struct {
 	pulumi.CustomResourceState
 

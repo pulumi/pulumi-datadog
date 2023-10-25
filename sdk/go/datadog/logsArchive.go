@@ -15,39 +15,6 @@ import (
 
 // Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
-//				Name:  pulumi.String("my s3 archive"),
-//				Query: pulumi.String("service:myservice"),
-//				S3Archive: &datadog.LogsArchiveS3ArchiveArgs{
-//					AccountId: pulumi.String("001234567888"),
-//					Bucket:    pulumi.String("my-bucket"),
-//					Path:      pulumi.String("/path/foo"),
-//					RoleName:  pulumi.String("my-role-name"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

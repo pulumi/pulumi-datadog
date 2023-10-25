@@ -13,54 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := datadog.LookupDashboardList(ctx, &datadog.LookupDashboardListArgs{
-//				Name: "My super list",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
-//				DashboardLists: pulumi.IntArray{
-//					*pulumi.String(test.Id),
-//				},
-//				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
-//				IsReadOnly:  pulumi.Bool(true),
-//				LayoutType:  pulumi.String("ordered"),
-//				Title:       pulumi.String("TF Test Layout Dashboard"),
-//				Widgets: datadog.DashboardWidgetArray{
-//					&datadog.DashboardWidgetArgs{
-//						AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
-//							AlertId:  pulumi.String("1234"),
-//							LiveSpan: pulumi.String("1h"),
-//							Title:    pulumi.String("Widget Title"),
-//							VizType:  pulumi.String("timeseries"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opts ...pulumi.InvokeOption) (*LookupDashboardListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDashboardListResult

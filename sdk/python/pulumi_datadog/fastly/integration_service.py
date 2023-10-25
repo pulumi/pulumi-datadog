@@ -32,10 +32,18 @@ class IntegrationServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_id: pulumi.Input[str],
+             service_id: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         _setter("service_id", service_id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -103,7 +111,13 @@ class _IntegrationServiceState:
              account_id: Optional[pulumi.Input[str]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if service_id is not None:
@@ -160,25 +174,6 @@ class IntegrationService(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
-            api_key="ABCDEFG123",
-            name="test-name")
-        # Create new integration_fastly_service resource
-        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
-            account_id=foo_integration_account.id,
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ],
-            service_id="my-service-id")
-        ```
-
         ## Import
 
         ```sh
@@ -199,25 +194,6 @@ class IntegrationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
-            api_key="ABCDEFG123",
-            name="test-name")
-        # Create new integration_fastly_service resource
-        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
-            account_id=foo_integration_account.id,
-            tags=[
-                "mytag",
-                "mytag2:myvalue",
-            ],
-            service_id="my-service-id")
-        ```
 
         ## Import
 

@@ -47,15 +47,37 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             client_secret: pulumi.Input[str],
-             tenant_name: pulumi.Input[str],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
              app_service_plan_filters: Optional[pulumi.Input[str]] = None,
              automute: Optional[pulumi.Input[bool]] = None,
              cspm_enabled: Optional[pulumi.Input[bool]] = None,
              custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
              host_filters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+        if tenant_name is None:
+            raise TypeError("Missing 'tenant_name' argument")
+        if app_service_plan_filters is None and 'appServicePlanFilters' in kwargs:
+            app_service_plan_filters = kwargs['appServicePlanFilters']
+        if cspm_enabled is None and 'cspmEnabled' in kwargs:
+            cspm_enabled = kwargs['cspmEnabled']
+        if custom_metrics_enabled is None and 'customMetricsEnabled' in kwargs:
+            custom_metrics_enabled = kwargs['customMetricsEnabled']
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("tenant_name", tenant_name)
@@ -211,7 +233,23 @@ class _IntegrationState:
              custom_metrics_enabled: Optional[pulumi.Input[bool]] = None,
              host_filters: Optional[pulumi.Input[str]] = None,
              tenant_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service_plan_filters is None and 'appServicePlanFilters' in kwargs:
+            app_service_plan_filters = kwargs['appServicePlanFilters']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if cspm_enabled is None and 'cspmEnabled' in kwargs:
+            cspm_enabled = kwargs['cspmEnabled']
+        if custom_metrics_enabled is None and 'customMetricsEnabled' in kwargs:
+            custom_metrics_enabled = kwargs['customMetricsEnabled']
+        if host_filters is None and 'hostFilters' in kwargs:
+            host_filters = kwargs['hostFilters']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+
         if app_service_plan_filters is not None:
             _setter("app_service_plan_filters", app_service_plan_filters)
         if automute is not None:
@@ -343,24 +381,6 @@ class Integration(pulumi.CustomResource):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Microsoft Azure integration
-        sandbox = datadog.azure.Integration("sandbox",
-            app_service_plan_filters="examplefilter:true,example:another",
-            automute=True,
-            client_id="<azure_client_id>",
-            client_secret="<azure_client_secret_key>",
-            cspm_enabled=True,
-            custom_metrics_enabled=False,
-            host_filters="examplefilter:true,example:true",
-            tenant_name="<azure_tenant_name>")
-        ```
-
         ## Import
 
         Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
@@ -388,24 +408,6 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog - Microsoft Azure integration
-        sandbox = datadog.azure.Integration("sandbox",
-            app_service_plan_filters="examplefilter:true,example:another",
-            automute=True,
-            client_id="<azure_client_id>",
-            client_secret="<azure_client_secret_key>",
-            cspm_enabled=True,
-            custom_metrics_enabled=False,
-            host_filters="examplefilter:true,example:true",
-            tenant_name="<azure_tenant_name>")
-        ```
 
         ## Import
 

@@ -13,108 +13,12 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetDashboardList.Invoke(new()
-        ///     {
-        ///         Name = "My super list",
-        ///     });
-        /// 
-        ///     // Create a dashboard and register it in the list above.
-        ///     var time = new Datadog.Dashboard("time", new()
-        ///     {
-        ///         DashboardLists = new[]
-        ///         {
-        ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
-        ///         },
-        ///         Description = "Created using the Datadog provider in Pulumi",
-        ///         IsReadOnly = true,
-        ///         LayoutType = "ordered",
-        ///         Title = "TF Test Layout Dashboard",
-        ///         Widgets = new[]
-        ///         {
-        ///             new Datadog.Inputs.DashboardWidgetArgs
-        ///             {
-        ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
-        ///                 {
-        ///                     AlertId = "1234",
-        ///                     LiveSpan = "1h",
-        ///                     Title = "Widget Title",
-        ///                     VizType = "timeseries",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDashboardListResult> InvokeAsync(GetDashboardListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardListResult>("datadog:index/getDashboardList:getDashboardList", args ?? new GetDashboardListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Datadog = Pulumi.Datadog;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Datadog.GetDashboardList.Invoke(new()
-        ///     {
-        ///         Name = "My super list",
-        ///     });
-        /// 
-        ///     // Create a dashboard and register it in the list above.
-        ///     var time = new Datadog.Dashboard("time", new()
-        ///     {
-        ///         DashboardLists = new[]
-        ///         {
-        ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
-        ///         },
-        ///         Description = "Created using the Datadog provider in Pulumi",
-        ///         IsReadOnly = true,
-        ///         LayoutType = "ordered",
-        ///         Title = "TF Test Layout Dashboard",
-        ///         Widgets = new[]
-        ///         {
-        ///             new Datadog.Inputs.DashboardWidgetArgs
-        ///             {
-        ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
-        ///                 {
-        ///                     AlertId = "1234",
-        ///                     LiveSpan = "1h",
-        ///                     Title = "Widget Title",
-        ///                     VizType = "timeseries",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDashboardListResult> Invoke(GetDashboardListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardListResult>("datadog:index/getDashboardList:getDashboardList", args ?? new GetDashboardListInvokeArgs(), options.WithDefaults());

@@ -8,15 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to list several existing logs indexes for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getLogsIndexes({});
- * ```
  */
 export function getLogsIndexes(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesResult> {
 
@@ -40,15 +31,6 @@ export interface GetLogsIndexesResult {
 }
 /**
  * Use this data source to list several existing logs indexes for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = datadog.getLogsIndexes({});
- * ```
  */
 export function getLogsIndexesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesResult> {
     return pulumi.output(getLogsIndexes(opts))

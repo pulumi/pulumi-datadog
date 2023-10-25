@@ -4,35 +4,15 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list several existing logs indexes for use in other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetLogsIndexes(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLogsIndexes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogsIndexesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsIndexesResult
@@ -49,4 +29,50 @@ type GetLogsIndexesResult struct {
 	Id string `pulumi:"id"`
 	// List of logs indexes
 	LogsIndexes []GetLogsIndexesLogsIndex `pulumi:"logsIndexes"`
+}
+
+func GetLogsIndexesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLogsIndexesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLogsIndexesResult, error) {
+		r, err := GetLogsIndexes(ctx, opts...)
+		var s GetLogsIndexesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetLogsIndexesResultOutput)
+}
+
+// A collection of values returned by getLogsIndexes.
+type GetLogsIndexesResultOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesResult)(nil)).Elem()
+}
+
+func (o GetLogsIndexesResultOutput) ToGetLogsIndexesResultOutput() GetLogsIndexesResultOutput {
+	return o
+}
+
+func (o GetLogsIndexesResultOutput) ToGetLogsIndexesResultOutputWithContext(ctx context.Context) GetLogsIndexesResultOutput {
+	return o
+}
+
+func (o GetLogsIndexesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsIndexesResult] {
+	return pulumix.Output[GetLogsIndexesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLogsIndexesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of logs indexes
+func (o GetLogsIndexesResultOutput) LogsIndexes() GetLogsIndexesLogsIndexArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesResult) []GetLogsIndexesLogsIndex { return v.LogsIndexes }).(GetLogsIndexesLogsIndexArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLogsIndexesResultOutput{})
 }

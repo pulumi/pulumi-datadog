@@ -26,8 +26,12 @@ class ApiKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -63,7 +67,9 @@ class _ApiKeyState:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if name is not None:
@@ -104,16 +110,6 @@ class ApiKey(pulumi.CustomResource):
         """
         Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog API Key
-        foo = datadog.ApiKey("foo", name="foo-application")
-        ```
-
         ## Import
 
         ```sh
@@ -132,16 +128,6 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog API Key
-        foo = datadog.ApiKey("foo", name="foo-application")
-        ```
 
         ## Import
 

@@ -12,37 +12,6 @@ namespace Pulumi.Datadog.Fastly
     /// <summary>
     /// Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooIntegrationAccount = new Datadog.Fastly.IntegrationAccount("fooIntegrationAccount", new()
-    ///     {
-    ///         ApiKey = "ABCDEFG123",
-    ///         Name = "test-name",
-    ///     });
-    /// 
-    ///     // Create new integration_fastly_service resource
-    ///     var fooIntegrationService = new Datadog.Fastly.IntegrationService("fooIntegrationService", new()
-    ///     {
-    ///         AccountId = fooIntegrationAccount.Id,
-    ///         Tags = new[]
-    ///         {
-    ///             "mytag",
-    ///             "mytag2:myvalue",
-    ///         },
-    ///         ServiceId = "my-service-id",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

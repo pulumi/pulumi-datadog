@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing application key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const foo = datadog.getApplicationKey({
- *     name: "foo-application",
- * });
- * ```
  */
 export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationKeyResult> {
     args = args || {};
@@ -61,17 +50,6 @@ export interface GetApplicationKeyResult {
 }
 /**
  * Use this data source to retrieve information about an existing application key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const foo = datadog.getApplicationKey({
- *     name: "foo-application",
- * });
- * ```
  */
 export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
     return pulumi.output(args).apply((a: any) => getApplicationKey(a, opts))

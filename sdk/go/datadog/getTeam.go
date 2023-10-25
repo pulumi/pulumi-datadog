@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source to retrieve information about an existing Datadog team.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.LookupTeam(ctx, &datadog.LookupTeamArgs{
-//				TeamId: pulumi.StringRef("e6723c40-edb1-11ed-b816-da7ad0900002"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTeamResult

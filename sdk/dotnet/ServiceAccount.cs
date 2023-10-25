@@ -12,35 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var roRole = Datadog.GetRole.Invoke(new()
-    ///     {
-    ///         Filter = "Datadog Read Only Role",
-    ///     });
-    /// 
-    ///     // Create a new Datadog service account
-    ///     var bar = new Datadog.ServiceAccount("bar", new()
-    ///     {
-    ///         Email = "new@example.com",
-    ///         Name = "Service Account Bar",
-    ///         Roles = new[]
-    ///         {
-    ///             roRole.Apply(getRoleResult =&gt; getRoleResult.Id),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

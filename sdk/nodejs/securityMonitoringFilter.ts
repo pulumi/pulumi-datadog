@@ -9,29 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Security Monitoring Rule API resource for security filters.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const myFilter = new datadog.SecurityMonitoringFilter("myFilter", {
- *     exclusionFilters: [
- *         {
- *             name: "first",
- *             query: "exclude some logs",
- *         },
- *         {
- *             name: "second",
- *             query: "exclude some other logs",
- *         },
- *     ],
- *     isEnabled: true,
- *     name: "My filter",
- *     query: "The filter is filtering.",
- * });
- * ```
- *
  * ## Import
  *
  * Security monitoring filters can be imported using ID, e.g.

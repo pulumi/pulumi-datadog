@@ -12,25 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new Datadog Application Key
-    ///     var foo = new Datadog.ApplicationKey("foo", new()
-    ///     {
-    ///         Name = "foo-application",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

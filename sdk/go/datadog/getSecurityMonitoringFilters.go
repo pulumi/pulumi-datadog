@@ -4,35 +4,15 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about existing security monitoring filters for use in other resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.GetSecurityMonitoringFilters(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSecurityMonitoringFilters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringFiltersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityMonitoringFiltersResult
@@ -51,4 +31,55 @@ type GetSecurityMonitoringFiltersResult struct {
 	FiltersIds []string `pulumi:"filtersIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetSecurityMonitoringFiltersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSecurityMonitoringFiltersResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSecurityMonitoringFiltersResult, error) {
+		r, err := GetSecurityMonitoringFilters(ctx, opts...)
+		var s GetSecurityMonitoringFiltersResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSecurityMonitoringFiltersResultOutput)
+}
+
+// A collection of values returned by getSecurityMonitoringFilters.
+type GetSecurityMonitoringFiltersResultOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringFiltersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringFiltersResult)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringFiltersResultOutput) ToGetSecurityMonitoringFiltersResultOutput() GetSecurityMonitoringFiltersResultOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringFiltersResultOutput) ToGetSecurityMonitoringFiltersResultOutputWithContext(ctx context.Context) GetSecurityMonitoringFiltersResultOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringFiltersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityMonitoringFiltersResult] {
+	return pulumix.Output[GetSecurityMonitoringFiltersResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of filters.
+func (o GetSecurityMonitoringFiltersResultOutput) Filters() GetSecurityMonitoringFiltersFilterArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringFiltersResult) []GetSecurityMonitoringFiltersFilter { return v.Filters }).(GetSecurityMonitoringFiltersFilterArrayOutput)
+}
+
+// List of IDs of filters.
+func (o GetSecurityMonitoringFiltersResultOutput) FiltersIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringFiltersResult) []string { return v.FiltersIds }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSecurityMonitoringFiltersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringFiltersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersResultOutput{})
 }

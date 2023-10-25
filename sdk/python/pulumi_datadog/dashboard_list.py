@@ -31,9 +31,15 @@ class DashboardListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dash_items is None and 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
         _setter("name", name)
         if dash_items is not None:
             _setter("dash_items", dash_items)
@@ -83,7 +89,11 @@ class _DashboardListState:
              _setter: Callable[[Any, Any], None],
              dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dash_items is None and 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
         if dash_items is not None:
             _setter("dash_items", dash_items)
         if name is not None:
@@ -125,65 +135,6 @@ class DashboardList(pulumi.CustomResource):
         """
         Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        time = datadog.Dashboard("time",
-            title="TF Test Layout Dashboard",
-            description="Created using the Datadog provider in Pulumi",
-            layout_type="ordered",
-            is_read_only=True,
-            widgets=[datadog.DashboardWidgetArgs(
-                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                    alert_id="1234",
-                    viz_type="timeseries",
-                    title="Widget Title",
-                    live_span="1h",
-                ),
-            )])
-        screen = datadog.Dashboard("screen",
-            title="TF Test Free Layout Dashboard",
-            description="Created using the Datadog provider in Pulumi",
-            layout_type="free",
-            is_read_only=False,
-            widgets=[datadog.DashboardWidgetArgs(
-                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="left",
-                    live_span="1h",
-                ),
-                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
-                    height=43,
-                    width=32,
-                    x=5,
-                    y=5,
-                ),
-            )])
-        # Create a new Dashboard List with two Dashboards
-        new_list = datadog.DashboardList("newList",
-            name="Automated Created List",
-            dash_items=[
-                datadog.DashboardListDashItemArgs(
-                    type="custom_timeboard",
-                    dash_id=time.id,
-                ),
-                datadog.DashboardListDashItemArgs(
-                    type="custom_screenboard",
-                    dash_id=screen.id,
-                ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    screen,
-                    time,
-                ]))
-        ```
-
         ## Import
 
         ```sh
@@ -203,65 +154,6 @@ class DashboardList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        time = datadog.Dashboard("time",
-            title="TF Test Layout Dashboard",
-            description="Created using the Datadog provider in Pulumi",
-            layout_type="ordered",
-            is_read_only=True,
-            widgets=[datadog.DashboardWidgetArgs(
-                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                    alert_id="1234",
-                    viz_type="timeseries",
-                    title="Widget Title",
-                    live_span="1h",
-                ),
-            )])
-        screen = datadog.Dashboard("screen",
-            title="TF Test Free Layout Dashboard",
-            description="Created using the Datadog provider in Pulumi",
-            layout_type="free",
-            is_read_only=False,
-            widgets=[datadog.DashboardWidgetArgs(
-                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="left",
-                    live_span="1h",
-                ),
-                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
-                    height=43,
-                    width=32,
-                    x=5,
-                    y=5,
-                ),
-            )])
-        # Create a new Dashboard List with two Dashboards
-        new_list = datadog.DashboardList("newList",
-            name="Automated Created List",
-            dash_items=[
-                datadog.DashboardListDashItemArgs(
-                    type="custom_timeboard",
-                    dash_id=time.id,
-                ),
-                datadog.DashboardListDashItemArgs(
-                    type="custom_screenboard",
-                    dash_id=screen.id,
-                ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    screen,
-                    time,
-                ]))
-        ```
 
         ## Import
 

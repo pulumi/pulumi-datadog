@@ -38,12 +38,22 @@ class WebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             url: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              custom_headers: Optional[pulumi.Input[str]] = None,
              encode_as: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if encode_as is None and 'encodeAs' in kwargs:
+            encode_as = kwargs['encodeAs']
+
         _setter("name", name)
         _setter("url", url)
         if custom_headers is not None:
@@ -146,7 +156,13 @@ class _WebhookState:
              name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if encode_as is None and 'encodeAs' in kwargs:
+            encode_as = kwargs['encodeAs']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if encode_as is not None:
@@ -233,26 +249,6 @@ class Webhook(pulumi.CustomResource):
         """
         Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog webhook
-        foo = datadog.Webhook("foo",
-            name="test-webhook",
-            url="example.com",
-            encode_as="json",
-            custom_headers=json.dumps({
-                "custom": "header",
-            }),
-            payload=json.dumps({
-                "custom": "payload",
-            }))
-        ```
-
         ## Import
 
         ```sh
@@ -275,26 +271,6 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog webhook
-        foo = datadog.Webhook("foo",
-            name="test-webhook",
-            url="example.com",
-            encode_as="json",
-            custom_headers=json.dumps({
-                "custom": "header",
-            }),
-            payload=json.dumps({
-                "custom": "payload",
-            }))
-        ```
 
         ## Import
 

@@ -12,30 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateLocation = new Datadog.SyntheticsPrivateLocation("privateLocation", new()
-    ///     {
-    ///         Description = "Description of the private location",
-    ///         Name = "First private location",
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///             "env:test",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Synthetics private locations can be imported using their string ID, e.g.

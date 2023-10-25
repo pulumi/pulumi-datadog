@@ -4,41 +4,15 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := datadog.LookupSensitiveDataScannerGroupOrder(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewSensitiveDataScannerGroupOrder(ctx, "foobar", &datadog.SensitiveDataScannerGroupOrderArgs{
-//				GroupIds: interface{}(foo.GroupIds),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSensitiveDataScannerGroupOrder(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSensitiveDataScannerGroupOrderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveDataScannerGroupOrderResult
@@ -55,4 +29,50 @@ type LookupSensitiveDataScannerGroupOrderResult struct {
 	GroupIds []string `pulumi:"groupIds"`
 	// The ID of this resource.
 	Id string `pulumi:"id"`
+}
+
+func LookupSensitiveDataScannerGroupOrderOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSensitiveDataScannerGroupOrderResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSensitiveDataScannerGroupOrderResult, error) {
+		r, err := LookupSensitiveDataScannerGroupOrder(ctx, opts...)
+		var s LookupSensitiveDataScannerGroupOrderResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupSensitiveDataScannerGroupOrderResultOutput)
+}
+
+// A collection of values returned by getSensitiveDataScannerGroupOrder.
+type LookupSensitiveDataScannerGroupOrderResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSensitiveDataScannerGroupOrderResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSensitiveDataScannerGroupOrderResult)(nil)).Elem()
+}
+
+func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToLookupSensitiveDataScannerGroupOrderResultOutput() LookupSensitiveDataScannerGroupOrderResultOutput {
+	return o
+}
+
+func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToLookupSensitiveDataScannerGroupOrderResultOutputWithContext(ctx context.Context) LookupSensitiveDataScannerGroupOrderResultOutput {
+	return o
+}
+
+func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSensitiveDataScannerGroupOrderResult] {
+	return pulumix.Output[LookupSensitiveDataScannerGroupOrderResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
+func (o LookupSensitiveDataScannerGroupOrderResultOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSensitiveDataScannerGroupOrderResult) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of this resource.
+func (o LookupSensitiveDataScannerGroupOrderResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSensitiveDataScannerGroupOrderResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSensitiveDataScannerGroupOrderResultOutput{})
 }

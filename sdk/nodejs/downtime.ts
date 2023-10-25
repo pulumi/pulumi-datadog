@@ -9,25 +9,6 @@ import * as utilities from "./utilities";
 /**
  * This resource is deprecated — use the `datadog.DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Example: downtime for all monitors
- * // Create a new daily 1700-0900 Datadog downtime for all monitors
- * const foo = new datadog.Downtime("foo", {
- *     end: 1483365600,
- *     recurrence: {
- *         period: 1,
- *         type: "days",
- *     },
- *     scopes: ["*"],
- *     start: 1483308000,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

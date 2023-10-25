@@ -12,24 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `datadog.LogsPipelineOrder` resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var python = new Datadog.LogsIntegrationPipeline("python", new()
-    ///     {
-    ///         IsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.

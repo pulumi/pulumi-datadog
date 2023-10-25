@@ -29,9 +29,17 @@ class ServiceAccountApplicationKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             service_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             service_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_account_id is None and 'serviceAccountId' in kwargs:
+            service_account_id = kwargs['serviceAccountId']
+        if service_account_id is None:
+            raise TypeError("Missing 'service_account_id' argument")
+
         _setter("name", name)
         _setter("service_account_id", service_account_id)
 
@@ -92,7 +100,13 @@ class _ServiceAccountApplicationKeyState:
              last4: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if service_account_id is None and 'serviceAccountId' in kwargs:
+            service_account_id = kwargs['serviceAccountId']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if key is not None:
@@ -176,18 +190,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         """
         Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new service_account_application_key resource
-        foo = datadog.ServiceAccountApplicationKey("foo",
-            name="Application key for managing dashboards",
-            service_account_id="00000000-0000-1234-0000-000000000000")
-        ```
-
         ## Import
 
         Importing a service account's application key cannot import the value of the key.
@@ -209,18 +211,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new service_account_application_key resource
-        foo = datadog.ServiceAccountApplicationKey("foo",
-            name="Application key for managing dashboards",
-            service_account_id="00000000-0000-1234-0000-000000000000")
-        ```
 
         ## Import
 

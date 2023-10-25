@@ -8,25 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const test = new datadog.MonitorConfigPolicy("test", {
- *     policyType: "tag",
- *     tagPolicy: {
- *         tagKey: "env",
- *         tagKeyRequired: false,
- *         validTagValues: [
- *             "staging",
- *             "prod",
- *         ],
- *     },
- * });
- * ```
  */
 export class MonitorConfigPolicy extends pulumi.CustomResource {
     /**

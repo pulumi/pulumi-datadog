@@ -15,37 +15,6 @@ import (
 
 // Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSyntheticsPrivateLocation(ctx, "privateLocation", &datadog.SyntheticsPrivateLocationArgs{
-//				Description: pulumi.String("Description of the private location"),
-//				Name:        pulumi.String("First private location"),
-//				Tags: pulumi.StringArray{
-//					pulumi.String("foo:bar"),
-//					pulumi.String("env:test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Synthetics private locations can be imported using their string ID, e.g.

@@ -7,15 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `datadog.LogsPipelineOrder` resource. If you don't need the `pipelineOrder` feature, this resource declaration can be omitted.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const python = new datadog.LogsIntegrationPipeline("python", {isEnabled: true});
- * ```
- *
  * ## Import
  *
  * To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.

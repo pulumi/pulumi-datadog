@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const foo = new datadog.confluent.IntegrationAccount("foo", {
- *     apiKey: "TESTAPIKEY123",
- *     apiSecret: "test-api-secret-123",
- *     tags: [
- *         "mytag",
- *         "mytag2:myvalue",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh

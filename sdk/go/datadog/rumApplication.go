@@ -15,33 +15,6 @@ import (
 
 // Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewRumApplication(ctx, "rumApplication", &datadog.RumApplicationArgs{
-//				Name: pulumi.String("my-application"),
-//				Type: pulumi.String("browser"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh

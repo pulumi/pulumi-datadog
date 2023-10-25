@@ -35,11 +35,15 @@ class ServiceAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              disabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+
         _setter("email", email)
         if disabled is not None:
             _setter("disabled", disabled)
@@ -125,7 +129,9 @@ class _ServiceAccountState:
              email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if disabled is not None:
             _setter("disabled", disabled)
         if email is not None:
@@ -197,20 +203,6 @@ class ServiceAccount(pulumi.CustomResource):
         """
         Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        ro_role = datadog.get_role(filter="Datadog Read Only Role")
-        # Create a new Datadog service account
-        bar = datadog.ServiceAccount("bar",
-            email="new@example.com",
-            name="Service Account Bar",
-            roles=[ro_role.id])
-        ```
-
         ## Import
 
         ```sh
@@ -232,20 +224,6 @@ class ServiceAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        ro_role = datadog.get_role(filter="Datadog Read Only Role")
-        # Create a new Datadog service account
-        bar = datadog.ServiceAccount("bar",
-            email="new@example.com",
-            name="Service Account Bar",
-            roles=[ro_role.id])
-        ```
 
         ## Import
 

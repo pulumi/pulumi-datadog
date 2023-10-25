@@ -29,9 +29,17 @@ class IntegrationAccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             api_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("api_key", api_key)
         _setter("name", name)
 
@@ -80,7 +88,11 @@ class _IntegrationAccountState:
              _setter: Callable[[Any, Any], None],
              api_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if name is not None:
@@ -122,17 +134,6 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.fastly.IntegrationAccount("foo",
-            api_key="ABCDEFG123",
-            name="test-name")
-        ```
-
         ## Import
 
         ```sh
@@ -152,17 +153,6 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        foo = datadog.fastly.IntegrationAccount("foo",
-            api_key="ABCDEFG123",
-            name="test-name")
-        ```
 
         ## Import
 

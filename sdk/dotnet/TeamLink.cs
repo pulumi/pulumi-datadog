@@ -12,35 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooTeam = new Datadog.Team("fooTeam", new()
-    ///     {
-    ///         Description = "Example team",
-    ///         Handle = "example-team-updated",
-    ///         Name = "Example Team-updated",
-    ///     });
-    /// 
-    ///     // Create new team_link resource
-    ///     var fooTeamLink = new Datadog.TeamLink("fooTeamLink", new()
-    ///     {
-    ///         TeamId = fooTeam.Id,
-    ///         Label = "Link label",
-    ///         Position = "Example link",
-    ///         Url = "https://example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh

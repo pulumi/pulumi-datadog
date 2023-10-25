@@ -58,18 +58,38 @@ class CloudConfigurationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             message: pulumi.Input[str],
-             name: pulumi.Input[str],
-             policy: pulumi.Input[str],
-             resource_type: pulumi.Input[str],
-             severity: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]]] = None,
              group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              related_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if group_bies is None and 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+        if related_resource_types is None and 'relatedResourceTypes' in kwargs:
+            related_resource_types = kwargs['relatedResourceTypes']
+
         _setter("enabled", enabled)
         _setter("message", message)
         _setter("name", name)
@@ -276,7 +296,15 @@ class _CloudConfigurationRuleState:
              resource_type: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_bies is None and 'groupBies' in kwargs:
+            group_bies = kwargs['groupBies']
+        if related_resource_types is None and 'relatedResourceTypes' in kwargs:
+            related_resource_types = kwargs['relatedResourceTypes']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if filters is not None:
@@ -453,50 +481,6 @@ class CloudConfigurationRule(pulumi.CustomResource):
         """
         Provides a Datadog Cloud Configuration Rule resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        myrule = datadog.CloudConfigurationRule("myrule",
-            enabled=True,
-            group_bies=["@resource"],
-            message="Rule has triggered",
-            name="My cloud configuration rule",
-            notifications=["@channel"],
-            policy=\"\"\"        package datadog
-
-                import data.datadog.output as dd_output
-
-                import future.keywords.contains
-                import future.keywords.if
-                import future.keywords.in
-
-                eval(resource) = "skip" if {
-                    # Logic that evaluates to true if the resource should be skipped
-                    true
-                } else = "pass" {
-                    # Logic that evaluates to true if the resource is compliant
-                    true
-                } else = "fail" {
-                    # Logic that evaluates to true if the resource is not compliant
-                    true
-                }
-
-                # This part remains unchanged for all rules
-                results contains result if {
-                    some resource in input.resources[input.main_resource_type]
-                    result := dd_output.format(resource, eval(resource))
-                }
-
-        \"\"\",
-            related_resource_types=[],
-            resource_type="aws_s3_bucket",
-            severity="high",
-            tags=["some:tag"])
-        ```
-
         ## Import
 
         Security monitoring rules can be imported using ID, e.g.
@@ -527,50 +511,6 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Cloud Configuration Rule resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        myrule = datadog.CloudConfigurationRule("myrule",
-            enabled=True,
-            group_bies=["@resource"],
-            message="Rule has triggered",
-            name="My cloud configuration rule",
-            notifications=["@channel"],
-            policy=\"\"\"        package datadog
-
-                import data.datadog.output as dd_output
-
-                import future.keywords.contains
-                import future.keywords.if
-                import future.keywords.in
-
-                eval(resource) = "skip" if {
-                    # Logic that evaluates to true if the resource should be skipped
-                    true
-                } else = "pass" {
-                    # Logic that evaluates to true if the resource is compliant
-                    true
-                } else = "fail" {
-                    # Logic that evaluates to true if the resource is not compliant
-                    true
-                }
-
-                # This part remains unchanged for all rules
-                results contains result if {
-                    some resource in input.resources[input.main_resource_type]
-                    result := dd_output.format(resource, eval(resource))
-                }
-
-        \"\"\",
-            related_resource_types=[],
-            resource_type="aws_s3_bucket",
-            severity="high",
-            tags=["some:tag"])
-        ```
 
         ## Import
 
