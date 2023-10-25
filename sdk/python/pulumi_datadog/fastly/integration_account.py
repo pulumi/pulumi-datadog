@@ -134,6 +134,17 @@ class IntegrationAccount(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.fastly.IntegrationAccount("foo",
+            api_key="ABCDEFG123",
+            name="test-name")
+        ```
+
         ## Import
 
         ```sh
@@ -153,6 +164,17 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.fastly.IntegrationAccount("foo",
+            api_key="ABCDEFG123",
+            name="test-name")
+        ```
 
         ## Import
 

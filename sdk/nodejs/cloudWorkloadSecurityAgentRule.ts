@@ -7,6 +7,20 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const myAgentRule = new datadog.CloudWorkloadSecurityAgentRule("myAgentRule", {
+ *     description: "My agent rule",
+ *     enabled: true,
+ *     expression: "exec.file.name == \"java\"",
+ *     name: "my_agent_rule",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cloud Workload Security Agent rules can be imported using ID, e.g.

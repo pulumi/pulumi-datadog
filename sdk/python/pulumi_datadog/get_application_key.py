@@ -74,6 +74,15 @@ def get_application_key(id: Optional[str] = None,
     """
     Use this data source to retrieve information about an existing application key.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_application_key(name="foo-application")
+    ```
+
 
     :param str id: Id for Application Key.
     :param str name: Name for Application Key.
@@ -96,6 +105,15 @@ def get_application_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationKeyResult]:
     """
     Use this data source to retrieve information about an existing application key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_application_key(name="foo-application")
+    ```
 
 
     :param str id: Id for Application Key.

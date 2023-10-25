@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const mygrouporder = new datadog.SensitiveDataScannerGroupOrder("mygrouporder", {groupIds: [
+ *     "group-id-1",
+ *     "group-id-2",
+ *     "group-id-3",
+ * ]});
+ * ```
+ *
  * ## Import
  *
  * ```sh

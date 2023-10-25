@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = new datadog.cloudflare.IntegrationAccount("foo", {
+ *     apiKey: "12345678910abc",
+ *     email: "test-email@example.com",
+ *     name: "test-name",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

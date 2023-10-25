@@ -13,6 +13,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
+//				DailyLimit: pulumi.Int(200000),
+//				ExclusionFilters: datadog.LogsIndexExclusionFilterArray{
+//					&datadog.LogsIndexExclusionFilterArgs{
+//						Filters: datadog.LogsIndexExclusionFilterFilterArray{
+//							&datadog.LogsIndexExclusionFilterFilterArgs{
+//								Query:      pulumi.String("app:coredns"),
+//								SampleRate: pulumi.Float64(0.97),
+//							},
+//						},
+//						IsEnabled: pulumi.Bool(true),
+//						Name:      pulumi.String("Filter coredns logs"),
+//					},
+//					&datadog.LogsIndexExclusionFilterArgs{
+//						Filters: datadog.LogsIndexExclusionFilterFilterArray{
+//							&datadog.LogsIndexExclusionFilterFilterArgs{
+//								Query:      pulumi.String("service:kube_apiserver"),
+//								SampleRate: pulumi.Float64(1),
+//							},
+//						},
+//						IsEnabled: pulumi.Bool(true),
+//						Name:      pulumi.String("Kubernetes apiserver"),
+//					},
+//				},
+//				Filters: datadog.LogsIndexFilterArray{
+//					&datadog.LogsIndexFilterArgs{
+//						Query: pulumi.String("*"),
+//					},
+//				},
+//				Name:          pulumi.String("your index"),
+//				RetentionDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

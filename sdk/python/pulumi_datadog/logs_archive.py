@@ -378,6 +378,23 @@ class LogsArchive(pulumi.CustomResource):
         """
         Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_s3_archive = datadog.LogsArchive("myS3Archive",
+            name="my s3 archive",
+            query="service:myservice",
+            s3_archive=datadog.LogsArchiveS3ArchiveArgs(
+                account_id="001234567888",
+                bucket="my-bucket",
+                path="/path/foo",
+                role_name="my-role-name",
+            ))
+        ```
+
         ## Import
 
         ```sh
@@ -403,6 +420,23 @@ class LogsArchive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_s3_archive = datadog.LogsArchive("myS3Archive",
+            name="my s3 archive",
+            query="service:myservice",
+            s3_archive=datadog.LogsArchiveS3ArchiveArgs(
+                account_id="001234567888",
+                bucket="my-bucket",
+                path="/path/foo",
+                role_name="my-role-name",
+            ))
+        ```
 
         ## Import
 

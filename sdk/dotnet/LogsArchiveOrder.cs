@@ -12,6 +12,28 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sampleArchiveOrder", new()
+    ///     {
+    ///         ArchiveIds = new[]
+    ///         {
+    ///             datadog_logs_archive.Sample_archive_1.Id,
+    ///             datadog_logs_archive.Sample_archive_2.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.

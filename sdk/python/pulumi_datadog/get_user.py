@@ -98,6 +98,15 @@ def get_user(exact_match: Optional[bool] = None,
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_user(filter="user.name@company.com")
+    ```
+
 
     :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
     :param str filter: Filter all users by the given string.
@@ -122,6 +131,15 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to retrieve information about an existing user to use it in an other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_user(filter="user.name@company.com")
+    ```
 
 
     :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.

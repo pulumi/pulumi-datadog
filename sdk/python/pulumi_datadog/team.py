@@ -226,6 +226,18 @@ class Team(pulumi.CustomResource):
         """
         Provides a Datadog Team resource. This can be used to create and manage Datadog team.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.Team("foo",
+            description="Team description",
+            handle="example-team",
+            name="Example Team")
+        ```
+
         ## Import
 
         ```sh
@@ -246,6 +258,18 @@ class Team(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Team resource. This can be used to create and manage Datadog team.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.Team("foo",
+            description="Team description",
+            handle="example-team",
+            name="Example Team")
+        ```
 
         ## Import
 

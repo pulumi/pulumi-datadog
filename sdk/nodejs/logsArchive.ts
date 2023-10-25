@@ -9,6 +9,24 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const myS3Archive = new datadog.LogsArchive("myS3Archive", {
+ *     name: "my s3 archive",
+ *     query: "service:myservice",
+ *     s3Archive: {
+ *         accountId: "001234567888",
+ *         bucket: "my-bucket",
+ *         path: "/path/foo",
+ *         roleName: "my-role-name",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

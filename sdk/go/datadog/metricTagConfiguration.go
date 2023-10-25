@@ -15,6 +15,59 @@ import (
 
 // Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMetricTagConfiguration(ctx, "exampleDistMetric", &datadog.MetricTagConfigurationArgs{
+//				IncludePercentiles: pulumi.Bool(false),
+//				MetricName:         pulumi.String("example.terraform.dist.metric"),
+//				MetricType:         pulumi.String("distribution"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sport"),
+//					pulumi.String("datacenter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
+//				Aggregations: datadog.MetricTagConfigurationAggregationArray{
+//					&datadog.MetricTagConfigurationAggregationArgs{
+//						Space: pulumi.String("min"),
+//						Time:  pulumi.String("avg"),
+//					},
+//					&datadog.MetricTagConfigurationAggregationArgs{
+//						Space: pulumi.String("max"),
+//						Time:  pulumi.String("avg"),
+//					},
+//				},
+//				MetricName: pulumi.String("example.terraform.count.metric"),
+//				MetricType: pulumi.String("count"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("sport"),
+//					pulumi.String("datacenter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

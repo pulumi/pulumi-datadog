@@ -6,6 +6,15 @@ import * as utilities from "./utilities";
 
 /**
  * Get the current order of your log indexes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getLogsIndexesOrder({});
+ * ```
  */
 export function getLogsIndexesOrder(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesOrderResult> {
 
@@ -29,6 +38,15 @@ export interface GetLogsIndexesOrderResult {
 }
 /**
  * Get the current order of your log indexes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getLogsIndexesOrder({});
+ * ```
  */
 export function getLogsIndexesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesOrderResult> {
     return pulumi.output(getLogsIndexesOrder(opts))

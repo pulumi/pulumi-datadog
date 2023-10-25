@@ -357,6 +357,44 @@ class SloCorrection(pulumi.CustomResource):
         """
         Resource for interacting with the slo_correction API.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
+        example_slo = datadog.ServiceLevelObjective("exampleSlo",
+            name="example slo",
+            type="metric",
+            description="some updated description about example_slo SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                numerator="sum:my.metric{type:good}.as_count()",
+                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+            ),
+            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
+                timeframe="7d",
+                target=99.5,
+                warning=99.8,
+            )],
+            tags=["foo:bar"])
+        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
+            category="Scheduled Maintenance",
+            description="correction example",
+            start=1735707000,
+            end=1735718600,
+            slo_id=example_slo.id,
+            timezone="UTC")
+        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+            category="Scheduled Maintenance",
+            description="correction example with recurrence",
+            start=1735707000,
+            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
+            duration=3600,
+            slo_id=example_slo.id,
+            timezone="UTC")
+        ```
+
         ## Import
 
         ```sh
@@ -382,6 +420,44 @@ class SloCorrection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with the slo_correction API.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
+        example_slo = datadog.ServiceLevelObjective("exampleSlo",
+            name="example slo",
+            type="metric",
+            description="some updated description about example_slo SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                numerator="sum:my.metric{type:good}.as_count()",
+                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+            ),
+            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
+                timeframe="7d",
+                target=99.5,
+                warning=99.8,
+            )],
+            tags=["foo:bar"])
+        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
+            category="Scheduled Maintenance",
+            description="correction example",
+            start=1735707000,
+            end=1735718600,
+            slo_id=example_slo.id,
+            timezone="UTC")
+        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+            category="Scheduled Maintenance",
+            description="correction example with recurrence",
+            start=1735707000,
+            rrule="FREQ=DAILY;INTERVAL=3;COUNT=3",
+            duration=3600,
+            slo_id=example_slo.id,
+            timezone="UTC")
+        ```
 
         ## Import
 

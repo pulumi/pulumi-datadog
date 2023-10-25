@@ -12,6 +12,25 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Example Usage (Synthetics Concurrency Cap Configuration)
+    ///     var @this = new Datadog.SyntheticsConcurrencyCap("this", new()
+    ///     {
+    ///         OnDemandConcurrencyCap = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// The Synthetics concurrency cap can be imported. &lt;name&gt; can be whatever you specify in your code. Datadog does not store the name on the server.

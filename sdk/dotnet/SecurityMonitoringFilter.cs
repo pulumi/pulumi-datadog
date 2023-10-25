@@ -12,6 +12,39 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Security Monitoring Rule API resource for security filters.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myFilter = new Datadog.SecurityMonitoringFilter("myFilter", new()
+    ///     {
+    ///         ExclusionFilters = new[]
+    ///         {
+    ///             new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
+    ///             {
+    ///                 Name = "first",
+    ///                 Query = "exclude some logs",
+    ///             },
+    ///             new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
+    ///             {
+    ///                 Name = "second",
+    ///                 Query = "exclude some other logs",
+    ///             },
+    ///         },
+    ///         IsEnabled = true,
+    ///         Name = "My filter",
+    ///         Query = "The filter is filtering.",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Security monitoring filters can be imported using ID, e.g.

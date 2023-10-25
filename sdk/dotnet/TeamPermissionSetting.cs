@@ -11,6 +11,33 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooTeam = new Datadog.Team("fooTeam", new()
+    ///     {
+    ///         Description = "Example team",
+    ///         Handle = "example-team-updated",
+    ///         Name = "Example Team-updated",
+    ///     });
+    /// 
+    ///     var fooTeamPermissionSetting = new Datadog.TeamPermissionSetting("fooTeamPermissionSetting", new()
+    ///     {
+    ///         TeamId = fooTeam.Id,
+    ///         Action = "manage_membership",
+    ///         Value = "organization",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/teamPermissionSetting:TeamPermissionSetting")]
     public partial class TeamPermissionSetting : global::Pulumi.CustomResource

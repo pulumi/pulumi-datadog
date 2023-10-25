@@ -168,6 +168,20 @@ class AuthnMapping(pulumi.CustomResource):
         """
         Provides a Datadog AuthN Mappings resource. This feature lets you automatically assign roles to users based on their SAML attributes.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new AuthN mapping
+        dev_ro_role_mapping = datadog.AuthnMapping("devRoRoleMapping",
+            key="Member-of",
+            value="Development",
+            role=ro_role.id)
+        ```
+
         ## Import
 
         AuthN mappings can be imported using their ID, e.g.
@@ -190,6 +204,20 @@ class AuthnMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog AuthN Mappings resource. This feature lets you automatically assign roles to users based on their SAML attributes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new AuthN mapping
+        dev_ro_role_mapping = datadog.AuthnMapping("devRoRoleMapping",
+            key="Member-of",
+            value="Development",
+            role=ro_role.id)
+        ```
 
         ## Import
 

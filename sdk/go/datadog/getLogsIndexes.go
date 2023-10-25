@@ -13,6 +13,30 @@ import (
 )
 
 // Use this data source to list several existing logs indexes for use in other resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetLogsIndexes(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLogsIndexes(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLogsIndexesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogsIndexesResult

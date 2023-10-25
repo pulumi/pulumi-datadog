@@ -7,6 +7,19 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog webhooks custom variable resource. This can be used to create and manage Datadog webhooks custom variables.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = new datadog.WebhookCustomVariable("foo", {
+ *     isSecret: true,
+ *     name: "EXAMPLE_VARIABLE",
+ *     value: "EXAMPLE-VALUE",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

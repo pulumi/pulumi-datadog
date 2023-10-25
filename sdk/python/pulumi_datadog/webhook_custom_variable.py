@@ -172,6 +172,18 @@ class WebhookCustomVariable(pulumi.CustomResource):
         """
         Provides a Datadog webhooks custom variable resource. This can be used to create and manage Datadog webhooks custom variables.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.WebhookCustomVariable("foo",
+            is_secret=True,
+            name="EXAMPLE_VARIABLE",
+            value="EXAMPLE-VALUE")
+        ```
+
         ## Import
 
         ```sh
@@ -192,6 +204,18 @@ class WebhookCustomVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog webhooks custom variable resource. This can be used to create and manage Datadog webhooks custom variables.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.WebhookCustomVariable("foo",
+            is_secret=True,
+            name="EXAMPLE_VARIABLE",
+            value="EXAMPLE-VALUE")
+        ```
 
         ## Import
 

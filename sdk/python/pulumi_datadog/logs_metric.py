@@ -211,6 +211,33 @@ class LogsMetric(pulumi.CustomResource):
         """
         Resource for interacting with the logs_metric API
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_logs_metric = datadog.LogsMetric("testingLogsMetric",
+            compute=datadog.LogsMetricComputeArgs(
+                aggregation_type="distribution",
+                path="@duration",
+            ),
+            filter=datadog.LogsMetricFilterArgs(
+                query="service:test",
+            ),
+            group_bies=[
+                datadog.LogsMetricGroupByArgs(
+                    path="@status",
+                    tag_name="status",
+                ),
+                datadog.LogsMetricGroupByArgs(
+                    path="@version",
+                    tag_name="version",
+                ),
+            ],
+            name="testing.logs.metric")
+        ```
+
         ## Import
 
         ```sh
@@ -232,6 +259,33 @@ class LogsMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for interacting with the logs_metric API
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_logs_metric = datadog.LogsMetric("testingLogsMetric",
+            compute=datadog.LogsMetricComputeArgs(
+                aggregation_type="distribution",
+                path="@duration",
+            ),
+            filter=datadog.LogsMetricFilterArgs(
+                query="service:test",
+            ),
+            group_bies=[
+                datadog.LogsMetricGroupByArgs(
+                    path="@status",
+                    tag_name="status",
+                ),
+                datadog.LogsMetricGroupByArgs(
+                    path="@version",
+                    tag_name="version",
+                ),
+            ],
+            name="testing.logs.metric")
+        ```
 
         ## Import
 

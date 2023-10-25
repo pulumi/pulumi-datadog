@@ -14,6 +14,42 @@ import (
 )
 
 // Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTeam, err := datadog.NewTeam(ctx, "fooTeam", &datadog.TeamArgs{
+//				Description: pulumi.String("Example team"),
+//				Handle:      pulumi.String("example-team-updated"),
+//				Name:        pulumi.String("Example Team-updated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewTeamPermissionSetting(ctx, "fooTeamPermissionSetting", &datadog.TeamPermissionSettingArgs{
+//				TeamId: fooTeam.ID(),
+//				Action: pulumi.String("manage_membership"),
+//				Value:  pulumi.String("organization"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type TeamPermissionSetting struct {
 	pulumi.CustomResourceState
 

@@ -15,6 +15,39 @@ import (
 
 // Resource for interacting with the Datadog Slack channel API
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/slack"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := slack.NewChannel(ctx, "testChannel", &slack.ChannelArgs{
+//				AccountName: pulumi.String("foo"),
+//				ChannelName: pulumi.String("#test_channel"),
+//				Display: &slack.ChannelDisplayArgs{
+//					Message:  pulumi.Bool(true),
+//					Notified: pulumi.Bool(false),
+//					Snapshot: pulumi.Bool(false),
+//					Tags:     pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).

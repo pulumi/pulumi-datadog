@@ -19,9 +19,418 @@ namespace Pulumi.Datadog
     /// 
     /// In practice, it means going from (simplified configuration):
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
     /// to
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
     /// which you can now use in your request definition:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Example Usage (Synthetics API test)
+    ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    ///     var testUptime = new Datadog.SyntheticsTest("testUptime", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "200",
+    ///                 Type = "statusCode",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An Uptime test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         RequestHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "http",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Authenticated API test)
+    ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    ///     var testApi = new Datadog.SyntheticsTest("testApi", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Target = "200",
+    ///                 Type = "statusCode",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An API test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         RequestHeaders = 
+    ///         {
+    ///             { "Authentication", "Token: 1234566789" },
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "http",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics SSL test)
+    ///     // Create a new Datadog Synthetics API/SSL test on example.org
+    ///     var testSsl = new Datadog.SyntheticsTest("testSsl", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "isInMoreThan",
+    ///                 Target = "30",
+    ///                 Type = "certificate",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An API test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             AcceptSelfSigned = true,
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "ssl",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics TCP test)
+    ///     // Create a new Datadog Synthetics API/TCP test on example.org
+    ///     var testTcp = new Datadog.SyntheticsTest("testTcp", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "lessThan",
+    ///                 Target = "2000",
+    ///                 Type = "responseTime",
+    ///             },
+    ///         },
+    ///         ConfigVariables = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestConfigVariableArgs
+    ///             {
+    ///                 Id = "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+    ///                 Name = "MY_GLOBAL_VAR",
+    ///                 Type = "global",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An API test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "tcp",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics DNS test)
+    ///     // Create a new Datadog Synthetics API/DNS test on example.org
+    ///     var testDns = new Datadog.SyntheticsTest("testDns", new()
+    ///     {
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Property = "A",
+    ///                 Target = "0.0.0.0",
+    ///                 Type = "recordSome",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @pagerduty",
+    ///         Name = "An API test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "dns",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics Multistep API test)
+    ///     // Create a new Datadog Synthetics Multistep API test
+    ///     var testMultiStep = new Datadog.SyntheticsTest("testMultiStep", new()
+    ///     {
+    ///         ApiSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                         Type = "statusCode",
+    ///                     },
+    ///                 },
+    ///                 Name = "An API test on example.org",
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Method = "GET",
+    ///                     Url = "https://example.org",
+    ///                 },
+    ///                 RequestHeaders = 
+    ///                 {
+    ///                     { "Authentication", "Token: 1234566789" },
+    ///                     { "Content-Type", "application/json" },
+    ///                 },
+    ///                 Subtype = "http",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                         Type = "statusCode",
+    ///                     },
+    ///                 },
+    ///                 Name = "An API test on example.org",
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Method = "GET",
+    ///                     Url = "http://example.org",
+    ///                 },
+    ///                 Subtype = "http",
+    ///             },
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Name = "Multistep API test",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             AcceptSelfSigned = true,
+    ///             TickEvery = 900,
+    ///         },
+    ///         Status = "live",
+    ///         Subtype = "multi",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         Type = "api",
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics Browser test)
+    ///     // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+    ///     var testBrowser = new Datadog.SyntheticsTest("testBrowser", new()
+    ///     {
+    ///         BrowserSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Check current url",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     Check = "contains",
+    ///                     Value = "datadoghq",
+    ///                 },
+    ///                 Type = "assertCurrentUrl",
+    ///             },
+    ///         },
+    ///         BrowserVariables = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Example = "597",
+    ///                 Name = "MY_PATTERN_VAR",
+    ///                 Pattern = "{{numeric(3)}}",
+    ///                 Type = "text",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Example = "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+    ///                 Name = "MY_EMAIL_VAR",
+    ///                 Pattern = "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+    ///                 Type = "email",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Id = "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+    ///                 Name = "MY_GLOBAL_VAR",
+    ///                 Type = "global",
+    ///             },
+    ///         },
+    ///         DeviceIds = new[]
+    ///         {
+    ///             "laptop_large",
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Message = "Notify @qa",
+    ///         Name = "A Browser test on example.org",
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 3600,
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://app.datadoghq.com",
+    ///         },
+    ///         Status = "paused",
+    ///         Tags = new[] {},
+    ///         Type = "browser",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

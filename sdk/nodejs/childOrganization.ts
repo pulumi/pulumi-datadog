@@ -8,6 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `datadog.OrganizationSettings`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog Child Organization
+ * const organization = new datadog.ChildOrganization("organization", {name: "foo-organization"});
+ * ```
  */
 export class ChildOrganization extends pulumi.CustomResource {
     /**

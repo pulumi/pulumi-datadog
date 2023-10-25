@@ -11,6 +11,25 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `datadog.OrganizationSettings`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new Datadog Child Organization
+    ///     var organization = new Datadog.ChildOrganization("organization", new()
+    ///     {
+    ///         Name = "foo-organization",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/childOrganization:ChildOrganization")]
     public partial class ChildOrganization : global::Pulumi.CustomResource

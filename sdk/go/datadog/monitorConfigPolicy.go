@@ -14,6 +14,40 @@ import (
 )
 
 // Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewMonitorConfigPolicy(ctx, "test", &datadog.MonitorConfigPolicyArgs{
+//				PolicyType: pulumi.String("tag"),
+//				TagPolicy: &datadog.MonitorConfigPolicyTagPolicyArgs{
+//					TagKey:         pulumi.String("env"),
+//					TagKeyRequired: pulumi.Bool(false),
+//					ValidTagValues: pulumi.StringArray{
+//						pulumi.String("staging"),
+//						pulumi.String("prod"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type MonitorConfigPolicy struct {
 	pulumi.CustomResourceState
 

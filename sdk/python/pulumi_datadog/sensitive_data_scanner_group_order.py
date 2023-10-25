@@ -96,6 +96,19 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         """
         Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
+            "group-id-1",
+            "group-id-2",
+            "group-id-3",
+        ])
+        ```
+
         ## Import
 
         ```sh
@@ -114,6 +127,19 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Sensitive Data Scanner Group Order API resource. This can be used to manage the order of Datadog Sensitive Data Scanner Groups.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
+            "group-id-1",
+            "group-id-2",
+            "group-id-3",
+        ])
+        ```
 
         ## Import
 

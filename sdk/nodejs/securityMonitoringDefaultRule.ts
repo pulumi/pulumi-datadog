@@ -9,6 +9,21 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const adefaultrule = new datadog.SecurityMonitoringDefaultRule("adefaultrule", {
+ *     cases: [{
+ *         notifications: ["@me"],
+ *         status: "high",
+ *     }],
+ *     enabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }

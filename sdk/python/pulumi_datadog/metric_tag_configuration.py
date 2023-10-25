@@ -256,6 +256,41 @@ class MetricTagConfiguration(pulumi.CustomResource):
         """
         Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Manage a tag configuration for a Datadog distribution metric with/without percentiles
+        example_dist_metric = datadog.MetricTagConfiguration("exampleDistMetric",
+            include_percentiles=False,
+            metric_name="example.terraform.dist.metric",
+            metric_type="distribution",
+            tags=[
+                "sport",
+                "datacenter",
+            ])
+        # Manage tag configurations for a Datadog count or gauge metric
+        example_count_metric = datadog.MetricTagConfiguration("exampleCountMetric",
+            aggregations=[
+                datadog.MetricTagConfigurationAggregationArgs(
+                    space="min",
+                    time="avg",
+                ),
+                datadog.MetricTagConfigurationAggregationArgs(
+                    space="max",
+                    time="avg",
+                ),
+            ],
+            metric_name="example.terraform.count.metric",
+            metric_type="count",
+            tags=[
+                "sport",
+                "datacenter",
+            ])
+        ```
+
         ## Import
 
         ```sh
@@ -278,6 +313,41 @@ class MetricTagConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Manage a tag configuration for a Datadog distribution metric with/without percentiles
+        example_dist_metric = datadog.MetricTagConfiguration("exampleDistMetric",
+            include_percentiles=False,
+            metric_name="example.terraform.dist.metric",
+            metric_type="distribution",
+            tags=[
+                "sport",
+                "datacenter",
+            ])
+        # Manage tag configurations for a Datadog count or gauge metric
+        example_count_metric = datadog.MetricTagConfiguration("exampleCountMetric",
+            aggregations=[
+                datadog.MetricTagConfigurationAggregationArgs(
+                    space="min",
+                    time="avg",
+                ),
+                datadog.MetricTagConfigurationAggregationArgs(
+                    space="max",
+                    time="avg",
+                ),
+            ],
+            metric_name="example.terraform.count.metric",
+            metric_type="count",
+            tags=[
+                "sport",
+                "datacenter",
+            ])
+        ```
 
         ## Import
 

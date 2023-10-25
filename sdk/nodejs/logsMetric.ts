@@ -9,6 +9,34 @@ import * as utilities from "./utilities";
 /**
  * Resource for interacting with the logsMetric API
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testingLogsMetric = new datadog.LogsMetric("testingLogsMetric", {
+ *     compute: {
+ *         aggregationType: "distribution",
+ *         path: "@duration",
+ *     },
+ *     filter: {
+ *         query: "service:test",
+ *     },
+ *     groupBies: [
+ *         {
+ *             path: "@status",
+ *             tagName: "status",
+ *         },
+ *         {
+ *             path: "@version",
+ *             tagName: "version",
+ *         },
+ *     ],
+ *     name: "testing.logs.metric",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

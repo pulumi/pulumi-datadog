@@ -12,6 +12,29 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var samplePipelineOrder = new Datadog.LogsPipelineOrder("samplePipelineOrder", new()
+    ///     {
+    ///         Name = "sample_pipeline_order",
+    ///         Pipelines = new[]
+    ///         {
+    ///             datadog_logs_custom_pipeline.Sample_pipeline.Id,
+    ///             datadog_logs_integration_pipeline.Python.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).

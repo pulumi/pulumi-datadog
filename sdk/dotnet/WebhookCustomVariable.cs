@@ -12,6 +12,26 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog webhooks custom variable resource. This can be used to create and manage Datadog webhooks custom variables.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.WebhookCustomVariable("foo", new()
+    ///     {
+    ///         IsSecret = true,
+    ///         Name = "EXAMPLE_VARIABLE",
+    ///         Value = "EXAMPLE-VALUE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

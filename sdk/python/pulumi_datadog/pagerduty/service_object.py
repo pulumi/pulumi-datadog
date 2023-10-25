@@ -138,6 +138,20 @@ class ServiceObject(pulumi.CustomResource):
         """
         Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
+            service_key="9876543210123456789",
+            service_name="testing_foo")
+        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
+            service_key="54321098765432109876",
+            service_name="testing_bar")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
@@ -151,6 +165,20 @@ class ServiceObject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
+            service_key="9876543210123456789",
+            service_name="testing_foo")
+        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
+            service_key="54321098765432109876",
+            service_name="testing_bar")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.

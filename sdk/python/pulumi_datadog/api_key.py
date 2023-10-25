@@ -110,6 +110,16 @@ class ApiKey(pulumi.CustomResource):
         """
         Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog API Key
+        foo = datadog.ApiKey("foo", name="foo-application")
+        ```
+
         ## Import
 
         ```sh
@@ -128,6 +138,16 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog API Key
+        foo = datadog.ApiKey("foo", name="foo-application")
+        ```
 
         ## Import
 

@@ -9,6 +9,30 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = new datadog.Monitor("foo", {
+ *     escalationMessage: "Escalation message @pagerduty",
+ *     includeTags: true,
+ *     message: "Monitor triggered. Notify: @hipchat-channel",
+ *     monitorThresholds: {
+ *         critical: "4",
+ *         warning: "2",
+ *     },
+ *     name: "Name for monitor foo",
+ *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+ *     tags: [
+ *         "foo:bar",
+ *         "team:fooBar",
+ *     ],
+ *     type: "metric alert",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

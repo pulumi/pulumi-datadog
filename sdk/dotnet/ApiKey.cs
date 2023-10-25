@@ -12,6 +12,25 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog API Key resource. This can be used to create and manage Datadog API Keys.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new Datadog API Key
+    ///     var foo = new Datadog.ApiKey("foo", new()
+    ///     {
+    ///         Name = "foo-application",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

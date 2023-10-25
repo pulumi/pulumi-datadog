@@ -208,6 +208,16 @@ class ChildOrganization(pulumi.CustomResource):
         """
         Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `OrganizationSettings`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog Child Organization
+        organization = datadog.ChildOrganization("organization", name="foo-organization")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for Child Organization after creation.
@@ -220,6 +230,16 @@ class ChildOrganization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `OrganizationSettings`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog Child Organization
+        organization = datadog.ChildOrganization("organization", name="foo-organization")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ChildOrganizationArgs args: The arguments to use to populate this resource's properties.

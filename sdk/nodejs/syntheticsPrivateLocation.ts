@@ -9,6 +9,22 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const privateLocation = new datadog.SyntheticsPrivateLocation("privateLocation", {
+ *     description: "Description of the private location",
+ *     name: "First private location",
+ *     tags: [
+ *         "foo:bar",
+ *         "env:test",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synthetics private locations can be imported using their string ID, e.g.

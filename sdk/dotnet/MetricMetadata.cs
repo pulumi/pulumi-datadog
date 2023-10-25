@@ -12,6 +12,29 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Manage a Datadog metric's metadata
+    ///     var requestTime = new Datadog.MetricMetadata("requestTime", new()
+    ///     {
+    ///         Description = "99th percentile request time in milliseconds",
+    ///         Metric = "request.time",
+    ///         ShortName = "Request time",
+    ///         Type = "gauge",
+    ///         Unit = "millisecond",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

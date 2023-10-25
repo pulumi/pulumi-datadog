@@ -481,6 +481,50 @@ class CloudConfigurationRule(pulumi.CustomResource):
         """
         Provides a Datadog Cloud Configuration Rule resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        myrule = datadog.CloudConfigurationRule("myrule",
+            enabled=True,
+            group_bies=["@resource"],
+            message="Rule has triggered",
+            name="My cloud configuration rule",
+            notifications=["@channel"],
+            policy=\"\"\"        package datadog
+
+                import data.datadog.output as dd_output
+
+                import future.keywords.contains
+                import future.keywords.if
+                import future.keywords.in
+
+                eval(resource) = "skip" if {
+                    # Logic that evaluates to true if the resource should be skipped
+                    true
+                } else = "pass" {
+                    # Logic that evaluates to true if the resource is compliant
+                    true
+                } else = "fail" {
+                    # Logic that evaluates to true if the resource is not compliant
+                    true
+                }
+
+                # This part remains unchanged for all rules
+                results contains result if {
+                    some resource in input.resources[input.main_resource_type]
+                    result := dd_output.format(resource, eval(resource))
+                }
+
+        \"\"\",
+            related_resource_types=[],
+            resource_type="aws_s3_bucket",
+            severity="high",
+            tags=["some:tag"])
+        ```
+
         ## Import
 
         Security monitoring rules can be imported using ID, e.g.
@@ -511,6 +555,50 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Cloud Configuration Rule resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        myrule = datadog.CloudConfigurationRule("myrule",
+            enabled=True,
+            group_bies=["@resource"],
+            message="Rule has triggered",
+            name="My cloud configuration rule",
+            notifications=["@channel"],
+            policy=\"\"\"        package datadog
+
+                import data.datadog.output as dd_output
+
+                import future.keywords.contains
+                import future.keywords.if
+                import future.keywords.in
+
+                eval(resource) = "skip" if {
+                    # Logic that evaluates to true if the resource should be skipped
+                    true
+                } else = "pass" {
+                    # Logic that evaluates to true if the resource is compliant
+                    true
+                } else = "fail" {
+                    # Logic that evaluates to true if the resource is not compliant
+                    true
+                }
+
+                # This part remains unchanged for all rules
+                results contains result if {
+                    some resource in input.resources[input.main_resource_type]
+                    result := dd_output.format(resource, eval(resource))
+                }
+
+        \"\"\",
+            related_resource_types=[],
+            resource_type="aws_s3_bucket",
+            severity="high",
+            tags=["some:tag"])
+        ```
 
         ## Import
 

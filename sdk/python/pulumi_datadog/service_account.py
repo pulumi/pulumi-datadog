@@ -203,6 +203,20 @@ class ServiceAccount(pulumi.CustomResource):
         """
         Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new Datadog service account
+        bar = datadog.ServiceAccount("bar",
+            email="new@example.com",
+            name="Service Account Bar",
+            roles=[ro_role.id])
+        ```
+
         ## Import
 
         ```sh
@@ -224,6 +238,20 @@ class ServiceAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new Datadog service account
+        bar = datadog.ServiceAccount("bar",
+            email="new@example.com",
+            name="Service Account Bar",
+            roles=[ro_role.id])
+        ```
 
         ## Import
 

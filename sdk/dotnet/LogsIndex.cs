@@ -10,6 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sampleIndex = new Datadog.LogsIndex("sampleIndex", new()
+    ///     {
+    ///         DailyLimit = 200000,
+    ///         ExclusionFilters = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///             {
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                     {
+    ///                         Query = "app:coredns",
+    ///                         SampleRate = 0.97,
+    ///                     },
+    ///                 },
+    ///                 IsEnabled = true,
+    ///                 Name = "Filter coredns logs",
+    ///             },
+    ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///             {
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                     {
+    ///                         Query = "service:kube_apiserver",
+    ///                         SampleRate = 1,
+    ///                     },
+    ///                 },
+    ///                 IsEnabled = true,
+    ///                 Name = "Kubernetes apiserver",
+    ///             },
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsIndexFilterArgs
+    ///             {
+    ///                 Query = "*",
+    ///             },
+    ///         },
+    ///         Name = "your index",
+    ///         RetentionDays = 7,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

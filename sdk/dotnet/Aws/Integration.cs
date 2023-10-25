@@ -12,6 +12,45 @@ namespace Pulumi.Datadog.Aws
     /// <summary>
     /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new Datadog - Amazon Web Services integration
+    ///     var sandbox = new Datadog.Aws.Integration("sandbox", new()
+    ///     {
+    ///         AccountId = "1234567890",
+    ///         AccountSpecificNamespaceRules = 
+    ///         {
+    ///             { "auto_scaling", false },
+    ///             { "opsworks", false },
+    ///         },
+    ///         ExcludedRegions = new[]
+    ///         {
+    ///             "us-east-1",
+    ///             "us-west-2",
+    ///         },
+    ///         FilterTags = new[]
+    ///         {
+    ///             "key:value",
+    ///         },
+    ///         HostTags = new[]
+    ///         {
+    ///             "key:value",
+    ///             "key2:value2",
+    ///         },
+    ///         RoleName = "DatadogAWSIntegrationRole",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID

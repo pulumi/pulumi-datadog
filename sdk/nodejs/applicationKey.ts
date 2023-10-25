@@ -7,6 +7,16 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog Application Key
+ * const foo = new datadog.ApplicationKey("foo", {name: "foo-application"});
+ * ```
+ *
  * ## Import
  *
  * ```sh

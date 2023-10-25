@@ -1551,6 +1551,29 @@ class Monitor(pulumi.CustomResource):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.Monitor("foo",
+            escalation_message="Escalation message @pagerduty",
+            include_tags=True,
+            message="Monitor triggered. Notify: @hipchat-channel",
+            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
+                critical="4",
+                warning="2",
+            ),
+            name="Name for monitor foo",
+            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+            tags=[
+                "foo:bar",
+                "team:fooBar",
+            ],
+            type="metric alert")
+        ```
+
         ## Import
 
         ```sh
@@ -1634,6 +1657,29 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo = datadog.Monitor("foo",
+            escalation_message="Escalation message @pagerduty",
+            include_tags=True,
+            message="Monitor triggered. Notify: @hipchat-channel",
+            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
+                critical="4",
+                warning="2",
+            ),
+            name="Name for monitor foo",
+            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+            tags=[
+                "foo:bar",
+                "team:fooBar",
+            ],
+            type="metric alert")
+        ```
 
         ## Import
 

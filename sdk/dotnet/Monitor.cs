@@ -12,6 +12,39 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.Monitor("foo", new()
+    ///     {
+    ///         EscalationMessage = "Escalation message @pagerduty",
+    ///         IncludeTags = true,
+    ///         Message = "Monitor triggered. Notify: @hipchat-channel",
+    ///         MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
+    ///         {
+    ///             Critical = "4",
+    ///             Warning = "2",
+    ///         },
+    ///         Name = "Name for monitor foo",
+    ///         Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "team:fooBar",
+    ///         },
+    ///         Type = "metric alert",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

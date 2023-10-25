@@ -12,6 +12,38 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog role resource. This can be used to create and manage Datadog roles.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bar = Datadog.GetPermissions.Invoke();
+    /// 
+    ///     // Create a new Datadog role
+    ///     var foo = new Datadog.Role("foo", new()
+    ///     {
+    ///         Name = "foo",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Datadog.Inputs.RolePermissionArgs
+    ///             {
+    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsDowntime),
+    ///             },
+    ///             new Datadog.Inputs.RolePermissionArgs
+    ///             {
+    ///                 Id = bar.Apply(getPermissionsResult =&gt; getPermissionsResult.Permissions?.MonitorsWrite),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Roles can be imported using their ID, e.g.

@@ -15,6 +15,37 @@ import (
 
 // Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/confluent"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := confluent.NewIntegrationAccount(ctx, "foo", &confluent.IntegrationAccountArgs{
+//				ApiKey:    pulumi.String("TESTAPIKEY123"),
+//				ApiSecret: pulumi.String("test-api-secret-123"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("mytag"),
+//					pulumi.String("mytag2:myvalue"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

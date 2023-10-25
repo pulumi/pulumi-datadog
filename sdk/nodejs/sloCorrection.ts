@@ -7,6 +7,47 @@ import * as utilities from "./utilities";
 /**
  * Resource for interacting with the sloCorrection API.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
+ * const exampleSlo = new datadog.ServiceLevelObjective("exampleSlo", {
+ *     name: "example slo",
+ *     type: "metric",
+ *     description: "some updated description about example_slo SLO",
+ *     query: {
+ *         numerator: "sum:my.metric{type:good}.as_count()",
+ *         denominator: "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+ *     },
+ *     thresholds: [{
+ *         timeframe: "7d",
+ *         target: 99.5,
+ *         warning: 99.8,
+ *     }],
+ *     tags: ["foo:bar"],
+ * });
+ * const exampleSloCorrection = new datadog.SloCorrection("exampleSloCorrection", {
+ *     category: "Scheduled Maintenance",
+ *     description: "correction example",
+ *     start: 1735707000,
+ *     end: 1735718600,
+ *     sloId: exampleSlo.id,
+ *     timezone: "UTC",
+ * });
+ * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("exampleSloCorrectionWithRecurrence", {
+ *     category: "Scheduled Maintenance",
+ *     description: "correction example with recurrence",
+ *     start: 1735707000,
+ *     rrule: "FREQ=DAILY;INTERVAL=3;COUNT=3",
+ *     duration: 3600,
+ *     sloId: exampleSlo.id,
+ *     timezone: "UTC",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

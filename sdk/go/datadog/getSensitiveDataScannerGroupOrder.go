@@ -13,6 +13,36 @@ import (
 )
 
 // Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := datadog.LookupSensitiveDataScannerGroupOrder(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewSensitiveDataScannerGroupOrder(ctx, "foobar", &datadog.SensitiveDataScannerGroupOrderArgs{
+//				GroupIds: interface{}(foo.GroupIds),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupSensitiveDataScannerGroupOrder(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSensitiveDataScannerGroupOrderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSensitiveDataScannerGroupOrderResult

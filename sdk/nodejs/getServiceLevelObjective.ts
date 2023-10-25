@@ -8,6 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about an existing SLO for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getServiceLevelObjective({
+ *     nameQuery: "My test SLO",
+ *     tagsQuery: "foo:bar",
+ * });
+ * const apiSlo = datadog.getServiceLevelObjective({
+ *     id: data.terraform_remote_state.api.outputs.slo,
+ * });
+ * ```
  */
 export function getServiceLevelObjective(args?: GetServiceLevelObjectiveArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectiveResult> {
     args = args || {};
@@ -94,6 +109,21 @@ export interface GetServiceLevelObjectiveResult {
 }
 /**
  * Use this data source to retrieve information about an existing SLO for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getServiceLevelObjective({
+ *     nameQuery: "My test SLO",
+ *     tagsQuery: "foo:bar",
+ * });
+ * const apiSlo = datadog.getServiceLevelObjective({
+ *     id: data.terraform_remote_state.api.outputs.slo,
+ * });
+ * ```
  */
 export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelObjective(a, opts))

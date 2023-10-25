@@ -110,6 +110,16 @@ class ApplicationKey(pulumi.CustomResource):
         """
         Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog Application Key
+        foo = datadog.ApplicationKey("foo", name="foo-application")
+        ```
+
         ## Import
 
         ```sh
@@ -128,6 +138,16 @@ class ApplicationKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog Application Key
+        foo = datadog.ApplicationKey("foo", name="foo-application")
+        ```
 
         ## Import
 

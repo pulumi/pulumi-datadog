@@ -15,6 +15,44 @@ import (
 
 // Provides a Datadog Security Monitoring Rule API resource for security filters.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewSecurityMonitoringFilter(ctx, "myFilter", &datadog.SecurityMonitoringFilterArgs{
+//				ExclusionFilters: datadog.SecurityMonitoringFilterExclusionFilterArray{
+//					&datadog.SecurityMonitoringFilterExclusionFilterArgs{
+//						Name:  pulumi.String("first"),
+//						Query: pulumi.String("exclude some logs"),
+//					},
+//					&datadog.SecurityMonitoringFilterExclusionFilterArgs{
+//						Name:  pulumi.String("second"),
+//						Query: pulumi.String("exclude some other logs"),
+//					},
+//				},
+//				IsEnabled: pulumi.Bool(true),
+//				Name:      pulumi.String("My filter"),
+//				Query:     pulumi.String("The filter is filtering."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Security monitoring filters can be imported using ID, e.g.

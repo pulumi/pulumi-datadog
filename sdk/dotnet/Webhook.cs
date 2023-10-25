@@ -12,6 +12,36 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog webhook resource. This can be used to create and manage Datadog webhooks.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a new Datadog webhook
+    ///     var foo = new Datadog.Webhook("foo", new()
+    ///     {
+    ///         Name = "test-webhook",
+    ///         Url = "example.com",
+    ///         EncodeAs = "json",
+    ///         CustomHeaders = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["custom"] = "header",
+    ///         }),
+    ///         Payload = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["custom"] = "payload",
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

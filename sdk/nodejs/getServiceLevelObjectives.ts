@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about multiple SLOs for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const ftFooSlos = datadog.getServiceLevelObjectives({
+ *     tagsQuery: "owner:ft-foo",
+ * });
+ * ```
  */
 export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectivesResult> {
     args = args || {};
@@ -74,6 +85,17 @@ export interface GetServiceLevelObjectivesResult {
 }
 /**
  * Use this data source to retrieve information about multiple SLOs for use in other resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const ftFooSlos = datadog.getServiceLevelObjectives({
+ *     tagsQuery: "owner:ft-foo",
+ * });
+ * ```
  */
 export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectivesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectivesResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelObjectives(a, opts))

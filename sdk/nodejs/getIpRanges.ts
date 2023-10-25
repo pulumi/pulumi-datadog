@@ -6,6 +6,15 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve information about Datadog's IP addresses.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getIpRanges({});
+ * ```
  */
 export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
 
@@ -97,6 +106,15 @@ export interface GetIpRangesResult {
 }
 /**
  * Use this data source to retrieve information about Datadog's IP addresses.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const test = datadog.getIpRanges({});
+ * ```
  */
 export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
     return pulumi.output(getIpRanges(opts))

@@ -11,6 +11,34 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Datadog.MonitorConfigPolicy("test", new()
+    ///     {
+    ///         PolicyType = "tag",
+    ///         TagPolicy = new Datadog.Inputs.MonitorConfigPolicyTagPolicyArgs
+    ///         {
+    ///             TagKey = "env",
+    ///             TagKeyRequired = false,
+    ///             ValidTagValues = new[]
+    ///             {
+    ///                 "staging",
+    ///                 "prod",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/monitorConfigPolicy:MonitorConfigPolicy")]
     public partial class MonitorConfigPolicy : global::Pulumi.CustomResource

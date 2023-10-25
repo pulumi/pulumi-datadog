@@ -257,6 +257,30 @@ class IntegrationResource(pulumi.CustomResource):
         """
         Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
+            api_key="TESTAPIKEY123",
+            api_secret="test-api-secret-123",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        # Create new integration_confluent_resource resource
+        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
+            account_id=foo_integration_account.id,
+            resource_id="123456",
+            resource_type="kafka",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        ```
+
         ## Import
 
         ```sh
@@ -279,6 +303,30 @@ class IntegrationResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
+            api_key="TESTAPIKEY123",
+            api_secret="test-api-secret-123",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        # Create new integration_confluent_resource resource
+        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
+            account_id=foo_integration_account.id,
+            resource_id="123456",
+            resource_type="kafka",
+            tags=[
+                "mytag",
+                "mytag2:myvalue",
+            ])
+        ```
 
         ## Import
 

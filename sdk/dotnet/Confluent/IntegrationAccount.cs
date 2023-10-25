@@ -12,6 +12,30 @@ namespace Pulumi.Datadog.Confluent
     /// <summary>
     /// Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Datadog.Confluent.IntegrationAccount("foo", new()
+    ///     {
+    ///         ApiKey = "TESTAPIKEY123",
+    ///         ApiSecret = "test-api-secret-123",
+    ///         Tags = new[]
+    ///         {
+    ///             "mytag",
+    ///             "mytag2:myvalue",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

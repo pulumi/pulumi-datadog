@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const fooIntegrationAccount = new datadog.fastly.IntegrationAccount("fooIntegrationAccount", {
+ *     apiKey: "ABCDEFG123",
+ *     name: "test-name",
+ * });
+ * // Create new integration_fastly_service resource
+ * const fooIntegrationService = new datadog.fastly.IntegrationService("fooIntegrationService", {
+ *     accountId: fooIntegrationAccount.id,
+ *     tags: [
+ *         "mytag",
+ *         "mytag2:myvalue",
+ *     ],
+ *     serviceId: "my-service-id",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

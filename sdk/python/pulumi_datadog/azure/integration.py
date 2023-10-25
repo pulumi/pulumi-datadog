@@ -381,6 +381,24 @@ class Integration(pulumi.CustomResource):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Microsoft Azure integration
+        sandbox = datadog.azure.Integration("sandbox",
+            app_service_plan_filters="examplefilter:true,example:another",
+            automute=True,
+            client_id="<azure_client_id>",
+            client_secret="<azure_client_secret_key>",
+            cspm_enabled=True,
+            custom_metrics_enabled=False,
+            host_filters="examplefilter:true,example:true",
+            tenant_name="<azure_tenant_name>")
+        ```
+
         ## Import
 
         Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
@@ -408,6 +426,24 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Microsoft Azure integration
+        sandbox = datadog.azure.Integration("sandbox",
+            app_service_plan_filters="examplefilter:true,example:another",
+            automute=True,
+            client_id="<azure_client_id>",
+            client_secret="<azure_client_secret_key>",
+            cspm_enabled=True,
+            custom_metrics_enabled=False,
+            host_filters="examplefilter:true,example:true",
+            tenant_name="<azure_tenant_name>")
+        ```
 
         ## Import
 

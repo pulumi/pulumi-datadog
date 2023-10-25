@@ -15,6 +15,34 @@ import (
 
 // Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewIntegrationTagFilter(ctx, "foo", &aws.IntegrationTagFilterArgs{
+//				AccountId:    pulumi.String("123456789010"),
+//				Namespace:    pulumi.String("sqs"),
+//				TagFilterStr: pulumi.String("key:value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).

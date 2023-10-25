@@ -282,6 +282,19 @@ class User(pulumi.CustomResource):
         """
         Provides a Datadog user resource. This can be used to create and manage Datadog users.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new Datadog user
+        foo = datadog.User("foo",
+            email="new@example.com",
+            roles=[ro_role.id])
+        ```
+
         ## Import
 
         ```sh
@@ -304,6 +317,19 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog user resource. This can be used to create and manage Datadog users.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
+        # Create a new Datadog user
+        foo = datadog.User("foo",
+            email="new@example.com",
+            roles=[ro_role.id])
+        ```
 
         ## Import
 
