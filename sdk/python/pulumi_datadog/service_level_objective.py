@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,78 +45,29 @@ class ServiceLevelObjectiveArgs:
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
-        ServiceLevelObjectiveArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            thresholds=thresholds,
-            type=type,
-            description=description,
-            force_delete=force_delete,
-            groups=groups,
-            monitor_ids=monitor_ids,
-            query=query,
-            tags=tags,
-            target_threshold=target_threshold,
-            timeframe=timeframe,
-            validate=validate,
-            warning_threshold=warning_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             force_delete: Optional[pulumi.Input[bool]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             target_threshold: Optional[pulumi.Input[float]] = None,
-             timeframe: Optional[pulumi.Input[str]] = None,
-             validate: Optional[pulumi.Input[bool]] = None,
-             warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if thresholds is None:
-            raise TypeError("Missing 'thresholds' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if force_delete is None and 'forceDelete' in kwargs:
-            force_delete = kwargs['forceDelete']
-        if monitor_ids is None and 'monitorIds' in kwargs:
-            monitor_ids = kwargs['monitorIds']
-        if target_threshold is None and 'targetThreshold' in kwargs:
-            target_threshold = kwargs['targetThreshold']
-        if warning_threshold is None and 'warningThreshold' in kwargs:
-            warning_threshold = kwargs['warningThreshold']
-
-        _setter("name", name)
-        _setter("thresholds", thresholds)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "thresholds", thresholds)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if force_delete is not None:
-            _setter("force_delete", force_delete)
+            pulumi.set(__self__, "force_delete", force_delete)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if monitor_ids is not None:
-            _setter("monitor_ids", monitor_ids)
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_threshold is not None:
-            _setter("target_threshold", target_threshold)
+            pulumi.set(__self__, "target_threshold", target_threshold)
         if timeframe is not None:
-            _setter("timeframe", timeframe)
+            pulumi.set(__self__, "timeframe", timeframe)
         if validate is not None:
-            _setter("validate", validate)
+            pulumi.set(__self__, "validate", validate)
         if warning_threshold is not None:
-            _setter("warning_threshold", warning_threshold)
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
 
     @property
     @pulumi.getter
@@ -307,75 +258,32 @@ class _ServiceLevelObjectiveState:
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         :param pulumi.Input[float] warning_threshold: The objective's warning value in `(0,100)`. This must be greater than the target value and match the corresponding thresholds of the primary time frame.
         """
-        _ServiceLevelObjectiveState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            force_delete=force_delete,
-            groups=groups,
-            monitor_ids=monitor_ids,
-            name=name,
-            query=query,
-            tags=tags,
-            target_threshold=target_threshold,
-            thresholds=thresholds,
-            timeframe=timeframe,
-            type=type,
-            validate=validate,
-            warning_threshold=warning_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             force_delete: Optional[pulumi.Input[bool]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             target_threshold: Optional[pulumi.Input[float]] = None,
-             thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
-             timeframe: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             validate: Optional[pulumi.Input[bool]] = None,
-             warning_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if force_delete is None and 'forceDelete' in kwargs:
-            force_delete = kwargs['forceDelete']
-        if monitor_ids is None and 'monitorIds' in kwargs:
-            monitor_ids = kwargs['monitorIds']
-        if target_threshold is None and 'targetThreshold' in kwargs:
-            target_threshold = kwargs['targetThreshold']
-        if warning_threshold is None and 'warningThreshold' in kwargs:
-            warning_threshold = kwargs['warningThreshold']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if force_delete is not None:
-            _setter("force_delete", force_delete)
+            pulumi.set(__self__, "force_delete", force_delete)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if monitor_ids is not None:
-            _setter("monitor_ids", monitor_ids)
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_threshold is not None:
-            _setter("target_threshold", target_threshold)
+            pulumi.set(__self__, "target_threshold", target_threshold)
         if thresholds is not None:
-            _setter("thresholds", thresholds)
+            pulumi.set(__self__, "thresholds", thresholds)
         if timeframe is not None:
-            _setter("timeframe", timeframe)
+            pulumi.set(__self__, "timeframe", timeframe)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if validate is not None:
-            _setter("validate", validate)
+            pulumi.set(__self__, "validate", validate)
         if warning_threshold is not None:
-            _setter("warning_threshold", warning_threshold)
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
 
     @property
     @pulumi.getter
@@ -741,10 +649,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceLevelObjectiveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -779,7 +683,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            query = _utilities.configure(query, ServiceLevelObjectiveQueryArgs, True)
             __props__.__dict__["query"] = query
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_threshold"] = target_threshold

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,66 +41,25 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
         """
-        SecurityMonitoringRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cases=cases,
-            message=message,
-            name=name,
-            enabled=enabled,
-            filters=filters,
-            has_extended_title=has_extended_title,
-            options=options,
-            queries=queries,
-            signal_queries=signal_queries,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
-             has_extended_title: Optional[pulumi.Input[bool]] = None,
-             options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
-             queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
-             signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cases is None:
-            raise TypeError("Missing 'cases' argument")
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
-            has_extended_title = kwargs['hasExtendedTitle']
-        if signal_queries is None and 'signalQueries' in kwargs:
-            signal_queries = kwargs['signalQueries']
-
-        _setter("cases", cases)
-        _setter("message", message)
-        _setter("name", name)
+        pulumi.set(__self__, "cases", cases)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if has_extended_title is not None:
-            _setter("has_extended_title", has_extended_title)
+            pulumi.set(__self__, "has_extended_title", has_extended_title)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if queries is not None:
-            _setter("queries", queries)
+            pulumi.set(__self__, "queries", queries)
         if signal_queries is not None:
-            _setter("signal_queries", signal_queries)
+            pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -263,63 +222,28 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[str] type: The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
         """
-        _SecurityMonitoringRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cases=cases,
-            enabled=enabled,
-            filters=filters,
-            has_extended_title=has_extended_title,
-            message=message,
-            name=name,
-            options=options,
-            queries=queries,
-            signal_queries=signal_queries,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
-             has_extended_title: Optional[pulumi.Input[bool]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
-             queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
-             signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if has_extended_title is None and 'hasExtendedTitle' in kwargs:
-            has_extended_title = kwargs['hasExtendedTitle']
-        if signal_queries is None and 'signalQueries' in kwargs:
-            signal_queries = kwargs['signalQueries']
-
         if cases is not None:
-            _setter("cases", cases)
+            pulumi.set(__self__, "cases", cases)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if has_extended_title is not None:
-            _setter("has_extended_title", has_extended_title)
+            pulumi.set(__self__, "has_extended_title", has_extended_title)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if queries is not None:
-            _setter("queries", queries)
+            pulumi.set(__self__, "queries", queries)
         if signal_queries is not None:
-            _setter("signal_queries", signal_queries)
+            pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -597,10 +521,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityMonitoringRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -638,7 +558,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            options = _utilities.configure(options, SecurityMonitoringRuleOptionsArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["queries"] = queries
             __props__.__dict__["signal_queries"] = signal_queries

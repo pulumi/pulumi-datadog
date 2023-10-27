@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,28 +25,11 @@ class RoleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
-        RoleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-            validate=validate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
-             validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if validate is not None:
-            _setter("validate", validate)
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -99,33 +82,14 @@ class _RoleState:
         :param pulumi.Input[int] user_count: Number of users that have this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
-        _RoleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-            user_count=user_count,
-            validate=validate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RolePermissionArgs']]]] = None,
-             user_count: Optional[pulumi.Input[int]] = None,
-             validate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if user_count is None and 'userCount' in kwargs:
-            user_count = kwargs['userCount']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if user_count is not None:
-            _setter("user_count", user_count)
+            pulumi.set(__self__, "user_count", user_count)
         if validate is not None:
-            _setter("validate", validate)
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -269,10 +233,6 @@ class Role(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

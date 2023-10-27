@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -40,67 +40,24 @@ class ProviderArgs:
         :param pulumi.Input[str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
                is true. When false, api_key won't be checked.
         """
-        ProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            api_url=api_url,
-            app_key=app_key,
-            http_client_retry_backoff_base=http_client_retry_backoff_base,
-            http_client_retry_backoff_multiplier=http_client_retry_backoff_multiplier,
-            http_client_retry_enabled=http_client_retry_enabled,
-            http_client_retry_max_retries=http_client_retry_max_retries,
-            http_client_retry_timeout=http_client_retry_timeout,
-            validate=validate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             api_url: Optional[pulumi.Input[str]] = None,
-             app_key: Optional[pulumi.Input[str]] = None,
-             http_client_retry_backoff_base: Optional[pulumi.Input[int]] = None,
-             http_client_retry_backoff_multiplier: Optional[pulumi.Input[int]] = None,
-             http_client_retry_enabled: Optional[pulumi.Input[str]] = None,
-             http_client_retry_max_retries: Optional[pulumi.Input[int]] = None,
-             http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
-             validate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_url is None and 'apiUrl' in kwargs:
-            api_url = kwargs['apiUrl']
-        if app_key is None and 'appKey' in kwargs:
-            app_key = kwargs['appKey']
-        if http_client_retry_backoff_base is None and 'httpClientRetryBackoffBase' in kwargs:
-            http_client_retry_backoff_base = kwargs['httpClientRetryBackoffBase']
-        if http_client_retry_backoff_multiplier is None and 'httpClientRetryBackoffMultiplier' in kwargs:
-            http_client_retry_backoff_multiplier = kwargs['httpClientRetryBackoffMultiplier']
-        if http_client_retry_enabled is None and 'httpClientRetryEnabled' in kwargs:
-            http_client_retry_enabled = kwargs['httpClientRetryEnabled']
-        if http_client_retry_max_retries is None and 'httpClientRetryMaxRetries' in kwargs:
-            http_client_retry_max_retries = kwargs['httpClientRetryMaxRetries']
-        if http_client_retry_timeout is None and 'httpClientRetryTimeout' in kwargs:
-            http_client_retry_timeout = kwargs['httpClientRetryTimeout']
-
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if api_url is not None:
-            _setter("api_url", api_url)
+            pulumi.set(__self__, "api_url", api_url)
         if app_key is not None:
-            _setter("app_key", app_key)
+            pulumi.set(__self__, "app_key", app_key)
         if http_client_retry_backoff_base is not None:
-            _setter("http_client_retry_backoff_base", http_client_retry_backoff_base)
+            pulumi.set(__self__, "http_client_retry_backoff_base", http_client_retry_backoff_base)
         if http_client_retry_backoff_multiplier is not None:
-            _setter("http_client_retry_backoff_multiplier", http_client_retry_backoff_multiplier)
+            pulumi.set(__self__, "http_client_retry_backoff_multiplier", http_client_retry_backoff_multiplier)
         if http_client_retry_enabled is not None:
-            _setter("http_client_retry_enabled", http_client_retry_enabled)
+            pulumi.set(__self__, "http_client_retry_enabled", http_client_retry_enabled)
         if http_client_retry_max_retries is not None:
-            _setter("http_client_retry_max_retries", http_client_retry_max_retries)
+            pulumi.set(__self__, "http_client_retry_max_retries", http_client_retry_max_retries)
         if http_client_retry_timeout is not None:
-            _setter("http_client_retry_timeout", http_client_retry_timeout)
+            pulumi.set(__self__, "http_client_retry_timeout", http_client_retry_timeout)
         if validate is not None:
-            _setter("validate", validate)
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -276,10 +233,6 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

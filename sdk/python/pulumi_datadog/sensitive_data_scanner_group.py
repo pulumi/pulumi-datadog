@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,43 +29,12 @@ class SensitiveDataScannerGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
         :param pulumi.Input[str] description: Description of the Datadog scanning group.
         """
-        SensitiveDataScannerGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filter=filter,
-            is_enabled=is_enabled,
-            name=name,
-            product_lists=product_lists,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filter is None:
-            raise TypeError("Missing 'filter' argument")
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if is_enabled is None:
-            raise TypeError("Missing 'is_enabled' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if product_lists is None and 'productLists' in kwargs:
-            product_lists = kwargs['productLists']
-        if product_lists is None:
-            raise TypeError("Missing 'product_lists' argument")
-
-        _setter("filter", filter)
-        _setter("is_enabled", is_enabled)
-        _setter("name", name)
-        _setter("product_lists", product_lists)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product_lists", product_lists)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -144,39 +113,16 @@ class _SensitiveDataScannerGroupState:
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
         """
-        _SensitiveDataScannerGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            filter=filter,
-            is_enabled=is_enabled,
-            name=name,
-            product_lists=product_lists,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input['SensitiveDataScannerGroupFilterArgs']] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if product_lists is None and 'productLists' in kwargs:
-            product_lists = kwargs['productLists']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if product_lists is not None:
-            _setter("product_lists", product_lists)
+            pulumi.set(__self__, "product_lists", product_lists)
 
     @property
     @pulumi.getter
@@ -324,10 +270,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SensitiveDataScannerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -348,7 +290,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             __props__ = SensitiveDataScannerGroupArgs.__new__(SensitiveDataScannerGroupArgs)
 
             __props__.__dict__["description"] = description
-            filter = _utilities.configure(filter, SensitiveDataScannerGroupFilterArgs, True)
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter

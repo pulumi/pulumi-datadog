@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
@@ -23,30 +23,9 @@ class TeamArgs:
         :param pulumi.Input[str] handle: The team's identifier
         :param pulumi.Input[str] name: The name of the team.
         """
-        TeamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            handle=handle,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             handle: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if handle is None:
-            raise TypeError("Missing 'handle' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("description", description)
-        _setter("handle", handle)
-        _setter("name", name)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "handle", handle)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -103,43 +82,18 @@ class _TeamState:
         :param pulumi.Input[str] summary: A brief summary of the team, derived from the `description`.
         :param pulumi.Input[int] user_count: The number of users belonging to the team.
         """
-        _TeamState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            handle=handle,
-            link_count=link_count,
-            name=name,
-            summary=summary,
-            user_count=user_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             handle: Optional[pulumi.Input[str]] = None,
-             link_count: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             summary: Optional[pulumi.Input[str]] = None,
-             user_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if link_count is None and 'linkCount' in kwargs:
-            link_count = kwargs['linkCount']
-        if user_count is None and 'userCount' in kwargs:
-            user_count = kwargs['userCount']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if handle is not None:
-            _setter("handle", handle)
+            pulumi.set(__self__, "handle", handle)
         if link_count is not None:
-            _setter("link_count", link_count)
+            pulumi.set(__self__, "link_count", link_count)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
         if user_count is not None:
-            _setter("user_count", user_count)
+            pulumi.set(__self__, "user_count", user_count)
 
     @property
     @pulumi.getter
@@ -287,10 +241,6 @@ class Team(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
