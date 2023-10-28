@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceObjectArgs', 'ServiceObject']
@@ -25,38 +25,11 @@ class ServiceObjectArgs:
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         :param pulumi.Input[str] custom_url: The custom url for a custom region.
         """
-        ServiceObjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            opsgenie_api_key=opsgenie_api_key,
-            region=region,
-            custom_url=custom_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             opsgenie_api_key: Optional[pulumi.Input[str]] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             custom_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if opsgenie_api_key is None and 'opsgenieApiKey' in kwargs:
-            opsgenie_api_key = kwargs['opsgenieApiKey']
-        if opsgenie_api_key is None:
-            raise TypeError("Missing 'opsgenie_api_key' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-        if custom_url is None and 'customUrl' in kwargs:
-            custom_url = kwargs['customUrl']
-
-        _setter("name", name)
-        _setter("opsgenie_api_key", opsgenie_api_key)
-        _setter("region", region)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "opsgenie_api_key", opsgenie_api_key)
+        pulumi.set(__self__, "region", region)
         if custom_url is not None:
-            _setter("custom_url", custom_url)
+            pulumi.set(__self__, "custom_url", custom_url)
 
     @property
     @pulumi.getter
@@ -121,35 +94,14 @@ class _ServiceObjectState:
         :param pulumi.Input[str] opsgenie_api_key: The Opsgenie API key for the Opsgenie service. Note: Since the Datadog API never returns Opsgenie API keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] region: The region for the Opsgenie service. Valid values are `us`, `eu`, `custom`.
         """
-        _ServiceObjectState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_url=custom_url,
-            name=name,
-            opsgenie_api_key=opsgenie_api_key,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_url: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opsgenie_api_key: Optional[pulumi.Input[str]] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_url is None and 'customUrl' in kwargs:
-            custom_url = kwargs['customUrl']
-        if opsgenie_api_key is None and 'opsgenieApiKey' in kwargs:
-            opsgenie_api_key = kwargs['opsgenieApiKey']
-
         if custom_url is not None:
-            _setter("custom_url", custom_url)
+            pulumi.set(__self__, "custom_url", custom_url)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if opsgenie_api_key is not None:
-            _setter("opsgenie_api_key", opsgenie_api_key)
+            pulumi.set(__self__, "opsgenie_api_key", opsgenie_api_key)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="customUrl")
@@ -271,10 +223,6 @@ class ServiceObject(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceObjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

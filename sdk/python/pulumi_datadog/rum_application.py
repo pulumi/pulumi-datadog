@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RumApplicationArgs', 'RumApplication']
@@ -21,24 +21,9 @@ class RumApplicationArgs:
         :param pulumi.Input[str] name: The name of the RUM application
         :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
         """
-        RumApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -77,29 +62,12 @@ class _RumApplicationState:
         :param pulumi.Input[str] name: The name of the RUM application
         :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
         """
-        _RumApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_token=client_token,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_token: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_token is None and 'clientToken' in kwargs:
-            client_token = kwargs['clientToken']
-
         if client_token is not None:
-            _setter("client_token", client_token)
+            pulumi.set(__self__, "client_token", client_token)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="clientToken")
@@ -207,10 +175,6 @@ class RumApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RumApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

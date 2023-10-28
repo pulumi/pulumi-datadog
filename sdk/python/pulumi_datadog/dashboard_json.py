@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DashboardJsonArgs', 'DashboardJson']
@@ -24,30 +24,11 @@ class DashboardJsonArgs:
                dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
-        DashboardJsonArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dashboard=dashboard,
-            dashboard_lists=dashboard_lists,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dashboard: Optional[pulumi.Input[str]] = None,
-             dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dashboard is None:
-            raise TypeError("Missing 'dashboard' argument")
-        if dashboard_lists is None and 'dashboardLists' in kwargs:
-            dashboard_lists = kwargs['dashboardLists']
-
-        _setter("dashboard", dashboard)
+        pulumi.set(__self__, "dashboard", dashboard)
         if dashboard_lists is not None:
-            _setter("dashboard_lists", dashboard_lists)
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -102,35 +83,14 @@ class _DashboardJsonState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
-        _DashboardJsonState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dashboard=dashboard,
-            dashboard_lists=dashboard_lists,
-            dashboard_lists_removeds=dashboard_lists_removeds,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dashboard: Optional[pulumi.Input[str]] = None,
-             dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dashboard_lists is None and 'dashboardLists' in kwargs:
-            dashboard_lists = kwargs['dashboardLists']
-        if dashboard_lists_removeds is None and 'dashboardListsRemoveds' in kwargs:
-            dashboard_lists_removeds = kwargs['dashboardListsRemoveds']
-
         if dashboard is not None:
-            _setter("dashboard", dashboard)
+            pulumi.set(__self__, "dashboard", dashboard)
         if dashboard_lists is not None:
-            _setter("dashboard_lists", dashboard_lists)
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if dashboard_lists_removeds is not None:
-            _setter("dashboard_lists_removeds", dashboard_lists_removeds)
+            pulumi.set(__self__, "dashboard_lists_removeds", dashboard_lists_removeds)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1224,10 +1184,6 @@ class DashboardJson(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DashboardJsonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

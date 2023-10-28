@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,44 +29,13 @@ class SecurityMonitoringFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
         :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`.
         """
-        SecurityMonitoringFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-            name=name,
-            query=query,
-            exclusion_filters=exclusion_filters,
-            filtered_data_type=filtered_data_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
-             filtered_data_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if is_enabled is None:
-            raise TypeError("Missing 'is_enabled' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-        if exclusion_filters is None and 'exclusionFilters' in kwargs:
-            exclusion_filters = kwargs['exclusionFilters']
-        if filtered_data_type is None and 'filteredDataType' in kwargs:
-            filtered_data_type = kwargs['filteredDataType']
-
-        _setter("is_enabled", is_enabled)
-        _setter("name", name)
-        _setter("query", query)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
         if exclusion_filters is not None:
-            _setter("exclusion_filters", exclusion_filters)
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if filtered_data_type is not None:
-            _setter("filtered_data_type", filtered_data_type)
+            pulumi.set(__self__, "filtered_data_type", filtered_data_type)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -147,45 +116,18 @@ class _SecurityMonitoringFilterState:
         :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
         :param pulumi.Input[int] version: The version of the security filter.
         """
-        _SecurityMonitoringFilterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exclusion_filters=exclusion_filters,
-            filtered_data_type=filtered_data_type,
-            is_enabled=is_enabled,
-            name=name,
-            query=query,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]]] = None,
-             filtered_data_type: Optional[pulumi.Input[str]] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exclusion_filters is None and 'exclusionFilters' in kwargs:
-            exclusion_filters = kwargs['exclusionFilters']
-        if filtered_data_type is None and 'filteredDataType' in kwargs:
-            filtered_data_type = kwargs['filteredDataType']
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-
         if exclusion_filters is not None:
-            _setter("exclusion_filters", exclusion_filters)
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if filtered_data_type is not None:
-            _setter("filtered_data_type", filtered_data_type)
+            pulumi.set(__self__, "filtered_data_type", filtered_data_type)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="exclusionFilters")
@@ -361,10 +303,6 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityMonitoringFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

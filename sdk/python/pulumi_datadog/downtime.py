@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,70 +41,27 @@ class DowntimeArgs:
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
         """
-        DowntimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scopes=scopes,
-            end=end,
-            end_date=end_date,
-            message=message,
-            monitor_id=monitor_id,
-            monitor_tags=monitor_tags,
-            mute_first_recovery_notification=mute_first_recovery_notification,
-            recurrence=recurrence,
-            start=start,
-            start_date=start_date,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             end: Optional[pulumi.Input[int]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             monitor_id: Optional[pulumi.Input[int]] = None,
-             monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
-             recurrence: Optional[pulumi.Input['DowntimeRecurrenceArgs']] = None,
-             start: Optional[pulumi.Input[int]] = None,
-             start_date: Optional[pulumi.Input[str]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if scopes is None:
-            raise TypeError("Missing 'scopes' argument")
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-        if monitor_id is None and 'monitorId' in kwargs:
-            monitor_id = kwargs['monitorId']
-        if monitor_tags is None and 'monitorTags' in kwargs:
-            monitor_tags = kwargs['monitorTags']
-        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
-            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-
-        _setter("scopes", scopes)
+        pulumi.set(__self__, "scopes", scopes)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if monitor_id is not None:
-            _setter("monitor_id", monitor_id)
+            pulumi.set(__self__, "monitor_id", monitor_id)
         if monitor_tags is not None:
-            _setter("monitor_tags", monitor_tags)
+            pulumi.set(__self__, "monitor_tags", monitor_tags)
         if mute_first_recovery_notification is not None:
-            _setter("mute_first_recovery_notification", mute_first_recovery_notification)
+            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
         if recurrence is not None:
-            _setter("recurrence", recurrence)
+            pulumi.set(__self__, "recurrence", recurrence)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
         if start_date is not None:
-            _setter("start_date", start_date)
+            pulumi.set(__self__, "start_date", start_date)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -273,83 +230,34 @@ class _DowntimeState:
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
         """
-        _DowntimeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            active_child_id=active_child_id,
-            disabled=disabled,
-            end=end,
-            end_date=end_date,
-            message=message,
-            monitor_id=monitor_id,
-            monitor_tags=monitor_tags,
-            mute_first_recovery_notification=mute_first_recovery_notification,
-            recurrence=recurrence,
-            scopes=scopes,
-            start=start,
-            start_date=start_date,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             active_child_id: Optional[pulumi.Input[int]] = None,
-             disabled: Optional[pulumi.Input[bool]] = None,
-             end: Optional[pulumi.Input[int]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             monitor_id: Optional[pulumi.Input[int]] = None,
-             monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
-             recurrence: Optional[pulumi.Input['DowntimeRecurrenceArgs']] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             start: Optional[pulumi.Input[int]] = None,
-             start_date: Optional[pulumi.Input[str]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active_child_id is None and 'activeChildId' in kwargs:
-            active_child_id = kwargs['activeChildId']
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-        if monitor_id is None and 'monitorId' in kwargs:
-            monitor_id = kwargs['monitorId']
-        if monitor_tags is None and 'monitorTags' in kwargs:
-            monitor_tags = kwargs['monitorTags']
-        if mute_first_recovery_notification is None and 'muteFirstRecoveryNotification' in kwargs:
-            mute_first_recovery_notification = kwargs['muteFirstRecoveryNotification']
-        if start_date is None and 'startDate' in kwargs:
-            start_date = kwargs['startDate']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if active_child_id is not None:
-            _setter("active_child_id", active_child_id)
+            pulumi.set(__self__, "active_child_id", active_child_id)
         if disabled is not None:
-            _setter("disabled", disabled)
+            pulumi.set(__self__, "disabled", disabled)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if monitor_id is not None:
-            _setter("monitor_id", monitor_id)
+            pulumi.set(__self__, "monitor_id", monitor_id)
         if monitor_tags is not None:
-            _setter("monitor_tags", monitor_tags)
+            pulumi.set(__self__, "monitor_tags", monitor_tags)
         if mute_first_recovery_notification is not None:
-            _setter("mute_first_recovery_notification", mute_first_recovery_notification)
+            pulumi.set(__self__, "mute_first_recovery_notification", mute_first_recovery_notification)
         if recurrence is not None:
-            _setter("recurrence", recurrence)
+            pulumi.set(__self__, "recurrence", recurrence)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
         if start_date is not None:
-            _setter("start_date", start_date)
+            pulumi.set(__self__, "start_date", start_date)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
@@ -621,10 +529,6 @@ class Downtime(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DowntimeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -656,7 +560,6 @@ class Downtime(pulumi.CustomResource):
             __props__.__dict__["monitor_id"] = monitor_id
             __props__.__dict__["monitor_tags"] = monitor_tags
             __props__.__dict__["mute_first_recovery_notification"] = mute_first_recovery_notification
-            recurrence = _utilities.configure(recurrence, DowntimeRecurrenceArgs, True)
             __props__.__dict__["recurrence"] = recurrence
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")

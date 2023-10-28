@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['MonitorJsonArgs', 'MonitorJson']
@@ -21,24 +21,9 @@ class MonitorJsonArgs:
         :param pulumi.Input[str] monitor: The JSON formatted definition of the monitor.
         :param pulumi.Input[str] url: The URL of the monitor.
         """
-        MonitorJsonArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            monitor=monitor,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             monitor: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if monitor is None:
-            raise TypeError("Missing 'monitor' argument")
-
-        _setter("monitor", monitor)
+        pulumi.set(__self__, "monitor", monitor)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -75,23 +60,10 @@ class _MonitorJsonState:
         :param pulumi.Input[str] monitor: The JSON formatted definition of the monitor.
         :param pulumi.Input[str] url: The URL of the monitor.
         """
-        _MonitorJsonState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            monitor=monitor,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             monitor: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -229,10 +201,6 @@ class MonitorJson(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitorJsonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

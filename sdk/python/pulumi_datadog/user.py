@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -27,38 +27,15 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
         """
-        UserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            disabled=disabled,
-            name=name,
-            roles=roles,
-            send_user_invitation=send_user_invitation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             disabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             send_user_invitation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if send_user_invitation is None and 'sendUserInvitation' in kwargs:
-            send_user_invitation = kwargs['sendUserInvitation']
-
-        _setter("email", email)
+        pulumi.set(__self__, "email", email)
         if disabled is not None:
-            _setter("disabled", disabled)
+            pulumi.set(__self__, "disabled", disabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if send_user_invitation is not None:
-            _setter("send_user_invitation", send_user_invitation)
+            pulumi.set(__self__, "send_user_invitation", send_user_invitation)
 
     @property
     @pulumi.getter
@@ -141,47 +118,20 @@ class _UserState:
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
         :param pulumi.Input[bool] verified: Returns `true` if the user is verified.
         """
-        _UserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disabled=disabled,
-            email=email,
-            name=name,
-            roles=roles,
-            send_user_invitation=send_user_invitation,
-            user_invitation_id=user_invitation_id,
-            verified=verified,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disabled: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             send_user_invitation: Optional[pulumi.Input[bool]] = None,
-             user_invitation_id: Optional[pulumi.Input[str]] = None,
-             verified: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if send_user_invitation is None and 'sendUserInvitation' in kwargs:
-            send_user_invitation = kwargs['sendUserInvitation']
-        if user_invitation_id is None and 'userInvitationId' in kwargs:
-            user_invitation_id = kwargs['userInvitationId']
-
         if disabled is not None:
-            _setter("disabled", disabled)
+            pulumi.set(__self__, "disabled", disabled)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if send_user_invitation is not None:
-            _setter("send_user_invitation", send_user_invitation)
+            pulumi.set(__self__, "send_user_invitation", send_user_invitation)
         if user_invitation_id is not None:
-            _setter("user_invitation_id", user_invitation_id)
+            pulumi.set(__self__, "user_invitation_id", user_invitation_id)
         if verified is not None:
-            _setter("verified", verified)
+            pulumi.set(__self__, "verified", verified)
 
     @property
     @pulumi.getter
@@ -347,10 +297,6 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

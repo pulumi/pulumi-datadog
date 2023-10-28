@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,49 +31,16 @@ class LogsIndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """
-        LogsIndexArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filters=filters,
-            name=name,
-            daily_limit=daily_limit,
-            disable_daily_limit=disable_daily_limit,
-            exclusion_filters=exclusion_filters,
-            retention_days=retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             daily_limit: Optional[pulumi.Input[int]] = None,
-             disable_daily_limit: Optional[pulumi.Input[bool]] = None,
-             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filters is None:
-            raise TypeError("Missing 'filters' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if daily_limit is None and 'dailyLimit' in kwargs:
-            daily_limit = kwargs['dailyLimit']
-        if disable_daily_limit is None and 'disableDailyLimit' in kwargs:
-            disable_daily_limit = kwargs['disableDailyLimit']
-        if exclusion_filters is None and 'exclusionFilters' in kwargs:
-            exclusion_filters = kwargs['exclusionFilters']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-
-        _setter("filters", filters)
-        _setter("name", name)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "name", name)
         if daily_limit is not None:
-            _setter("daily_limit", daily_limit)
+            pulumi.set(__self__, "daily_limit", daily_limit)
         if disable_daily_limit is not None:
-            _setter("disable_daily_limit", disable_daily_limit)
+            pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
-            _setter("exclusion_filters", exclusion_filters)
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
 
     @property
     @pulumi.getter
@@ -166,47 +133,18 @@ class _LogsIndexState:
         :param pulumi.Input[str] name: The name of the exclusion filter.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """
-        _LogsIndexState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            daily_limit=daily_limit,
-            disable_daily_limit=disable_daily_limit,
-            exclusion_filters=exclusion_filters,
-            filters=filters,
-            name=name,
-            retention_days=retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             daily_limit: Optional[pulumi.Input[int]] = None,
-             disable_daily_limit: Optional[pulumi.Input[bool]] = None,
-             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if daily_limit is None and 'dailyLimit' in kwargs:
-            daily_limit = kwargs['dailyLimit']
-        if disable_daily_limit is None and 'disableDailyLimit' in kwargs:
-            disable_daily_limit = kwargs['disableDailyLimit']
-        if exclusion_filters is None and 'exclusionFilters' in kwargs:
-            exclusion_filters = kwargs['exclusionFilters']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-
         if daily_limit is not None:
-            _setter("daily_limit", daily_limit)
+            pulumi.set(__self__, "daily_limit", daily_limit)
         if disable_daily_limit is not None:
-            _setter("disable_daily_limit", disable_daily_limit)
+            pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
-            _setter("exclusion_filters", exclusion_filters)
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
 
     @property
     @pulumi.getter(name="dailyLimit")
@@ -398,10 +336,6 @@ class LogsIndex(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogsIndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
