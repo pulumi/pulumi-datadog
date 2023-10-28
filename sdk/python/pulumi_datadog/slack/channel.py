@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,34 +25,9 @@ class ChannelArgs:
         :param pulumi.Input[str] channel_name: Slack channel name.
         :param pulumi.Input['ChannelDisplayArgs'] display: Configuration options for what is shown in an alert event message.
         """
-        ChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            channel_name=channel_name,
-            display=display,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             channel_name: Optional[pulumi.Input[str]] = None,
-             display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if account_name is None:
-            raise TypeError("Missing 'account_name' argument")
-        if channel_name is None and 'channelName' in kwargs:
-            channel_name = kwargs['channelName']
-        if channel_name is None:
-            raise TypeError("Missing 'channel_name' argument")
-        if display is None:
-            raise TypeError("Missing 'display' argument")
-
-        _setter("account_name", account_name)
-        _setter("channel_name", channel_name)
-        _setter("display", display)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "display", display)
 
     @property
     @pulumi.getter(name="accountName")
@@ -103,31 +78,12 @@ class _ChannelState:
         :param pulumi.Input[str] channel_name: Slack channel name.
         :param pulumi.Input['ChannelDisplayArgs'] display: Configuration options for what is shown in an alert event message.
         """
-        _ChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_name=account_name,
-            channel_name=channel_name,
-            display=display,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_name: Optional[pulumi.Input[str]] = None,
-             channel_name: Optional[pulumi.Input[str]] = None,
-             display: Optional[pulumi.Input['ChannelDisplayArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_name is None and 'accountName' in kwargs:
-            account_name = kwargs['accountName']
-        if channel_name is None and 'channelName' in kwargs:
-            channel_name = kwargs['channelName']
-
         if account_name is not None:
-            _setter("account_name", account_name)
+            pulumi.set(__self__, "account_name", account_name)
         if channel_name is not None:
-            _setter("channel_name", channel_name)
+            pulumi.set(__self__, "channel_name", channel_name)
         if display is not None:
-            _setter("display", display)
+            pulumi.set(__self__, "display", display)
 
     @property
     @pulumi.getter(name="accountName")
@@ -253,10 +209,6 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -280,7 +232,6 @@ class Channel(pulumi.CustomResource):
             if channel_name is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
-            display = _utilities.configure(display, ChannelDisplayArgs, True)
             if display is None and not opts.urn:
                 raise TypeError("Missing required property 'display'")
             __props__.__dict__["display"] = display

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceObjectArgs', 'ServiceObject']
@@ -21,29 +21,8 @@ class ServiceObjectArgs:
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
-        ServiceObjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_key=service_key,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_key: Optional[pulumi.Input[str]] = None,
-             service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_key is None and 'serviceKey' in kwargs:
-            service_key = kwargs['serviceKey']
-        if service_key is None:
-            raise TypeError("Missing 'service_key' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("service_key", service_key)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "service_key", service_key)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="serviceKey")
@@ -80,27 +59,10 @@ class _ServiceObjectState:
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
-        _ServiceObjectState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_key=service_key,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_key: Optional[pulumi.Input[str]] = None,
-             service_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_key is None and 'serviceKey' in kwargs:
-            service_key = kwargs['serviceKey']
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-
         if service_key is not None:
-            _setter("service_key", service_key)
+            pulumi.set(__self__, "service_key", service_key)
         if service_name is not None:
-            _setter("service_name", service_name)
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="serviceKey")
@@ -190,10 +152,6 @@ class ServiceObject(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceObjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

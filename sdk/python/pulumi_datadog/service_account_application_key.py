@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceAccountApplicationKeyArgs', 'ServiceAccountApplicationKey']
@@ -21,27 +21,8 @@ class ServiceAccountApplicationKeyArgs:
         :param pulumi.Input[str] name: Name of the application key.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
         """
-        ServiceAccountApplicationKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            service_account_id=service_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             service_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if service_account_id is None and 'serviceAccountId' in kwargs:
-            service_account_id = kwargs['serviceAccountId']
-        if service_account_id is None:
-            raise TypeError("Missing 'service_account_id' argument")
-
-        _setter("name", name)
-        _setter("service_account_id", service_account_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_account_id", service_account_id)
 
     @property
     @pulumi.getter
@@ -84,39 +65,16 @@ class _ServiceAccountApplicationKeyState:
         :param pulumi.Input[str] name: Name of the application key.
         :param pulumi.Input[str] service_account_id: ID of the service account that owns this key.
         """
-        _ServiceAccountApplicationKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_at=created_at,
-            key=key,
-            last4=last4,
-            name=name,
-            service_account_id=service_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_at: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             last4: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if service_account_id is None and 'serviceAccountId' in kwargs:
-            service_account_id = kwargs['serviceAccountId']
-
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if last4 is not None:
-            _setter("last4", last4)
+            pulumi.set(__self__, "last4", last4)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_account_id is not None:
-            _setter("service_account_id", service_account_id)
+            pulumi.set(__self__, "service_account_id", service_account_id)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -254,10 +212,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceAccountApplicationKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

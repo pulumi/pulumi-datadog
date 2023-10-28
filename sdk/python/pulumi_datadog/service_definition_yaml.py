@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceDefinitionYamlArgs', 'ServiceDefinitionYaml']
@@ -19,22 +19,7 @@ class ServiceDefinitionYamlArgs:
         The set of arguments for constructing a ServiceDefinitionYaml resource.
         :param pulumi.Input[str] service_definition: The YAML/JSON formatted definition of the service
         """
-        ServiceDefinitionYamlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_definition=service_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_definition is None and 'serviceDefinition' in kwargs:
-            service_definition = kwargs['serviceDefinition']
-        if service_definition is None:
-            raise TypeError("Missing 'service_definition' argument")
-
-        _setter("service_definition", service_definition)
+        pulumi.set(__self__, "service_definition", service_definition)
 
     @property
     @pulumi.getter(name="serviceDefinition")
@@ -57,21 +42,8 @@ class _ServiceDefinitionYamlState:
         Input properties used for looking up and filtering ServiceDefinitionYaml resources.
         :param pulumi.Input[str] service_definition: The YAML/JSON formatted definition of the service
         """
-        _ServiceDefinitionYamlState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_definition=service_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_definition is None and 'serviceDefinition' in kwargs:
-            service_definition = kwargs['serviceDefinition']
-
         if service_definition is not None:
-            _setter("service_definition", service_definition)
+            pulumi.set(__self__, "service_definition", service_definition)
 
     @property
     @pulumi.getter(name="serviceDefinition")
@@ -355,10 +327,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceDefinitionYamlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

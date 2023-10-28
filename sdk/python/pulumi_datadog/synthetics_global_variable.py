@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,59 +37,22 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         """
-        SyntheticsGlobalVariableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            description=description,
-            options=options,
-            parse_test_id=parse_test_id,
-            parse_test_options=parse_test_options,
-            restricted_roles=restricted_roles,
-            secure=secure,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
-             parse_test_id: Optional[pulumi.Input[str]] = None,
-             parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
-             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             secure: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if parse_test_id is None and 'parseTestId' in kwargs:
-            parse_test_id = kwargs['parseTestId']
-        if parse_test_options is None and 'parseTestOptions' in kwargs:
-            parse_test_options = kwargs['parseTestOptions']
-        if restricted_roles is None and 'restrictedRoles' in kwargs:
-            restricted_roles = kwargs['restrictedRoles']
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if parse_test_id is not None:
-            _setter("parse_test_id", parse_test_id)
+            pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
-            _setter("parse_test_options", parse_test_options)
+            pulumi.set(__self__, "parse_test_options", parse_test_options)
         if restricted_roles is not None:
-            _setter("restricted_roles", restricted_roles)
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
-            _setter("secure", secure)
+            pulumi.set(__self__, "secure", secure)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -224,57 +187,24 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: Value for the parser to use, required for type `json_path` or `regex`.
         """
-        _SyntheticsGlobalVariableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name=name,
-            options=options,
-            parse_test_id=parse_test_id,
-            parse_test_options=parse_test_options,
-            restricted_roles=restricted_roles,
-            secure=secure,
-            tags=tags,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['SyntheticsGlobalVariableOptionsArgs']] = None,
-             parse_test_id: Optional[pulumi.Input[str]] = None,
-             parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
-             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             secure: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parse_test_id is None and 'parseTestId' in kwargs:
-            parse_test_id = kwargs['parseTestId']
-        if parse_test_options is None and 'parseTestOptions' in kwargs:
-            parse_test_options = kwargs['parseTestOptions']
-        if restricted_roles is None and 'restrictedRoles' in kwargs:
-            restricted_roles = kwargs['restrictedRoles']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if parse_test_id is not None:
-            _setter("parse_test_id", parse_test_id)
+            pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
-            _setter("parse_test_options", parse_test_options)
+            pulumi.set(__self__, "parse_test_options", parse_test_options)
         if restricted_roles is not None:
-            _setter("restricted_roles", restricted_roles)
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
-            _setter("secure", secure)
+            pulumi.set(__self__, "secure", secure)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -482,10 +412,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SyntheticsGlobalVariableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -513,10 +439,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            options = _utilities.configure(options, SyntheticsGlobalVariableOptionsArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["parse_test_id"] = parse_test_id
-            parse_test_options = _utilities.configure(parse_test_options, SyntheticsGlobalVariableParseTestOptionsArgs, True)
             __props__.__dict__["parse_test_options"] = parse_test_options
             __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["secure"] = secure

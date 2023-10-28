@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,61 +35,20 @@ class LogsArchiveArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
-        LogsArchiveArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            query=query,
-            azure_archive=azure_archive,
-            gcs_archive=gcs_archive,
-            include_tags=include_tags,
-            rehydration_max_scan_size_in_gb=rehydration_max_scan_size_in_gb,
-            rehydration_tags=rehydration_tags,
-            s3_archive=s3_archive,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-             gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
-             include_tags: Optional[pulumi.Input[bool]] = None,
-             rehydration_max_scan_size_in_gb: Optional[pulumi.Input[int]] = None,
-             rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-        if azure_archive is None and 'azureArchive' in kwargs:
-            azure_archive = kwargs['azureArchive']
-        if gcs_archive is None and 'gcsArchive' in kwargs:
-            gcs_archive = kwargs['gcsArchive']
-        if include_tags is None and 'includeTags' in kwargs:
-            include_tags = kwargs['includeTags']
-        if rehydration_max_scan_size_in_gb is None and 'rehydrationMaxScanSizeInGb' in kwargs:
-            rehydration_max_scan_size_in_gb = kwargs['rehydrationMaxScanSizeInGb']
-        if rehydration_tags is None and 'rehydrationTags' in kwargs:
-            rehydration_tags = kwargs['rehydrationTags']
-        if s3_archive is None and 's3Archive' in kwargs:
-            s3_archive = kwargs['s3Archive']
-
-        _setter("name", name)
-        _setter("query", query)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
         if azure_archive is not None:
-            _setter("azure_archive", azure_archive)
+            pulumi.set(__self__, "azure_archive", azure_archive)
         if gcs_archive is not None:
-            _setter("gcs_archive", gcs_archive)
+            pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
-            _setter("include_tags", include_tags)
+            pulumi.set(__self__, "include_tags", include_tags)
         if rehydration_max_scan_size_in_gb is not None:
-            _setter("rehydration_max_scan_size_in_gb", rehydration_max_scan_size_in_gb)
+            pulumi.set(__self__, "rehydration_max_scan_size_in_gb", rehydration_max_scan_size_in_gb)
         if rehydration_tags is not None:
-            _setter("rehydration_tags", rehydration_tags)
+            pulumi.set(__self__, "rehydration_tags", rehydration_tags)
         if s3_archive is not None:
-            _setter("s3_archive", s3_archive)
+            pulumi.set(__self__, "s3_archive", s3_archive)
 
     @property
     @pulumi.getter
@@ -210,59 +169,22 @@ class _LogsArchiveState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
-        _LogsArchiveState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azure_archive=azure_archive,
-            gcs_archive=gcs_archive,
-            include_tags=include_tags,
-            name=name,
-            query=query,
-            rehydration_max_scan_size_in_gb=rehydration_max_scan_size_in_gb,
-            rehydration_tags=rehydration_tags,
-            s3_archive=s3_archive,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-             gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
-             include_tags: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query: Optional[pulumi.Input[str]] = None,
-             rehydration_max_scan_size_in_gb: Optional[pulumi.Input[int]] = None,
-             rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azure_archive is None and 'azureArchive' in kwargs:
-            azure_archive = kwargs['azureArchive']
-        if gcs_archive is None and 'gcsArchive' in kwargs:
-            gcs_archive = kwargs['gcsArchive']
-        if include_tags is None and 'includeTags' in kwargs:
-            include_tags = kwargs['includeTags']
-        if rehydration_max_scan_size_in_gb is None and 'rehydrationMaxScanSizeInGb' in kwargs:
-            rehydration_max_scan_size_in_gb = kwargs['rehydrationMaxScanSizeInGb']
-        if rehydration_tags is None and 'rehydrationTags' in kwargs:
-            rehydration_tags = kwargs['rehydrationTags']
-        if s3_archive is None and 's3Archive' in kwargs:
-            s3_archive = kwargs['s3Archive']
-
         if azure_archive is not None:
-            _setter("azure_archive", azure_archive)
+            pulumi.set(__self__, "azure_archive", azure_archive)
         if gcs_archive is not None:
-            _setter("gcs_archive", gcs_archive)
+            pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
-            _setter("include_tags", include_tags)
+            pulumi.set(__self__, "include_tags", include_tags)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
         if rehydration_max_scan_size_in_gb is not None:
-            _setter("rehydration_max_scan_size_in_gb", rehydration_max_scan_size_in_gb)
+            pulumi.set(__self__, "rehydration_max_scan_size_in_gb", rehydration_max_scan_size_in_gb)
         if rehydration_tags is not None:
-            _setter("rehydration_tags", rehydration_tags)
+            pulumi.set(__self__, "rehydration_tags", rehydration_tags)
         if s3_archive is not None:
-            _setter("s3_archive", s3_archive)
+            pulumi.set(__self__, "s3_archive", s3_archive)
 
     @property
     @pulumi.getter(name="azureArchive")
@@ -454,10 +376,6 @@ class LogsArchive(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogsArchiveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -480,9 +398,7 @@ class LogsArchive(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogsArchiveArgs.__new__(LogsArchiveArgs)
 
-            azure_archive = _utilities.configure(azure_archive, LogsArchiveAzureArchiveArgs, True)
             __props__.__dict__["azure_archive"] = azure_archive
-            gcs_archive = _utilities.configure(gcs_archive, LogsArchiveGcsArchiveArgs, True)
             __props__.__dict__["gcs_archive"] = gcs_archive
             __props__.__dict__["include_tags"] = include_tags
             if name is None and not opts.urn:
@@ -493,7 +409,6 @@ class LogsArchive(pulumi.CustomResource):
             __props__.__dict__["query"] = query
             __props__.__dict__["rehydration_max_scan_size_in_gb"] = rehydration_max_scan_size_in_gb
             __props__.__dict__["rehydration_tags"] = rehydration_tags
-            s3_archive = _utilities.configure(s3_archive, LogsArchiveS3ArchiveArgs, True)
             __props__.__dict__["s3_archive"] = s3_archive
         super(LogsArchive, __self__).__init__(
             'datadog:index/logsArchive:LogsArchive',

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -39,81 +39,28 @@ class IntegrationArgs:
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
-        IntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_key_id=access_key_id,
-            account_id=account_id,
-            account_specific_namespace_rules=account_specific_namespace_rules,
-            cspm_resource_collection_enabled=cspm_resource_collection_enabled,
-            excluded_regions=excluded_regions,
-            filter_tags=filter_tags,
-            host_tags=host_tags,
-            metrics_collection_enabled=metrics_collection_enabled,
-            resource_collection_enabled=resource_collection_enabled,
-            role_name=role_name,
-            secret_access_key=secret_access_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_key_id: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
-             excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
-             resource_collection_enabled: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             secret_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_key_id is None and 'accessKeyId' in kwargs:
-            access_key_id = kwargs['accessKeyId']
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_specific_namespace_rules is None and 'accountSpecificNamespaceRules' in kwargs:
-            account_specific_namespace_rules = kwargs['accountSpecificNamespaceRules']
-        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
-            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
-        if excluded_regions is None and 'excludedRegions' in kwargs:
-            excluded_regions = kwargs['excludedRegions']
-        if filter_tags is None and 'filterTags' in kwargs:
-            filter_tags = kwargs['filterTags']
-        if host_tags is None and 'hostTags' in kwargs:
-            host_tags = kwargs['hostTags']
-        if metrics_collection_enabled is None and 'metricsCollectionEnabled' in kwargs:
-            metrics_collection_enabled = kwargs['metricsCollectionEnabled']
-        if resource_collection_enabled is None and 'resourceCollectionEnabled' in kwargs:
-            resource_collection_enabled = kwargs['resourceCollectionEnabled']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if secret_access_key is None and 'secretAccessKey' in kwargs:
-            secret_access_key = kwargs['secretAccessKey']
-
         if access_key_id is not None:
-            _setter("access_key_id", access_key_id)
+            pulumi.set(__self__, "access_key_id", access_key_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
-            _setter("account_specific_namespace_rules", account_specific_namespace_rules)
+            pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
         if cspm_resource_collection_enabled is not None:
-            _setter("cspm_resource_collection_enabled", cspm_resource_collection_enabled)
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if excluded_regions is not None:
-            _setter("excluded_regions", excluded_regions)
+            pulumi.set(__self__, "excluded_regions", excluded_regions)
         if filter_tags is not None:
-            _setter("filter_tags", filter_tags)
+            pulumi.set(__self__, "filter_tags", filter_tags)
         if host_tags is not None:
-            _setter("host_tags", host_tags)
+            pulumi.set(__self__, "host_tags", host_tags)
         if metrics_collection_enabled is not None:
-            _setter("metrics_collection_enabled", metrics_collection_enabled)
+            pulumi.set(__self__, "metrics_collection_enabled", metrics_collection_enabled)
         if resource_collection_enabled is not None:
-            _setter("resource_collection_enabled", resource_collection_enabled)
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if secret_access_key is not None:
-            _setter("secret_access_key", secret_access_key)
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -279,87 +226,30 @@ class _IntegrationState:
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
-        _IntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_key_id=access_key_id,
-            account_id=account_id,
-            account_specific_namespace_rules=account_specific_namespace_rules,
-            cspm_resource_collection_enabled=cspm_resource_collection_enabled,
-            excluded_regions=excluded_regions,
-            external_id=external_id,
-            filter_tags=filter_tags,
-            host_tags=host_tags,
-            metrics_collection_enabled=metrics_collection_enabled,
-            resource_collection_enabled=resource_collection_enabled,
-            role_name=role_name,
-            secret_access_key=secret_access_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_key_id: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             cspm_resource_collection_enabled: Optional[pulumi.Input[str]] = None,
-             excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             external_id: Optional[pulumi.Input[str]] = None,
-             filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             metrics_collection_enabled: Optional[pulumi.Input[str]] = None,
-             resource_collection_enabled: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             secret_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_key_id is None and 'accessKeyId' in kwargs:
-            access_key_id = kwargs['accessKeyId']
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_specific_namespace_rules is None and 'accountSpecificNamespaceRules' in kwargs:
-            account_specific_namespace_rules = kwargs['accountSpecificNamespaceRules']
-        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
-            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
-        if excluded_regions is None and 'excludedRegions' in kwargs:
-            excluded_regions = kwargs['excludedRegions']
-        if external_id is None and 'externalId' in kwargs:
-            external_id = kwargs['externalId']
-        if filter_tags is None and 'filterTags' in kwargs:
-            filter_tags = kwargs['filterTags']
-        if host_tags is None and 'hostTags' in kwargs:
-            host_tags = kwargs['hostTags']
-        if metrics_collection_enabled is None and 'metricsCollectionEnabled' in kwargs:
-            metrics_collection_enabled = kwargs['metricsCollectionEnabled']
-        if resource_collection_enabled is None and 'resourceCollectionEnabled' in kwargs:
-            resource_collection_enabled = kwargs['resourceCollectionEnabled']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if secret_access_key is None and 'secretAccessKey' in kwargs:
-            secret_access_key = kwargs['secretAccessKey']
-
         if access_key_id is not None:
-            _setter("access_key_id", access_key_id)
+            pulumi.set(__self__, "access_key_id", access_key_id)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
-            _setter("account_specific_namespace_rules", account_specific_namespace_rules)
+            pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
         if cspm_resource_collection_enabled is not None:
-            _setter("cspm_resource_collection_enabled", cspm_resource_collection_enabled)
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if excluded_regions is not None:
-            _setter("excluded_regions", excluded_regions)
+            pulumi.set(__self__, "excluded_regions", excluded_regions)
         if external_id is not None:
-            _setter("external_id", external_id)
+            pulumi.set(__self__, "external_id", external_id)
         if filter_tags is not None:
-            _setter("filter_tags", filter_tags)
+            pulumi.set(__self__, "filter_tags", filter_tags)
         if host_tags is not None:
-            _setter("host_tags", host_tags)
+            pulumi.set(__self__, "host_tags", host_tags)
         if metrics_collection_enabled is not None:
-            _setter("metrics_collection_enabled", metrics_collection_enabled)
+            pulumi.set(__self__, "metrics_collection_enabled", metrics_collection_enabled)
         if resource_collection_enabled is not None:
-            _setter("resource_collection_enabled", resource_collection_enabled)
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if secret_access_key is not None:
-            _setter("secret_access_key", secret_access_key)
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -626,10 +516,6 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamLinkArgs', 'TeamLink']
@@ -25,36 +25,11 @@ class TeamLinkArgs:
         :param pulumi.Input[str] url: The URL for the link.
         :param pulumi.Input[int] position: The link's position, used to sort links for the team.
         """
-        TeamLinkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label=label,
-            team_id=team_id,
-            url=url,
-            position=position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label: Optional[pulumi.Input[str]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             position: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if label is None:
-            raise TypeError("Missing 'label' argument")
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("label", label)
-        _setter("team_id", team_id)
-        _setter("url", url)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "team_id", team_id)
+        pulumi.set(__self__, "url", url)
         if position is not None:
-            _setter("position", position)
+            pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter
@@ -119,33 +94,14 @@ class _TeamLinkState:
         :param pulumi.Input[str] team_id: ID of the team the link is associated with.
         :param pulumi.Input[str] url: The URL for the link.
         """
-        _TeamLinkState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label=label,
-            position=position,
-            team_id=team_id,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label: Optional[pulumi.Input[str]] = None,
-             position: Optional[pulumi.Input[int]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-
         if label is not None:
-            _setter("label", label)
+            pulumi.set(__self__, "label", label)
         if position is not None:
-            _setter("position", position)
+            pulumi.set(__self__, "position", position)
         if team_id is not None:
-            _setter("team_id", team_id)
+            pulumi.set(__self__, "team_id", team_id)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -283,10 +239,6 @@ class TeamLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

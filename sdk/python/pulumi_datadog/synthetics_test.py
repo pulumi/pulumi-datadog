@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,135 +62,46 @@ class SyntheticsTestArgs:
         :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         """
-        SyntheticsTestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            locations=locations,
-            name=name,
-            status=status,
-            type=type,
-            api_steps=api_steps,
-            assertions=assertions,
-            browser_steps=browser_steps,
-            browser_variables=browser_variables,
-            config_variables=config_variables,
-            device_ids=device_ids,
-            message=message,
-            options_list=options_list,
-            request_basicauth=request_basicauth,
-            request_client_certificate=request_client_certificate,
-            request_definition=request_definition,
-            request_headers=request_headers,
-            request_metadata=request_metadata,
-            request_proxy=request_proxy,
-            request_query=request_query,
-            set_cookie=set_cookie,
-            subtype=subtype,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
-             assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
-             browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
-             browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
-             config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
-             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
-             request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
-             request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
-             request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
-             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
-             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             set_cookie: Optional[pulumi.Input[str]] = None,
-             subtype: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if locations is None:
-            raise TypeError("Missing 'locations' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if api_steps is None and 'apiSteps' in kwargs:
-            api_steps = kwargs['apiSteps']
-        if browser_steps is None and 'browserSteps' in kwargs:
-            browser_steps = kwargs['browserSteps']
-        if browser_variables is None and 'browserVariables' in kwargs:
-            browser_variables = kwargs['browserVariables']
-        if config_variables is None and 'configVariables' in kwargs:
-            config_variables = kwargs['configVariables']
-        if device_ids is None and 'deviceIds' in kwargs:
-            device_ids = kwargs['deviceIds']
-        if options_list is None and 'optionsList' in kwargs:
-            options_list = kwargs['optionsList']
-        if request_basicauth is None and 'requestBasicauth' in kwargs:
-            request_basicauth = kwargs['requestBasicauth']
-        if request_client_certificate is None and 'requestClientCertificate' in kwargs:
-            request_client_certificate = kwargs['requestClientCertificate']
-        if request_definition is None and 'requestDefinition' in kwargs:
-            request_definition = kwargs['requestDefinition']
-        if request_headers is None and 'requestHeaders' in kwargs:
-            request_headers = kwargs['requestHeaders']
-        if request_metadata is None and 'requestMetadata' in kwargs:
-            request_metadata = kwargs['requestMetadata']
-        if request_proxy is None and 'requestProxy' in kwargs:
-            request_proxy = kwargs['requestProxy']
-        if request_query is None and 'requestQuery' in kwargs:
-            request_query = kwargs['requestQuery']
-        if set_cookie is None and 'setCookie' in kwargs:
-            set_cookie = kwargs['setCookie']
-
-        _setter("locations", locations)
-        _setter("name", name)
-        _setter("status", status)
-        _setter("type", type)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
         if api_steps is not None:
-            _setter("api_steps", api_steps)
+            pulumi.set(__self__, "api_steps", api_steps)
         if assertions is not None:
-            _setter("assertions", assertions)
+            pulumi.set(__self__, "assertions", assertions)
         if browser_steps is not None:
-            _setter("browser_steps", browser_steps)
+            pulumi.set(__self__, "browser_steps", browser_steps)
         if browser_variables is not None:
-            _setter("browser_variables", browser_variables)
+            pulumi.set(__self__, "browser_variables", browser_variables)
         if config_variables is not None:
-            _setter("config_variables", config_variables)
+            pulumi.set(__self__, "config_variables", config_variables)
         if device_ids is not None:
-            _setter("device_ids", device_ids)
+            pulumi.set(__self__, "device_ids", device_ids)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if options_list is not None:
-            _setter("options_list", options_list)
+            pulumi.set(__self__, "options_list", options_list)
         if request_basicauth is not None:
-            _setter("request_basicauth", request_basicauth)
+            pulumi.set(__self__, "request_basicauth", request_basicauth)
         if request_client_certificate is not None:
-            _setter("request_client_certificate", request_client_certificate)
+            pulumi.set(__self__, "request_client_certificate", request_client_certificate)
         if request_definition is not None:
-            _setter("request_definition", request_definition)
+            pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
-            _setter("request_headers", request_headers)
+            pulumi.set(__self__, "request_headers", request_headers)
         if request_metadata is not None:
-            _setter("request_metadata", request_metadata)
+            pulumi.set(__self__, "request_metadata", request_metadata)
         if request_proxy is not None:
-            _setter("request_proxy", request_proxy)
+            pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
-            _setter("request_query", request_query)
+            pulumi.set(__self__, "request_query", request_query)
         if set_cookie is not None:
-            _setter("set_cookie", set_cookie)
+            pulumi.set(__self__, "set_cookie", set_cookie)
         if subtype is not None:
-            _setter("subtype", subtype)
+            pulumi.set(__self__, "subtype", subtype)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -505,137 +416,52 @@ class _SyntheticsTestState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         """
-        _SyntheticsTestState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_steps=api_steps,
-            assertions=assertions,
-            browser_steps=browser_steps,
-            browser_variables=browser_variables,
-            config_variables=config_variables,
-            device_ids=device_ids,
-            locations=locations,
-            message=message,
-            monitor_id=monitor_id,
-            name=name,
-            options_list=options_list,
-            request_basicauth=request_basicauth,
-            request_client_certificate=request_client_certificate,
-            request_definition=request_definition,
-            request_headers=request_headers,
-            request_metadata=request_metadata,
-            request_proxy=request_proxy,
-            request_query=request_query,
-            set_cookie=set_cookie,
-            status=status,
-            subtype=subtype,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepArgs']]]] = None,
-             assertions: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestAssertionArgs']]]] = None,
-             browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserStepArgs']]]] = None,
-             browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
-             config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
-             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             monitor_id: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
-             request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
-             request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
-             request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
-             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             request_proxy: Optional[pulumi.Input['SyntheticsTestRequestProxyArgs']] = None,
-             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-             set_cookie: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             subtype: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_steps is None and 'apiSteps' in kwargs:
-            api_steps = kwargs['apiSteps']
-        if browser_steps is None and 'browserSteps' in kwargs:
-            browser_steps = kwargs['browserSteps']
-        if browser_variables is None and 'browserVariables' in kwargs:
-            browser_variables = kwargs['browserVariables']
-        if config_variables is None and 'configVariables' in kwargs:
-            config_variables = kwargs['configVariables']
-        if device_ids is None and 'deviceIds' in kwargs:
-            device_ids = kwargs['deviceIds']
-        if monitor_id is None and 'monitorId' in kwargs:
-            monitor_id = kwargs['monitorId']
-        if options_list is None and 'optionsList' in kwargs:
-            options_list = kwargs['optionsList']
-        if request_basicauth is None and 'requestBasicauth' in kwargs:
-            request_basicauth = kwargs['requestBasicauth']
-        if request_client_certificate is None and 'requestClientCertificate' in kwargs:
-            request_client_certificate = kwargs['requestClientCertificate']
-        if request_definition is None and 'requestDefinition' in kwargs:
-            request_definition = kwargs['requestDefinition']
-        if request_headers is None and 'requestHeaders' in kwargs:
-            request_headers = kwargs['requestHeaders']
-        if request_metadata is None and 'requestMetadata' in kwargs:
-            request_metadata = kwargs['requestMetadata']
-        if request_proxy is None and 'requestProxy' in kwargs:
-            request_proxy = kwargs['requestProxy']
-        if request_query is None and 'requestQuery' in kwargs:
-            request_query = kwargs['requestQuery']
-        if set_cookie is None and 'setCookie' in kwargs:
-            set_cookie = kwargs['setCookie']
-
         if api_steps is not None:
-            _setter("api_steps", api_steps)
+            pulumi.set(__self__, "api_steps", api_steps)
         if assertions is not None:
-            _setter("assertions", assertions)
+            pulumi.set(__self__, "assertions", assertions)
         if browser_steps is not None:
-            _setter("browser_steps", browser_steps)
+            pulumi.set(__self__, "browser_steps", browser_steps)
         if browser_variables is not None:
-            _setter("browser_variables", browser_variables)
+            pulumi.set(__self__, "browser_variables", browser_variables)
         if config_variables is not None:
-            _setter("config_variables", config_variables)
+            pulumi.set(__self__, "config_variables", config_variables)
         if device_ids is not None:
-            _setter("device_ids", device_ids)
+            pulumi.set(__self__, "device_ids", device_ids)
         if locations is not None:
-            _setter("locations", locations)
+            pulumi.set(__self__, "locations", locations)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if monitor_id is not None:
-            _setter("monitor_id", monitor_id)
+            pulumi.set(__self__, "monitor_id", monitor_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if options_list is not None:
-            _setter("options_list", options_list)
+            pulumi.set(__self__, "options_list", options_list)
         if request_basicauth is not None:
-            _setter("request_basicauth", request_basicauth)
+            pulumi.set(__self__, "request_basicauth", request_basicauth)
         if request_client_certificate is not None:
-            _setter("request_client_certificate", request_client_certificate)
+            pulumi.set(__self__, "request_client_certificate", request_client_certificate)
         if request_definition is not None:
-            _setter("request_definition", request_definition)
+            pulumi.set(__self__, "request_definition", request_definition)
         if request_headers is not None:
-            _setter("request_headers", request_headers)
+            pulumi.set(__self__, "request_headers", request_headers)
         if request_metadata is not None:
-            _setter("request_metadata", request_metadata)
+            pulumi.set(__self__, "request_metadata", request_metadata)
         if request_proxy is not None:
-            _setter("request_proxy", request_proxy)
+            pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
-            _setter("request_query", request_query)
+            pulumi.set(__self__, "request_query", request_query)
         if set_cookie is not None:
-            _setter("set_cookie", set_cookie)
+            pulumi.set(__self__, "set_cookie", set_cookie)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if subtype is not None:
-            _setter("subtype", subtype)
+            pulumi.set(__self__, "subtype", subtype)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="apiSteps")
@@ -1561,10 +1387,6 @@ class SyntheticsTest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SyntheticsTestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1614,17 +1436,12 @@ class SyntheticsTest(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            options_list = _utilities.configure(options_list, SyntheticsTestOptionsListArgs, True)
             __props__.__dict__["options_list"] = options_list
-            request_basicauth = _utilities.configure(request_basicauth, SyntheticsTestRequestBasicauthArgs, True)
             __props__.__dict__["request_basicauth"] = request_basicauth
-            request_client_certificate = _utilities.configure(request_client_certificate, SyntheticsTestRequestClientCertificateArgs, True)
             __props__.__dict__["request_client_certificate"] = request_client_certificate
-            request_definition = _utilities.configure(request_definition, SyntheticsTestRequestDefinitionArgs, True)
             __props__.__dict__["request_definition"] = request_definition
             __props__.__dict__["request_headers"] = request_headers
             __props__.__dict__["request_metadata"] = request_metadata
-            request_proxy = _utilities.configure(request_proxy, SyntheticsTestRequestProxyArgs, True)
             __props__.__dict__["request_proxy"] = request_proxy
             __props__.__dict__["request_query"] = request_query
             __props__.__dict__["set_cookie"] = set_cookie

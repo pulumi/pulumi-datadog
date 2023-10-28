@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,20 +21,7 @@ class ChildOrganizationArgs:
         The set of arguments for constructing a ChildOrganization resource.
         :param pulumi.Input[str] name: Name for Child Organization after creation.
         """
-        ChildOrganizationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -69,49 +56,20 @@ class _ChildOrganizationState:
         :param pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]] settings: Organization settings
         :param pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]] users: Information about a user
         """
-        _ChildOrganizationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_keys=api_keys,
-            application_keys=application_keys,
-            description=description,
-            name=name,
-            public_id=public_id,
-            settings=settings,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApiKeyArgs']]]] = None,
-             application_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationApplicationKeyArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_id: Optional[pulumi.Input[str]] = None,
-             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationSettingArgs']]]] = None,
-             users: Optional[pulumi.Input[Sequence[pulumi.Input['ChildOrganizationUserArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_keys is None and 'apiKeys' in kwargs:
-            api_keys = kwargs['apiKeys']
-        if application_keys is None and 'applicationKeys' in kwargs:
-            application_keys = kwargs['applicationKeys']
-        if public_id is None and 'publicId' in kwargs:
-            public_id = kwargs['publicId']
-
         if api_keys is not None:
-            _setter("api_keys", api_keys)
+            pulumi.set(__self__, "api_keys", api_keys)
         if application_keys is not None:
-            _setter("application_keys", application_keys)
+            pulumi.set(__self__, "application_keys", application_keys)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_id is not None:
-            _setter("public_id", public_id)
+            pulumi.set(__self__, "public_id", public_id)
         if settings is not None:
-            _setter("settings", settings)
+            pulumi.set(__self__, "settings", settings)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="apiKeys")
@@ -251,10 +209,6 @@ class ChildOrganization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChildOrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,66 +39,25 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
-        SensitiveDataScannerRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_id=group_id,
-            description=description,
-            excluded_namespaces=excluded_namespaces,
-            is_enabled=is_enabled,
-            name=name,
-            namespaces=namespaces,
-            pattern=pattern,
-            standard_pattern_id=standard_pattern_id,
-            tags=tags,
-            text_replacement=text_replacement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             pattern: Optional[pulumi.Input[str]] = None,
-             standard_pattern_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_id is None and 'groupId' in kwargs:
-            group_id = kwargs['groupId']
-        if group_id is None:
-            raise TypeError("Missing 'group_id' argument")
-        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
-            excluded_namespaces = kwargs['excludedNamespaces']
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if standard_pattern_id is None and 'standardPatternId' in kwargs:
-            standard_pattern_id = kwargs['standardPatternId']
-        if text_replacement is None and 'textReplacement' in kwargs:
-            text_replacement = kwargs['textReplacement']
-
-        _setter("group_id", group_id)
+        pulumi.set(__self__, "group_id", group_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if excluded_namespaces is not None:
-            _setter("excluded_namespaces", excluded_namespaces)
+            pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespaces is not None:
-            _setter("namespaces", namespaces)
+            pulumi.set(__self__, "namespaces", namespaces)
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
         if standard_pattern_id is not None:
-            _setter("standard_pattern_id", standard_pattern_id)
+            pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
-            _setter("text_replacement", text_replacement)
+            pulumi.set(__self__, "text_replacement", text_replacement)
 
     @property
     @pulumi.getter(name="groupId")
@@ -247,65 +206,26 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
-        _SensitiveDataScannerRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            excluded_namespaces=excluded_namespaces,
-            group_id=group_id,
-            is_enabled=is_enabled,
-            name=name,
-            namespaces=namespaces,
-            pattern=pattern,
-            standard_pattern_id=standard_pattern_id,
-            tags=tags,
-            text_replacement=text_replacement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             group_id: Optional[pulumi.Input[str]] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             pattern: Optional[pulumi.Input[str]] = None,
-             standard_pattern_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if excluded_namespaces is None and 'excludedNamespaces' in kwargs:
-            excluded_namespaces = kwargs['excludedNamespaces']
-        if group_id is None and 'groupId' in kwargs:
-            group_id = kwargs['groupId']
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if standard_pattern_id is None and 'standardPatternId' in kwargs:
-            standard_pattern_id = kwargs['standardPatternId']
-        if text_replacement is None and 'textReplacement' in kwargs:
-            text_replacement = kwargs['textReplacement']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if excluded_namespaces is not None:
-            _setter("excluded_namespaces", excluded_namespaces)
+            pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
         if group_id is not None:
-            _setter("group_id", group_id)
+            pulumi.set(__self__, "group_id", group_id)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespaces is not None:
-            _setter("namespaces", namespaces)
+            pulumi.set(__self__, "namespaces", namespaces)
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
         if standard_pattern_id is not None:
-            _setter("standard_pattern_id", standard_pattern_id)
+            pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
-            _setter("text_replacement", text_replacement)
+            pulumi.set(__self__, "text_replacement", text_replacement)
 
     @property
     @pulumi.getter
@@ -569,10 +489,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SensitiveDataScannerRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -608,7 +524,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             __props__.__dict__["pattern"] = pattern
             __props__.__dict__["standard_pattern_id"] = standard_pattern_id
             __props__.__dict__["tags"] = tags
-            text_replacement = _utilities.configure(text_replacement, SensitiveDataScannerRuleTextReplacementArgs, True)
             __props__.__dict__["text_replacement"] = text_replacement
         super(SensitiveDataScannerRule, __self__).__init__(
             'datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule',

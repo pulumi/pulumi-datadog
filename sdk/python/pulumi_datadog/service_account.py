@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceAccountArgs', 'ServiceAccount']
@@ -25,32 +25,13 @@ class ServiceAccountArgs:
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
         """
-        ServiceAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            disabled=disabled,
-            name=name,
-            roles=roles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             disabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-
-        _setter("email", email)
+        pulumi.set(__self__, "email", email)
         if disabled is not None:
-            _setter("disabled", disabled)
+            pulumi.set(__self__, "disabled", disabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
@@ -115,31 +96,14 @@ class _ServiceAccountState:
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
         """
-        _ServiceAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disabled=disabled,
-            email=email,
-            name=name,
-            roles=roles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disabled: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if disabled is not None:
-            _setter("disabled", disabled)
+            pulumi.set(__self__, "disabled", disabled)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
@@ -269,10 +233,6 @@ class ServiceAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

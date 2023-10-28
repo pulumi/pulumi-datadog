@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -33,66 +33,17 @@ class IntegrationArgs:
         :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
-        IntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_email=client_email,
-            client_id=client_id,
-            private_key=private_key,
-            private_key_id=private_key_id,
-            project_id=project_id,
-            automute=automute,
-            cspm_resource_collection_enabled=cspm_resource_collection_enabled,
-            host_filters=host_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_email: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             private_key_id: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             automute: Optional[pulumi.Input[bool]] = None,
-             cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
-             host_filters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_email is None and 'clientEmail' in kwargs:
-            client_email = kwargs['clientEmail']
-        if client_email is None:
-            raise TypeError("Missing 'client_email' argument")
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_id is None:
-            raise TypeError("Missing 'client_id' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-        if private_key_id is None and 'privateKeyId' in kwargs:
-            private_key_id = kwargs['privateKeyId']
-        if private_key_id is None:
-            raise TypeError("Missing 'private_key_id' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
-            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
-        if host_filters is None and 'hostFilters' in kwargs:
-            host_filters = kwargs['hostFilters']
-
-        _setter("client_email", client_email)
-        _setter("client_id", client_id)
-        _setter("private_key", private_key)
-        _setter("private_key_id", private_key_id)
-        _setter("project_id", project_id)
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "private_key_id", private_key_id)
+        pulumi.set(__self__, "project_id", project_id)
         if automute is not None:
-            _setter("automute", automute)
+            pulumi.set(__self__, "automute", automute)
         if cspm_resource_collection_enabled is not None:
-            _setter("cspm_resource_collection_enabled", cspm_resource_collection_enabled)
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
-            _setter("host_filters", host_filters)
+            pulumi.set(__self__, "host_filters", host_filters)
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -213,61 +164,22 @@ class _IntegrationState:
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         """
-        _IntegrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automute=automute,
-            client_email=client_email,
-            client_id=client_id,
-            cspm_resource_collection_enabled=cspm_resource_collection_enabled,
-            host_filters=host_filters,
-            private_key=private_key,
-            private_key_id=private_key_id,
-            project_id=project_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automute: Optional[pulumi.Input[bool]] = None,
-             client_email: Optional[pulumi.Input[str]] = None,
-             client_id: Optional[pulumi.Input[str]] = None,
-             cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
-             host_filters: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             private_key_id: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_email is None and 'clientEmail' in kwargs:
-            client_email = kwargs['clientEmail']
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if cspm_resource_collection_enabled is None and 'cspmResourceCollectionEnabled' in kwargs:
-            cspm_resource_collection_enabled = kwargs['cspmResourceCollectionEnabled']
-        if host_filters is None and 'hostFilters' in kwargs:
-            host_filters = kwargs['hostFilters']
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key_id is None and 'privateKeyId' in kwargs:
-            private_key_id = kwargs['privateKeyId']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-
         if automute is not None:
-            _setter("automute", automute)
+            pulumi.set(__self__, "automute", automute)
         if client_email is not None:
-            _setter("client_email", client_email)
+            pulumi.set(__self__, "client_email", client_email)
         if client_id is not None:
-            _setter("client_id", client_id)
+            pulumi.set(__self__, "client_id", client_id)
         if cspm_resource_collection_enabled is not None:
-            _setter("cspm_resource_collection_enabled", cspm_resource_collection_enabled)
+            pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
-            _setter("host_filters", host_filters)
+            pulumi.set(__self__, "host_filters", host_filters)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if private_key_id is not None:
-            _setter("private_key_id", private_key_id)
+            pulumi.set(__self__, "private_key_id", private_key_id)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
 
     @property
     @pulumi.getter
@@ -429,10 +341,6 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
