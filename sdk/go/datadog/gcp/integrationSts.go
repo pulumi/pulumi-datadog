@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Integration GCP Sts resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
@@ -145,12 +144,6 @@ func (i *IntegrationSts) ToIntegrationStsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationStsOutput)
 }
 
-func (i *IntegrationSts) ToOutput(ctx context.Context) pulumix.Output[*IntegrationSts] {
-	return pulumix.Output[*IntegrationSts]{
-		OutputState: i.ToIntegrationStsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationStsArrayInput is an input type that accepts IntegrationStsArray and IntegrationStsArrayOutput values.
 // You can construct a concrete instance of `IntegrationStsArrayInput` via:
 //
@@ -174,12 +167,6 @@ func (i IntegrationStsArray) ToIntegrationStsArrayOutput() IntegrationStsArrayOu
 
 func (i IntegrationStsArray) ToIntegrationStsArrayOutputWithContext(ctx context.Context) IntegrationStsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationStsArrayOutput)
-}
-
-func (i IntegrationStsArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationSts] {
-	return pulumix.Output[[]*IntegrationSts]{
-		OutputState: i.ToIntegrationStsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationStsMapInput is an input type that accepts IntegrationStsMap and IntegrationStsMapOutput values.
@@ -207,12 +194,6 @@ func (i IntegrationStsMap) ToIntegrationStsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationStsMapOutput)
 }
 
-func (i IntegrationStsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationSts] {
-	return pulumix.Output[map[string]*IntegrationSts]{
-		OutputState: i.ToIntegrationStsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationStsOutput struct{ *pulumi.OutputState }
 
 func (IntegrationStsOutput) ElementType() reflect.Type {
@@ -225,12 +206,6 @@ func (o IntegrationStsOutput) ToIntegrationStsOutput() IntegrationStsOutput {
 
 func (o IntegrationStsOutput) ToIntegrationStsOutputWithContext(ctx context.Context) IntegrationStsOutput {
 	return o
-}
-
-func (o IntegrationStsOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationSts] {
-	return pulumix.Output[*IntegrationSts]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Silence monitors for expected GCE instance shutdowns.
@@ -272,12 +247,6 @@ func (o IntegrationStsArrayOutput) ToIntegrationStsArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o IntegrationStsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationSts] {
-	return pulumix.Output[[]*IntegrationSts]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationStsArrayOutput) Index(i pulumi.IntInput) IntegrationStsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationSts {
 		return vs[0].([]*IntegrationSts)[vs[1].(int)]
@@ -296,12 +265,6 @@ func (o IntegrationStsMapOutput) ToIntegrationStsMapOutput() IntegrationStsMapOu
 
 func (o IntegrationStsMapOutput) ToIntegrationStsMapOutputWithContext(ctx context.Context) IntegrationStsMapOutput {
 	return o
-}
-
-func (o IntegrationStsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationSts] {
-	return pulumix.Output[map[string]*IntegrationSts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationStsMapOutput) MapIndex(k pulumi.StringInput) IntegrationStsOutput {

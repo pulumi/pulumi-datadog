@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
@@ -177,12 +176,6 @@ func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRuleOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOutput)
 }
 
-func (i *SecurityMonitoringDefaultRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[*SecurityMonitoringDefaultRule]{
-		OutputState: i.ToSecurityMonitoringDefaultRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityMonitoringDefaultRuleArrayInput is an input type that accepts SecurityMonitoringDefaultRuleArray and SecurityMonitoringDefaultRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityMonitoringDefaultRuleArrayInput` via:
 //
@@ -206,12 +199,6 @@ func (i SecurityMonitoringDefaultRuleArray) ToSecurityMonitoringDefaultRuleArray
 
 func (i SecurityMonitoringDefaultRuleArray) ToSecurityMonitoringDefaultRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleArrayOutput)
-}
-
-func (i SecurityMonitoringDefaultRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[[]*SecurityMonitoringDefaultRule]{
-		OutputState: i.ToSecurityMonitoringDefaultRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecurityMonitoringDefaultRuleMapInput is an input type that accepts SecurityMonitoringDefaultRuleMap and SecurityMonitoringDefaultRuleMapOutput values.
@@ -239,12 +226,6 @@ func (i SecurityMonitoringDefaultRuleMap) ToSecurityMonitoringDefaultRuleMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleMapOutput)
 }
 
-func (i SecurityMonitoringDefaultRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[map[string]*SecurityMonitoringDefaultRule]{
-		OutputState: i.ToSecurityMonitoringDefaultRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityMonitoringDefaultRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringDefaultRuleOutput) ElementType() reflect.Type {
@@ -257,12 +238,6 @@ func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutp
 
 func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOutput {
 	return o
-}
-
-func (o SecurityMonitoringDefaultRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[*SecurityMonitoringDefaultRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cases of the rule, this is used to update notifications.
@@ -306,12 +281,6 @@ func (o SecurityMonitoringDefaultRuleArrayOutput) ToSecurityMonitoringDefaultRul
 	return o
 }
 
-func (o SecurityMonitoringDefaultRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[[]*SecurityMonitoringDefaultRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityMonitoringDefaultRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityMonitoringDefaultRule {
 		return vs[0].([]*SecurityMonitoringDefaultRule)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o SecurityMonitoringDefaultRuleMapOutput) ToSecurityMonitoringDefaultRuleM
 
 func (o SecurityMonitoringDefaultRuleMapOutput) ToSecurityMonitoringDefaultRuleMapOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleMapOutput {
 	return o
-}
-
-func (o SecurityMonitoringDefaultRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityMonitoringDefaultRule] {
-	return pulumix.Output[map[string]*SecurityMonitoringDefaultRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityMonitoringDefaultRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityMonitoringDefaultRuleOutput {

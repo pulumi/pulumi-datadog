@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
@@ -173,12 +172,6 @@ func (i *CloudWorkloadSecurityAgentRule) ToCloudWorkloadSecurityAgentRuleOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CloudWorkloadSecurityAgentRuleOutput)
 }
 
-func (i *CloudWorkloadSecurityAgentRule) ToOutput(ctx context.Context) pulumix.Output[*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[*CloudWorkloadSecurityAgentRule]{
-		OutputState: i.ToCloudWorkloadSecurityAgentRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudWorkloadSecurityAgentRuleArrayInput is an input type that accepts CloudWorkloadSecurityAgentRuleArray and CloudWorkloadSecurityAgentRuleArrayOutput values.
 // You can construct a concrete instance of `CloudWorkloadSecurityAgentRuleArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i CloudWorkloadSecurityAgentRuleArray) ToCloudWorkloadSecurityAgentRuleArr
 
 func (i CloudWorkloadSecurityAgentRuleArray) ToCloudWorkloadSecurityAgentRuleArrayOutputWithContext(ctx context.Context) CloudWorkloadSecurityAgentRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudWorkloadSecurityAgentRuleArrayOutput)
-}
-
-func (i CloudWorkloadSecurityAgentRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[[]*CloudWorkloadSecurityAgentRule]{
-		OutputState: i.ToCloudWorkloadSecurityAgentRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CloudWorkloadSecurityAgentRuleMapInput is an input type that accepts CloudWorkloadSecurityAgentRuleMap and CloudWorkloadSecurityAgentRuleMapOutput values.
@@ -235,12 +222,6 @@ func (i CloudWorkloadSecurityAgentRuleMap) ToCloudWorkloadSecurityAgentRuleMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudWorkloadSecurityAgentRuleMapOutput)
 }
 
-func (i CloudWorkloadSecurityAgentRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[map[string]*CloudWorkloadSecurityAgentRule]{
-		OutputState: i.ToCloudWorkloadSecurityAgentRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudWorkloadSecurityAgentRuleOutput struct{ *pulumi.OutputState }
 
 func (CloudWorkloadSecurityAgentRuleOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o CloudWorkloadSecurityAgentRuleOutput) ToCloudWorkloadSecurityAgentRuleOu
 
 func (o CloudWorkloadSecurityAgentRuleOutput) ToCloudWorkloadSecurityAgentRuleOutputWithContext(ctx context.Context) CloudWorkloadSecurityAgentRuleOutput {
 	return o
-}
-
-func (o CloudWorkloadSecurityAgentRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[*CloudWorkloadSecurityAgentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Agent rule.
@@ -295,12 +270,6 @@ func (o CloudWorkloadSecurityAgentRuleArrayOutput) ToCloudWorkloadSecurityAgentR
 	return o
 }
 
-func (o CloudWorkloadSecurityAgentRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[[]*CloudWorkloadSecurityAgentRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudWorkloadSecurityAgentRuleArrayOutput) Index(i pulumi.IntInput) CloudWorkloadSecurityAgentRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CloudWorkloadSecurityAgentRule {
 		return vs[0].([]*CloudWorkloadSecurityAgentRule)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o CloudWorkloadSecurityAgentRuleMapOutput) ToCloudWorkloadSecurityAgentRul
 
 func (o CloudWorkloadSecurityAgentRuleMapOutput) ToCloudWorkloadSecurityAgentRuleMapOutputWithContext(ctx context.Context) CloudWorkloadSecurityAgentRuleMapOutput {
 	return o
-}
-
-func (o CloudWorkloadSecurityAgentRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudWorkloadSecurityAgentRule] {
-	return pulumix.Output[map[string]*CloudWorkloadSecurityAgentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudWorkloadSecurityAgentRuleMapOutput) MapIndex(k pulumi.StringInput) CloudWorkloadSecurityAgentRuleOutput {

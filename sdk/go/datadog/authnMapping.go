@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog AuthN Mappings resource. This feature lets you automatically assign roles to users based on their SAML attributes.
@@ -171,12 +170,6 @@ func (i *AuthnMapping) ToAuthnMappingOutputWithContext(ctx context.Context) Auth
 	return pulumi.ToOutputWithContext(ctx, i).(AuthnMappingOutput)
 }
 
-func (i *AuthnMapping) ToOutput(ctx context.Context) pulumix.Output[*AuthnMapping] {
-	return pulumix.Output[*AuthnMapping]{
-		OutputState: i.ToAuthnMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AuthnMappingArrayInput is an input type that accepts AuthnMappingArray and AuthnMappingArrayOutput values.
 // You can construct a concrete instance of `AuthnMappingArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i AuthnMappingArray) ToAuthnMappingArrayOutput() AuthnMappingArrayOutput {
 
 func (i AuthnMappingArray) ToAuthnMappingArrayOutputWithContext(ctx context.Context) AuthnMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthnMappingArrayOutput)
-}
-
-func (i AuthnMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthnMapping] {
-	return pulumix.Output[[]*AuthnMapping]{
-		OutputState: i.ToAuthnMappingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AuthnMappingMapInput is an input type that accepts AuthnMappingMap and AuthnMappingMapOutput values.
@@ -233,12 +220,6 @@ func (i AuthnMappingMap) ToAuthnMappingMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AuthnMappingMapOutput)
 }
 
-func (i AuthnMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthnMapping] {
-	return pulumix.Output[map[string]*AuthnMapping]{
-		OutputState: i.ToAuthnMappingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthnMappingOutput struct{ *pulumi.OutputState }
 
 func (AuthnMappingOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o AuthnMappingOutput) ToAuthnMappingOutput() AuthnMappingOutput {
 
 func (o AuthnMappingOutput) ToAuthnMappingOutputWithContext(ctx context.Context) AuthnMappingOutput {
 	return o
-}
-
-func (o AuthnMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthnMapping] {
-	return pulumix.Output[*AuthnMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identity provider key.
@@ -288,12 +263,6 @@ func (o AuthnMappingArrayOutput) ToAuthnMappingArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o AuthnMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthnMapping] {
-	return pulumix.Output[[]*AuthnMapping]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AuthnMappingArrayOutput) Index(i pulumi.IntInput) AuthnMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthnMapping {
 		return vs[0].([]*AuthnMapping)[vs[1].(int)]
@@ -312,12 +281,6 @@ func (o AuthnMappingMapOutput) ToAuthnMappingMapOutput() AuthnMappingMapOutput {
 
 func (o AuthnMappingMapOutput) ToAuthnMappingMapOutputWithContext(ctx context.Context) AuthnMappingMapOutput {
 	return o
-}
-
-func (o AuthnMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthnMapping] {
-	return pulumix.Output[map[string]*AuthnMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthnMappingMapOutput) MapIndex(k pulumi.StringInput) AuthnMappingOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a Datadog Synthetic Test.
@@ -79,12 +78,6 @@ func (o LookupSyntheticsTestResultOutput) ToLookupSyntheticsTestResultOutput() L
 
 func (o LookupSyntheticsTestResultOutput) ToLookupSyntheticsTestResultOutputWithContext(ctx context.Context) LookupSyntheticsTestResultOutput {
 	return o
-}
-
-func (o LookupSyntheticsTestResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSyntheticsTestResult] {
-	return pulumix.Output[LookupSyntheticsTestResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

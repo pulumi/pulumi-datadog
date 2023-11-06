@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about existing security monitoring rules for use in other resources.
@@ -125,12 +124,6 @@ func (o GetSecurityMonitoringRulesResultOutput) ToGetSecurityMonitoringRulesResu
 
 func (o GetSecurityMonitoringRulesResultOutput) ToGetSecurityMonitoringRulesResultOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesResultOutput {
 	return o
-}
-
-func (o GetSecurityMonitoringRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityMonitoringRulesResult] {
-	return pulumix.Output[GetSecurityMonitoringRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Limit the search to default rules

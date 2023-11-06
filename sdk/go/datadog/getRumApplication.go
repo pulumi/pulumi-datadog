@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a Datadog RUM Application.
@@ -89,12 +88,6 @@ func (o LookupRumApplicationResultOutput) ToLookupRumApplicationResultOutput() L
 
 func (o LookupRumApplicationResultOutput) ToLookupRumApplicationResultOutputWithContext(ctx context.Context) LookupRumApplicationResultOutput {
 	return o
-}
-
-func (o LookupRumApplicationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRumApplicationResult] {
-	return pulumix.Output[LookupRumApplicationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The client token

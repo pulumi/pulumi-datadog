@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
@@ -182,12 +181,6 @@ func (i *TeamLink) ToTeamLinkOutputWithContext(ctx context.Context) TeamLinkOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TeamLinkOutput)
 }
 
-func (i *TeamLink) ToOutput(ctx context.Context) pulumix.Output[*TeamLink] {
-	return pulumix.Output[*TeamLink]{
-		OutputState: i.ToTeamLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TeamLinkArrayInput is an input type that accepts TeamLinkArray and TeamLinkArrayOutput values.
 // You can construct a concrete instance of `TeamLinkArrayInput` via:
 //
@@ -211,12 +204,6 @@ func (i TeamLinkArray) ToTeamLinkArrayOutput() TeamLinkArrayOutput {
 
 func (i TeamLinkArray) ToTeamLinkArrayOutputWithContext(ctx context.Context) TeamLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamLinkArrayOutput)
-}
-
-func (i TeamLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamLink] {
-	return pulumix.Output[[]*TeamLink]{
-		OutputState: i.ToTeamLinkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TeamLinkMapInput is an input type that accepts TeamLinkMap and TeamLinkMapOutput values.
@@ -244,12 +231,6 @@ func (i TeamLinkMap) ToTeamLinkMapOutputWithContext(ctx context.Context) TeamLin
 	return pulumi.ToOutputWithContext(ctx, i).(TeamLinkMapOutput)
 }
 
-func (i TeamLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamLink] {
-	return pulumix.Output[map[string]*TeamLink]{
-		OutputState: i.ToTeamLinkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TeamLinkOutput struct{ *pulumi.OutputState }
 
 func (TeamLinkOutput) ElementType() reflect.Type {
@@ -262,12 +243,6 @@ func (o TeamLinkOutput) ToTeamLinkOutput() TeamLinkOutput {
 
 func (o TeamLinkOutput) ToTeamLinkOutputWithContext(ctx context.Context) TeamLinkOutput {
 	return o
-}
-
-func (o TeamLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamLink] {
-	return pulumix.Output[*TeamLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The link's label.
@@ -304,12 +279,6 @@ func (o TeamLinkArrayOutput) ToTeamLinkArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o TeamLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamLink] {
-	return pulumix.Output[[]*TeamLink]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TeamLinkArrayOutput) Index(i pulumi.IntInput) TeamLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamLink {
 		return vs[0].([]*TeamLink)[vs[1].(int)]
@@ -328,12 +297,6 @@ func (o TeamLinkMapOutput) ToTeamLinkMapOutput() TeamLinkMapOutput {
 
 func (o TeamLinkMapOutput) ToTeamLinkMapOutputWithContext(ctx context.Context) TeamLinkMapOutput {
 	return o
-}
-
-func (o TeamLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamLink] {
-	return pulumix.Output[map[string]*TeamLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TeamLinkMapOutput) MapIndex(k pulumi.StringInput) TeamLinkOutput {

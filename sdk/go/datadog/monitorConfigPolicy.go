@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
@@ -145,12 +144,6 @@ func (i *MonitorConfigPolicy) ToMonitorConfigPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyOutput)
 }
 
-func (i *MonitorConfigPolicy) ToOutput(ctx context.Context) pulumix.Output[*MonitorConfigPolicy] {
-	return pulumix.Output[*MonitorConfigPolicy]{
-		OutputState: i.ToMonitorConfigPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorConfigPolicyArrayInput is an input type that accepts MonitorConfigPolicyArray and MonitorConfigPolicyArrayOutput values.
 // You can construct a concrete instance of `MonitorConfigPolicyArrayInput` via:
 //
@@ -174,12 +167,6 @@ func (i MonitorConfigPolicyArray) ToMonitorConfigPolicyArrayOutput() MonitorConf
 
 func (i MonitorConfigPolicyArray) ToMonitorConfigPolicyArrayOutputWithContext(ctx context.Context) MonitorConfigPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyArrayOutput)
-}
-
-func (i MonitorConfigPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorConfigPolicy] {
-	return pulumix.Output[[]*MonitorConfigPolicy]{
-		OutputState: i.ToMonitorConfigPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorConfigPolicyMapInput is an input type that accepts MonitorConfigPolicyMap and MonitorConfigPolicyMapOutput values.
@@ -207,12 +194,6 @@ func (i MonitorConfigPolicyMap) ToMonitorConfigPolicyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyMapOutput)
 }
 
-func (i MonitorConfigPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorConfigPolicy] {
-	return pulumix.Output[map[string]*MonitorConfigPolicy]{
-		OutputState: i.ToMonitorConfigPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorConfigPolicyOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigPolicyOutput) ElementType() reflect.Type {
@@ -225,12 +206,6 @@ func (o MonitorConfigPolicyOutput) ToMonitorConfigPolicyOutput() MonitorConfigPo
 
 func (o MonitorConfigPolicyOutput) ToMonitorConfigPolicyOutputWithContext(ctx context.Context) MonitorConfigPolicyOutput {
 	return o
-}
-
-func (o MonitorConfigPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorConfigPolicy] {
-	return pulumix.Output[*MonitorConfigPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The monitor config policy type Valid values are `tag`.
@@ -257,12 +232,6 @@ func (o MonitorConfigPolicyArrayOutput) ToMonitorConfigPolicyArrayOutputWithCont
 	return o
 }
 
-func (o MonitorConfigPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorConfigPolicy] {
-	return pulumix.Output[[]*MonitorConfigPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorConfigPolicyArrayOutput) Index(i pulumi.IntInput) MonitorConfigPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitorConfigPolicy {
 		return vs[0].([]*MonitorConfigPolicy)[vs[1].(int)]
@@ -281,12 +250,6 @@ func (o MonitorConfigPolicyMapOutput) ToMonitorConfigPolicyMapOutput() MonitorCo
 
 func (o MonitorConfigPolicyMapOutput) ToMonitorConfigPolicyMapOutputWithContext(ctx context.Context) MonitorConfigPolicyMapOutput {
 	return o
-}
-
-func (o MonitorConfigPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorConfigPolicy] {
-	return pulumix.Output[map[string]*MonitorConfigPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorConfigPolicyMapOutput) MapIndex(k pulumi.StringInput) MonitorConfigPolicyOutput {

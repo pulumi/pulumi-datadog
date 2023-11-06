@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -215,12 +214,6 @@ func (i *LogsIndex) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexO
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOutput)
 }
 
-func (i *LogsIndex) ToOutput(ctx context.Context) pulumix.Output[*LogsIndex] {
-	return pulumix.Output[*LogsIndex]{
-		OutputState: i.ToLogsIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsIndexArrayInput is an input type that accepts LogsIndexArray and LogsIndexArrayOutput values.
 // You can construct a concrete instance of `LogsIndexArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i LogsIndexArray) ToLogsIndexArrayOutput() LogsIndexArrayOutput {
 
 func (i LogsIndexArray) ToLogsIndexArrayOutputWithContext(ctx context.Context) LogsIndexArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexArrayOutput)
-}
-
-func (i LogsIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIndex] {
-	return pulumix.Output[[]*LogsIndex]{
-		OutputState: i.ToLogsIndexArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsIndexMapInput is an input type that accepts LogsIndexMap and LogsIndexMapOutput values.
@@ -277,12 +264,6 @@ func (i LogsIndexMap) ToLogsIndexMapOutputWithContext(ctx context.Context) LogsI
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexMapOutput)
 }
 
-func (i LogsIndexMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIndex] {
-	return pulumix.Output[map[string]*LogsIndex]{
-		OutputState: i.ToLogsIndexMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsIndexOutput struct{ *pulumi.OutputState }
 
 func (LogsIndexOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o LogsIndexOutput) ToLogsIndexOutput() LogsIndexOutput {
 
 func (o LogsIndexOutput) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
 	return o
-}
-
-func (o LogsIndexOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsIndex] {
-	return pulumix.Output[*LogsIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of log events you can send in this index per day before you are rate-limited.
@@ -347,12 +322,6 @@ func (o LogsIndexArrayOutput) ToLogsIndexArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LogsIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIndex] {
-	return pulumix.Output[[]*LogsIndex]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsIndexArrayOutput) Index(i pulumi.IntInput) LogsIndexOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsIndex {
 		return vs[0].([]*LogsIndex)[vs[1].(int)]
@@ -371,12 +340,6 @@ func (o LogsIndexMapOutput) ToLogsIndexMapOutput() LogsIndexMapOutput {
 
 func (o LogsIndexMapOutput) ToLogsIndexMapOutputWithContext(ctx context.Context) LogsIndexMapOutput {
 	return o
-}
-
-func (o LogsIndexMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIndex] {
-	return pulumix.Output[map[string]*LogsIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsIndexMapOutput) MapIndex(k pulumi.StringInput) LogsIndexOutput {
