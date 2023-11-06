@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,23 @@ class OrganizationSettingsArgs:
         :param pulumi.Input[str] name: Name for Organization.
         :param pulumi.Input['OrganizationSettingsSettingsArgs'] settings: Organization settings
         """
+        OrganizationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -67,14 +80,33 @@ class _OrganizationSettingsState:
         :param pulumi.Input[str] public_id: The `public_id` of the organization you are operating within.
         :param pulumi.Input['OrganizationSettingsSettingsArgs'] settings: Organization settings
         """
+        _OrganizationSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            public_id=public_id,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_id: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_id is None and 'publicId' in kwargs:
+            public_id = kwargs['publicId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_id is not None:
-            pulumi.set(__self__, "public_id", public_id)
+            _setter("public_id", public_id)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -192,6 +224,10 @@ class OrganizationSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -209,6 +245,11 @@ class OrganizationSettings(pulumi.CustomResource):
             __props__ = OrganizationSettingsArgs.__new__(OrganizationSettingsArgs)
 
             __props__.__dict__["name"] = name
+            if settings is not None and not isinstance(settings, OrganizationSettingsSettingsArgs):
+                settings = settings or {}
+                def _setter(key, value):
+                    settings[key] = value
+                OrganizationSettingsSettingsArgs._configure(_setter, **settings)
             __props__.__dict__["settings"] = settings
             __props__.__dict__["description"] = None
             __props__.__dict__["public_id"] = None

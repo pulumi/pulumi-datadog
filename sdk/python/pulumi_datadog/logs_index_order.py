@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LogsIndexOrderArgs', 'LogsIndexOrder']
@@ -21,9 +21,24 @@ class LogsIndexOrderArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
-        pulumi.set(__self__, "indexes", indexes)
+        LogsIndexOrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indexes=indexes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if indexes is None:
+            raise TypeError("Missing 'indexes' argument")
+
+        _setter("indexes", indexes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -60,10 +75,23 @@ class _LogsIndexOrderState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
+        _LogsIndexOrderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            indexes=indexes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if indexes is not None:
-            pulumi.set(__self__, "indexes", indexes)
+            _setter("indexes", indexes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -163,6 +191,10 @@ class LogsIndexOrder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogsIndexOrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

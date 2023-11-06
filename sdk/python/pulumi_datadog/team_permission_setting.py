@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamPermissionSettingArgs', 'TeamPermissionSetting']
@@ -23,9 +23,32 @@ class TeamPermissionSettingArgs:
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
         :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "team_id", team_id)
-        pulumi.set(__self__, "value", value)
+        TeamPermissionSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            team_id=team_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("action", action)
+        _setter("team_id", team_id)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -76,12 +99,29 @@ class _TeamPermissionSettingState:
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
         :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
         """
+        _TeamPermissionSettingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            team_id=team_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -189,6 +229,10 @@ class TeamPermissionSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamPermissionSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

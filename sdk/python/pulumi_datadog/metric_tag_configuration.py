@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,44 @@ class MetricTagConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_type", metric_type)
-        pulumi.set(__self__, "tags", tags)
+        MetricTagConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_type=metric_type,
+            tags=tags,
+            aggregations=aggregations,
+            include_percentiles=include_percentiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+             include_percentiles: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_type is None and 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+        if metric_type is None:
+            raise TypeError("Missing 'metric_type' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+        if include_percentiles is None and 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+
+        _setter("metric_name", metric_name)
+        _setter("metric_type", metric_type)
+        _setter("tags", tags)
         if aggregations is not None:
-            pulumi.set(__self__, "aggregations", aggregations)
+            _setter("aggregations", aggregations)
         if include_percentiles is not None:
-            pulumi.set(__self__, "include_percentiles", include_percentiles)
+            _setter("include_percentiles", include_percentiles)
 
     @property
     @pulumi.getter(name="metricName")
@@ -114,16 +145,41 @@ class _MetricTagConfigurationState:
         :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         """
+        _MetricTagConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregations=aggregations,
+            include_percentiles=include_percentiles,
+            metric_name=metric_name,
+            metric_type=metric_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+             include_percentiles: Optional[pulumi.Input[bool]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_percentiles is None and 'includePercentiles' in kwargs:
+            include_percentiles = kwargs['includePercentiles']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_type is None and 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+
         if aggregations is not None:
-            pulumi.set(__self__, "aggregations", aggregations)
+            _setter("aggregations", aggregations)
         if include_percentiles is not None:
-            pulumi.set(__self__, "include_percentiles", include_percentiles)
+            _setter("include_percentiles", include_percentiles)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metric_type is not None:
-            pulumi.set(__self__, "metric_type", metric_type)
+            _setter("metric_type", metric_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -309,6 +365,10 @@ class MetricTagConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricTagConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

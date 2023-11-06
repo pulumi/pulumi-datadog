@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,26 @@ class DashboardListArgs:
         :param pulumi.Input[str] name: The name of the Dashboard List
         :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         """
-        pulumi.set(__self__, "name", name)
+        DashboardListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dash_items=dash_items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dash_items is None and 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
+        _setter("name", name)
         if dash_items is not None:
-            pulumi.set(__self__, "dash_items", dash_items)
+            _setter("dash_items", dash_items)
 
     @property
     @pulumi.getter
@@ -62,10 +79,25 @@ class _DashboardListState:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
+        _DashboardListState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dash_items=dash_items,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dash_items is None and 'dashItems' in kwargs:
+            dash_items = kwargs['dashItems']
+
         if dash_items is not None:
-            pulumi.set(__self__, "dash_items", dash_items)
+            _setter("dash_items", dash_items)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dashItems")
@@ -257,6 +289,10 @@ class DashboardList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DashboardListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

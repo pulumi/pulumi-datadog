@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CloudWorkloadSecurityAgentRuleArgs', 'CloudWorkloadSecurityAgentRule']
@@ -25,12 +25,33 @@ class CloudWorkloadSecurityAgentRuleArgs:
         :param pulumi.Input[str] description: The description of the Agent rule.
         :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled.
         """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "name", name)
+        CloudWorkloadSecurityAgentRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            name=name,
+            description=description,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("expression", expression)
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -95,14 +116,31 @@ class _CloudWorkloadSecurityAgentRuleState:
         :param pulumi.Input[str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[str] name: The name of the Agent rule.
         """
+        _CloudWorkloadSecurityAgentRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            enabled=enabled,
+            expression=expression,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -234,6 +272,10 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudWorkloadSecurityAgentRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

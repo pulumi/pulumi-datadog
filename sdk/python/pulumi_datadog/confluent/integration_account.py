@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationAccountArgs', 'IntegrationAccount']
@@ -23,10 +23,33 @@ class IntegrationAccountArgs:
         :param pulumi.Input[str] api_secret: The API secret associated with your Confluent account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "api_secret", api_secret)
+        IntegrationAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            api_secret=api_secret,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_secret: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if api_secret is None and 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+        if api_secret is None:
+            raise TypeError("Missing 'api_secret' argument")
+
+        _setter("api_key", api_key)
+        _setter("api_secret", api_secret)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -77,12 +100,31 @@ class _IntegrationAccountState:
         :param pulumi.Input[str] api_secret: The API secret associated with your Confluent account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
         """
+        _IntegrationAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            api_secret=api_secret,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_secret: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_secret is None and 'apiSecret' in kwargs:
+            api_secret = kwargs['apiSecret']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if api_secret is not None:
-            pulumi.set(__self__, "api_secret", api_secret)
+            _setter("api_secret", api_secret)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -200,6 +242,10 @@ class IntegrationAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

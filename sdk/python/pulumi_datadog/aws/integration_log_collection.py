@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationLogCollectionArgs', 'IntegrationLogCollection']
@@ -21,8 +21,27 @@ class IntegrationLogCollectionArgs:
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "services", services)
+        IntegrationLogCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if services is None:
+            raise TypeError("Missing 'services' argument")
+
+        _setter("account_id", account_id)
+        _setter("services", services)
 
     @property
     @pulumi.getter(name="accountId")
@@ -59,10 +78,25 @@ class _IntegrationLogCollectionState:
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
+        _IntegrationLogCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter(name="accountId")
@@ -164,6 +198,10 @@ class IntegrationLogCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationLogCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

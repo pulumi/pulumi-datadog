@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,28 @@ class MonitorConfigPolicyArgs:
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
-        pulumi.set(__self__, "policy_type", policy_type)
+        MonitorConfigPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_type=policy_type,
+            tag_policy=tag_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_type: Optional[pulumi.Input[str]] = None,
+             tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
+        _setter("policy_type", policy_type)
         if tag_policy is not None:
-            pulumi.set(__self__, "tag_policy", tag_policy)
+            _setter("tag_policy", tag_policy)
 
     @property
     @pulumi.getter(name="policyType")
@@ -62,10 +81,27 @@ class _MonitorConfigPolicyState:
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
+        _MonitorConfigPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_type=policy_type,
+            tag_policy=tag_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_type: Optional[pulumi.Input[str]] = None,
+             tag_policy: Optional[pulumi.Input['MonitorConfigPolicyTagPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if tag_policy is None and 'tagPolicy' in kwargs:
+            tag_policy = kwargs['tagPolicy']
+
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if tag_policy is not None:
-            pulumi.set(__self__, "tag_policy", tag_policy)
+            _setter("tag_policy", tag_policy)
 
     @property
     @pulumi.getter(name="policyType")
@@ -163,6 +199,10 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorConfigPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +222,11 @@ class MonitorConfigPolicy(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
+            if tag_policy is not None and not isinstance(tag_policy, MonitorConfigPolicyTagPolicyArgs):
+                tag_policy = tag_policy or {}
+                def _setter(key, value):
+                    tag_policy[key] = value
+                MonitorConfigPolicyTagPolicyArgs._configure(_setter, **tag_policy)
             __props__.__dict__["tag_policy"] = tag_policy
         super(MonitorConfigPolicy, __self__).__init__(
             'datadog:index/monitorConfigPolicy:MonitorConfigPolicy',

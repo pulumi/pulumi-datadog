@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -118,74 +118,205 @@ class MonitorArgs:
                minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "type", type)
+        MonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            name=name,
+            query=query,
+            type=type,
+            enable_logs_sample=enable_logs_sample,
+            escalation_message=escalation_message,
+            evaluation_delay=evaluation_delay,
+            force_delete=force_delete,
+            group_retention_duration=group_retention_duration,
+            groupby_simple_monitor=groupby_simple_monitor,
+            include_tags=include_tags,
+            locked=locked,
+            monitor_threshold_windows=monitor_threshold_windows,
+            monitor_thresholds=monitor_thresholds,
+            new_group_delay=new_group_delay,
+            new_host_delay=new_host_delay,
+            no_data_timeframe=no_data_timeframe,
+            notification_preset_name=notification_preset_name,
+            notify_audit=notify_audit,
+            notify_bies=notify_bies,
+            notify_no_data=notify_no_data,
+            on_missing_data=on_missing_data,
+            priority=priority,
+            renotify_interval=renotify_interval,
+            renotify_occurrences=renotify_occurrences,
+            renotify_statuses=renotify_statuses,
+            require_full_window=require_full_window,
+            restricted_roles=restricted_roles,
+            scheduling_options=scheduling_options,
+            tags=tags,
+            timeout_h=timeout_h,
+            validate=validate,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+             escalation_message: Optional[pulumi.Input[str]] = None,
+             evaluation_delay: Optional[pulumi.Input[int]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             group_retention_duration: Optional[pulumi.Input[str]] = None,
+             groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
+             include_tags: Optional[pulumi.Input[bool]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
+             monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
+             new_group_delay: Optional[pulumi.Input[int]] = None,
+             new_host_delay: Optional[pulumi.Input[int]] = None,
+             no_data_timeframe: Optional[pulumi.Input[int]] = None,
+             notification_preset_name: Optional[pulumi.Input[str]] = None,
+             notify_audit: Optional[pulumi.Input[bool]] = None,
+             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_no_data: Optional[pulumi.Input[bool]] = None,
+             on_missing_data: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             renotify_interval: Optional[pulumi.Input[int]] = None,
+             renotify_occurrences: Optional[pulumi.Input[int]] = None,
+             renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_full_window: Optional[pulumi.Input[bool]] = None,
+             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeout_h: Optional[pulumi.Input[int]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if enable_logs_sample is None and 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if escalation_message is None and 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if group_retention_duration is None and 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if groupby_simple_monitor is None and 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if include_tags is None and 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if monitor_threshold_windows is None and 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if monitor_thresholds is None and 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if new_group_delay is None and 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if new_host_delay is None and 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if no_data_timeframe is None and 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if notification_preset_name is None and 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if notify_audit is None and 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if notify_bies is None and 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if notify_no_data is None and 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if on_missing_data is None and 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if renotify_interval is None and 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if renotify_occurrences is None and 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if renotify_statuses is None and 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if require_full_window is None and 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if scheduling_options is None and 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if timeout_h is None and 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
+        _setter("message", message)
+        _setter("name", name)
+        _setter("query", query)
+        _setter("type", type)
         if enable_logs_sample is not None:
-            pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+            _setter("enable_logs_sample", enable_logs_sample)
         if escalation_message is not None:
-            pulumi.set(__self__, "escalation_message", escalation_message)
+            _setter("escalation_message", escalation_message)
         if evaluation_delay is not None:
-            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+            _setter("evaluation_delay", evaluation_delay)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if group_retention_duration is not None:
-            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
+            _setter("group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
-            pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+            _setter("groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
-            pulumi.set(__self__, "include_tags", include_tags)
+            _setter("include_tags", include_tags)
         if locked is not None:
             warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
             pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if monitor_threshold_windows is not None:
-            pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
+            _setter("monitor_threshold_windows", monitor_threshold_windows)
         if monitor_thresholds is not None:
-            pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
+            _setter("monitor_thresholds", monitor_thresholds)
         if new_group_delay is not None:
-            pulumi.set(__self__, "new_group_delay", new_group_delay)
+            _setter("new_group_delay", new_group_delay)
         if new_host_delay is not None:
             warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
             pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
-            pulumi.set(__self__, "new_host_delay", new_host_delay)
+            _setter("new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
-            pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+            _setter("no_data_timeframe", no_data_timeframe)
         if notification_preset_name is not None:
-            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
+            _setter("notification_preset_name", notification_preset_name)
         if notify_audit is not None:
-            pulumi.set(__self__, "notify_audit", notify_audit)
+            _setter("notify_audit", notify_audit)
         if notify_bies is not None:
-            pulumi.set(__self__, "notify_bies", notify_bies)
+            _setter("notify_bies", notify_bies)
         if notify_no_data is not None:
-            pulumi.set(__self__, "notify_no_data", notify_no_data)
+            _setter("notify_no_data", notify_no_data)
         if on_missing_data is not None:
-            pulumi.set(__self__, "on_missing_data", on_missing_data)
+            _setter("on_missing_data", on_missing_data)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if renotify_interval is not None:
-            pulumi.set(__self__, "renotify_interval", renotify_interval)
+            _setter("renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
-            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+            _setter("renotify_occurrences", renotify_occurrences)
         if renotify_statuses is not None:
-            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
+            _setter("renotify_statuses", renotify_statuses)
         if require_full_window is not None:
-            pulumi.set(__self__, "require_full_window", require_full_window)
+            _setter("require_full_window", require_full_window)
         if restricted_roles is not None:
-            pulumi.set(__self__, "restricted_roles", restricted_roles)
+            _setter("restricted_roles", restricted_roles)
         if scheduling_options is not None:
-            pulumi.set(__self__, "scheduling_options", scheduling_options)
+            _setter("scheduling_options", scheduling_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_h is not None:
-            pulumi.set(__self__, "timeout_h", timeout_h)
+            _setter("timeout_h", timeout_h)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -729,80 +860,207 @@ class _MonitorState:
                cannot be changed after a monitor is created.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
+        _MonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_logs_sample=enable_logs_sample,
+            enable_samples=enable_samples,
+            escalation_message=escalation_message,
+            evaluation_delay=evaluation_delay,
+            force_delete=force_delete,
+            group_retention_duration=group_retention_duration,
+            groupby_simple_monitor=groupby_simple_monitor,
+            include_tags=include_tags,
+            locked=locked,
+            message=message,
+            monitor_threshold_windows=monitor_threshold_windows,
+            monitor_thresholds=monitor_thresholds,
+            name=name,
+            new_group_delay=new_group_delay,
+            new_host_delay=new_host_delay,
+            no_data_timeframe=no_data_timeframe,
+            notification_preset_name=notification_preset_name,
+            notify_audit=notify_audit,
+            notify_bies=notify_bies,
+            notify_no_data=notify_no_data,
+            on_missing_data=on_missing_data,
+            priority=priority,
+            query=query,
+            renotify_interval=renotify_interval,
+            renotify_occurrences=renotify_occurrences,
+            renotify_statuses=renotify_statuses,
+            require_full_window=require_full_window,
+            restricted_roles=restricted_roles,
+            scheduling_options=scheduling_options,
+            tags=tags,
+            timeout_h=timeout_h,
+            type=type,
+            validate=validate,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_logs_sample: Optional[pulumi.Input[bool]] = None,
+             enable_samples: Optional[pulumi.Input[bool]] = None,
+             escalation_message: Optional[pulumi.Input[str]] = None,
+             evaluation_delay: Optional[pulumi.Input[int]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             group_retention_duration: Optional[pulumi.Input[str]] = None,
+             groupby_simple_monitor: Optional[pulumi.Input[bool]] = None,
+             include_tags: Optional[pulumi.Input[bool]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             monitor_threshold_windows: Optional[pulumi.Input['MonitorMonitorThresholdWindowsArgs']] = None,
+             monitor_thresholds: Optional[pulumi.Input['MonitorMonitorThresholdsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             new_group_delay: Optional[pulumi.Input[int]] = None,
+             new_host_delay: Optional[pulumi.Input[int]] = None,
+             no_data_timeframe: Optional[pulumi.Input[int]] = None,
+             notification_preset_name: Optional[pulumi.Input[str]] = None,
+             notify_audit: Optional[pulumi.Input[bool]] = None,
+             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_no_data: Optional[pulumi.Input[bool]] = None,
+             on_missing_data: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             renotify_interval: Optional[pulumi.Input[int]] = None,
+             renotify_occurrences: Optional[pulumi.Input[int]] = None,
+             renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             require_full_window: Optional[pulumi.Input[bool]] = None,
+             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scheduling_options: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorSchedulingOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeout_h: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validate: Optional[pulumi.Input[bool]] = None,
+             variables: Optional[pulumi.Input['MonitorVariablesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_logs_sample is None and 'enableLogsSample' in kwargs:
+            enable_logs_sample = kwargs['enableLogsSample']
+        if enable_samples is None and 'enableSamples' in kwargs:
+            enable_samples = kwargs['enableSamples']
+        if escalation_message is None and 'escalationMessage' in kwargs:
+            escalation_message = kwargs['escalationMessage']
+        if evaluation_delay is None and 'evaluationDelay' in kwargs:
+            evaluation_delay = kwargs['evaluationDelay']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if group_retention_duration is None and 'groupRetentionDuration' in kwargs:
+            group_retention_duration = kwargs['groupRetentionDuration']
+        if groupby_simple_monitor is None and 'groupbySimpleMonitor' in kwargs:
+            groupby_simple_monitor = kwargs['groupbySimpleMonitor']
+        if include_tags is None and 'includeTags' in kwargs:
+            include_tags = kwargs['includeTags']
+        if monitor_threshold_windows is None and 'monitorThresholdWindows' in kwargs:
+            monitor_threshold_windows = kwargs['monitorThresholdWindows']
+        if monitor_thresholds is None and 'monitorThresholds' in kwargs:
+            monitor_thresholds = kwargs['monitorThresholds']
+        if new_group_delay is None and 'newGroupDelay' in kwargs:
+            new_group_delay = kwargs['newGroupDelay']
+        if new_host_delay is None and 'newHostDelay' in kwargs:
+            new_host_delay = kwargs['newHostDelay']
+        if no_data_timeframe is None and 'noDataTimeframe' in kwargs:
+            no_data_timeframe = kwargs['noDataTimeframe']
+        if notification_preset_name is None and 'notificationPresetName' in kwargs:
+            notification_preset_name = kwargs['notificationPresetName']
+        if notify_audit is None and 'notifyAudit' in kwargs:
+            notify_audit = kwargs['notifyAudit']
+        if notify_bies is None and 'notifyBies' in kwargs:
+            notify_bies = kwargs['notifyBies']
+        if notify_no_data is None and 'notifyNoData' in kwargs:
+            notify_no_data = kwargs['notifyNoData']
+        if on_missing_data is None and 'onMissingData' in kwargs:
+            on_missing_data = kwargs['onMissingData']
+        if renotify_interval is None and 'renotifyInterval' in kwargs:
+            renotify_interval = kwargs['renotifyInterval']
+        if renotify_occurrences is None and 'renotifyOccurrences' in kwargs:
+            renotify_occurrences = kwargs['renotifyOccurrences']
+        if renotify_statuses is None and 'renotifyStatuses' in kwargs:
+            renotify_statuses = kwargs['renotifyStatuses']
+        if require_full_window is None and 'requireFullWindow' in kwargs:
+            require_full_window = kwargs['requireFullWindow']
+        if restricted_roles is None and 'restrictedRoles' in kwargs:
+            restricted_roles = kwargs['restrictedRoles']
+        if scheduling_options is None and 'schedulingOptions' in kwargs:
+            scheduling_options = kwargs['schedulingOptions']
+        if timeout_h is None and 'timeoutH' in kwargs:
+            timeout_h = kwargs['timeoutH']
+
         if enable_logs_sample is not None:
-            pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+            _setter("enable_logs_sample", enable_logs_sample)
         if enable_samples is not None:
-            pulumi.set(__self__, "enable_samples", enable_samples)
+            _setter("enable_samples", enable_samples)
         if escalation_message is not None:
-            pulumi.set(__self__, "escalation_message", escalation_message)
+            _setter("escalation_message", escalation_message)
         if evaluation_delay is not None:
-            pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+            _setter("evaluation_delay", evaluation_delay)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if group_retention_duration is not None:
-            pulumi.set(__self__, "group_retention_duration", group_retention_duration)
+            _setter("group_retention_duration", group_retention_duration)
         if groupby_simple_monitor is not None:
-            pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
+            _setter("groupby_simple_monitor", groupby_simple_monitor)
         if include_tags is not None:
-            pulumi.set(__self__, "include_tags", include_tags)
+            _setter("include_tags", include_tags)
         if locked is not None:
             warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
             pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if monitor_threshold_windows is not None:
-            pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
+            _setter("monitor_threshold_windows", monitor_threshold_windows)
         if monitor_thresholds is not None:
-            pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
+            _setter("monitor_thresholds", monitor_thresholds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if new_group_delay is not None:
-            pulumi.set(__self__, "new_group_delay", new_group_delay)
+            _setter("new_group_delay", new_group_delay)
         if new_host_delay is not None:
             warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
             pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
         if new_host_delay is not None:
-            pulumi.set(__self__, "new_host_delay", new_host_delay)
+            _setter("new_host_delay", new_host_delay)
         if no_data_timeframe is not None:
-            pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+            _setter("no_data_timeframe", no_data_timeframe)
         if notification_preset_name is not None:
-            pulumi.set(__self__, "notification_preset_name", notification_preset_name)
+            _setter("notification_preset_name", notification_preset_name)
         if notify_audit is not None:
-            pulumi.set(__self__, "notify_audit", notify_audit)
+            _setter("notify_audit", notify_audit)
         if notify_bies is not None:
-            pulumi.set(__self__, "notify_bies", notify_bies)
+            _setter("notify_bies", notify_bies)
         if notify_no_data is not None:
-            pulumi.set(__self__, "notify_no_data", notify_no_data)
+            _setter("notify_no_data", notify_no_data)
         if on_missing_data is not None:
-            pulumi.set(__self__, "on_missing_data", on_missing_data)
+            _setter("on_missing_data", on_missing_data)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if renotify_interval is not None:
-            pulumi.set(__self__, "renotify_interval", renotify_interval)
+            _setter("renotify_interval", renotify_interval)
         if renotify_occurrences is not None:
-            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+            _setter("renotify_occurrences", renotify_occurrences)
         if renotify_statuses is not None:
-            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
+            _setter("renotify_statuses", renotify_statuses)
         if require_full_window is not None:
-            pulumi.set(__self__, "require_full_window", require_full_window)
+            _setter("require_full_window", require_full_window)
         if restricted_roles is not None:
-            pulumi.set(__self__, "restricted_roles", restricted_roles)
+            _setter("restricted_roles", restricted_roles)
         if scheduling_options is not None:
-            pulumi.set(__self__, "scheduling_options", scheduling_options)
+            _setter("scheduling_options", scheduling_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_h is not None:
-            pulumi.set(__self__, "timeout_h", timeout_h)
+            _setter("timeout_h", timeout_h)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validate is not None:
-            pulumi.set(__self__, "validate", validate)
+            _setter("validate", validate)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="enableLogsSample")
@@ -1439,6 +1697,10 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1497,7 +1759,17 @@ class Monitor(pulumi.CustomResource):
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
+            if monitor_threshold_windows is not None and not isinstance(monitor_threshold_windows, MonitorMonitorThresholdWindowsArgs):
+                monitor_threshold_windows = monitor_threshold_windows or {}
+                def _setter(key, value):
+                    monitor_threshold_windows[key] = value
+                MonitorMonitorThresholdWindowsArgs._configure(_setter, **monitor_threshold_windows)
             __props__.__dict__["monitor_threshold_windows"] = monitor_threshold_windows
+            if monitor_thresholds is not None and not isinstance(monitor_thresholds, MonitorMonitorThresholdsArgs):
+                monitor_thresholds = monitor_thresholds or {}
+                def _setter(key, value):
+                    monitor_thresholds[key] = value
+                MonitorMonitorThresholdsArgs._configure(_setter, **monitor_thresholds)
             __props__.__dict__["monitor_thresholds"] = monitor_thresholds
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -1526,6 +1798,11 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validate"] = validate
+            if variables is not None and not isinstance(variables, MonitorVariablesArgs):
+                variables = variables or {}
+                def _setter(key, value):
+                    variables[key] = value
+                MonitorVariablesArgs._configure(_setter, **variables)
             __props__.__dict__["variables"] = variables
             __props__.__dict__["enable_samples"] = None
         super(Monitor, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationTagFilterArgs', 'IntegrationTagFilter']
@@ -23,9 +23,34 @@ class IntegrationTagFilterArgs:
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "tag_filter_str", tag_filter_str)
+        IntegrationTagFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            namespace=namespace,
+            tag_filter_str=tag_filter_str,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             tag_filter_str: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if tag_filter_str is None and 'tagFilterStr' in kwargs:
+            tag_filter_str = kwargs['tagFilterStr']
+        if tag_filter_str is None:
+            raise TypeError("Missing 'tag_filter_str' argument")
+
+        _setter("account_id", account_id)
+        _setter("namespace", namespace)
+        _setter("tag_filter_str", tag_filter_str)
 
     @property
     @pulumi.getter(name="accountId")
@@ -76,12 +101,31 @@ class _IntegrationTagFilterState:
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
+        _IntegrationTagFilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            namespace=namespace,
+            tag_filter_str=tag_filter_str,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             tag_filter_str: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if tag_filter_str is None and 'tagFilterStr' in kwargs:
+            tag_filter_str = kwargs['tagFilterStr']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if tag_filter_str is not None:
-            pulumi.set(__self__, "tag_filter_str", tag_filter_str)
+            _setter("tag_filter_str", tag_filter_str)
 
     @property
     @pulumi.getter(name="accountId")
@@ -199,6 +243,10 @@ class IntegrationTagFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationTagFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

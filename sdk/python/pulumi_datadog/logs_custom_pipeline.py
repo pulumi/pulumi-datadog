@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,35 @@ class LogsCustomPipelineArgs:
         :param pulumi.Input[str] name: Your pipeline name.
         :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         """
-        pulumi.set(__self__, "filters", filters)
-        pulumi.set(__self__, "name", name)
+        LogsCustomPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            name=name,
+            is_enabled=is_enabled,
+            processors=processors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
+        _setter("filters", filters)
+        _setter("name", name)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if processors is not None:
-            pulumi.set(__self__, "processors", processors)
+            _setter("processors", processors)
 
     @property
     @pulumi.getter
@@ -87,14 +110,33 @@ class _LogsCustomPipelineState:
         :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         :param pulumi.Input[str] name: Your pipeline name.
         """
+        _LogsCustomPipelineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            is_enabled=is_enabled,
+            name=name,
+            processors=processors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if processors is not None:
-            pulumi.set(__self__, "processors", processors)
+            _setter("processors", processors)
 
     @property
     @pulumi.getter
@@ -192,6 +234,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogsCustomPipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,9 +22,26 @@ class RestrictionPolicyArgs:
         The set of arguments for constructing a RestrictionPolicy resource.
         :param pulumi.Input[str] resource_id: Identifier for the resource, formatted as resource*type:resource*id.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        RestrictionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            bindings=bindings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
+        _setter("resource_id", resource_id)
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -57,10 +74,25 @@ class _RestrictionPolicyState:
         Input properties used for looking up and filtering RestrictionPolicy resources.
         :param pulumi.Input[str] resource_id: Identifier for the resource, formatted as resource*type:resource*id.
         """
+        _RestrictionPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bindings=bindings,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['RestrictionPolicyBindingArgs']]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -170,6 +202,10 @@ class RestrictionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RestrictionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
