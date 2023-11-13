@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
@@ -136,12 +135,6 @@ func (i *LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderOutput)
 }
 
-func (i *LogsArchiveOrder) ToOutput(ctx context.Context) pulumix.Output[*LogsArchiveOrder] {
-	return pulumix.Output[*LogsArchiveOrder]{
-		OutputState: i.ToLogsArchiveOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsArchiveOrderArrayInput is an input type that accepts LogsArchiveOrderArray and LogsArchiveOrderArrayOutput values.
 // You can construct a concrete instance of `LogsArchiveOrderArrayInput` via:
 //
@@ -165,12 +158,6 @@ func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutput() LogsArchiveOrderA
 
 func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutputWithContext(ctx context.Context) LogsArchiveOrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderArrayOutput)
-}
-
-func (i LogsArchiveOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsArchiveOrder] {
-	return pulumix.Output[[]*LogsArchiveOrder]{
-		OutputState: i.ToLogsArchiveOrderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsArchiveOrderMapInput is an input type that accepts LogsArchiveOrderMap and LogsArchiveOrderMapOutput values.
@@ -198,12 +185,6 @@ func (i LogsArchiveOrderMap) ToLogsArchiveOrderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderMapOutput)
 }
 
-func (i LogsArchiveOrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsArchiveOrder] {
-	return pulumix.Output[map[string]*LogsArchiveOrder]{
-		OutputState: i.ToLogsArchiveOrderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsArchiveOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveOrderOutput) ElementType() reflect.Type {
@@ -216,12 +197,6 @@ func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutput() LogsArchiveOrderOutpu
 
 func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput {
 	return o
-}
-
-func (o LogsArchiveOrderOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsArchiveOrder] {
-	return pulumix.Output[*LogsArchiveOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
@@ -243,12 +218,6 @@ func (o LogsArchiveOrderArrayOutput) ToLogsArchiveOrderArrayOutputWithContext(ct
 	return o
 }
 
-func (o LogsArchiveOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsArchiveOrder] {
-	return pulumix.Output[[]*LogsArchiveOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsArchiveOrderArrayOutput) Index(i pulumi.IntInput) LogsArchiveOrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsArchiveOrder {
 		return vs[0].([]*LogsArchiveOrder)[vs[1].(int)]
@@ -267,12 +236,6 @@ func (o LogsArchiveOrderMapOutput) ToLogsArchiveOrderMapOutput() LogsArchiveOrde
 
 func (o LogsArchiveOrderMapOutput) ToLogsArchiveOrderMapOutputWithContext(ctx context.Context) LogsArchiveOrderMapOutput {
 	return o
-}
-
-func (o LogsArchiveOrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsArchiveOrder] {
-	return pulumix.Output[map[string]*LogsArchiveOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsArchiveOrderMapOutput) MapIndex(k pulumi.StringInput) LogsArchiveOrderOutput {

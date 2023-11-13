@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
@@ -320,12 +319,6 @@ func (i *ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
 }
 
-func (i *ServiceLevelObjective) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjective] {
-	return pulumix.Output[*ServiceLevelObjective]{
-		OutputState: i.ToServiceLevelObjectiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceLevelObjectiveArrayInput is an input type that accepts ServiceLevelObjectiveArray and ServiceLevelObjectiveArrayOutput values.
 // You can construct a concrete instance of `ServiceLevelObjectiveArrayInput` via:
 //
@@ -349,12 +342,6 @@ func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutput() Service
 
 func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveArrayOutput)
-}
-
-func (i ServiceLevelObjectiveArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceLevelObjective] {
-	return pulumix.Output[[]*ServiceLevelObjective]{
-		OutputState: i.ToServiceLevelObjectiveArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceLevelObjectiveMapInput is an input type that accepts ServiceLevelObjectiveMap and ServiceLevelObjectiveMapOutput values.
@@ -382,12 +369,6 @@ func (i ServiceLevelObjectiveMap) ToServiceLevelObjectiveMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMapOutput)
 }
 
-func (i ServiceLevelObjectiveMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceLevelObjective] {
-	return pulumix.Output[map[string]*ServiceLevelObjective]{
-		OutputState: i.ToServiceLevelObjectiveMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceLevelObjectiveOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
@@ -400,12 +381,6 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutput() ServiceLeve
 
 func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
 	return o
-}
-
-func (o ServiceLevelObjectiveOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjective] {
-	return pulumix.Output[*ServiceLevelObjective]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of this service level objective.
@@ -487,12 +462,6 @@ func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutputWith
 	return o
 }
 
-func (o ServiceLevelObjectiveArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceLevelObjective] {
-	return pulumix.Output[[]*ServiceLevelObjective]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceLevelObjectiveArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceLevelObjective {
 		return vs[0].([]*ServiceLevelObjective)[vs[1].(int)]
@@ -511,12 +480,6 @@ func (o ServiceLevelObjectiveMapOutput) ToServiceLevelObjectiveMapOutput() Servi
 
 func (o ServiceLevelObjectiveMapOutput) ToServiceLevelObjectiveMapOutputWithContext(ctx context.Context) ServiceLevelObjectiveMapOutput {
 	return o
-}
-
-func (o ServiceLevelObjectiveMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceLevelObjective] {
-	return pulumix.Output[map[string]*ServiceLevelObjective]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceLevelObjectiveMapOutput) MapIndex(k pulumi.StringInput) ServiceLevelObjectiveOutput {

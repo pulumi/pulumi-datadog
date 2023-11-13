@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list existing monitor config policies for use in other resources.
@@ -79,12 +78,6 @@ func (o GetMonitorConfigPoliciesResultOutput) ToGetMonitorConfigPoliciesResultOu
 
 func (o GetMonitorConfigPoliciesResultOutput) ToGetMonitorConfigPoliciesResultOutputWithContext(ctx context.Context) GetMonitorConfigPoliciesResultOutput {
 	return o
-}
-
-func (o GetMonitorConfigPoliciesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMonitorConfigPoliciesResult] {
-	return pulumix.Output[GetMonitorConfigPoliciesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

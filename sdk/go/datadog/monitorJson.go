@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog monitor JSON resource. This can be used to create and manage Datadog monitors using the JSON definition.
@@ -170,12 +169,6 @@ func (i *MonitorJson) ToMonitorJsonOutputWithContext(ctx context.Context) Monito
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorJsonOutput)
 }
 
-func (i *MonitorJson) ToOutput(ctx context.Context) pulumix.Output[*MonitorJson] {
-	return pulumix.Output[*MonitorJson]{
-		OutputState: i.ToMonitorJsonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorJsonArrayInput is an input type that accepts MonitorJsonArray and MonitorJsonArrayOutput values.
 // You can construct a concrete instance of `MonitorJsonArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i MonitorJsonArray) ToMonitorJsonArrayOutput() MonitorJsonArrayOutput {
 
 func (i MonitorJsonArray) ToMonitorJsonArrayOutputWithContext(ctx context.Context) MonitorJsonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorJsonArrayOutput)
-}
-
-func (i MonitorJsonArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorJson] {
-	return pulumix.Output[[]*MonitorJson]{
-		OutputState: i.ToMonitorJsonArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorJsonMapInput is an input type that accepts MonitorJsonMap and MonitorJsonMapOutput values.
@@ -232,12 +219,6 @@ func (i MonitorJsonMap) ToMonitorJsonMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorJsonMapOutput)
 }
 
-func (i MonitorJsonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorJson] {
-	return pulumix.Output[map[string]*MonitorJson]{
-		OutputState: i.ToMonitorJsonMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorJsonOutput struct{ *pulumi.OutputState }
 
 func (MonitorJsonOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o MonitorJsonOutput) ToMonitorJsonOutput() MonitorJsonOutput {
 
 func (o MonitorJsonOutput) ToMonitorJsonOutputWithContext(ctx context.Context) MonitorJsonOutput {
 	return o
-}
-
-func (o MonitorJsonOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorJson] {
-	return pulumix.Output[*MonitorJson]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The JSON formatted definition of the monitor.
@@ -282,12 +257,6 @@ func (o MonitorJsonArrayOutput) ToMonitorJsonArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o MonitorJsonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorJson] {
-	return pulumix.Output[[]*MonitorJson]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorJsonArrayOutput) Index(i pulumi.IntInput) MonitorJsonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitorJson {
 		return vs[0].([]*MonitorJson)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o MonitorJsonMapOutput) ToMonitorJsonMapOutput() MonitorJsonMapOutput {
 
 func (o MonitorJsonMapOutput) ToMonitorJsonMapOutputWithContext(ctx context.Context) MonitorJsonMapOutput {
 	return o
-}
-
-func (o MonitorJsonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorJson] {
-	return pulumix.Output[map[string]*MonitorJson]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorJsonMapOutput) MapIndex(k pulumi.StringInput) MonitorJsonOutput {

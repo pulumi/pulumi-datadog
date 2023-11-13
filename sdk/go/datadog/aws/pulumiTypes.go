@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i GetIntegrationLogsServicesAwsLogsServiceArgs) ToGetIntegrationLogsServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetIntegrationLogsServicesAwsLogsServiceOutput)
 }
 
-func (i GetIntegrationLogsServicesAwsLogsServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationLogsServicesAwsLogsService] {
-	return pulumix.Output[GetIntegrationLogsServicesAwsLogsService]{
-		OutputState: i.ToGetIntegrationLogsServicesAwsLogsServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetIntegrationLogsServicesAwsLogsServiceArrayInput is an input type that accepts GetIntegrationLogsServicesAwsLogsServiceArray and GetIntegrationLogsServicesAwsLogsServiceArrayOutput values.
 // You can construct a concrete instance of `GetIntegrationLogsServicesAwsLogsServiceArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i GetIntegrationLogsServicesAwsLogsServiceArray) ToGetIntegrationLogsServi
 	return pulumi.ToOutputWithContext(ctx, i).(GetIntegrationLogsServicesAwsLogsServiceArrayOutput)
 }
 
-func (i GetIntegrationLogsServicesAwsLogsServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIntegrationLogsServicesAwsLogsService] {
-	return pulumix.Output[[]GetIntegrationLogsServicesAwsLogsService]{
-		OutputState: i.ToGetIntegrationLogsServicesAwsLogsServiceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetIntegrationLogsServicesAwsLogsServiceOutput struct{ *pulumi.OutputState }
 
 func (GetIntegrationLogsServicesAwsLogsServiceOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o GetIntegrationLogsServicesAwsLogsServiceOutput) ToGetIntegrationLogsServ
 
 func (o GetIntegrationLogsServicesAwsLogsServiceOutput) ToGetIntegrationLogsServicesAwsLogsServiceOutputWithContext(ctx context.Context) GetIntegrationLogsServicesAwsLogsServiceOutput {
 	return o
-}
-
-func (o GetIntegrationLogsServicesAwsLogsServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationLogsServicesAwsLogsService] {
-	return pulumix.Output[GetIntegrationLogsServicesAwsLogsService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetIntegrationLogsServicesAwsLogsServiceOutput) Id() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o GetIntegrationLogsServicesAwsLogsServiceArrayOutput) ToGetIntegrationLog
 
 func (o GetIntegrationLogsServicesAwsLogsServiceArrayOutput) ToGetIntegrationLogsServicesAwsLogsServiceArrayOutputWithContext(ctx context.Context) GetIntegrationLogsServicesAwsLogsServiceArrayOutput {
 	return o
-}
-
-func (o GetIntegrationLogsServicesAwsLogsServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIntegrationLogsServicesAwsLogsService] {
-	return pulumix.Output[[]GetIntegrationLogsServicesAwsLogsService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetIntegrationLogsServicesAwsLogsServiceArrayOutput) Index(i pulumi.IntInput) GetIntegrationLogsServicesAwsLogsServiceOutput {

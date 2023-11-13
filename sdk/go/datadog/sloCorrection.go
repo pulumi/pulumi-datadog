@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for interacting with the sloCorrection API.
@@ -250,12 +249,6 @@ func (i *SloCorrection) ToSloCorrectionOutputWithContext(ctx context.Context) Sl
 	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionOutput)
 }
 
-func (i *SloCorrection) ToOutput(ctx context.Context) pulumix.Output[*SloCorrection] {
-	return pulumix.Output[*SloCorrection]{
-		OutputState: i.ToSloCorrectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SloCorrectionArrayInput is an input type that accepts SloCorrectionArray and SloCorrectionArrayOutput values.
 // You can construct a concrete instance of `SloCorrectionArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i SloCorrectionArray) ToSloCorrectionArrayOutput() SloCorrectionArrayOutpu
 
 func (i SloCorrectionArray) ToSloCorrectionArrayOutputWithContext(ctx context.Context) SloCorrectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionArrayOutput)
-}
-
-func (i SloCorrectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SloCorrection] {
-	return pulumix.Output[[]*SloCorrection]{
-		OutputState: i.ToSloCorrectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SloCorrectionMapInput is an input type that accepts SloCorrectionMap and SloCorrectionMapOutput values.
@@ -312,12 +299,6 @@ func (i SloCorrectionMap) ToSloCorrectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionMapOutput)
 }
 
-func (i SloCorrectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SloCorrection] {
-	return pulumix.Output[map[string]*SloCorrection]{
-		OutputState: i.ToSloCorrectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SloCorrectionOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o SloCorrectionOutput) ToSloCorrectionOutput() SloCorrectionOutput {
 
 func (o SloCorrectionOutput) ToSloCorrectionOutputWithContext(ctx context.Context) SloCorrectionOutput {
 	return o
-}
-
-func (o SloCorrectionOutput) ToOutput(ctx context.Context) pulumix.Output[*SloCorrection] {
-	return pulumix.Output[*SloCorrection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
@@ -392,12 +367,6 @@ func (o SloCorrectionArrayOutput) ToSloCorrectionArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o SloCorrectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SloCorrection] {
-	return pulumix.Output[[]*SloCorrection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SloCorrectionArrayOutput) Index(i pulumi.IntInput) SloCorrectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SloCorrection {
 		return vs[0].([]*SloCorrection)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o SloCorrectionMapOutput) ToSloCorrectionMapOutput() SloCorrectionMapOutpu
 
 func (o SloCorrectionMapOutput) ToSloCorrectionMapOutputWithContext(ctx context.Context) SloCorrectionMapOutput {
 	return o
-}
-
-func (o SloCorrectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SloCorrection] {
-	return pulumix.Output[map[string]*SloCorrection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SloCorrectionMapOutput) MapIndex(k pulumi.StringInput) SloCorrectionOutput {

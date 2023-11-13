@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
@@ -167,12 +166,6 @@ func (i *IntegrationService) ToIntegrationServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceOutput)
 }
 
-func (i *IntegrationService) ToOutput(ctx context.Context) pulumix.Output[*IntegrationService] {
-	return pulumix.Output[*IntegrationService]{
-		OutputState: i.ToIntegrationServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationServiceArrayInput is an input type that accepts IntegrationServiceArray and IntegrationServiceArrayOutput values.
 // You can construct a concrete instance of `IntegrationServiceArrayInput` via:
 //
@@ -196,12 +189,6 @@ func (i IntegrationServiceArray) ToIntegrationServiceArrayOutput() IntegrationSe
 
 func (i IntegrationServiceArray) ToIntegrationServiceArrayOutputWithContext(ctx context.Context) IntegrationServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceArrayOutput)
-}
-
-func (i IntegrationServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationService] {
-	return pulumix.Output[[]*IntegrationService]{
-		OutputState: i.ToIntegrationServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationServiceMapInput is an input type that accepts IntegrationServiceMap and IntegrationServiceMapOutput values.
@@ -229,12 +216,6 @@ func (i IntegrationServiceMap) ToIntegrationServiceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceMapOutput)
 }
 
-func (i IntegrationServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationService] {
-	return pulumix.Output[map[string]*IntegrationService]{
-		OutputState: i.ToIntegrationServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationServiceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceOutput) ElementType() reflect.Type {
@@ -247,12 +228,6 @@ func (o IntegrationServiceOutput) ToIntegrationServiceOutput() IntegrationServic
 
 func (o IntegrationServiceOutput) ToIntegrationServiceOutputWithContext(ctx context.Context) IntegrationServiceOutput {
 	return o
-}
-
-func (o IntegrationServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationService] {
-	return pulumix.Output[*IntegrationService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fastly Account id.
@@ -284,12 +259,6 @@ func (o IntegrationServiceArrayOutput) ToIntegrationServiceArrayOutputWithContex
 	return o
 }
 
-func (o IntegrationServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationService] {
-	return pulumix.Output[[]*IntegrationService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationServiceArrayOutput) Index(i pulumi.IntInput) IntegrationServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationService {
 		return vs[0].([]*IntegrationService)[vs[1].(int)]
@@ -308,12 +277,6 @@ func (o IntegrationServiceMapOutput) ToIntegrationServiceMapOutput() Integration
 
 func (o IntegrationServiceMapOutput) ToIntegrationServiceMapOutputWithContext(ctx context.Context) IntegrationServiceMapOutput {
 	return o
-}
-
-func (o IntegrationServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationService] {
-	return pulumix.Output[map[string]*IntegrationService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationServiceMapOutput) MapIndex(k pulumi.StringInput) IntegrationServiceOutput {

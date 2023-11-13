@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog service definition resource. This can be used to create and manage Datadog service definitions in the service catalog using the YAML/JSON definition.
@@ -268,12 +267,6 @@ func (i *ServiceDefinitionYaml) ToServiceDefinitionYamlOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionYamlOutput)
 }
 
-func (i *ServiceDefinitionYaml) ToOutput(ctx context.Context) pulumix.Output[*ServiceDefinitionYaml] {
-	return pulumix.Output[*ServiceDefinitionYaml]{
-		OutputState: i.ToServiceDefinitionYamlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceDefinitionYamlArrayInput is an input type that accepts ServiceDefinitionYamlArray and ServiceDefinitionYamlArrayOutput values.
 // You can construct a concrete instance of `ServiceDefinitionYamlArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i ServiceDefinitionYamlArray) ToServiceDefinitionYamlArrayOutput() Service
 
 func (i ServiceDefinitionYamlArray) ToServiceDefinitionYamlArrayOutputWithContext(ctx context.Context) ServiceDefinitionYamlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionYamlArrayOutput)
-}
-
-func (i ServiceDefinitionYamlArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceDefinitionYaml] {
-	return pulumix.Output[[]*ServiceDefinitionYaml]{
-		OutputState: i.ToServiceDefinitionYamlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceDefinitionYamlMapInput is an input type that accepts ServiceDefinitionYamlMap and ServiceDefinitionYamlMapOutput values.
@@ -330,12 +317,6 @@ func (i ServiceDefinitionYamlMap) ToServiceDefinitionYamlMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDefinitionYamlMapOutput)
 }
 
-func (i ServiceDefinitionYamlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceDefinitionYaml] {
-	return pulumix.Output[map[string]*ServiceDefinitionYaml]{
-		OutputState: i.ToServiceDefinitionYamlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDefinitionYamlOutput struct{ *pulumi.OutputState }
 
 func (ServiceDefinitionYamlOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o ServiceDefinitionYamlOutput) ToServiceDefinitionYamlOutput() ServiceDefi
 
 func (o ServiceDefinitionYamlOutput) ToServiceDefinitionYamlOutputWithContext(ctx context.Context) ServiceDefinitionYamlOutput {
 	return o
-}
-
-func (o ServiceDefinitionYamlOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDefinitionYaml] {
-	return pulumix.Output[*ServiceDefinitionYaml]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The YAML/JSON formatted definition of the service
@@ -375,12 +350,6 @@ func (o ServiceDefinitionYamlArrayOutput) ToServiceDefinitionYamlArrayOutputWith
 	return o
 }
 
-func (o ServiceDefinitionYamlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceDefinitionYaml] {
-	return pulumix.Output[[]*ServiceDefinitionYaml]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceDefinitionYamlArrayOutput) Index(i pulumi.IntInput) ServiceDefinitionYamlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceDefinitionYaml {
 		return vs[0].([]*ServiceDefinitionYaml)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o ServiceDefinitionYamlMapOutput) ToServiceDefinitionYamlMapOutput() Servi
 
 func (o ServiceDefinitionYamlMapOutput) ToServiceDefinitionYamlMapOutputWithContext(ctx context.Context) ServiceDefinitionYamlMapOutput {
 	return o
-}
-
-func (o ServiceDefinitionYamlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceDefinitionYaml] {
-	return pulumix.Output[map[string]*ServiceDefinitionYaml]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDefinitionYamlMapOutput) MapIndex(k pulumi.StringInput) ServiceDefinitionYamlOutput {

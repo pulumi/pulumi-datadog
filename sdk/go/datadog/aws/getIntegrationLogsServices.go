@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve all AWS log ready services.
@@ -55,12 +54,6 @@ func (o GetIntegrationLogsServicesResultOutput) ToGetIntegrationLogsServicesResu
 
 func (o GetIntegrationLogsServicesResultOutput) ToGetIntegrationLogsServicesResultOutputWithContext(ctx context.Context) GetIntegrationLogsServicesResultOutput {
 	return o
-}
-
-func (o GetIntegrationLogsServicesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationLogsServicesResult] {
-	return pulumix.Output[GetIntegrationLogsServicesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of AWS log ready services.

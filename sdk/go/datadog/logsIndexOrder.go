@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
@@ -150,12 +149,6 @@ func (i *LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderOutput)
 }
 
-func (i *LogsIndexOrder) ToOutput(ctx context.Context) pulumix.Output[*LogsIndexOrder] {
-	return pulumix.Output[*LogsIndexOrder]{
-		OutputState: i.ToLogsIndexOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsIndexOrderArrayInput is an input type that accepts LogsIndexOrderArray and LogsIndexOrderArrayOutput values.
 // You can construct a concrete instance of `LogsIndexOrderArrayInput` via:
 //
@@ -179,12 +172,6 @@ func (i LogsIndexOrderArray) ToLogsIndexOrderArrayOutput() LogsIndexOrderArrayOu
 
 func (i LogsIndexOrderArray) ToLogsIndexOrderArrayOutputWithContext(ctx context.Context) LogsIndexOrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderArrayOutput)
-}
-
-func (i LogsIndexOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIndexOrder] {
-	return pulumix.Output[[]*LogsIndexOrder]{
-		OutputState: i.ToLogsIndexOrderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsIndexOrderMapInput is an input type that accepts LogsIndexOrderMap and LogsIndexOrderMapOutput values.
@@ -212,12 +199,6 @@ func (i LogsIndexOrderMap) ToLogsIndexOrderMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderMapOutput)
 }
 
-func (i LogsIndexOrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIndexOrder] {
-	return pulumix.Output[map[string]*LogsIndexOrder]{
-		OutputState: i.ToLogsIndexOrderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsIndexOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsIndexOrderOutput) ElementType() reflect.Type {
@@ -230,12 +211,6 @@ func (o LogsIndexOrderOutput) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
 
 func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
 	return o
-}
-
-func (o LogsIndexOrderOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsIndexOrder] {
-	return pulumix.Output[*LogsIndexOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
@@ -262,12 +237,6 @@ func (o LogsIndexOrderArrayOutput) ToLogsIndexOrderArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o LogsIndexOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsIndexOrder] {
-	return pulumix.Output[[]*LogsIndexOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsIndexOrderArrayOutput) Index(i pulumi.IntInput) LogsIndexOrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsIndexOrder {
 		return vs[0].([]*LogsIndexOrder)[vs[1].(int)]
@@ -286,12 +255,6 @@ func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutput() LogsIndexOrderMapOu
 
 func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutputWithContext(ctx context.Context) LogsIndexOrderMapOutput {
 	return o
-}
-
-func (o LogsIndexOrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsIndexOrder] {
-	return pulumix.Output[map[string]*LogsIndexOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsIndexOrderMapOutput) MapIndex(k pulumi.StringInput) LogsIndexOrderOutput {

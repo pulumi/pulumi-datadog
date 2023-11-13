@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing api key.
@@ -105,12 +104,6 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutput() LookupApiKeyResul
 
 func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx context.Context) LookupApiKeyResultOutput {
 	return o
-}
-
-func (o LookupApiKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiKeyResult] {
-	return pulumix.Output[LookupApiKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of this resource.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the current order of your log indexes.
@@ -79,12 +78,6 @@ func (o GetLogsIndexesOrderResultOutput) ToGetLogsIndexesOrderResultOutput() Get
 
 func (o GetLogsIndexesOrderResultOutput) ToGetLogsIndexesOrderResultOutputWithContext(ctx context.Context) GetLogsIndexesOrderResultOutput {
 	return o
-}
-
-func (o GetLogsIndexesOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsIndexesOrderResult] {
-	return pulumix.Output[GetLogsIndexesOrderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

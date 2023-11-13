@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing monitor for use in other resources.
@@ -173,12 +172,6 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorRe
 
 func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
 	return o
-}
-
-func (o LookupMonitorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMonitorResult] {
-	return pulumix.Output[LookupMonitorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.

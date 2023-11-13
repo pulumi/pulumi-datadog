@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog `serviceAccountApplicationKey` resource. This can be used to create and manage Datadog service account application keys.
@@ -173,12 +172,6 @@ func (i *ServiceAccountApplicationKey) ToServiceAccountApplicationKeyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountApplicationKeyOutput)
 }
 
-func (i *ServiceAccountApplicationKey) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountApplicationKey] {
-	return pulumix.Output[*ServiceAccountApplicationKey]{
-		OutputState: i.ToServiceAccountApplicationKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceAccountApplicationKeyArrayInput is an input type that accepts ServiceAccountApplicationKeyArray and ServiceAccountApplicationKeyArrayOutput values.
 // You can construct a concrete instance of `ServiceAccountApplicationKeyArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i ServiceAccountApplicationKeyArray) ToServiceAccountApplicationKeyArrayOu
 
 func (i ServiceAccountApplicationKeyArray) ToServiceAccountApplicationKeyArrayOutputWithContext(ctx context.Context) ServiceAccountApplicationKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountApplicationKeyArrayOutput)
-}
-
-func (i ServiceAccountApplicationKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAccountApplicationKey] {
-	return pulumix.Output[[]*ServiceAccountApplicationKey]{
-		OutputState: i.ToServiceAccountApplicationKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceAccountApplicationKeyMapInput is an input type that accepts ServiceAccountApplicationKeyMap and ServiceAccountApplicationKeyMapOutput values.
@@ -235,12 +222,6 @@ func (i ServiceAccountApplicationKeyMap) ToServiceAccountApplicationKeyMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountApplicationKeyMapOutput)
 }
 
-func (i ServiceAccountApplicationKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAccountApplicationKey] {
-	return pulumix.Output[map[string]*ServiceAccountApplicationKey]{
-		OutputState: i.ToServiceAccountApplicationKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountApplicationKeyOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountApplicationKeyOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o ServiceAccountApplicationKeyOutput) ToServiceAccountApplicationKeyOutput
 
 func (o ServiceAccountApplicationKeyOutput) ToServiceAccountApplicationKeyOutputWithContext(ctx context.Context) ServiceAccountApplicationKeyOutput {
 	return o
-}
-
-func (o ServiceAccountApplicationKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountApplicationKey] {
-	return pulumix.Output[*ServiceAccountApplicationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Creation date of the application key.
@@ -300,12 +275,6 @@ func (o ServiceAccountApplicationKeyArrayOutput) ToServiceAccountApplicationKeyA
 	return o
 }
 
-func (o ServiceAccountApplicationKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAccountApplicationKey] {
-	return pulumix.Output[[]*ServiceAccountApplicationKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAccountApplicationKeyArrayOutput) Index(i pulumi.IntInput) ServiceAccountApplicationKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceAccountApplicationKey {
 		return vs[0].([]*ServiceAccountApplicationKey)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o ServiceAccountApplicationKeyMapOutput) ToServiceAccountApplicationKeyMap
 
 func (o ServiceAccountApplicationKeyMapOutput) ToServiceAccountApplicationKeyMapOutputWithContext(ctx context.Context) ServiceAccountApplicationKeyMapOutput {
 	return o
-}
-
-func (o ServiceAccountApplicationKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAccountApplicationKey] {
-	return pulumix.Output[map[string]*ServiceAccountApplicationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountApplicationKeyMapOutput) MapIndex(k pulumi.StringInput) ServiceAccountApplicationKeyOutput {

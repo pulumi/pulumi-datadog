@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list several existing logs indexes for use in other resources.
@@ -79,12 +78,6 @@ func (o GetLogsIndexesResultOutput) ToGetLogsIndexesResultOutput() GetLogsIndexe
 
 func (o GetLogsIndexesResultOutput) ToGetLogsIndexesResultOutputWithContext(ctx context.Context) GetLogsIndexesResultOutput {
 	return o
-}
-
-func (o GetLogsIndexesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsIndexesResult] {
-	return pulumix.Output[GetLogsIndexesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

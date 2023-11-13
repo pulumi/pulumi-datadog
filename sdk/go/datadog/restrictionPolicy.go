@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog RestrictionPolicy resource. This can be used to create and manage Datadog restriction policies.
@@ -154,12 +153,6 @@ func (i *RestrictionPolicy) ToRestrictionPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyOutput)
 }
 
-func (i *RestrictionPolicy) ToOutput(ctx context.Context) pulumix.Output[*RestrictionPolicy] {
-	return pulumix.Output[*RestrictionPolicy]{
-		OutputState: i.ToRestrictionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RestrictionPolicyArrayInput is an input type that accepts RestrictionPolicyArray and RestrictionPolicyArrayOutput values.
 // You can construct a concrete instance of `RestrictionPolicyArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i RestrictionPolicyArray) ToRestrictionPolicyArrayOutput() RestrictionPoli
 
 func (i RestrictionPolicyArray) ToRestrictionPolicyArrayOutputWithContext(ctx context.Context) RestrictionPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyArrayOutput)
-}
-
-func (i RestrictionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RestrictionPolicy] {
-	return pulumix.Output[[]*RestrictionPolicy]{
-		OutputState: i.ToRestrictionPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RestrictionPolicyMapInput is an input type that accepts RestrictionPolicyMap and RestrictionPolicyMapOutput values.
@@ -216,12 +203,6 @@ func (i RestrictionPolicyMap) ToRestrictionPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RestrictionPolicyMapOutput)
 }
 
-func (i RestrictionPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestrictionPolicy] {
-	return pulumix.Output[map[string]*RestrictionPolicy]{
-		OutputState: i.ToRestrictionPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RestrictionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RestrictionPolicyOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o RestrictionPolicyOutput) ToRestrictionPolicyOutput() RestrictionPolicyOu
 
 func (o RestrictionPolicyOutput) ToRestrictionPolicyOutputWithContext(ctx context.Context) RestrictionPolicyOutput {
 	return o
-}
-
-func (o RestrictionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RestrictionPolicy] {
-	return pulumix.Output[*RestrictionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RestrictionPolicyOutput) Bindings() RestrictionPolicyBindingArrayOutput {
@@ -265,12 +240,6 @@ func (o RestrictionPolicyArrayOutput) ToRestrictionPolicyArrayOutputWithContext(
 	return o
 }
 
-func (o RestrictionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RestrictionPolicy] {
-	return pulumix.Output[[]*RestrictionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestrictionPolicyArrayOutput) Index(i pulumi.IntInput) RestrictionPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RestrictionPolicy {
 		return vs[0].([]*RestrictionPolicy)[vs[1].(int)]
@@ -289,12 +258,6 @@ func (o RestrictionPolicyMapOutput) ToRestrictionPolicyMapOutput() RestrictionPo
 
 func (o RestrictionPolicyMapOutput) ToRestrictionPolicyMapOutputWithContext(ctx context.Context) RestrictionPolicyMapOutput {
 	return o
-}
-
-func (o RestrictionPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestrictionPolicy] {
-	return pulumix.Output[map[string]*RestrictionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RestrictionPolicyMapOutput) MapIndex(k pulumi.StringInput) RestrictionPolicyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing Datadog team.
@@ -117,12 +116,6 @@ func (o LookupTeamResultOutput) ToLookupTeamResultOutput() LookupTeamResultOutpu
 
 func (o LookupTeamResultOutput) ToLookupTeamResultOutputWithContext(ctx context.Context) LookupTeamResultOutput {
 	return o
-}
-
-func (o LookupTeamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTeamResult] {
-	return pulumix.Output[LookupTeamResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Free-form markdown description/content for the team's homepage.

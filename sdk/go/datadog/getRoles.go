@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about multiple roles for use in other resources.
@@ -101,12 +100,6 @@ func (o GetRolesResultOutput) ToGetRolesResultOutput() GetRolesResultOutput {
 
 func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Context) GetRolesResultOutput {
 	return o
-}
-
-func (o GetRolesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRolesResult] {
-	return pulumix.Output[GetRolesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Filter all roles by the given string.
