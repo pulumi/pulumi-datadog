@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
@@ -152,12 +151,6 @@ func (i *RumApplication) ToRumApplicationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RumApplicationOutput)
 }
 
-func (i *RumApplication) ToOutput(ctx context.Context) pulumix.Output[*RumApplication] {
-	return pulumix.Output[*RumApplication]{
-		OutputState: i.ToRumApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RumApplicationArrayInput is an input type that accepts RumApplicationArray and RumApplicationArrayOutput values.
 // You can construct a concrete instance of `RumApplicationArrayInput` via:
 //
@@ -181,12 +174,6 @@ func (i RumApplicationArray) ToRumApplicationArrayOutput() RumApplicationArrayOu
 
 func (i RumApplicationArray) ToRumApplicationArrayOutputWithContext(ctx context.Context) RumApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RumApplicationArrayOutput)
-}
-
-func (i RumApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RumApplication] {
-	return pulumix.Output[[]*RumApplication]{
-		OutputState: i.ToRumApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RumApplicationMapInput is an input type that accepts RumApplicationMap and RumApplicationMapOutput values.
@@ -214,12 +201,6 @@ func (i RumApplicationMap) ToRumApplicationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RumApplicationMapOutput)
 }
 
-func (i RumApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RumApplication] {
-	return pulumix.Output[map[string]*RumApplication]{
-		OutputState: i.ToRumApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RumApplicationOutput struct{ *pulumi.OutputState }
 
 func (RumApplicationOutput) ElementType() reflect.Type {
@@ -232,12 +213,6 @@ func (o RumApplicationOutput) ToRumApplicationOutput() RumApplicationOutput {
 
 func (o RumApplicationOutput) ToRumApplicationOutputWithContext(ctx context.Context) RumApplicationOutput {
 	return o
-}
-
-func (o RumApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*RumApplication] {
-	return pulumix.Output[*RumApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The client token
@@ -269,12 +244,6 @@ func (o RumApplicationArrayOutput) ToRumApplicationArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o RumApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RumApplication] {
-	return pulumix.Output[[]*RumApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RumApplicationArrayOutput) Index(i pulumi.IntInput) RumApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RumApplication {
 		return vs[0].([]*RumApplication)[vs[1].(int)]
@@ -293,12 +262,6 @@ func (o RumApplicationMapOutput) ToRumApplicationMapOutput() RumApplicationMapOu
 
 func (o RumApplicationMapOutput) ToRumApplicationMapOutputWithContext(ctx context.Context) RumApplicationMapOutput {
 	return o
-}
-
-func (o RumApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RumApplication] {
-	return pulumix.Output[map[string]*RumApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RumApplicationMapOutput) MapIndex(k pulumi.StringInput) RumApplicationOutput {

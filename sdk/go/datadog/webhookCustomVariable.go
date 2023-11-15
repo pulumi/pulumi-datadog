@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog webhooks custom variable resource. This can be used to create and manage Datadog webhooks custom variables.
@@ -170,12 +169,6 @@ func (i *WebhookCustomVariable) ToWebhookCustomVariableOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookCustomVariableOutput)
 }
 
-func (i *WebhookCustomVariable) ToOutput(ctx context.Context) pulumix.Output[*WebhookCustomVariable] {
-	return pulumix.Output[*WebhookCustomVariable]{
-		OutputState: i.ToWebhookCustomVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WebhookCustomVariableArrayInput is an input type that accepts WebhookCustomVariableArray and WebhookCustomVariableArrayOutput values.
 // You can construct a concrete instance of `WebhookCustomVariableArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i WebhookCustomVariableArray) ToWebhookCustomVariableArrayOutput() Webhook
 
 func (i WebhookCustomVariableArray) ToWebhookCustomVariableArrayOutputWithContext(ctx context.Context) WebhookCustomVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookCustomVariableArrayOutput)
-}
-
-func (i WebhookCustomVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebhookCustomVariable] {
-	return pulumix.Output[[]*WebhookCustomVariable]{
-		OutputState: i.ToWebhookCustomVariableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WebhookCustomVariableMapInput is an input type that accepts WebhookCustomVariableMap and WebhookCustomVariableMapOutput values.
@@ -232,12 +219,6 @@ func (i WebhookCustomVariableMap) ToWebhookCustomVariableMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookCustomVariableMapOutput)
 }
 
-func (i WebhookCustomVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebhookCustomVariable] {
-	return pulumix.Output[map[string]*WebhookCustomVariable]{
-		OutputState: i.ToWebhookCustomVariableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebhookCustomVariableOutput struct{ *pulumi.OutputState }
 
 func (WebhookCustomVariableOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o WebhookCustomVariableOutput) ToWebhookCustomVariableOutput() WebhookCust
 
 func (o WebhookCustomVariableOutput) ToWebhookCustomVariableOutputWithContext(ctx context.Context) WebhookCustomVariableOutput {
 	return o
-}
-
-func (o WebhookCustomVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*WebhookCustomVariable] {
-	return pulumix.Output[*WebhookCustomVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the custom variable is secret or not.
@@ -287,12 +262,6 @@ func (o WebhookCustomVariableArrayOutput) ToWebhookCustomVariableArrayOutputWith
 	return o
 }
 
-func (o WebhookCustomVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebhookCustomVariable] {
-	return pulumix.Output[[]*WebhookCustomVariable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebhookCustomVariableArrayOutput) Index(i pulumi.IntInput) WebhookCustomVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebhookCustomVariable {
 		return vs[0].([]*WebhookCustomVariable)[vs[1].(int)]
@@ -311,12 +280,6 @@ func (o WebhookCustomVariableMapOutput) ToWebhookCustomVariableMapOutput() Webho
 
 func (o WebhookCustomVariableMapOutput) ToWebhookCustomVariableMapOutputWithContext(ctx context.Context) WebhookCustomVariableMapOutput {
 	return o
-}
-
-func (o WebhookCustomVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebhookCustomVariable] {
-	return pulumix.Output[map[string]*WebhookCustomVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebhookCustomVariableMapOutput) MapIndex(k pulumi.StringInput) WebhookCustomVariableOutput {

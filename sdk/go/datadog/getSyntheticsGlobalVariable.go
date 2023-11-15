@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
@@ -75,12 +74,6 @@ func (o LookupSyntheticsGlobalVariableResultOutput) ToLookupSyntheticsGlobalVari
 
 func (o LookupSyntheticsGlobalVariableResultOutput) ToLookupSyntheticsGlobalVariableResultOutputWithContext(ctx context.Context) LookupSyntheticsGlobalVariableResultOutput {
 	return o
-}
-
-func (o LookupSyntheticsGlobalVariableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSyntheticsGlobalVariableResult] {
-	return pulumix.Output[LookupSyntheticsGlobalVariableResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

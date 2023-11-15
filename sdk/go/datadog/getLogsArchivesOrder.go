@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get the current order of your logs archives.
@@ -55,12 +54,6 @@ func (o GetLogsArchivesOrderResultOutput) ToGetLogsArchivesOrderResultOutput() G
 
 func (o GetLogsArchivesOrderResultOutput) ToGetLogsArchivesOrderResultOutputWithContext(ctx context.Context) GetLogsArchivesOrderResultOutput {
 	return o
-}
-
-func (o GetLogsArchivesOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsArchivesOrderResult] {
-	return pulumix.Output[GetLogsArchivesOrderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs.

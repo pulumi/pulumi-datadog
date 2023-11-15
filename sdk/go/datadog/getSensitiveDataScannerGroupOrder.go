@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
@@ -85,12 +84,6 @@ func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToLookupSensitiveDataS
 
 func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToLookupSensitiveDataScannerGroupOrderResultOutputWithContext(ctx context.Context) LookupSensitiveDataScannerGroupOrderResultOutput {
 	return o
-}
-
-func (o LookupSensitiveDataScannerGroupOrderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSensitiveDataScannerGroupOrderResult] {
-	return pulumix.Output[LookupSensitiveDataScannerGroupOrderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog metricMetadata resource. This can be used to manage a metric's metadata.
@@ -199,12 +198,6 @@ func (i *MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataOutput)
 }
 
-func (i *MetricMetadata) ToOutput(ctx context.Context) pulumix.Output[*MetricMetadata] {
-	return pulumix.Output[*MetricMetadata]{
-		OutputState: i.ToMetricMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricMetadataArrayInput is an input type that accepts MetricMetadataArray and MetricMetadataArrayOutput values.
 // You can construct a concrete instance of `MetricMetadataArrayInput` via:
 //
@@ -228,12 +221,6 @@ func (i MetricMetadataArray) ToMetricMetadataArrayOutput() MetricMetadataArrayOu
 
 func (i MetricMetadataArray) ToMetricMetadataArrayOutputWithContext(ctx context.Context) MetricMetadataArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataArrayOutput)
-}
-
-func (i MetricMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricMetadata] {
-	return pulumix.Output[[]*MetricMetadata]{
-		OutputState: i.ToMetricMetadataArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MetricMetadataMapInput is an input type that accepts MetricMetadataMap and MetricMetadataMapOutput values.
@@ -261,12 +248,6 @@ func (i MetricMetadataMap) ToMetricMetadataMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataMapOutput)
 }
 
-func (i MetricMetadataMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricMetadata] {
-	return pulumix.Output[map[string]*MetricMetadata]{
-		OutputState: i.ToMetricMetadataMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricMetadataOutput struct{ *pulumi.OutputState }
 
 func (MetricMetadataOutput) ElementType() reflect.Type {
@@ -279,12 +260,6 @@ func (o MetricMetadataOutput) ToMetricMetadataOutput() MetricMetadataOutput {
 
 func (o MetricMetadataOutput) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
 	return o
-}
-
-func (o MetricMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricMetadata] {
-	return pulumix.Output[*MetricMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the metric.
@@ -336,12 +311,6 @@ func (o MetricMetadataArrayOutput) ToMetricMetadataArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o MetricMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricMetadata] {
-	return pulumix.Output[[]*MetricMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricMetadataArrayOutput) Index(i pulumi.IntInput) MetricMetadataOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricMetadata {
 		return vs[0].([]*MetricMetadata)[vs[1].(int)]
@@ -360,12 +329,6 @@ func (o MetricMetadataMapOutput) ToMetricMetadataMapOutput() MetricMetadataMapOu
 
 func (o MetricMetadataMapOutput) ToMetricMetadataMapOutputWithContext(ctx context.Context) MetricMetadataMapOutput {
 	return o
-}
-
-func (o MetricMetadataMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricMetadata] {
-	return pulumix.Output[map[string]*MetricMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricMetadataMapOutput) MapIndex(k pulumi.StringInput) MetricMetadataOutput {

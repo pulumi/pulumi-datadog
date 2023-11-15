@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to list all existing logs pipelines for use in other resources.
@@ -104,12 +103,6 @@ func (o GetLogsPipelinesResultOutput) ToGetLogsPipelinesResultOutput() GetLogsPi
 
 func (o GetLogsPipelinesResultOutput) ToGetLogsPipelinesResultOutputWithContext(ctx context.Context) GetLogsPipelinesResultOutput {
 	return o
-}
-
-func (o GetLogsPipelinesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogsPipelinesResult] {
-	return pulumix.Output[GetLogsPipelinesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

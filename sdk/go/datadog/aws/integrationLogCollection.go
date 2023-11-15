@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
@@ -153,12 +152,6 @@ func (i *IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionOutput)
 }
 
-func (i *IntegrationLogCollection) ToOutput(ctx context.Context) pulumix.Output[*IntegrationLogCollection] {
-	return pulumix.Output[*IntegrationLogCollection]{
-		OutputState: i.ToIntegrationLogCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationLogCollectionArrayInput is an input type that accepts IntegrationLogCollectionArray and IntegrationLogCollectionArrayOutput values.
 // You can construct a concrete instance of `IntegrationLogCollectionArrayInput` via:
 //
@@ -182,12 +175,6 @@ func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutput() I
 
 func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutputWithContext(ctx context.Context) IntegrationLogCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionArrayOutput)
-}
-
-func (i IntegrationLogCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationLogCollection] {
-	return pulumix.Output[[]*IntegrationLogCollection]{
-		OutputState: i.ToIntegrationLogCollectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationLogCollectionMapInput is an input type that accepts IntegrationLogCollectionMap and IntegrationLogCollectionMapOutput values.
@@ -215,12 +202,6 @@ func (i IntegrationLogCollectionMap) ToIntegrationLogCollectionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionMapOutput)
 }
 
-func (i IntegrationLogCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationLogCollection] {
-	return pulumix.Output[map[string]*IntegrationLogCollection]{
-		OutputState: i.ToIntegrationLogCollectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationLogCollectionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLogCollectionOutput) ElementType() reflect.Type {
@@ -233,12 +214,6 @@ func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutput() Integ
 
 func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
 	return o
-}
-
-func (o IntegrationLogCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationLogCollection] {
-	return pulumix.Output[*IntegrationLogCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
@@ -265,12 +240,6 @@ func (o IntegrationLogCollectionArrayOutput) ToIntegrationLogCollectionArrayOutp
 	return o
 }
 
-func (o IntegrationLogCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationLogCollection] {
-	return pulumix.Output[[]*IntegrationLogCollection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationLogCollectionArrayOutput) Index(i pulumi.IntInput) IntegrationLogCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationLogCollection {
 		return vs[0].([]*IntegrationLogCollection)[vs[1].(int)]
@@ -289,12 +258,6 @@ func (o IntegrationLogCollectionMapOutput) ToIntegrationLogCollectionMapOutput()
 
 func (o IntegrationLogCollectionMapOutput) ToIntegrationLogCollectionMapOutputWithContext(ctx context.Context) IntegrationLogCollectionMapOutput {
 	return o
-}
-
-func (o IntegrationLogCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationLogCollection] {
-	return pulumix.Output[map[string]*IntegrationLogCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationLogCollectionMapOutput) MapIndex(k pulumi.StringInput) IntegrationLogCollectionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Sensitive Data Scanner group resource.
@@ -192,12 +191,6 @@ func (i *SensitiveDataScannerGroup) ToSensitiveDataScannerGroupOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupOutput)
 }
 
-func (i *SensitiveDataScannerGroup) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerGroup] {
-	return pulumix.Output[*SensitiveDataScannerGroup]{
-		OutputState: i.ToSensitiveDataScannerGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SensitiveDataScannerGroupArrayInput is an input type that accepts SensitiveDataScannerGroupArray and SensitiveDataScannerGroupArrayOutput values.
 // You can construct a concrete instance of `SensitiveDataScannerGroupArrayInput` via:
 //
@@ -221,12 +214,6 @@ func (i SensitiveDataScannerGroupArray) ToSensitiveDataScannerGroupArrayOutput()
 
 func (i SensitiveDataScannerGroupArray) ToSensitiveDataScannerGroupArrayOutputWithContext(ctx context.Context) SensitiveDataScannerGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupArrayOutput)
-}
-
-func (i SensitiveDataScannerGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerGroup] {
-	return pulumix.Output[[]*SensitiveDataScannerGroup]{
-		OutputState: i.ToSensitiveDataScannerGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SensitiveDataScannerGroupMapInput is an input type that accepts SensitiveDataScannerGroupMap and SensitiveDataScannerGroupMapOutput values.
@@ -254,12 +241,6 @@ func (i SensitiveDataScannerGroupMap) ToSensitiveDataScannerGroupMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerGroupMapOutput)
 }
 
-func (i SensitiveDataScannerGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerGroup] {
-	return pulumix.Output[map[string]*SensitiveDataScannerGroup]{
-		OutputState: i.ToSensitiveDataScannerGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SensitiveDataScannerGroupOutput struct{ *pulumi.OutputState }
 
 func (SensitiveDataScannerGroupOutput) ElementType() reflect.Type {
@@ -272,12 +253,6 @@ func (o SensitiveDataScannerGroupOutput) ToSensitiveDataScannerGroupOutput() Sen
 
 func (o SensitiveDataScannerGroupOutput) ToSensitiveDataScannerGroupOutputWithContext(ctx context.Context) SensitiveDataScannerGroupOutput {
 	return o
-}
-
-func (o SensitiveDataScannerGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SensitiveDataScannerGroup] {
-	return pulumix.Output[*SensitiveDataScannerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the Datadog scanning group.
@@ -319,12 +294,6 @@ func (o SensitiveDataScannerGroupArrayOutput) ToSensitiveDataScannerGroupArrayOu
 	return o
 }
 
-func (o SensitiveDataScannerGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SensitiveDataScannerGroup] {
-	return pulumix.Output[[]*SensitiveDataScannerGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SensitiveDataScannerGroupArrayOutput) Index(i pulumi.IntInput) SensitiveDataScannerGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SensitiveDataScannerGroup {
 		return vs[0].([]*SensitiveDataScannerGroup)[vs[1].(int)]
@@ -343,12 +312,6 @@ func (o SensitiveDataScannerGroupMapOutput) ToSensitiveDataScannerGroupMapOutput
 
 func (o SensitiveDataScannerGroupMapOutput) ToSensitiveDataScannerGroupMapOutputWithContext(ctx context.Context) SensitiveDataScannerGroupMapOutput {
 	return o
-}
-
-func (o SensitiveDataScannerGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SensitiveDataScannerGroup] {
-	return pulumix.Output[map[string]*SensitiveDataScannerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SensitiveDataScannerGroupMapOutput) MapIndex(k pulumi.StringInput) SensitiveDataScannerGroupOutput {
