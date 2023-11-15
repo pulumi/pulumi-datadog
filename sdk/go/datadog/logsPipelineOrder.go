@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
@@ -154,12 +153,6 @@ func (i *LogsPipelineOrder) ToLogsPipelineOrderOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderOutput)
 }
 
-func (i *LogsPipelineOrder) ToOutput(ctx context.Context) pulumix.Output[*LogsPipelineOrder] {
-	return pulumix.Output[*LogsPipelineOrder]{
-		OutputState: i.ToLogsPipelineOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsPipelineOrderArrayInput is an input type that accepts LogsPipelineOrderArray and LogsPipelineOrderArrayOutput values.
 // You can construct a concrete instance of `LogsPipelineOrderArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutput() LogsPipelineOrd
 
 func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutputWithContext(ctx context.Context) LogsPipelineOrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderArrayOutput)
-}
-
-func (i LogsPipelineOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsPipelineOrder] {
-	return pulumix.Output[[]*LogsPipelineOrder]{
-		OutputState: i.ToLogsPipelineOrderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsPipelineOrderMapInput is an input type that accepts LogsPipelineOrderMap and LogsPipelineOrderMapOutput values.
@@ -216,12 +203,6 @@ func (i LogsPipelineOrderMap) ToLogsPipelineOrderMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderMapOutput)
 }
 
-func (i LogsPipelineOrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsPipelineOrder] {
-	return pulumix.Output[map[string]*LogsPipelineOrder]{
-		OutputState: i.ToLogsPipelineOrderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsPipelineOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsPipelineOrderOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutput() LogsPipelineOrderOu
 
 func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutputWithContext(ctx context.Context) LogsPipelineOrderOutput {
 	return o
-}
-
-func (o LogsPipelineOrderOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsPipelineOrder] {
-	return pulumix.Output[*LogsPipelineOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
@@ -266,12 +241,6 @@ func (o LogsPipelineOrderArrayOutput) ToLogsPipelineOrderArrayOutputWithContext(
 	return o
 }
 
-func (o LogsPipelineOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsPipelineOrder] {
-	return pulumix.Output[[]*LogsPipelineOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsPipelineOrderArrayOutput) Index(i pulumi.IntInput) LogsPipelineOrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsPipelineOrder {
 		return vs[0].([]*LogsPipelineOrder)[vs[1].(int)]
@@ -290,12 +259,6 @@ func (o LogsPipelineOrderMapOutput) ToLogsPipelineOrderMapOutput() LogsPipelineO
 
 func (o LogsPipelineOrderMapOutput) ToLogsPipelineOrderMapOutputWithContext(ctx context.Context) LogsPipelineOrderMapOutput {
 	return o
-}
-
-func (o LogsPipelineOrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsPipelineOrder] {
-	return pulumix.Output[map[string]*LogsPipelineOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsPipelineOrderMapOutput) MapIndex(k pulumi.StringInput) LogsPipelineOrderOutput {

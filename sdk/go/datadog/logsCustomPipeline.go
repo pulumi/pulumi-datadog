@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
@@ -134,12 +133,6 @@ func (i *LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineOutput)
 }
 
-func (i *LogsCustomPipeline) ToOutput(ctx context.Context) pulumix.Output[*LogsCustomPipeline] {
-	return pulumix.Output[*LogsCustomPipeline]{
-		OutputState: i.ToLogsCustomPipelineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsCustomPipelineArrayInput is an input type that accepts LogsCustomPipelineArray and LogsCustomPipelineArrayOutput values.
 // You can construct a concrete instance of `LogsCustomPipelineArrayInput` via:
 //
@@ -163,12 +156,6 @@ func (i LogsCustomPipelineArray) ToLogsCustomPipelineArrayOutput() LogsCustomPip
 
 func (i LogsCustomPipelineArray) ToLogsCustomPipelineArrayOutputWithContext(ctx context.Context) LogsCustomPipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineArrayOutput)
-}
-
-func (i LogsCustomPipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsCustomPipeline] {
-	return pulumix.Output[[]*LogsCustomPipeline]{
-		OutputState: i.ToLogsCustomPipelineArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsCustomPipelineMapInput is an input type that accepts LogsCustomPipelineMap and LogsCustomPipelineMapOutput values.
@@ -196,12 +183,6 @@ func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineMapOutput)
 }
 
-func (i LogsCustomPipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsCustomPipeline] {
-	return pulumix.Output[map[string]*LogsCustomPipeline]{
-		OutputState: i.ToLogsCustomPipelineMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsCustomPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineOutput) ElementType() reflect.Type {
@@ -214,12 +195,6 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutput() LogsCustomPipelin
 
 func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
 	return o
-}
-
-func (o LogsCustomPipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsCustomPipeline] {
-	return pulumix.Output[*LogsCustomPipeline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsCustomPipelineOutput) Filters() LogsCustomPipelineFilterArrayOutput {
@@ -254,12 +229,6 @@ func (o LogsCustomPipelineArrayOutput) ToLogsCustomPipelineArrayOutputWithContex
 	return o
 }
 
-func (o LogsCustomPipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsCustomPipeline] {
-	return pulumix.Output[[]*LogsCustomPipeline]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsCustomPipelineArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsCustomPipeline {
 		return vs[0].([]*LogsCustomPipeline)[vs[1].(int)]
@@ -278,12 +247,6 @@ func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutput() LogsCustomP
 
 func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutputWithContext(ctx context.Context) LogsCustomPipelineMapOutput {
 	return o
-}
-
-func (o LogsCustomPipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsCustomPipeline] {
-	return pulumix.Output[map[string]*LogsCustomPipeline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsCustomPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsCustomPipelineOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Cloud Configuration Rule resource.
@@ -293,12 +292,6 @@ func (i *CloudConfigurationRule) ToCloudConfigurationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConfigurationRuleOutput)
 }
 
-func (i *CloudConfigurationRule) ToOutput(ctx context.Context) pulumix.Output[*CloudConfigurationRule] {
-	return pulumix.Output[*CloudConfigurationRule]{
-		OutputState: i.ToCloudConfigurationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudConfigurationRuleArrayInput is an input type that accepts CloudConfigurationRuleArray and CloudConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `CloudConfigurationRuleArrayInput` via:
 //
@@ -322,12 +315,6 @@ func (i CloudConfigurationRuleArray) ToCloudConfigurationRuleArrayOutput() Cloud
 
 func (i CloudConfigurationRuleArray) ToCloudConfigurationRuleArrayOutputWithContext(ctx context.Context) CloudConfigurationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConfigurationRuleArrayOutput)
-}
-
-func (i CloudConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*CloudConfigurationRule] {
-	return pulumix.Output[[]*CloudConfigurationRule]{
-		OutputState: i.ToCloudConfigurationRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CloudConfigurationRuleMapInput is an input type that accepts CloudConfigurationRuleMap and CloudConfigurationRuleMapOutput values.
@@ -355,12 +342,6 @@ func (i CloudConfigurationRuleMap) ToCloudConfigurationRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CloudConfigurationRuleMapOutput)
 }
 
-func (i CloudConfigurationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudConfigurationRule] {
-	return pulumix.Output[map[string]*CloudConfigurationRule]{
-		OutputState: i.ToCloudConfigurationRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (CloudConfigurationRuleOutput) ElementType() reflect.Type {
@@ -373,12 +354,6 @@ func (o CloudConfigurationRuleOutput) ToCloudConfigurationRuleOutput() CloudConf
 
 func (o CloudConfigurationRuleOutput) ToCloudConfigurationRuleOutputWithContext(ctx context.Context) CloudConfigurationRuleOutput {
 	return o
-}
-
-func (o CloudConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudConfigurationRule] {
-	return pulumix.Output[*CloudConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the cloud configuration rule is enabled.
@@ -450,12 +425,6 @@ func (o CloudConfigurationRuleArrayOutput) ToCloudConfigurationRuleArrayOutputWi
 	return o
 }
 
-func (o CloudConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CloudConfigurationRule] {
-	return pulumix.Output[[]*CloudConfigurationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudConfigurationRuleArrayOutput) Index(i pulumi.IntInput) CloudConfigurationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CloudConfigurationRule {
 		return vs[0].([]*CloudConfigurationRule)[vs[1].(int)]
@@ -474,12 +443,6 @@ func (o CloudConfigurationRuleMapOutput) ToCloudConfigurationRuleMapOutput() Clo
 
 func (o CloudConfigurationRuleMapOutput) ToCloudConfigurationRuleMapOutputWithContext(ctx context.Context) CloudConfigurationRuleMapOutput {
 	return o
-}
-
-func (o CloudConfigurationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudConfigurationRule] {
-	return pulumix.Output[map[string]*CloudConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudConfigurationRuleMapOutput) MapIndex(k pulumi.StringInput) CloudConfigurationRuleOutput {

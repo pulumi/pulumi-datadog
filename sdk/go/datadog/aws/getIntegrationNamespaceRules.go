@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
@@ -79,12 +78,6 @@ func (o GetIntegrationNamespaceRulesResultOutput) ToGetIntegrationNamespaceRules
 
 func (o GetIntegrationNamespaceRulesResultOutput) ToGetIntegrationNamespaceRulesResultOutputWithContext(ctx context.Context) GetIntegrationNamespaceRulesResultOutput {
 	return o
-}
-
-func (o GetIntegrationNamespaceRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIntegrationNamespaceRulesResult] {
-	return pulumix.Output[GetIntegrationNamespaceRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of this resource.

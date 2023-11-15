@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
@@ -182,12 +181,6 @@ func (i *SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationOutput)
 }
 
-func (i *SyntheticsPrivateLocation) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsPrivateLocation] {
-	return pulumix.Output[*SyntheticsPrivateLocation]{
-		OutputState: i.ToSyntheticsPrivateLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SyntheticsPrivateLocationArrayInput is an input type that accepts SyntheticsPrivateLocationArray and SyntheticsPrivateLocationArrayOutput values.
 // You can construct a concrete instance of `SyntheticsPrivateLocationArrayInput` via:
 //
@@ -211,12 +204,6 @@ func (i SyntheticsPrivateLocationArray) ToSyntheticsPrivateLocationArrayOutput()
 
 func (i SyntheticsPrivateLocationArray) ToSyntheticsPrivateLocationArrayOutputWithContext(ctx context.Context) SyntheticsPrivateLocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationArrayOutput)
-}
-
-func (i SyntheticsPrivateLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsPrivateLocation] {
-	return pulumix.Output[[]*SyntheticsPrivateLocation]{
-		OutputState: i.ToSyntheticsPrivateLocationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SyntheticsPrivateLocationMapInput is an input type that accepts SyntheticsPrivateLocationMap and SyntheticsPrivateLocationMapOutput values.
@@ -244,12 +231,6 @@ func (i SyntheticsPrivateLocationMap) ToSyntheticsPrivateLocationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationMapOutput)
 }
 
-func (i SyntheticsPrivateLocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsPrivateLocation] {
-	return pulumix.Output[map[string]*SyntheticsPrivateLocation]{
-		OutputState: i.ToSyntheticsPrivateLocationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SyntheticsPrivateLocationOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsPrivateLocationOutput) ElementType() reflect.Type {
@@ -262,12 +243,6 @@ func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutput() Syn
 
 func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput {
 	return o
-}
-
-func (o SyntheticsPrivateLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsPrivateLocation] {
-	return pulumix.Output[*SyntheticsPrivateLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
@@ -309,12 +284,6 @@ func (o SyntheticsPrivateLocationArrayOutput) ToSyntheticsPrivateLocationArrayOu
 	return o
 }
 
-func (o SyntheticsPrivateLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsPrivateLocation] {
-	return pulumix.Output[[]*SyntheticsPrivateLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SyntheticsPrivateLocationArrayOutput) Index(i pulumi.IntInput) SyntheticsPrivateLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyntheticsPrivateLocation {
 		return vs[0].([]*SyntheticsPrivateLocation)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o SyntheticsPrivateLocationMapOutput) ToSyntheticsPrivateLocationMapOutput
 
 func (o SyntheticsPrivateLocationMapOutput) ToSyntheticsPrivateLocationMapOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMapOutput {
 	return o
-}
-
-func (o SyntheticsPrivateLocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsPrivateLocation] {
-	return pulumix.Output[map[string]*SyntheticsPrivateLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SyntheticsPrivateLocationMapOutput) MapIndex(k pulumi.StringInput) SyntheticsPrivateLocationOutput {

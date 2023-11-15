@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about existing Datadog team memberships.
@@ -106,12 +105,6 @@ func (o GetTeamMembershipsResultOutput) ToGetTeamMembershipsResultOutput() GetTe
 
 func (o GetTeamMembershipsResultOutput) ToGetTeamMembershipsResultOutputWithContext(ctx context.Context) GetTeamMembershipsResultOutput {
 	return o
-}
-
-func (o GetTeamMembershipsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTeamMembershipsResult] {
-	return pulumix.Output[GetTeamMembershipsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Search query, can be user email or name.

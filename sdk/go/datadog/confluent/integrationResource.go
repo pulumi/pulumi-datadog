@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
@@ -195,12 +194,6 @@ func (i *IntegrationResource) ToIntegrationResourceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResourceOutput)
 }
 
-func (i *IntegrationResource) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResource] {
-	return pulumix.Output[*IntegrationResource]{
-		OutputState: i.ToIntegrationResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationResourceArrayInput is an input type that accepts IntegrationResourceArray and IntegrationResourceArrayOutput values.
 // You can construct a concrete instance of `IntegrationResourceArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i IntegrationResourceArray) ToIntegrationResourceArrayOutput() Integration
 
 func (i IntegrationResourceArray) ToIntegrationResourceArrayOutputWithContext(ctx context.Context) IntegrationResourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResourceArrayOutput)
-}
-
-func (i IntegrationResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResource] {
-	return pulumix.Output[[]*IntegrationResource]{
-		OutputState: i.ToIntegrationResourceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationResourceMapInput is an input type that accepts IntegrationResourceMap and IntegrationResourceMapOutput values.
@@ -257,12 +244,6 @@ func (i IntegrationResourceMap) ToIntegrationResourceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResourceMapOutput)
 }
 
-func (i IntegrationResourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResource] {
-	return pulumix.Output[map[string]*IntegrationResource]{
-		OutputState: i.ToIntegrationResourceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationResourceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResourceOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o IntegrationResourceOutput) ToIntegrationResourceOutput() IntegrationReso
 
 func (o IntegrationResourceOutput) ToIntegrationResourceOutputWithContext(ctx context.Context) IntegrationResourceOutput {
 	return o
-}
-
-func (o IntegrationResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResource] {
-	return pulumix.Output[*IntegrationResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Confluent Account ID.
@@ -322,12 +297,6 @@ func (o IntegrationResourceArrayOutput) ToIntegrationResourceArrayOutputWithCont
 	return o
 }
 
-func (o IntegrationResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResource] {
-	return pulumix.Output[[]*IntegrationResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationResourceArrayOutput) Index(i pulumi.IntInput) IntegrationResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationResource {
 		return vs[0].([]*IntegrationResource)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o IntegrationResourceMapOutput) ToIntegrationResourceMapOutput() Integrati
 
 func (o IntegrationResourceMapOutput) ToIntegrationResourceMapOutputWithContext(ctx context.Context) IntegrationResourceMapOutput {
 	return o
-}
-
-func (o IntegrationResourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResource] {
-	return pulumix.Output[map[string]*IntegrationResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationResourceMapOutput) MapIndex(k pulumi.StringInput) IntegrationResourceOutput {

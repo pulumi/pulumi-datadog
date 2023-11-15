@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Datadog Synthetics On Demand Concurrency Cap API resource. This can be used to manage the Concurrency Cap for Synthetic tests.
@@ -137,12 +136,6 @@ func (i *SyntheticsConcurrencyCap) ToSyntheticsConcurrencyCapOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsConcurrencyCapOutput)
 }
 
-func (i *SyntheticsConcurrencyCap) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsConcurrencyCap] {
-	return pulumix.Output[*SyntheticsConcurrencyCap]{
-		OutputState: i.ToSyntheticsConcurrencyCapOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SyntheticsConcurrencyCapArrayInput is an input type that accepts SyntheticsConcurrencyCapArray and SyntheticsConcurrencyCapArrayOutput values.
 // You can construct a concrete instance of `SyntheticsConcurrencyCapArrayInput` via:
 //
@@ -166,12 +159,6 @@ func (i SyntheticsConcurrencyCapArray) ToSyntheticsConcurrencyCapArrayOutput() S
 
 func (i SyntheticsConcurrencyCapArray) ToSyntheticsConcurrencyCapArrayOutputWithContext(ctx context.Context) SyntheticsConcurrencyCapArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsConcurrencyCapArrayOutput)
-}
-
-func (i SyntheticsConcurrencyCapArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsConcurrencyCap] {
-	return pulumix.Output[[]*SyntheticsConcurrencyCap]{
-		OutputState: i.ToSyntheticsConcurrencyCapArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SyntheticsConcurrencyCapMapInput is an input type that accepts SyntheticsConcurrencyCapMap and SyntheticsConcurrencyCapMapOutput values.
@@ -199,12 +186,6 @@ func (i SyntheticsConcurrencyCapMap) ToSyntheticsConcurrencyCapMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsConcurrencyCapMapOutput)
 }
 
-func (i SyntheticsConcurrencyCapMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsConcurrencyCap] {
-	return pulumix.Output[map[string]*SyntheticsConcurrencyCap]{
-		OutputState: i.ToSyntheticsConcurrencyCapMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SyntheticsConcurrencyCapOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsConcurrencyCapOutput) ElementType() reflect.Type {
@@ -217,12 +198,6 @@ func (o SyntheticsConcurrencyCapOutput) ToSyntheticsConcurrencyCapOutput() Synth
 
 func (o SyntheticsConcurrencyCapOutput) ToSyntheticsConcurrencyCapOutputWithContext(ctx context.Context) SyntheticsConcurrencyCapOutput {
 	return o
-}
-
-func (o SyntheticsConcurrencyCapOutput) ToOutput(ctx context.Context) pulumix.Output[*SyntheticsConcurrencyCap] {
-	return pulumix.Output[*SyntheticsConcurrencyCap]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel.
@@ -244,12 +219,6 @@ func (o SyntheticsConcurrencyCapArrayOutput) ToSyntheticsConcurrencyCapArrayOutp
 	return o
 }
 
-func (o SyntheticsConcurrencyCapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyntheticsConcurrencyCap] {
-	return pulumix.Output[[]*SyntheticsConcurrencyCap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SyntheticsConcurrencyCapArrayOutput) Index(i pulumi.IntInput) SyntheticsConcurrencyCapOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyntheticsConcurrencyCap {
 		return vs[0].([]*SyntheticsConcurrencyCap)[vs[1].(int)]
@@ -268,12 +237,6 @@ func (o SyntheticsConcurrencyCapMapOutput) ToSyntheticsConcurrencyCapMapOutput()
 
 func (o SyntheticsConcurrencyCapMapOutput) ToSyntheticsConcurrencyCapMapOutputWithContext(ctx context.Context) SyntheticsConcurrencyCapMapOutput {
 	return o
-}
-
-func (o SyntheticsConcurrencyCapMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyntheticsConcurrencyCap] {
-	return pulumix.Output[map[string]*SyntheticsConcurrencyCap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SyntheticsConcurrencyCapMapOutput) MapIndex(k pulumi.StringInput) SyntheticsConcurrencyCapOutput {

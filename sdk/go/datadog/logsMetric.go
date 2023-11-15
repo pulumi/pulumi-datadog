@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for interacting with the logsMetric API
@@ -188,12 +187,6 @@ func (i *LogsMetric) ToLogsMetricOutputWithContext(ctx context.Context) LogsMetr
 	return pulumi.ToOutputWithContext(ctx, i).(LogsMetricOutput)
 }
 
-func (i *LogsMetric) ToOutput(ctx context.Context) pulumix.Output[*LogsMetric] {
-	return pulumix.Output[*LogsMetric]{
-		OutputState: i.ToLogsMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogsMetricArrayInput is an input type that accepts LogsMetricArray and LogsMetricArrayOutput values.
 // You can construct a concrete instance of `LogsMetricArrayInput` via:
 //
@@ -217,12 +210,6 @@ func (i LogsMetricArray) ToLogsMetricArrayOutput() LogsMetricArrayOutput {
 
 func (i LogsMetricArray) ToLogsMetricArrayOutputWithContext(ctx context.Context) LogsMetricArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsMetricArrayOutput)
-}
-
-func (i LogsMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogsMetric] {
-	return pulumix.Output[[]*LogsMetric]{
-		OutputState: i.ToLogsMetricArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogsMetricMapInput is an input type that accepts LogsMetricMap and LogsMetricMapOutput values.
@@ -250,12 +237,6 @@ func (i LogsMetricMap) ToLogsMetricMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogsMetricMapOutput)
 }
 
-func (i LogsMetricMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsMetric] {
-	return pulumix.Output[map[string]*LogsMetric]{
-		OutputState: i.ToLogsMetricMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogsMetricOutput struct{ *pulumi.OutputState }
 
 func (LogsMetricOutput) ElementType() reflect.Type {
@@ -268,12 +249,6 @@ func (o LogsMetricOutput) ToLogsMetricOutput() LogsMetricOutput {
 
 func (o LogsMetricOutput) ToLogsMetricOutputWithContext(ctx context.Context) LogsMetricOutput {
 	return o
-}
-
-func (o LogsMetricOutput) ToOutput(ctx context.Context) pulumix.Output[*LogsMetric] {
-	return pulumix.Output[*LogsMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The compute rule to compute the log-based metric. This field can't be updated after creation.
@@ -310,12 +285,6 @@ func (o LogsMetricArrayOutput) ToLogsMetricArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LogsMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogsMetric] {
-	return pulumix.Output[[]*LogsMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogsMetricArrayOutput) Index(i pulumi.IntInput) LogsMetricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsMetric {
 		return vs[0].([]*LogsMetric)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o LogsMetricMapOutput) ToLogsMetricMapOutput() LogsMetricMapOutput {
 
 func (o LogsMetricMapOutput) ToLogsMetricMapOutputWithContext(ctx context.Context) LogsMetricMapOutput {
 	return o
-}
-
-func (o LogsMetricMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogsMetric] {
-	return pulumix.Output[map[string]*LogsMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogsMetricMapOutput) MapIndex(k pulumi.StringInput) LogsMetricOutput {

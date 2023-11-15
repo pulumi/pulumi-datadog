@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about existing security monitoring filters for use in other resources.
@@ -81,12 +80,6 @@ func (o GetSecurityMonitoringFiltersResultOutput) ToGetSecurityMonitoringFilters
 
 func (o GetSecurityMonitoringFiltersResultOutput) ToGetSecurityMonitoringFiltersResultOutputWithContext(ctx context.Context) GetSecurityMonitoringFiltersResultOutput {
 	return o
-}
-
-func (o GetSecurityMonitoringFiltersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityMonitoringFiltersResult] {
-	return pulumix.Output[GetSecurityMonitoringFiltersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of filters.

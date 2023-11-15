@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an existing application key.
@@ -105,12 +104,6 @@ func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutput() L
 
 func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutputWithContext(ctx context.Context) LookupApplicationKeyResultOutput {
 	return o
-}
-
-func (o LookupApplicationKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationKeyResult] {
-	return pulumix.Output[LookupApplicationKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id for Application Key.
