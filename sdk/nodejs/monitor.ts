@@ -106,7 +106,6 @@ export class Monitor extends pulumi.CustomResource {
     public readonly groupbySimpleMonitor!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-     * Defaults to `true`.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -140,15 +139,15 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
      * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-     * and set `new_host_delay` to zero for monitors grouped by host.
+     * and monitors not grouped by host. The only case when this should be used is to override the default and set
+     * `new_host_delay` to zero for monitors grouped by host.
      *
      * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-     * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+     * The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+     * timeframe for metric alerts or 2 minutes for service checks.
      */
     public readonly noDataTimeframe!: pulumi.Output<number | undefined>;
     /**
@@ -168,7 +167,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly notifyBies!: pulumi.Output<string[] | undefined>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+     * A boolean indicating whether this monitor will notify when data stops reporting.
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
     /**
@@ -202,9 +201,9 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly renotifyStatuses!: pulumi.Output<string[] | undefined>;
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-     * all times` and `in total` aggregation. `false` otherwise.
+     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+     * `require_full_window` must be false and will be ignored.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     /**
@@ -384,7 +383,6 @@ export interface MonitorState {
     groupbySimpleMonitor?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-     * Defaults to `true`.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -418,15 +416,15 @@ export interface MonitorState {
     /**
      * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
      * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-     * and set `new_host_delay` to zero for monitors grouped by host.
+     * and monitors not grouped by host. The only case when this should be used is to override the default and set
+     * `new_host_delay` to zero for monitors grouped by host.
      *
      * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-     * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+     * The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+     * timeframe for metric alerts or 2 minutes for service checks.
      */
     noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -446,7 +444,7 @@ export interface MonitorState {
      */
     notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+     * A boolean indicating whether this monitor will notify when data stops reporting.
      */
     notifyNoData?: pulumi.Input<boolean>;
     /**
@@ -480,9 +478,9 @@ export interface MonitorState {
      */
     renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-     * all times` and `in total` aggregation. `false` otherwise.
+     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+     * `require_full_window` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
     /**
@@ -557,7 +555,6 @@ export interface MonitorArgs {
     groupbySimpleMonitor?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-     * Defaults to `true`.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -591,15 +588,15 @@ export interface MonitorArgs {
     /**
      * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
      * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-     * and set `new_host_delay` to zero for monitors grouped by host.
+     * and monitors not grouped by host. The only case when this should be used is to override the default and set
+     * `new_host_delay` to zero for monitors grouped by host.
      *
      * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-     * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+     * The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+     * timeframe for metric alerts or 2 minutes for service checks.
      */
     noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -619,7 +616,7 @@ export interface MonitorArgs {
      */
     notifyBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+     * A boolean indicating whether this monitor will notify when data stops reporting.
      */
     notifyNoData?: pulumi.Input<boolean>;
     /**
@@ -653,9 +650,9 @@ export interface MonitorArgs {
      */
     renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-     * all times` and `in total` aggregation. `false` otherwise.
+     * A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+     * `require_full_window` must be false and will be ignored.
      */
     requireFullWindow?: pulumi.Input<boolean>;
     /**

@@ -42,7 +42,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery> sloQuery() {

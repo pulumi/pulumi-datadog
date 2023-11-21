@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Whether or not SAML is enabled for this organization.
+        /// Whether or not SAML is enabled for this organization. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

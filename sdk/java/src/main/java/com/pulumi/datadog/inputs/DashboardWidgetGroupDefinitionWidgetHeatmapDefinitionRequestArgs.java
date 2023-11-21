@@ -6,12 +6,15 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyleArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +37,13 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
      */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
+    }
+
+    @Import(name="formulas")
+    private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs>> formulas;
+
+    public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs>>> formulas() {
+        return Optional.ofNullable(this.formulas);
     }
 
     /**
@@ -79,6 +89,13 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
      */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
+    }
+
+    @Import(name="queries")
+    private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs>> queries;
+
+    public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
     }
 
     /**
@@ -130,9 +147,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
 
     private DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs $) {
         this.apmQuery = $.apmQuery;
+        this.formulas = $.formulas;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
+        this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
         this.style = $.style;
@@ -175,6 +194,19 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
          */
         public Builder apmQuery(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
+        }
+
+        public Builder formulas(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs>> formulas) {
+            $.formulas = formulas;
+            return this;
+        }
+
+        public Builder formulas(List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs> formulas) {
+            return formulas(Output.of(formulas));
+        }
+
+        public Builder formulas(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaArgs... formulas) {
+            return formulas(List.of(formulas));
         }
 
         /**
@@ -238,6 +270,19 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestA
          */
         public Builder q(String q) {
             return q(Output.of(q));
+        }
+
+        public Builder queries(@Nullable Output<List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs>> queries) {
+            $.queries = queries;
+            return this;
+        }
+
+        public Builder queries(List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs> queries) {
+            return queries(Output.of(queries));
+        }
+
+        public Builder queries(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryArgs... queries) {
+            return queries(List.of(queries));
         }
 
         /**

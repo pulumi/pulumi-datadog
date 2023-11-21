@@ -60,6 +60,10 @@ type GetIpRangesResult struct {
 	ApmIpv4s []string `pulumi:"apmIpv4s"`
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
 	ApmIpv6s []string `pulumi:"apmIpv6s"`
+	// An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+	GlobalIpv4s []string `pulumi:"globalIpv4s"`
+	// An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+	GlobalIpv6s []string `pulumi:"globalIpv6s"`
 	// The ID of this resource.
 	Id string `pulumi:"id"`
 	// An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
@@ -142,6 +146,16 @@ func (o GetIpRangesResultOutput) ApmIpv4s() pulumi.StringArrayOutput {
 // An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
 func (o GetIpRangesResultOutput) ApmIpv6s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.ApmIpv6s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+func (o GetIpRangesResultOutput) GlobalIpv4s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GlobalIpv4s }).(pulumi.StringArrayOutput)
+}
+
+// An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+func (o GetIpRangesResultOutput) GlobalIpv6s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIpRangesResult) []string { return v.GlobalIpv6s }).(pulumi.StringArrayOutput)
 }
 
 // The ID of this resource.

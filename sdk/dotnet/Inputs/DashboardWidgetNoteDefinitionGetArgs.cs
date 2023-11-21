@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? FontSize { get; set; }
 
         /// <summary>
-        /// Whether to add padding or not.
+        /// Whether to add padding or not. Defaults to `true`.
         /// </summary>
         [Input("hasPadding")]
         public Input<bool>? HasPadding { get; set; }

@@ -29,6 +29,7 @@ namespace Pulumi.Datadog.Azure
     ///         Automute = true,
     ///         ClientId = "&lt;azure_client_id&gt;",
     ///         ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///         ContainerAppFilters = "examplefilter:true,example:one_more",
     ///         CspmEnabled = true,
     ///         CustomMetricsEnabled = false,
     ///         HostFilters = "examplefilter:true,example:true",
@@ -56,7 +57,7 @@ namespace Pulumi.Datadog.Azure
         public Output<string?> AppServicePlanFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         /// </summary>
         [Output("automute")]
         public Output<bool?> Automute { get; private set; } = null!;
@@ -74,13 +75,19 @@ namespace Pulumi.Datadog.Azure
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+        /// </summary>
+        [Output("containerAppFilters")]
+        public Output<string?> ContainerAppFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
         /// </summary>
         [Output("cspmEnabled")]
         public Output<bool?> CspmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable custom metrics for your organization.
+        /// Enable custom metrics for your organization. Defaults to `false`.
         /// </summary>
         [Output("customMetricsEnabled")]
         public Output<bool?> CustomMetricsEnabled { get; private set; } = null!;
@@ -154,7 +161,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? AppServicePlanFilters { get; set; }
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -182,13 +189,19 @@ namespace Pulumi.Datadog.Azure
         }
 
         /// <summary>
-        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+        /// </summary>
+        [Input("containerAppFilters")]
+        public Input<string>? ContainerAppFilters { get; set; }
+
+        /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
         /// </summary>
         [Input("cspmEnabled")]
         public Input<bool>? CspmEnabled { get; set; }
 
         /// <summary>
-        /// Enable custom metrics for your organization.
+        /// Enable custom metrics for your organization. Defaults to `false`.
         /// </summary>
         [Input("customMetricsEnabled")]
         public Input<bool>? CustomMetricsEnabled { get; set; }
@@ -220,7 +233,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? AppServicePlanFilters { get; set; }
 
         /// <summary>
-        /// Silence monitors for expected Azure VM shutdowns.
+        /// Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -248,13 +261,19 @@ namespace Pulumi.Datadog.Azure
         }
 
         /// <summary>
-        /// Enable Cloud Security Management Misconfigurations for your organization.
+        /// This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+        /// </summary>
+        [Input("containerAppFilters")]
+        public Input<string>? ContainerAppFilters { get; set; }
+
+        /// <summary>
+        /// Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
         /// </summary>
         [Input("cspmEnabled")]
         public Input<bool>? CspmEnabled { get; set; }
 
         /// <summary>
-        /// Enable custom metrics for your organization.
+        /// Enable custom metrics for your organization. Defaults to `false`.
         /// </summary>
         [Input("customMetricsEnabled")]
         public Input<bool>? CustomMetricsEnabled { get; set; }

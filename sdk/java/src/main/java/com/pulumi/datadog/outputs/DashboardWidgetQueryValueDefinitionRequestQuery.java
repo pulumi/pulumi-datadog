@@ -42,7 +42,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetQueryValueDefinitionRequestQuerySloQuery> sloQuery() {

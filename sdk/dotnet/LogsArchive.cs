@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveGcsArchive?> GcsArchive { get; private set; } = null!;
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveGetArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }

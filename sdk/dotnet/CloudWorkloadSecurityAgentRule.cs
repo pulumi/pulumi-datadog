@@ -45,13 +45,13 @@ namespace Pulumi.Datadog
     public partial class CloudWorkloadSecurityAgentRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of the Agent rule.
+        /// The description of the Agent rule. Defaults to `""`.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Agent rule is enabled.
+        /// Whether the Agent rule is enabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.Datadog
     public sealed class CloudWorkloadSecurityAgentRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the Agent rule.
+        /// The description of the Agent rule. Defaults to `""`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether the Agent rule is enabled.
+        /// Whether the Agent rule is enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -147,13 +147,13 @@ namespace Pulumi.Datadog
     public sealed class CloudWorkloadSecurityAgentRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the Agent rule.
+        /// The description of the Agent rule. Defaults to `""`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether the Agent rule is enabled.
+        /// Whether the Agent rule is enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

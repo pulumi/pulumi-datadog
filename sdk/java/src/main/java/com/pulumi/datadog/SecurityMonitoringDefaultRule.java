@@ -83,14 +83,14 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.cases);
     }
     /**
-     * Enable the rule.
+     * Enable the rule. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Enable the rule.
+     * @return Enable the rule. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

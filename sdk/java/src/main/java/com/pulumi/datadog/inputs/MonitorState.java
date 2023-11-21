@@ -147,7 +147,6 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-     * Defaults to `true`.
      * 
      */
     @Import(name="includeTags")
@@ -155,7 +154,6 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-     * Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> includeTags() {
@@ -267,8 +265,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
      * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-     * and set `new_host_delay` to zero for monitors grouped by host.
+     * and monitors not grouped by host. The only case when this should be used is to override the default and set
+     * `new_host_delay` to zero for monitors grouped by host.
      * 
      * @deprecated
      * Use `new_group_delay` except when setting `new_host_delay` to zero.
@@ -281,8 +279,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
      * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-     * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-     * and set `new_host_delay` to zero for monitors grouped by host.
+     * and monitors not grouped by host. The only case when this should be used is to override the default and set
+     * `new_host_delay` to zero for monitors grouped by host.
      * 
      * @deprecated
      * Use `new_group_delay` except when setting `new_host_delay` to zero.
@@ -294,16 +292,16 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-     * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+     * The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+     * timeframe for metric alerts or 2 minutes for service checks.
      * 
      */
     @Import(name="noDataTimeframe")
     private @Nullable Output<Integer> noDataTimeframe;
 
     /**
-     * @return The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-     * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+     * @return The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+     * timeframe for metric alerts or 2 minutes for service checks.
      * 
      */
     public Optional<Output<Integer>> noDataTimeframe() {
@@ -364,14 +362,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+     * A boolean indicating whether this monitor will notify when data stops reporting.
      * 
      */
     @Import(name="notifyNoData")
     private @Nullable Output<Boolean> notifyNoData;
 
     /**
-     * @return A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+     * @return A boolean indicating whether this monitor will notify when data stops reporting.
      * 
      */
     public Optional<Output<Boolean>> notifyNoData() {
@@ -481,18 +479,18 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. We highly recommend you set
-     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-     * all times` and `in total` aggregation. `false` otherwise.
+     * A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
+     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
+     * `require_full_window` must be false and will be ignored.
      * 
      */
     @Import(name="requireFullWindow")
     private @Nullable Output<Boolean> requireFullWindow;
 
     /**
-     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. We highly recommend you set
-     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-     * all times` and `in total` aggregation. `false` otherwise.
+     * @return A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
+     * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
+     * `require_full_window` must be false and will be ignored.
      * 
      */
     public Optional<Output<Boolean>> requireFullWindow() {
@@ -834,7 +832,6 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param includeTags A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-         * Defaults to `true`.
          * 
          * @return builder
          * 
@@ -846,7 +843,6 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param includeTags A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-         * Defaults to `true`.
          * 
          * @return builder
          * 
@@ -996,8 +992,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param newHostDelay **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
          * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-         * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-         * and set `new_host_delay` to zero for monitors grouped by host.
+         * and monitors not grouped by host. The only case when this should be used is to override the default and set
+         * `new_host_delay` to zero for monitors grouped by host.
          * 
          * @return builder
          * 
@@ -1014,8 +1010,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param newHostDelay **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
          * starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-         * and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-         * and set `new_host_delay` to zero for monitors grouped by host.
+         * and monitors not grouped by host. The only case when this should be used is to override the default and set
+         * `new_host_delay` to zero for monitors grouped by host.
          * 
          * @return builder
          * 
@@ -1029,8 +1025,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noDataTimeframe The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-         * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+         * @param noDataTimeframe The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+         * timeframe for metric alerts or 2 minutes for service checks.
          * 
          * @return builder
          * 
@@ -1041,8 +1037,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noDataTimeframe The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-         * recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+         * @param noDataTimeframe The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+         * timeframe for metric alerts or 2 minutes for service checks.
          * 
          * @return builder
          * 
@@ -1137,7 +1133,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifyNoData A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+         * @param notifyNoData A boolean indicating whether this monitor will notify when data stops reporting.
          * 
          * @return builder
          * 
@@ -1148,7 +1144,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notifyNoData A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+         * @param notifyNoData A boolean indicating whether this monitor will notify when data stops reporting.
          * 
          * @return builder
          * 
@@ -1306,9 +1302,9 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. We highly recommend you set
-         * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-         * all times` and `in total` aggregation. `false` otherwise.
+         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
+         * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
+         * `require_full_window` must be false and will be ignored.
          * 
          * @return builder
          * 
@@ -1319,9 +1315,9 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. We highly recommend you set
-         * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-         * all times` and `in total` aggregation. `false` otherwise.
+         * @param requireFullWindow A boolean indicating whether this monitor needs a full window of data before it&#39;s evaluated. Datadog strongly recommends
+         * you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there&#39;s a custom_schedule set,
+         * `require_full_window` must be false and will be ignored.
          * 
          * @return builder
          * 

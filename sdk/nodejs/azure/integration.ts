@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     automute: true,
  *     clientId: "<azure_client_id>",
  *     clientSecret: "<azure_client_secret_key>",
+ *     containerAppFilters: "examplefilter:true,example:one_more",
  *     cspmEnabled: true,
  *     customMetricsEnabled: false,
  *     hostFilters: "examplefilter:true,example:true",
@@ -67,7 +68,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly appServicePlanFilters!: pulumi.Output<string | undefined>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     public readonly automute!: pulumi.Output<boolean | undefined>;
     /**
@@ -79,11 +80,15 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     */
+    public readonly containerAppFilters!: pulumi.Output<string | undefined>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     public readonly cspmEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     public readonly customMetricsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,6 +117,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["containerAppFilters"] = state ? state.containerAppFilters : undefined;
             resourceInputs["cspmEnabled"] = state ? state.cspmEnabled : undefined;
             resourceInputs["customMetricsEnabled"] = state ? state.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
@@ -131,6 +137,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["containerAppFilters"] = args ? args.containerAppFilters : undefined;
             resourceInputs["cspmEnabled"] = args ? args.cspmEnabled : undefined;
             resourceInputs["customMetricsEnabled"] = args ? args.customMetricsEnabled : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
@@ -152,7 +159,7 @@ export interface IntegrationState {
      */
     appServicePlanFilters?: pulumi.Input<string>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -164,11 +171,15 @@ export interface IntegrationState {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     */
+    containerAppFilters?: pulumi.Input<string>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     cspmEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     customMetricsEnabled?: pulumi.Input<boolean>;
     /**
@@ -190,7 +201,7 @@ export interface IntegrationArgs {
      */
     appServicePlanFilters?: pulumi.Input<string>;
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -202,11 +213,15 @@ export interface IntegrationArgs {
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     */
+    containerAppFilters?: pulumi.Input<string>;
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      */
     cspmEnabled?: pulumi.Input<boolean>;
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      */
     customMetricsEnabled?: pulumi.Input<boolean>;
     /**

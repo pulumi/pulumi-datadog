@@ -40,24 +40,17 @@ import * as utilities from "./utilities";
  * // Example Usage (Synthetics API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  * const testUptime = new datadog.SyntheticsTest("testUptime", {
- *     assertions: [{
- *         operator: "is",
- *         target: "200",
- *         type: "statusCode",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
  *     name: "An Uptime test on example.org",
- *     optionsList: {
- *         monitorOptions: {
- *             renotifyInterval: 120,
- *         },
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         tickEvery: 900,
- *     },
+ *     type: "api",
+ *     subtype: "http",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
  *     requestDefinition: {
  *         method: "GET",
  *         url: "https://www.example.org",
@@ -65,234 +58,329 @@ import * as utilities from "./utilities";
  *     requestHeaders: {
  *         "Content-Type": "application/json",
  *     },
- *     status: "live",
- *     subtype: "http",
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     type: "api",
+ *     assertions: [{
+ *         type: "statusCode",
+ *         operator: "is",
+ *         target: "200",
+ *     }],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
  * });
  * // Example Usage (Authenticated API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  * const testApi = new datadog.SyntheticsTest("testApi", {
- *     assertions: [{
- *         operator: "is",
- *         target: "200",
- *         type: "statusCode",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
  *     name: "An API test on example.org",
- *     optionsList: {
- *         monitorOptions: {
- *             renotifyInterval: 120,
- *         },
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         tickEvery: 900,
- *     },
+ *     type: "api",
+ *     subtype: "http",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
  *     requestDefinition: {
  *         method: "GET",
  *         url: "https://www.example.org",
  *     },
  *     requestHeaders: {
- *         Authentication: "Token: 1234566789",
  *         "Content-Type": "application/json",
+ *         Authentication: "Token: 1234566789",
  *     },
- *     status: "live",
- *     subtype: "http",
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     type: "api",
+ *     assertions: [{
+ *         type: "statusCode",
+ *         operator: "is",
+ *         target: "200",
+ *     }],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 120,
+ *         },
+ *     },
  * });
  * // Example Usage (Synthetics SSL test)
  * // Create a new Datadog Synthetics API/SSL test on example.org
  * const testSsl = new datadog.SyntheticsTest("testSsl", {
- *     assertions: [{
- *         operator: "isInMoreThan",
- *         target: "30",
- *         type: "certificate",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
  *     name: "An API test on example.org",
- *     optionsList: {
- *         acceptSelfSigned: true,
- *         tickEvery: 900,
- *     },
- *     requestDefinition: {
- *         host: "example.org",
- *         port: 443,
- *     },
- *     status: "live",
+ *     type: "api",
  *     subtype: "ssl",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     type: "api",
+ *     requestDefinition: {
+ *         host: "example.org",
+ *         port: 443,
+ *     },
+ *     assertions: [{
+ *         type: "certificate",
+ *         operator: "isInMoreThan",
+ *         target: "30",
+ *     }],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         acceptSelfSigned: true,
+ *     },
  * });
  * // Example Usage (Synthetics TCP test)
  * // Create a new Datadog Synthetics API/TCP test on example.org
  * const testTcp = new datadog.SyntheticsTest("testTcp", {
- *     assertions: [{
- *         operator: "lessThan",
- *         target: "2000",
- *         type: "responseTime",
- *     }],
- *     configVariables: [{
- *         id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
- *         name: "MY_GLOBAL_VAR",
- *         type: "global",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
  *     name: "An API test on example.org",
- *     optionsList: {
- *         tickEvery: 900,
- *     },
+ *     type: "api",
+ *     subtype: "tcp",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
  *     requestDefinition: {
  *         host: "example.org",
  *         port: 443,
  *     },
- *     status: "live",
- *     subtype: "tcp",
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     type: "api",
+ *     assertions: [{
+ *         type: "responseTime",
+ *         operator: "lessThan",
+ *         target: "2000",
+ *     }],
+ *     configVariables: [{
+ *         type: "global",
+ *         name: "MY_GLOBAL_VAR",
+ *         id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+ *     }],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
  * });
  * // Example Usage (Synthetics DNS test)
  * // Create a new Datadog Synthetics API/DNS test on example.org
  * const testDns = new datadog.SyntheticsTest("testDns", {
- *     assertions: [{
- *         operator: "is",
- *         property: "A",
- *         target: "0.0.0.0",
- *         type: "recordSome",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
  *     name: "An API test on example.org",
- *     optionsList: {
- *         tickEvery: 900,
- *     },
- *     requestDefinition: {
- *         host: "example.org",
- *     },
- *     status: "live",
+ *     type: "api",
  *     subtype: "dns",
+ *     status: "live",
+ *     message: "Notify @pagerduty",
+ *     locations: ["aws:eu-central-1"],
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     type: "api",
+ *     requestDefinition: {
+ *         host: "example.org",
+ *     },
+ *     assertions: [{
+ *         type: "recordSome",
+ *         operator: "is",
+ *         property: "A",
+ *         target: "0.0.0.0",
+ *     }],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
  * });
  * // Example Usage (Synthetics Multistep API test)
  * // Create a new Datadog Synthetics Multistep API test
  * const testMultiStep = new datadog.SyntheticsTest("testMultiStep", {
+ *     name: "Multistep API test",
+ *     type: "api",
+ *     subtype: "multi",
+ *     status: "live",
+ *     locations: ["aws:eu-central-1"],
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
  *     apiSteps: [
  *         {
+ *             name: "An API test on example.org",
+ *             subtype: "http",
  *             assertions: [{
+ *                 type: "statusCode",
  *                 operator: "is",
  *                 target: "200",
- *                 type: "statusCode",
  *             }],
- *             name: "An API test on example.org",
  *             requestDefinition: {
  *                 method: "GET",
  *                 url: "https://example.org",
  *             },
  *             requestHeaders: {
- *                 Authentication: "Token: 1234566789",
  *                 "Content-Type": "application/json",
+ *                 Authentication: "Token: 1234566789",
  *             },
- *             subtype: "http",
  *         },
  *         {
+ *             name: "An API test on example.org",
+ *             subtype: "http",
  *             assertions: [{
+ *                 type: "statusCode",
  *                 operator: "is",
  *                 target: "200",
- *                 type: "statusCode",
  *             }],
- *             name: "An API test on example.org",
  *             requestDefinition: {
  *                 method: "GET",
  *                 url: "http://example.org",
  *             },
- *             subtype: "http",
  *         },
  *     ],
- *     locations: ["aws:eu-central-1"],
- *     name: "Multistep API test",
  *     optionsList: {
- *         acceptSelfSigned: true,
  *         tickEvery: 900,
+ *         acceptSelfSigned: true,
  *     },
- *     status: "live",
- *     subtype: "multi",
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     type: "api",
  * });
  * // Example Usage (Synthetics Browser test)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
  * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
- *     browserSteps: [{
- *         name: "Check current url",
- *         params: {
- *             check: "contains",
- *             value: "datadoghq",
- *         },
- *         type: "assertCurrentUrl",
- *     }],
- *     browserVariables: [
- *         {
- *             example: "597",
- *             name: "MY_PATTERN_VAR",
- *             pattern: "{{numeric(3)}}",
- *             type: "text",
- *         },
- *         {
- *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
- *             name: "MY_EMAIL_VAR",
- *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
- *             type: "email",
- *         },
- *         {
- *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
- *             name: "MY_GLOBAL_VAR",
- *             type: "global",
- *         },
- *     ],
+ *     name: "A Browser test on example.org",
+ *     type: "browser",
+ *     status: "paused",
+ *     message: "Notify @qa",
  *     deviceIds: ["laptop_large"],
  *     locations: ["aws:eu-central-1"],
- *     message: "Notify @qa",
- *     name: "A Browser test on example.org",
- *     optionsList: {
- *         tickEvery: 3600,
- *     },
+ *     tags: [],
  *     requestDefinition: {
  *         method: "GET",
  *         url: "https://app.datadoghq.com",
  *     },
+ *     browserSteps: [
+ *         {
+ *             name: "Check current url",
+ *             type: "assertCurrentUrl",
+ *             params: {
+ *                 check: "contains",
+ *                 value: "datadoghq",
+ *             },
+ *         },
+ *         {
+ *             name: "Test a downloaded file",
+ *             type: "assertFileDownload",
+ *             params: {
+ *                 file: JSON.stringify({
+ *                     md5: "abcdef1234567890",
+ *                     sizeCheck: {
+ *                         type: "equals",
+ *                         value: 1,
+ *                     },
+ *                     nameCheck: {
+ *                         type: "contains",
+ *                         value: ".xls",
+ *                     },
+ *                 }),
+ *             },
+ *         },
+ *     ],
+ *     browserVariables: [
+ *         {
+ *             type: "text",
+ *             name: "MY_PATTERN_VAR",
+ *             pattern: "{{numeric(3)}}",
+ *             example: "597",
+ *         },
+ *         {
+ *             type: "email",
+ *             name: "MY_EMAIL_VAR",
+ *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+ *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+ *         },
+ *         {
+ *             type: "global",
+ *             name: "MY_GLOBAL_VAR",
+ *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+ *         },
+ *     ],
+ *     optionsList: {
+ *         tickEvery: 3600,
+ *     },
+ * });
+ * // Example Usage (GRPC API test)
+ * // Create a new Datadog GRPC API test starting on google.org:50050
+ * const grpc = new datadog.SyntheticsTest("grpc", {
+ *     type: "api",
+ *     subtype: "grpc",
+ *     requestDefinition: {
+ *         method: "GET",
+ *         host: "google.com",
+ *         port: 50050,
+ *         service: "Hello",
+ *         protoJsonDescriptor: `syntax = "proto3";
+ * option java_multiple_files = true;
+ * option java_package = "io.grpc.examples.helloworld";
+ * option java_outer_classname = "HelloWorldProto";
+ * option objc_class_prefix = "HLW";
+ * package helloworld;
+ * // The greeting service definition.
+ * service Greeter {
+ * 	// Sends a greeting
+ * 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * // The request message containing the user's name.
+ * message HelloRequest {
+ * 	string name = 1;
+ * }
+ * // The response message containing the greetings
+ * message HelloReply {
+ * 	string message = 1;
+ * }
+ * `,
+ *     },
+ *     requestMetadata: {
+ *         header: "value",
+ *     },
+ *     assertions: [
+ *         {
+ *             type: "responseTime",
+ *             operator: "lessThan",
+ *             target: "2000",
+ *         },
+ *         {
+ *             operator: "is",
+ *             type: "grpcHealthcheckStatus",
+ *             target: "1",
+ *         },
+ *         {
+ *             operator: "is",
+ *             target: "proto target",
+ *             type: "grpcProto",
+ *         },
+ *         {
+ *             operator: "is",
+ *             target: "123",
+ *             property: "property",
+ *             type: "grpcMetadata",
+ *         },
+ *     ],
+ *     locations: ["aws:eu-central-1"],
+ *     optionsList: {
+ *         tickEvery: 60,
+ *     },
+ *     name: "GRPC API test",
+ *     message: "Notify @datadog.user",
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
  *     status: "paused",
- *     tags: [],
- *     type: "browser",
  * });
  * ```
  *
@@ -410,7 +498,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -583,7 +671,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -674,7 +762,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**

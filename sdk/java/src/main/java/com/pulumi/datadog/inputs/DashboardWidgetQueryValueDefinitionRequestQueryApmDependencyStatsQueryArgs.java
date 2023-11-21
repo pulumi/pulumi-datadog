@@ -32,14 +32,14 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * APM Environment.
+     * APM environment.
      * 
      */
     @Import(name="env", required=true)
     private Output<String> env;
 
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public Output<String> env() {
@@ -221,7 +221,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param env APM Environment.
+         * @param env APM environment.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param env APM Environment.
+         * @param env APM environment.
          * 
          * @return builder
          * 

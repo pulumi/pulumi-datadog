@@ -306,14 +306,14 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<Output<String>> subtype() {
@@ -853,7 +853,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`.
+         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 
@@ -864,7 +864,7 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`.
+         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 

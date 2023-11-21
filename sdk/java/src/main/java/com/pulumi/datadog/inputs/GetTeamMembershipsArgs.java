@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GetTeamMembershipsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamMembershipsArgs Empty = new GetTeamMembershipsArgs();
+
+    /**
+     * When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Output<Boolean> exactMatch;
+
+    /**
+     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    public Optional<Output<Boolean>> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * Search query, can be user email or name.
@@ -40,6 +56,7 @@ public final class GetTeamMembershipsArgs extends com.pulumi.resources.InvokeArg
     private GetTeamMembershipsArgs() {}
 
     private GetTeamMembershipsArgs(GetTeamMembershipsArgs $) {
+        this.exactMatch = $.exactMatch;
         this.filterKeyword = $.filterKeyword;
         this.teamId = $.teamId;
     }
@@ -60,6 +77,27 @@ public final class GetTeamMembershipsArgs extends com.pulumi.resources.InvokeArg
 
         public Builder(GetTeamMembershipsArgs defaults) {
             $ = new GetTeamMembershipsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Output<Boolean> exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
+        }
+
+        /**
+         * @param exactMatch When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(Boolean exactMatch) {
+            return exactMatch(Output.of(exactMatch));
         }
 
         /**

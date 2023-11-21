@@ -70,7 +70,7 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     public readonly gcsArchive!: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface LogsArchiveState {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
     includeTags?: pulumi.Input<boolean>;
     /**
@@ -188,7 +188,7 @@ export interface LogsArchiveArgs {
      */
     gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      */
     includeTags?: pulumi.Input<boolean>;
     /**

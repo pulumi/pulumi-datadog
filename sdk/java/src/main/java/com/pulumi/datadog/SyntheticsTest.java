@@ -117,17 +117,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.SyntheticsTest;
  * import com.pulumi.datadog.SyntheticsTestArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestAssertionArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
- * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
- * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestConfigVariableArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestApiStepArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
  * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -142,243 +143,327 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testUptime = new SyntheticsTest(&#34;testUptime&#34;, SyntheticsTestArgs.builder()        
- *             .assertions(SyntheticsTestAssertionArgs.builder()
- *                 .operator(&#34;is&#34;)
- *                 .target(&#34;200&#34;)
- *                 .type(&#34;statusCode&#34;)
- *                 .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @pagerduty&#34;)
  *             .name(&#34;An Uptime test on example.org&#34;)
- *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
- *                     .renotifyInterval(120)
- *                     .build())
- *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
- *                     .count(2)
- *                     .interval(300)
- *                     .build())
- *                 .tickEvery(900)
- *                 .build())
+ *             .type(&#34;api&#34;)
+ *             .subtype(&#34;http&#34;)
+ *             .status(&#34;live&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
  *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
  *                 .method(&#34;GET&#34;)
  *                 .url(&#34;https://www.example.org&#34;)
  *                 .build())
  *             .requestHeaders(Map.of(&#34;Content-Type&#34;, &#34;application/json&#34;))
- *             .status(&#34;live&#34;)
- *             .subtype(&#34;http&#34;)
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;foo&#34;,
- *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
- *             .build());
- * 
- *         var testApi = new SyntheticsTest(&#34;testApi&#34;, SyntheticsTestArgs.builder()        
  *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type(&#34;statusCode&#34;)
  *                 .operator(&#34;is&#34;)
  *                 .target(&#34;200&#34;)
- *                 .type(&#34;statusCode&#34;)
  *                 .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @pagerduty&#34;)
- *             .name(&#34;An API test on example.org&#34;)
  *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
- *                     .renotifyInterval(120)
- *                     .build())
+ *                 .tickEvery(900)
  *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
  *                     .count(2)
  *                     .interval(300)
  *                     .build())
- *                 .tickEvery(900)
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
  *                 .build())
+ *             .build());
+ * 
+ *         var testApi = new SyntheticsTest(&#34;testApi&#34;, SyntheticsTestArgs.builder()        
+ *             .name(&#34;An API test on example.org&#34;)
+ *             .type(&#34;api&#34;)
+ *             .subtype(&#34;http&#34;)
+ *             .status(&#34;live&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
  *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
  *                 .method(&#34;GET&#34;)
  *                 .url(&#34;https://www.example.org&#34;)
  *                 .build())
  *             .requestHeaders(Map.ofEntries(
- *                 Map.entry(&#34;Authentication&#34;, &#34;Token: 1234566789&#34;),
- *                 Map.entry(&#34;Content-Type&#34;, &#34;application/json&#34;)
+ *                 Map.entry(&#34;Content-Type&#34;, &#34;application/json&#34;),
+ *                 Map.entry(&#34;Authentication&#34;, &#34;Token: 1234566789&#34;)
  *             ))
- *             .status(&#34;live&#34;)
- *             .subtype(&#34;http&#34;)
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;foo&#34;,
- *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type(&#34;statusCode&#34;)
+ *                 .operator(&#34;is&#34;)
+ *                 .target(&#34;200&#34;)
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *         var testSsl = new SyntheticsTest(&#34;testSsl&#34;, SyntheticsTestArgs.builder()        
- *             .assertions(SyntheticsTestAssertionArgs.builder()
- *                 .operator(&#34;isInMoreThan&#34;)
- *                 .target(30)
- *                 .type(&#34;certificate&#34;)
- *                 .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @pagerduty&#34;)
  *             .name(&#34;An API test on example.org&#34;)
- *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .acceptSelfSigned(true)
- *                 .tickEvery(900)
- *                 .build())
- *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
- *                 .host(&#34;example.org&#34;)
- *                 .port(443)
- *                 .build())
- *             .status(&#34;live&#34;)
+ *             .type(&#34;api&#34;)
  *             .subtype(&#34;ssl&#34;)
+ *             .status(&#34;live&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;foo&#34;,
  *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host(&#34;example.org&#34;)
+ *                 .port(443)
+ *                 .build())
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type(&#34;certificate&#34;)
+ *                 .operator(&#34;isInMoreThan&#34;)
+ *                 .target(30)
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .acceptSelfSigned(true)
+ *                 .build())
  *             .build());
  * 
  *         var testTcp = new SyntheticsTest(&#34;testTcp&#34;, SyntheticsTestArgs.builder()        
- *             .assertions(SyntheticsTestAssertionArgs.builder()
- *                 .operator(&#34;lessThan&#34;)
- *                 .target(2000)
- *                 .type(&#34;responseTime&#34;)
- *                 .build())
- *             .configVariables(SyntheticsTestConfigVariableArgs.builder()
- *                 .id(&#34;76636cd1-82e2-4aeb-9cfe-51366a8198a2&#34;)
- *                 .name(&#34;MY_GLOBAL_VAR&#34;)
- *                 .type(&#34;global&#34;)
- *                 .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @pagerduty&#34;)
  *             .name(&#34;An API test on example.org&#34;)
- *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .tickEvery(900)
- *                 .build())
+ *             .type(&#34;api&#34;)
+ *             .subtype(&#34;tcp&#34;)
+ *             .status(&#34;live&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
  *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
  *                 .host(&#34;example.org&#34;)
  *                 .port(443)
  *                 .build())
- *             .status(&#34;live&#34;)
- *             .subtype(&#34;tcp&#34;)
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;foo&#34;,
- *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
- *             .build());
- * 
- *         var testDns = new SyntheticsTest(&#34;testDns&#34;, SyntheticsTestArgs.builder()        
  *             .assertions(SyntheticsTestAssertionArgs.builder()
- *                 .operator(&#34;is&#34;)
- *                 .property(&#34;A&#34;)
- *                 .target(&#34;0.0.0.0&#34;)
- *                 .type(&#34;recordSome&#34;)
+ *                 .type(&#34;responseTime&#34;)
+ *                 .operator(&#34;lessThan&#34;)
+ *                 .target(2000)
  *                 .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @pagerduty&#34;)
- *             .name(&#34;An API test on example.org&#34;)
+ *             .configVariables(SyntheticsTestConfigVariableArgs.builder()
+ *                 .type(&#34;global&#34;)
+ *                 .name(&#34;MY_GLOBAL_VAR&#34;)
+ *                 .id(&#34;76636cd1-82e2-4aeb-9cfe-51366a8198a2&#34;)
+ *                 .build())
  *             .optionsList(SyntheticsTestOptionsListArgs.builder()
  *                 .tickEvery(900)
  *                 .build())
- *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
- *                 .host(&#34;example.org&#34;)
- *                 .build())
- *             .status(&#34;live&#34;)
+ *             .build());
+ * 
+ *         var testDns = new SyntheticsTest(&#34;testDns&#34;, SyntheticsTestArgs.builder()        
+ *             .name(&#34;An API test on example.org&#34;)
+ *             .type(&#34;api&#34;)
  *             .subtype(&#34;dns&#34;)
+ *             .status(&#34;live&#34;)
+ *             .message(&#34;Notify @pagerduty&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;foo&#34;,
  *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host(&#34;example.org&#34;)
+ *                 .build())
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type(&#34;recordSome&#34;)
+ *                 .operator(&#34;is&#34;)
+ *                 .property(&#34;A&#34;)
+ *                 .target(&#34;0.0.0.0&#34;)
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
  *             .build());
  * 
  *         var testMultiStep = new SyntheticsTest(&#34;testMultiStep&#34;, SyntheticsTestArgs.builder()        
+ *             .name(&#34;Multistep API test&#34;)
+ *             .type(&#34;api&#34;)
+ *             .subtype(&#34;multi&#34;)
+ *             .status(&#34;live&#34;)
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;foo&#34;,
+ *                 &#34;env:test&#34;)
  *             .apiSteps(            
  *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name(&#34;An API test on example.org&#34;)
+ *                     .subtype(&#34;http&#34;)
  *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type(&#34;statusCode&#34;)
  *                         .operator(&#34;is&#34;)
  *                         .target(&#34;200&#34;)
- *                         .type(&#34;statusCode&#34;)
  *                         .build())
- *                     .name(&#34;An API test on example.org&#34;)
  *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
  *                         .method(&#34;GET&#34;)
  *                         .url(&#34;https://example.org&#34;)
  *                         .build())
  *                     .requestHeaders(Map.ofEntries(
- *                         Map.entry(&#34;Authentication&#34;, &#34;Token: 1234566789&#34;),
- *                         Map.entry(&#34;Content-Type&#34;, &#34;application/json&#34;)
+ *                         Map.entry(&#34;Content-Type&#34;, &#34;application/json&#34;),
+ *                         Map.entry(&#34;Authentication&#34;, &#34;Token: 1234566789&#34;)
  *                     ))
- *                     .subtype(&#34;http&#34;)
  *                     .build(),
  *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name(&#34;An API test on example.org&#34;)
+ *                     .subtype(&#34;http&#34;)
  *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type(&#34;statusCode&#34;)
  *                         .operator(&#34;is&#34;)
  *                         .target(&#34;200&#34;)
- *                         .type(&#34;statusCode&#34;)
  *                         .build())
- *                     .name(&#34;An API test on example.org&#34;)
  *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
  *                         .method(&#34;GET&#34;)
  *                         .url(&#34;http://example.org&#34;)
  *                         .build())
- *                     .subtype(&#34;http&#34;)
  *                     .build())
- *             .locations(&#34;aws:eu-central-1&#34;)
- *             .name(&#34;Multistep API test&#34;)
  *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .acceptSelfSigned(true)
  *                 .tickEvery(900)
+ *                 .acceptSelfSigned(true)
  *                 .build())
- *             .status(&#34;live&#34;)
- *             .subtype(&#34;multi&#34;)
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;foo&#34;,
- *                 &#34;env:test&#34;)
- *             .type(&#34;api&#34;)
  *             .build());
  * 
  *         var testBrowser = new SyntheticsTest(&#34;testBrowser&#34;, SyntheticsTestArgs.builder()        
- *             .browserSteps(SyntheticsTestBrowserStepArgs.builder()
- *                 .name(&#34;Check current url&#34;)
- *                 .params(SyntheticsTestBrowserStepParamsArgs.builder()
- *                     .check(&#34;contains&#34;)
- *                     .value(&#34;datadoghq&#34;)
- *                     .build())
- *                 .type(&#34;assertCurrentUrl&#34;)
- *                 .build())
- *             .browserVariables(            
- *                 SyntheticsTestBrowserVariableArgs.builder()
- *                     .example(&#34;597&#34;)
- *                     .name(&#34;MY_PATTERN_VAR&#34;)
- *                     .pattern(&#34;{{numeric(3)}}&#34;)
- *                     .type(&#34;text&#34;)
- *                     .build(),
- *                 SyntheticsTestBrowserVariableArgs.builder()
- *                     .example(&#34;jd8-afe-ydv.4546132139@synthetics.dtdg.co&#34;)
- *                     .name(&#34;MY_EMAIL_VAR&#34;)
- *                     .pattern(&#34;jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co&#34;)
- *                     .type(&#34;email&#34;)
- *                     .build(),
- *                 SyntheticsTestBrowserVariableArgs.builder()
- *                     .id(&#34;76636cd1-82e2-4aeb-9cfe-51366a8198a2&#34;)
- *                     .name(&#34;MY_GLOBAL_VAR&#34;)
- *                     .type(&#34;global&#34;)
- *                     .build())
+ *             .name(&#34;A Browser test on example.org&#34;)
+ *             .type(&#34;browser&#34;)
+ *             .status(&#34;paused&#34;)
+ *             .message(&#34;Notify @qa&#34;)
  *             .deviceIds(&#34;laptop_large&#34;)
  *             .locations(&#34;aws:eu-central-1&#34;)
- *             .message(&#34;Notify @qa&#34;)
- *             .name(&#34;A Browser test on example.org&#34;)
- *             .optionsList(SyntheticsTestOptionsListArgs.builder()
- *                 .tickEvery(3600)
- *                 .build())
+ *             .tags()
  *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
  *                 .method(&#34;GET&#34;)
  *                 .url(&#34;https://app.datadoghq.com&#34;)
  *                 .build())
+ *             .browserSteps(            
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name(&#34;Check current url&#34;)
+ *                     .type(&#34;assertCurrentUrl&#34;)
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .check(&#34;contains&#34;)
+ *                         .value(&#34;datadoghq&#34;)
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name(&#34;Test a downloaded file&#34;)
+ *                     .type(&#34;assertFileDownload&#34;)
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .file(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty(&#34;md5&#34;, &#34;abcdef1234567890&#34;),
+ *                                 jsonProperty(&#34;sizeCheck&#34;, jsonObject(
+ *                                     jsonProperty(&#34;type&#34;, &#34;equals&#34;),
+ *                                     jsonProperty(&#34;value&#34;, 1)
+ *                                 )),
+ *                                 jsonProperty(&#34;nameCheck&#34;, jsonObject(
+ *                                     jsonProperty(&#34;type&#34;, &#34;contains&#34;),
+ *                                     jsonProperty(&#34;value&#34;, &#34;.xls&#34;)
+ *                                 ))
+ *                             )))
+ *                         .build())
+ *                     .build())
+ *             .browserVariables(            
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type(&#34;text&#34;)
+ *                     .name(&#34;MY_PATTERN_VAR&#34;)
+ *                     .pattern(&#34;{{numeric(3)}}&#34;)
+ *                     .example(&#34;597&#34;)
+ *                     .build(),
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type(&#34;email&#34;)
+ *                     .name(&#34;MY_EMAIL_VAR&#34;)
+ *                     .pattern(&#34;jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co&#34;)
+ *                     .example(&#34;jd8-afe-ydv.4546132139@synthetics.dtdg.co&#34;)
+ *                     .build(),
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type(&#34;global&#34;)
+ *                     .name(&#34;MY_GLOBAL_VAR&#34;)
+ *                     .id(&#34;76636cd1-82e2-4aeb-9cfe-51366a8198a2&#34;)
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(3600)
+ *                 .build())
+ *             .build());
+ * 
+ *         var grpc = new SyntheticsTest(&#34;grpc&#34;, SyntheticsTestArgs.builder()        
+ *             .type(&#34;api&#34;)
+ *             .subtype(&#34;grpc&#34;)
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .method(&#34;GET&#34;)
+ *                 .host(&#34;google.com&#34;)
+ *                 .port(50050)
+ *                 .service(&#34;Hello&#34;)
+ *                 .protoJsonDescriptor(&#34;&#34;&#34;
+ * syntax = &#34;proto3&#34;;
+ * option java_multiple_files = true;
+ * option java_package = &#34;io.grpc.examples.helloworld&#34;;
+ * option java_outer_classname = &#34;HelloWorldProto&#34;;
+ * option objc_class_prefix = &#34;HLW&#34;;
+ * package helloworld;
+ * // The greeting service definition.
+ * service Greeter {
+ * 	// Sends a greeting
+ * 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * // The request message containing the user&#39;s name.
+ * message HelloRequest {
+ * 	string name = 1;
+ * }
+ * // The response message containing the greetings
+ * message HelloReply {
+ * 	string message = 1;
+ * }
+ *                 &#34;&#34;&#34;)
+ *                 .build())
+ *             .requestMetadata(Map.of(&#34;header&#34;, &#34;value&#34;))
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type(&#34;responseTime&#34;)
+ *                     .operator(&#34;lessThan&#34;)
+ *                     .target(&#34;2000&#34;)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .type(&#34;grpcHealthcheckStatus&#34;)
+ *                     .target(1)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .target(&#34;proto target&#34;)
+ *                     .type(&#34;grpcProto&#34;)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator(&#34;is&#34;)
+ *                     .target(&#34;123&#34;)
+ *                     .property(&#34;property&#34;)
+ *                     .type(&#34;grpcMetadata&#34;)
+ *                     .build())
+ *             .locations(&#34;aws:eu-central-1&#34;)
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(60)
+ *                 .build())
+ *             .name(&#34;GRPC API test&#34;)
+ *             .message(&#34;Notify @datadog.user&#34;)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;baz&#34;)
  *             .status(&#34;paused&#34;)
- *             .tags()
- *             .type(&#34;browser&#34;)
  *             .build());
  * 
  *     }
@@ -669,14 +754,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Output<Optional<String>> subtype() {

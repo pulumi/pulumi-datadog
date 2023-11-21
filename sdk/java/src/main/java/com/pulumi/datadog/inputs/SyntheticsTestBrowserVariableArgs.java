@@ -17,14 +17,14 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
     public static final SyntheticsTestBrowserVariableArgs Empty = new SyntheticsTestBrowserVariableArgs();
 
     /**
-     * Example for the variable.
+     * Example for the variable. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="example")
     private @Nullable Output<String> example;
 
     /**
-     * @return Example for the variable.
+     * @return Example for the variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> example() {
@@ -62,14 +62,14 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
     }
 
     /**
-     * Pattern of the variable.
+     * Pattern of the variable. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
     /**
-     * @return Pattern of the variable.
+     * @return Pattern of the variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> pattern() {
@@ -136,7 +136,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param example Example for the variable.
+         * @param example Example for the variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param example Example for the variable.
+         * @param example Example for the variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param pattern Pattern of the variable.
+         * @param pattern Pattern of the variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         /**
-         * @param pattern Pattern of the variable.
+         * @param pattern Pattern of the variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

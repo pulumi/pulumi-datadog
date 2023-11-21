@@ -59,7 +59,7 @@ export class ServiceAccount extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the service account is disabled.
+     * Whether the service account is disabled. Defaults to `false`.
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,7 +112,7 @@ export class ServiceAccount extends pulumi.CustomResource {
  */
 export interface ServiceAccountState {
     /**
-     * Whether the service account is disabled.
+     * Whether the service account is disabled. Defaults to `false`.
      */
     disabled?: pulumi.Input<boolean>;
     /**
@@ -134,7 +134,7 @@ export interface ServiceAccountState {
  */
 export interface ServiceAccountArgs {
     /**
-     * Whether the service account is disabled.
+     * Whether the service account is disabled. Defaults to `false`.
      */
     disabled?: pulumi.Input<boolean>;
     /**

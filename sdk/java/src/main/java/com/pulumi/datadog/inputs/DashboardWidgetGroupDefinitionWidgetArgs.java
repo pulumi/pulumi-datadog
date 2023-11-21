@@ -29,6 +29,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplot
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs;
@@ -422,6 +423,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Split Graph widget.
+     * 
+     */
+    @Import(name="splitGraphDefinition")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
+
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
+    }
+
+    /**
      * The definition for a Sunburst widget.
      * 
      */
@@ -554,6 +570,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
         this.sloListDefinition = $.sloListDefinition;
+        this.splitGraphDefinition = $.splitGraphDefinition;
         this.sunburstDefinition = $.sunburstDefinition;
         this.timeseriesDefinition = $.timeseriesDefinition;
         this.toplistDefinition = $.toplistDefinition;
@@ -1104,6 +1121,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder sloListDefinition(DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
+            $.splitGraphDefinition = splitGraphDefinition;
+            return this;
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
+            return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
         /**

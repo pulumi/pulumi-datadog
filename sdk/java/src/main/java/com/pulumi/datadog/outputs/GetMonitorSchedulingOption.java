@@ -4,15 +4,20 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetMonitorSchedulingOptionCustomSchedule;
 import com.pulumi.datadog.outputs.GetMonitorSchedulingOptionEvaluationWindow;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetMonitorSchedulingOption {
+    private List<GetMonitorSchedulingOptionCustomSchedule> customSchedules;
     private List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows;
 
     private GetMonitorSchedulingOption() {}
+    public List<GetMonitorSchedulingOptionCustomSchedule> customSchedules() {
+        return this.customSchedules;
+    }
     public List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows() {
         return this.evaluationWindows;
     }
@@ -26,13 +31,23 @@ public final class GetMonitorSchedulingOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetMonitorSchedulingOptionCustomSchedule> customSchedules;
         private List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows;
         public Builder() {}
         public Builder(GetMonitorSchedulingOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customSchedules = defaults.customSchedules;
     	      this.evaluationWindows = defaults.evaluationWindows;
         }
 
+        @CustomType.Setter
+        public Builder customSchedules(List<GetMonitorSchedulingOptionCustomSchedule> customSchedules) {
+            this.customSchedules = Objects.requireNonNull(customSchedules);
+            return this;
+        }
+        public Builder customSchedules(GetMonitorSchedulingOptionCustomSchedule... customSchedules) {
+            return customSchedules(List.of(customSchedules));
+        }
         @CustomType.Setter
         public Builder evaluationWindows(List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows) {
             this.evaluationWindows = Objects.requireNonNull(evaluationWindows);
@@ -43,6 +58,7 @@ public final class GetMonitorSchedulingOption {
         }
         public GetMonitorSchedulingOption build() {
             final var o = new GetMonitorSchedulingOption();
+            o.customSchedules = customSchedules;
             o.evaluationWindows = evaluationWindows;
             return o;
         }

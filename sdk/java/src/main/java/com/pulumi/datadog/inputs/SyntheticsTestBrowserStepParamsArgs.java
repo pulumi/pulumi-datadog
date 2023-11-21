@@ -141,14 +141,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * For an &#34;assert download&#34; step.
+     * JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
      * 
      */
     @Import(name="file")
     private @Nullable Output<String> file;
 
     /**
-     * @return For an &#34;assert download&#34; step.
+     * @return JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<Output<String>> file() {
@@ -516,7 +516,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param file For an &#34;assert download&#34; step.
+         * @param file JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param file For an &#34;assert download&#34; step.
+         * @param file JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
          * 
          * @return builder
          * 

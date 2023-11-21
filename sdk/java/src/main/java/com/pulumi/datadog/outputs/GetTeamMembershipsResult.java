@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetTeamMembershipsTeamMembership;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTeamMembershipsResult {
+    /**
+     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    private @Nullable Boolean exactMatch;
     /**
      * @return Search query, can be user email or name.
      * 
@@ -35,6 +41,13 @@ public final class GetTeamMembershipsResult {
     private List<GetTeamMembershipsTeamMembership> teamMemberships;
 
     private GetTeamMembershipsResult() {}
+    /**
+     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
     /**
      * @return Search query, can be user email or name.
      * 
@@ -73,6 +86,7 @@ public final class GetTeamMembershipsResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean exactMatch;
         private @Nullable String filterKeyword;
         private String id;
         private String teamId;
@@ -80,12 +94,18 @@ public final class GetTeamMembershipsResult {
         public Builder() {}
         public Builder(GetTeamMembershipsResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.exactMatch = defaults.exactMatch;
     	      this.filterKeyword = defaults.filterKeyword;
     	      this.id = defaults.id;
     	      this.teamId = defaults.teamId;
     	      this.teamMemberships = defaults.teamMemberships;
         }
 
+        @CustomType.Setter
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+            this.exactMatch = exactMatch;
+            return this;
+        }
         @CustomType.Setter
         public Builder filterKeyword(@Nullable String filterKeyword) {
             this.filterKeyword = filterKeyword;
@@ -111,6 +131,7 @@ public final class GetTeamMembershipsResult {
         }
         public GetTeamMembershipsResult build() {
             final var o = new GetTeamMembershipsResult();
+            o.exactMatch = exactMatch;
             o.filterKeyword = filterKeyword;
             o.id = id;
             o.teamId = teamId;

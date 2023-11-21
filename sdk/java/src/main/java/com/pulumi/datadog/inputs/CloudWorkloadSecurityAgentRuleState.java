@@ -17,14 +17,14 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
     public static final CloudWorkloadSecurityAgentRuleState Empty = new CloudWorkloadSecurityAgentRuleState();
 
     /**
-     * The description of the Agent rule.
+     * The description of the Agent rule. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Agent rule.
+     * @return The description of the Agent rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
     }
 
     /**
-     * Whether the Agent rule is enabled.
+     * Whether the Agent rule is enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the Agent rule is enabled.
+     * @return Whether the Agent rule is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -104,7 +104,7 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
         }
 
         /**
-         * @param description The description of the Agent rule.
+         * @param description The description of the Agent rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
         }
 
         /**
-         * @param description The description of the Agent rule.
+         * @param description The description of the Agent rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
         }
 
         /**
-         * @param enabled Whether the Agent rule is enabled.
+         * @param enabled Whether the Agent rule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CloudWorkloadSecurityAgentRuleState extends com.pulumi.resour
         }
 
         /**
-         * @param enabled Whether the Agent rule is enabled.
+         * @param enabled Whether the Agent rule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

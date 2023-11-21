@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
     /**
-     * @return The number of results to return
+     * @return The number of results to return.
      * 
      */
     private @Nullable Integer count;
@@ -25,7 +25,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit() {}
     /**
-     * @return The number of results to return
+     * @return The number of results to return.
      * 
      */
     public Optional<Integer> count() {

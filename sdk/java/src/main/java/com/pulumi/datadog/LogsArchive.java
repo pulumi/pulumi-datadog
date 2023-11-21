@@ -99,14 +99,14 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.gcsArchive);
     }
     /**
-     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      * 
      */
     @Export(name="includeTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> includeTags;
 
     /**
-     * @return To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+     * @return To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> includeTags() {

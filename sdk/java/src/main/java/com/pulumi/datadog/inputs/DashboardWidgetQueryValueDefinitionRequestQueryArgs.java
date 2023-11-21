@@ -96,14 +96,14 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryArgs extends c
     }
 
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      * 
      */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs> sloQuery;
 
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<Output<DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs>> sloQuery() {
@@ -245,7 +245,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 

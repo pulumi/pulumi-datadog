@@ -77,7 +77,7 @@ export class SensitiveDataScannerGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of products the scanning group applies.
+     * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     public readonly productLists!: pulumi.Output<string[]>;
 
@@ -145,7 +145,7 @@ export interface SensitiveDataScannerGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * List of products the scanning group applies.
+     * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     productLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -171,7 +171,7 @@ export interface SensitiveDataScannerGroupArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * List of products the scanning group applies.
+     * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      */
     productLists: pulumi.Input<pulumi.Input<string>[]>;
 }

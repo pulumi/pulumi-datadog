@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *                     .space(&#34;max&#34;)
  *                     .time(&#34;avg&#34;)
  *                     .build())
+ *             .excludeTagsMode(false)
  *             .metricName(&#34;example.terraform.count.metric&#34;)
  *             .metricType(&#34;count&#34;)
  *             .tags(            
@@ -95,6 +96,20 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
      */
     public Output<List<MetricTagConfigurationAggregation>> aggregations() {
         return this.aggregations;
+    }
+    /**
+     * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     * 
+     */
+    @Export(name="excludeTagsMode", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> excludeTagsMode;
+
+    /**
+     * @return Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> excludeTagsMode() {
+        return Codegen.optional(this.excludeTagsMode);
     }
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.

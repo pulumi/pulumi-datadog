@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorSchedulingOption
     {
         /// <summary>
+        /// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorSchedulingOptionCustomSchedule> CustomSchedules;
+        /// <summary>
         /// Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorSchedulingOptionEvaluationWindow> EvaluationWindows;
 
         [OutputConstructor]
-        private MonitorSchedulingOption(ImmutableArray<Outputs.MonitorSchedulingOptionEvaluationWindow> evaluationWindows)
+        private MonitorSchedulingOption(
+            ImmutableArray<Outputs.MonitorSchedulingOptionCustomSchedule> customSchedules,
+
+            ImmutableArray<Outputs.MonitorSchedulingOptionEvaluationWindow> evaluationWindows)
         {
+            CustomSchedules = customSchedules;
             EvaluationWindows = evaluationWindows;
         }
     }

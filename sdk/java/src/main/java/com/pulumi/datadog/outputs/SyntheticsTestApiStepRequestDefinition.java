@@ -90,6 +90,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Integer port;
     /**
+     * @return A protobuf JSON descriptor.
+     * 
+     */
+    private @Nullable String protoJsonDescriptor;
+    /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
      * 
      */
@@ -222,6 +227,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.port);
     }
     /**
+     * @return A protobuf JSON descriptor.
+     * 
+     */
+    public Optional<String> protoJsonDescriptor() {
+        return Optional.ofNullable(this.protoJsonDescriptor);
+    }
+    /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
      * 
      */
@@ -281,6 +293,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable Integer numberOfPackets;
         private @Nullable Boolean persistCookies;
         private @Nullable Integer port;
+        private @Nullable String protoJsonDescriptor;
         private @Nullable String servername;
         private @Nullable String service;
         private @Nullable Boolean shouldTrackHops;
@@ -304,6 +317,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      this.numberOfPackets = defaults.numberOfPackets;
     	      this.persistCookies = defaults.persistCookies;
     	      this.port = defaults.port;
+    	      this.protoJsonDescriptor = defaults.protoJsonDescriptor;
     	      this.servername = defaults.servername;
     	      this.service = defaults.service;
     	      this.shouldTrackHops = defaults.shouldTrackHops;
@@ -390,6 +404,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder protoJsonDescriptor(@Nullable String protoJsonDescriptor) {
+            this.protoJsonDescriptor = protoJsonDescriptor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder servername(@Nullable String servername) {
             this.servername = servername;
             return this;
@@ -431,6 +450,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             o.numberOfPackets = numberOfPackets;
             o.persistCookies = persistCookies;
             o.port = port;
+            o.protoJsonDescriptor = protoJsonDescriptor;
             o.servername = servername;
             o.service = service;
             o.shouldTrackHops = shouldTrackHops;

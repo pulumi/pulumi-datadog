@@ -5,6 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ApmRetentionFilterFilter {
+    /**
+     * The search query - following the span search syntax. Defaults to `"*"`.
+     */
+    query?: pulumi.Input<string>;
+}
+
 export interface ChildOrganizationApiKey {
     key?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -232,6 +239,10 @@ export interface DashboardWidget {
      * The definition for an SLO (Service Level Objective) List widget.
      */
     sloListDefinition?: pulumi.Input<inputs.DashboardWidgetSloListDefinition>;
+    /**
+     * The definition for a Split Graph widget.
+     */
+    splitGraphDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinition>;
     /**
      * The definition for a Sunburst widget.
      */
@@ -570,7 +581,7 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat 
 
 export interface DashboardWidgetChangeDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -714,7 +725,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQuerySloQuery>;
 }
@@ -725,7 +736,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -768,7 +779,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -950,7 +961,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -966,7 +977,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -1328,7 +1339,7 @@ export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
      */
     columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn>[]>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -1857,7 +1868,7 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat 
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -1982,7 +1993,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQuerySloQuery>;
 }
@@ -1993,7 +2004,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -2036,7 +2047,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -2218,7 +2229,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -2234,7 +2245,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -2354,7 +2365,7 @@ export interface DashboardWidgetGroupDefinition {
      */
     layoutType: pulumi.Input<string>;
     /**
-     * Whether to show the title or not.
+     * Whether to show the title or not. Defaults to `true`.
      */
     showTitle?: pulumi.Input<boolean>;
     /**
@@ -2468,6 +2479,10 @@ export interface DashboardWidgetGroupDefinitionWidget {
      * The definition for an SLO (Service Level Objective) List widget.
      */
     sloListDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition>;
+    /**
+     * The definition for a Split Graph widget.
+     */
+    splitGraphDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition>;
     /**
      * The definition for a Sunburst widget.
      */
@@ -2806,7 +2821,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestForm
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -2950,7 +2965,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery>;
 }
@@ -2961,7 +2976,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -3004,7 +3019,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -3186,7 +3201,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -3202,7 +3217,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -3564,7 +3579,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
      */
     columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQueryColumn>[]>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -4093,7 +4108,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestForm
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -4218,7 +4233,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuerySloQuery>;
 }
@@ -4229,7 +4244,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -4272,7 +4287,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -4454,7 +4469,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -4470,7 +4485,7 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -4654,6 +4669,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
      * The query to use for this widget.
      */
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula>[]>;
     /**
      * The query to use for this widget.
      */
@@ -4666,6 +4682,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
      * The metric query to use for this widget.
      */
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery>[]>;
     /**
      * The query to use for this widget.
      */
@@ -4761,6 +4778,94 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery {
@@ -4863,6 +4968,285 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestPro
      * Your chosen search term.
      */
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery {
@@ -5922,11 +6306,11 @@ export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     /**
-     * Whether to display a background or not.
+     * Whether to display a background or not. Defaults to `true`.
      */
     hasBackground?: pulumi.Input<boolean>;
     /**
-     * Whether to display a border or not.
+     * Whether to display a border or not. Defaults to `true`.
      */
     hasBorder?: pulumi.Input<boolean>;
     /**
@@ -6148,7 +6532,7 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
      */
     fontSize?: pulumi.Input<string>;
     /**
-     * Whether to add padding or not.
+     * Whether to add padding or not. Defaults to `true`.
      */
     hasPadding?: pulumi.Input<boolean>;
     /**
@@ -6366,7 +6750,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn>[]>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -6517,7 +6901,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -6661,7 +7045,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuerySloQuery>;
 }
@@ -6672,7 +7056,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -6715,7 +7099,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -6897,7 +7281,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -6913,7 +7297,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -7464,7 +7848,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -7608,7 +7992,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery>;
 }
@@ -7619,7 +8003,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -7662,7 +8046,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -7844,7 +8228,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -7860,7 +8244,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -8241,7 +8625,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
 }
@@ -8252,7 +8636,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -8295,7 +8679,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -8477,7 +8861,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -8493,7 +8877,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -9450,6 +9834,8087 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQue
     order: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition {
+    /**
+     * Normalize y axes across graphs.
+     */
+    hasUniformYAxes?: pulumi.Input<boolean>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    size: pulumi.Input<string>;
+    /**
+     * The original widget we are splitting on.
+     */
+    sourceWidgetDefinition: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinition>;
+    /**
+     * Encapsulates all user choices about how to split a graph.
+     */
+    splitConfig: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfig>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinition {
+    /**
+     * The definition for a Change widget.
+     */
+    changeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition>;
+    /**
+     * The definition for a Geomap widget.
+     */
+    geomapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition>;
+    /**
+     * The definition for a Query Table widget.
+     */
+    queryTableDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition>;
+    /**
+     * The definition for a Query Value widget.
+     */
+    queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition>;
+    /**
+     * The definition for a Scatterplot widget.
+     */
+    scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition>;
+    /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition>;
+    /**
+     * The definition for a Timeseries widget.
+     */
+    timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition>;
+    /**
+     * The definition for a Toplist widget.
+     */
+    toplistDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition>;
+    /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQuery>;
+    /**
+     * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     */
+    changeType?: pulumi.Input<string>;
+    /**
+     * Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
+     */
+    compareTo?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormula>[]>;
+    /**
+     * A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     */
+    increaseGood?: pulumi.Input<boolean>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQuery>;
+    /**
+     * What to order by. Valid values are `change`, `name`, `present`, `past`.
+     */
+    orderBy?: pulumi.Input<string>;
+    /**
+     * Widget sorting method. Valid values are `asc`, `desc`.
+     */
+    orderDir?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQuery>;
+    /**
+     * If set to `true`, displays the current value.
+     */
+    showPresent?: pulumi.Input<boolean>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequest>[]>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionStyle>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * The view of the world that the map should render.
+     */
+    view: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionView>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
+    paletteFlip: pulumi.Input<boolean>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionView {
+    /**
+     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     */
+    focus: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionCustomLink>[]>;
+    /**
+     * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
+     */
+    hasSearchBar?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery>;
+    apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
+    columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn>[]>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The organization's host group name and value.
+     */
+    primaryTag: pulumi.Input<string>;
+    /**
+     * The resource name.
+     */
+    resource?: pulumi.Input<string>;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
+    rowType: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition {
+    /**
+     * A Boolean indicating whether to automatically scale the tile.
+     */
+    autoscale?: pulumi.Input<boolean>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionCustomLink>[]>;
+    /**
+     * The unit for the value displayed in the widget.
+     */
+    customUnit?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
+    precision?: pulumi.Input<number>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest>[]>;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
+    textAlign?: pulumi.Input<string>;
+    /**
+     * Set a timeseries on the widget background.
+     */
+    timeseriesBackground?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackground>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackground {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     */
+    colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequest>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionXaxis>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequest {
+    /**
+     * Scatterplot request containing formulas and functions.
+     */
+    scatterplotTables?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTable>[]>;
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
+    xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestX>[]>;
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
+    ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestY>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTable {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuery>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     */
+    dimension: pulumi.Input<string>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestX {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestY {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink>[]>;
+    /**
+     * Whether or not to show the total value in the widget.
+     */
+    hideTotal?: pulumi.Input<boolean>;
+    /**
+     * Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     */
+    legendInline?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendInline>;
+    /**
+     * Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     */
+    legendTable?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendTable>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendInline {
+    /**
+     * Whether to hide the percentages of the groups.
+     */
+    hidePercent?: pulumi.Input<boolean>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendTable {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionCustomLink>[]>;
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionEvent>[]>;
+    /**
+     * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     */
+    legendColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     */
+    legendLayout?: pulumi.Input<string>;
+    /**
+     * The size of the legend displayed in the widget.
+     */
+    legendSize?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
+     */
+    markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionMarker>[]>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequest>[]>;
+    /**
+     * A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
+     */
+    rightYaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRightYaxis>;
+    /**
+     * Whether or not to show the legend on this widget.
+     */
+    showLegend?: pulumi.Input<boolean>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
+    q: pulumi.Input<string>;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
+    tagsExecution?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionMarker {
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
+    displayType?: pulumi.Input<string>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQuery>;
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
+    displayType?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQuery>;
+    /**
+     * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestMetadata>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQuery>;
+    /**
+     * A Boolean indicating whether the request uses the right or left Y-Axis.
+     */
+    onRightYaxis?: pulumi.Input<boolean>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestMetadata {
+    /**
+     * The expression alias.
+     */
+    aliasName?: pulumi.Input<string>;
+    /**
+     * The expression name.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyle {
+    /**
+     * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     */
+    lineType?: pulumi.Input<string>;
+    /**
+     * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     */
+    lineWidth?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRightYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuery>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfig {
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSort>;
+    /**
+     * The property by which the graph splits
+     */
+    splitDimensions: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSplitDimensions>;
+    /**
+     * The property by which the graph splits
+     */
+    staticSplits?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigStaticSplit>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSort {
+    /**
+     * The compute options.
+     */
+    compute?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortCompute>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSplitDimensions {
+    /**
+     * The system interprets this attribute differently depending on the data source of the query being split. For metrics, it's a tag. For the events platform, it's an attribute or tag.
+     */
+    oneGraphPer: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigStaticSplit {
+    /**
+     * The split graph list contains a graph for each value of the split dimension.
+     */
+    splitVectors: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigStaticSplitSplitVector>[]>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigStaticSplitSplitVector {
+    tagKey: pulumi.Input<string>;
+    tagValues: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
     /**
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
@@ -9805,7 +18270,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFo
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -10032,7 +18497,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery>;
 }
@@ -10043,7 +18508,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -10086,7 +18551,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -10268,7 +18733,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -10284,7 +18749,7 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -10853,7 +19318,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -11091,7 +19556,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery>;
 }
@@ -11102,7 +19567,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -11145,7 +19610,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -11327,7 +19792,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -11343,7 +19808,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -11935,7 +20400,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFor
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -12079,7 +20544,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery>;
 }
@@ -12090,7 +20555,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -12133,7 +20598,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -12315,7 +20780,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -12331,7 +20796,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -12580,7 +21045,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
      */
     displayFormat?: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -12721,7 +21186,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFor
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -12763,7 +21228,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuerySloQuery>;
 }
@@ -12774,7 +21239,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -12817,7 +21282,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -12999,7 +21464,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -13015,7 +21480,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -13121,6 +21586,7 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
      * The query to use for this widget.
      */
     apmQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormula>[]>;
     /**
      * The query to use for this widget.
      */
@@ -13133,6 +21599,7 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
      * The metric query to use for this widget.
      */
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQuery>[]>;
     /**
      * The query to use for this widget.
      */
@@ -13228,6 +21695,94 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
@@ -13330,6 +21885,285 @@ export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
      * Your chosen search term.
      */
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQuery {
@@ -14389,11 +23223,11 @@ export interface DashboardWidgetIframeDefinition {
 
 export interface DashboardWidgetImageDefinition {
     /**
-     * Whether to display a background or not.
+     * Whether to display a background or not. Defaults to `true`.
      */
     hasBackground?: pulumi.Input<boolean>;
     /**
-     * Whether to display a border or not.
+     * Whether to display a border or not. Defaults to `true`.
      */
     hasBorder?: pulumi.Input<boolean>;
     /**
@@ -14615,7 +23449,7 @@ export interface DashboardWidgetNoteDefinition {
      */
     fontSize?: pulumi.Input<string>;
     /**
-     * Whether to add padding or not.
+     * Whether to add padding or not. Defaults to `true`.
      */
     hasPadding?: pulumi.Input<boolean>;
     /**
@@ -14833,7 +23667,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
      */
     columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn>[]>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -14984,7 +23818,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFor
 
 export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -15128,7 +23962,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQuerySloQuery>;
 }
@@ -15139,7 +23973,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencySta
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -15182,7 +24016,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStats
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -15364,7 +24198,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -15380,7 +24214,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -15931,7 +24765,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFor
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -16075,7 +24909,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQuerySloQuery>;
 }
@@ -16086,7 +24920,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencySta
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -16129,7 +24963,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStats
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -16311,7 +25145,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -16327,7 +25161,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -16708,7 +25542,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
 }
@@ -16719,7 +25553,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -16762,7 +25596,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -16944,7 +25778,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -16960,7 +25794,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -17917,6 +26751,8087 @@ export interface DashboardWidgetSloListDefinitionRequestQuerySort {
     order: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetSplitGraphDefinition {
+    /**
+     * Normalize y axes across graphs.
+     */
+    hasUniformYAxes?: pulumi.Input<boolean>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    size: pulumi.Input<string>;
+    /**
+     * The original widget we are splitting on.
+     */
+    sourceWidgetDefinition: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition>;
+    /**
+     * Encapsulates all user choices about how to split a graph.
+     */
+    splitConfig: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfig>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition {
+    /**
+     * The definition for a Change widget.
+     */
+    changeDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition>;
+    /**
+     * The definition for a Geomap widget.
+     */
+    geomapDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition>;
+    /**
+     * The definition for a Query Table widget.
+     */
+    queryTableDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition>;
+    /**
+     * The definition for a Query Value widget.
+     */
+    queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition>;
+    /**
+     * The definition for a Scatterplot widget.
+     */
+    scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition>;
+    /**
+     * The definition for a Sunburst widget.
+     */
+    sunburstDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition>;
+    /**
+     * The definition for a Timeseries widget.
+     */
+    timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition>;
+    /**
+     * The definition for a Toplist widget.
+     */
+    toplistDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition>;
+    /**
+     * The definition for a Treemap widget.
+     */
+    treemapDefinition?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQuery>;
+    /**
+     * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
+     */
+    changeType?: pulumi.Input<string>;
+    /**
+     * Choose from when to compare current data to. Valid values are `hourBefore`, `dayBefore`, `weekBefore`, `monthBefore`.
+     */
+    compareTo?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormula>[]>;
+    /**
+     * A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
+     */
+    increaseGood?: pulumi.Input<boolean>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQuery>;
+    /**
+     * What to order by. Valid values are `change`, `name`, `present`, `past`.
+     */
+    orderBy?: pulumi.Input<string>;
+    /**
+     * Widget sorting method. Valid values are `asc`, `desc`.
+     */
+    orderDir?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQuery>;
+    /**
+     * If set to `true`, displays the current value.
+     */
+    showPresent?: pulumi.Input<boolean>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequest>[]>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionStyle>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * The view of the world that the map should render.
+     */
+    view: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionView>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * A Boolean indicating whether to flip the palette tones.
+     */
+    paletteFlip: pulumi.Input<boolean>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionView {
+    /**
+     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     */
+    focus: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionCustomLink>[]>;
+    /**
+     * Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
+     */
+    hasSearchBar?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery>;
+    apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery {
+    /**
+     * Column properties used by the front end for display.
+     */
+    columns?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn>[]>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The organization's host group name and value.
+     */
+    primaryTag: pulumi.Input<string>;
+    /**
+     * The resource name.
+     */
+    resource?: pulumi.Input<string>;
+    /**
+     * The level of detail for the request. Valid values are `service`, `resource`, `span`.
+     */
+    rowType: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition {
+    /**
+     * A Boolean indicating whether to automatically scale the tile.
+     */
+    autoscale?: pulumi.Input<boolean>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionCustomLink>[]>;
+    /**
+     * The unit for the value displayed in the widget.
+     */
+    customUnit?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the value. Use `*` for maximum precision.
+     */
+    precision?: pulumi.Input<number>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest>[]>;
+    /**
+     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     */
+    textAlign?: pulumi.Input<string>;
+    /**
+     * Set a timeseries on the widget background.
+     */
+    timeseriesBackground?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackground>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackground {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     */
+    colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    request?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequest>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     */
+    xaxis?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionXaxis>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionYaxis>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequest {
+    /**
+     * Scatterplot request containing formulas and functions.
+     */
+    scatterplotTables?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTable>[]>;
+    /**
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
+    xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestX>[]>;
+    /**
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the block).
+     */
+    ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestY>[]>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTable {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuery>[]>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * Dimension of the Scatterplot. Valid values are `x`, `y`, `radius`, `color`.
+     */
+    dimension: pulumi.Input<string>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestX {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestXSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestY {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink>[]>;
+    /**
+     * Whether or not to show the total value in the widget.
+     */
+    hideTotal?: pulumi.Input<boolean>;
+    /**
+     * Used to configure the inline legend. Cannot be used in conjunction with legend*table.
+     */
+    legendInline?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendInline>;
+    /**
+     * Used to configure the table legend. Cannot be used in conjunction with legend*inline.
+     */
+    legendTable?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendTable>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendInline {
+    /**
+     * Whether to hide the percentages of the groups.
+     */
+    hidePercent?: pulumi.Input<boolean>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionLegendTable {
+    /**
+     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQuery>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionCustomLink>[]>;
+    /**
+     * The definition of the event to overlay on the graph. Multiple `event` blocks are allowed using the structure below.
+     */
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionEvent>[]>;
+    /**
+     * A list of columns to display in the legend. Valid values are `value`, `avg`, `sum`, `min`, `max`.
+     */
+    legendColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The layout of the legend displayed in the widget. Valid values are `auto`, `horizontal`, `vertical`.
+     */
+    legendLayout?: pulumi.Input<string>;
+    /**
+     * The size of the legend displayed in the widget.
+     */
+    legendSize?: pulumi.Input<string>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `tileDef` block.
+     */
+    markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionMarker>[]>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequest>[]>;
+    /**
+     * A nested block describing the right Y-Axis Controls. See the `onRightYaxis` property for which request will use this axis. The structure of this block is described below.
+     */
+    rightYaxis?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRightYaxis>;
+    /**
+     * Whether or not to show the legend on this widget.
+     */
+    showLegend?: pulumi.Input<boolean>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+    /**
+     * A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     */
+    yaxis?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionYaxis>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionEvent {
+    /**
+     * The metric query to use for this widget.
+     */
+    q: pulumi.Input<string>;
+    /**
+     * The execution method for multi-value filters, options: `and` or `or`.
+     */
+    tagsExecution?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionMarker {
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
+    displayType?: pulumi.Input<string>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQuery>;
+    /**
+     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     */
+    displayType?: pulumi.Input<string>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQuery>;
+    /**
+     * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestMetadata>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQuery>;
+    /**
+     * A Boolean indicating whether the request uses the right or left Y-Axis.
+     */
+    onRightYaxis?: pulumi.Input<boolean>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestMetadata {
+    /**
+     * The expression alias.
+     */
+    aliasName?: pulumi.Input<string>;
+    /**
+     * The expression name.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyle {
+    /**
+     * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
+     */
+    lineType?: pulumi.Input<string>;
+    /**
+     * The width of line displayed. Valid values are `normal`, `thick`, `thin`.
+     */
+    lineWidth?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRightYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
+    includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specify the maximum value to show on the Y-axis.
+     */
+    max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on the Y-axis.
+     */
+    min?: pulumi.Input<string>;
+    /**
+     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     */
+    scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition {
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionCustomLink>[]>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string>;
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * The label for the custom link URL.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * The URL of the custom link.
+     */
+    link?: pulumi.Input<string>;
+    /**
+     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     */
+    overrideLabel?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequest {
+    /**
+     * The query to use for this widget.
+     */
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormula>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    logQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestProcessQuery>;
+    /**
+     * The metric query to use for this widget.
+     */
+    q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuery>[]>;
+    /**
+     * The query to use for this widget.
+     */
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQuery>;
+    /**
+     * The query to use for this widget.
+     */
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQuery>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestAuditQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestProcessQuery {
+    /**
+     * A list of processes.
+     */
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * Your chosen search term.
+     */
+    searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition {
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     */
+    requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequest>[]>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequest {
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormula>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuery>[]>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormula {
+    /**
+     * An expression alias.
+     */
+    alias?: pulumi.Input<string>;
+    /**
+     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     */
+    cellDisplayMode?: pulumi.Input<string>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+     */
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaConditionalFormat>[]>;
+    /**
+     * A string expression built from queries, formulas, and functions.
+     */
+    formulaExpression: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaLimit>;
+    /**
+     * Styling options for widget formulas.
+     */
+    style?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaStyle>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaConditionalFormat {
+    /**
+     * The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the background, same values available as palette.
+     */
+    customBgColor?: pulumi.Input<string>;
+    /**
+     * The color palette to apply to the foreground, same values available as palette.
+     */
+    customFgColor?: pulumi.Input<string>;
+    /**
+     * Setting this to True hides values.
+     */
+    hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     */
+    imageUrl?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette: pulumi.Input<string>;
+    /**
+     * Defines the displayed timeframe.
+     */
+    timeframe?: pulumi.Input<string>;
+    /**
+     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     */
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaLimit {
+    /**
+     * The number of results to return.
+     */
+    count?: pulumi.Input<number>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestFormulaStyle {
+    /**
+     * The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+     */
+    palette?: pulumi.Input<string>;
+    /**
+     * Index specifying which color to use within the palette.
+     */
+    paletteIndex?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuery {
+    /**
+     * The APM Dependency Stats query using formulas and functions.
+     */
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmDependencyStatsQuery>;
+    /**
+     * The APM Resource Stats query using formulas and functions.
+     */
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmResourceStatsQuery>;
+    /**
+     * A timeseries formula and functions events query.
+     */
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuery>;
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryMetricQuery>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
+    processQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryProcessQuery>;
+    /**
+     * The SLO query using formulas and functions.
+     */
+    sloQuery?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuerySloQuery>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmDependencyStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Determines whether stats for upstream or downstream dependencies should be queried.
+     */
+    isUpstream?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * APM environment.
+     */
+    env: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of operation on service.
+     */
+    operationName?: pulumi.Input<string>;
+    /**
+     * The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+     */
+    primaryTagName?: pulumi.Input<string>;
+    /**
+     * Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+     */
+    primaryTagValue?: pulumi.Input<string>;
+    /**
+     * APM resource.
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * APM service.
+     */
+    service: pulumi.Input<string>;
+    /**
+     * APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+     */
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuery {
+    /**
+     * The compute options.
+     */
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBy>[]>;
+    /**
+     * An array of index names to query in the stream.
+     */
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The search options.
+     */
+    search?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch>;
+    /**
+     * Storage location (private beta).
+     */
+    storage?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryMetricQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryProcessQuery {
+    /**
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     */
+    aggregator?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Whether to normalize the CPU percentages.
+     */
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<string>;
+    /**
+     * An array of tags to filter by.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The text to use as a filter.
+     */
+    textFilter?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQuerySloQuery {
+    /**
+     * Additional filters applied to the SLO query.
+     */
+    additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+     */
+    groupMode?: pulumi.Input<string>;
+    /**
+     * SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+     */
+    measure: pulumi.Input<string>;
+    /**
+     * The name of the variable.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of an SLO to query.
+     */
+    sloId: pulumi.Input<string>;
+    /**
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     */
+    sloQueryType?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfig {
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfigSort>;
+    /**
+     * The property by which the graph splits
+     */
+    splitDimensions: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfigSplitDimensions>;
+    /**
+     * The property by which the graph splits
+     */
+    staticSplits?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplit>[]>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfigSort {
+    /**
+     * The compute options.
+     */
+    compute?: pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation?: pulumi.Input<string>;
+    /**
+     * The metric from the request to correlate with this conditional format.
+     */
+    metric: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfigSplitDimensions {
+    /**
+     * The system interprets this attribute differently depending on the data source of the query being split. For metrics, it's a tag. For the events platform, it's an attribute or tag.
+     */
+    oneGraphPer: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplit {
+    /**
+     * The split graph list contains a graph for each value of the split dimension.
+     */
+    splitVectors: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitSplitVector>[]>;
+}
+
+export interface DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitSplitVector {
+    tagKey: pulumi.Input<string>;
+    tagValues: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface DashboardWidgetSunburstDefinition {
     /**
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
@@ -18272,7 +35187,7 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaConditionalForma
 
 export interface DashboardWidgetSunburstDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -18499,7 +35414,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQuerySloQuery>;
 }
@@ -18510,7 +35425,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStats
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -18553,7 +35468,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQu
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -18735,7 +35650,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -18751,7 +35666,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -19320,7 +36235,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFor
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -19558,7 +36473,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery>;
 }
@@ -19569,7 +36484,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencySta
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -19612,7 +36527,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStats
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -19794,7 +36709,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -19810,7 +36725,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -20402,7 +37317,7 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -20546,7 +37461,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQuerySloQuery>;
 }
@@ -20557,7 +37472,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -20600,7 +37515,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -20782,7 +37697,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -20798,7 +37713,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -21047,7 +37962,7 @@ export interface DashboardWidgetTraceServiceDefinition {
      */
     displayFormat?: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -21188,7 +38103,7 @@ export interface DashboardWidgetTreemapDefinitionRequestFormulaConditionalFormat
 
 export interface DashboardWidgetTreemapDefinitionRequestFormulaLimit {
     /**
-     * The number of results to return
+     * The number of results to return.
      */
     count?: pulumi.Input<number>;
     /**
@@ -21230,7 +38145,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuery {
      */
     processQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryProcessQuery>;
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      */
     sloQuery?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQuerySloQuery>;
 }
@@ -21241,7 +38156,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -21284,7 +38199,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQue
      */
     dataSource: pulumi.Input<string>;
     /**
-     * APM Environment.
+     * APM environment.
      */
     env: pulumi.Input<string>;
     /**
@@ -21466,7 +38381,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Group mode to query measures. Valid values are `overall`, `components`.
+     * Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
      */
     groupMode?: pulumi.Input<string>;
     /**
@@ -21482,7 +38397,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`.
+     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -22614,9 +39529,35 @@ export interface MonitorMonitorThresholds {
 
 export interface MonitorSchedulingOption {
     /**
+     * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     */
+    customSchedules?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOptionCustomSchedule>[]>;
+    /**
      * Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
      */
-    evaluationWindows: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOptionEvaluationWindow>[]>;
+    evaluationWindows?: pulumi.Input<pulumi.Input<inputs.MonitorSchedulingOptionEvaluationWindow>[]>;
+}
+
+export interface MonitorSchedulingOptionCustomSchedule {
+    /**
+     * A list of recurrence definitions. Length must be 1.
+     */
+    recurrence: pulumi.Input<inputs.MonitorSchedulingOptionCustomScheduleRecurrence>;
+}
+
+export interface MonitorSchedulingOptionCustomScheduleRecurrence {
+    /**
+     * Must be a valid `rrule`. See API docs for supported fields
+     */
+    rrule: pulumi.Input<string>;
+    /**
+     * Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
+     */
+    start?: pulumi.Input<string>;
+    /**
+     * 'tz database' format. Example: `America/New_York` or `UTC`
+     */
+    timezone: pulumi.Input<string>;
 }
 
 export interface MonitorSchedulingOptionEvaluationWindow {
@@ -22722,7 +39663,7 @@ export interface MonitorVariablesEventQuerySearch {
 
 export interface OrganizationSettingsSettings {
     /**
-     * Whether or not the organization users can share widgets outside of Datadog.
+     * Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
      */
     privateWidgetShare?: pulumi.Input<boolean>;
     /**
@@ -22730,7 +39671,7 @@ export interface OrganizationSettingsSettings {
      */
     saml: pulumi.Input<inputs.OrganizationSettingsSettingsSaml>;
     /**
-     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `"st"`.
      */
     samlAutocreateAccessRole?: pulumi.Input<string>;
     /**
@@ -22765,7 +39706,7 @@ export interface OrganizationSettingsSettings {
 
 export interface OrganizationSettingsSettingsSaml {
     /**
-     * Whether or not SAML is enabled for this organization.
+     * Whether or not SAML is enabled for this organization. Defaults to `false`.
      */
     enabled?: pulumi.Input<boolean>;
 }
@@ -22776,21 +39717,21 @@ export interface OrganizationSettingsSettingsSamlAutocreateUsersDomains {
      */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether or not SAML is enabled for this organization.
+     * Whether or not SAML is enabled for this organization. Defaults to `false`.
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface OrganizationSettingsSettingsSamlIdpInitiatedLogin {
     /**
-     * Whether or not SAML is enabled for this organization.
+     * Whether or not SAML is enabled for this organization. Defaults to `false`.
      */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface OrganizationSettingsSettingsSamlStrictMode {
     /**
-     * Whether or not SAML is enabled for this organization.
+     * Whether or not SAML is enabled for this organization. Defaults to `false`.
      */
     enabled?: pulumi.Input<boolean>;
 }
@@ -22841,7 +39782,7 @@ export interface SecurityMonitoringDefaultRuleFilter {
 
 export interface SecurityMonitoringDefaultRuleOptions {
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
 }
@@ -22889,11 +39830,11 @@ export interface SecurityMonitoringRuleFilter {
 
 export interface SecurityMonitoringRuleOptions {
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`. Defaults to `false`.
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
     /**
-     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`.
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`. Defaults to `"threshold"`.
      */
     detectionMethod?: pulumi.Input<string>;
     /**
@@ -22920,7 +39861,7 @@ export interface SecurityMonitoringRuleOptions {
 
 export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
     /**
-     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
      */
     baselineUserLocations?: pulumi.Input<boolean>;
 }
@@ -22931,15 +39872,15 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
      */
     forgetAfter: pulumi.Input<number>;
     /**
-     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
      */
     learningDuration?: pulumi.Input<number>;
     /**
-     * The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
+     * The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
      */
     learningMethod?: pulumi.Input<string>;
     /**
-     * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
+     * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
      */
     learningThreshold?: pulumi.Input<number>;
 }
@@ -22952,7 +39893,7 @@ export interface SecurityMonitoringRuleQuery {
      */
     agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQueryAgentRule>[]>;
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
      */
     aggregation?: pulumi.Input<string>;
     /**
@@ -22996,7 +39937,7 @@ export interface SecurityMonitoringRuleQueryAgentRule {
 
 export interface SecurityMonitoringRuleSignalQuery {
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"eventCount"`.
      */
     aggregation?: pulumi.Input<string>;
     /**
@@ -23004,7 +39945,7 @@ export interface SecurityMonitoringRuleSignalQuery {
      */
     correlatedByFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `""`.
      */
     correlatedQueryIndex?: pulumi.Input<string>;
     /**
@@ -23094,7 +40035,7 @@ export interface SpansMetricCompute {
 
 export interface SpansMetricFilter {
     /**
-     * The search query - following the span search syntax.
+     * The search query - following the span search syntax. Defaults to `"*"`.
      */
     query?: pulumi.Input<string>;
 }
@@ -23209,7 +40150,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
 }
@@ -23235,6 +40176,10 @@ export interface SyntheticsTestApiStepAssertion {
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetxpath>;
+    /**
+     * Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     */
+    timingsScope?: pulumi.Input<string>;
     /**
      * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
@@ -23309,7 +40254,7 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     accessTokenUrl?: pulumi.Input<string>;
     /**
-     * Audience for `oauth-client` or `oauth-rop` authentication.
+     * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: pulumi.Input<string>;
     /**
@@ -23333,11 +40278,11 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     region?: pulumi.Input<string>;
     /**
-     * Resource for `oauth-client` or `oauth-rop` authentication.
+     * Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     resource?: pulumi.Input<string>;
     /**
-     * Scope for `oauth-client` or `oauth-rop` authentication.
+     * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -23357,7 +40302,7 @@ export interface SyntheticsTestApiStepRequestBasicauth {
      */
     tokenApiAuthentication?: pulumi.Input<string>;
     /**
-     * Type of basic authentication to use when performing the test.
+     * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -23380,9 +40325,6 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
-    /**
-     * File name for the certificate.
-     */
     filename?: pulumi.Input<string>;
 }
 
@@ -23391,9 +40333,6 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
-    /**
-     * File name for the certificate.
-     */
     filename?: pulumi.Input<string>;
 }
 
@@ -23459,6 +40398,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     port?: pulumi.Input<number>;
     /**
+     * A protobuf JSON descriptor.
+     */
+    protoJsonDescriptor?: pulumi.Input<string>;
+    /**
      * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
      */
     servername?: pulumi.Input<string>;
@@ -23493,11 +40436,11 @@ export interface SyntheticsTestApiStepRequestProxy {
 
 export interface SyntheticsTestApiStepRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
-     * Interval between a failed test and the next retry in milliseconds.
+     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
      */
     interval?: pulumi.Input<number>;
 }
@@ -23523,6 +40466,10 @@ export interface SyntheticsTestAssertion {
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetxpath>;
+    /**
+     * Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     */
+    timingsScope?: pulumi.Input<string>;
     /**
      * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      */
@@ -23628,7 +40575,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     email?: pulumi.Input<string>;
     /**
-     * For an "assert download" step.
+     * JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
      */
     file?: pulumi.Input<string>;
     /**
@@ -23674,6 +40621,9 @@ export interface SyntheticsTestBrowserStepParams {
 }
 
 export interface SyntheticsTestBrowserStepParamsElementUserLocator {
+    /**
+     * Defaults to `false`.
+     */
     failTestOnCannotLocate?: pulumi.Input<boolean>;
     /**
      * Regex or JSON path used for the parser. Not used with type `raw`.
@@ -23694,7 +40644,7 @@ export interface SyntheticsTestBrowserStepParamsElementUserLocatorValue {
 
 export interface SyntheticsTestBrowserStepParamsVariable {
     /**
-     * Example of the extracted variable.
+     * Example of the extracted variable. Defaults to `""`.
      */
     example?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -23702,7 +40652,7 @@ export interface SyntheticsTestBrowserStepParamsVariable {
 
 export interface SyntheticsTestBrowserVariable {
     /**
-     * Example for the variable.
+     * Example for the variable. Defaults to `""`.
      */
     example?: pulumi.Input<string>;
     /**
@@ -23714,7 +40664,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     name: pulumi.Input<string>;
     /**
-     * Pattern of the variable.
+     * Pattern of the variable. Defaults to `""`.
      */
     pattern?: pulumi.Input<string>;
     /**
@@ -23739,7 +40689,7 @@ export interface SyntheticsTestConfigVariable {
     name: pulumi.Input<string>;
     pattern?: pulumi.Input<string>;
     /**
-     * Whether the value of this variable will be obfuscated in test results.
+     * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
@@ -23794,7 +40744,7 @@ export interface SyntheticsTestOptionsList {
      */
     minFailureDuration?: pulumi.Input<number>;
     /**
-     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
      */
     minLocationFailed?: pulumi.Input<number>;
     /**
@@ -23835,18 +40785,18 @@ export interface SyntheticsTestOptionsListCi {
 
 export interface SyntheticsTestOptionsListMonitorOptions {
     /**
-     * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
+     * Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      */
     renotifyInterval?: pulumi.Input<number>;
 }
 
 export interface SyntheticsTestOptionsListRetry {
     /**
-     * Number of retries needed to consider a location as failed before sending a notification alert.
+     * Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
      */
     count?: pulumi.Input<number>;
     /**
-     * Interval between a failed test and the next retry in milliseconds.
+     * Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
      */
     interval?: pulumi.Input<number>;
 }
@@ -23902,7 +40852,7 @@ export interface SyntheticsTestRequestBasicauth {
      */
     accessTokenUrl?: pulumi.Input<string>;
     /**
-     * Audience for `oauth-client` or `oauth-rop` authentication.
+     * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     audience?: pulumi.Input<string>;
     /**
@@ -23926,11 +40876,11 @@ export interface SyntheticsTestRequestBasicauth {
      */
     region?: pulumi.Input<string>;
     /**
-     * Resource for `oauth-client` or `oauth-rop` authentication.
+     * Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     resource?: pulumi.Input<string>;
     /**
-     * Scope for `oauth-client` or `oauth-rop` authentication.
+     * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -23950,7 +40900,7 @@ export interface SyntheticsTestRequestBasicauth {
      */
     tokenApiAuthentication?: pulumi.Input<string>;
     /**
-     * Type of basic authentication to use when performing the test.
+     * Type of basic authentication to use when performing the test. Defaults to `"web"`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -23973,9 +40923,6 @@ export interface SyntheticsTestRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
-    /**
-     * File name for the certificate.
-     */
     filename?: pulumi.Input<string>;
 }
 
@@ -23984,9 +40931,6 @@ export interface SyntheticsTestRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
-    /**
-     * File name for the certificate.
-     */
     filename?: pulumi.Input<string>;
 }
 
@@ -24044,6 +40988,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     port?: pulumi.Input<number>;
     /**
+     * A protobuf JSON descriptor.
+     */
+    protoJsonDescriptor?: pulumi.Input<string>;
+    /**
      * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
      */
     servername?: pulumi.Input<string>;
@@ -24081,19 +41029,19 @@ export namespace aws {
 export namespace slack {
     export interface ChannelDisplay {
         /**
-         * Show the main body of the alert event.
+         * Show the main body of the alert event. Defaults to `true`.
          */
         message?: pulumi.Input<boolean>;
         /**
-         * Show the list of @-handles in the alert event.
+         * Show the list of @-handles in the alert event. Defaults to `true`.
          */
         notified?: pulumi.Input<boolean>;
         /**
-         * Show the alert event's snapshot image.
+         * Show the alert event's snapshot image. Defaults to `true`.
          */
         snapshot?: pulumi.Input<boolean>;
         /**
-         * Show the scopes on which the monitor alerted.
+         * Show the scopes on which the monitor alerted. Defaults to `true`.
          */
         tags?: pulumi.Input<boolean>;
     }

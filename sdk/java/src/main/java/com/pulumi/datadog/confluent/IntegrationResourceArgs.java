@@ -33,14 +33,14 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      * 
      */
     @Import(name="enableCustomMetrics")
     private @Nullable Output<Boolean> enableCustomMetrics;
 
     /**
-     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableCustomMetrics() {
@@ -142,7 +142,7 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class IntegrationResourceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+         * @param enableCustomMetrics Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpansMetricFilter {
     /**
-     * @return The search query - following the span search syntax.
+     * @return The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
      * 
      */
     private @Nullable String query;
 
     private SpansMetricFilter() {}
     /**
-     * @return The search query - following the span search syntax.
+     * @return The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
      * 
      */
     public Optional<String> query() {

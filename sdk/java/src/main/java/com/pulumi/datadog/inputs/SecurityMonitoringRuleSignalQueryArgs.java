@@ -17,14 +17,14 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
     public static final SecurityMonitoringRuleSignalQueryArgs Empty = new SecurityMonitoringRuleSignalQueryArgs();
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -47,14 +47,14 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
     }
 
     /**
-     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="correlatedQueryIndex")
     private @Nullable Output<String> correlatedQueryIndex;
 
     /**
-     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> correlatedQueryIndex() {
@@ -136,7 +136,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param correlatedQueryIndex Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+         * @param correlatedQueryIndex Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SecurityMonitoringRuleSignalQueryArgs extends com.pulumi.reso
         }
 
         /**
-         * @param correlatedQueryIndex Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+         * @param correlatedQueryIndex Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

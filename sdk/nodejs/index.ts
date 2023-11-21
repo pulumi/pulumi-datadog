@@ -10,6 +10,16 @@ export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
+export { ApmRetentionFilterArgs, ApmRetentionFilterState } from "./apmRetentionFilter";
+export type ApmRetentionFilter = import("./apmRetentionFilter").ApmRetentionFilter;
+export const ApmRetentionFilter: typeof import("./apmRetentionFilter").ApmRetentionFilter = null as any;
+utilities.lazyLoad(exports, ["ApmRetentionFilter"], () => require("./apmRetentionFilter"));
+
+export { ApmRetentionFilterOrderArgs, ApmRetentionFilterOrderState } from "./apmRetentionFilterOrder";
+export type ApmRetentionFilterOrder = import("./apmRetentionFilterOrder").ApmRetentionFilterOrder;
+export const ApmRetentionFilterOrder: typeof import("./apmRetentionFilterOrder").ApmRetentionFilterOrder = null as any;
+utilities.lazyLoad(exports, ["ApmRetentionFilterOrder"], () => require("./apmRetentionFilterOrder"));
+
 export { ApplicationKeyArgs, ApplicationKeyState } from "./applicationKey";
 export type ApplicationKey = import("./applicationKey").ApplicationKey;
 export const ApplicationKey: typeof import("./applicationKey").ApplicationKey = null as any;
@@ -64,6 +74,11 @@ export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
 export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
+
+export { GetApmRetentionFiltersOrderResult } from "./getApmRetentionFiltersOrder";
+export const getApmRetentionFiltersOrder: typeof import("./getApmRetentionFiltersOrder").getApmRetentionFiltersOrder = null as any;
+export const getApmRetentionFiltersOrderOutput: typeof import("./getApmRetentionFiltersOrder").getApmRetentionFiltersOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getApmRetentionFiltersOrder","getApmRetentionFiltersOrderOutput"], () => require("./getApmRetentionFiltersOrder"));
 
 export { GetApplicationKeyArgs, GetApplicationKeyResult, GetApplicationKeyOutputArgs } from "./getApplicationKey";
 export const getApplicationKey: typeof import("./getApplicationKey").getApplicationKey = null as any;
@@ -459,6 +474,10 @@ const _module = {
         switch (type) {
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
+                return new ApmRetentionFilter(name, <any>undefined, { urn })
+            case "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder":
+                return new ApmRetentionFilterOrder(name, <any>undefined, { urn })
             case "datadog:index/applicationKey:ApplicationKey":
                 return new ApplicationKey(name, <any>undefined, { urn })
             case "datadog:index/authnMapping:AuthnMapping":
@@ -567,6 +586,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)

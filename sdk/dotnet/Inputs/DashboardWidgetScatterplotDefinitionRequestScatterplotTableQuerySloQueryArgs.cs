@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// Group mode to query measures. Valid values are `overall`, `components`.
+        /// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         /// </summary>
         [Input("groupMode")]
         public Input<string>? GroupMode { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> SloId { get; set; } = null!;
 
         /// <summary>
-        /// type of the SLO to query. Valid values are `metric`.
+        /// type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
         /// </summary>
         [Input("sloQueryType")]
         public Input<string>? SloQueryType { get; set; }

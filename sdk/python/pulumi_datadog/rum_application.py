@@ -19,7 +19,7 @@ class RumApplicationArgs:
         """
         The set of arguments for constructing a RumApplication resource.
         :param pulumi.Input[str] name: The name of the RUM application
-        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         pulumi.set(__self__, "name", name)
         if type is not None:
@@ -41,7 +41,7 @@ class RumApplicationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
@@ -60,7 +60,7 @@ class _RumApplicationState:
         Input properties used for looking up and filtering RumApplication resources.
         :param pulumi.Input[str] client_token: The client token
         :param pulumi.Input[str] name: The name of the RUM application
-        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
@@ -97,7 +97,7 @@ class _RumApplicationState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
@@ -137,7 +137,7 @@ class RumApplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the RUM application
-        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         ...
     @overload
@@ -218,7 +218,7 @@ class RumApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_token: The client token
         :param pulumi.Input[str] name: The name of the RUM application
-        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        :param pulumi.Input[str] type: The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -249,7 +249,7 @@ class RumApplication(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
