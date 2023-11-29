@@ -545,10 +545,6 @@
                     "$ref": "#/types/datadog:index/DashboardWidgetSloListDefinition:DashboardWidgetSloListDefinition",
                     "description": "The definition for an SLO (Service Level Objective) List widget.\n"
                 },
-                "splitGraphDefinition": {
-                    "$ref": "#/types/datadog:index/DashboardWidgetSplitGraphDefinition:DashboardWidgetSplitGraphDefinition",
-                    "description": "The definition for a Split Graph widget.\n"
-                },
                 "sunburstDefinition": {
                     "$ref": "#/types/datadog:index/DashboardWidgetSunburstDefinition:DashboardWidgetSunburstDefinition",
                     "description": "The definition for a Sunburst widget.\n"
