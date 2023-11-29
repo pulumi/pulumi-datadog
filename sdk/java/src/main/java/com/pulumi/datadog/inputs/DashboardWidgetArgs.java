@@ -30,7 +30,6 @@ import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionArgs;
@@ -439,21 +438,6 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The definition for a Split Graph widget.
-     * 
-     */
-    @Import(name="splitGraphDefinition")
-    private @Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
-
-    /**
-     * @return The definition for a Split Graph widget.
-     * 
-     */
-    public Optional<Output<DashboardWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
-        return Optional.ofNullable(this.splitGraphDefinition);
-    }
-
-    /**
      * The definition for a Sunburst widget.
      * 
      */
@@ -587,7 +571,6 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
         this.sloListDefinition = $.sloListDefinition;
-        this.splitGraphDefinition = $.splitGraphDefinition;
         this.sunburstDefinition = $.sunburstDefinition;
         this.timeseriesDefinition = $.timeseriesDefinition;
         this.toplistDefinition = $.toplistDefinition;
@@ -1159,27 +1142,6 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder sloListDefinition(DashboardWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
-        }
-
-        /**
-         * @param splitGraphDefinition The definition for a Split Graph widget.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
-            $.splitGraphDefinition = splitGraphDefinition;
-            return this;
-        }
-
-        /**
-         * @param splitGraphDefinition The definition for a Split Graph widget.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder splitGraphDefinition(DashboardWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
-            return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
         /**
