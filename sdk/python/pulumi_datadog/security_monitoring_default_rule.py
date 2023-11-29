@@ -23,7 +23,7 @@ class SecurityMonitoringDefaultRuleArgs:
         """
         The set of arguments for constructing a SecurityMonitoringDefaultRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
-        :param pulumi.Input[bool] enabled: Enable the rule.
+        :param pulumi.Input[bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
@@ -52,7 +52,7 @@ class SecurityMonitoringDefaultRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable the rule.
+        Enable the rule. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -96,7 +96,7 @@ class _SecurityMonitoringDefaultRuleState:
         """
         Input properties used for looking up and filtering SecurityMonitoringDefaultRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleCaseArgs']]] cases: Cases of the rule, this is used to update notifications.
-        :param pulumi.Input[bool] enabled: Enable the rule.
+        :param pulumi.Input[bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringDefaultRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input['SecurityMonitoringDefaultRuleOptionsArgs'] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         :param pulumi.Input[str] type: The rule type.
@@ -128,7 +128,7 @@ class _SecurityMonitoringDefaultRuleState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable the rule.
+        Enable the rule. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -211,7 +211,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]] cases: Cases of the rule, this is used to update notifications.
-        :param pulumi.Input[bool] enabled: Enable the rule.
+        :param pulumi.Input[bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         """
@@ -302,7 +302,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleCaseArgs']]]] cases: Cases of the rule, this is used to update notifications.
-        :param pulumi.Input[bool] enabled: Enable the rule.
+        :param pulumi.Input[bool] enabled: Enable the rule. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleOptionsArgs']] options: Options on default rules. Note that only a subset of fields can be updated on default rule options.
         :param pulumi.Input[str] type: The rule type.
@@ -330,7 +330,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable the rule.
+        Enable the rule. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

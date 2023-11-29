@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestBrowserStepParamsVariable {
     /**
-     * @return Example of the extracted variable.
+     * @return Example of the extracted variable. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String example;
@@ -20,7 +20,7 @@ public final class SyntheticsTestBrowserStepParamsVariable {
 
     private SyntheticsTestBrowserStepParamsVariable() {}
     /**
-     * @return Example of the extracted variable.
+     * @return Example of the extracted variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> example() {

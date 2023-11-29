@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestOptionsListRetryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of retries needed to consider a location as failed before sending a notification alert.
+        /// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// Interval between a failed test and the next retry in milliseconds.
+        /// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

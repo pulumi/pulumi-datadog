@@ -54,7 +54,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -65,7 +65,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -318,7 +318,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+         * @param isReadOnly Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
          * 
          * @return builder
          * 

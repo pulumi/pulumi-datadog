@@ -12,7 +12,19 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorSchedulingOptionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("evaluationWindows", required: true)]
+        [Input("customSchedules")]
+        private InputList<Inputs.MonitorSchedulingOptionCustomScheduleArgs>? _customSchedules;
+
+        /// <summary>
+        /// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+        /// </summary>
+        public InputList<Inputs.MonitorSchedulingOptionCustomScheduleArgs> CustomSchedules
+        {
+            get => _customSchedules ?? (_customSchedules = new InputList<Inputs.MonitorSchedulingOptionCustomScheduleArgs>());
+            set => _customSchedules = value;
+        }
+
+        [Input("evaluationWindows")]
         private InputList<Inputs.MonitorSchedulingOptionEvaluationWindowArgs>? _evaluationWindows;
 
         /// <summary>

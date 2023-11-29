@@ -32,14 +32,14 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
     }
 
     /**
-     * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
      * 
      */
     @Import(name="learningDuration")
     private @Nullable Output<Integer> learningDuration;
 
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> learningDuration() {
@@ -47,14 +47,14 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
     }
 
     /**
-     * The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
      * 
      */
     @Import(name="learningMethod")
     private @Nullable Output<String> learningMethod;
 
     /**
-     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
      * 
      */
     public Optional<Output<String>> learningMethod() {
@@ -62,14 +62,14 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
     }
 
     /**
-     * A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
      * 
      */
     @Import(name="learningThreshold")
     private @Nullable Output<Integer> learningThreshold;
 
     /**
-     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> learningThreshold() {
@@ -125,7 +125,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+         * @param learningDuration The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+         * @param learningMethod The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         /**
-         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+         * @param learningThreshold A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
          * 
          * @return builder
          * 

@@ -17,6 +17,7 @@ namespace Pulumi.Datadog.Outputs
         /// The query to use for this widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery? ApmQuery;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -29,6 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// The metric query to use for this widget.
         /// </summary>
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> Queries;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -46,11 +48,15 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest(
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery? apmQuery,
 
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery? rumQuery,
 
@@ -59,9 +65,11 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

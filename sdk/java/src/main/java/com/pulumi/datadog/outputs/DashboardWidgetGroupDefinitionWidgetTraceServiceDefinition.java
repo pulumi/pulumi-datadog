@@ -18,7 +18,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
      */
     private @Nullable String displayFormat;
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     private String env;
@@ -97,7 +97,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
         return Optional.ofNullable(this.displayFormat);
     }
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public String env() {

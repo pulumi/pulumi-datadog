@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestAssertionTargetxpath? Targetxpath;
         /// <summary>
+        /// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+        /// </summary>
+        public readonly string? TimingsScope;
+        /// <summary>
         /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
         /// </summary>
         public readonly string Type;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestAssertionTargetxpath? targetxpath,
 
+            string? timingsScope,
+
             string type)
         {
             Operator = @operator;
@@ -57,6 +63,7 @@ namespace Pulumi.Datadog.Outputs
             Target = target;
             Targetjsonpath = targetjsonpath;
             Targetxpath = targetxpath;
+            TimingsScope = timingsScope;
             Type = type;
         }
     }

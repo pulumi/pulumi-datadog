@@ -51,6 +51,7 @@ namespace Pulumi.Datadog
     ///                 Time = "avg",
     ///             },
     ///         },
+    ///         ExcludeTagsMode = false,
     ///         MetricName = "example.terraform.count.metric",
     ///         MetricType = "count",
     ///         Tags = new[]
@@ -77,6 +78,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("aggregations")]
         public Output<ImmutableArray<Outputs.MetricTagConfigurationAggregation>> Aggregations { get; private set; } = null!;
+
+        /// <summary>
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// </summary>
+        [Output("excludeTagsMode")]
+        public Output<bool?> ExcludeTagsMode { get; private set; } = null!;
 
         /// <summary>
         /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
@@ -161,6 +168,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// </summary>
+        [Input("excludeTagsMode")]
+        public Input<bool>? ExcludeTagsMode { get; set; }
+
+        /// <summary>
         /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Input("includePercentiles")]
@@ -209,6 +222,12 @@ namespace Pulumi.Datadog
             get => _aggregations ?? (_aggregations = new InputList<Inputs.MetricTagConfigurationAggregationGetArgs>());
             set => _aggregations = value;
         }
+
+        /// <summary>
+        /// Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        /// </summary>
+        [Input("excludeTagsMode")]
+        public Input<bool>? ExcludeTagsMode { get; set; }
 
         /// <summary>
         /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.

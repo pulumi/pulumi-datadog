@@ -60,7 +60,7 @@ import (
 type ServiceAccount struct {
 	pulumi.CustomResourceState
 
-	// Whether the service account is disabled.
+	// Whether the service account is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// Email of the associated user.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -103,7 +103,7 @@ func GetServiceAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceAccount resources.
 type serviceAccountState struct {
-	// Whether the service account is disabled.
+	// Whether the service account is disabled. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
 	// Email of the associated user.
 	Email *string `pulumi:"email"`
@@ -114,7 +114,7 @@ type serviceAccountState struct {
 }
 
 type ServiceAccountState struct {
-	// Whether the service account is disabled.
+	// Whether the service account is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
 	// Email of the associated user.
 	Email pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (ServiceAccountState) ElementType() reflect.Type {
 }
 
 type serviceAccountArgs struct {
-	// Whether the service account is disabled.
+	// Whether the service account is disabled. Defaults to `false`.
 	Disabled *bool `pulumi:"disabled"`
 	// Email of the associated user.
 	Email string `pulumi:"email"`
@@ -141,7 +141,7 @@ type serviceAccountArgs struct {
 
 // The set of arguments for constructing a ServiceAccount resource.
 type ServiceAccountArgs struct {
-	// Whether the service account is disabled.
+	// Whether the service account is disabled. Defaults to `false`.
 	Disabled pulumi.BoolPtrInput
 	// Email of the associated user.
 	Email pulumi.StringInput
@@ -238,7 +238,7 @@ func (o ServiceAccountOutput) ToServiceAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Whether the service account is disabled.
+// Whether the service account is disabled. Defaults to `false`.
 func (o ServiceAccountOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }

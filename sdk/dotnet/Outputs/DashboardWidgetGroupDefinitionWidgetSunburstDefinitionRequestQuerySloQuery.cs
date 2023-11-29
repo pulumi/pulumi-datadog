@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// Group mode to query measures. Valid values are `overall`, `components`.
+        /// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         /// </summary>
         public readonly string? GroupMode;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string SloId;
         /// <summary>
-        /// type of the SLO to query. Valid values are `metric`.
+        /// type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
         /// </summary>
         public readonly string? SloQueryType;
 

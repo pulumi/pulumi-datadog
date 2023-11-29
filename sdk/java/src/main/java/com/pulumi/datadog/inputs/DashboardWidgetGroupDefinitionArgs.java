@@ -64,14 +64,14 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Whether to show the title or not.
+     * Whether to show the title or not. Defaults to `true`.
      * 
      */
     @Import(name="showTitle")
     private @Nullable Output<Boolean> showTitle;
 
     /**
-     * @return Whether to show the title or not.
+     * @return Whether to show the title or not. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> showTitle() {
@@ -201,7 +201,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param showTitle Whether to show the title or not.
+         * @param showTitle Whether to show the title or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param showTitle Whether to show the title or not.
+         * @param showTitle Whether to show the title or not. Defaults to `true`.
          * 
          * @return builder
          * 

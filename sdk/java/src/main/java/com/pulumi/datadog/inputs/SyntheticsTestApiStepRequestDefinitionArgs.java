@@ -244,6 +244,21 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
+     * A protobuf JSON descriptor.
+     * 
+     */
+    @Import(name="protoJsonDescriptor")
+    private @Nullable Output<String> protoJsonDescriptor;
+
+    /**
+     * @return A protobuf JSON descriptor.
+     * 
+     */
+    public Optional<Output<String>> protoJsonDescriptor() {
+        return Optional.ofNullable(this.protoJsonDescriptor);
+    }
+
+    /**
      * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
      * 
      */
@@ -336,6 +351,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         this.numberOfPackets = $.numberOfPackets;
         this.persistCookies = $.persistCookies;
         this.port = $.port;
+        this.protoJsonDescriptor = $.protoJsonDescriptor;
         this.servername = $.servername;
         this.service = $.service;
         this.shouldTrackHops = $.shouldTrackHops;
@@ -684,6 +700,27 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param protoJsonDescriptor A protobuf JSON descriptor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protoJsonDescriptor(@Nullable Output<String> protoJsonDescriptor) {
+            $.protoJsonDescriptor = protoJsonDescriptor;
+            return this;
+        }
+
+        /**
+         * @param protoJsonDescriptor A protobuf JSON descriptor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protoJsonDescriptor(String protoJsonDescriptor) {
+            return protoJsonDescriptor(Output.of(protoJsonDescriptor));
         }
 
         /**

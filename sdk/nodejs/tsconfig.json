@@ -14,6 +14,8 @@
     },
     "files": [
         "apiKey.ts",
+        "apmRetentionFilter.ts",
+        "apmRetentionFilterOrder.ts",
         "applicationKey.ts",
         "authnMapping.ts",
         "aws/getIntegrationLogsServices.ts",
@@ -47,6 +49,7 @@
         "gcp/integration.ts",
         "gcp/integrationSts.ts",
         "getApiKey.ts",
+        "getApmRetentionFiltersOrder.ts",
         "getApplicationKey.ts",
         "getCloudWorkloadSecurityAgentRules.ts",
         "getDashboard.ts",

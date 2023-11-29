@@ -6,6 +6,8 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .api_key import *
+from .apm_retention_filter import *
+from .apm_retention_filter_order import *
 from .application_key import *
 from .authn_mapping import *
 from .child_organization import *
@@ -17,6 +19,7 @@ from .dashboard_list import *
 from .downtime import *
 from .downtime_schedule import *
 from .get_api_key import *
+from .get_apm_retention_filters_order import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
@@ -231,6 +234,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apmRetentionFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apmRetentionFilter:ApmRetentionFilter": "ApmRetentionFilter"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apmRetentionFilterOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": "ApmRetentionFilterOrder"
   }
  },
  {

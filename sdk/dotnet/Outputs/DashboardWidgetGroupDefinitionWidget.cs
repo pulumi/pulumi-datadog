@@ -114,6 +114,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? SloListDefinition;
         /// <summary>
+        /// The definition for a Split Graph widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? SplitGraphDefinition;
+        /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? SunburstDefinition;
@@ -194,6 +198,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? sloListDefinition,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? splitGraphDefinition,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? sunburstDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? timeseriesDefinition,
@@ -233,6 +239,7 @@ namespace Pulumi.Datadog.Outputs
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
             SloListDefinition = sloListDefinition;
+            SplitGraphDefinition = splitGraphDefinition;
             SunburstDefinition = sunburstDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;

@@ -87,7 +87,6 @@ type Monitor struct {
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrOutput `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
@@ -107,13 +106,13 @@ type Monitor struct {
 	NewGroupDelay pulumi.IntPtrOutput `pulumi:"newGroupDelay"`
 	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-	// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-	// and set `new_host_delay` to zero for monitors grouped by host.
+	// and monitors not grouped by host. The only case when this should be used is to override the default and set
+	// `new_host_delay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+	// timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrOutput `pulumi:"noDataTimeframe"`
 	// Toggles the display of additional content sent in the monitor notification.
 	NotificationPresetName pulumi.StringPtrOutput `pulumi:"notificationPresetName"`
@@ -125,7 +124,7 @@ type Monitor struct {
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
 	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayOutput `pulumi:"notifyBies"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
 	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -145,9 +144,9 @@ type Monitor struct {
 	RenotifyOccurrences pulumi.IntPtrOutput `pulumi:"renotifyOccurrences"`
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayOutput `pulumi:"renotifyStatuses"`
-	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-	// all times` and `in total` aggregation. `false` otherwise.
+	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+	// `require_full_window` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -237,7 +236,6 @@ type monitorState struct {
 	// `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
@@ -257,13 +255,13 @@ type monitorState struct {
 	NewGroupDelay *int `pulumi:"newGroupDelay"`
 	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-	// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-	// and set `new_host_delay` to zero for monitors grouped by host.
+	// and monitors not grouped by host. The only case when this should be used is to override the default and set
+	// `new_host_delay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+	// timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// Toggles the display of additional content sent in the monitor notification.
 	NotificationPresetName *string `pulumi:"notificationPresetName"`
@@ -275,7 +273,7 @@ type monitorState struct {
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
 	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
 	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -295,9 +293,9 @@ type monitorState struct {
 	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
-	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-	// all times` and `in total` aggregation. `false` otherwise.
+	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+	// `require_full_window` must be false and will be ignored.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -346,7 +344,6 @@ type MonitorState struct {
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
@@ -366,13 +363,13 @@ type MonitorState struct {
 	NewGroupDelay pulumi.IntPtrInput
 	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-	// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-	// and set `new_host_delay` to zero for monitors grouped by host.
+	// and monitors not grouped by host. The only case when this should be used is to override the default and set
+	// `new_host_delay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 	NewHostDelay pulumi.IntPtrInput
-	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+	// timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
 	// Toggles the display of additional content sent in the monitor notification.
 	NotificationPresetName pulumi.StringPtrInput
@@ -384,7 +381,7 @@ type MonitorState struct {
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
 	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrInput
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
 	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -404,9 +401,9 @@ type MonitorState struct {
 	RenotifyOccurrences pulumi.IntPtrInput
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayInput
-	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-	// all times` and `in total` aggregation. `false` otherwise.
+	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+	// `require_full_window` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -456,7 +453,6 @@ type monitorArgs struct {
 	// `false`.
 	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
@@ -476,13 +472,13 @@ type monitorArgs struct {
 	NewGroupDelay *int `pulumi:"newGroupDelay"`
 	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-	// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-	// and set `new_host_delay` to zero for monitors grouped by host.
+	// and monitors not grouped by host. The only case when this should be used is to override the default and set
+	// `new_host_delay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+	// timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// Toggles the display of additional content sent in the monitor notification.
 	NotificationPresetName *string `pulumi:"notificationPresetName"`
@@ -494,7 +490,7 @@ type monitorArgs struct {
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
 	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
 	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -514,9 +510,9 @@ type monitorArgs struct {
 	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
-	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-	// all times` and `in total` aggregation. `false` otherwise.
+	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+	// `require_full_window` must be false and will be ignored.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -563,7 +559,6 @@ type MonitorArgs struct {
 	// `false`.
 	GroupbySimpleMonitor pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
@@ -583,13 +578,13 @@ type MonitorArgs struct {
 	NewGroupDelay pulumi.IntPtrInput
 	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-	// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-	// and set `new_host_delay` to zero for monitors grouped by host.
+	// and monitors not grouped by host. The only case when this should be used is to override the default and set
+	// `new_host_delay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 	NewHostDelay pulumi.IntPtrInput
-	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+	// timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
 	// Toggles the display of additional content sent in the monitor notification.
 	NotificationPresetName pulumi.StringPtrInput
@@ -601,7 +596,7 @@ type MonitorArgs struct {
 	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
 	// to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrInput
 	// Controls how groups or monitors are treated if an evaluation does not return any data points. The default option results
 	// in different behavior depending on the monitor query type. For monitors using `Count` queries, an empty monitor
@@ -621,9 +616,9 @@ type MonitorArgs struct {
 	RenotifyOccurrences pulumi.IntPtrInput
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayInput
-	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-	// all times` and `in total` aggregation. `false` otherwise.
+	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+	// `require_full_window` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -779,7 +774,6 @@ func (o MonitorOutput) GroupbySimpleMonitor() pulumi.BoolPtrOutput {
 }
 
 // A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
-// Defaults to `true`.
 func (o MonitorOutput) IncludeTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.IncludeTags }).(pulumi.BoolPtrOutput)
 }
@@ -820,16 +814,16 @@ func (o MonitorOutput) NewGroupDelay() pulumi.IntPtrOutput {
 
 // **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
 // starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
-// and monitors not grouped by host. Defaults to `300`. The only case when this should be used is to override the default
-// and set `new_host_delay` to zero for monitors grouped by host.
+// and monitors not grouped by host. The only case when this should be used is to override the default and set
+// `new_host_delay` to zero for monitors grouped by host.
 //
 // Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
 func (o MonitorOutput) NewHostDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NewHostDelay }).(pulumi.IntPtrOutput)
 }
 
-// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
-// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
+// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
+// timeframe for metric alerts or 2 minutes for service checks.
 func (o MonitorOutput) NoDataTimeframe() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NoDataTimeframe }).(pulumi.IntPtrOutput)
 }
@@ -853,7 +847,7 @@ func (o MonitorOutput) NotifyBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.NotifyBies }).(pulumi.StringArrayOutput)
 }
 
-// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
+// A boolean indicating whether this monitor will notify when data stops reporting.
 func (o MonitorOutput) NotifyNoData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.NotifyNoData }).(pulumi.BoolPtrOutput)
 }
@@ -894,9 +888,9 @@ func (o MonitorOutput) RenotifyStatuses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.RenotifyStatuses }).(pulumi.StringArrayOutput)
 }
 
-// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
-// all times` and `in total` aggregation. `false` otherwise.
+// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
+// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
+// `require_full_window` must be false and will be ignored.
 func (o MonitorOutput) RequireFullWindow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.RequireFullWindow }).(pulumi.BoolPtrOutput)
 }

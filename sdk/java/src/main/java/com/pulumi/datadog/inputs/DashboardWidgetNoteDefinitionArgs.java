@@ -62,14 +62,14 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
-     * Whether to add padding or not.
+     * Whether to add padding or not. Defaults to `true`.
      * 
      */
     @Import(name="hasPadding")
     private @Nullable Output<Boolean> hasPadding;
 
     /**
-     * @return Whether to add padding or not.
+     * @return Whether to add padding or not. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> hasPadding() {
@@ -247,7 +247,7 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param hasPadding Whether to add padding or not.
+         * @param hasPadding Whether to add padding or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param hasPadding Whether to add padding or not.
+         * @param hasPadding Whether to add padding or not. Defaults to `true`.
          * 
          * @return builder
          * 

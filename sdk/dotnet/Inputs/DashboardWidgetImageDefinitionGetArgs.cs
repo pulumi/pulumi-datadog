@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetImageDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to display a background or not.
+        /// Whether to display a background or not. Defaults to `true`.
         /// </summary>
         [Input("hasBackground")]
         public Input<bool>? HasBackground { get; set; }
 
         /// <summary>
-        /// Whether to display a border or not.
+        /// Whether to display a border or not. Defaults to `true`.
         /// </summary>
         [Input("hasBorder")]
         public Input<bool>? HasBorder { get; set; }

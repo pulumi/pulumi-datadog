@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestBrowserVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Example for the variable.
+        /// Example for the variable. Defaults to `""`.
         /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Pattern of the variable.
+        /// Pattern of the variable. Defaults to `""`.
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }

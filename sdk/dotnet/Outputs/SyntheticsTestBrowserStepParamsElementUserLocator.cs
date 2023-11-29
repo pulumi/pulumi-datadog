@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestBrowserStepParamsElementUserLocator
     {
+        /// <summary>
+        /// Defaults to `false`.
+        /// </summary>
         public readonly bool? FailTestOnCannotLocate;
         /// <summary>
         /// Regex or JSON path used for the parser. Not used with type `raw`.

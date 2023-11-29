@@ -16,14 +16,14 @@ public final class OrganizationSettingsSettingsSamlArgs extends com.pulumi.resou
     public static final OrganizationSettingsSettingsSamlArgs Empty = new OrganizationSettingsSettingsSamlArgs();
 
     /**
-     * Whether or not SAML is enabled for this organization.
+     * Whether or not SAML is enabled for this organization. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether or not SAML is enabled for this organization.
+     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -55,7 +55,7 @@ public final class OrganizationSettingsSettingsSamlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization.
+         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrganizationSettingsSettingsSamlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization.
+         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ class IntegrationTagFilterArgs:
                  tag_filter_str: pulumi.Input[str]):
         """
         The set of arguments for constructing a IntegrationTagFilter resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
@@ -31,7 +31,7 @@ class IntegrationTagFilterArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -72,7 +72,7 @@ class _IntegrationTagFilterState:
                  tag_filter_str: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IntegrationTagFilter resources.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
@@ -87,7 +87,7 @@ class _IntegrationTagFilterState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -155,7 +155,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
@@ -245,7 +245,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] namespace: The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         :param pulumi.Input[str] tag_filter_str: The tag filter string.
         """
@@ -262,7 +262,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 

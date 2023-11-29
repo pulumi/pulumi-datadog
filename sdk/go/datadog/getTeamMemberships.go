@@ -51,6 +51,8 @@ func GetTeamMemberships(ctx *pulumi.Context, args *GetTeamMembershipsArgs, opts 
 
 // A collection of arguments for invoking getTeamMemberships.
 type GetTeamMembershipsArgs struct {
+	// When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Search query, can be user email or name.
 	FilterKeyword *string `pulumi:"filterKeyword"`
 	TeamId        string  `pulumi:"teamId"`
@@ -58,6 +60,8 @@ type GetTeamMembershipsArgs struct {
 
 // A collection of values returned by getTeamMemberships.
 type GetTeamMembershipsResult struct {
+	// When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Search query, can be user email or name.
 	FilterKeyword *string `pulumi:"filterKeyword"`
 	// The ID of this resource.
@@ -83,6 +87,8 @@ func GetTeamMembershipsOutput(ctx *pulumi.Context, args GetTeamMembershipsOutput
 
 // A collection of arguments for invoking getTeamMemberships.
 type GetTeamMembershipsOutputArgs struct {
+	// When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Search query, can be user email or name.
 	FilterKeyword pulumi.StringPtrInput `pulumi:"filterKeyword"`
 	TeamId        pulumi.StringInput    `pulumi:"teamId"`
@@ -105,6 +111,11 @@ func (o GetTeamMembershipsResultOutput) ToGetTeamMembershipsResultOutput() GetTe
 
 func (o GetTeamMembershipsResultOutput) ToGetTeamMembershipsResultOutputWithContext(ctx context.Context) GetTeamMembershipsResultOutput {
 	return o
+}
+
+// When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+func (o GetTeamMembershipsResultOutput) ExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTeamMembershipsResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }
 
 // Search query, can be user email or name.

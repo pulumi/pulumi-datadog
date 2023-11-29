@@ -75,7 +75,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Integer minFailureDuration;
     /**
-     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * @return Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
      * 
      */
     private @Nullable Integer minLocationFailed;
@@ -192,7 +192,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.minFailureDuration);
     }
     /**
-     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * @return Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
      * 
      */
     public Optional<Integer> minLocationFailed() {

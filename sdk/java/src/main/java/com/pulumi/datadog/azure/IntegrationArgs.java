@@ -32,14 +32,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     @Import(name="automute")
     private @Nullable Output<Boolean> automute;
 
     /**
-     * @return Silence monitors for expected Azure VM shutdowns.
+     * @return Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automute() {
@@ -77,14 +77,29 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     * 
+     */
+    @Import(name="containerAppFilters")
+    private @Nullable Output<String> containerAppFilters;
+
+    /**
+     * @return This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     * 
+     */
+    public Optional<Output<String>> containerAppFilters() {
+        return Optional.ofNullable(this.containerAppFilters);
+    }
+
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     @Import(name="cspmEnabled")
     private @Nullable Output<Boolean> cspmEnabled;
 
     /**
-     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * @return Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cspmEnabled() {
@@ -92,14 +107,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     @Import(name="customMetricsEnabled")
     private @Nullable Output<Boolean> customMetricsEnabled;
 
     /**
-     * @return Enable custom metrics for your organization.
+     * @return Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> customMetricsEnabled() {
@@ -143,6 +158,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         this.automute = $.automute;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.containerAppFilters = $.containerAppFilters;
         this.cspmEnabled = $.cspmEnabled;
         this.customMetricsEnabled = $.customMetricsEnabled;
         this.hostFilters = $.hostFilters;
@@ -189,7 +205,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected Azure VM shutdowns.
+         * @param automute Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -200,7 +216,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected Azure VM shutdowns.
+         * @param automute Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -252,7 +268,28 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * @param containerAppFilters This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerAppFilters(@Nullable Output<String> containerAppFilters) {
+            $.containerAppFilters = containerAppFilters;
+            return this;
+        }
+
+        /**
+         * @param containerAppFilters This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerAppFilters(String containerAppFilters) {
+            return containerAppFilters(Output.of(containerAppFilters));
+        }
+
+        /**
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -263,7 +300,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization.
+         * @param cspmEnabled Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -273,7 +310,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * @param customMetricsEnabled Enable custom metrics for your organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -284,7 +321,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customMetricsEnabled Enable custom metrics for your organization.
+         * @param customMetricsEnabled Enable custom metrics for your organization. Defaults to `false`.
          * 
          * @return builder
          * 

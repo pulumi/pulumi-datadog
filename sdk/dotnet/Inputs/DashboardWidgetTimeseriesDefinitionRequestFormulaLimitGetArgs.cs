@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestFormulaLimitGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of results to return
+        /// The number of results to return.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }

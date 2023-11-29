@@ -91,11 +91,11 @@ type SecurityMonitoringRule struct {
 
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayOutput `pulumi:"cases"`
-	// Whether the rule is enabled.
+	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringRuleFilterArrayOutput `pulumi:"filters"`
-	// Whether the notifications include the triggering group-by values in their title.
+	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message pulumi.StringOutput `pulumi:"message"`
@@ -109,7 +109,7 @@ type SecurityMonitoringRule struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -154,11 +154,11 @@ func GetSecurityMonitoringRule(ctx *pulumi.Context,
 type securityMonitoringRuleState struct {
 	// Cases for generating signals.
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
-	// Whether the rule is enabled.
+	// Whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
-	// Whether the notifications include the triggering group-by values in their title.
+	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message *string `pulumi:"message"`
@@ -172,18 +172,18 @@ type securityMonitoringRuleState struct {
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
 }
 
 type SecurityMonitoringRuleState struct {
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayInput
-	// Whether the rule is enabled.
+	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringRuleFilterArrayInput
-	// Whether the notifications include the triggering group-by values in their title.
+	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type SecurityMonitoringRuleState struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
 }
 
@@ -208,11 +208,11 @@ func (SecurityMonitoringRuleState) ElementType() reflect.Type {
 type securityMonitoringRuleArgs struct {
 	// Cases for generating signals.
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
-	// Whether the rule is enabled.
+	// Whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
-	// Whether the notifications include the triggering group-by values in their title.
+	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message string `pulumi:"message"`
@@ -226,7 +226,7 @@ type securityMonitoringRuleArgs struct {
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
-	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
 }
 
@@ -234,11 +234,11 @@ type securityMonitoringRuleArgs struct {
 type SecurityMonitoringRuleArgs struct {
 	// Cases for generating signals.
 	Cases SecurityMonitoringRuleCaseArrayInput
-	// Whether the rule is enabled.
+	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringRuleFilterArrayInput
-	// Whether the notifications include the triggering group-by values in their title.
+	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringInput
@@ -252,7 +252,7 @@ type SecurityMonitoringRuleArgs struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
-	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+	// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
 }
 
@@ -348,7 +348,7 @@ func (o SecurityMonitoringRuleOutput) Cases() SecurityMonitoringRuleCaseArrayOut
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringRuleCaseArrayOutput)
 }
 
-// Whether the rule is enabled.
+// Whether the rule is enabled. Defaults to `true`.
 func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -358,7 +358,7 @@ func (o SecurityMonitoringRuleOutput) Filters() SecurityMonitoringRuleFilterArra
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleFilterArrayOutput { return v.Filters }).(SecurityMonitoringRuleFilterArrayOutput)
 }
 
-// Whether the notifications include the triggering group-by values in their title.
+// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 func (o SecurityMonitoringRuleOutput) HasExtendedTitle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.HasExtendedTitle }).(pulumi.BoolPtrOutput)
 }
@@ -393,7 +393,7 @@ func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+// The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The slo query using formulas and functions.
+        /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryGetArgs>? SloQuery { get; set; }

@@ -5,12 +5,15 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +25,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery apmQuery;
+    private @Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas;
     /**
      * @return The query to use for this widget.
      * 
@@ -37,6 +41,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
      * 
      */
     private @Nullable String q;
+    private @Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> queries;
     /**
      * @return The query to use for this widget.
      * 
@@ -61,6 +66,9 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
     public Optional<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    public List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas() {
+        return this.formulas == null ? List.of() : this.formulas;
+    }
     /**
      * @return The query to use for this widget.
      * 
@@ -81,6 +89,9 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
      */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
+    }
+    public List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> queries() {
+        return this.queries == null ? List.of() : this.queries;
     }
     /**
      * @return The query to use for this widget.
@@ -114,9 +125,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery apmQuery;
+        private @Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas;
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery logQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
+        private @Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery rumQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle style;
@@ -124,9 +137,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
         public Builder(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmQuery = defaults.apmQuery;
+    	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
+    	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
     	      this.style = defaults.style;
@@ -136,6 +151,14 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery apmQuery) {
             this.apmQuery = apmQuery;
             return this;
+        }
+        @CustomType.Setter
+        public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas) {
+            this.formulas = formulas;
+            return this;
+        }
+        public Builder formulas(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula... formulas) {
+            return formulas(List.of(formulas));
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery logQuery) {
@@ -151,6 +174,14 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
         public Builder q(@Nullable String q) {
             this.q = q;
             return this;
+        }
+        @CustomType.Setter
+        public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery> queries) {
+            this.queries = queries;
+            return this;
+        }
+        public Builder queries(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery... queries) {
+            return queries(List.of(queries));
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery rumQuery) {
@@ -170,9 +201,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest build() {
             final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest();
             o.apmQuery = apmQuery;
+            o.formulas = formulas;
             o.logQuery = logQuery;
             o.processQuery = processQuery;
             o.q = q;
+            o.queries = queries;
             o.rumQuery = rumQuery;
             o.securityQuery = securityQuery;
             o.style = style;

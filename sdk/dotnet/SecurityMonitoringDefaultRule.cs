@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringDefaultRuleCase>> Cases { get; private set; } = null!;
 
         /// <summary>
-        /// Enable the rule.
+        /// Enable the rule. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Enable the rule.
+        /// Enable the rule. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Enable the rule.
+        /// Enable the rule. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

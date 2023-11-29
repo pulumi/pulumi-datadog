@@ -88,7 +88,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly cases!: pulumi.Output<outputs.SecurityMonitoringRuleCase[]>;
     /**
-     * Whether the rule is enabled.
+     * Whether the rule is enabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -96,7 +96,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
     /**
-     * Whether the notifications include the triggering group-by values in their title.
+     * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
     public readonly hasExtendedTitle!: pulumi.Output<boolean | undefined>;
     /**
@@ -124,7 +124,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -189,7 +189,7 @@ export interface SecurityMonitoringRuleState {
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
     /**
-     * Whether the rule is enabled.
+     * Whether the rule is enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -197,7 +197,7 @@ export interface SecurityMonitoringRuleState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
     /**
-     * Whether the notifications include the triggering group-by values in their title.
+     * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
     hasExtendedTitle?: pulumi.Input<boolean>;
     /**
@@ -225,7 +225,7 @@ export interface SecurityMonitoringRuleState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     type?: pulumi.Input<string>;
 }
@@ -239,7 +239,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     cases: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
     /**
-     * Whether the rule is enabled.
+     * Whether the rule is enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -247,7 +247,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
     /**
-     * Whether the notifications include the triggering group-by values in their title.
+     * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      */
     hasExtendedTitle?: pulumi.Input<boolean>;
     /**
@@ -275,7 +275,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`.
+     * The rule type. Valid values are `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     type?: pulumi.Input<string>;
 }

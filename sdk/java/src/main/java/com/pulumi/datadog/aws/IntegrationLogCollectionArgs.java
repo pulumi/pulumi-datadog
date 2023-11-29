@@ -15,14 +15,14 @@ public final class IntegrationLogCollectionArgs extends com.pulumi.resources.Res
     public static final IntegrationLogCollectionArgs Empty = new IntegrationLogCollectionArgs();
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * @return Your AWS Account ID without dashes.
      * 
      */
     public Output<String> accountId() {
@@ -70,7 +70,7 @@ public final class IntegrationLogCollectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class IntegrationLogCollectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 

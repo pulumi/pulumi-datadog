@@ -16,14 +16,14 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     public static final ChannelDisplayArgs Empty = new ChannelDisplayArgs();
 
     /**
-     * Show the main body of the alert event.
+     * Show the main body of the alert event. Defaults to `true`.
      * 
      */
     @Import(name="message")
     private @Nullable Output<Boolean> message;
 
     /**
-     * @return Show the main body of the alert event.
+     * @return Show the main body of the alert event. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> message() {
@@ -31,14 +31,14 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Show the list of @-handles in the alert event.
+     * Show the list of @-handles in the alert event. Defaults to `true`.
      * 
      */
     @Import(name="notified")
     private @Nullable Output<Boolean> notified;
 
     /**
-     * @return Show the list of @-handles in the alert event.
+     * @return Show the list of @-handles in the alert event. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> notified() {
@@ -46,14 +46,14 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Show the alert event&#39;s snapshot image.
+     * Show the alert event&#39;s snapshot image. Defaults to `true`.
      * 
      */
     @Import(name="snapshot")
     private @Nullable Output<Boolean> snapshot;
 
     /**
-     * @return Show the alert event&#39;s snapshot image.
+     * @return Show the alert event&#39;s snapshot image. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> snapshot() {
@@ -61,14 +61,14 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Show the scopes on which the monitor alerted.
+     * Show the scopes on which the monitor alerted. Defaults to `true`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Boolean> tags;
 
     /**
-     * @return Show the scopes on which the monitor alerted.
+     * @return Show the scopes on which the monitor alerted. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> tags() {
@@ -103,7 +103,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param message Show the main body of the alert event.
+         * @param message Show the main body of the alert event. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param message Show the main body of the alert event.
+         * @param message Show the main body of the alert event. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param notified Show the list of @-handles in the alert event.
+         * @param notified Show the list of @-handles in the alert event. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param notified Show the list of @-handles in the alert event.
+         * @param notified Show the list of @-handles in the alert event. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snapshot Show the alert event&#39;s snapshot image.
+         * @param snapshot Show the alert event&#39;s snapshot image. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snapshot Show the alert event&#39;s snapshot image.
+         * @param snapshot Show the alert event&#39;s snapshot image. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags Show the scopes on which the monitor alerted.
+         * @param tags Show the scopes on which the monitor alerted. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags Show the scopes on which the monitor alerted.
+         * @param tags Show the scopes on which the monitor alerted. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *             .automute(true)
  *             .clientId(&#34;&lt;azure_client_id&gt;&#34;)
  *             .clientSecret(&#34;&lt;azure_client_secret_key&gt;&#34;)
+ *             .containerAppFilters(&#34;examplefilter:true,example:one_more&#34;)
  *             .cspmEnabled(true)
  *             .customMetricsEnabled(false)
  *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
@@ -82,14 +83,14 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appServicePlanFilters);
     }
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     @Export(name="automute", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automute;
 
     /**
-     * @return Silence monitors for expected Azure VM shutdowns.
+     * @return Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automute() {
@@ -124,28 +125,42 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     * 
+     */
+    @Export(name="containerAppFilters", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> containerAppFilters;
+
+    /**
+     * @return This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog.
+     * 
+     */
+    public Output<Optional<String>> containerAppFilters() {
+        return Codegen.optional(this.containerAppFilters);
+    }
+    /**
+     * Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     @Export(name="cspmEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cspmEnabled;
 
     /**
-     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * @return Enable Cloud Security Management Misconfigurations for your organization. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> cspmEnabled() {
         return Codegen.optional(this.cspmEnabled);
     }
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     @Export(name="customMetricsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customMetricsEnabled;
 
     /**
-     * @return Enable custom metrics for your organization.
+     * @return Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> customMetricsEnabled() {

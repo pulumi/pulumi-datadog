@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? MinFailureDuration { get; set; }
 
         /// <summary>
-        /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
+        /// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
         /// </summary>
         [Input("minLocationFailed")]
         public Input<int>? MinLocationFailed { get; set; }

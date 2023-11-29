@@ -583,7 +583,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -594,7 +594,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> isReadOnly() {

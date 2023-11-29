@@ -25,6 +25,7 @@ export function getTeamMemberships(args: GetTeamMembershipsArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getTeamMemberships:getTeamMemberships", {
+        "exactMatch": args.exactMatch,
         "filterKeyword": args.filterKeyword,
         "teamId": args.teamId,
     }, opts);
@@ -34,6 +35,10 @@ export function getTeamMemberships(args: GetTeamMembershipsArgs, opts?: pulumi.I
  * A collection of arguments for invoking getTeamMemberships.
  */
 export interface GetTeamMembershipsArgs {
+    /**
+     * When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+     */
+    exactMatch?: boolean;
     /**
      * Search query, can be user email or name.
      */
@@ -45,6 +50,10 @@ export interface GetTeamMembershipsArgs {
  * A collection of values returned by getTeamMemberships.
  */
 export interface GetTeamMembershipsResult {
+    /**
+     * When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+     */
+    readonly exactMatch?: boolean;
     /**
      * Search query, can be user email or name.
      */
@@ -85,6 +94,10 @@ export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opt
  * A collection of arguments for invoking getTeamMemberships.
  */
 export interface GetTeamMembershipsOutputArgs {
+    /**
+     * When true, `filterKeyword` string is exact matched against the user's `email`, followed by `name`.
+     */
+    exactMatch?: pulumi.Input<boolean>;
     /**
      * Search query, can be user email or name.
      */

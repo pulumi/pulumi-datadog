@@ -44,7 +44,7 @@ class GetPermissionsResult:
     @pulumi.getter(name="includeRestricted")
     def include_restricted(self) -> Optional[bool]:
         """
-        Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+        Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
         """
         return pulumi.get(self, "include_restricted")
 
@@ -83,7 +83,7 @@ def get_permissions(include_restricted: Optional[bool] = None,
     ```
 
 
-    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
     """
     __args__ = dict()
     __args__['includeRestricted'] = include_restricted
@@ -112,6 +112,6 @@ def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bo
     ```
 
 
-    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+    :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
     """
     ...

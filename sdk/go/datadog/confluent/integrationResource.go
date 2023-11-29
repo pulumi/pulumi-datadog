@@ -69,7 +69,7 @@ type IntegrationResource struct {
 
 	// Confluent Account ID.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 	EnableCustomMetrics pulumi.BoolOutput `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
@@ -117,7 +117,7 @@ func GetIntegrationResource(ctx *pulumi.Context,
 type integrationResourceState struct {
 	// Confluent Account ID.
 	AccountId *string `pulumi:"accountId"`
-	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 	EnableCustomMetrics *bool `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -130,7 +130,7 @@ type integrationResourceState struct {
 type IntegrationResourceState struct {
 	// Confluent Account ID.
 	AccountId pulumi.StringPtrInput
-	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 	EnableCustomMetrics pulumi.BoolPtrInput
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringPtrInput
@@ -147,7 +147,7 @@ func (IntegrationResourceState) ElementType() reflect.Type {
 type integrationResourceArgs struct {
 	// Confluent Account ID.
 	AccountId string `pulumi:"accountId"`
-	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 	EnableCustomMetrics *bool `pulumi:"enableCustomMetrics"`
 	// The ID associated with a Confluent resource.
 	ResourceId string `pulumi:"resourceId"`
@@ -161,7 +161,7 @@ type integrationResourceArgs struct {
 type IntegrationResourceArgs struct {
 	// Confluent Account ID.
 	AccountId pulumi.StringInput
-	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+	// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 	EnableCustomMetrics pulumi.BoolPtrInput
 	// The ID associated with a Confluent resource.
 	ResourceId pulumi.StringInput
@@ -263,7 +263,7 @@ func (o IntegrationResourceOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResource) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+// Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
 func (o IntegrationResourceOutput) EnableCustomMetrics() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationResource) pulumi.BoolOutput { return v.EnableCustomMetrics }).(pulumi.BoolOutput)
 }

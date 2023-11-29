@@ -42,7 +42,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery sloQuery;
@@ -84,7 +84,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery> sloQuery() {

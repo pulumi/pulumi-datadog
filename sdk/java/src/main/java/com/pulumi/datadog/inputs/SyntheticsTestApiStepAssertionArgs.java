@@ -93,6 +93,21 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
     }
 
     /**
+     * Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    @Import(name="timingsScope")
+    private @Nullable Output<String> timingsScope;
+
+    /**
+     * @return Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    public Optional<Output<String>> timingsScope() {
+        return Optional.ofNullable(this.timingsScope);
+    }
+
+    /**
      * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
@@ -115,6 +130,7 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         this.target = $.target;
         this.targetjsonpath = $.targetjsonpath;
         this.targetxpath = $.targetxpath;
+        this.timingsScope = $.timingsScope;
         this.type = $.type;
     }
 
@@ -239,6 +255,27 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
          */
         public Builder targetxpath(SyntheticsTestApiStepAssertionTargetxpathArgs targetxpath) {
             return targetxpath(Output.of(targetxpath));
+        }
+
+        /**
+         * @param timingsScope Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timingsScope(@Nullable Output<String> timingsScope) {
+            $.timingsScope = timingsScope;
+            return this;
+        }
+
+        /**
+         * @param timingsScope Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timingsScope(String timingsScope) {
+            return timingsScope(Output.of(timingsScope));
         }
 
         /**

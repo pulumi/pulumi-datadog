@@ -14,14 +14,14 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
     public static final IntegrationTagFilterArgs Empty = new IntegrationTagFilterArgs();
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * @return Your AWS Account ID without dashes.
      * 
      */
     public Output<String> accountId() {
@@ -85,7 +85,7 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 

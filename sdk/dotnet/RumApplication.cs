@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter` Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

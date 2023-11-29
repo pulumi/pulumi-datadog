@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesSlo;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceLevelObjectivesResult {
+    /**
+     * @return Throw an error if no results are found. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean errorOnEmptyResult;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -34,6 +40,11 @@ public final class GetServiceLevelObjectivesResult {
      */
     private @Nullable String nameQuery;
     /**
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * 
+     */
+    private @Nullable String query;
+    /**
      * @return List of SLOs
      * 
      */
@@ -45,6 +56,13 @@ public final class GetServiceLevelObjectivesResult {
     private @Nullable String tagsQuery;
 
     private GetServiceLevelObjectivesResult() {}
+    /**
+     * @return Throw an error if no results are found. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> errorOnEmptyResult() {
+        return Optional.ofNullable(this.errorOnEmptyResult);
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -74,6 +92,13 @@ public final class GetServiceLevelObjectivesResult {
         return Optional.ofNullable(this.nameQuery);
     }
     /**
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * 
+     */
+    public Optional<String> query() {
+        return Optional.ofNullable(this.query);
+    }
+    /**
      * @return List of SLOs
      * 
      */
@@ -97,23 +122,32 @@ public final class GetServiceLevelObjectivesResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean errorOnEmptyResult;
         private String id;
         private @Nullable List<String> ids;
         private @Nullable String metricsQuery;
         private @Nullable String nameQuery;
+        private @Nullable String query;
         private List<GetServiceLevelObjectivesSlo> slos;
         private @Nullable String tagsQuery;
         public Builder() {}
         public Builder(GetServiceLevelObjectivesResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.errorOnEmptyResult = defaults.errorOnEmptyResult;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.metricsQuery = defaults.metricsQuery;
     	      this.nameQuery = defaults.nameQuery;
+    	      this.query = defaults.query;
     	      this.slos = defaults.slos;
     	      this.tagsQuery = defaults.tagsQuery;
         }
 
+        @CustomType.Setter
+        public Builder errorOnEmptyResult(@Nullable Boolean errorOnEmptyResult) {
+            this.errorOnEmptyResult = errorOnEmptyResult;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -138,6 +172,11 @@ public final class GetServiceLevelObjectivesResult {
             return this;
         }
         @CustomType.Setter
+        public Builder query(@Nullable String query) {
+            this.query = query;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slos(List<GetServiceLevelObjectivesSlo> slos) {
             this.slos = Objects.requireNonNull(slos);
             return this;
@@ -152,10 +191,12 @@ public final class GetServiceLevelObjectivesResult {
         }
         public GetServiceLevelObjectivesResult build() {
             final var o = new GetServiceLevelObjectivesResult();
+            o.errorOnEmptyResult = errorOnEmptyResult;
             o.id = id;
             o.ids = ids;
             o.metricsQuery = metricsQuery;
             o.nameQuery = nameQuery;
+            o.query = query;
             o.slos = slos;
             o.tagsQuery = tagsQuery;
             return o;

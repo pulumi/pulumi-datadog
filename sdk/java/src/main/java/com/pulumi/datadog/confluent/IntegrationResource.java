@@ -88,14 +88,14 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      * 
      */
     @Export(name="enableCustomMetrics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableCustomMetrics;
 
     /**
-     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * @return Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      * 
      */
     public Output<Boolean> enableCustomMetrics() {

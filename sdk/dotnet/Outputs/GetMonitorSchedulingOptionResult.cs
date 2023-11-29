@@ -13,11 +13,16 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorSchedulingOptionResult
     {
+        public readonly ImmutableArray<Outputs.GetMonitorSchedulingOptionCustomScheduleResult> CustomSchedules;
         public readonly ImmutableArray<Outputs.GetMonitorSchedulingOptionEvaluationWindowResult> EvaluationWindows;
 
         [OutputConstructor]
-        private GetMonitorSchedulingOptionResult(ImmutableArray<Outputs.GetMonitorSchedulingOptionEvaluationWindowResult> evaluationWindows)
+        private GetMonitorSchedulingOptionResult(
+            ImmutableArray<Outputs.GetMonitorSchedulingOptionCustomScheduleResult> customSchedules,
+
+            ImmutableArray<Outputs.GetMonitorSchedulingOptionEvaluationWindowResult> evaluationWindows)
         {
+            CustomSchedules = customSchedules;
             EvaluationWindows = evaluationWindows;
         }
     }

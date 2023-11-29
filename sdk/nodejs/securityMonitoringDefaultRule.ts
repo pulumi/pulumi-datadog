@@ -65,7 +65,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      */
     public readonly cases!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
     /**
-     * Enable the rule.
+     * Enable the rule. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -121,7 +121,7 @@ export interface SecurityMonitoringDefaultRuleState {
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
-     * Enable the rule.
+     * Enable the rule. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -147,7 +147,7 @@ export interface SecurityMonitoringDefaultRuleArgs {
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
-     * Enable the rule.
+     * Enable the rule. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

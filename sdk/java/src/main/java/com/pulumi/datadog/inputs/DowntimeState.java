@@ -140,14 +140,14 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When true the first recovery notification during the downtime will be muted
+     * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      * 
      */
     @Import(name="muteFirstRecoveryNotification")
     private @Nullable Output<Boolean> muteFirstRecoveryNotification;
 
     /**
-     * @return When true the first recovery notification during the downtime will be muted
+     * @return When true the first recovery notification during the downtime will be muted Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> muteFirstRecoveryNotification() {
@@ -215,14 +215,14 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * @return The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -445,7 +445,7 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param muteFirstRecoveryNotification When true the first recovery notification during the downtime will be muted
+         * @param muteFirstRecoveryNotification When true the first recovery notification during the downtime will be muted Defaults to `false`.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param muteFirstRecoveryNotification When true the first recovery notification during the downtime will be muted
+         * @param muteFirstRecoveryNotification When true the first recovery notification during the downtime will be muted Defaults to `false`.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+         * @param timezone The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class DowntimeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+         * @param timezone The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
          * 
          * @return builder
          * 

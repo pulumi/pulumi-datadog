@@ -31,7 +31,7 @@ type Dashboard struct {
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
@@ -100,7 +100,7 @@ type dashboardState struct {
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
@@ -134,7 +134,7 @@ type DashboardState struct {
 	DashboardListsRemoveds pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
@@ -170,7 +170,7 @@ type dashboardArgs struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
@@ -203,7 +203,7 @@ type DashboardArgs struct {
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
 	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
@@ -332,7 +332,7 @@ func (o DashboardOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 //
 // Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 func (o DashboardOutput) IsReadOnly() pulumi.BoolPtrOutput {
