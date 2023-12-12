@@ -88,11 +88,11 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestA
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

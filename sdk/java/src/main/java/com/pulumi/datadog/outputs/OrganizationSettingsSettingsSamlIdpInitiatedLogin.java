@@ -48,9 +48,9 @@ public final class OrganizationSettingsSettingsSamlIdpInitiatedLogin {
             return this;
         }
         public OrganizationSettingsSettingsSamlIdpInitiatedLogin build() {
-            final var o = new OrganizationSettingsSettingsSamlIdpInitiatedLogin();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new OrganizationSettingsSettingsSamlIdpInitiatedLogin();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

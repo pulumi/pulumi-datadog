@@ -87,11 +87,11 @@ public final class MonitorSchedulingOptionEvaluationWindow {
             return this;
         }
         public MonitorSchedulingOptionEvaluationWindow build() {
-            final var o = new MonitorSchedulingOptionEvaluationWindow();
-            o.dayStarts = dayStarts;
-            o.hourStarts = hourStarts;
-            o.monthStarts = monthStarts;
-            return o;
+            final var _resultValue = new MonitorSchedulingOptionEvaluationWindow();
+            _resultValue.dayStarts = dayStarts;
+            _resultValue.hourStarts = hourStarts;
+            _resultValue.monthStarts = monthStarts;
+            return _resultValue;
         }
     }
 }

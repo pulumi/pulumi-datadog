@@ -125,13 +125,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis();
-            o.includeZero = includeZero;
-            o.label = label;
-            o.max = max;
-            o.min = min;
-            o.scale = scale;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis();
+            _resultValue.includeZero = includeZero;
+            _resultValue.label = label;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.scale = scale;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComput
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

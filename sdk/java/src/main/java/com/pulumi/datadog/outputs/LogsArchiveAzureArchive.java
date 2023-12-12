@@ -124,13 +124,13 @@ public final class LogsArchiveAzureArchive {
             return this;
         }
         public LogsArchiveAzureArchive build() {
-            final var o = new LogsArchiveAzureArchive();
-            o.clientId = clientId;
-            o.container = container;
-            o.path = path;
-            o.storageAccount = storageAccount;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new LogsArchiveAzureArchive();
+            _resultValue.clientId = clientId;
+            _resultValue.container = container;
+            _resultValue.path = path;
+            _resultValue.storageAccount = storageAccount;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

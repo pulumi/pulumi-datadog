@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLi
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

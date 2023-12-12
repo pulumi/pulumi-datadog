@@ -86,11 +86,11 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort build() {
-            final var o = new DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort();
-            o.aggregation = aggregation;
-            o.metric = metric;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort();
+            _resultValue.aggregation = aggregation;
+            _resultValue.metric = metric;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

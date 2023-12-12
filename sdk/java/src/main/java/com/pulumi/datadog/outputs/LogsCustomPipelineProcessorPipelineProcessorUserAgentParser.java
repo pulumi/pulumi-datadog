@@ -129,13 +129,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorUserAgentParser build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorUserAgentParser();
-            o.isEnabled = isEnabled;
-            o.isEncoded = isEncoded;
-            o.name = name;
-            o.sources = sources;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorUserAgentParser();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.isEncoded = isEncoded;
+            _resultValue.name = name;
+            _resultValue.sources = sources;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

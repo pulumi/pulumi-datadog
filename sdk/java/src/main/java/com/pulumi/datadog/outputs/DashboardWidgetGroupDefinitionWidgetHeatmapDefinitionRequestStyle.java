@@ -48,9 +48,9 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestS
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle();
-            o.palette = palette;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle();
+            _resultValue.palette = palette;
+            return _resultValue;
         }
     }
 }

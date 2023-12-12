@@ -48,9 +48,9 @@ public final class SyntheticsTestOptionsListMonitorOptions {
             return this;
         }
         public SyntheticsTestOptionsListMonitorOptions build() {
-            final var o = new SyntheticsTestOptionsListMonitorOptions();
-            o.renotifyInterval = renotifyInterval;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListMonitorOptions();
+            _resultValue.renotifyInterval = renotifyInterval;
+            return _resultValue;
         }
     }
 }

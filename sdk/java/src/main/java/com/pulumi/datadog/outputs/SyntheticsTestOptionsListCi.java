@@ -48,9 +48,9 @@ public final class SyntheticsTestOptionsListCi {
             return this;
         }
         public SyntheticsTestOptionsListCi build() {
-            final var o = new SyntheticsTestOptionsListCi();
-            o.executionRule = executionRule;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListCi();
+            _resultValue.executionRule = executionRule;
+            return _resultValue;
         }
     }
 }

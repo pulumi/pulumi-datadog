@@ -68,10 +68,10 @@ public final class DashboardWidgetGeomapDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

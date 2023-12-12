@@ -68,10 +68,10 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

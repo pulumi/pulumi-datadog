@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomL
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

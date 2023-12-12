@@ -110,12 +110,12 @@ public final class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
             return this;
         }
         public DashboardWidgetHostmapDefinitionRequestSizeProcessQuery build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequestSizeProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequestSizeProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

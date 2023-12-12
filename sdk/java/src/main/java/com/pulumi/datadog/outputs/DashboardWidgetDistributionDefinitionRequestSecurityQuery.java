@@ -134,13 +134,13 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQuery {
             return this;
         }
         public DashboardWidgetDistributionDefinitionRequestSecurityQuery build() {
-            final var o = new DashboardWidgetDistributionDefinitionRequestSecurityQuery();
-            o.computeQuery = computeQuery;
-            o.groupBies = groupBies;
-            o.index = index;
-            o.multiComputes = multiComputes;
-            o.searchQuery = searchQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetDistributionDefinitionRequestSecurityQuery();
+            _resultValue.computeQuery = computeQuery;
+            _resultValue.groupBies = groupBies;
+            _resultValue.index = index;
+            _resultValue.multiComputes = multiComputes;
+            _resultValue.searchQuery = searchQuery;
+            return _resultValue;
         }
     }
 }

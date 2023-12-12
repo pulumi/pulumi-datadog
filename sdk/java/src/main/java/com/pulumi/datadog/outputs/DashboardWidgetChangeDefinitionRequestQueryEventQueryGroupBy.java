@@ -88,11 +88,11 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy 
             return this;
         }
         public DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy build() {
-            final var o = new DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

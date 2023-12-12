@@ -87,11 +87,11 @@ public final class DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery 
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

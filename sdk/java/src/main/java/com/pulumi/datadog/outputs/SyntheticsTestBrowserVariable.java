@@ -144,14 +144,14 @@ public final class SyntheticsTestBrowserVariable {
             return this;
         }
         public SyntheticsTestBrowserVariable build() {
-            final var o = new SyntheticsTestBrowserVariable();
-            o.example = example;
-            o.id = id;
-            o.name = name;
-            o.pattern = pattern;
-            o.secure = secure;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserVariable();
+            _resultValue.example = example;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.pattern = pattern;
+            _resultValue.secure = secure;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpath {
             return this;
         }
         public SyntheticsTestApiStepAssertionTargetjsonpath build() {
-            final var o = new SyntheticsTestApiStepAssertionTargetjsonpath();
-            o.jsonpath = jsonpath;
-            o.operator = operator;
-            o.targetvalue = targetvalue;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepAssertionTargetjsonpath();
+            _resultValue.jsonpath = jsonpath;
+            _resultValue.operator = operator;
+            _resultValue.targetvalue = targetvalue;
+            return _resultValue;
         }
     }
 }

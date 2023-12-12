@@ -180,16 +180,16 @@ public final class DashboardWidgetDistributionDefinitionRequest {
             return this;
         }
         public DashboardWidgetDistributionDefinitionRequest build() {
-            final var o = new DashboardWidgetDistributionDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.apmStatsQuery = apmStatsQuery;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetDistributionDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.apmStatsQuery = apmStatsQuery;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

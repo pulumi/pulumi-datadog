@@ -67,10 +67,10 @@ public final class DashboardWidgetTimeseriesDefinitionEvent {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionEvent build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionEvent();
-            o.q = q;
-            o.tagsExecution = tagsExecution;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionEvent();
+            _resultValue.q = q;
+            _resultValue.tagsExecution = tagsExecution;
+            return _resultValue;
         }
     }
 }

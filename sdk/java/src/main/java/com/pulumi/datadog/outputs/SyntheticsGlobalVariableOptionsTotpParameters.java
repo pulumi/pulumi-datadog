@@ -65,10 +65,10 @@ public final class SyntheticsGlobalVariableOptionsTotpParameters {
             return this;
         }
         public SyntheticsGlobalVariableOptionsTotpParameters build() {
-            final var o = new SyntheticsGlobalVariableOptionsTotpParameters();
-            o.digits = digits;
-            o.refreshInterval = refreshInterval;
-            return o;
+            final var _resultValue = new SyntheticsGlobalVariableOptionsTotpParameters();
+            _resultValue.digits = digits;
+            _resultValue.refreshInterval = refreshInterval;
+            return _resultValue;
         }
     }
 }

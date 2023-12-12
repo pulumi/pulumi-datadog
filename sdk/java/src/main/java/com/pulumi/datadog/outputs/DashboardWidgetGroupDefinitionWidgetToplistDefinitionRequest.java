@@ -242,19 +242,19 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest 
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.auditQuery = auditQuery;
-            o.conditionalFormats = conditionalFormats;
-            o.formulas = formulas;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.auditQuery = auditQuery;
+            _resultValue.conditionalFormats = conditionalFormats;
+            _resultValue.formulas = formulas;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

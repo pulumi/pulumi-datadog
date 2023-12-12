@@ -224,18 +224,18 @@ public final class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefi
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition();
-            o.additionalQueryFilters = additionalQueryFilters;
-            o.globalTimeTarget = globalTimeTarget;
-            o.showErrorBudget = showErrorBudget;
-            o.sloId = sloId;
-            o.timeWindows = timeWindows;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.viewMode = viewMode;
-            o.viewType = viewType;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition();
+            _resultValue.additionalQueryFilters = additionalQueryFilters;
+            _resultValue.globalTimeTarget = globalTimeTarget;
+            _resultValue.showErrorBudget = showErrorBudget;
+            _resultValue.sloId = sloId;
+            _resultValue.timeWindows = timeWindows;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.viewMode = viewMode;
+            _resultValue.viewType = viewType;
+            return _resultValue;
         }
     }
 }

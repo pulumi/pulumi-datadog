@@ -234,18 +234,18 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinition();
-            o.customLinks = customLinks;
-            o.events = events;
-            o.legendSize = legendSize;
-            o.liveSpan = liveSpan;
-            o.requests = requests;
-            o.showLegend = showLegend;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.yaxis = yaxis;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.events = events;
+            _resultValue.legendSize = legendSize;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.requests = requests;
+            _resultValue.showLegend = showLegend;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.yaxis = yaxis;
+            return _resultValue;
         }
     }
 }

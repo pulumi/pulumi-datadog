@@ -51,9 +51,9 @@ public final class MonitorVariables {
             return eventQueries(List.of(eventQueries));
         }
         public MonitorVariables build() {
-            final var o = new MonitorVariables();
-            o.eventQueries = eventQueries;
-            return o;
+            final var _resultValue = new MonitorVariables();
+            _resultValue.eventQueries = eventQueries;
+            return _resultValue;
         }
     }
 }

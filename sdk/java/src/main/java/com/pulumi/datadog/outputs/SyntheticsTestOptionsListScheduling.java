@@ -70,10 +70,10 @@ public final class SyntheticsTestOptionsListScheduling {
             return this;
         }
         public SyntheticsTestOptionsListScheduling build() {
-            final var o = new SyntheticsTestOptionsListScheduling();
-            o.timeframes = timeframes;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListScheduling();
+            _resultValue.timeframes = timeframes;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class GetLogsIndexesResult {
             return logsIndexes(List.of(logsIndexes));
         }
         public GetLogsIndexesResult build() {
-            final var o = new GetLogsIndexesResult();
-            o.id = id;
-            o.logsIndexes = logsIndexes;
-            return o;
+            final var _resultValue = new GetLogsIndexesResult();
+            _resultValue.id = id;
+            _resultValue.logsIndexes = logsIndexes;
+            return _resultValue;
         }
     }
 }

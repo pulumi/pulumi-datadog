@@ -126,13 +126,13 @@ public final class GetSyntheticsTestResult {
             return this;
         }
         public GetSyntheticsTestResult build() {
-            final var o = new GetSyntheticsTestResult();
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            o.testId = testId;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetSyntheticsTestResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.testId = testId;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class MonitorVariablesEventQueryGroupBy {
             return this;
         }
         public MonitorVariablesEventQueryGroupBy build() {
-            final var o = new MonitorVariablesEventQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new MonitorVariablesEventQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

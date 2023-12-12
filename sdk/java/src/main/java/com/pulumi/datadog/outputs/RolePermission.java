@@ -67,10 +67,10 @@ public final class RolePermission {
             return this;
         }
         public RolePermission build() {
-            final var o = new RolePermission();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new RolePermission();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

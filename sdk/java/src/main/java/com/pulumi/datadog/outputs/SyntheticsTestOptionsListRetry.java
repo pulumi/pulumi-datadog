@@ -67,10 +67,10 @@ public final class SyntheticsTestOptionsListRetry {
             return this;
         }
         public SyntheticsTestOptionsListRetry build() {
-            final var o = new SyntheticsTestOptionsListRetry();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListRetry();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

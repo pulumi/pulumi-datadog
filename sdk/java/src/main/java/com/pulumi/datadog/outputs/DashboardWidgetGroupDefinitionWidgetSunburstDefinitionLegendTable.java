@@ -46,9 +46,9 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendT
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable();
-            o.type = type;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

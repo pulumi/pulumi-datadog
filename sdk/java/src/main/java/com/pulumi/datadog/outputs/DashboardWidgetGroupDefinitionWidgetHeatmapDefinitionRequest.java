@@ -168,15 +168,15 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest 
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

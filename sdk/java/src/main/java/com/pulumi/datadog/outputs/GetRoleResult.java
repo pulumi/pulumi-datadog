@@ -104,12 +104,12 @@ public final class GetRoleResult {
             return this;
         }
         public GetRoleResult build() {
-            final var o = new GetRoleResult();
-            o.filter = filter;
-            o.id = id;
-            o.name = name;
-            o.userCount = userCount;
-            return o;
+            final var _resultValue = new GetRoleResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.userCount = userCount;
+            return _resultValue;
         }
     }
 }

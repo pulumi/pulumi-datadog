@@ -68,10 +68,10 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetTreemapDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetTreemapDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

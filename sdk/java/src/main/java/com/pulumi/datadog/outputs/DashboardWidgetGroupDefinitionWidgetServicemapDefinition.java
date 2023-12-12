@@ -151,14 +151,14 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetServicemapDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetServicemapDefinition();
-            o.customLinks = customLinks;
-            o.filters = filters;
-            o.service = service;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetServicemapDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.filters = filters;
+            _resultValue.service = service;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

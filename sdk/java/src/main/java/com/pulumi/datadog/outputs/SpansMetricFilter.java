@@ -48,9 +48,9 @@ public final class SpansMetricFilter {
             return this;
         }
         public SpansMetricFilter build() {
-            final var o = new SpansMetricFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new SpansMetricFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

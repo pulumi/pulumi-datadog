@@ -415,29 +415,29 @@ public final class SyntheticsTestOptionsList {
             return this;
         }
         public SyntheticsTestOptionsList build() {
-            final var o = new SyntheticsTestOptionsList();
-            o.acceptSelfSigned = acceptSelfSigned;
-            o.allowInsecure = allowInsecure;
-            o.checkCertificateRevocation = checkCertificateRevocation;
-            o.ci = ci;
-            o.disableCors = disableCors;
-            o.disableCsp = disableCsp;
-            o.followRedirects = followRedirects;
-            o.httpVersion = httpVersion;
-            o.ignoreServerCertificateError = ignoreServerCertificateError;
-            o.initialNavigationTimeout = initialNavigationTimeout;
-            o.minFailureDuration = minFailureDuration;
-            o.minLocationFailed = minLocationFailed;
-            o.monitorName = monitorName;
-            o.monitorOptions = monitorOptions;
-            o.monitorPriority = monitorPriority;
-            o.noScreenshot = noScreenshot;
-            o.restrictedRoles = restrictedRoles;
-            o.retry = retry;
-            o.rumSettings = rumSettings;
-            o.scheduling = scheduling;
-            o.tickEvery = tickEvery;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsList();
+            _resultValue.acceptSelfSigned = acceptSelfSigned;
+            _resultValue.allowInsecure = allowInsecure;
+            _resultValue.checkCertificateRevocation = checkCertificateRevocation;
+            _resultValue.ci = ci;
+            _resultValue.disableCors = disableCors;
+            _resultValue.disableCsp = disableCsp;
+            _resultValue.followRedirects = followRedirects;
+            _resultValue.httpVersion = httpVersion;
+            _resultValue.ignoreServerCertificateError = ignoreServerCertificateError;
+            _resultValue.initialNavigationTimeout = initialNavigationTimeout;
+            _resultValue.minFailureDuration = minFailureDuration;
+            _resultValue.minLocationFailed = minLocationFailed;
+            _resultValue.monitorName = monitorName;
+            _resultValue.monitorOptions = monitorOptions;
+            _resultValue.monitorPriority = monitorPriority;
+            _resultValue.noScreenshot = noScreenshot;
+            _resultValue.restrictedRoles = restrictedRoles;
+            _resultValue.retry = retry;
+            _resultValue.rumSettings = rumSettings;
+            _resultValue.scheduling = scheduling;
+            _resultValue.tickEvery = tickEvery;
+            return _resultValue;
         }
     }
 }

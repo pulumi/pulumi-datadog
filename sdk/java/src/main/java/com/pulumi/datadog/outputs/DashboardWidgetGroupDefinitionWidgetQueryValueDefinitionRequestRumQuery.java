@@ -134,13 +134,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery();
-            o.computeQuery = computeQuery;
-            o.groupBies = groupBies;
-            o.index = index;
-            o.multiComputes = multiComputes;
-            o.searchQuery = searchQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery();
+            _resultValue.computeQuery = computeQuery;
+            _resultValue.groupBies = groupBies;
+            _resultValue.index = index;
+            _resultValue.multiComputes = multiComputes;
+            _resultValue.searchQuery = searchQuery;
+            return _resultValue;
         }
     }
 }

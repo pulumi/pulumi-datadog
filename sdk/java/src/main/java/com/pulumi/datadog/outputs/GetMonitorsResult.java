@@ -135,13 +135,13 @@ public final class GetMonitorsResult {
             return tagsFilters(List.of(tagsFilters));
         }
         public GetMonitorsResult build() {
-            final var o = new GetMonitorsResult();
-            o.id = id;
-            o.monitorTagsFilters = monitorTagsFilters;
-            o.monitors = monitors;
-            o.nameFilter = nameFilter;
-            o.tagsFilters = tagsFilters;
-            return o;
+            final var _resultValue = new GetMonitorsResult();
+            _resultValue.id = id;
+            _resultValue.monitorTagsFilters = monitorTagsFilters;
+            _resultValue.monitors = monitors;
+            _resultValue.nameFilter = nameFilter;
+            _resultValue.tagsFilters = tagsFilters;
+            return _resultValue;
         }
     }
 }

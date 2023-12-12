@@ -244,19 +244,19 @@ public final class GetServiceLevelObjectiveResult {
             return this;
         }
         public GetServiceLevelObjectiveResult build() {
-            final var o = new GetServiceLevelObjectiveResult();
-            o.description = description;
-            o.id = id;
-            o.metricsQuery = metricsQuery;
-            o.name = name;
-            o.nameQuery = nameQuery;
-            o.queries = queries;
-            o.tagsQuery = tagsQuery;
-            o.targetThreshold = targetThreshold;
-            o.timeframe = timeframe;
-            o.type = type;
-            o.warningThreshold = warningThreshold;
-            return o;
+            final var _resultValue = new GetServiceLevelObjectiveResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.metricsQuery = metricsQuery;
+            _resultValue.name = name;
+            _resultValue.nameQuery = nameQuery;
+            _resultValue.queries = queries;
+            _resultValue.tagsQuery = tagsQuery;
+            _resultValue.targetThreshold = targetThreshold;
+            _resultValue.timeframe = timeframe;
+            _resultValue.type = type;
+            _resultValue.warningThreshold = warningThreshold;
+            return _resultValue;
         }
     }
 }

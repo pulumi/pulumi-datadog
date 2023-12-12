@@ -106,12 +106,12 @@ public final class DashboardWidgetHeatmapDefinitionCustomLink {
             return this;
         }
         public DashboardWidgetHeatmapDefinitionCustomLink build() {
-            final var o = new DashboardWidgetHeatmapDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

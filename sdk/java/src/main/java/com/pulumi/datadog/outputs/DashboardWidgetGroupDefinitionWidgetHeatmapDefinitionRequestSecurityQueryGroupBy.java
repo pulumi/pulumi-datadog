@@ -88,11 +88,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestS
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

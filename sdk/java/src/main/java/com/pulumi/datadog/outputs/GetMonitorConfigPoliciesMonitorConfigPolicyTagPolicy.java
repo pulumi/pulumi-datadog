@@ -65,11 +65,11 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
             return validTagValues(List.of(validTagValues));
         }
         public GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy build() {
-            final var o = new GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy();
-            o.tagKey = tagKey;
-            o.tagKeyRequired = tagKeyRequired;
-            o.validTagValues = validTagValues;
-            return o;
+            final var _resultValue = new GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy();
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagKeyRequired = tagKeyRequired;
+            _resultValue.validTagValues = validTagValues;
+            return _resultValue;
         }
     }
 }

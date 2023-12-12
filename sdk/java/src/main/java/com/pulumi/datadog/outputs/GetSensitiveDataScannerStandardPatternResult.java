@@ -126,13 +126,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             return tags(List.of(tags));
         }
         public GetSensitiveDataScannerStandardPatternResult build() {
-            final var o = new GetSensitiveDataScannerStandardPatternResult();
-            o.filter = filter;
-            o.id = id;
-            o.name = name;
-            o.pattern = pattern;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSensitiveDataScannerStandardPatternResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.pattern = pattern;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

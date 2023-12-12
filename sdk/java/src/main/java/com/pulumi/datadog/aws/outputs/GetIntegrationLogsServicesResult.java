@@ -70,10 +70,10 @@ public final class GetIntegrationLogsServicesResult {
             return this;
         }
         public GetIntegrationLogsServicesResult build() {
-            final var o = new GetIntegrationLogsServicesResult();
-            o.awsLogsServices = awsLogsServices;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetIntegrationLogsServicesResult();
+            _resultValue.awsLogsServices = awsLogsServices;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

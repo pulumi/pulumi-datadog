@@ -87,11 +87,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComput
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

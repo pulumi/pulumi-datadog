@@ -65,10 +65,10 @@ public final class ServiceLevelObjectiveQuery {
             return this;
         }
         public ServiceLevelObjectiveQuery build() {
-            final var o = new ServiceLevelObjectiveQuery();
-            o.denominator = denominator;
-            o.numerator = numerator;
-            return o;
+            final var _resultValue = new ServiceLevelObjectiveQuery();
+            _resultValue.denominator = denominator;
+            _resultValue.numerator = numerator;
+            return _resultValue;
         }
     }
 }

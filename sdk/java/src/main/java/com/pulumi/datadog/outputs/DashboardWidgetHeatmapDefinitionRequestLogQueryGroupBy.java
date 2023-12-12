@@ -88,11 +88,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
             return this;
         }
         public DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy build() {
-            final var o = new DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

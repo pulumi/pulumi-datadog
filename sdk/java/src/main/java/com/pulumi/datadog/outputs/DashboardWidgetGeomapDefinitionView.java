@@ -46,9 +46,9 @@ public final class DashboardWidgetGeomapDefinitionView {
             return this;
         }
         public DashboardWidgetGeomapDefinitionView build() {
-            final var o = new DashboardWidgetGeomapDefinitionView();
-            o.focus = focus;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionView();
+            _resultValue.focus = focus;
+            return _resultValue;
         }
     }
 }

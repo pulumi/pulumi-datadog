@@ -38,9 +38,9 @@ public final class GetLogsPipelinesLogsPipelineFilter {
             return this;
         }
         public GetLogsPipelinesLogsPipelineFilter build() {
-            final var o = new GetLogsPipelinesLogsPipelineFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new GetLogsPipelinesLogsPipelineFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

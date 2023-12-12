@@ -241,19 +241,19 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest();
-            o.aggregator = aggregator;
-            o.apmQuery = apmQuery;
-            o.auditQuery = auditQuery;
-            o.conditionalFormats = conditionalFormats;
-            o.formulas = formulas;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest();
+            _resultValue.aggregator = aggregator;
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.auditQuery = auditQuery;
+            _resultValue.conditionalFormats = conditionalFormats;
+            _resultValue.formulas = formulas;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            return _resultValue;
         }
     }
 }

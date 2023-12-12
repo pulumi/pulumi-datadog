@@ -87,11 +87,11 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQueryComp
             return this;
         }
         public DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery build() {
-            final var o = new DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

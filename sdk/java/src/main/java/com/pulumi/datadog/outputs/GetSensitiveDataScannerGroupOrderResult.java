@@ -69,10 +69,10 @@ public final class GetSensitiveDataScannerGroupOrderResult {
             return this;
         }
         public GetSensitiveDataScannerGroupOrderResult build() {
-            final var o = new GetSensitiveDataScannerGroupOrderResult();
-            o.groupIds = groupIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSensitiveDataScannerGroupOrderResult();
+            _resultValue.groupIds = groupIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

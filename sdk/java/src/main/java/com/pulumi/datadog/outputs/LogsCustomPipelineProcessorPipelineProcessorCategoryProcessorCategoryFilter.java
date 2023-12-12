@@ -46,9 +46,9 @@ public final class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

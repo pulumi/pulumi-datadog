@@ -110,13 +110,13 @@ public final class SyntheticsTestApiStepExtractedValue {
             return this;
         }
         public SyntheticsTestApiStepExtractedValue build() {
-            final var o = new SyntheticsTestApiStepExtractedValue();
-            o.field = field;
-            o.name = name;
-            o.parser = parser;
-            o.secure = secure;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepExtractedValue();
+            _resultValue.field = field;
+            _resultValue.name = name;
+            _resultValue.parser = parser;
+            _resultValue.secure = secure;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

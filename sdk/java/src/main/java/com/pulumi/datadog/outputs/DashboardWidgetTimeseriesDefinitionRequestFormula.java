@@ -150,14 +150,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormula {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestFormula build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestFormula();
-            o.alias = alias;
-            o.cellDisplayMode = cellDisplayMode;
-            o.conditionalFormats = conditionalFormats;
-            o.formulaExpression = formulaExpression;
-            o.limit = limit;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestFormula();
+            _resultValue.alias = alias;
+            _resultValue.cellDisplayMode = cellDisplayMode;
+            _resultValue.conditionalFormats = conditionalFormats;
+            _resultValue.formulaExpression = formulaExpression;
+            _resultValue.limit = limit;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

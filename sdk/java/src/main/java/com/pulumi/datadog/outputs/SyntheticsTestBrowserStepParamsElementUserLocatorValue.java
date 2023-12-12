@@ -67,10 +67,10 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorValue {
             return this;
         }
         public SyntheticsTestBrowserStepParamsElementUserLocatorValue build() {
-            final var o = new SyntheticsTestBrowserStepParamsElementUserLocatorValue();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserStepParamsElementUserLocatorValue();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

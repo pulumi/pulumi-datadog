@@ -48,9 +48,9 @@ public final class OrganizationSettingsSettingsSamlStrictMode {
             return this;
         }
         public OrganizationSettingsSettingsSamlStrictMode build() {
-            final var o = new OrganizationSettingsSettingsSamlStrictMode();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new OrganizationSettingsSettingsSamlStrictMode();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker();
-            o.displayType = displayType;
-            o.label = label;
-            o.value = value;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker();
+            _resultValue.displayType = displayType;
+            _resultValue.label = label;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

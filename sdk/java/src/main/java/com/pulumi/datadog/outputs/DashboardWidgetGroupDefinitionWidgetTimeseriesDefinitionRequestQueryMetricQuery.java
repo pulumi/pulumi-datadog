@@ -97,12 +97,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery();
-            o.aggregator = aggregator;
-            o.dataSource = dataSource;
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery();
+            _resultValue.aggregator = aggregator;
+            _resultValue.dataSource = dataSource;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

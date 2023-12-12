@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

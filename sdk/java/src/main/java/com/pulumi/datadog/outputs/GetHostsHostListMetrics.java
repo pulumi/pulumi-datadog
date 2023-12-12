@@ -60,11 +60,11 @@ public final class GetHostsHostListMetrics {
             return this;
         }
         public GetHostsHostListMetrics build() {
-            final var o = new GetHostsHostListMetrics();
-            o.cpu = cpu;
-            o.iowait = iowait;
-            o.load = load;
-            return o;
+            final var _resultValue = new GetHostsHostListMetrics();
+            _resultValue.cpu = cpu;
+            _resultValue.iowait = iowait;
+            _resultValue.load = load;
+            return _resultValue;
         }
     }
 }

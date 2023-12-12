@@ -67,10 +67,10 @@ public final class SpansMetricGroupBy {
             return this;
         }
         public SpansMetricGroupBy build() {
-            final var o = new SpansMetricGroupBy();
-            o.path = path;
-            o.tagName = tagName;
-            return o;
+            final var _resultValue = new SpansMetricGroupBy();
+            _resultValue.path = path;
+            _resultValue.tagName = tagName;
+            return _resultValue;
         }
     }
 }

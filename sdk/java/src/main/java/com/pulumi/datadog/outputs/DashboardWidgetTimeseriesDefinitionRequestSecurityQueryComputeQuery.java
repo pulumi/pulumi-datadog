@@ -87,11 +87,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComput
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

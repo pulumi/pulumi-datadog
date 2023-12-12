@@ -68,10 +68,10 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaLimit {
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetTreemapDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetTreemapDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

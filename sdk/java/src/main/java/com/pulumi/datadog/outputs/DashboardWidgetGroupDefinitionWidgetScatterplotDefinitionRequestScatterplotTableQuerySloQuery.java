@@ -162,15 +162,15 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery();
-            o.additionalQueryFilters = additionalQueryFilters;
-            o.dataSource = dataSource;
-            o.groupMode = groupMode;
-            o.measure = measure;
-            o.name = name;
-            o.sloId = sloId;
-            o.sloQueryType = sloQueryType;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery();
+            _resultValue.additionalQueryFilters = additionalQueryFilters;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupMode = groupMode;
+            _resultValue.measure = measure;
+            _resultValue.name = name;
+            _resultValue.sloId = sloId;
+            _resultValue.sloQueryType = sloQueryType;
+            return _resultValue;
         }
     }
 }

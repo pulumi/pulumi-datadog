@@ -62,11 +62,11 @@ public final class ChildOrganizationApplicationKey {
             return this;
         }
         public ChildOrganizationApplicationKey build() {
-            final var o = new ChildOrganizationApplicationKey();
-            o.hash = hash;
-            o.name = name;
-            o.owner = owner;
-            return o;
+            final var _resultValue = new ChildOrganizationApplicationKey();
+            _resultValue.hash = hash;
+            _resultValue.name = name;
+            _resultValue.owner = owner;
+            return _resultValue;
         }
     }
 }

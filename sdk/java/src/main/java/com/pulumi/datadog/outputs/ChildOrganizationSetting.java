@@ -157,18 +157,18 @@ public final class ChildOrganizationSetting {
             return samls(List.of(samls));
         }
         public ChildOrganizationSetting build() {
-            final var o = new ChildOrganizationSetting();
-            o.privateWidgetShare = privateWidgetShare;
-            o.samlAutocreateAccessRole = samlAutocreateAccessRole;
-            o.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
-            o.samlCanBeEnabled = samlCanBeEnabled;
-            o.samlIdpEndpoint = samlIdpEndpoint;
-            o.samlIdpInitiatedLogins = samlIdpInitiatedLogins;
-            o.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
-            o.samlLoginUrl = samlLoginUrl;
-            o.samlStrictModes = samlStrictModes;
-            o.samls = samls;
-            return o;
+            final var _resultValue = new ChildOrganizationSetting();
+            _resultValue.privateWidgetShare = privateWidgetShare;
+            _resultValue.samlAutocreateAccessRole = samlAutocreateAccessRole;
+            _resultValue.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
+            _resultValue.samlCanBeEnabled = samlCanBeEnabled;
+            _resultValue.samlIdpEndpoint = samlIdpEndpoint;
+            _resultValue.samlIdpInitiatedLogins = samlIdpInitiatedLogins;
+            _resultValue.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
+            _resultValue.samlLoginUrl = samlLoginUrl;
+            _resultValue.samlStrictModes = samlStrictModes;
+            _resultValue.samls = samls;
+            return _resultValue;
         }
     }
 }

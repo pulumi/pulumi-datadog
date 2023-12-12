@@ -87,11 +87,11 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

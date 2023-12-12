@@ -239,19 +239,19 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetLogStreamDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetLogStreamDefinition();
-            o.columns = columns;
-            o.indexes = indexes;
-            o.liveSpan = liveSpan;
-            o.messageDisplay = messageDisplay;
-            o.query = query;
-            o.showDateColumn = showDateColumn;
-            o.showMessageColumn = showMessageColumn;
-            o.sort = sort;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetLogStreamDefinition();
+            _resultValue.columns = columns;
+            _resultValue.indexes = indexes;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.messageDisplay = messageDisplay;
+            _resultValue.query = query;
+            _resultValue.showDateColumn = showDateColumn;
+            _resultValue.showMessageColumn = showMessageColumn;
+            _resultValue.sort = sort;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

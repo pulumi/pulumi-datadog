@@ -88,11 +88,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

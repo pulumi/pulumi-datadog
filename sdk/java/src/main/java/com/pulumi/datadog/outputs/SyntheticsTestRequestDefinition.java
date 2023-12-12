@@ -377,26 +377,26 @@ public final class SyntheticsTestRequestDefinition {
             return this;
         }
         public SyntheticsTestRequestDefinition build() {
-            final var o = new SyntheticsTestRequestDefinition();
-            o.body = body;
-            o.bodyType = bodyType;
-            o.callType = callType;
-            o.certificateDomains = certificateDomains;
-            o.dnsServer = dnsServer;
-            o.dnsServerPort = dnsServerPort;
-            o.host = host;
-            o.message = message;
-            o.method = method;
-            o.noSavingResponseBody = noSavingResponseBody;
-            o.numberOfPackets = numberOfPackets;
-            o.persistCookies = persistCookies;
-            o.port = port;
-            o.servername = servername;
-            o.service = service;
-            o.shouldTrackHops = shouldTrackHops;
-            o.timeout = timeout;
-            o.url = url;
-            return o;
+            final var _resultValue = new SyntheticsTestRequestDefinition();
+            _resultValue.body = body;
+            _resultValue.bodyType = bodyType;
+            _resultValue.callType = callType;
+            _resultValue.certificateDomains = certificateDomains;
+            _resultValue.dnsServer = dnsServer;
+            _resultValue.dnsServerPort = dnsServerPort;
+            _resultValue.host = host;
+            _resultValue.message = message;
+            _resultValue.method = method;
+            _resultValue.noSavingResponseBody = noSavingResponseBody;
+            _resultValue.numberOfPackets = numberOfPackets;
+            _resultValue.persistCookies = persistCookies;
+            _resultValue.port = port;
+            _resultValue.servername = servername;
+            _resultValue.service = service;
+            _resultValue.shouldTrackHops = shouldTrackHops;
+            _resultValue.timeout = timeout;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

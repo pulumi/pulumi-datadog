@@ -38,9 +38,9 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

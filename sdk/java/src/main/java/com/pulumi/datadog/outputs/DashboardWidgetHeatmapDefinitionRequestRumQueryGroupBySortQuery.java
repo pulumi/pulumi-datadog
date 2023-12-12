@@ -86,11 +86,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQue
             return this;
         }
         public DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

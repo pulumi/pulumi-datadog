@@ -71,12 +71,12 @@ public final class GetTeamMembershipsTeamMembership {
             return this;
         }
         public GetTeamMembershipsTeamMembership build() {
-            final var o = new GetTeamMembershipsTeamMembership();
-            o.id = id;
-            o.role = role;
-            o.teamId = teamId;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetTeamMembershipsTeamMembership();
+            _resultValue.id = id;
+            _resultValue.role = role;
+            _resultValue.teamId = teamId;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

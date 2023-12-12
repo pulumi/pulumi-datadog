@@ -88,11 +88,11 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQuery {
             return this;
         }
         public DashboardWidgetTopologyMapDefinitionRequestQuery build() {
-            final var o = new DashboardWidgetTopologyMapDefinitionRequestQuery();
-            o.dataSource = dataSource;
-            o.filters = filters;
-            o.service = service;
-            return o;
+            final var _resultValue = new DashboardWidgetTopologyMapDefinitionRequestQuery();
+            _resultValue.dataSource = dataSource;
+            _resultValue.filters = filters;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class DashboardWidgetServicemapDefinitionCustomLink {
             return this;
         }
         public DashboardWidgetServicemapDefinitionCustomLink build() {
-            final var o = new DashboardWidgetServicemapDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetServicemapDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

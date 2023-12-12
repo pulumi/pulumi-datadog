@@ -67,10 +67,10 @@ public final class SyntheticsTestApiStepExtractedValueParser {
             return this;
         }
         public SyntheticsTestApiStepExtractedValueParser build() {
-            final var o = new SyntheticsTestApiStepExtractedValueParser();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepExtractedValueParser();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

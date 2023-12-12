@@ -175,15 +175,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery();
-            o.computes = computes;
-            o.dataSource = dataSource;
-            o.groupBies = groupBies;
-            o.indexes = indexes;
-            o.name = name;
-            o.search = search;
-            o.storage = storage;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuery();
+            _resultValue.computes = computes;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupBies = groupBies;
+            _resultValue.indexes = indexes;
+            _resultValue.name = name;
+            _resultValue.search = search;
+            _resultValue.storage = storage;
+            return _resultValue;
         }
     }
 }

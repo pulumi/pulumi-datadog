@@ -87,11 +87,11 @@ public final class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompu
             return this;
         }
         public DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

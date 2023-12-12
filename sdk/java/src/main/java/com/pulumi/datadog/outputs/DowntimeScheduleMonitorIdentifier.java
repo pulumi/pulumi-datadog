@@ -72,10 +72,10 @@ public final class DowntimeScheduleMonitorIdentifier {
             return monitorTags(List.of(monitorTags));
         }
         public DowntimeScheduleMonitorIdentifier build() {
-            final var o = new DowntimeScheduleMonitorIdentifier();
-            o.monitorId = monitorId;
-            o.monitorTags = monitorTags;
-            return o;
+            final var _resultValue = new DowntimeScheduleMonitorIdentifier();
+            _resultValue.monitorId = monitorId;
+            _resultValue.monitorTags = monitorTags;
+            return _resultValue;
         }
     }
 }

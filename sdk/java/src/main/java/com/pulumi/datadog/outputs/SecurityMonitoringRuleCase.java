@@ -109,12 +109,12 @@ public final class SecurityMonitoringRuleCase {
             return this;
         }
         public SecurityMonitoringRuleCase build() {
-            final var o = new SecurityMonitoringRuleCase();
-            o.condition = condition;
-            o.name = name;
-            o.notifications = notifications;
-            o.status = status;
-            return o;
+            final var _resultValue = new SecurityMonitoringRuleCase();
+            _resultValue.condition = condition;
+            _resultValue.name = name;
+            _resultValue.notifications = notifications;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

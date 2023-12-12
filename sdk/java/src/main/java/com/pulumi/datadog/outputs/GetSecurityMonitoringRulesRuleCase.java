@@ -77,12 +77,12 @@ public final class GetSecurityMonitoringRulesRuleCase {
             return this;
         }
         public GetSecurityMonitoringRulesRuleCase build() {
-            final var o = new GetSecurityMonitoringRulesRuleCase();
-            o.condition = condition;
-            o.name = name;
-            o.notifications = notifications;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleCase();
+            _resultValue.condition = condition;
+            _resultValue.name = name;
+            _resultValue.notifications = notifications;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

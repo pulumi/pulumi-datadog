@@ -61,11 +61,11 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
             return this;
         }
         public GetMonitorConfigPoliciesMonitorConfigPolicy build() {
-            final var o = new GetMonitorConfigPoliciesMonitorConfigPolicy();
-            o.id = id;
-            o.policyType = policyType;
-            o.tagPolicy = tagPolicy;
-            return o;
+            final var _resultValue = new GetMonitorConfigPoliciesMonitorConfigPolicy();
+            _resultValue.id = id;
+            _resultValue.policyType = policyType;
+            _resultValue.tagPolicy = tagPolicy;
+            return _resultValue;
         }
     }
 }

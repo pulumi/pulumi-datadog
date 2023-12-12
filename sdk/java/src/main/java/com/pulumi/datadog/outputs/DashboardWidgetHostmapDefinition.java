@@ -252,19 +252,19 @@ public final class DashboardWidgetHostmapDefinition {
             return this;
         }
         public DashboardWidgetHostmapDefinition build() {
-            final var o = new DashboardWidgetHostmapDefinition();
-            o.customLinks = customLinks;
-            o.groups = groups;
-            o.noGroupHosts = noGroupHosts;
-            o.noMetricHosts = noMetricHosts;
-            o.nodeType = nodeType;
-            o.request = request;
-            o.scopes = scopes;
-            o.style = style;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.groups = groups;
+            _resultValue.noGroupHosts = noGroupHosts;
+            _resultValue.noMetricHosts = noMetricHosts;
+            _resultValue.nodeType = nodeType;
+            _resultValue.request = request;
+            _resultValue.scopes = scopes;
+            _resultValue.style = style;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

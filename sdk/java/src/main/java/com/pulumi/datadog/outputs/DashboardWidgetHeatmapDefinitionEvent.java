@@ -67,10 +67,10 @@ public final class DashboardWidgetHeatmapDefinitionEvent {
             return this;
         }
         public DashboardWidgetHeatmapDefinitionEvent build() {
-            final var o = new DashboardWidgetHeatmapDefinitionEvent();
-            o.q = q;
-            o.tagsExecution = tagsExecution;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionEvent();
+            _resultValue.q = q;
+            _resultValue.tagsExecution = tagsExecution;
+            return _resultValue;
         }
     }
 }

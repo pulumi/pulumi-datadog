@@ -110,12 +110,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGrou
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

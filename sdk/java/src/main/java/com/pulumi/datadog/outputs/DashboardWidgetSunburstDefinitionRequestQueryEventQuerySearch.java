@@ -38,9 +38,9 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

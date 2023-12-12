@@ -106,12 +106,12 @@ public final class DashboardWidgetScatterplotDefinitionCustomLink {
             return this;
         }
         public DashboardWidgetScatterplotDefinitionCustomLink build() {
-            final var o = new DashboardWidgetScatterplotDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

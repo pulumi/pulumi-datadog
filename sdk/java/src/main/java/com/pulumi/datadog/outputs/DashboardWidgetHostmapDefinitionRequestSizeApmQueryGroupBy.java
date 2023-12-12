@@ -88,11 +88,11 @@ public final class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
             return this;
         }
         public DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

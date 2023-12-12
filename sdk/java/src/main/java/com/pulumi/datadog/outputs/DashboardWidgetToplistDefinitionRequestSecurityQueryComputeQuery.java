@@ -87,11 +87,11 @@ public final class DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQu
             return this;
         }
         public DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery build() {
-            final var o = new DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

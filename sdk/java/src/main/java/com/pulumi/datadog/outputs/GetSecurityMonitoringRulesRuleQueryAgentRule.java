@@ -49,10 +49,10 @@ public final class GetSecurityMonitoringRulesRuleQueryAgentRule {
             return this;
         }
         public GetSecurityMonitoringRulesRuleQueryAgentRule build() {
-            final var o = new GetSecurityMonitoringRulesRuleQueryAgentRule();
-            o.agentRuleId = agentRuleId;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleQueryAgentRule();
+            _resultValue.agentRuleId = agentRuleId;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

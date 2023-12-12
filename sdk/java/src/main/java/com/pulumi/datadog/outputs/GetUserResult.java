@@ -125,13 +125,13 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.email = email;
-            o.exactMatch = exactMatch;
-            o.filter = filter;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.email = email;
+            _resultValue.exactMatch = exactMatch;
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

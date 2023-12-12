@@ -62,11 +62,11 @@ public final class ChildOrganizationUser {
             return this;
         }
         public ChildOrganizationUser build() {
-            final var o = new ChildOrganizationUser();
-            o.accessRole = accessRole;
-            o.email = email;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChildOrganizationUser();
+            _resultValue.accessRole = accessRole;
+            _resultValue.email = email;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

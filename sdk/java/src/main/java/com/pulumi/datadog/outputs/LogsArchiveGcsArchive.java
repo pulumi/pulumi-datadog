@@ -105,12 +105,12 @@ public final class LogsArchiveGcsArchive {
             return this;
         }
         public LogsArchiveGcsArchive build() {
-            final var o = new LogsArchiveGcsArchive();
-            o.bucket = bucket;
-            o.clientEmail = clientEmail;
-            o.path = path;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new LogsArchiveGcsArchive();
+            _resultValue.bucket = bucket;
+            _resultValue.clientEmail = clientEmail;
+            _resultValue.path = path;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

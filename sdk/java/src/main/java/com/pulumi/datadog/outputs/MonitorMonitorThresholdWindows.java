@@ -67,10 +67,10 @@ public final class MonitorMonitorThresholdWindows {
             return this;
         }
         public MonitorMonitorThresholdWindows build() {
-            final var o = new MonitorMonitorThresholdWindows();
-            o.recoveryWindow = recoveryWindow;
-            o.triggerWindow = triggerWindow;
-            return o;
+            final var _resultValue = new MonitorMonitorThresholdWindows();
+            _resultValue.recoveryWindow = recoveryWindow;
+            _resultValue.triggerWindow = triggerWindow;
+            return _resultValue;
         }
     }
 }

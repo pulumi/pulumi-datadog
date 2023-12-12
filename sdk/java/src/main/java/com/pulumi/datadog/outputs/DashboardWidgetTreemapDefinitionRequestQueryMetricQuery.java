@@ -97,12 +97,12 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestQueryMetricQuery build() {
-            final var o = new DashboardWidgetTreemapDefinitionRequestQueryMetricQuery();
-            o.aggregator = aggregator;
-            o.dataSource = dataSource;
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetTreemapDefinitionRequestQueryMetricQuery();
+            _resultValue.aggregator = aggregator;
+            _resultValue.dataSource = dataSource;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

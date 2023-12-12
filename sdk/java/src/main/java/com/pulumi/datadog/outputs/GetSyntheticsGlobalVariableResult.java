@@ -88,11 +88,11 @@ public final class GetSyntheticsGlobalVariableResult {
             return tags(List.of(tags));
         }
         public GetSyntheticsGlobalVariableResult build() {
-            final var o = new GetSyntheticsGlobalVariableResult();
-            o.id = id;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSyntheticsGlobalVariableResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

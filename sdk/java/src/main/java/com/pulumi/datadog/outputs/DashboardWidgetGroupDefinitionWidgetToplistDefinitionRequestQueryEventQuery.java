@@ -175,15 +175,15 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery();
-            o.computes = computes;
-            o.dataSource = dataSource;
-            o.groupBies = groupBies;
-            o.indexes = indexes;
-            o.name = name;
-            o.search = search;
-            o.storage = storage;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery();
+            _resultValue.computes = computes;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupBies = groupBies;
+            _resultValue.indexes = indexes;
+            _resultValue.name = name;
+            _resultValue.search = search;
+            _resultValue.storage = storage;
+            return _resultValue;
         }
     }
 }

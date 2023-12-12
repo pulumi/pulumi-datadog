@@ -86,11 +86,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySo
             return this;
         }
         public DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

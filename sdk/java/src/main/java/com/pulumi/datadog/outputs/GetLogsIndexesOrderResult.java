@@ -69,10 +69,10 @@ public final class GetLogsIndexesOrderResult {
             return indexNames(List.of(indexNames));
         }
         public GetLogsIndexesOrderResult build() {
-            final var o = new GetLogsIndexesOrderResult();
-            o.id = id;
-            o.indexNames = indexNames;
-            return o;
+            final var _resultValue = new GetLogsIndexesOrderResult();
+            _resultValue.id = id;
+            _resultValue.indexNames = indexNames;
+            return _resultValue;
         }
     }
 }

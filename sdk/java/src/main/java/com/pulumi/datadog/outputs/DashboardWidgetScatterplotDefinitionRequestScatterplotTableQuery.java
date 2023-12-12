@@ -148,14 +148,14 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery();
-            o.apmDependencyStatsQuery = apmDependencyStatsQuery;
-            o.apmResourceStatsQuery = apmResourceStatsQuery;
-            o.eventQuery = eventQuery;
-            o.metricQuery = metricQuery;
-            o.processQuery = processQuery;
-            o.sloQuery = sloQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery();
+            _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
+            _resultValue.eventQuery = eventQuery;
+            _resultValue.metricQuery = metricQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.sloQuery = sloQuery;
+            return _resultValue;
         }
     }
 }

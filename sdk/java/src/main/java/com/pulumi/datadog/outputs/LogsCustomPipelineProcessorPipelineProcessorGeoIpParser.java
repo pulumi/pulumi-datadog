@@ -110,12 +110,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorGeoIpParser build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorGeoIpParser();
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.sources = sources;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorGeoIpParser();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.sources = sources;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

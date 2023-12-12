@@ -48,9 +48,9 @@ public final class SyntheticsGlobalVariableOptions {
             return this;
         }
         public SyntheticsGlobalVariableOptions build() {
-            final var o = new SyntheticsGlobalVariableOptions();
-            o.totpParameters = totpParameters;
-            return o;
+            final var _resultValue = new SyntheticsGlobalVariableOptions();
+            _resultValue.totpParameters = totpParameters;
+            return _resultValue;
         }
     }
 }

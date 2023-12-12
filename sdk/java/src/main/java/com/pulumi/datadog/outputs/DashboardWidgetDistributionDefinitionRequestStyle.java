@@ -48,9 +48,9 @@ public final class DashboardWidgetDistributionDefinitionRequestStyle {
             return this;
         }
         public DashboardWidgetDistributionDefinitionRequestStyle build() {
-            final var o = new DashboardWidgetDistributionDefinitionRequestStyle();
-            o.palette = palette;
-            return o;
+            final var _resultValue = new DashboardWidgetDistributionDefinitionRequestStyle();
+            _resultValue.palette = palette;
+            return _resultValue;
         }
     }
 }

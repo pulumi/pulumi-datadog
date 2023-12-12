@@ -211,17 +211,17 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinition();
-            o.colorByGroups = colorByGroups;
-            o.customLinks = customLinks;
-            o.liveSpan = liveSpan;
-            o.request = request;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.xaxis = xaxis;
-            o.yaxis = yaxis;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinition();
+            _resultValue.colorByGroups = colorByGroups;
+            _resultValue.customLinks = customLinks;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.request = request;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.xaxis = xaxis;
+            _resultValue.yaxis = yaxis;
+            return _resultValue;
         }
     }
 }

@@ -174,15 +174,15 @@ public final class GetSecurityMonitoringRulesResult {
             return this;
         }
         public GetSecurityMonitoringRulesResult build() {
-            final var o = new GetSecurityMonitoringRulesResult();
-            o.defaultOnlyFilter = defaultOnlyFilter;
-            o.id = id;
-            o.nameFilter = nameFilter;
-            o.ruleIds = ruleIds;
-            o.rules = rules;
-            o.tagsFilters = tagsFilters;
-            o.userOnlyFilter = userOnlyFilter;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesResult();
+            _resultValue.defaultOnlyFilter = defaultOnlyFilter;
+            _resultValue.id = id;
+            _resultValue.nameFilter = nameFilter;
+            _resultValue.ruleIds = ruleIds;
+            _resultValue.rules = rules;
+            _resultValue.tagsFilters = tagsFilters;
+            _resultValue.userOnlyFilter = userOnlyFilter;
+            return _resultValue;
         }
     }
 }

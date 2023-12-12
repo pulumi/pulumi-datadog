@@ -88,11 +88,11 @@ public final class GetPermissionsResult {
             return this;
         }
         public GetPermissionsResult build() {
-            final var o = new GetPermissionsResult();
-            o.id = id;
-            o.includeRestricted = includeRestricted;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new GetPermissionsResult();
+            _resultValue.id = id;
+            _resultValue.includeRestricted = includeRestricted;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

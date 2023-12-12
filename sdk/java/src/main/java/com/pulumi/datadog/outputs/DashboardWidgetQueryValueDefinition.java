@@ -250,19 +250,19 @@ public final class DashboardWidgetQueryValueDefinition {
             return this;
         }
         public DashboardWidgetQueryValueDefinition build() {
-            final var o = new DashboardWidgetQueryValueDefinition();
-            o.autoscale = autoscale;
-            o.customLinks = customLinks;
-            o.customUnit = customUnit;
-            o.liveSpan = liveSpan;
-            o.precision = precision;
-            o.requests = requests;
-            o.textAlign = textAlign;
-            o.timeseriesBackground = timeseriesBackground;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinition();
+            _resultValue.autoscale = autoscale;
+            _resultValue.customLinks = customLinks;
+            _resultValue.customUnit = customUnit;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.precision = precision;
+            _resultValue.requests = requests;
+            _resultValue.textAlign = textAlign;
+            _resultValue.timeseriesBackground = timeseriesBackground;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

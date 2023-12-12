@@ -86,11 +86,11 @@ public final class SyntheticsTestAssertionTargetjsonpath {
             return this;
         }
         public SyntheticsTestAssertionTargetjsonpath build() {
-            final var o = new SyntheticsTestAssertionTargetjsonpath();
-            o.jsonpath = jsonpath;
-            o.operator = operator;
-            o.targetvalue = targetvalue;
-            return o;
+            final var _resultValue = new SyntheticsTestAssertionTargetjsonpath();
+            _resultValue.jsonpath = jsonpath;
+            _resultValue.operator = operator;
+            _resultValue.targetvalue = targetvalue;
+            return _resultValue;
         }
     }
 }

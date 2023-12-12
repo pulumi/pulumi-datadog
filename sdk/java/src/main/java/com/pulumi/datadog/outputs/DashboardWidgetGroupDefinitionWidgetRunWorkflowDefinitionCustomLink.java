@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCust
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

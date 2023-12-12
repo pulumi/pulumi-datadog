@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

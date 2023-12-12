@@ -87,11 +87,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute {
             return this;
         }
         public DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

@@ -139,13 +139,13 @@ public final class DashboardTemplateVariable {
             return this;
         }
         public DashboardTemplateVariable build() {
-            final var o = new DashboardTemplateVariable();
-            o.availableValues = availableValues;
-            o.default_ = default_;
-            o.defaults = defaults;
-            o.name = name;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new DashboardTemplateVariable();
+            _resultValue.availableValues = availableValues;
+            _resultValue.default_ = default_;
+            _resultValue.defaults = defaults;
+            _resultValue.name = name;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

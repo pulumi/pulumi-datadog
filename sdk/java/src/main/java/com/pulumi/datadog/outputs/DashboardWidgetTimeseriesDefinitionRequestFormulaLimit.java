@@ -68,10 +68,10 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

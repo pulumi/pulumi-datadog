@@ -88,11 +88,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

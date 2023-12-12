@@ -87,11 +87,11 @@ public final class DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery 
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

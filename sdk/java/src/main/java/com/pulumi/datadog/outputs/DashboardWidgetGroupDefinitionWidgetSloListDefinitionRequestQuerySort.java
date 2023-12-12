@@ -65,10 +65,10 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort();
-            o.column = column;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuerySort();
+            _resultValue.column = column;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

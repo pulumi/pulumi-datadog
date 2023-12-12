@@ -99,14 +99,14 @@ public final class GetLogsPipelinesLogsPipeline {
             return this;
         }
         public GetLogsPipelinesLogsPipeline build() {
-            final var o = new GetLogsPipelinesLogsPipeline();
-            o.filters = filters;
-            o.id = id;
-            o.isEnabled = isEnabled;
-            o.isReadOnly = isReadOnly;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetLogsPipelinesLogsPipeline();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.isReadOnly = isReadOnly;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetToplistDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetToplistDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetToplistDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

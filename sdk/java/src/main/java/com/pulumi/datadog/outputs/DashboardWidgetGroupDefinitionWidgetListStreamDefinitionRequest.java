@@ -82,11 +82,11 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest();
-            o.columns = columns;
-            o.query = query;
-            o.responseFormat = responseFormat;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest();
+            _resultValue.columns = columns;
+            _resultValue.query = query;
+            _resultValue.responseFormat = responseFormat;
+            return _resultValue;
         }
     }
 }

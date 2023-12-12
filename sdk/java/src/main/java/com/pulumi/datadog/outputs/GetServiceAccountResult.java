@@ -262,20 +262,20 @@ public final class GetServiceAccountResult {
             return this;
         }
         public GetServiceAccountResult build() {
-            final var o = new GetServiceAccountResult();
-            o.disabled = disabled;
-            o.email = email;
-            o.filter = filter;
-            o.filterStatus = filterStatus;
-            o.handle = handle;
-            o.icon = icon;
-            o.id = id;
-            o.name = name;
-            o.roles = roles;
-            o.status = status;
-            o.title = title;
-            o.verified = verified;
-            return o;
+            final var _resultValue = new GetServiceAccountResult();
+            _resultValue.disabled = disabled;
+            _resultValue.email = email;
+            _resultValue.filter = filter;
+            _resultValue.filterStatus = filterStatus;
+            _resultValue.handle = handle;
+            _resultValue.icon = icon;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.roles = roles;
+            _resultValue.status = status;
+            _resultValue.title = title;
+            _resultValue.verified = verified;
+            return _resultValue;
         }
     }
 }

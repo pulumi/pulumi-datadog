@@ -87,11 +87,11 @@ public final class SpansMetricCompute {
             return this;
         }
         public SpansMetricCompute build() {
-            final var o = new SpansMetricCompute();
-            o.aggregationType = aggregationType;
-            o.includePercentiles = includePercentiles;
-            o.path = path;
-            return o;
+            final var _resultValue = new SpansMetricCompute();
+            _resultValue.aggregationType = aggregationType;
+            _resultValue.includePercentiles = includePercentiles;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

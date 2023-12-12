@@ -99,14 +99,14 @@ public final class GetSecurityMonitoringRulesRuleSignalQuery {
             return this;
         }
         public GetSecurityMonitoringRulesRuleSignalQuery build() {
-            final var o = new GetSecurityMonitoringRulesRuleSignalQuery();
-            o.aggregation = aggregation;
-            o.correlatedByFields = correlatedByFields;
-            o.correlatedQueryIndex = correlatedQueryIndex;
-            o.defaultRuleId = defaultRuleId;
-            o.name = name;
-            o.ruleId = ruleId;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleSignalQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.correlatedByFields = correlatedByFields;
+            _resultValue.correlatedQueryIndex = correlatedQueryIndex;
+            _resultValue.defaultRuleId = defaultRuleId;
+            _resultValue.name = name;
+            _resultValue.ruleId = ruleId;
+            return _resultValue;
         }
     }
 }

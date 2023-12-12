@@ -285,21 +285,21 @@ public final class SyntheticsTestApiStep {
             return this;
         }
         public SyntheticsTestApiStep build() {
-            final var o = new SyntheticsTestApiStep();
-            o.allowFailure = allowFailure;
-            o.assertions = assertions;
-            o.extractedValues = extractedValues;
-            o.isCritical = isCritical;
-            o.name = name;
-            o.requestBasicauth = requestBasicauth;
-            o.requestClientCertificate = requestClientCertificate;
-            o.requestDefinition = requestDefinition;
-            o.requestHeaders = requestHeaders;
-            o.requestProxy = requestProxy;
-            o.requestQuery = requestQuery;
-            o.retry = retry;
-            o.subtype = subtype;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStep();
+            _resultValue.allowFailure = allowFailure;
+            _resultValue.assertions = assertions;
+            _resultValue.extractedValues = extractedValues;
+            _resultValue.isCritical = isCritical;
+            _resultValue.name = name;
+            _resultValue.requestBasicauth = requestBasicauth;
+            _resultValue.requestClientCertificate = requestClientCertificate;
+            _resultValue.requestDefinition = requestDefinition;
+            _resultValue.requestHeaders = requestHeaders;
+            _resultValue.requestProxy = requestProxy;
+            _resultValue.requestQuery = requestQuery;
+            _resultValue.retry = retry;
+            _resultValue.subtype = subtype;
+            return _resultValue;
         }
     }
 }

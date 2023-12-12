@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

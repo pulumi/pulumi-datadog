@@ -207,17 +207,17 @@ public final class DashboardWidgetCheckStatusDefinition {
             return this;
         }
         public DashboardWidgetCheckStatusDefinition build() {
-            final var o = new DashboardWidgetCheckStatusDefinition();
-            o.check = check;
-            o.group = group;
-            o.groupBies = groupBies;
-            o.grouping = grouping;
-            o.liveSpan = liveSpan;
-            o.tags = tags;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetCheckStatusDefinition();
+            _resultValue.check = check;
+            _resultValue.group = group;
+            _resultValue.groupBies = groupBies;
+            _resultValue.grouping = grouping;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.tags = tags;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

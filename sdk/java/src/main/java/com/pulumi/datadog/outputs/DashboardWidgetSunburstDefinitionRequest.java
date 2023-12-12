@@ -239,19 +239,19 @@ public final class DashboardWidgetSunburstDefinitionRequest {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequest build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.auditQuery = auditQuery;
-            o.formulas = formulas;
-            o.logQuery = logQuery;
-            o.networkQuery = networkQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.auditQuery = auditQuery;
+            _resultValue.formulas = formulas;
+            _resultValue.logQuery = logQuery;
+            _resultValue.networkQuery = networkQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

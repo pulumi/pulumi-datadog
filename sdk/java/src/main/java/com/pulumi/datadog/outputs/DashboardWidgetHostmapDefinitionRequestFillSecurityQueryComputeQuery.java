@@ -87,11 +87,11 @@ public final class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompu
             return this;
         }
         public DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

@@ -111,12 +111,12 @@ public final class LogsCustomPipelineProcessorCategoryProcessor {
             return this;
         }
         public LogsCustomPipelineProcessorCategoryProcessor build() {
-            final var o = new LogsCustomPipelineProcessorCategoryProcessor();
-            o.categories = categories;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorCategoryProcessor();
+            _resultValue.categories = categories;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

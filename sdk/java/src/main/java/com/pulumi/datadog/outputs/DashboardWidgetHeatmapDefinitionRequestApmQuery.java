@@ -134,13 +134,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestApmQuery {
             return this;
         }
         public DashboardWidgetHeatmapDefinitionRequestApmQuery build() {
-            final var o = new DashboardWidgetHeatmapDefinitionRequestApmQuery();
-            o.computeQuery = computeQuery;
-            o.groupBies = groupBies;
-            o.index = index;
-            o.multiComputes = multiComputes;
-            o.searchQuery = searchQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestApmQuery();
+            _resultValue.computeQuery = computeQuery;
+            _resultValue.groupBies = groupBies;
+            _resultValue.index = index;
+            _resultValue.multiComputes = multiComputes;
+            _resultValue.searchQuery = searchQuery;
+            return _resultValue;
         }
     }
 }

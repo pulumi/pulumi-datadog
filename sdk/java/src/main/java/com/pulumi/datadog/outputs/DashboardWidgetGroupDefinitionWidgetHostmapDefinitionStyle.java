@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle();
-            o.fillMax = fillMax;
-            o.fillMin = fillMin;
-            o.palette = palette;
-            o.paletteFlip = paletteFlip;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle();
+            _resultValue.fillMax = fillMax;
+            _resultValue.fillMin = fillMin;
+            _resultValue.palette = palette;
+            _resultValue.paletteFlip = paletteFlip;
+            return _resultValue;
         }
     }
 }

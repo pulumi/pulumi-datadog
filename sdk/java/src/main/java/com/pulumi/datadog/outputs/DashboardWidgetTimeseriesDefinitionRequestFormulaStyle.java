@@ -68,10 +68,10 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class GetApiKeyResult {
             return this;
         }
         public GetApiKeyResult build() {
-            final var o = new GetApiKeyResult();
-            o.id = id;
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApiKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

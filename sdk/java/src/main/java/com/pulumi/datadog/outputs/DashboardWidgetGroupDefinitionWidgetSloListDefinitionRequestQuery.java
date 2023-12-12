@@ -88,11 +88,11 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery();
-            o.limit = limit;
-            o.queryString = queryString;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery();
+            _resultValue.limit = limit;
+            _resultValue.queryString = queryString;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimes
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground();
-            o.type = type;
-            o.yaxis = yaxis;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackground();
+            _resultValue.type = type;
+            _resultValue.yaxis = yaxis;
+            return _resultValue;
         }
     }
 }

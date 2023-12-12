@@ -88,11 +88,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

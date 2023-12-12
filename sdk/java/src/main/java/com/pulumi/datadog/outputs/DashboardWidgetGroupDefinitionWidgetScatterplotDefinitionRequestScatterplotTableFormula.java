@@ -86,11 +86,11 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula();
-            o.alias = alias;
-            o.dimension = dimension;
-            o.formulaExpression = formulaExpression;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormula();
+            _resultValue.alias = alias;
+            _resultValue.dimension = dimension;
+            _resultValue.formulaExpression = formulaExpression;
+            return _resultValue;
         }
     }
 }

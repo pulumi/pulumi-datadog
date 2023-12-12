@@ -206,17 +206,17 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
             return this;
         }
         public DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery build() {
-            final var o = new DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery();
-            o.aggregator = aggregator;
-            o.dataSource = dataSource;
-            o.isNormalizedCpu = isNormalizedCpu;
-            o.limit = limit;
-            o.metric = metric;
-            o.name = name;
-            o.sort = sort;
-            o.tagFilters = tagFilters;
-            o.textFilter = textFilter;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery();
+            _resultValue.aggregator = aggregator;
+            _resultValue.dataSource = dataSource;
+            _resultValue.isNormalizedCpu = isNormalizedCpu;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.name = name;
+            _resultValue.sort = sort;
+            _resultValue.tagFilters = tagFilters;
+            _resultValue.textFilter = textFilter;
+            return _resultValue;
         }
     }
 }

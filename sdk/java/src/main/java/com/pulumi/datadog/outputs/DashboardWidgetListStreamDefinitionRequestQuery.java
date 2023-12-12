@@ -148,14 +148,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
             return this;
         }
         public DashboardWidgetListStreamDefinitionRequestQuery build() {
-            final var o = new DashboardWidgetListStreamDefinitionRequestQuery();
-            o.dataSource = dataSource;
-            o.eventSize = eventSize;
-            o.indexes = indexes;
-            o.queryString = queryString;
-            o.sort = sort;
-            o.storage = storage;
-            return o;
+            final var _resultValue = new DashboardWidgetListStreamDefinitionRequestQuery();
+            _resultValue.dataSource = dataSource;
+            _resultValue.eventSize = eventSize;
+            _resultValue.indexes = indexes;
+            _resultValue.queryString = queryString;
+            _resultValue.sort = sort;
+            _resultValue.storage = storage;
+            return _resultValue;
         }
     }
 }

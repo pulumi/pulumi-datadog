@@ -58,10 +58,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
             return queries(List.of(queries));
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTable build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestScatterplotTable();
-            o.formulas = formulas;
-            o.queries = queries;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestScatterplotTable();
+            _resultValue.formulas = formulas;
+            _resultValue.queries = queries;
+            return _resultValue;
         }
     }
 }

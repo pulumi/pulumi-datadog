@@ -91,11 +91,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
             return sources(List.of(sources));
         }
         public LogsCustomPipelineProcessorPipelineProcessorDateRemapper build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorDateRemapper();
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.sources = sources;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorDateRemapper();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class SecurityMonitoringDefaultRuleFilter {
             return this;
         }
         public SecurityMonitoringDefaultRuleFilter build() {
-            final var o = new SecurityMonitoringDefaultRuleFilter();
-            o.action = action;
-            o.query = query;
-            return o;
+            final var _resultValue = new SecurityMonitoringDefaultRuleFilter();
+            _resultValue.action = action;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

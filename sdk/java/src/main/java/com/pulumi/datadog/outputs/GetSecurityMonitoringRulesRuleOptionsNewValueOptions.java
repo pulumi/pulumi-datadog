@@ -74,12 +74,12 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
             return this;
         }
         public GetSecurityMonitoringRulesRuleOptionsNewValueOptions build() {
-            final var o = new GetSecurityMonitoringRulesRuleOptionsNewValueOptions();
-            o.forgetAfter = forgetAfter;
-            o.learningDuration = learningDuration;
-            o.learningMethod = learningMethod;
-            o.learningThreshold = learningThreshold;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleOptionsNewValueOptions();
+            _resultValue.forgetAfter = forgetAfter;
+            _resultValue.learningDuration = learningDuration;
+            _resultValue.learningMethod = learningMethod;
+            _resultValue.learningThreshold = learningThreshold;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
             return sources(List.of(sources));
         }
         public LogsCustomPipelineProcessorPipelineProcessorServiceRemapper build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorServiceRemapper();
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.sources = sources;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorServiceRemapper();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.sources = sources;
+            return _resultValue;
         }
     }
 }

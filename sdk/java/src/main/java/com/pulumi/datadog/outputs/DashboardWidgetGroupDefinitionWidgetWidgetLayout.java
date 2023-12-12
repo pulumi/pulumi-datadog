@@ -125,13 +125,13 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetWidgetLayout build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetWidgetLayout();
-            o.height = height;
-            o.isColumnBreak = isColumnBreak;
-            o.width = width;
-            o.x = x;
-            o.y = y;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetWidgetLayout();
+            _resultValue.height = height;
+            _resultValue.isColumnBreak = isColumnBreak;
+            _resultValue.width = width;
+            _resultValue.x = x;
+            _resultValue.y = y;
+            return _resultValue;
         }
     }
 }

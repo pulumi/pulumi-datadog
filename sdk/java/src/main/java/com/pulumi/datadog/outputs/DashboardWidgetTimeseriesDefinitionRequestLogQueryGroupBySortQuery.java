@@ -86,11 +86,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

@@ -207,17 +207,17 @@ public final class GetHostsResult {
             return this;
         }
         public GetHostsResult build() {
-            final var o = new GetHostsResult();
-            o.filter = filter;
-            o.from = from;
-            o.hostLists = hostLists;
-            o.id = id;
-            o.includeMutedHostsData = includeMutedHostsData;
-            o.sortDir = sortDir;
-            o.sortField = sortField;
-            o.totalMatching = totalMatching;
-            o.totalReturned = totalReturned;
-            return o;
+            final var _resultValue = new GetHostsResult();
+            _resultValue.filter = filter;
+            _resultValue.from = from;
+            _resultValue.hostLists = hostLists;
+            _resultValue.id = id;
+            _resultValue.includeMutedHostsData = includeMutedHostsData;
+            _resultValue.sortDir = sortDir;
+            _resultValue.sortField = sortField;
+            _resultValue.totalMatching = totalMatching;
+            _resultValue.totalReturned = totalReturned;
+            return _resultValue;
         }
     }
 }

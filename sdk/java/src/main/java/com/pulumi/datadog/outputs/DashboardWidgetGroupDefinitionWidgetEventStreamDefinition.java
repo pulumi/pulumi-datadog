@@ -154,15 +154,15 @@ public final class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetEventStreamDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetEventStreamDefinition();
-            o.eventSize = eventSize;
-            o.liveSpan = liveSpan;
-            o.query = query;
-            o.tagsExecution = tagsExecution;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetEventStreamDefinition();
+            _resultValue.eventSize = eventSize;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.query = query;
+            _resultValue.tagsExecution = tagsExecution;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

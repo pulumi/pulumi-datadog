@@ -82,11 +82,11 @@ public final class DashboardWidgetListStreamDefinitionRequest {
             return this;
         }
         public DashboardWidgetListStreamDefinitionRequest build() {
-            final var o = new DashboardWidgetListStreamDefinitionRequest();
-            o.columns = columns;
-            o.query = query;
-            o.responseFormat = responseFormat;
-            return o;
+            final var _resultValue = new DashboardWidgetListStreamDefinitionRequest();
+            _resultValue.columns = columns;
+            _resultValue.query = query;
+            _resultValue.responseFormat = responseFormat;
+            return _resultValue;
         }
     }
 }

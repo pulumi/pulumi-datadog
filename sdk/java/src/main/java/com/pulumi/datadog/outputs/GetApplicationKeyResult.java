@@ -86,11 +86,11 @@ public final class GetApplicationKeyResult {
             return this;
         }
         public GetApplicationKeyResult build() {
-            final var o = new GetApplicationKeyResult();
-            o.id = id;
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApplicationKeyResult();
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

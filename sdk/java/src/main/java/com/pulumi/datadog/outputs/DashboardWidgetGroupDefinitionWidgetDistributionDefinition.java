@@ -168,15 +168,15 @@ public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetDistributionDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetDistributionDefinition();
-            o.legendSize = legendSize;
-            o.liveSpan = liveSpan;
-            o.requests = requests;
-            o.showLegend = showLegend;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetDistributionDefinition();
+            _resultValue.legendSize = legendSize;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.requests = requests;
+            _resultValue.showLegend = showLegend;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

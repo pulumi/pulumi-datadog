@@ -65,10 +65,10 @@ public final class DashboardWidgetListStreamDefinitionRequestQuerySort {
             return this;
         }
         public DashboardWidgetListStreamDefinitionRequestQuerySort build() {
-            final var o = new DashboardWidgetListStreamDefinitionRequestQuerySort();
-            o.column = column;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetListStreamDefinitionRequestQuerySort();
+            _resultValue.column = column;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

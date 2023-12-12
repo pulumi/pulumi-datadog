@@ -87,11 +87,11 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute();
-            o.aggregation = aggregation;
-            o.interval = interval;
-            o.metric = metric;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQueryCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.interval = interval;
+            _resultValue.metric = metric;
+            return _resultValue;
         }
     }
 }

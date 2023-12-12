@@ -69,10 +69,10 @@ public final class GetIntegrationNamespaceRulesResult {
             return namespaceRules(List.of(namespaceRules));
         }
         public GetIntegrationNamespaceRulesResult build() {
-            final var o = new GetIntegrationNamespaceRulesResult();
-            o.id = id;
-            o.namespaceRules = namespaceRules;
-            return o;
+            final var _resultValue = new GetIntegrationNamespaceRulesResult();
+            _resultValue.id = id;
+            _resultValue.namespaceRules = namespaceRules;
+            return _resultValue;
         }
     }
 }

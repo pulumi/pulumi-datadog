@@ -86,11 +86,11 @@ public final class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuer
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

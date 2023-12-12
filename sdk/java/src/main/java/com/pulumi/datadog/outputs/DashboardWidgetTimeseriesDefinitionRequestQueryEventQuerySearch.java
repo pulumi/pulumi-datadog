@@ -38,9 +38,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySear
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

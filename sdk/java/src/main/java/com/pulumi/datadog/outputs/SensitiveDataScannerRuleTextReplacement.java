@@ -87,11 +87,11 @@ public final class SensitiveDataScannerRuleTextReplacement {
             return this;
         }
         public SensitiveDataScannerRuleTextReplacement build() {
-            final var o = new SensitiveDataScannerRuleTextReplacement();
-            o.numberOfChars = numberOfChars;
-            o.replacementString = replacementString;
-            o.type = type;
-            return o;
+            final var _resultValue = new SensitiveDataScannerRuleTextReplacement();
+            _resultValue.numberOfChars = numberOfChars;
+            _resultValue.replacementString = replacementString;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

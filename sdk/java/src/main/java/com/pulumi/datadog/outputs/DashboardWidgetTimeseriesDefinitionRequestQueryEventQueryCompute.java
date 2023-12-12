@@ -87,11 +87,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComp
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute();
-            o.aggregation = aggregation;
-            o.interval = interval;
-            o.metric = metric;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.interval = interval;
+            _resultValue.metric = metric;
+            return _resultValue;
         }
     }
 }

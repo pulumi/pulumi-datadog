@@ -65,10 +65,10 @@ public final class LogsCustomPipelineProcessorGrokParserGrok {
             return this;
         }
         public LogsCustomPipelineProcessorGrokParserGrok build() {
-            final var o = new LogsCustomPipelineProcessorGrokParserGrok();
-            o.matchRules = matchRules;
-            o.supportRules = supportRules;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorGrokParserGrok();
+            _resultValue.matchRules = matchRules;
+            _resultValue.supportRules = supportRules;
+            return _resultValue;
         }
     }
 }

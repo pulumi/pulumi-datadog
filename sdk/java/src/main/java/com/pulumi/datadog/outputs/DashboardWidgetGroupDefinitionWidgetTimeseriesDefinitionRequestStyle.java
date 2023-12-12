@@ -86,11 +86,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle();
-            o.lineType = lineType;
-            o.lineWidth = lineWidth;
-            o.palette = palette;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle();
+            _resultValue.lineType = lineType;
+            _resultValue.lineWidth = lineWidth;
+            _resultValue.palette = palette;
+            return _resultValue;
         }
     }
 }

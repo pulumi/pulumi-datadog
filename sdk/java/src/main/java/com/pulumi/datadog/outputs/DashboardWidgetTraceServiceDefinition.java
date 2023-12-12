@@ -315,23 +315,23 @@ public final class DashboardWidgetTraceServiceDefinition {
             return this;
         }
         public DashboardWidgetTraceServiceDefinition build() {
-            final var o = new DashboardWidgetTraceServiceDefinition();
-            o.displayFormat = displayFormat;
-            o.env = env;
-            o.liveSpan = liveSpan;
-            o.service = service;
-            o.showBreakdown = showBreakdown;
-            o.showDistribution = showDistribution;
-            o.showErrors = showErrors;
-            o.showHits = showHits;
-            o.showLatency = showLatency;
-            o.showResourceList = showResourceList;
-            o.sizeFormat = sizeFormat;
-            o.spanName = spanName;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetTraceServiceDefinition();
+            _resultValue.displayFormat = displayFormat;
+            _resultValue.env = env;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.service = service;
+            _resultValue.showBreakdown = showBreakdown;
+            _resultValue.showDistribution = showDistribution;
+            _resultValue.showErrors = showErrors;
+            _resultValue.showHits = showHits;
+            _resultValue.showLatency = showLatency;
+            _resultValue.showResourceList = showResourceList;
+            _resultValue.sizeFormat = sizeFormat;
+            _resultValue.spanName = spanName;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

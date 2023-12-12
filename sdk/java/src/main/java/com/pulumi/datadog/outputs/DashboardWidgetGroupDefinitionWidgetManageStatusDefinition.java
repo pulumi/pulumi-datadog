@@ -231,19 +231,19 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetManageStatusDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetManageStatusDefinition();
-            o.colorPreference = colorPreference;
-            o.displayFormat = displayFormat;
-            o.hideZeroCounts = hideZeroCounts;
-            o.query = query;
-            o.showLastTriggered = showLastTriggered;
-            o.showPriority = showPriority;
-            o.sort = sort;
-            o.summaryType = summaryType;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetManageStatusDefinition();
+            _resultValue.colorPreference = colorPreference;
+            _resultValue.displayFormat = displayFormat;
+            _resultValue.hideZeroCounts = hideZeroCounts;
+            _resultValue.query = query;
+            _resultValue.showLastTriggered = showLastTriggered;
+            _resultValue.showPriority = showPriority;
+            _resultValue.sort = sort;
+            _resultValue.summaryType = summaryType;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

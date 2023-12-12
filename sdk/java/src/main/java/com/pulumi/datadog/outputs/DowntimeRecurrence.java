@@ -148,14 +148,14 @@ public final class DowntimeRecurrence {
             return weekDays(List.of(weekDays));
         }
         public DowntimeRecurrence build() {
-            final var o = new DowntimeRecurrence();
-            o.period = period;
-            o.rrule = rrule;
-            o.type = type;
-            o.untilDate = untilDate;
-            o.untilOccurrences = untilOccurrences;
-            o.weekDays = weekDays;
-            return o;
+            final var _resultValue = new DowntimeRecurrence();
+            _resultValue.period = period;
+            _resultValue.rrule = rrule;
+            _resultValue.type = type;
+            _resultValue.untilDate = untilDate;
+            _resultValue.untilOccurrences = untilOccurrences;
+            _resultValue.weekDays = weekDays;
+            return _resultValue;
         }
     }
 }

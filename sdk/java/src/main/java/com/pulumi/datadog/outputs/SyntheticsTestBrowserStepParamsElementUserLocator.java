@@ -60,10 +60,10 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocator {
             return this;
         }
         public SyntheticsTestBrowserStepParamsElementUserLocator build() {
-            final var o = new SyntheticsTestBrowserStepParamsElementUserLocator();
-            o.failTestOnCannotLocate = failTestOnCannotLocate;
-            o.value = value;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserStepParamsElementUserLocator();
+            _resultValue.failTestOnCannotLocate = failTestOnCannotLocate;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

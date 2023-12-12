@@ -46,9 +46,9 @@ public final class LogsMetricFilter {
             return this;
         }
         public LogsMetricFilter build() {
-            final var o = new LogsMetricFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new LogsMetricFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

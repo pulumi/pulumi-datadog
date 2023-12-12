@@ -155,14 +155,14 @@ public final class MonitorVariablesEventQuery {
             return this;
         }
         public MonitorVariablesEventQuery build() {
-            final var o = new MonitorVariablesEventQuery();
-            o.computes = computes;
-            o.dataSource = dataSource;
-            o.groupBies = groupBies;
-            o.indexes = indexes;
-            o.name = name;
-            o.search = search;
-            return o;
+            final var _resultValue = new MonitorVariablesEventQuery();
+            _resultValue.computes = computes;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupBies = groupBies;
+            _resultValue.indexes = indexes;
+            _resultValue.name = name;
+            _resultValue.search = search;
+            return _resultValue;
         }
     }
 }

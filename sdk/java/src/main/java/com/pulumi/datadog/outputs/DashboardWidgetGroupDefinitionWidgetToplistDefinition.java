@@ -152,14 +152,14 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetToplistDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetToplistDefinition();
-            o.customLinks = customLinks;
-            o.liveSpan = liveSpan;
-            o.requests = requests;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetToplistDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

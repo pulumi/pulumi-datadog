@@ -65,10 +65,10 @@ public final class MetricTagConfigurationAggregation {
             return this;
         }
         public MetricTagConfigurationAggregation build() {
-            final var o = new MetricTagConfigurationAggregation();
-            o.space = space;
-            o.time = time;
-            return o;
+            final var _resultValue = new MetricTagConfigurationAggregation();
+            _resultValue.space = space;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

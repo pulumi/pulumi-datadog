@@ -91,11 +91,11 @@ public final class GetLogsPipelinesResult {
             return logsPipelines(List.of(logsPipelines));
         }
         public GetLogsPipelinesResult build() {
-            final var o = new GetLogsPipelinesResult();
-            o.id = id;
-            o.isReadOnly = isReadOnly;
-            o.logsPipelines = logsPipelines;
-            return o;
+            final var _resultValue = new GetLogsPipelinesResult();
+            _resultValue.id = id;
+            _resultValue.isReadOnly = isReadOnly;
+            _resultValue.logsPipelines = logsPipelines;
+            return _resultValue;
         }
     }
 }

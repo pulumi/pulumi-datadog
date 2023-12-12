@@ -313,23 +313,23 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequest build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequest();
-            o.aggregator = aggregator;
-            o.alias = alias;
-            o.apmQuery = apmQuery;
-            o.apmStatsQuery = apmStatsQuery;
-            o.cellDisplayModes = cellDisplayModes;
-            o.conditionalFormats = conditionalFormats;
-            o.formulas = formulas;
-            o.limit = limit;
-            o.logQuery = logQuery;
-            o.order = order;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequest();
+            _resultValue.aggregator = aggregator;
+            _resultValue.alias = alias;
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.apmStatsQuery = apmStatsQuery;
+            _resultValue.cellDisplayModes = cellDisplayModes;
+            _resultValue.conditionalFormats = conditionalFormats;
+            _resultValue.formulas = formulas;
+            _resultValue.limit = limit;
+            _resultValue.logQuery = logQuery;
+            _resultValue.order = order;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            return _resultValue;
         }
     }
 }

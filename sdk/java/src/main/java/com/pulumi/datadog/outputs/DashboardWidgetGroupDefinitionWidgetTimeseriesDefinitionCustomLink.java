@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCusto
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

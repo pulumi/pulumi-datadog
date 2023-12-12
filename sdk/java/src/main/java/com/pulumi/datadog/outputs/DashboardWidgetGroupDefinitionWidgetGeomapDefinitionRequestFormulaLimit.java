@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

@@ -149,14 +149,14 @@ public final class DashboardWidgetGroupDefinition {
             return widgets(List.of(widgets));
         }
         public DashboardWidgetGroupDefinition build() {
-            final var o = new DashboardWidgetGroupDefinition();
-            o.backgroundColor = backgroundColor;
-            o.bannerImg = bannerImg;
-            o.layoutType = layoutType;
-            o.showTitle = showTitle;
-            o.title = title;
-            o.widgets = widgets;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinition();
+            _resultValue.backgroundColor = backgroundColor;
+            _resultValue.bannerImg = bannerImg;
+            _resultValue.layoutType = layoutType;
+            _resultValue.showTitle = showTitle;
+            _resultValue.title = title;
+            _resultValue.widgets = widgets;
+            return _resultValue;
         }
     }
 }

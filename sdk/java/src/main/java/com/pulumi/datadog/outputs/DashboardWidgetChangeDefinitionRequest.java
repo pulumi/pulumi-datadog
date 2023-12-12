@@ -294,22 +294,22 @@ public final class DashboardWidgetChangeDefinitionRequest {
             return this;
         }
         public DashboardWidgetChangeDefinitionRequest build() {
-            final var o = new DashboardWidgetChangeDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.changeType = changeType;
-            o.compareTo = compareTo;
-            o.formulas = formulas;
-            o.increaseGood = increaseGood;
-            o.logQuery = logQuery;
-            o.orderBy = orderBy;
-            o.orderDir = orderDir;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.showPresent = showPresent;
-            return o;
+            final var _resultValue = new DashboardWidgetChangeDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.changeType = changeType;
+            _resultValue.compareTo = compareTo;
+            _resultValue.formulas = formulas;
+            _resultValue.increaseGood = increaseGood;
+            _resultValue.logQuery = logQuery;
+            _resultValue.orderBy = orderBy;
+            _resultValue.orderDir = orderDir;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.showPresent = showPresent;
+            return _resultValue;
         }
     }
 }

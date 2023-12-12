@@ -167,15 +167,15 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY();
-            o.aggregator = aggregator;
-            o.apmQuery = apmQuery;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY();
+            _resultValue.aggregator = aggregator;
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            return _resultValue;
         }
     }
 }

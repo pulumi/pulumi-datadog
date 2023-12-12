@@ -88,11 +88,11 @@ public final class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy {
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

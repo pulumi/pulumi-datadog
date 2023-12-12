@@ -122,13 +122,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParser {
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorGrokParser build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorGrokParser();
-            o.grok = grok;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.samples = samples;
-            o.source = source;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorGrokParser();
+            _resultValue.grok = grok;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.samples = samples;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

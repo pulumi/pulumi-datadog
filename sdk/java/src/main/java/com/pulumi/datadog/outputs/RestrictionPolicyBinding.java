@@ -69,10 +69,10 @@ public final class RestrictionPolicyBinding {
             return this;
         }
         public RestrictionPolicyBinding build() {
-            final var o = new RestrictionPolicyBinding();
-            o.principals = principals;
-            o.relation = relation;
-            return o;
+            final var _resultValue = new RestrictionPolicyBinding();
+            _resultValue.principals = principals;
+            _resultValue.relation = relation;
+            return _resultValue;
         }
     }
 }

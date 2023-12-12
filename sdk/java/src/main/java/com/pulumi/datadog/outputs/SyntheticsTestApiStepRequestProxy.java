@@ -68,10 +68,10 @@ public final class SyntheticsTestApiStepRequestProxy {
             return this;
         }
         public SyntheticsTestApiStepRequestProxy build() {
-            final var o = new SyntheticsTestApiStepRequestProxy();
-            o.headers = headers;
-            o.url = url;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepRequestProxy();
+            _resultValue.headers = headers;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

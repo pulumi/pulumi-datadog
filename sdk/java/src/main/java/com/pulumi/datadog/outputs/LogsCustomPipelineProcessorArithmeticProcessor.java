@@ -125,13 +125,13 @@ public final class LogsCustomPipelineProcessorArithmeticProcessor {
             return this;
         }
         public LogsCustomPipelineProcessorArithmeticProcessor build() {
-            final var o = new LogsCustomPipelineProcessorArithmeticProcessor();
-            o.expression = expression;
-            o.isEnabled = isEnabled;
-            o.isReplaceMissing = isReplaceMissing;
-            o.name = name;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorArithmeticProcessor();
+            _resultValue.expression = expression;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.isReplaceMissing = isReplaceMissing;
+            _resultValue.name = name;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

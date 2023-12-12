@@ -125,13 +125,13 @@ public final class ServiceLevelObjectiveThreshold {
             return this;
         }
         public ServiceLevelObjectiveThreshold build() {
-            final var o = new ServiceLevelObjectiveThreshold();
-            o.target = target;
-            o.targetDisplay = targetDisplay;
-            o.timeframe = timeframe;
-            o.warning = warning;
-            o.warningDisplay = warningDisplay;
-            return o;
+            final var _resultValue = new ServiceLevelObjectiveThreshold();
+            _resultValue.target = target;
+            _resultValue.targetDisplay = targetDisplay;
+            _resultValue.timeframe = timeframe;
+            _resultValue.warning = warning;
+            _resultValue.warningDisplay = warningDisplay;
+            return _resultValue;
         }
     }
 }

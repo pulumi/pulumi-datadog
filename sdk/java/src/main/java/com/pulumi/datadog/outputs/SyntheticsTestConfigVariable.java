@@ -128,14 +128,14 @@ public final class SyntheticsTestConfigVariable {
             return this;
         }
         public SyntheticsTestConfigVariable build() {
-            final var o = new SyntheticsTestConfigVariable();
-            o.example = example;
-            o.id = id;
-            o.name = name;
-            o.pattern = pattern;
-            o.secure = secure;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsTestConfigVariable();
+            _resultValue.example = example;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.pattern = pattern;
+            _resultValue.secure = secure;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }
