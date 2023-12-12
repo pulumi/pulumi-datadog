@@ -88,11 +88,11 @@ public final class DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

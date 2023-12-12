@@ -143,14 +143,14 @@ public final class MonitorMonitorThresholds {
             return this;
         }
         public MonitorMonitorThresholds build() {
-            final var o = new MonitorMonitorThresholds();
-            o.critical = critical;
-            o.criticalRecovery = criticalRecovery;
-            o.ok = ok;
-            o.unknown = unknown;
-            o.warning = warning;
-            o.warningRecovery = warningRecovery;
-            return o;
+            final var _resultValue = new MonitorMonitorThresholds();
+            _resultValue.critical = critical;
+            _resultValue.criticalRecovery = criticalRecovery;
+            _resultValue.ok = ok;
+            _resultValue.unknown = unknown;
+            _resultValue.warning = warning;
+            _resultValue.warningRecovery = warningRecovery;
+            return _resultValue;
         }
     }
 }

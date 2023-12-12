@@ -64,10 +64,10 @@ public final class DowntimeScheduleRecurringSchedule {
             return this;
         }
         public DowntimeScheduleRecurringSchedule build() {
-            final var o = new DowntimeScheduleRecurringSchedule();
-            o.recurrences = recurrences;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new DowntimeScheduleRecurringSchedule();
+            _resultValue.recurrences = recurrences;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

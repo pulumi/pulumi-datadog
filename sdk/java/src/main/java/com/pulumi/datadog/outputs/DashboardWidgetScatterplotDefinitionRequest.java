@@ -97,11 +97,11 @@ public final class DashboardWidgetScatterplotDefinitionRequest {
             return ys(List.of(ys));
         }
         public DashboardWidgetScatterplotDefinitionRequest build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequest();
-            o.scatterplotTables = scatterplotTables;
-            o.xes = xes;
-            o.ys = ys;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequest();
+            _resultValue.scatterplotTables = scatterplotTables;
+            _resultValue.xes = xes;
+            _resultValue.ys = ys;
+            return _resultValue;
         }
     }
 }

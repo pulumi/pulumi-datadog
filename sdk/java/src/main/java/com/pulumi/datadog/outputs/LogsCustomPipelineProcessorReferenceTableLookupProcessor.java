@@ -125,13 +125,13 @@ public final class LogsCustomPipelineProcessorReferenceTableLookupProcessor {
             return this;
         }
         public LogsCustomPipelineProcessorReferenceTableLookupProcessor build() {
-            final var o = new LogsCustomPipelineProcessorReferenceTableLookupProcessor();
-            o.isEnabled = isEnabled;
-            o.lookupEnrichmentTable = lookupEnrichmentTable;
-            o.name = name;
-            o.source = source;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorReferenceTableLookupProcessor();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.lookupEnrichmentTable = lookupEnrichmentTable;
+            _resultValue.name = name;
+            _resultValue.source = source;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

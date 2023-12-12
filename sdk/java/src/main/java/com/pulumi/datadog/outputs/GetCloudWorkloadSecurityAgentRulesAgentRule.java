@@ -83,13 +83,13 @@ public final class GetCloudWorkloadSecurityAgentRulesAgentRule {
             return this;
         }
         public GetCloudWorkloadSecurityAgentRulesAgentRule build() {
-            final var o = new GetCloudWorkloadSecurityAgentRulesAgentRule();
-            o.description = description;
-            o.enabled = enabled;
-            o.expression = expression;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCloudWorkloadSecurityAgentRulesAgentRule();
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.expression = expression;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

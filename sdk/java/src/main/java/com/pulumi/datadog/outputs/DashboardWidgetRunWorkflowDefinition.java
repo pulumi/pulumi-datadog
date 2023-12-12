@@ -171,15 +171,15 @@ public final class DashboardWidgetRunWorkflowDefinition {
             return this;
         }
         public DashboardWidgetRunWorkflowDefinition build() {
-            final var o = new DashboardWidgetRunWorkflowDefinition();
-            o.customLinks = customLinks;
-            o.inputs = inputs;
-            o.liveSpan = liveSpan;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.workflowId = workflowId;
-            return o;
+            final var _resultValue = new DashboardWidgetRunWorkflowDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.inputs = inputs;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.workflowId = workflowId;
+            return _resultValue;
         }
     }
 }

@@ -202,17 +202,17 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat();
-            o.comparator = comparator;
-            o.customBgColor = customBgColor;
-            o.customFgColor = customFgColor;
-            o.hideValue = hideValue;
-            o.imageUrl = imageUrl;
-            o.metric = metric;
-            o.palette = palette;
-            o.timeframe = timeframe;
-            o.value = value;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat();
+            _resultValue.comparator = comparator;
+            _resultValue.customBgColor = customBgColor;
+            _resultValue.customFgColor = customFgColor;
+            _resultValue.hideValue = hideValue;
+            _resultValue.imageUrl = imageUrl;
+            _resultValue.metric = metric;
+            _resultValue.palette = palette;
+            _resultValue.timeframe = timeframe;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

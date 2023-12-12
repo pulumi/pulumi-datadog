@@ -103,12 +103,12 @@ public final class GetDashboardResult {
             return this;
         }
         public GetDashboardResult build() {
-            final var o = new GetDashboardResult();
-            o.id = id;
-            o.name = name;
-            o.title = title;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetDashboardResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.title = title;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

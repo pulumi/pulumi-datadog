@@ -87,11 +87,11 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestL
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

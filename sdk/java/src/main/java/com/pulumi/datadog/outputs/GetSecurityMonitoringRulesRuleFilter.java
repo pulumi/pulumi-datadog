@@ -49,10 +49,10 @@ public final class GetSecurityMonitoringRulesRuleFilter {
             return this;
         }
         public GetSecurityMonitoringRulesRuleFilter build() {
-            final var o = new GetSecurityMonitoringRulesRuleFilter();
-            o.action = action;
-            o.query = query;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleFilter();
+            _resultValue.action = action;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

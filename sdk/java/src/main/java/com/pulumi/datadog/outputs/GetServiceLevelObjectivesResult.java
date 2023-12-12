@@ -151,14 +151,14 @@ public final class GetServiceLevelObjectivesResult {
             return this;
         }
         public GetServiceLevelObjectivesResult build() {
-            final var o = new GetServiceLevelObjectivesResult();
-            o.id = id;
-            o.ids = ids;
-            o.metricsQuery = metricsQuery;
-            o.nameQuery = nameQuery;
-            o.slos = slos;
-            o.tagsQuery = tagsQuery;
-            return o;
+            final var _resultValue = new GetServiceLevelObjectivesResult();
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.metricsQuery = metricsQuery;
+            _resultValue.nameQuery = nameQuery;
+            _resultValue.slos = slos;
+            _resultValue.tagsQuery = tagsQuery;
+            return _resultValue;
         }
     }
 }

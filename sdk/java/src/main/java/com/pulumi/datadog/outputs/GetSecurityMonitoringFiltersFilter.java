@@ -102,14 +102,14 @@ public final class GetSecurityMonitoringFiltersFilter {
             return this;
         }
         public GetSecurityMonitoringFiltersFilter build() {
-            final var o = new GetSecurityMonitoringFiltersFilter();
-            o.exclusionFilters = exclusionFilters;
-            o.filteredDataType = filteredDataType;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.query = query;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringFiltersFilter();
+            _resultValue.exclusionFilters = exclusionFilters;
+            _resultValue.filteredDataType = filteredDataType;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

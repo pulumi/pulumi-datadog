@@ -192,16 +192,16 @@ public final class DashboardWidgetGeomapDefinition {
             return this;
         }
         public DashboardWidgetGeomapDefinition build() {
-            final var o = new DashboardWidgetGeomapDefinition();
-            o.customLinks = customLinks;
-            o.liveSpan = liveSpan;
-            o.requests = requests;
-            o.style = style;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.view = view;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.requests = requests;
+            _resultValue.style = style;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.view = view;
+            return _resultValue;
         }
     }
 }

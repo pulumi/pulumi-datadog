@@ -86,11 +86,11 @@ public final class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort
             return this;
         }
         public DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

@@ -60,11 +60,11 @@ public final class GetServiceLevelObjectivesSlo {
             return this;
         }
         public GetServiceLevelObjectivesSlo build() {
-            final var o = new GetServiceLevelObjectivesSlo();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServiceLevelObjectivesSlo();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

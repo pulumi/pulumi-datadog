@@ -49,10 +49,10 @@ public final class GetMonitorMonitorThresholdWindow {
             return this;
         }
         public GetMonitorMonitorThresholdWindow build() {
-            final var o = new GetMonitorMonitorThresholdWindow();
-            o.recoveryWindow = recoveryWindow;
-            o.triggerWindow = triggerWindow;
-            return o;
+            final var _resultValue = new GetMonitorMonitorThresholdWindow();
+            _resultValue.recoveryWindow = recoveryWindow;
+            _resultValue.triggerWindow = triggerWindow;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class SyntheticsTestApiStepRequestClientCertificateKey {
             return this;
         }
         public SyntheticsTestApiStepRequestClientCertificateKey build() {
-            final var o = new SyntheticsTestApiStepRequestClientCertificateKey();
-            o.content = content;
-            o.filename = filename;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepRequestClientCertificateKey();
+            _resultValue.content = content;
+            _resultValue.filename = filename;
+            return _resultValue;
         }
     }
 }

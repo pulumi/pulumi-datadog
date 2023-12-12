@@ -72,10 +72,10 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomains {
             return this;
         }
         public OrganizationSettingsSettingsSamlAutocreateUsersDomains build() {
-            final var o = new OrganizationSettingsSettingsSamlAutocreateUsersDomains();
-            o.domains = domains;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new OrganizationSettingsSettingsSamlAutocreateUsersDomains();
+            _resultValue.domains = domains;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

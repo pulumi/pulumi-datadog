@@ -98,12 +98,12 @@ public final class SyntheticsGlobalVariableParseTestOptions {
             return this;
         }
         public SyntheticsGlobalVariableParseTestOptions build() {
-            final var o = new SyntheticsGlobalVariableParseTestOptions();
-            o.field = field;
-            o.localVariableName = localVariableName;
-            o.parser = parser;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsGlobalVariableParseTestOptions();
+            _resultValue.field = field;
+            _resultValue.localVariableName = localVariableName;
+            _resultValue.parser = parser;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

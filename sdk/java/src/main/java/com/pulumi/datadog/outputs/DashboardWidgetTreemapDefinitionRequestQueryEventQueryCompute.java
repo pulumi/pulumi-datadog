@@ -87,11 +87,11 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute build() {
-            final var o = new DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute();
-            o.aggregation = aggregation;
-            o.interval = interval;
-            o.metric = metric;
-            return o;
+            final var _resultValue = new DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.interval = interval;
+            _resultValue.metric = metric;
+            return _resultValue;
         }
     }
 }

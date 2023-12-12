@@ -70,10 +70,10 @@ public final class GetMonitorConfigPoliciesResult {
             return monitorConfigPolicies(List.of(monitorConfigPolicies));
         }
         public GetMonitorConfigPoliciesResult build() {
-            final var o = new GetMonitorConfigPoliciesResult();
-            o.id = id;
-            o.monitorConfigPolicies = monitorConfigPolicies;
-            return o;
+            final var _resultValue = new GetMonitorConfigPoliciesResult();
+            _resultValue.id = id;
+            _resultValue.monitorConfigPolicies = monitorConfigPolicies;
+            return _resultValue;
         }
     }
 }

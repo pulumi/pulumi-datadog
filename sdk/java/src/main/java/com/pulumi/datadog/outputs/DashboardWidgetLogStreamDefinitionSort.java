@@ -65,10 +65,10 @@ public final class DashboardWidgetLogStreamDefinitionSort {
             return this;
         }
         public DashboardWidgetLogStreamDefinitionSort build() {
-            final var o = new DashboardWidgetLogStreamDefinitionSort();
-            o.column = column;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetLogStreamDefinitionSort();
+            _resultValue.column = column;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

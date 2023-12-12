@@ -88,11 +88,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery();
-            o.dataSource = dataSource;
-            o.filters = filters;
-            o.service = service;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery();
+            _resultValue.dataSource = dataSource;
+            _resultValue.filters = filters;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

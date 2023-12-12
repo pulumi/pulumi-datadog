@@ -87,11 +87,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiComput
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

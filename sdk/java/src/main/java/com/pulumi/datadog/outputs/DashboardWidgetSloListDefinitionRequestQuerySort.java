@@ -65,10 +65,10 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
             return this;
         }
         public DashboardWidgetSloListDefinitionRequestQuerySort build() {
-            final var o = new DashboardWidgetSloListDefinitionRequestQuerySort();
-            o.column = column;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetSloListDefinitionRequestQuerySort();
+            _resultValue.column = column;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

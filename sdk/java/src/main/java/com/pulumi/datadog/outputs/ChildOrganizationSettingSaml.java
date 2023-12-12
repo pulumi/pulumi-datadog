@@ -40,9 +40,9 @@ public final class ChildOrganizationSettingSaml {
             return this;
         }
         public ChildOrganizationSettingSaml build() {
-            final var o = new ChildOrganizationSettingSaml();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ChildOrganizationSettingSaml();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

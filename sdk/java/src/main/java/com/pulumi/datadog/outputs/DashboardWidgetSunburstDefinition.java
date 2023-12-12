@@ -212,17 +212,17 @@ public final class DashboardWidgetSunburstDefinition {
             return this;
         }
         public DashboardWidgetSunburstDefinition build() {
-            final var o = new DashboardWidgetSunburstDefinition();
-            o.customLinks = customLinks;
-            o.hideTotal = hideTotal;
-            o.legendInline = legendInline;
-            o.legendTable = legendTable;
-            o.liveSpan = liveSpan;
-            o.requests = requests;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.hideTotal = hideTotal;
+            _resultValue.legendInline = legendInline;
+            _resultValue.legendTable = legendTable;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

@@ -163,15 +163,15 @@ public final class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetAlertValueDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetAlertValueDefinition();
-            o.alertId = alertId;
-            o.precision = precision;
-            o.textAlign = textAlign;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.unit = unit;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetAlertValueDefinition();
+            _resultValue.alertId = alertId;
+            _resultValue.precision = precision;
+            _resultValue.textAlign = textAlign;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.unit = unit;
+            return _resultValue;
         }
     }
 }

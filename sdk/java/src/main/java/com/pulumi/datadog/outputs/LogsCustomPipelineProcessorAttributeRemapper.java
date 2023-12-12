@@ -205,17 +205,17 @@ public final class LogsCustomPipelineProcessorAttributeRemapper {
             return this;
         }
         public LogsCustomPipelineProcessorAttributeRemapper build() {
-            final var o = new LogsCustomPipelineProcessorAttributeRemapper();
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.overrideOnConflict = overrideOnConflict;
-            o.preserveSource = preserveSource;
-            o.sourceType = sourceType;
-            o.sources = sources;
-            o.target = target;
-            o.targetFormat = targetFormat;
-            o.targetType = targetType;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorAttributeRemapper();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.overrideOnConflict = overrideOnConflict;
+            _resultValue.preserveSource = preserveSource;
+            _resultValue.sourceType = sourceType;
+            _resultValue.sources = sources;
+            _resultValue.target = target;
+            _resultValue.targetFormat = targetFormat;
+            _resultValue.targetType = targetType;
+            return _resultValue;
         }
     }
 }

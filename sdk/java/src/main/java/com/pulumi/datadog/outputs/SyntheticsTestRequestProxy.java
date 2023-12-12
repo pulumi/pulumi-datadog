@@ -68,10 +68,10 @@ public final class SyntheticsTestRequestProxy {
             return this;
         }
         public SyntheticsTestRequestProxy build() {
-            final var o = new SyntheticsTestRequestProxy();
-            o.headers = headers;
-            o.url = url;
-            return o;
+            final var _resultValue = new SyntheticsTestRequestProxy();
+            _resultValue.headers = headers;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

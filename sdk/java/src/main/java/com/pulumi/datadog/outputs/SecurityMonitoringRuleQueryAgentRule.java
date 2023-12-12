@@ -65,10 +65,10 @@ public final class SecurityMonitoringRuleQueryAgentRule {
             return this;
         }
         public SecurityMonitoringRuleQueryAgentRule build() {
-            final var o = new SecurityMonitoringRuleQueryAgentRule();
-            o.agentRuleId = agentRuleId;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new SecurityMonitoringRuleQueryAgentRule();
+            _resultValue.agentRuleId = agentRuleId;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

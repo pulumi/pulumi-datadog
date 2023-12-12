@@ -42,9 +42,9 @@ public final class GetMonitorSchedulingOption {
             return evaluationWindows(List.of(evaluationWindows));
         }
         public GetMonitorSchedulingOption build() {
-            final var o = new GetMonitorSchedulingOption();
-            o.evaluationWindows = evaluationWindows;
-            return o;
+            final var _resultValue = new GetMonitorSchedulingOption();
+            _resultValue.evaluationWindows = evaluationWindows;
+            return _resultValue;
         }
     }
 }

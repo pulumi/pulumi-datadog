@@ -148,14 +148,14 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestF
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill();
-            o.apmQuery = apmQuery;
-            o.logQuery = logQuery;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.logQuery = logQuery;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            return _resultValue;
         }
     }
 }

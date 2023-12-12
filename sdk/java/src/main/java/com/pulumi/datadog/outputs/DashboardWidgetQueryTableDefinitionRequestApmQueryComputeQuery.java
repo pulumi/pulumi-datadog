@@ -87,11 +87,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuer
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

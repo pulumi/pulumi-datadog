@@ -88,11 +88,11 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
             return this;
         }
         public DashboardWidgetSloListDefinitionRequestQuery build() {
-            final var o = new DashboardWidgetSloListDefinitionRequestQuery();
-            o.limit = limit;
-            o.queryString = queryString;
-            o.sort = sort;
-            return o;
+            final var _resultValue = new DashboardWidgetSloListDefinitionRequestQuery();
+            _resultValue.limit = limit;
+            _resultValue.queryString = queryString;
+            _resultValue.sort = sort;
+            return _resultValue;
         }
     }
 }

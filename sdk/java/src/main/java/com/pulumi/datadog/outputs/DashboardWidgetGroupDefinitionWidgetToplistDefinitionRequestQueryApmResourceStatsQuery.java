@@ -223,18 +223,18 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery();
-            o.dataSource = dataSource;
-            o.env = env;
-            o.groupBies = groupBies;
-            o.name = name;
-            o.operationName = operationName;
-            o.primaryTagName = primaryTagName;
-            o.primaryTagValue = primaryTagValue;
-            o.resourceName = resourceName;
-            o.service = service;
-            o.stat = stat;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery();
+            _resultValue.dataSource = dataSource;
+            _resultValue.env = env;
+            _resultValue.groupBies = groupBies;
+            _resultValue.name = name;
+            _resultValue.operationName = operationName;
+            _resultValue.primaryTagName = primaryTagName;
+            _resultValue.primaryTagValue = primaryTagValue;
+            _resultValue.resourceName = resourceName;
+            _resultValue.service = service;
+            _resultValue.stat = stat;
+            return _resultValue;
         }
     }
 }

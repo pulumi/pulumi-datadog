@@ -97,12 +97,12 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery();
-            o.aggregator = aggregator;
-            o.dataSource = dataSource;
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery();
+            _resultValue.aggregator = aggregator;
+            _resultValue.dataSource = dataSource;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

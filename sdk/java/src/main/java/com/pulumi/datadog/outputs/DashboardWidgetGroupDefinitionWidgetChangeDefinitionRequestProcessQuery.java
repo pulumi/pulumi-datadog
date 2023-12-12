@@ -110,12 +110,12 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestPr
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

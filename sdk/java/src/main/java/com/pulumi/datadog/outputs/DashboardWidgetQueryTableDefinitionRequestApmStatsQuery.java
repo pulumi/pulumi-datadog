@@ -167,15 +167,15 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestApmStatsQuery build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestApmStatsQuery();
-            o.columns = columns;
-            o.env = env;
-            o.name = name;
-            o.primaryTag = primaryTag;
-            o.resource = resource;
-            o.rowType = rowType;
-            o.service = service;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestApmStatsQuery();
+            _resultValue.columns = columns;
+            _resultValue.env = env;
+            _resultValue.name = name;
+            _resultValue.primaryTag = primaryTag;
+            _resultValue.resource = resource;
+            _resultValue.rowType = rowType;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

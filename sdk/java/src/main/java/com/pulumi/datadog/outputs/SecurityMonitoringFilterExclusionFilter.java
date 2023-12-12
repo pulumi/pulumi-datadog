@@ -65,10 +65,10 @@ public final class SecurityMonitoringFilterExclusionFilter {
             return this;
         }
         public SecurityMonitoringFilterExclusionFilter build() {
-            final var o = new SecurityMonitoringFilterExclusionFilter();
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new SecurityMonitoringFilterExclusionFilter();
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

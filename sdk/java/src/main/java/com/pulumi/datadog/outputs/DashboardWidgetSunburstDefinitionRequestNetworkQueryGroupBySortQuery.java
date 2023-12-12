@@ -86,11 +86,11 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySo
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

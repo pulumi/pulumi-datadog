@@ -51,10 +51,10 @@ public final class ChildOrganizationApiKey {
             return this;
         }
         public ChildOrganizationApiKey build() {
-            final var o = new ChildOrganizationApiKey();
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new ChildOrganizationApiKey();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

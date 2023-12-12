@@ -148,14 +148,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorLookupProcessor build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorLookupProcessor();
-            o.defaultLookup = defaultLookup;
-            o.isEnabled = isEnabled;
-            o.lookupTables = lookupTables;
-            o.name = name;
-            o.source = source;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorLookupProcessor();
+            _resultValue.defaultLookup = defaultLookup;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.lookupTables = lookupTables;
+            _resultValue.name = name;
+            _resultValue.source = source;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

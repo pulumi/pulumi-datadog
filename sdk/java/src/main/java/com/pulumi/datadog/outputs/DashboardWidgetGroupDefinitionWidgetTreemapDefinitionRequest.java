@@ -58,10 +58,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest 
             return queries(List.of(queries));
         }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest();
-            o.formulas = formulas;
-            o.queries = queries;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest();
+            _resultValue.formulas = formulas;
+            _resultValue.queries = queries;
+            return _resultValue;
         }
     }
 }

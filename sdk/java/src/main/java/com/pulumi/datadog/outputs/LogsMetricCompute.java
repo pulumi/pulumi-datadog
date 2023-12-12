@@ -87,11 +87,11 @@ public final class LogsMetricCompute {
             return this;
         }
         public LogsMetricCompute build() {
-            final var o = new LogsMetricCompute();
-            o.aggregationType = aggregationType;
-            o.includePercentiles = includePercentiles;
-            o.path = path;
-            return o;
+            final var _resultValue = new LogsMetricCompute();
+            _resultValue.aggregationType = aggregationType;
+            _resultValue.includePercentiles = includePercentiles;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

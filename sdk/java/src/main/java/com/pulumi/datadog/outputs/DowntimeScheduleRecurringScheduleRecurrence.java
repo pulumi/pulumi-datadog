@@ -86,11 +86,11 @@ public final class DowntimeScheduleRecurringScheduleRecurrence {
             return this;
         }
         public DowntimeScheduleRecurringScheduleRecurrence build() {
-            final var o = new DowntimeScheduleRecurringScheduleRecurrence();
-            o.duration = duration;
-            o.rrule = rrule;
-            o.start = start;
-            return o;
+            final var _resultValue = new DowntimeScheduleRecurringScheduleRecurrence();
+            _resultValue.duration = duration;
+            _resultValue.rrule = rrule;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

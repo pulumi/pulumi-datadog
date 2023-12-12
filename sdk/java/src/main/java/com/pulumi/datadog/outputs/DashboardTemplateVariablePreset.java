@@ -72,10 +72,10 @@ public final class DashboardTemplateVariablePreset {
             return templateVariables(List.of(templateVariables));
         }
         public DashboardTemplateVariablePreset build() {
-            final var o = new DashboardTemplateVariablePreset();
-            o.name = name;
-            o.templateVariables = templateVariables;
-            return o;
+            final var _resultValue = new DashboardTemplateVariablePreset();
+            _resultValue.name = name;
+            _resultValue.templateVariables = templateVariables;
+            return _resultValue;
         }
     }
 }

@@ -110,12 +110,12 @@ public final class DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestProcessQuery build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

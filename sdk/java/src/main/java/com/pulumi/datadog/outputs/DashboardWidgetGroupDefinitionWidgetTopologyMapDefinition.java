@@ -133,13 +133,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition();
-            o.customLinks = customLinks;
-            o.requests = requests;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition();
+            _resultValue.customLinks = customLinks;
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

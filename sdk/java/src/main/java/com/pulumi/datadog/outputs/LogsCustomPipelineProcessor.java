@@ -340,24 +340,24 @@ public final class LogsCustomPipelineProcessor {
             return this;
         }
         public LogsCustomPipelineProcessor build() {
-            final var o = new LogsCustomPipelineProcessor();
-            o.arithmeticProcessor = arithmeticProcessor;
-            o.attributeRemapper = attributeRemapper;
-            o.categoryProcessor = categoryProcessor;
-            o.dateRemapper = dateRemapper;
-            o.geoIpParser = geoIpParser;
-            o.grokParser = grokParser;
-            o.lookupProcessor = lookupProcessor;
-            o.messageRemapper = messageRemapper;
-            o.pipeline = pipeline;
-            o.referenceTableLookupProcessor = referenceTableLookupProcessor;
-            o.serviceRemapper = serviceRemapper;
-            o.statusRemapper = statusRemapper;
-            o.stringBuilderProcessor = stringBuilderProcessor;
-            o.traceIdRemapper = traceIdRemapper;
-            o.urlParser = urlParser;
-            o.userAgentParser = userAgentParser;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessor();
+            _resultValue.arithmeticProcessor = arithmeticProcessor;
+            _resultValue.attributeRemapper = attributeRemapper;
+            _resultValue.categoryProcessor = categoryProcessor;
+            _resultValue.dateRemapper = dateRemapper;
+            _resultValue.geoIpParser = geoIpParser;
+            _resultValue.grokParser = grokParser;
+            _resultValue.lookupProcessor = lookupProcessor;
+            _resultValue.messageRemapper = messageRemapper;
+            _resultValue.pipeline = pipeline;
+            _resultValue.referenceTableLookupProcessor = referenceTableLookupProcessor;
+            _resultValue.serviceRemapper = serviceRemapper;
+            _resultValue.statusRemapper = statusRemapper;
+            _resultValue.stringBuilderProcessor = stringBuilderProcessor;
+            _resultValue.traceIdRemapper = traceIdRemapper;
+            _resultValue.urlParser = urlParser;
+            _resultValue.userAgentParser = userAgentParser;
+            return _resultValue;
         }
     }
 }

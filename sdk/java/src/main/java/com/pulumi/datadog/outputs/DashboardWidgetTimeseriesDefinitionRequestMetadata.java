@@ -67,10 +67,10 @@ public final class DashboardWidgetTimeseriesDefinitionRequestMetadata {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestMetadata build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestMetadata();
-            o.aliasName = aliasName;
-            o.expression = expression;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestMetadata();
+            _resultValue.aliasName = aliasName;
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

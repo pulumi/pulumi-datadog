@@ -301,22 +301,22 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequest build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequest();
-            o.apmQuery = apmQuery;
-            o.auditQuery = auditQuery;
-            o.displayType = displayType;
-            o.formulas = formulas;
-            o.logQuery = logQuery;
-            o.metadatas = metadatas;
-            o.networkQuery = networkQuery;
-            o.onRightYaxis = onRightYaxis;
-            o.processQuery = processQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            o.securityQuery = securityQuery;
-            o.style = style;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequest();
+            _resultValue.apmQuery = apmQuery;
+            _resultValue.auditQuery = auditQuery;
+            _resultValue.displayType = displayType;
+            _resultValue.formulas = formulas;
+            _resultValue.logQuery = logQuery;
+            _resultValue.metadatas = metadatas;
+            _resultValue.networkQuery = networkQuery;
+            _resultValue.onRightYaxis = onRightYaxis;
+            _resultValue.processQuery = processQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            _resultValue.securityQuery = securityQuery;
+            _resultValue.style = style;
+            return _resultValue;
         }
     }
 }

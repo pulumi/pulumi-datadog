@@ -86,11 +86,11 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByS
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort();
-            o.aggregation = aggregation;
-            o.metric = metric;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort();
+            _resultValue.aggregation = aggregation;
+            _resultValue.metric = metric;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

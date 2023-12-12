@@ -97,12 +97,12 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestQueryMetricQuery build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestQueryMetricQuery();
-            o.aggregator = aggregator;
-            o.dataSource = dataSource;
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestQueryMetricQuery();
+            _resultValue.aggregator = aggregator;
+            _resultValue.dataSource = dataSource;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

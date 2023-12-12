@@ -87,11 +87,11 @@ public final class DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute 
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

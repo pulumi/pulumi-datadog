@@ -67,11 +67,11 @@ public final class GetLogsIndexesLogsIndexExclusionFilter {
             return this;
         }
         public GetLogsIndexesLogsIndexExclusionFilter build() {
-            final var o = new GetLogsIndexesLogsIndexExclusionFilter();
-            o.filters = filters;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetLogsIndexesLogsIndexExclusionFilter();
+            _resultValue.filters = filters;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

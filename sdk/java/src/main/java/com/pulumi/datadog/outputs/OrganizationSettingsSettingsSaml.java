@@ -48,9 +48,9 @@ public final class OrganizationSettingsSettingsSaml {
             return this;
         }
         public OrganizationSettingsSettingsSaml build() {
-            final var o = new OrganizationSettingsSettingsSaml();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new OrganizationSettingsSettingsSaml();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

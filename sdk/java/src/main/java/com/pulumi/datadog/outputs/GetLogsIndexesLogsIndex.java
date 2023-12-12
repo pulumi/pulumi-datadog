@@ -92,13 +92,13 @@ public final class GetLogsIndexesLogsIndex {
             return this;
         }
         public GetLogsIndexesLogsIndex build() {
-            final var o = new GetLogsIndexesLogsIndex();
-            o.dailyLimit = dailyLimit;
-            o.exclusionFilters = exclusionFilters;
-            o.filters = filters;
-            o.name = name;
-            o.retentionDays = retentionDays;
-            return o;
+            final var _resultValue = new GetLogsIndexesLogsIndex();
+            _resultValue.dailyLimit = dailyLimit;
+            _resultValue.exclusionFilters = exclusionFilters;
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            _resultValue.retentionDays = retentionDays;
+            return _resultValue;
         }
     }
 }

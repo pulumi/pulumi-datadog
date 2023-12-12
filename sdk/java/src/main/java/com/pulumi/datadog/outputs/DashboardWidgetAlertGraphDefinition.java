@@ -143,14 +143,14 @@ public final class DashboardWidgetAlertGraphDefinition {
             return this;
         }
         public DashboardWidgetAlertGraphDefinition build() {
-            final var o = new DashboardWidgetAlertGraphDefinition();
-            o.alertId = alertId;
-            o.liveSpan = liveSpan;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            o.vizType = vizType;
-            return o;
+            final var _resultValue = new DashboardWidgetAlertGraphDefinition();
+            _resultValue.alertId = alertId;
+            _resultValue.liveSpan = liveSpan;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            _resultValue.vizType = vizType;
+            return _resultValue;
         }
     }
 }

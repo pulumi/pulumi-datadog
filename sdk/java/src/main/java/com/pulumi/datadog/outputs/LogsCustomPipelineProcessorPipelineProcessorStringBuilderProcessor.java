@@ -125,13 +125,13 @@ public final class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProc
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor build() {
-            final var o = new LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor();
-            o.isEnabled = isEnabled;
-            o.isReplaceMissing = isReplaceMissing;
-            o.name = name;
-            o.target = target;
-            o.template = template;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.isReplaceMissing = isReplaceMissing;
+            _resultValue.name = name;
+            _resultValue.target = target;
+            _resultValue.template = template;
+            return _resultValue;
         }
     }
 }

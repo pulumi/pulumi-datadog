@@ -48,9 +48,9 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
             return this;
         }
         public SecurityMonitoringRuleOptionsImpossibleTravelOptions build() {
-            final var o = new SecurityMonitoringRuleOptionsImpossibleTravelOptions();
-            o.baselineUserLocations = baselineUserLocations;
-            return o;
+            final var _resultValue = new SecurityMonitoringRuleOptionsImpossibleTravelOptions();
+            _resultValue.baselineUserLocations = baselineUserLocations;
+            return _resultValue;
         }
     }
 }

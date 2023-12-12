@@ -106,12 +106,12 @@ public final class DashboardWidgetToplistDefinitionCustomLink {
             return this;
         }
         public DashboardWidgetToplistDefinitionCustomLink build() {
-            final var o = new DashboardWidgetToplistDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetToplistDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

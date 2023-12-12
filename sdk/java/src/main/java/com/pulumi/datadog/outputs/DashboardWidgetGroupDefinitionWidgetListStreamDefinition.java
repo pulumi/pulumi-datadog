@@ -110,12 +110,12 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetListStreamDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetListStreamDefinition();
-            o.requests = requests;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetListStreamDefinition();
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

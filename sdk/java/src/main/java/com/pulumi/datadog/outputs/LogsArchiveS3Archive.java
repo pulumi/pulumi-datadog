@@ -105,12 +105,12 @@ public final class LogsArchiveS3Archive {
             return this;
         }
         public LogsArchiveS3Archive build() {
-            final var o = new LogsArchiveS3Archive();
-            o.accountId = accountId;
-            o.bucket = bucket;
-            o.path = path;
-            o.roleName = roleName;
-            return o;
+            final var _resultValue = new LogsArchiveS3Archive();
+            _resultValue.accountId = accountId;
+            _resultValue.bucket = bucket;
+            _resultValue.path = path;
+            _resultValue.roleName = roleName;
+            return _resultValue;
         }
     }
 }

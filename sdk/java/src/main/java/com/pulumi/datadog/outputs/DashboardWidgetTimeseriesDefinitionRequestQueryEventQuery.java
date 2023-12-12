@@ -175,15 +175,15 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery build() {
-            final var o = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery();
-            o.computes = computes;
-            o.dataSource = dataSource;
-            o.groupBies = groupBies;
-            o.indexes = indexes;
-            o.name = name;
-            o.search = search;
-            o.storage = storage;
-            return o;
+            final var _resultValue = new DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery();
+            _resultValue.computes = computes;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupBies = groupBies;
+            _resultValue.indexes = indexes;
+            _resultValue.name = name;
+            _resultValue.search = search;
+            _resultValue.storage = storage;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
             return this;
         }
         public DashboardWidgetQueryValueDefinitionRequestFormulaLimit build() {
-            final var o = new DashboardWidgetQueryValueDefinitionRequestFormulaLimit();
-            o.count = count;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinitionRequestFormulaLimit();
+            _resultValue.count = count;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

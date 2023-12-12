@@ -184,16 +184,16 @@ public final class SyntheticsTestBrowserStep {
             return this;
         }
         public SyntheticsTestBrowserStep build() {
-            final var o = new SyntheticsTestBrowserStep();
-            o.allowFailure = allowFailure;
-            o.forceElementUpdate = forceElementUpdate;
-            o.isCritical = isCritical;
-            o.name = name;
-            o.noScreenshot = noScreenshot;
-            o.params = params;
-            o.timeout = timeout;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserStep();
+            _resultValue.allowFailure = allowFailure;
+            _resultValue.forceElementUpdate = forceElementUpdate;
+            _resultValue.isCritical = isCritical;
+            _resultValue.name = name;
+            _resultValue.noScreenshot = noScreenshot;
+            _resultValue.params = params;
+            _resultValue.timeout = timeout;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

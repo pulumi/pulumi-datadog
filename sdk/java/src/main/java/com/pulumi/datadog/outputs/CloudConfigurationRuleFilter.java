@@ -65,10 +65,10 @@ public final class CloudConfigurationRuleFilter {
             return this;
         }
         public CloudConfigurationRuleFilter build() {
-            final var o = new CloudConfigurationRuleFilter();
-            o.action = action;
-            o.query = query;
-            return o;
+            final var _resultValue = new CloudConfigurationRuleFilter();
+            _resultValue.action = action;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

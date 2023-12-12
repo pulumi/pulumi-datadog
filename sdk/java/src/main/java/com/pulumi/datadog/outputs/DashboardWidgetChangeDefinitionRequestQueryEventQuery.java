@@ -175,15 +175,15 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
             return this;
         }
         public DashboardWidgetChangeDefinitionRequestQueryEventQuery build() {
-            final var o = new DashboardWidgetChangeDefinitionRequestQueryEventQuery();
-            o.computes = computes;
-            o.dataSource = dataSource;
-            o.groupBies = groupBies;
-            o.indexes = indexes;
-            o.name = name;
-            o.search = search;
-            o.storage = storage;
-            return o;
+            final var _resultValue = new DashboardWidgetChangeDefinitionRequestQueryEventQuery();
+            _resultValue.computes = computes;
+            _resultValue.dataSource = dataSource;
+            _resultValue.groupBies = groupBies;
+            _resultValue.indexes = indexes;
+            _resultValue.name = name;
+            _resultValue.search = search;
+            _resultValue.storage = storage;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class SecurityMonitoringDefaultRuleOptions {
             return this;
         }
         public SecurityMonitoringDefaultRuleOptions build() {
-            final var o = new SecurityMonitoringDefaultRuleOptions();
-            o.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
-            return o;
+            final var _resultValue = new SecurityMonitoringDefaultRuleOptions();
+            _resultValue.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
+            return _resultValue;
         }
     }
 }

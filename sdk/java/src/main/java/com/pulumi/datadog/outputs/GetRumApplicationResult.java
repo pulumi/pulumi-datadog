@@ -143,14 +143,14 @@ public final class GetRumApplicationResult {
             return this;
         }
         public GetRumApplicationResult build() {
-            final var o = new GetRumApplicationResult();
-            o.clientToken = clientToken;
-            o.id = id;
-            o.name = name;
-            o.nameFilter = nameFilter;
-            o.type = type;
-            o.typeFilter = typeFilter;
-            return o;
+            final var _resultValue = new GetRumApplicationResult();
+            _resultValue.clientToken = clientToken;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.nameFilter = nameFilter;
+            _resultValue.type = type;
+            _resultValue.typeFilter = typeFilter;
+            return _resultValue;
         }
     }
 }

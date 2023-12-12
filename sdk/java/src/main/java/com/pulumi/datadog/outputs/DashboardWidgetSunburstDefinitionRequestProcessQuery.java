@@ -110,12 +110,12 @@ public final class DashboardWidgetSunburstDefinitionRequestProcessQuery {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestProcessQuery build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

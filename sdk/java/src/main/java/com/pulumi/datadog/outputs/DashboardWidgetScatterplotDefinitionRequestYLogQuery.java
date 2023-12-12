@@ -134,13 +134,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestYLogQuery {
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestYLogQuery build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestYLogQuery();
-            o.computeQuery = computeQuery;
-            o.groupBies = groupBies;
-            o.index = index;
-            o.multiComputes = multiComputes;
-            o.searchQuery = searchQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestYLogQuery();
+            _resultValue.computeQuery = computeQuery;
+            _resultValue.groupBies = groupBies;
+            _resultValue.index = index;
+            _resultValue.multiComputes = multiComputes;
+            _resultValue.searchQuery = searchQuery;
+            return _resultValue;
         }
     }
 }

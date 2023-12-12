@@ -50,10 +50,10 @@ public final class SyntheticsTestRequestClientCertificate {
             return this;
         }
         public SyntheticsTestRequestClientCertificate build() {
-            final var o = new SyntheticsTestRequestClientCertificate();
-            o.cert = cert;
-            o.key = key;
-            return o;
+            final var _resultValue = new SyntheticsTestRequestClientCertificate();
+            _resultValue.cert = cert;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

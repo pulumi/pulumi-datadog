@@ -51,9 +51,9 @@ public final class SyntheticsPrivateLocationMetadata {
             return restrictedRoles(List.of(restrictedRoles));
         }
         public SyntheticsPrivateLocationMetadata build() {
-            final var o = new SyntheticsPrivateLocationMetadata();
-            o.restrictedRoles = restrictedRoles;
-            return o;
+            final var _resultValue = new SyntheticsPrivateLocationMetadata();
+            _resultValue.restrictedRoles = restrictedRoles;
+            return _resultValue;
         }
     }
 }

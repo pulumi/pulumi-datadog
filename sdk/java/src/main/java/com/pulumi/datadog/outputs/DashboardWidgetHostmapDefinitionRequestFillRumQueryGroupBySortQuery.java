@@ -86,11 +86,11 @@ public final class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySor
             return this;
         }
         public DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

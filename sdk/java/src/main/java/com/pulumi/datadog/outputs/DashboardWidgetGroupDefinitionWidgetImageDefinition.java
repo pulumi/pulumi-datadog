@@ -182,16 +182,16 @@ public final class DashboardWidgetGroupDefinitionWidgetImageDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetImageDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetImageDefinition();
-            o.hasBackground = hasBackground;
-            o.hasBorder = hasBorder;
-            o.horizontalAlign = horizontalAlign;
-            o.margin = margin;
-            o.sizing = sizing;
-            o.url = url;
-            o.urlDarkTheme = urlDarkTheme;
-            o.verticalAlign = verticalAlign;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetImageDefinition();
+            _resultValue.hasBackground = hasBackground;
+            _resultValue.hasBorder = hasBorder;
+            _resultValue.horizontalAlign = horizontalAlign;
+            _resultValue.margin = margin;
+            _resultValue.sizing = sizing;
+            _resultValue.url = url;
+            _resultValue.urlDarkTheme = urlDarkTheme;
+            _resultValue.verticalAlign = verticalAlign;
+            return _resultValue;
         }
     }
 }

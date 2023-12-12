@@ -46,9 +46,9 @@ public final class MonitorVariablesEventQuerySearch {
             return this;
         }
         public MonitorVariablesEventQuerySearch build() {
-            final var o = new MonitorVariablesEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new MonitorVariablesEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

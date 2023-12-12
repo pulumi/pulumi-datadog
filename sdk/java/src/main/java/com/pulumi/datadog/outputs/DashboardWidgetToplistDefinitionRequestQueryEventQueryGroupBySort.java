@@ -86,11 +86,11 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy
             return this;
         }
         public DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort build() {
-            final var o = new DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort();
-            o.aggregation = aggregation;
-            o.metric = metric;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort();
+            _resultValue.aggregation = aggregation;
+            _resultValue.metric = metric;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

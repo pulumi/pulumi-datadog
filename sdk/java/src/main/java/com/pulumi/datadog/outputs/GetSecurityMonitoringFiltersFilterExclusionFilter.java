@@ -49,10 +49,10 @@ public final class GetSecurityMonitoringFiltersFilterExclusionFilter {
             return this;
         }
         public GetSecurityMonitoringFiltersFilterExclusionFilter build() {
-            final var o = new GetSecurityMonitoringFiltersFilterExclusionFilter();
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringFiltersFilterExclusionFilter();
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

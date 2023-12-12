@@ -92,11 +92,11 @@ public final class GetSecurityMonitoringFiltersResult {
             return this;
         }
         public GetSecurityMonitoringFiltersResult build() {
-            final var o = new GetSecurityMonitoringFiltersResult();
-            o.filters = filters;
-            o.filtersIds = filtersIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringFiltersResult();
+            _resultValue.filters = filters;
+            _resultValue.filtersIds = filtersIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

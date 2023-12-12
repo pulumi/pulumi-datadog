@@ -65,10 +65,10 @@ public final class LogsMetricGroupBy {
             return this;
         }
         public LogsMetricGroupBy build() {
-            final var o = new LogsMetricGroupBy();
-            o.path = path;
-            o.tagName = tagName;
-            return o;
+            final var _resultValue = new LogsMetricGroupBy();
+            _resultValue.path = path;
+            _resultValue.tagName = tagName;
+            return _resultValue;
         }
     }
 }

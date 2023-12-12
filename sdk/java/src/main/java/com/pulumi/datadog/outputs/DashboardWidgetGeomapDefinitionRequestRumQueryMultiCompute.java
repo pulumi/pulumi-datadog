@@ -87,11 +87,11 @@ public final class DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute {
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class GetSyntheticsLocationsResult {
             return this;
         }
         public GetSyntheticsLocationsResult build() {
-            final var o = new GetSyntheticsLocationsResult();
-            o.id = id;
-            o.locations = locations;
-            return o;
+            final var _resultValue = new GetSyntheticsLocationsResult();
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            return _resultValue;
         }
     }
 }

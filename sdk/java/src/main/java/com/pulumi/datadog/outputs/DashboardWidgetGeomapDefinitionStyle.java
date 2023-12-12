@@ -66,10 +66,10 @@ public final class DashboardWidgetGeomapDefinitionStyle {
             return this;
         }
         public DashboardWidgetGeomapDefinitionStyle build() {
-            final var o = new DashboardWidgetGeomapDefinitionStyle();
-            o.palette = palette;
-            o.paletteFlip = paletteFlip;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteFlip = paletteFlip;
+            return _resultValue;
         }
     }
 }

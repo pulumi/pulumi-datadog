@@ -65,10 +65,10 @@ public final class DashboardWidgetListStreamDefinitionRequestColumn {
             return this;
         }
         public DashboardWidgetListStreamDefinitionRequestColumn build() {
-            final var o = new DashboardWidgetListStreamDefinitionRequestColumn();
-            o.field = field;
-            o.width = width;
-            return o;
+            final var _resultValue = new DashboardWidgetListStreamDefinitionRequestColumn();
+            _resultValue.field = field;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

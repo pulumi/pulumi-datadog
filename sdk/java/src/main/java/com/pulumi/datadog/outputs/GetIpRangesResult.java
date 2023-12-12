@@ -438,27 +438,27 @@ public final class GetIpRangesResult {
             return webhooksIpv6s(List.of(webhooksIpv6s));
         }
         public GetIpRangesResult build() {
-            final var o = new GetIpRangesResult();
-            o.agentsIpv4s = agentsIpv4s;
-            o.agentsIpv6s = agentsIpv6s;
-            o.apiIpv4s = apiIpv4s;
-            o.apiIpv6s = apiIpv6s;
-            o.apmIpv4s = apmIpv4s;
-            o.apmIpv6s = apmIpv6s;
-            o.id = id;
-            o.logsIpv4s = logsIpv4s;
-            o.logsIpv6s = logsIpv6s;
-            o.orchestratorIpv4s = orchestratorIpv4s;
-            o.orchestratorIpv6s = orchestratorIpv6s;
-            o.processIpv4s = processIpv4s;
-            o.processIpv6s = processIpv6s;
-            o.syntheticsIpv4ByLocation = syntheticsIpv4ByLocation;
-            o.syntheticsIpv4s = syntheticsIpv4s;
-            o.syntheticsIpv6ByLocation = syntheticsIpv6ByLocation;
-            o.syntheticsIpv6s = syntheticsIpv6s;
-            o.webhooksIpv4s = webhooksIpv4s;
-            o.webhooksIpv6s = webhooksIpv6s;
-            return o;
+            final var _resultValue = new GetIpRangesResult();
+            _resultValue.agentsIpv4s = agentsIpv4s;
+            _resultValue.agentsIpv6s = agentsIpv6s;
+            _resultValue.apiIpv4s = apiIpv4s;
+            _resultValue.apiIpv6s = apiIpv6s;
+            _resultValue.apmIpv4s = apmIpv4s;
+            _resultValue.apmIpv6s = apmIpv6s;
+            _resultValue.id = id;
+            _resultValue.logsIpv4s = logsIpv4s;
+            _resultValue.logsIpv6s = logsIpv6s;
+            _resultValue.orchestratorIpv4s = orchestratorIpv4s;
+            _resultValue.orchestratorIpv6s = orchestratorIpv6s;
+            _resultValue.processIpv4s = processIpv4s;
+            _resultValue.processIpv6s = processIpv6s;
+            _resultValue.syntheticsIpv4ByLocation = syntheticsIpv4ByLocation;
+            _resultValue.syntheticsIpv4s = syntheticsIpv4s;
+            _resultValue.syntheticsIpv6ByLocation = syntheticsIpv6ByLocation;
+            _resultValue.syntheticsIpv6s = syntheticsIpv6s;
+            _resultValue.webhooksIpv4s = webhooksIpv4s;
+            _resultValue.webhooksIpv6s = webhooksIpv6s;
+            return _resultValue;
         }
     }
 }

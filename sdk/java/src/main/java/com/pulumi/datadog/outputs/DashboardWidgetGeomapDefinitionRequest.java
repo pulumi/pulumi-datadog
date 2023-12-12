@@ -119,13 +119,13 @@ public final class DashboardWidgetGeomapDefinitionRequest {
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequest build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequest();
-            o.formulas = formulas;
-            o.logQuery = logQuery;
-            o.q = q;
-            o.queries = queries;
-            o.rumQuery = rumQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequest();
+            _resultValue.formulas = formulas;
+            _resultValue.logQuery = logQuery;
+            _resultValue.q = q;
+            _resultValue.queries = queries;
+            _resultValue.rumQuery = rumQuery;
+            return _resultValue;
         }
     }
 }

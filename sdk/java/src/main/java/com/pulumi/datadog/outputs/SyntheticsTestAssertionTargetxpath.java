@@ -86,11 +86,11 @@ public final class SyntheticsTestAssertionTargetxpath {
             return this;
         }
         public SyntheticsTestAssertionTargetxpath build() {
-            final var o = new SyntheticsTestAssertionTargetxpath();
-            o.operator = operator;
-            o.targetvalue = targetvalue;
-            o.xpath = xpath;
-            return o;
+            final var _resultValue = new SyntheticsTestAssertionTargetxpath();
+            _resultValue.operator = operator;
+            _resultValue.targetvalue = targetvalue;
+            _resultValue.xpath = xpath;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySo
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

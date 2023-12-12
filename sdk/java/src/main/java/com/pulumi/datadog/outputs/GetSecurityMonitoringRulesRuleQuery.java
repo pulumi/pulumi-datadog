@@ -155,16 +155,16 @@ public final class GetSecurityMonitoringRulesRuleQuery {
             return this;
         }
         public GetSecurityMonitoringRulesRuleQuery build() {
-            final var o = new GetSecurityMonitoringRulesRuleQuery();
-            o.agentRules = agentRules;
-            o.aggregation = aggregation;
-            o.distinctFields = distinctFields;
-            o.groupByFields = groupByFields;
-            o.metric = metric;
-            o.metrics = metrics;
-            o.name = name;
-            o.query = query;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRuleQuery();
+            _resultValue.agentRules = agentRules;
+            _resultValue.aggregation = aggregation;
+            _resultValue.distinctFields = distinctFields;
+            _resultValue.groupByFields = groupByFields;
+            _resultValue.metric = metric;
+            _resultValue.metrics = metrics;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class SyntheticsTestRequestClientCertificateCert {
             return this;
         }
         public SyntheticsTestRequestClientCertificateCert build() {
-            final var o = new SyntheticsTestRequestClientCertificateCert();
-            o.content = content;
-            o.filename = filename;
-            return o;
+            final var _resultValue = new SyntheticsTestRequestClientCertificateCert();
+            _resultValue.content = content;
+            _resultValue.filename = filename;
+            return _resultValue;
         }
     }
 }

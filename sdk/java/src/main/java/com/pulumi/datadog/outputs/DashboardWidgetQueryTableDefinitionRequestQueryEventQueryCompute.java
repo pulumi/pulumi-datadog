@@ -87,11 +87,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComp
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute();
-            o.aggregation = aggregation;
-            o.interval = interval;
-            o.metric = metric;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.interval = interval;
+            _resultValue.metric = metric;
+            return _resultValue;
         }
     }
 }

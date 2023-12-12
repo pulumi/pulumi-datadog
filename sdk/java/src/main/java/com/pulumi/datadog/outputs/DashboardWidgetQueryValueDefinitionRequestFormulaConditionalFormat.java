@@ -202,17 +202,17 @@ public final class DashboardWidgetQueryValueDefinitionRequestFormulaConditionalF
             return this;
         }
         public DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat build() {
-            final var o = new DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat();
-            o.comparator = comparator;
-            o.customBgColor = customBgColor;
-            o.customFgColor = customFgColor;
-            o.hideValue = hideValue;
-            o.imageUrl = imageUrl;
-            o.metric = metric;
-            o.palette = palette;
-            o.timeframe = timeframe;
-            o.value = value;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat();
+            _resultValue.comparator = comparator;
+            _resultValue.customBgColor = customBgColor;
+            _resultValue.customFgColor = customFgColor;
+            _resultValue.hideValue = hideValue;
+            _resultValue.imageUrl = imageUrl;
+            _resultValue.metric = metric;
+            _resultValue.palette = palette;
+            _resultValue.timeframe = timeframe;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

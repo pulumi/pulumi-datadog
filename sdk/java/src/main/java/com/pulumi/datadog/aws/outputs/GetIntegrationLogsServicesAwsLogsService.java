@@ -49,10 +49,10 @@ public final class GetIntegrationLogsServicesAwsLogsService {
             return this;
         }
         public GetIntegrationLogsServicesAwsLogsService build() {
-            final var o = new GetIntegrationLogsServicesAwsLogsService();
-            o.id = id;
-            o.label = label;
-            return o;
+            final var _resultValue = new GetIntegrationLogsServicesAwsLogsService();
+            _resultValue.id = id;
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

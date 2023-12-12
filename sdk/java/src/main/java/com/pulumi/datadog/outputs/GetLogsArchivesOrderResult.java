@@ -69,10 +69,10 @@ public final class GetLogsArchivesOrderResult {
             return this;
         }
         public GetLogsArchivesOrderResult build() {
-            final var o = new GetLogsArchivesOrderResult();
-            o.archiveIds = archiveIds;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetLogsArchivesOrderResult();
+            _resultValue.archiveIds = archiveIds;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

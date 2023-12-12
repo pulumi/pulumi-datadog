@@ -46,9 +46,9 @@ public final class DashboardWidgetGroupDefinitionWidgetIframeDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetIframeDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetIframeDefinition();
-            o.url = url;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetIframeDefinition();
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

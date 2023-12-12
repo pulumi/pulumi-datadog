@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCusto
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

@@ -56,10 +56,10 @@ public final class ChildOrganizationSettingSamlAutocreateUsersDomain {
             return this;
         }
         public ChildOrganizationSettingSamlAutocreateUsersDomain build() {
-            final var o = new ChildOrganizationSettingSamlAutocreateUsersDomain();
-            o.domains = domains;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ChildOrganizationSettingSamlAutocreateUsersDomain();
+            _resultValue.domains = domains;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

@@ -125,13 +125,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimes
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis();
-            o.includeZero = includeZero;
-            o.label = label;
-            o.max = max;
-            o.min = min;
-            o.scale = scale;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeseriesBackgroundYaxis();
+            _resultValue.includeZero = includeZero;
+            _resultValue.label = label;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.scale = scale;
+            return _resultValue;
         }
     }
 }

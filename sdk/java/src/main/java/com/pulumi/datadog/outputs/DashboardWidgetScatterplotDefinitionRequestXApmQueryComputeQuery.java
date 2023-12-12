@@ -87,11 +87,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQu
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

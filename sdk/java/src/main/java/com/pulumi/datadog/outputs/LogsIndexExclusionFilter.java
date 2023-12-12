@@ -84,11 +84,11 @@ public final class LogsIndexExclusionFilter {
             return this;
         }
         public LogsIndexExclusionFilter build() {
-            final var o = new LogsIndexExclusionFilter();
-            o.filters = filters;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            return o;
+            final var _resultValue = new LogsIndexExclusionFilter();
+            _resultValue.filters = filters;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

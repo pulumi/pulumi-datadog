@@ -201,17 +201,17 @@ public final class DashboardWidgetNoteDefinition {
             return this;
         }
         public DashboardWidgetNoteDefinition build() {
-            final var o = new DashboardWidgetNoteDefinition();
-            o.backgroundColor = backgroundColor;
-            o.content = content;
-            o.fontSize = fontSize;
-            o.hasPadding = hasPadding;
-            o.showTick = showTick;
-            o.textAlign = textAlign;
-            o.tickEdge = tickEdge;
-            o.tickPos = tickPos;
-            o.verticalAlign = verticalAlign;
-            return o;
+            final var _resultValue = new DashboardWidgetNoteDefinition();
+            _resultValue.backgroundColor = backgroundColor;
+            _resultValue.content = content;
+            _resultValue.fontSize = fontSize;
+            _resultValue.hasPadding = hasPadding;
+            _resultValue.showTick = showTick;
+            _resultValue.textAlign = textAlign;
+            _resultValue.tickEdge = tickEdge;
+            _resultValue.tickPos = tickPos;
+            _resultValue.verticalAlign = verticalAlign;
+            return _resultValue;
         }
     }
 }

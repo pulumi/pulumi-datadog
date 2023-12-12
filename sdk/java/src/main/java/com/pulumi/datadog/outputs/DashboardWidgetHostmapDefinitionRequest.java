@@ -74,10 +74,10 @@ public final class DashboardWidgetHostmapDefinitionRequest {
             return sizes(List.of(sizes));
         }
         public DashboardWidgetHostmapDefinitionRequest build() {
-            final var o = new DashboardWidgetHostmapDefinitionRequest();
-            o.fills = fills;
-            o.sizes = sizes;
-            return o;
+            final var _resultValue = new DashboardWidgetHostmapDefinitionRequest();
+            _resultValue.fills = fills;
+            _resultValue.sizes = sizes;
+            return _resultValue;
         }
     }
 }

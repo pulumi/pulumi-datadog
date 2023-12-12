@@ -106,12 +106,12 @@ public final class DashboardWidgetQueryValueDefinitionCustomLink {
             return this;
         }
         public DashboardWidgetQueryValueDefinitionCustomLink build() {
-            final var o = new DashboardWidgetQueryValueDefinitionCustomLink();
-            o.isHidden = isHidden;
-            o.label = label;
-            o.link = link;
-            o.overrideLabel = overrideLabel;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryValueDefinitionCustomLink();
+            _resultValue.isHidden = isHidden;
+            _resultValue.label = label;
+            _resultValue.link = link;
+            _resultValue.overrideLabel = overrideLabel;
+            return _resultValue;
         }
     }
 }

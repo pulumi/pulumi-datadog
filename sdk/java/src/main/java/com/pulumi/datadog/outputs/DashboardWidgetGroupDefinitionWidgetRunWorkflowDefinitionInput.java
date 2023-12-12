@@ -65,10 +65,10 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

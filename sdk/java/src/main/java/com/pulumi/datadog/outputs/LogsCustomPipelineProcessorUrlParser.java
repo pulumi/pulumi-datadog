@@ -129,13 +129,13 @@ public final class LogsCustomPipelineProcessorUrlParser {
             return this;
         }
         public LogsCustomPipelineProcessorUrlParser build() {
-            final var o = new LogsCustomPipelineProcessorUrlParser();
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.normalizeEndingSlashes = normalizeEndingSlashes;
-            o.sources = sources;
-            o.target = target;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorUrlParser();
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.normalizeEndingSlashes = normalizeEndingSlashes;
+            _resultValue.sources = sources;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

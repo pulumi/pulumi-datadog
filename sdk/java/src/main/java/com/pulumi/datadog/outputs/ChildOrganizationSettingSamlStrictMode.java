@@ -40,9 +40,9 @@ public final class ChildOrganizationSettingSamlStrictMode {
             return this;
         }
         public ChildOrganizationSettingSamlStrictMode build() {
-            final var o = new ChildOrganizationSettingSamlStrictMode();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ChildOrganizationSettingSamlStrictMode();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

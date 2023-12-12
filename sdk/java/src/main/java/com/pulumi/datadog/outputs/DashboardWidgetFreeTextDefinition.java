@@ -105,12 +105,12 @@ public final class DashboardWidgetFreeTextDefinition {
             return this;
         }
         public DashboardWidgetFreeTextDefinition build() {
-            final var o = new DashboardWidgetFreeTextDefinition();
-            o.color = color;
-            o.fontSize = fontSize;
-            o.text = text;
-            o.textAlign = textAlign;
-            return o;
+            final var _resultValue = new DashboardWidgetFreeTextDefinition();
+            _resultValue.color = color;
+            _resultValue.fontSize = fontSize;
+            _resultValue.text = text;
+            _resultValue.textAlign = textAlign;
+            return _resultValue;
         }
     }
 }

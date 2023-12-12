@@ -86,11 +86,11 @@ public final class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySo
             return this;
         }
         public DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

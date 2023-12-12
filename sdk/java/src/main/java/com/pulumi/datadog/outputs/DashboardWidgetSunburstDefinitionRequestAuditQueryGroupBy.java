@@ -88,11 +88,11 @@ public final class DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy();
-            o.facet = facet;
-            o.limit = limit;
-            o.sortQuery = sortQuery;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy();
+            _resultValue.facet = facet;
+            _resultValue.limit = limit;
+            _resultValue.sortQuery = sortQuery;
+            return _resultValue;
         }
     }
 }

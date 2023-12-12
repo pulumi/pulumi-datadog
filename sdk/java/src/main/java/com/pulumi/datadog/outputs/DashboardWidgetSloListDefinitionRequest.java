@@ -58,10 +58,10 @@ public final class DashboardWidgetSloListDefinitionRequest {
             return this;
         }
         public DashboardWidgetSloListDefinitionRequest build() {
-            final var o = new DashboardWidgetSloListDefinitionRequest();
-            o.query = query;
-            o.requestType = requestType;
-            return o;
+            final var _resultValue = new DashboardWidgetSloListDefinitionRequest();
+            _resultValue.query = query;
+            _resultValue.requestType = requestType;
+            return _resultValue;
         }
     }
 }

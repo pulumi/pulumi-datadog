@@ -110,12 +110,12 @@ public final class DashboardWidgetListStreamDefinition {
             return this;
         }
         public DashboardWidgetListStreamDefinition build() {
-            final var o = new DashboardWidgetListStreamDefinition();
-            o.requests = requests;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetListStreamDefinition();
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

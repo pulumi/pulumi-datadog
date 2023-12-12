@@ -105,12 +105,12 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn();
-            o.alias = alias;
-            o.cellDisplayMode = cellDisplayMode;
-            o.name = name;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn();
+            _resultValue.alias = alias;
+            _resultValue.cellDisplayMode = cellDisplayMode;
+            _resultValue.name = name;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

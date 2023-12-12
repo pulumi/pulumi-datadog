@@ -184,21 +184,21 @@ public final class GetHostsHostList {
             return this;
         }
         public GetHostsHostList build() {
-            final var o = new GetHostsHostList();
-            o.aliases = aliases;
-            o.apps = apps;
-            o.awsName = awsName;
-            o.hostName = hostName;
-            o.id = id;
-            o.isMuted = isMuted;
-            o.lastReportedTime = lastReportedTime;
-            o.meta = meta;
-            o.metrics = metrics;
-            o.muteTimeout = muteTimeout;
-            o.name = name;
-            o.sources = sources;
-            o.up = up;
-            return o;
+            final var _resultValue = new GetHostsHostList();
+            _resultValue.aliases = aliases;
+            _resultValue.apps = apps;
+            _resultValue.awsName = awsName;
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.isMuted = isMuted;
+            _resultValue.lastReportedTime = lastReportedTime;
+            _resultValue.meta = meta;
+            _resultValue.metrics = metrics;
+            _resultValue.muteTimeout = muteTimeout;
+            _resultValue.name = name;
+            _resultValue.sources = sources;
+            _resultValue.up = up;
+            return _resultValue;
         }
     }
 }

@@ -145,14 +145,14 @@ public final class SyntheticsTestAssertion {
             return this;
         }
         public SyntheticsTestAssertion build() {
-            final var o = new SyntheticsTestAssertion();
-            o.operator = operator;
-            o.property = property;
-            o.target = target;
-            o.targetjsonpath = targetjsonpath;
-            o.targetxpath = targetxpath;
-            o.type = type;
-            return o;
+            final var _resultValue = new SyntheticsTestAssertion();
+            _resultValue.operator = operator;
+            _resultValue.property = property;
+            _resultValue.target = target;
+            _resultValue.targetjsonpath = targetjsonpath;
+            _resultValue.targetxpath = targetxpath;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

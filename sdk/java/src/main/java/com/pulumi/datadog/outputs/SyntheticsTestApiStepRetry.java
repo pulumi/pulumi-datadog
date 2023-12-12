@@ -67,10 +67,10 @@ public final class SyntheticsTestApiStepRetry {
             return this;
         }
         public SyntheticsTestApiStepRetry build() {
-            final var o = new SyntheticsTestApiStepRetry();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepRetry();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

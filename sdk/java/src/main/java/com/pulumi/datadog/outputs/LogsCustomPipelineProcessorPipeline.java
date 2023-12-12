@@ -99,12 +99,12 @@ public final class LogsCustomPipelineProcessorPipeline {
             return processors(List.of(processors));
         }
         public LogsCustomPipelineProcessorPipeline build() {
-            final var o = new LogsCustomPipelineProcessorPipeline();
-            o.filters = filters;
-            o.isEnabled = isEnabled;
-            o.name = name;
-            o.processors = processors;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipeline();
+            _resultValue.filters = filters;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.name = name;
+            _resultValue.processors = processors;
+            return _resultValue;
         }
     }
 }

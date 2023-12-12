@@ -110,12 +110,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestYProcessQuery build() {
-            final var o = new DashboardWidgetScatterplotDefinitionRequestYProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestYProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

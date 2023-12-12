@@ -46,9 +46,9 @@ public final class SensitiveDataScannerGroupFilter {
             return this;
         }
         public SensitiveDataScannerGroupFilter build() {
-            final var o = new SensitiveDataScannerGroupFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new SensitiveDataScannerGroupFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class LogsCustomPipelineProcessorPipelineFilter {
             return this;
         }
         public LogsCustomPipelineProcessorPipelineFilter build() {
-            final var o = new LogsCustomPipelineProcessorPipelineFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new LogsCustomPipelineProcessorPipelineFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

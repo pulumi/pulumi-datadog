@@ -352,25 +352,25 @@ public final class SyntheticsTestApiStepRequestBasicauth {
             return this;
         }
         public SyntheticsTestApiStepRequestBasicauth build() {
-            final var o = new SyntheticsTestApiStepRequestBasicauth();
-            o.accessKey = accessKey;
-            o.accessTokenUrl = accessTokenUrl;
-            o.audience = audience;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.domain = domain;
-            o.password = password;
-            o.region = region;
-            o.resource = resource;
-            o.scope = scope;
-            o.secretKey = secretKey;
-            o.serviceName = serviceName;
-            o.sessionToken = sessionToken;
-            o.tokenApiAuthentication = tokenApiAuthentication;
-            o.type = type;
-            o.username = username;
-            o.workstation = workstation;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepRequestBasicauth();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accessTokenUrl = accessTokenUrl;
+            _resultValue.audience = audience;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.domain = domain;
+            _resultValue.password = password;
+            _resultValue.region = region;
+            _resultValue.resource = resource;
+            _resultValue.scope = scope;
+            _resultValue.secretKey = secretKey;
+            _resultValue.serviceName = serviceName;
+            _resultValue.sessionToken = sessionToken;
+            _resultValue.tokenApiAuthentication = tokenApiAuthentication;
+            _resultValue.type = type;
+            _resultValue.username = username;
+            _resultValue.workstation = workstation;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class DashboardWidgetSunburstDefinitionRequestStyle {
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestStyle build() {
-            final var o = new DashboardWidgetSunburstDefinitionRequestStyle();
-            o.palette = palette;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionRequestStyle();
+            _resultValue.palette = palette;
+            return _resultValue;
         }
     }
 }

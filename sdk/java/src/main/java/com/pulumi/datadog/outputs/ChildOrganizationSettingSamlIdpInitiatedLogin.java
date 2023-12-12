@@ -40,9 +40,9 @@ public final class ChildOrganizationSettingSamlIdpInitiatedLogin {
             return this;
         }
         public ChildOrganizationSettingSamlIdpInitiatedLogin build() {
-            final var o = new ChildOrganizationSettingSamlIdpInitiatedLogin();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ChildOrganizationSettingSamlIdpInitiatedLogin();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

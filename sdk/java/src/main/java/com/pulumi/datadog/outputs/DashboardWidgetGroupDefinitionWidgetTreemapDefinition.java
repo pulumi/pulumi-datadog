@@ -72,10 +72,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinition();
-            o.requests = requests;
-            o.title = title;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTreemapDefinition();
+            _resultValue.requests = requests;
+            _resultValue.title = title;
+            return _resultValue;
         }
     }
 }

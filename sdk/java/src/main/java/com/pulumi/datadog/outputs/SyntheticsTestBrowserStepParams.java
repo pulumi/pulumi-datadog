@@ -398,27 +398,27 @@ public final class SyntheticsTestBrowserStepParams {
             return this;
         }
         public SyntheticsTestBrowserStepParams build() {
-            final var o = new SyntheticsTestBrowserStepParams();
-            o.attribute = attribute;
-            o.check = check;
-            o.clickType = clickType;
-            o.code = code;
-            o.delay = delay;
-            o.element = element;
-            o.elementUserLocator = elementUserLocator;
-            o.email = email;
-            o.file = file;
-            o.files = files;
-            o.modifiers = modifiers;
-            o.playingTabId = playingTabId;
-            o.request = request;
-            o.subtestPublicId = subtestPublicId;
-            o.value = value;
-            o.variable = variable;
-            o.withClick = withClick;
-            o.x = x;
-            o.y = y;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserStepParams();
+            _resultValue.attribute = attribute;
+            _resultValue.check = check;
+            _resultValue.clickType = clickType;
+            _resultValue.code = code;
+            _resultValue.delay = delay;
+            _resultValue.element = element;
+            _resultValue.elementUserLocator = elementUserLocator;
+            _resultValue.email = email;
+            _resultValue.file = file;
+            _resultValue.files = files;
+            _resultValue.modifiers = modifiers;
+            _resultValue.playingTabId = playingTabId;
+            _resultValue.request = request;
+            _resultValue.subtestPublicId = subtestPublicId;
+            _resultValue.value = value;
+            _resultValue.variable = variable;
+            _resultValue.withClick = withClick;
+            _resultValue.x = x;
+            _resultValue.y = y;
+            return _resultValue;
         }
     }
 }

@@ -166,15 +166,15 @@ public final class SecurityMonitoringRuleOptions {
             return this;
         }
         public SecurityMonitoringRuleOptions build() {
-            final var o = new SecurityMonitoringRuleOptions();
-            o.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
-            o.detectionMethod = detectionMethod;
-            o.evaluationWindow = evaluationWindow;
-            o.impossibleTravelOptions = impossibleTravelOptions;
-            o.keepAlive = keepAlive;
-            o.maxSignalDuration = maxSignalDuration;
-            o.newValueOptions = newValueOptions;
-            return o;
+            final var _resultValue = new SecurityMonitoringRuleOptions();
+            _resultValue.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
+            _resultValue.detectionMethod = detectionMethod;
+            _resultValue.evaluationWindow = evaluationWindow;
+            _resultValue.impossibleTravelOptions = impossibleTravelOptions;
+            _resultValue.keepAlive = keepAlive;
+            _resultValue.maxSignalDuration = maxSignalDuration;
+            _resultValue.newValueOptions = newValueOptions;
+            return _resultValue;
         }
     }
 }

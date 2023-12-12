@@ -110,12 +110,12 @@ public final class DashboardWidgetQueryTableDefinitionRequestProcessQuery {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestProcessQuery build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestProcessQuery();
-            o.filterBies = filterBies;
-            o.limit = limit;
-            o.metric = metric;
-            o.searchBy = searchBy;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestProcessQuery();
+            _resultValue.filterBies = filterBies;
+            _resultValue.limit = limit;
+            _resultValue.metric = metric;
+            _resultValue.searchBy = searchBy;
+            return _resultValue;
         }
     }
 }

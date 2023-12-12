@@ -38,9 +38,9 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
             return this;
         }
         public DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch build() {
-            final var o = new DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

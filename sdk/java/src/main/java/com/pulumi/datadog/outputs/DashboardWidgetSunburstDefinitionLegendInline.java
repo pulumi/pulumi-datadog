@@ -87,11 +87,11 @@ public final class DashboardWidgetSunburstDefinitionLegendInline {
             return this;
         }
         public DashboardWidgetSunburstDefinitionLegendInline build() {
-            final var o = new DashboardWidgetSunburstDefinitionLegendInline();
-            o.hidePercent = hidePercent;
-            o.hideValue = hideValue;
-            o.type = type;
-            return o;
+            final var _resultValue = new DashboardWidgetSunburstDefinitionLegendInline();
+            _resultValue.hidePercent = hidePercent;
+            _resultValue.hideValue = hideValue;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

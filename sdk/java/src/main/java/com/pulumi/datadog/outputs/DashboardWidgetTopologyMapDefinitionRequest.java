@@ -62,10 +62,10 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
             return this;
         }
         public DashboardWidgetTopologyMapDefinitionRequest build() {
-            final var o = new DashboardWidgetTopologyMapDefinitionRequest();
-            o.queries = queries;
-            o.requestType = requestType;
-            return o;
+            final var _resultValue = new DashboardWidgetTopologyMapDefinitionRequest();
+            _resultValue.queries = queries;
+            _resultValue.requestType = requestType;
+            return _resultValue;
         }
     }
 }

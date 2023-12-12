@@ -201,17 +201,17 @@ public final class GetTeamResult {
             return this;
         }
         public GetTeamResult build() {
-            final var o = new GetTeamResult();
-            o.description = description;
-            o.filterKeyword = filterKeyword;
-            o.handle = handle;
-            o.id = id;
-            o.linkCount = linkCount;
-            o.name = name;
-            o.summary = summary;
-            o.teamId = teamId;
-            o.userCount = userCount;
-            return o;
+            final var _resultValue = new GetTeamResult();
+            _resultValue.description = description;
+            _resultValue.filterKeyword = filterKeyword;
+            _resultValue.handle = handle;
+            _resultValue.id = id;
+            _resultValue.linkCount = linkCount;
+            _resultValue.name = name;
+            _resultValue.summary = summary;
+            _resultValue.teamId = teamId;
+            _resultValue.userCount = userCount;
+            return _resultValue;
         }
     }
 }

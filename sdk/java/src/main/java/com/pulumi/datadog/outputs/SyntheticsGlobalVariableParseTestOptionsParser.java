@@ -67,10 +67,10 @@ public final class SyntheticsGlobalVariableParseTestOptionsParser {
             return this;
         }
         public SyntheticsGlobalVariableParseTestOptionsParser build() {
-            final var o = new SyntheticsGlobalVariableParseTestOptionsParser();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SyntheticsGlobalVariableParseTestOptionsParser();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -59,10 +59,10 @@ public final class SyntheticsTestBrowserStepParamsVariable {
             return this;
         }
         public SyntheticsTestBrowserStepParamsVariable build() {
-            final var o = new SyntheticsTestBrowserStepParamsVariable();
-            o.example = example;
-            o.name = name;
-            return o;
+            final var _resultValue = new SyntheticsTestBrowserStepParamsVariable();
+            _resultValue.example = example;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

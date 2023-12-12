@@ -127,17 +127,17 @@ public final class GetHostsHostListMeta {
             return this;
         }
         public GetHostsHostListMeta build() {
-            final var o = new GetHostsHostListMeta();
-            o.agentVersion = agentVersion;
-            o.cpuCores = cpuCores;
-            o.gohai = gohai;
-            o.machine = machine;
-            o.platform = platform;
-            o.processor = processor;
-            o.pythonVersion = pythonVersion;
-            o.socketFqdn = socketFqdn;
-            o.socketHostname = socketHostname;
-            return o;
+            final var _resultValue = new GetHostsHostListMeta();
+            _resultValue.agentVersion = agentVersion;
+            _resultValue.cpuCores = cpuCores;
+            _resultValue.gohai = gohai;
+            _resultValue.machine = machine;
+            _resultValue.platform = platform;
+            _resultValue.processor = processor;
+            _resultValue.pythonVersion = pythonVersion;
+            _resultValue.socketFqdn = socketFqdn;
+            _resultValue.socketHostname = socketHostname;
+            return _resultValue;
         }
     }
 }

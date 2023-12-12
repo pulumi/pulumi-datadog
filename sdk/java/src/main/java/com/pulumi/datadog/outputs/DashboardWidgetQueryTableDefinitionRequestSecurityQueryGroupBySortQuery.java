@@ -86,11 +86,11 @@ public final class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupB
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery();
-            o.aggregation = aggregation;
-            o.facet = facet;
-            o.order = order;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery();
+            _resultValue.aggregation = aggregation;
+            _resultValue.facet = facet;
+            _resultValue.order = order;
+            return _resultValue;
         }
     }
 }

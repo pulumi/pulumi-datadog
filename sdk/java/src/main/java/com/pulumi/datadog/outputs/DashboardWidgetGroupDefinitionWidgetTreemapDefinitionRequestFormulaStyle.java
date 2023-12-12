@@ -68,10 +68,10 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

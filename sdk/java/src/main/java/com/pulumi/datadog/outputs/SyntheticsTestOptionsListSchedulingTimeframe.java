@@ -85,11 +85,11 @@ public final class SyntheticsTestOptionsListSchedulingTimeframe {
             return this;
         }
         public SyntheticsTestOptionsListSchedulingTimeframe build() {
-            final var o = new SyntheticsTestOptionsListSchedulingTimeframe();
-            o.day = day;
-            o.from = from;
-            o.to = to;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListSchedulingTimeframe();
+            _resultValue.day = day;
+            _resultValue.from = from;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

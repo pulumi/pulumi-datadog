@@ -68,10 +68,10 @@ public final class LogsIndexExclusionFilterFilter {
             return this;
         }
         public LogsIndexExclusionFilterFilter build() {
-            final var o = new LogsIndexExclusionFilterFilter();
-            o.query = query;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new LogsIndexExclusionFilterFilter();
+            _resultValue.query = query;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

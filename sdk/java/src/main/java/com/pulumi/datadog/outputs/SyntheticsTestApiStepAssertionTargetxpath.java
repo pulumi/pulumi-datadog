@@ -86,11 +86,11 @@ public final class SyntheticsTestApiStepAssertionTargetxpath {
             return this;
         }
         public SyntheticsTestApiStepAssertionTargetxpath build() {
-            final var o = new SyntheticsTestApiStepAssertionTargetxpath();
-            o.operator = operator;
-            o.targetvalue = targetvalue;
-            o.xpath = xpath;
-            return o;
+            final var _resultValue = new SyntheticsTestApiStepAssertionTargetxpath();
+            _resultValue.operator = operator;
+            _resultValue.targetvalue = targetvalue;
+            _resultValue.xpath = xpath;
+            return _resultValue;
         }
     }
 }

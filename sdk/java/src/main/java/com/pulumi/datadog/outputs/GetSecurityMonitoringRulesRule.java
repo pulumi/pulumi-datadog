@@ -172,19 +172,19 @@ public final class GetSecurityMonitoringRulesRule {
             return this;
         }
         public GetSecurityMonitoringRulesRule build() {
-            final var o = new GetSecurityMonitoringRulesRule();
-            o.cases = cases;
-            o.enabled = enabled;
-            o.filters = filters;
-            o.hasExtendedTitle = hasExtendedTitle;
-            o.message = message;
-            o.name = name;
-            o.options = options;
-            o.queries = queries;
-            o.signalQueries = signalQueries;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetSecurityMonitoringRulesRule();
+            _resultValue.cases = cases;
+            _resultValue.enabled = enabled;
+            _resultValue.filters = filters;
+            _resultValue.hasExtendedTitle = hasExtendedTitle;
+            _resultValue.message = message;
+            _resultValue.name = name;
+            _resultValue.options = options;
+            _resultValue.queries = queries;
+            _resultValue.signalQueries = signalQueries;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

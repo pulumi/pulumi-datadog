@@ -67,10 +67,10 @@ public final class DowntimeScheduleOneTimeSchedule {
             return this;
         }
         public DowntimeScheduleOneTimeSchedule build() {
-            final var o = new DowntimeScheduleOneTimeSchedule();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new DowntimeScheduleOneTimeSchedule();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

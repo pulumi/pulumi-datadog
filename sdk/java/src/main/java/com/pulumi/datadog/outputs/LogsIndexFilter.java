@@ -46,9 +46,9 @@ public final class LogsIndexFilter {
             return this;
         }
         public LogsIndexFilter build() {
-            final var o = new LogsIndexFilter();
-            o.query = query;
-            return o;
+            final var _resultValue = new LogsIndexFilter();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

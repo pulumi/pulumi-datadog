@@ -88,11 +88,11 @@ public final class SyntheticsTestOptionsListRumSettings {
             return this;
         }
         public SyntheticsTestOptionsListRumSettings build() {
-            final var o = new SyntheticsTestOptionsListRumSettings();
-            o.applicationId = applicationId;
-            o.clientTokenId = clientTokenId;
-            o.isEnabled = isEnabled;
-            return o;
+            final var _resultValue = new SyntheticsTestOptionsListRumSettings();
+            _resultValue.applicationId = applicationId;
+            _resultValue.clientTokenId = clientTokenId;
+            _resultValue.isEnabled = isEnabled;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class DashboardListDashItem {
             return this;
         }
         public DashboardListDashItem build() {
-            final var o = new DashboardListDashItem();
-            o.dashId = dashId;
-            o.type = type;
-            return o;
+            final var _resultValue = new DashboardListDashItem();
+            _resultValue.dashId = dashId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

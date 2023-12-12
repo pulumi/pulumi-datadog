@@ -224,18 +224,18 @@ public final class OrganizationSettingsSettings {
             return this;
         }
         public OrganizationSettingsSettings build() {
-            final var o = new OrganizationSettingsSettings();
-            o.privateWidgetShare = privateWidgetShare;
-            o.saml = saml;
-            o.samlAutocreateAccessRole = samlAutocreateAccessRole;
-            o.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
-            o.samlCanBeEnabled = samlCanBeEnabled;
-            o.samlIdpEndpoint = samlIdpEndpoint;
-            o.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
-            o.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
-            o.samlLoginUrl = samlLoginUrl;
-            o.samlStrictMode = samlStrictMode;
-            return o;
+            final var _resultValue = new OrganizationSettingsSettings();
+            _resultValue.privateWidgetShare = privateWidgetShare;
+            _resultValue.saml = saml;
+            _resultValue.samlAutocreateAccessRole = samlAutocreateAccessRole;
+            _resultValue.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
+            _resultValue.samlCanBeEnabled = samlCanBeEnabled;
+            _resultValue.samlIdpEndpoint = samlIdpEndpoint;
+            _resultValue.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
+            _resultValue.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
+            _resultValue.samlLoginUrl = samlLoginUrl;
+            _resultValue.samlStrictMode = samlStrictMode;
+            return _resultValue;
         }
     }
 }

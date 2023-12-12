@@ -59,10 +59,10 @@ public final class IpAllowlistEntry {
             return this;
         }
         public IpAllowlistEntry build() {
-            final var o = new IpAllowlistEntry();
-            o.cidrBlock = cidrBlock;
-            o.note = note;
-            return o;
+            final var _resultValue = new IpAllowlistEntry();
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.note = note;
+            return _resultValue;
         }
     }
 }

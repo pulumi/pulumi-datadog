@@ -38,9 +38,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch();
-            o.query = query;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch();
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

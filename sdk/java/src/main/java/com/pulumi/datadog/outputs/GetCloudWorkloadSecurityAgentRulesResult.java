@@ -70,10 +70,10 @@ public final class GetCloudWorkloadSecurityAgentRulesResult {
             return this;
         }
         public GetCloudWorkloadSecurityAgentRulesResult build() {
-            final var o = new GetCloudWorkloadSecurityAgentRulesResult();
-            o.agentRules = agentRules;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetCloudWorkloadSecurityAgentRulesResult();
+            _resultValue.agentRules = agentRules;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

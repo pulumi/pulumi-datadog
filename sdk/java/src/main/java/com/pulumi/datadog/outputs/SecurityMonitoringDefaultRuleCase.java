@@ -69,10 +69,10 @@ public final class SecurityMonitoringDefaultRuleCase {
             return this;
         }
         public SecurityMonitoringDefaultRuleCase build() {
-            final var o = new SecurityMonitoringDefaultRuleCase();
-            o.notifications = notifications;
-            o.status = status;
-            return o;
+            final var _resultValue = new SecurityMonitoringDefaultRuleCase();
+            _resultValue.notifications = notifications;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

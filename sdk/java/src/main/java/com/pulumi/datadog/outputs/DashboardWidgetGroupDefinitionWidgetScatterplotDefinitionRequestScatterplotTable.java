@@ -58,10 +58,10 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             return queries(List.of(queries));
         }
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable();
-            o.formulas = formulas;
-            o.queries = queries;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTable();
+            _resultValue.formulas = formulas;
+            _resultValue.queries = queries;
+            return _resultValue;
         }
     }
 }

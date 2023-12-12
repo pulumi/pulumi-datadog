@@ -68,10 +68,10 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestFormulaStyle build() {
-            final var o = new DashboardWidgetQueryTableDefinitionRequestFormulaStyle();
-            o.palette = palette;
-            o.paletteIndex = paletteIndex;
-            return o;
+            final var _resultValue = new DashboardWidgetQueryTableDefinitionRequestFormulaStyle();
+            _resultValue.palette = palette;
+            _resultValue.paletteIndex = paletteIndex;
+            return _resultValue;
         }
     }
 }

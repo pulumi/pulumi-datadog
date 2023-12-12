@@ -50,9 +50,9 @@ public final class MonitorSchedulingOption {
             return evaluationWindows(List.of(evaluationWindows));
         }
         public MonitorSchedulingOption build() {
-            final var o = new MonitorSchedulingOption();
-            o.evaluationWindows = evaluationWindows;
-            return o;
+            final var _resultValue = new MonitorSchedulingOption();
+            _resultValue.evaluationWindows = evaluationWindows;
+            return _resultValue;
         }
     }
 }

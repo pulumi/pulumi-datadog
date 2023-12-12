@@ -110,12 +110,12 @@ public final class GetTeamMembershipsResult {
             return teamMemberships(List.of(teamMemberships));
         }
         public GetTeamMembershipsResult build() {
-            final var o = new GetTeamMembershipsResult();
-            o.filterKeyword = filterKeyword;
-            o.id = id;
-            o.teamId = teamId;
-            o.teamMemberships = teamMemberships;
-            return o;
+            final var _resultValue = new GetTeamMembershipsResult();
+            _resultValue.filterKeyword = filterKeyword;
+            _resultValue.id = id;
+            _resultValue.teamId = teamId;
+            _resultValue.teamMemberships = teamMemberships;
+            return _resultValue;
         }
     }
 }

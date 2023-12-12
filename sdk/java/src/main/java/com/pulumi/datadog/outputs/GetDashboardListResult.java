@@ -65,10 +65,10 @@ public final class GetDashboardListResult {
             return this;
         }
         public GetDashboardListResult build() {
-            final var o = new GetDashboardListResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDashboardListResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

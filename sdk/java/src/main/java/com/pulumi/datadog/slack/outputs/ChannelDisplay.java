@@ -105,12 +105,12 @@ public final class ChannelDisplay {
             return this;
         }
         public ChannelDisplay build() {
-            final var o = new ChannelDisplay();
-            o.message = message;
-            o.notified = notified;
-            o.snapshot = snapshot;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new ChannelDisplay();
+            _resultValue.message = message;
+            _resultValue.notified = notified;
+            _resultValue.snapshot = snapshot;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinition {
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSloListDefinition build() {
-            final var o = new DashboardWidgetGroupDefinitionWidgetSloListDefinition();
-            o.request = request;
-            o.title = title;
-            o.titleAlign = titleAlign;
-            o.titleSize = titleSize;
-            return o;
+            final var _resultValue = new DashboardWidgetGroupDefinitionWidgetSloListDefinition();
+            _resultValue.request = request;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
+            return _resultValue;
         }
     }
 }

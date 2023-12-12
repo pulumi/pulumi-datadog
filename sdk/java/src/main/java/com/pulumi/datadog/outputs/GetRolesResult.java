@@ -91,11 +91,11 @@ public final class GetRolesResult {
             return roles(List.of(roles));
         }
         public GetRolesResult build() {
-            final var o = new GetRolesResult();
-            o.filter = filter;
-            o.id = id;
-            o.roles = roles;
-            return o;
+            final var _resultValue = new GetRolesResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.roles = roles;
+            return _resultValue;
         }
     }
 }

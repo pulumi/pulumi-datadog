@@ -87,11 +87,11 @@ public final class MonitorVariablesEventQueryCompute {
             return this;
         }
         public MonitorVariablesEventQueryCompute build() {
-            final var o = new MonitorVariablesEventQueryCompute();
-            o.aggregation = aggregation;
-            o.interval = interval;
-            o.metric = metric;
-            return o;
+            final var _resultValue = new MonitorVariablesEventQueryCompute();
+            _resultValue.aggregation = aggregation;
+            _resultValue.interval = interval;
+            _resultValue.metric = metric;
+            return _resultValue;
         }
     }
 }

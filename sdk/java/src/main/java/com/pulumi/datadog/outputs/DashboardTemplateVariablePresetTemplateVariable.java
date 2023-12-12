@@ -98,11 +98,11 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
             return values(List.of(values));
         }
         public DashboardTemplateVariablePresetTemplateVariable build() {
-            final var o = new DashboardTemplateVariablePresetTemplateVariable();
-            o.name = name;
-            o.value = value;
-            o.values = values;
-            return o;
+            final var _resultValue = new DashboardTemplateVariablePresetTemplateVariable();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }
