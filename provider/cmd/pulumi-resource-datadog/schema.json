@@ -7,7 +7,7 @@
     ],
     "homepage": "https://pulumi.io",
     "license": "Apache-2.0",
-    "attribution": "This Pulumi package is based on the [`datadog` Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog).",
+    "attribution": "This Pulumi package is based on the [`datadog` Terraform Provider](https://github.com/DataDog/terraform-provider-datadog).",
     "repository": "https://github.com/pulumi/pulumi-datadog",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
@@ -36,7 +36,7 @@
         },
         "nodejs": {
             "packageDescription": "A Pulumi package for creating and managing Datadog resources.",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/DataDog/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/DataDog/terraform-provider-datadog/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -50,7 +50,7 @@
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             },
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/DataDog/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-datadog` repo](https://github.com/DataDog/terraform-provider-datadog/issues).",
             "compatibility": "tfbridge20",
             "pyproject": {
                 "enabled": true

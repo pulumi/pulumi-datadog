@@ -82,6 +82,7 @@ func Provider() tfbridge.ProviderInfo {
 		MetadataInfo:     tfbridge.NewProviderMetadata(metadata),
 		Version:          version.Version,
 		UpstreamRepoPath: "./upstream",
+		GitHubOrg:        "DataDog",
 		DocRules:         &tfbridge.DocRuleInfo{EditRules: docEditRules},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
