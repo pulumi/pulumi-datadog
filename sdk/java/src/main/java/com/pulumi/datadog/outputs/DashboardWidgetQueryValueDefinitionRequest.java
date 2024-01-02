@@ -178,21 +178,25 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
 
         @CustomType.Setter
         public Builder aggregator(@Nullable String aggregator) {
+
             this.aggregator = aggregator;
             return this;
         }
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder auditQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestAuditQuery auditQuery) {
+
             this.auditQuery = auditQuery;
             return this;
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -201,6 +205,7 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetQueryValueDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -209,21 +214,25 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetQueryValueDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -232,11 +241,13 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }

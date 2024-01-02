@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorGrokParserGrok;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -95,21 +96,27 @@ public final class LogsCustomPipelineProcessorGrokParser {
 
         @CustomType.Setter
         public Builder grok(LogsCustomPipelineProcessorGrokParserGrok grok) {
-            this.grok = Objects.requireNonNull(grok);
+            if (grok == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorGrokParser", "grok");
+            }
+            this.grok = grok;
             return this;
         }
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder samples(@Nullable List<String> samples) {
+
             this.samples = samples;
             return this;
         }
@@ -118,7 +125,10 @@ public final class LogsCustomPipelineProcessorGrokParser {
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorGrokParser", "source");
+            }
+            this.source = source;
             return this;
         }
         public LogsCustomPipelineProcessorGrokParser build() {

@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRumSettingsArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListSchedulingArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -774,7 +775,9 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         public SyntheticsTestOptionsListArgs build() {
-            $.tickEvery = Objects.requireNonNull($.tickEvery, "expected parameter 'tickEvery' to be non-null");
+            if ($.tickEvery == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListArgs", "tickEvery");
+            }
             return $;
         }
     }

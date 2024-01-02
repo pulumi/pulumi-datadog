@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -393,8 +394,12 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         public DashboardWidgetCheckStatusDefinitionArgs build() {
-            $.check = Objects.requireNonNull($.check, "expected parameter 'check' to be non-null");
-            $.grouping = Objects.requireNonNull($.grouping, "expected parameter 'grouping' to be non-null");
+            if ($.check == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetCheckStatusDefinitionArgs", "check");
+            }
+            if ($.grouping == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetCheckStatusDefinitionArgs", "grouping");
+            }
             return $;
         }
     }

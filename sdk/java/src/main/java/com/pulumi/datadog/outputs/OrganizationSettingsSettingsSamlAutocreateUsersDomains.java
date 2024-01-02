@@ -60,6 +60,7 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomains {
 
         @CustomType.Setter
         public Builder domains(@Nullable List<String> domains) {
+
             this.domains = domains;
             return this;
         }
@@ -68,6 +69,7 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomains {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.OrganizationSettingsSettingsSaml;
 import com.pulumi.datadog.outputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains;
 import com.pulumi.datadog.outputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin;
 import com.pulumi.datadog.outputs.OrganizationSettingsSettingsSamlStrictMode;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -175,52 +176,70 @@ public final class OrganizationSettingsSettings {
 
         @CustomType.Setter
         public Builder privateWidgetShare(@Nullable Boolean privateWidgetShare) {
+
             this.privateWidgetShare = privateWidgetShare;
             return this;
         }
         @CustomType.Setter
         public Builder saml(OrganizationSettingsSettingsSaml saml) {
-            this.saml = Objects.requireNonNull(saml);
+            if (saml == null) {
+              throw new MissingRequiredPropertyException("OrganizationSettingsSettings", "saml");
+            }
+            this.saml = saml;
             return this;
         }
         @CustomType.Setter
         public Builder samlAutocreateAccessRole(@Nullable String samlAutocreateAccessRole) {
+
             this.samlAutocreateAccessRole = samlAutocreateAccessRole;
             return this;
         }
         @CustomType.Setter
         public Builder samlAutocreateUsersDomains(OrganizationSettingsSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains) {
-            this.samlAutocreateUsersDomains = Objects.requireNonNull(samlAutocreateUsersDomains);
+            if (samlAutocreateUsersDomains == null) {
+              throw new MissingRequiredPropertyException("OrganizationSettingsSettings", "samlAutocreateUsersDomains");
+            }
+            this.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
             return this;
         }
         @CustomType.Setter
         public Builder samlCanBeEnabled(@Nullable Boolean samlCanBeEnabled) {
+
             this.samlCanBeEnabled = samlCanBeEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdpEndpoint(@Nullable String samlIdpEndpoint) {
+
             this.samlIdpEndpoint = samlIdpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdpInitiatedLogin(OrganizationSettingsSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
-            this.samlIdpInitiatedLogin = Objects.requireNonNull(samlIdpInitiatedLogin);
+            if (samlIdpInitiatedLogin == null) {
+              throw new MissingRequiredPropertyException("OrganizationSettingsSettings", "samlIdpInitiatedLogin");
+            }
+            this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdpMetadataUploaded(@Nullable Boolean samlIdpMetadataUploaded) {
+
             this.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
             return this;
         }
         @CustomType.Setter
         public Builder samlLoginUrl(@Nullable String samlLoginUrl) {
+
             this.samlLoginUrl = samlLoginUrl;
             return this;
         }
         @CustomType.Setter
         public Builder samlStrictMode(OrganizationSettingsSettingsSamlStrictMode samlStrictMode) {
-            this.samlStrictMode = Objects.requireNonNull(samlStrictMode);
+            if (samlStrictMode == null) {
+              throw new MissingRequiredPropertyException("OrganizationSettingsSettings", "samlStrictMode");
+            }
+            this.samlStrictMode = samlStrictMode;
             return this;
         }
         public OrganizationSettingsSettings build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -410,13 +411,27 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         }
 
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.env = Objects.requireNonNull($.env, "expected parameter 'env' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.operationName = Objects.requireNonNull($.operationName, "expected parameter 'operationName' to be non-null");
-            $.resourceName = Objects.requireNonNull($.resourceName, "expected parameter 'resourceName' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
-            $.stat = Objects.requireNonNull($.stat, "expected parameter 'stat' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "dataSource");
+            }
+            if ($.env == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "env");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "name");
+            }
+            if ($.operationName == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "operationName");
+            }
+            if ($.resourceName == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "resourceName");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "service");
+            }
+            if ($.stat == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs", "stat");
+            }
             return $;
         }
     }

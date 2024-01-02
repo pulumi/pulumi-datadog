@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -159,41 +160,55 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
 
         @CustomType.Setter
         public Builder aggregator(@Nullable String aggregator) {
+
             this.aggregator = aggregator;
             return this;
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder isNormalizedCpu(@Nullable Boolean isNormalizedCpu) {
+
             this.isNormalizedCpu = isNormalizedCpu;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder metric(String metric) {
-            this.metric = Objects.requireNonNull(metric);
+            if (metric == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery", "metric");
+            }
+            this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable String sort) {
+
             this.sort = sort;
             return this;
         }
         @CustomType.Setter
         public Builder tagFilters(@Nullable List<String> tagFilters) {
+
             this.tagFilters = tagFilters;
             return this;
         }
@@ -202,6 +217,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
         }
         @CustomType.Setter
         public Builder textFilter(@Nullable String textFilter) {
+
             this.textFilter = textFilter;
             return this;
         }

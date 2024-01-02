@@ -179,16 +179,19 @@ public final class DashboardWidgetToplistDefinitionRequest {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetToplistDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder auditQuery(@Nullable DashboardWidgetToplistDefinitionRequestAuditQuery auditQuery) {
+
             this.auditQuery = auditQuery;
             return this;
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -197,6 +200,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetToplistDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -205,21 +209,25 @@ public final class DashboardWidgetToplistDefinitionRequest {
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetToplistDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetToplistDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetToplistDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -228,16 +236,19 @@ public final class DashboardWidgetToplistDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetToplistDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetToplistDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetToplistDefinitionRequestStyle style) {
+
             this.style = style;
             return this;
         }

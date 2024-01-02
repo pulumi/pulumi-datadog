@@ -119,31 +119,37 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
+
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery) {
+
             this.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder eventQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryEventQuery eventQuery) {
+
             this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metricQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery) {
+
             this.metricQuery = metricQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery) {
+
             this.sloQuery = sloQuery;
             return this;
         }

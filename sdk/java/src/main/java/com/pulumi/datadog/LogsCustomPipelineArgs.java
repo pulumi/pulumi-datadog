@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineFilterArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -159,8 +160,12 @@ public final class LogsCustomPipelineArgs extends com.pulumi.resources.ResourceA
         }
 
         public LogsCustomPipelineArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineArgs", "filters");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineArgs", "name");
+            }
             return $;
         }
     }

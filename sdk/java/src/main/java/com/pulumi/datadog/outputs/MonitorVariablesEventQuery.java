@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.MonitorVariablesEventQueryCompute;
 import com.pulumi.datadog.outputs.MonitorVariablesEventQueryGroupBy;
 import com.pulumi.datadog.outputs.MonitorVariablesEventQuerySearch;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -117,7 +118,10 @@ public final class MonitorVariablesEventQuery {
 
         @CustomType.Setter
         public Builder computes(List<MonitorVariablesEventQueryCompute> computes) {
-            this.computes = Objects.requireNonNull(computes);
+            if (computes == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesEventQuery", "computes");
+            }
+            this.computes = computes;
             return this;
         }
         public Builder computes(MonitorVariablesEventQueryCompute... computes) {
@@ -125,11 +129,15 @@ public final class MonitorVariablesEventQuery {
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesEventQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<MonitorVariablesEventQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -138,6 +146,7 @@ public final class MonitorVariablesEventQuery {
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -146,12 +155,18 @@ public final class MonitorVariablesEventQuery {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesEventQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder search(MonitorVariablesEventQuerySearch search) {
-            this.search = Objects.requireNonNull(search);
+            if (search == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesEventQuery", "search");
+            }
+            this.search = search;
             return this;
         }
         public MonitorVariablesEventQuery build() {

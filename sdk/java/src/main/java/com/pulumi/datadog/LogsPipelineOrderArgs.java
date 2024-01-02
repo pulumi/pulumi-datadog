@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class LogsPipelineOrderArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LogsPipelineOrderArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.pipelines = Objects.requireNonNull($.pipelines, "expected parameter 'pipelines' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LogsPipelineOrderArgs", "name");
+            }
+            if ($.pipelines == null) {
+                throw new MissingRequiredPropertyException("LogsPipelineOrderArgs", "pipelines");
+            }
             return $;
         }
     }

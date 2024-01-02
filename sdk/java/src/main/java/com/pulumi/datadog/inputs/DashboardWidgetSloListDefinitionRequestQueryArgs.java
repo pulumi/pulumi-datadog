@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionRequestQuerySortArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -152,7 +153,9 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
         }
 
         public DashboardWidgetSloListDefinitionRequestQueryArgs build() {
-            $.queryString = Objects.requireNonNull($.queryString, "expected parameter 'queryString' to be non-null");
+            if ($.queryString == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetSloListDefinitionRequestQueryArgs", "queryString");
+            }
             return $;
         }
     }

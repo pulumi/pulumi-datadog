@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetMonitorsMonitor;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,11 +103,15 @@ public final class GetMonitorsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMonitorsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder monitorTagsFilters(@Nullable List<String> monitorTagsFilters) {
+
             this.monitorTagsFilters = monitorTagsFilters;
             return this;
         }
@@ -115,7 +120,10 @@ public final class GetMonitorsResult {
         }
         @CustomType.Setter
         public Builder monitors(List<GetMonitorsMonitor> monitors) {
-            this.monitors = Objects.requireNonNull(monitors);
+            if (monitors == null) {
+              throw new MissingRequiredPropertyException("GetMonitorsResult", "monitors");
+            }
+            this.monitors = monitors;
             return this;
         }
         public Builder monitors(GetMonitorsMonitor... monitors) {
@@ -123,11 +131,13 @@ public final class GetMonitorsResult {
         }
         @CustomType.Setter
         public Builder nameFilter(@Nullable String nameFilter) {
+
             this.nameFilter = nameFilter;
             return this;
         }
         @CustomType.Setter
         public Builder tagsFilters(@Nullable List<String> tagsFilters) {
+
             this.tagsFilters = tagsFilters;
             return this;
         }

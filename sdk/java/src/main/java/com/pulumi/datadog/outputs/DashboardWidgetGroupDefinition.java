@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidget;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -117,31 +118,39 @@ public final class DashboardWidgetGroupDefinition {
 
         @CustomType.Setter
         public Builder backgroundColor(@Nullable String backgroundColor) {
+
             this.backgroundColor = backgroundColor;
             return this;
         }
         @CustomType.Setter
         public Builder bannerImg(@Nullable String bannerImg) {
+
             this.bannerImg = bannerImg;
             return this;
         }
         @CustomType.Setter
         public Builder layoutType(String layoutType) {
-            this.layoutType = Objects.requireNonNull(layoutType);
+            if (layoutType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinition", "layoutType");
+            }
+            this.layoutType = layoutType;
             return this;
         }
         @CustomType.Setter
         public Builder showTitle(@Nullable Boolean showTitle) {
+
             this.showTitle = showTitle;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder widgets(@Nullable List<DashboardWidgetGroupDefinitionWidget> widgets) {
+
             this.widgets = widgets;
             return this;
         }

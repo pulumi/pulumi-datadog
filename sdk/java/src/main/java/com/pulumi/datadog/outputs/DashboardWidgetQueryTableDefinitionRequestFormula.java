@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormulaStyle;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,16 +119,19 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder cellDisplayMode(@Nullable String cellDisplayMode) {
+
             this.cellDisplayMode = cellDisplayMode;
             return this;
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -136,16 +140,21 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
         }
         @CustomType.Setter
         public Builder formulaExpression(String formulaExpression) {
-            this.formulaExpression = Objects.requireNonNull(formulaExpression);
+            if (formulaExpression == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestFormula", "formulaExpression");
+            }
+            this.formulaExpression = formulaExpression;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable DashboardWidgetQueryTableDefinitionRequestFormulaLimit limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetQueryTableDefinitionRequestFormulaStyle style) {
+
             this.style = style;
             return this;
         }

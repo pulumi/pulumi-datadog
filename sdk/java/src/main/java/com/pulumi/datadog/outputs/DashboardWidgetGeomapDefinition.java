@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionStyle;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionView;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -147,6 +148,7 @@ public final class DashboardWidgetGeomapDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGeomapDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -155,11 +157,13 @@ public final class DashboardWidgetGeomapDefinition {
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetGeomapDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -168,27 +172,34 @@ public final class DashboardWidgetGeomapDefinition {
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGeomapDefinitionStyle style) {
+
             this.style = style;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder view(DashboardWidgetGeomapDefinitionView view) {
-            this.view = Objects.requireNonNull(view);
+            if (view == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinition", "view");
+            }
+            this.view = view;
             return this;
         }
         public DashboardWidgetGeomapDefinition build() {

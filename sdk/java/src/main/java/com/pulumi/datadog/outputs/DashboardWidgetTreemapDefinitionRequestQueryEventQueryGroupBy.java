@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -74,16 +75,21 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy
 
         @CustomType.Setter
         public Builder facet(String facet) {
-            this.facet = Objects.requireNonNull(facet);
+            if (facet == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy", "facet");
+            }
+            this.facet = facet;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort sort) {
+
             this.sort = sort;
             return this;
         }

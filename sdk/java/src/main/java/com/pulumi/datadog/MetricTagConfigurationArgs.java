@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MetricTagConfigurationAggregationArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -247,9 +248,15 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         public MetricTagConfigurationArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.metricType = Objects.requireNonNull($.metricType, "expected parameter 'metricType' to be non-null");
-            $.tags = Objects.requireNonNull($.tags, "expected parameter 'tags' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("MetricTagConfigurationArgs", "metricName");
+            }
+            if ($.metricType == null) {
+                throw new MissingRequiredPropertyException("MetricTagConfigurationArgs", "metricType");
+            }
+            if ($.tags == null) {
+                throw new MissingRequiredPropertyException("MetricTagConfigurationArgs", "tags");
+            }
             return $;
         }
     }

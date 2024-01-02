@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,10 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
         @CustomType.Setter
         public Builder computes(List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute> computes) {
-            this.computes = Objects.requireNonNull(computes);
+            if (computes == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery", "computes");
+            }
+            this.computes = computes;
             return this;
         }
         public Builder computes(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute... computes) {
@@ -140,11 +144,15 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -153,6 +161,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -161,16 +170,21 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder search(@Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch search) {
+
             this.search = search;
             return this;
         }
         @CustomType.Setter
         public Builder storage(@Nullable String storage) {
+
             this.storage = storage;
             return this;
         }

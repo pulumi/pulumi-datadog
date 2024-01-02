@@ -119,31 +119,37 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
+
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery) {
+
             this.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder eventQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery) {
+
             this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metricQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery) {
+
             this.metricQuery = metricQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery) {
+
             this.sloQuery = sloQuery;
             return this;
         }

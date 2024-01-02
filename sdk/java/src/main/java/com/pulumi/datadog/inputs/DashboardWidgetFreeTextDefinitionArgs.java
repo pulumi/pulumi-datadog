@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class DashboardWidgetFreeTextDefinitionArgs extends com.pulumi.reso
         }
 
         public DashboardWidgetFreeTextDefinitionArgs build() {
-            $.text = Objects.requireNonNull($.text, "expected parameter 'text' to be non-null");
+            if ($.text == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetFreeTextDefinitionArgs", "text");
+            }
             return $;
         }
     }

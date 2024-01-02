@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         }
 
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs build() {
-            $.dimension = Objects.requireNonNull($.dimension, "expected parameter 'dimension' to be non-null");
-            $.formulaExpression = Objects.requireNonNull($.formulaExpression, "expected parameter 'formulaExpression' to be non-null");
+            if ($.dimension == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs", "dimension");
+            }
+            if ($.formulaExpression == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs", "formulaExpression");
+            }
             return $;
         }
     }

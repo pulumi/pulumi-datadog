@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineFilter;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorPipelineProcessor;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class LogsCustomPipelineProcessorPipeline {
 
         @CustomType.Setter
         public Builder filters(List<LogsCustomPipelineProcessorPipelineFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipeline", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(LogsCustomPipelineProcessorPipelineFilter... filters) {
@@ -82,16 +86,21 @@ public final class LogsCustomPipelineProcessorPipeline {
         }
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipeline", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder processors(@Nullable List<LogsCustomPipelineProcessorPipelineProcessor> processors) {
+
             this.processors = processors;
             return this;
         }

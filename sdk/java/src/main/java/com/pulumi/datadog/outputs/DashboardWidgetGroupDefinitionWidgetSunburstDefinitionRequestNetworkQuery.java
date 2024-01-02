@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,11 +105,13 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
         @CustomType.Setter
         public Builder computeQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryComputeQuery computeQuery) {
+
             this.computeQuery = computeQuery;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -117,11 +120,15 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         }
         @CustomType.Setter
         public Builder index(String index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQuery", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder multiComputes(@Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestNetworkQueryMultiCompute> multiComputes) {
+
             this.multiComputes = multiComputes;
             return this;
         }
@@ -130,6 +137,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         }
         @CustomType.Setter
         public Builder searchQuery(@Nullable String searchQuery) {
+
             this.searchQuery = searchQuery;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -129,36 +130,45 @@ public final class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
 
         @CustomType.Setter
         public Builder alertId(String alertId) {
-            this.alertId = Objects.requireNonNull(alertId);
+            if (alertId == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetAlertValueDefinition", "alertId");
+            }
+            this.alertId = alertId;
             return this;
         }
         @CustomType.Setter
         public Builder precision(@Nullable Integer precision) {
+
             this.precision = precision;
             return this;
         }
         @CustomType.Setter
         public Builder textAlign(@Nullable String textAlign) {
+
             this.textAlign = textAlign;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder unit(@Nullable String unit) {
+
             this.unit = unit;
             return this;
         }

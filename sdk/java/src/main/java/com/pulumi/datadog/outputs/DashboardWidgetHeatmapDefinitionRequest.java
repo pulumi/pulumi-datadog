@@ -134,36 +134,43 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetHeatmapDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetHeatmapDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetHeatmapDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetHeatmapDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetHeatmapDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetHeatmapDefinitionRequestStyle style) {
+
             this.style = style;
             return this;
         }

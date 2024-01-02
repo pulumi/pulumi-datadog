@@ -114,31 +114,37 @@ public final class MonitorMonitorThresholds {
 
         @CustomType.Setter
         public Builder critical(@Nullable String critical) {
+
             this.critical = critical;
             return this;
         }
         @CustomType.Setter
         public Builder criticalRecovery(@Nullable String criticalRecovery) {
+
             this.criticalRecovery = criticalRecovery;
             return this;
         }
         @CustomType.Setter
         public Builder ok(@Nullable String ok) {
+
             this.ok = ok;
             return this;
         }
         @CustomType.Setter
         public Builder unknown(@Nullable String unknown) {
+
             this.unknown = unknown;
             return this;
         }
         @CustomType.Setter
         public Builder warning(@Nullable String warning) {
+
             this.warning = warning;
             return this;
         }
         @CustomType.Setter
         public Builder warningRecovery(@Nullable String warningRecovery) {
+
             this.warningRecovery = warningRecovery;
             return this;
         }

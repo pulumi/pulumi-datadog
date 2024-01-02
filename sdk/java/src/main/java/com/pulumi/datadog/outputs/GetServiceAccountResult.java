@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,47 +201,70 @@ public final class GetServiceAccountResult {
 
         @CustomType.Setter
         public Builder disabled(Boolean disabled) {
-            this.disabled = Objects.requireNonNull(disabled);
+            if (disabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "disabled");
+            }
+            this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable String filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder filterStatus(@Nullable String filterStatus) {
+
             this.filterStatus = filterStatus;
             return this;
         }
         @CustomType.Setter
         public Builder handle(String handle) {
-            this.handle = Objects.requireNonNull(handle);
+            if (handle == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "handle");
+            }
+            this.handle = handle;
             return this;
         }
         @CustomType.Setter
         public Builder icon(String icon) {
-            this.icon = Objects.requireNonNull(icon);
+            if (icon == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "icon");
+            }
+            this.icon = icon;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder roles(List<String> roles) {
-            this.roles = Objects.requireNonNull(roles);
+            if (roles == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "roles");
+            }
+            this.roles = roles;
             return this;
         }
         public Builder roles(String... roles) {
@@ -248,17 +272,26 @@ public final class GetServiceAccountResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder title(String title) {
-            this.title = Objects.requireNonNull(title);
+            if (title == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "title");
+            }
+            this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder verified(Boolean verified) {
-            this.verified = Objects.requireNonNull(verified);
+            if (verified == null) {
+              throw new MissingRequiredPropertyException("GetServiceAccountResult", "verified");
+            }
+            this.verified = verified;
             return this;
         }
         public GetServiceAccountResult build() {

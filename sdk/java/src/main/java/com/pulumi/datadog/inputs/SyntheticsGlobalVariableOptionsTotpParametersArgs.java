@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SyntheticsGlobalVariableOptionsTotpParametersArgs extends com
         }
 
         public SyntheticsGlobalVariableOptionsTotpParametersArgs build() {
-            $.digits = Objects.requireNonNull($.digits, "expected parameter 'digits' to be non-null");
-            $.refreshInterval = Objects.requireNonNull($.refreshInterval, "expected parameter 'refreshInterval' to be non-null");
+            if ($.digits == null) {
+                throw new MissingRequiredPropertyException("SyntheticsGlobalVariableOptionsTotpParametersArgs", "digits");
+            }
+            if ($.refreshInterval == null) {
+                throw new MissingRequiredPropertyException("SyntheticsGlobalVariableOptionsTotpParametersArgs", "refreshInterval");
+            }
             return $;
         }
     }

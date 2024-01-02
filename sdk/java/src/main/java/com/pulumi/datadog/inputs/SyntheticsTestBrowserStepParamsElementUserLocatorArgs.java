@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -94,7 +95,9 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorArgs extends
         }
 
         public SyntheticsTestBrowserStepParamsElementUserLocatorArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserStepParamsElementUserLocatorArgs", "value");
+            }
             return $;
         }
     }

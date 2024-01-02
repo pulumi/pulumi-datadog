@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -47,17 +48,26 @@ public final class GetMonitorSchedulingOptionEvaluationWindow {
 
         @CustomType.Setter
         public Builder dayStarts(String dayStarts) {
-            this.dayStarts = Objects.requireNonNull(dayStarts);
+            if (dayStarts == null) {
+              throw new MissingRequiredPropertyException("GetMonitorSchedulingOptionEvaluationWindow", "dayStarts");
+            }
+            this.dayStarts = dayStarts;
             return this;
         }
         @CustomType.Setter
         public Builder hourStarts(Integer hourStarts) {
-            this.hourStarts = Objects.requireNonNull(hourStarts);
+            if (hourStarts == null) {
+              throw new MissingRequiredPropertyException("GetMonitorSchedulingOptionEvaluationWindow", "hourStarts");
+            }
+            this.hourStarts = hourStarts;
             return this;
         }
         @CustomType.Setter
         public Builder monthStarts(Integer monthStarts) {
-            this.monthStarts = Objects.requireNonNull(monthStarts);
+            if (monthStarts == null) {
+              throw new MissingRequiredPropertyException("GetMonitorSchedulingOptionEvaluationWindow", "monthStarts");
+            }
+            this.monthStarts = monthStarts;
             return this;
         }
         public GetMonitorSchedulingOptionEvaluationWindow build() {

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestColumnArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestQueryArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -141,9 +142,15 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         public DashboardWidgetListStreamDefinitionRequestArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.responseFormat = Objects.requireNonNull($.responseFormat, "expected parameter 'responseFormat' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestArgs", "columns");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestArgs", "query");
+            }
+            if ($.responseFormat == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestArgs", "responseFormat");
+            }
             return $;
         }
     }

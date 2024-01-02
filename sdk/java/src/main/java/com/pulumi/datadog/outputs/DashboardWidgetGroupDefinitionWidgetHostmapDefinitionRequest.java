@@ -59,6 +59,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest 
 
         @CustomType.Setter
         public Builder fills(@Nullable List<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill> fills) {
+
             this.fills = fills;
             return this;
         }
@@ -67,6 +68,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest 
         }
         @CustomType.Setter
         public Builder sizes(@Nullable List<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize> sizes) {
+
             this.sizes = sizes;
             return this;
         }

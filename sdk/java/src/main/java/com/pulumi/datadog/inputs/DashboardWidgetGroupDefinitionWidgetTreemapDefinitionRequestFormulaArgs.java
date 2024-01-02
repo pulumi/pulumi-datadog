@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -275,7 +276,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
         }
 
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs build() {
-            $.formulaExpression = Objects.requireNonNull($.formulaExpression, "expected parameter 'formulaExpression' to be non-null");
+            if ($.formulaExpression == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaArgs", "formulaExpression");
+            }
             return $;
         }
     }

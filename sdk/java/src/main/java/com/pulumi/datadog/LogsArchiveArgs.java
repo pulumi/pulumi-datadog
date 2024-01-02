@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsArchiveAzureArchiveArgs;
 import com.pulumi.datadog.inputs.LogsArchiveGcsArchiveArgs;
 import com.pulumi.datadog.inputs.LogsArchiveS3ArchiveArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -351,8 +352,12 @@ public final class LogsArchiveArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogsArchiveArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveArgs", "name");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveArgs", "query");
+            }
             return $;
         }
     }

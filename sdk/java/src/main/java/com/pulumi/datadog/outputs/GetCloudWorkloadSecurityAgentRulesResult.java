@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesAgentRule;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetCloudWorkloadSecurityAgentRulesResult {
 
         @CustomType.Setter
         public Builder agentRules(List<GetCloudWorkloadSecurityAgentRulesAgentRule> agentRules) {
-            this.agentRules = Objects.requireNonNull(agentRules);
+            if (agentRules == null) {
+              throw new MissingRequiredPropertyException("GetCloudWorkloadSecurityAgentRulesResult", "agentRules");
+            }
+            this.agentRules = agentRules;
             return this;
         }
         public Builder agentRules(GetCloudWorkloadSecurityAgentRulesAgentRule... agentRules) {
@@ -66,7 +70,10 @@ public final class GetCloudWorkloadSecurityAgentRulesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCloudWorkloadSecurityAgentRulesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetCloudWorkloadSecurityAgentRulesResult build() {

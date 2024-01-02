@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -566,9 +567,15 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         public ServiceLevelObjectiveArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.thresholds = Objects.requireNonNull($.thresholds, "expected parameter 'thresholds' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveArgs", "name");
+            }
+            if ($.thresholds == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveArgs", "thresholds");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveArgs", "type");
+            }
             return $;
         }
     }

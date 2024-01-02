@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortAr
         }
 
         public DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs build() {
-            $.column = Objects.requireNonNull($.column, "expected parameter 'column' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.column == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs", "column");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs", "order");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SecurityMonitoringRuleQueryAgentRule {
 
         @CustomType.Setter
         public Builder agentRuleId(String agentRuleId) {
-            this.agentRuleId = Objects.requireNonNull(agentRuleId);
+            if (agentRuleId == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringRuleQueryAgentRule", "agentRuleId");
+            }
+            this.agentRuleId = agentRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder expression(String expression) {
-            this.expression = Objects.requireNonNull(expression);
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringRuleQueryAgentRule", "expression");
+            }
+            this.expression = expression;
             return this;
         }
         public SecurityMonitoringRuleQueryAgentRule build() {

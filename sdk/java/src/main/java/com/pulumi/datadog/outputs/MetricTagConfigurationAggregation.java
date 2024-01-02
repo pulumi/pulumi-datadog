@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class MetricTagConfigurationAggregation {
 
         @CustomType.Setter
         public Builder space(String space) {
-            this.space = Objects.requireNonNull(space);
+            if (space == null) {
+              throw new MissingRequiredPropertyException("MetricTagConfigurationAggregation", "space");
+            }
+            this.space = space;
             return this;
         }
         @CustomType.Setter
         public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("MetricTagConfigurationAggregation", "time");
+            }
+            this.time = time;
             return this;
         }
         public MetricTagConfigurationAggregation build() {

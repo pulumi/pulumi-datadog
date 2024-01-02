@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionRequestQuerySort;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -74,16 +75,21 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
 
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(String queryString) {
-            this.queryString = Objects.requireNonNull(queryString);
+            if (queryString == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSloListDefinitionRequestQuery", "queryString");
+            }
+            this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort) {
+
             this.sort = sort;
             return this;
         }

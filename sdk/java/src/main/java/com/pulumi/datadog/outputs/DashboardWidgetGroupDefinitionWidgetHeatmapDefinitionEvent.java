@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent {
 
         @CustomType.Setter
         public Builder q(String q) {
-            this.q = Objects.requireNonNull(q);
+            if (q == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent", "q");
+            }
+            this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder tagsExecution(@Nullable String tagsExecution) {
+
             this.tagsExecution = tagsExecution;
             return this;
         }

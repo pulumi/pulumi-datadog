@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -55,21 +56,27 @@ public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 
         @CustomType.Setter
         public Builder forgetAfter(Integer forgetAfter) {
-            this.forgetAfter = Objects.requireNonNull(forgetAfter);
+            if (forgetAfter == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRuleOptionsNewValueOptions", "forgetAfter");
+            }
+            this.forgetAfter = forgetAfter;
             return this;
         }
         @CustomType.Setter
         public Builder learningDuration(@Nullable Integer learningDuration) {
+
             this.learningDuration = learningDuration;
             return this;
         }
         @CustomType.Setter
         public Builder learningMethod(@Nullable String learningMethod) {
+
             this.learningMethod = learningMethod;
             return this;
         }
         @CustomType.Setter
         public Builder learningThreshold(@Nullable Integer learningThreshold) {
+
             this.learningThreshold = learningThreshold;
             return this;
         }

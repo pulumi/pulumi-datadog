@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,11 +105,13 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestS
 
         @CustomType.Setter
         public Builder computeQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery computeQuery) {
+
             this.computeQuery = computeQuery;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -117,11 +120,15 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestS
         }
         @CustomType.Setter
         public Builder index(String index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder multiComputes(@Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute> multiComputes) {
+
             this.multiComputes = multiComputes;
             return this;
         }
@@ -130,6 +137,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestS
         }
         @CustomType.Setter
         public Builder searchQuery(@Nullable String searchQuery) {
+
             this.searchQuery = searchQuery;
             return this;
         }

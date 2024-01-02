@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -116,31 +117,39 @@ public final class DowntimeRecurrence {
 
         @CustomType.Setter
         public Builder period(@Nullable Integer period) {
+
             this.period = period;
             return this;
         }
         @CustomType.Setter
         public Builder rrule(@Nullable String rrule) {
+
             this.rrule = rrule;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DowntimeRecurrence", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder untilDate(@Nullable Integer untilDate) {
+
             this.untilDate = untilDate;
             return this;
         }
         @CustomType.Setter
         public Builder untilOccurrences(@Nullable Integer untilOccurrences) {
+
             this.untilOccurrences = untilOccurrences;
             return this;
         }
         @CustomType.Setter
         public Builder weekDays(@Nullable List<String> weekDays) {
+
             this.weekDays = weekDays;
             return this;
         }

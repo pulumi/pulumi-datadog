@@ -119,31 +119,37 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestF
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }

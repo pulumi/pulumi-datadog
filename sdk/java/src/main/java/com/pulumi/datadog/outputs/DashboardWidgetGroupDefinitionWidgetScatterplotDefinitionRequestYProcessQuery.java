@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,6 +89,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
 
         @CustomType.Setter
         public Builder filterBies(@Nullable List<String> filterBies) {
+
             this.filterBies = filterBies;
             return this;
         }
@@ -96,16 +98,21 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder metric(String metric) {
-            this.metric = Objects.requireNonNull(metric);
+            if (metric == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery", "metric");
+            }
+            this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder searchBy(@Nullable String searchBy) {
+
             this.searchBy = searchBy;
             return this;
         }

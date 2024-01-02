@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQueryAgentRule;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,6 +105,7 @@ public final class GetSecurityMonitoringRulesRuleQuery {
 
         @CustomType.Setter
         public Builder agentRules(@Nullable List<GetSecurityMonitoringRulesRuleQueryAgentRule> agentRules) {
+
             this.agentRules = agentRules;
             return this;
         }
@@ -112,11 +114,13 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         }
         @CustomType.Setter
         public Builder aggregation(@Nullable String aggregation) {
+
             this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder distinctFields(@Nullable List<String> distinctFields) {
+
             this.distinctFields = distinctFields;
             return this;
         }
@@ -125,6 +129,7 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         }
         @CustomType.Setter
         public Builder groupByFields(@Nullable List<String> groupByFields) {
+
             this.groupByFields = groupByFields;
             return this;
         }
@@ -133,12 +138,16 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         }
         @CustomType.Setter
         public Builder metric(@Nullable String metric) {
+
             this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(List<String> metrics) {
-            this.metrics = Objects.requireNonNull(metrics);
+            if (metrics == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRuleQuery", "metrics");
+            }
+            this.metrics = metrics;
             return this;
         }
         public Builder metrics(String... metrics) {
@@ -146,12 +155,16 @@ public final class GetSecurityMonitoringRulesRuleQuery {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRuleQuery", "query");
+            }
+            this.query = query;
             return this;
         }
         public GetSecurityMonitoringRulesRuleQuery build() {

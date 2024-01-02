@@ -52,6 +52,7 @@ public final class DowntimeScheduleRecurringSchedule {
 
         @CustomType.Setter
         public Builder recurrences(@Nullable List<DowntimeScheduleRecurringScheduleRecurrence> recurrences) {
+
             this.recurrences = recurrences;
             return this;
         }
@@ -60,6 +61,7 @@ public final class DowntimeScheduleRecurringSchedule {
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }

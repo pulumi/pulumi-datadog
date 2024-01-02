@@ -50,11 +50,13 @@ public final class SyntheticsTestBrowserStepParamsVariable {
 
         @CustomType.Setter
         public Builder example(@Nullable String example) {
+
             this.example = example;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -332,9 +333,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQ
         }
 
         public DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs build() {
-            $.computes = Objects.requireNonNull($.computes, "expected parameter 'computes' to be non-null");
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.computes == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs", "computes");
+            }
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs", "dataSource");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQueryArgs", "name");
+            }
             return $;
         }
     }

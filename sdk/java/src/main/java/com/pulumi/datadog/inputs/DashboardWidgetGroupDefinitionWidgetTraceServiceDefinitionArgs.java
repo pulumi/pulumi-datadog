@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -595,9 +596,15 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArg
         }
 
         public DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs build() {
-            $.env = Objects.requireNonNull($.env, "expected parameter 'env' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
-            $.spanName = Objects.requireNonNull($.spanName, "expected parameter 'spanName' to be non-null");
+            if ($.env == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs", "env");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs", "service");
+            }
+            if ($.spanName == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs", "spanName");
+            }
             return $;
         }
     }

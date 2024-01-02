@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetLogsPipelinesLogsPipeline;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,17 +75,24 @@ public final class GetLogsPipelinesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isReadOnly(@Nullable String isReadOnly) {
+
             this.isReadOnly = isReadOnly;
             return this;
         }
         @CustomType.Setter
         public Builder logsPipelines(List<GetLogsPipelinesLogsPipeline> logsPipelines) {
-            this.logsPipelines = Objects.requireNonNull(logsPipelines);
+            if (logsPipelines == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesResult", "logsPipelines");
+            }
+            this.logsPipelines = logsPipelines;
             return this;
         }
         public Builder logsPipelines(GetLogsPipelinesLogsPipeline... logsPipelines) {

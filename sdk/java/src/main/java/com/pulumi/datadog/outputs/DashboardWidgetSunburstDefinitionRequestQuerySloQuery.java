@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,36 +129,49 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
 
         @CustomType.Setter
         public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
+
             this.additionalQueryFilters = additionalQueryFilters;
             return this;
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder groupMode(@Nullable String groupMode) {
+
             this.groupMode = groupMode;
             return this;
         }
         @CustomType.Setter
         public Builder measure(String measure) {
-            this.measure = Objects.requireNonNull(measure);
+            if (measure == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQuery", "measure");
+            }
+            this.measure = measure;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sloId(String sloId) {
-            this.sloId = Objects.requireNonNull(sloId);
+            if (sloId == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQuery", "sloId");
+            }
+            this.sloId = sloId;
             return this;
         }
         @CustomType.Setter
         public Builder sloQueryType(@Nullable String sloQueryType) {
+
             this.sloQueryType = sloQueryType;
             return this;
         }

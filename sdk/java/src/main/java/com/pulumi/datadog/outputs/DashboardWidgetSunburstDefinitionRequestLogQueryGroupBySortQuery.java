@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQu
 
         @CustomType.Setter
         public Builder aggregation(String aggregation) {
-            this.aggregation = Objects.requireNonNull(aggregation);
+            if (aggregation == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery", "aggregation");
+            }
+            this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder facet(@Nullable String facet) {
+
             this.facet = facet;
             return this;
         }
         @CustomType.Setter
         public Builder order(String order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery", "order");
+            }
+            this.order = order;
             return this;
         }
         public DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQuery build() {

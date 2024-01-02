@@ -4,6 +4,7 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,7 +79,9 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetTeamMembershipsPlainArgs build() {
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("GetTeamMembershipsPlainArgs", "teamId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesSlo;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,11 +117,15 @@ public final class GetServiceLevelObjectivesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectivesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(@Nullable List<String> ids) {
+
             this.ids = ids;
             return this;
         }
@@ -129,17 +134,22 @@ public final class GetServiceLevelObjectivesResult {
         }
         @CustomType.Setter
         public Builder metricsQuery(@Nullable String metricsQuery) {
+
             this.metricsQuery = metricsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder nameQuery(@Nullable String nameQuery) {
+
             this.nameQuery = nameQuery;
             return this;
         }
         @CustomType.Setter
         public Builder slos(List<GetServiceLevelObjectivesSlo> slos) {
-            this.slos = Objects.requireNonNull(slos);
+            if (slos == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectivesResult", "slos");
+            }
+            this.slos = slos;
             return this;
         }
         public Builder slos(GetServiceLevelObjectivesSlo... slos) {
@@ -147,6 +157,7 @@ public final class GetServiceLevelObjectivesResult {
         }
         @CustomType.Setter
         public Builder tagsQuery(@Nullable String tagsQuery) {
+
             this.tagsQuery = tagsQuery;
             return this;
         }

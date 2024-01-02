@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class SyntheticsTestBrowserVariableArgs extends com.pulumi.resource
         }
 
         public SyntheticsTestBrowserVariableArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserVariableArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserVariableArgs", "type");
+            }
             return $;
         }
     }

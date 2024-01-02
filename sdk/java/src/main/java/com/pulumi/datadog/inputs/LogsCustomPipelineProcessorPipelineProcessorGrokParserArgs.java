@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrokArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -217,8 +218,12 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
         }
 
         public LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs build() {
-            $.grok = Objects.requireNonNull($.grok, "expected parameter 'grok' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.grok == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs", "grok");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs", "source");
+            }
             return $;
         }
     }

@@ -15,6 +15,7 @@ import com.pulumi.datadog.inputs.SyntheticsTestRequestBasicauthArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestClientCertificateArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestProxyArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -926,10 +927,18 @@ public final class SyntheticsTestArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SyntheticsTestArgs build() {
-            $.locations = Objects.requireNonNull($.locations, "expected parameter 'locations' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.locations == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestArgs", "locations");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestArgs", "name");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestArgs", "status");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestArgs", "type");
+            }
             return $;
         }
     }

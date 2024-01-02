@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -427,7 +428,9 @@ public final class DashboardWidgetManageStatusDefinitionArgs extends com.pulumi.
         }
 
         public DashboardWidgetManageStatusDefinitionArgs build() {
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetManageStatusDefinitionArgs", "query");
+            }
             return $;
         }
     }

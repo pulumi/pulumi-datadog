@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetServiceLevelObjectiveQuery {
 
         @CustomType.Setter
         public Builder denominator(String denominator) {
-            this.denominator = Objects.requireNonNull(denominator);
+            if (denominator == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveQuery", "denominator");
+            }
+            this.denominator = denominator;
             return this;
         }
         @CustomType.Setter
         public Builder numerator(String numerator) {
-            this.numerator = Objects.requireNonNull(numerator);
+            if (numerator == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveQuery", "numerator");
+            }
+            this.numerator = numerator;
             return this;
         }
         public GetServiceLevelObjectiveQuery build() {

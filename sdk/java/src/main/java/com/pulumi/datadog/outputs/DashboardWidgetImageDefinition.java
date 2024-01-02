@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -143,41 +144,51 @@ public final class DashboardWidgetImageDefinition {
 
         @CustomType.Setter
         public Builder hasBackground(@Nullable Boolean hasBackground) {
+
             this.hasBackground = hasBackground;
             return this;
         }
         @CustomType.Setter
         public Builder hasBorder(@Nullable Boolean hasBorder) {
+
             this.hasBorder = hasBorder;
             return this;
         }
         @CustomType.Setter
         public Builder horizontalAlign(@Nullable String horizontalAlign) {
+
             this.horizontalAlign = horizontalAlign;
             return this;
         }
         @CustomType.Setter
         public Builder margin(@Nullable String margin) {
+
             this.margin = margin;
             return this;
         }
         @CustomType.Setter
         public Builder sizing(@Nullable String sizing) {
+
             this.sizing = sizing;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetImageDefinition", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder urlDarkTheme(@Nullable String urlDarkTheme) {
+
             this.urlDarkTheme = urlDarkTheme;
             return this;
         }
         @CustomType.Setter
         public Builder verticalAlign(@Nullable String verticalAlign) {
+
             this.verticalAlign = verticalAlign;
             return this;
         }

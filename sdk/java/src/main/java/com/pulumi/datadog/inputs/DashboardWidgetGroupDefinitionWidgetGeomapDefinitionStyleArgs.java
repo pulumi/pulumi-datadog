@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs
         }
 
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs build() {
-            $.palette = Objects.requireNonNull($.palette, "expected parameter 'palette' to be non-null");
-            $.paletteFlip = Objects.requireNonNull($.paletteFlip, "expected parameter 'paletteFlip' to be non-null");
+            if ($.palette == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs", "palette");
+            }
+            if ($.paletteFlip == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyleArgs", "paletteFlip");
+            }
             return $;
         }
     }

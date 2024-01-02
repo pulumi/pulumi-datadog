@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestRequestClientCertificateCert;
 import com.pulumi.datadog.outputs.SyntheticsTestRequestClientCertificateKey;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -41,12 +42,18 @@ public final class SyntheticsTestRequestClientCertificate {
 
         @CustomType.Setter
         public Builder cert(SyntheticsTestRequestClientCertificateCert cert) {
-            this.cert = Objects.requireNonNull(cert);
+            if (cert == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestRequestClientCertificate", "cert");
+            }
+            this.cert = cert;
             return this;
         }
         @CustomType.Setter
         public Builder key(SyntheticsTestRequestClientCertificateKey key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestRequestClientCertificate", "key");
+            }
+            this.key = key;
             return this;
         }
         public SyntheticsTestRequestClientCertificate build() {

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsGlobalVariableParseTestOptionsParserArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -168,7 +169,9 @@ public final class SyntheticsGlobalVariableParseTestOptionsArgs extends com.pulu
         }
 
         public SyntheticsGlobalVariableParseTestOptionsArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsGlobalVariableParseTestOptionsArgs", "type");
+            }
             return $;
         }
     }

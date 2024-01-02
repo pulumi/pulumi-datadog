@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionInputArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -321,7 +322,9 @@ public final class DashboardWidgetRunWorkflowDefinitionArgs extends com.pulumi.r
         }
 
         public DashboardWidgetRunWorkflowDefinitionArgs build() {
-            $.workflowId = Objects.requireNonNull($.workflowId, "expected parameter 'workflowId' to be non-null");
+            if ($.workflowId == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetRunWorkflowDefinitionArgs", "workflowId");
+            }
             return $;
         }
     }

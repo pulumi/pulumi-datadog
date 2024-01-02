@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy
 
         @CustomType.Setter
         public Builder aggregation(String aggregation) {
-            this.aggregation = Objects.requireNonNull(aggregation);
+            if (aggregation == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort", "aggregation");
+            }
+            this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder metric(@Nullable String metric) {
+
             this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable String order) {
+
             this.order = order;
             return this;
         }

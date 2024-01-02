@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TeamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TeamArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.handle = Objects.requireNonNull($.handle, "expected parameter 'handle' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("TeamArgs", "description");
+            }
+            if ($.handle == null) {
+                throw new MissingRequiredPropertyException("TeamArgs", "handle");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("TeamArgs", "name");
+            }
             return $;
         }
     }

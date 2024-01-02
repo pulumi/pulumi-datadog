@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -373,7 +374,9 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         public DashboardWidgetNoteDefinitionArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetNoteDefinitionArgs", "content");
+            }
             return $;
         }
     }

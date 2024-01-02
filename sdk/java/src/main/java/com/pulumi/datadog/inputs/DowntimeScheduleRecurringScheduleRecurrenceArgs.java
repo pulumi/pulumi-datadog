@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
         }
 
         public DowntimeScheduleRecurringScheduleRecurrenceArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.rrule = Objects.requireNonNull($.rrule, "expected parameter 'rrule' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("DowntimeScheduleRecurringScheduleRecurrenceArgs", "duration");
+            }
+            if ($.rrule == null) {
+                throw new MissingRequiredPropertyException("DowntimeScheduleRecurringScheduleRecurrenceArgs", "rrule");
+            }
             return $;
         }
     }

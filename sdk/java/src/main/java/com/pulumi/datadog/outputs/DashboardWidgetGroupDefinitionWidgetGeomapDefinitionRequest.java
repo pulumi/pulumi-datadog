@@ -89,6 +89,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
 
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -97,16 +98,19 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -115,6 +119,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }

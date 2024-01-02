@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class LogsMetricGroupBy {
 
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("LogsMetricGroupBy", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder tagName(String tagName) {
-            this.tagName = Objects.requireNonNull(tagName);
+            if (tagName == null) {
+              throw new MissingRequiredPropertyException("LogsMetricGroupBy", "tagName");
+            }
+            this.tagName = tagName;
             return this;
         }
         public LogsMetricGroupBy build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGrou
         }
 
         public DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs build() {
-            $.aggregation = Objects.requireNonNull($.aggregation, "expected parameter 'aggregation' to be non-null");
+            if ($.aggregation == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs", "aggregation");
+            }
             return $;
         }
     }

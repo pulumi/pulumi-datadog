@@ -59,11 +59,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable String order) {
+
             this.order = order;
             return this;
         }

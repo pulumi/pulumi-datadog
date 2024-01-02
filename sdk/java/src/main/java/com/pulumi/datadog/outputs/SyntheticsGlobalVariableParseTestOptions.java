@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsGlobalVariableParseTestOptionsParser;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,22 +80,28 @@ public final class SyntheticsGlobalVariableParseTestOptions {
 
         @CustomType.Setter
         public Builder field(@Nullable String field) {
+
             this.field = field;
             return this;
         }
         @CustomType.Setter
         public Builder localVariableName(@Nullable String localVariableName) {
+
             this.localVariableName = localVariableName;
             return this;
         }
         @CustomType.Setter
         public Builder parser(@Nullable SyntheticsGlobalVariableParseTestOptionsParser parser) {
+
             this.parser = parser;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SyntheticsGlobalVariableParseTestOptions", "type");
+            }
+            this.type = type;
             return this;
         }
         public SyntheticsGlobalVariableParseTestOptions build() {

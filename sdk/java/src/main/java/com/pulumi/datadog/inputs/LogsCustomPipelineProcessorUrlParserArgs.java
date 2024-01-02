@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -236,8 +237,12 @@ public final class LogsCustomPipelineProcessorUrlParserArgs extends com.pulumi.r
         }
 
         public LogsCustomPipelineProcessorUrlParserArgs build() {
-            $.sources = Objects.requireNonNull($.sources, "expected parameter 'sources' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.sources == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorUrlParserArgs", "sources");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorUrlParserArgs", "target");
+            }
             return $;
         }
     }

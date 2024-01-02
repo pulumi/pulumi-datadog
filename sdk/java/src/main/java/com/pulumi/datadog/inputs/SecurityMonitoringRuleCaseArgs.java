@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,7 +199,9 @@ public final class SecurityMonitoringRuleCaseArgs extends com.pulumi.resources.R
         }
 
         public SecurityMonitoringRuleCaseArgs build() {
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleCaseArgs", "status");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -374,9 +375,15 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFo
         }
 
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs build() {
-            $.comparator = Objects.requireNonNull($.comparator, "expected parameter 'comparator' to be non-null");
-            $.palette = Objects.requireNonNull($.palette, "expected parameter 'palette' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.comparator == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs", "comparator");
+            }
+            if ($.palette == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs", "palette");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs", "value");
+            }
             return $;
         }
     }

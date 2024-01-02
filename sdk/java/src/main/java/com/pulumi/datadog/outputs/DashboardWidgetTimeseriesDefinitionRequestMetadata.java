@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class DashboardWidgetTimeseriesDefinitionRequestMetadata {
 
         @CustomType.Setter
         public Builder aliasName(@Nullable String aliasName) {
+
             this.aliasName = aliasName;
             return this;
         }
         @CustomType.Setter
         public Builder expression(String expression) {
-            this.expression = Objects.requireNonNull(expression);
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestMetadata", "expression");
+            }
+            this.expression = expression;
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestMetadata build() {

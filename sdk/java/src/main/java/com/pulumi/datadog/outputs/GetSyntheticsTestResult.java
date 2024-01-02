@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,17 +100,26 @@ public final class GetSyntheticsTestResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(List<String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(String... tags) {
@@ -117,12 +127,18 @@ public final class GetSyntheticsTestResult {
         }
         @CustomType.Setter
         public Builder testId(String testId) {
-            this.testId = Objects.requireNonNull(testId);
+            if (testId == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "testId");
+            }
+            this.testId = testId;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetSyntheticsTestResult build() {

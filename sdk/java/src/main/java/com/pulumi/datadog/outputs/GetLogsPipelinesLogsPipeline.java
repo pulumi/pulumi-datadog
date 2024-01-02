@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetLogsPipelinesLogsPipelineFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -67,7 +68,10 @@ public final class GetLogsPipelinesLogsPipeline {
 
         @CustomType.Setter
         public Builder filters(List<GetLogsPipelinesLogsPipelineFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetLogsPipelinesLogsPipelineFilter... filters) {
@@ -75,27 +79,42 @@ public final class GetLogsPipelinesLogsPipeline {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = Objects.requireNonNull(isEnabled);
+            if (isEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "isEnabled");
+            }
+            this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder isReadOnly(Boolean isReadOnly) {
-            this.isReadOnly = Objects.requireNonNull(isReadOnly);
+            if (isReadOnly == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "isReadOnly");
+            }
+            this.isReadOnly = isReadOnly;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetLogsPipelinesLogsPipeline", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetLogsPipelinesLogsPipeline build() {

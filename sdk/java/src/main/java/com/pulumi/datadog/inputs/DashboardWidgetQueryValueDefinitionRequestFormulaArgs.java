@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestFormulaStyleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -275,7 +276,9 @@ public final class DashboardWidgetQueryValueDefinitionRequestFormulaArgs extends
         }
 
         public DashboardWidgetQueryValueDefinitionRequestFormulaArgs build() {
-            $.formulaExpression = Objects.requireNonNull($.formulaExpression, "expected parameter 'formulaExpression' to be non-null");
+            if ($.formulaExpression == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryValueDefinitionRequestFormulaArgs", "formulaExpression");
+            }
             return $;
         }
     }

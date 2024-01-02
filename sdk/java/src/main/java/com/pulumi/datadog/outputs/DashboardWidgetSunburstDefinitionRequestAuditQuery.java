@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,11 +105,13 @@ public final class DashboardWidgetSunburstDefinitionRequestAuditQuery {
 
         @CustomType.Setter
         public Builder computeQuery(@Nullable DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery computeQuery) {
+
             this.computeQuery = computeQuery;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -117,11 +120,15 @@ public final class DashboardWidgetSunburstDefinitionRequestAuditQuery {
         }
         @CustomType.Setter
         public Builder index(String index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestAuditQuery", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder multiComputes(@Nullable List<DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute> multiComputes) {
+
             this.multiComputes = multiComputes;
             return this;
         }
@@ -130,6 +137,7 @@ public final class DashboardWidgetSunburstDefinitionRequestAuditQuery {
         }
         @CustomType.Setter
         public Builder searchQuery(@Nullable String searchQuery) {
+
             this.searchQuery = searchQuery;
             return this;
         }

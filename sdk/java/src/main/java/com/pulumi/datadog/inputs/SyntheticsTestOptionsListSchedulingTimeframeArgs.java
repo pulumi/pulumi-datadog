@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class SyntheticsTestOptionsListSchedulingTimeframeArgs extends com.
         }
 
         public SyntheticsTestOptionsListSchedulingTimeframeArgs build() {
-            $.day = Objects.requireNonNull($.day, "expected parameter 'day' to be non-null");
-            $.from = Objects.requireNonNull($.from, "expected parameter 'from' to be non-null");
-            $.to = Objects.requireNonNull($.to, "expected parameter 'to' to be non-null");
+            if ($.day == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListSchedulingTimeframeArgs", "day");
+            }
+            if ($.from == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListSchedulingTimeframeArgs", "from");
+            }
+            if ($.to == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListSchedulingTimeframeArgs", "to");
+            }
             return $;
         }
     }

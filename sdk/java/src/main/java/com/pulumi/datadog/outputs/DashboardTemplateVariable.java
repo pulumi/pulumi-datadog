@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -109,6 +110,7 @@ public final class DashboardTemplateVariable {
 
         @CustomType.Setter
         public Builder availableValues(@Nullable List<String> availableValues) {
+
             this.availableValues = availableValues;
             return this;
         }
@@ -117,11 +119,13 @@ public final class DashboardTemplateVariable {
         }
         @CustomType.Setter("default")
         public Builder default_(@Nullable String default_) {
+
             this.default_ = default_;
             return this;
         }
         @CustomType.Setter
         public Builder defaults(@Nullable List<String> defaults) {
+
             this.defaults = defaults;
             return this;
         }
@@ -130,11 +134,15 @@ public final class DashboardTemplateVariable {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardTemplateVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }

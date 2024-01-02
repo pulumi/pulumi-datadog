@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         public LogsCustomPipelineProcessorStringBuilderProcessorArgs build() {
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.template = Objects.requireNonNull($.template, "expected parameter 'template' to be non-null");
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorStringBuilderProcessorArgs", "target");
+            }
+            if ($.template == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorStringBuilderProcessorArgs", "template");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -158,32 +159,42 @@ public final class LogsCustomPipelineProcessorAttributeRemapper {
 
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder overrideOnConflict(@Nullable Boolean overrideOnConflict) {
+
             this.overrideOnConflict = overrideOnConflict;
             return this;
         }
         @CustomType.Setter
         public Builder preserveSource(@Nullable Boolean preserveSource) {
+
             this.preserveSource = preserveSource;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+            if (sourceType == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapper", "sourceType");
+            }
+            this.sourceType = sourceType;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<String> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapper", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(String... sources) {
@@ -191,17 +202,24 @@ public final class LogsCustomPipelineProcessorAttributeRemapper {
         }
         @CustomType.Setter
         public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapper", "target");
+            }
+            this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder targetFormat(@Nullable String targetFormat) {
+
             this.targetFormat = targetFormat;
             return this;
         }
         @CustomType.Setter
         public Builder targetType(String targetType) {
-            this.targetType = Objects.requireNonNull(targetType);
+            if (targetType == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapper", "targetType");
+            }
+            this.targetType = targetType;
             return this;
         }
         public LogsCustomPipelineProcessorAttributeRemapper build() {

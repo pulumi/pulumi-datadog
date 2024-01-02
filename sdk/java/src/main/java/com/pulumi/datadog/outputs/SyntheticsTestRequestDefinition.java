@@ -285,21 +285,25 @@ public final class SyntheticsTestRequestDefinition {
 
         @CustomType.Setter
         public Builder body(@Nullable String body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder bodyType(@Nullable String bodyType) {
+
             this.bodyType = bodyType;
             return this;
         }
         @CustomType.Setter
         public Builder callType(@Nullable String callType) {
+
             this.callType = callType;
             return this;
         }
         @CustomType.Setter
         public Builder certificateDomains(@Nullable List<String> certificateDomains) {
+
             this.certificateDomains = certificateDomains;
             return this;
         }
@@ -308,71 +312,85 @@ public final class SyntheticsTestRequestDefinition {
         }
         @CustomType.Setter
         public Builder dnsServer(@Nullable String dnsServer) {
+
             this.dnsServer = dnsServer;
             return this;
         }
         @CustomType.Setter
         public Builder dnsServerPort(@Nullable Integer dnsServerPort) {
+
             this.dnsServerPort = dnsServerPort;
             return this;
         }
         @CustomType.Setter
         public Builder host(@Nullable String host) {
+
             this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder noSavingResponseBody(@Nullable Boolean noSavingResponseBody) {
+
             this.noSavingResponseBody = noSavingResponseBody;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfPackets(@Nullable Integer numberOfPackets) {
+
             this.numberOfPackets = numberOfPackets;
             return this;
         }
         @CustomType.Setter
         public Builder persistCookies(@Nullable Boolean persistCookies) {
+
             this.persistCookies = persistCookies;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder servername(@Nullable String servername) {
+
             this.servername = servername;
             return this;
         }
         @CustomType.Setter
         public Builder service(@Nullable String service) {
+
             this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder shouldTrackHops(@Nullable Boolean shouldTrackHops) {
+
             this.shouldTrackHops = shouldTrackHops;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

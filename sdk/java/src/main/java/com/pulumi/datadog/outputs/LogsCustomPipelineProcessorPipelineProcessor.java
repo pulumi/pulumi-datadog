@@ -254,76 +254,91 @@ public final class LogsCustomPipelineProcessorPipelineProcessor {
 
         @CustomType.Setter
         public Builder arithmeticProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor arithmeticProcessor) {
+
             this.arithmeticProcessor = arithmeticProcessor;
             return this;
         }
         @CustomType.Setter
         public Builder attributeRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper attributeRemapper) {
+
             this.attributeRemapper = attributeRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder categoryProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor categoryProcessor) {
+
             this.categoryProcessor = categoryProcessor;
             return this;
         }
         @CustomType.Setter
         public Builder dateRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorDateRemapper dateRemapper) {
+
             this.dateRemapper = dateRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder geoIpParser(@Nullable LogsCustomPipelineProcessorPipelineProcessorGeoIpParser geoIpParser) {
+
             this.geoIpParser = geoIpParser;
             return this;
         }
         @CustomType.Setter
         public Builder grokParser(@Nullable LogsCustomPipelineProcessorPipelineProcessorGrokParser grokParser) {
+
             this.grokParser = grokParser;
             return this;
         }
         @CustomType.Setter
         public Builder lookupProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorLookupProcessor lookupProcessor) {
+
             this.lookupProcessor = lookupProcessor;
             return this;
         }
         @CustomType.Setter
         public Builder messageRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorMessageRemapper messageRemapper) {
+
             this.messageRemapper = messageRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder referenceTableLookupProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessor referenceTableLookupProcessor) {
+
             this.referenceTableLookupProcessor = referenceTableLookupProcessor;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorServiceRemapper serviceRemapper) {
+
             this.serviceRemapper = serviceRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder statusRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorStatusRemapper statusRemapper) {
+
             this.statusRemapper = statusRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder stringBuilderProcessor(@Nullable LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor stringBuilderProcessor) {
+
             this.stringBuilderProcessor = stringBuilderProcessor;
             return this;
         }
         @CustomType.Setter
         public Builder traceIdRemapper(@Nullable LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper traceIdRemapper) {
+
             this.traceIdRemapper = traceIdRemapper;
             return this;
         }
         @CustomType.Setter
         public Builder urlParser(@Nullable LogsCustomPipelineProcessorPipelineProcessorUrlParser urlParser) {
+
             this.urlParser = urlParser;
             return this;
         }
         @CustomType.Setter
         public Builder userAgentParser(@Nullable LogsCustomPipelineProcessorPipelineProcessorUserAgentParser userAgentParser) {
+
             this.userAgentParser = userAgentParser;
             return this;
         }

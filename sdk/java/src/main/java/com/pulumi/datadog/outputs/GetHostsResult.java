@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetHostsHostList;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -160,17 +161,22 @@ public final class GetHostsResult {
 
         @CustomType.Setter
         public Builder filter(@Nullable String filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder from(@Nullable Integer from) {
+
             this.from = from;
             return this;
         }
         @CustomType.Setter
         public Builder hostLists(List<GetHostsHostList> hostLists) {
-            this.hostLists = Objects.requireNonNull(hostLists);
+            if (hostLists == null) {
+              throw new MissingRequiredPropertyException("GetHostsResult", "hostLists");
+            }
+            this.hostLists = hostLists;
             return this;
         }
         public Builder hostLists(GetHostsHostList... hostLists) {
@@ -178,32 +184,44 @@ public final class GetHostsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHostsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeMutedHostsData(@Nullable Boolean includeMutedHostsData) {
+
             this.includeMutedHostsData = includeMutedHostsData;
             return this;
         }
         @CustomType.Setter
         public Builder sortDir(@Nullable String sortDir) {
+
             this.sortDir = sortDir;
             return this;
         }
         @CustomType.Setter
         public Builder sortField(@Nullable String sortField) {
+
             this.sortField = sortField;
             return this;
         }
         @CustomType.Setter
         public Builder totalMatching(Integer totalMatching) {
-            this.totalMatching = Objects.requireNonNull(totalMatching);
+            if (totalMatching == null) {
+              throw new MissingRequiredPropertyException("GetHostsResult", "totalMatching");
+            }
+            this.totalMatching = totalMatching;
             return this;
         }
         @CustomType.Setter
         public Builder totalReturned(Integer totalReturned) {
-            this.totalReturned = Objects.requireNonNull(totalReturned);
+            if (totalReturned == null) {
+              throw new MissingRequiredPropertyException("GetHostsResult", "totalReturned");
+            }
+            this.totalReturned = totalReturned;
             return this;
         }
         public GetHostsResult build() {

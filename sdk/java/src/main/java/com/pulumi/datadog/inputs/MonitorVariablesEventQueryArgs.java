@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQuerySearchArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -295,10 +296,18 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
         }
 
         public MonitorVariablesEventQueryArgs build() {
-            $.computes = Objects.requireNonNull($.computes, "expected parameter 'computes' to be non-null");
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.search = Objects.requireNonNull($.search, "expected parameter 'search' to be non-null");
+            if ($.computes == null) {
+                throw new MissingRequiredPropertyException("MonitorVariablesEventQueryArgs", "computes");
+            }
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("MonitorVariablesEventQueryArgs", "dataSource");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("MonitorVariablesEventQueryArgs", "name");
+            }
+            if ($.search == null) {
+                throw new MissingRequiredPropertyException("MonitorVariablesEventQueryArgs", "search");
+            }
             return $;
         }
     }

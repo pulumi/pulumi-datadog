@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs ext
         }
 
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs build() {
-            $.request = Objects.requireNonNull($.request, "expected parameter 'request' to be non-null");
+            if ($.request == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs", "request");
+            }
             return $;
         }
     }

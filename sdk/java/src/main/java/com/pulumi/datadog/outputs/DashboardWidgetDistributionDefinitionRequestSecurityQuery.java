@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,11 +105,13 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQuery {
 
         @CustomType.Setter
         public Builder computeQuery(@Nullable DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery computeQuery) {
+
             this.computeQuery = computeQuery;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -117,11 +120,15 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQuery {
         }
         @CustomType.Setter
         public Builder index(String index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetDistributionDefinitionRequestSecurityQuery", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder multiComputes(@Nullable List<DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute> multiComputes) {
+
             this.multiComputes = multiComputes;
             return this;
         }
@@ -130,6 +137,7 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQuery {
         }
         @CustomType.Setter
         public Builder searchQuery(@Nullable String searchQuery) {
+
             this.searchQuery = searchQuery;
             return this;
         }

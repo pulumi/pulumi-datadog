@@ -301,56 +301,67 @@ public final class SyntheticsTestBrowserStepParams {
 
         @CustomType.Setter
         public Builder attribute(@Nullable String attribute) {
+
             this.attribute = attribute;
             return this;
         }
         @CustomType.Setter
         public Builder check(@Nullable String check) {
+
             this.check = check;
             return this;
         }
         @CustomType.Setter
         public Builder clickType(@Nullable String clickType) {
+
             this.clickType = clickType;
             return this;
         }
         @CustomType.Setter
         public Builder code(@Nullable String code) {
+
             this.code = code;
             return this;
         }
         @CustomType.Setter
         public Builder delay(@Nullable Integer delay) {
+
             this.delay = delay;
             return this;
         }
         @CustomType.Setter
         public Builder element(@Nullable String element) {
+
             this.element = element;
             return this;
         }
         @CustomType.Setter
         public Builder elementUserLocator(@Nullable SyntheticsTestBrowserStepParamsElementUserLocator elementUserLocator) {
+
             this.elementUserLocator = elementUserLocator;
             return this;
         }
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder file(@Nullable String file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder files(@Nullable String files) {
+
             this.files = files;
             return this;
         }
         @CustomType.Setter
         public Builder modifiers(@Nullable List<String> modifiers) {
+
             this.modifiers = modifiers;
             return this;
         }
@@ -359,41 +370,49 @@ public final class SyntheticsTestBrowserStepParams {
         }
         @CustomType.Setter
         public Builder playingTabId(@Nullable String playingTabId) {
+
             this.playingTabId = playingTabId;
             return this;
         }
         @CustomType.Setter
         public Builder request(@Nullable String request) {
+
             this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder subtestPublicId(@Nullable String subtestPublicId) {
+
             this.subtestPublicId = subtestPublicId;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder variable(@Nullable SyntheticsTestBrowserStepParamsVariable variable) {
+
             this.variable = variable;
             return this;
         }
         @CustomType.Setter
         public Builder withClick(@Nullable Boolean withClick) {
+
             this.withClick = withClick;
             return this;
         }
         @CustomType.Setter
         public Builder x(@Nullable Integer x) {
+
             this.x = x;
             return this;
         }
         @CustomType.Setter
         public Builder y(@Nullable Integer y) {
+
             this.y = y;
             return this;
         }

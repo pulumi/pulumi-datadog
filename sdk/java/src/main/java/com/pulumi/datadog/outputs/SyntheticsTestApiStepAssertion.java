@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepAssertionTargetxpath;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -116,32 +117,42 @@ public final class SyntheticsTestApiStepAssertion {
 
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertion", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder property(@Nullable String property) {
+
             this.property = property;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder targetjsonpath(@Nullable SyntheticsTestApiStepAssertionTargetjsonpath targetjsonpath) {
+
             this.targetjsonpath = targetjsonpath;
             return this;
         }
         @CustomType.Setter
         public Builder targetxpath(@Nullable SyntheticsTestApiStepAssertionTargetxpath targetxpath) {
+
             this.targetxpath = targetxpath;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertion", "type");
+            }
+            this.type = type;
             return this;
         }
         public SyntheticsTestApiStepAssertion build() {

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryAgentRuleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -413,7 +414,9 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         public SecurityMonitoringRuleQueryArgs build() {
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleQueryArgs", "query");
+            }
             return $;
         }
     }

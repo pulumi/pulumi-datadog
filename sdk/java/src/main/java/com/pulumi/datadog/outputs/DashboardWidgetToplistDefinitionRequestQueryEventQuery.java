@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,10 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQuery {
 
         @CustomType.Setter
         public Builder computes(List<DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute> computes) {
-            this.computes = Objects.requireNonNull(computes);
+            if (computes == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQuery", "computes");
+            }
+            this.computes = computes;
             return this;
         }
         public Builder computes(DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute... computes) {
@@ -140,11 +144,15 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -153,6 +161,7 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -161,16 +170,21 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder search(@Nullable DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch search) {
+
             this.search = search;
             return this;
         }
         @CustomType.Setter
         public Builder storage(@Nullable String storage) {
+
             this.storage = storage;
             return this;
         }

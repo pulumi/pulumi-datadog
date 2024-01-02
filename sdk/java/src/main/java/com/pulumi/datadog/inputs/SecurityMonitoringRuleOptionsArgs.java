@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -302,8 +303,12 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         public SecurityMonitoringRuleOptionsArgs build() {
-            $.keepAlive = Objects.requireNonNull($.keepAlive, "expected parameter 'keepAlive' to be non-null");
-            $.maxSignalDuration = Objects.requireNonNull($.maxSignalDuration, "expected parameter 'maxSignalDuration' to be non-null");
+            if ($.keepAlive == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptionsArgs", "keepAlive");
+            }
+            if ($.maxSignalDuration == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptionsArgs", "maxSignalDuration");
+            }
             return $;
         }
     }

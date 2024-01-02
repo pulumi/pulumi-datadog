@@ -44,6 +44,7 @@ public final class SyntheticsPrivateLocationMetadata {
 
         @CustomType.Setter
         public Builder restrictedRoles(@Nullable List<String> restrictedRoles) {
+
             this.restrictedRoles = restrictedRoles;
             return this;
         }
