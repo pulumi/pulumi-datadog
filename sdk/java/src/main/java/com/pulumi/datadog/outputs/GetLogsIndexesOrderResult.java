@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetLogsIndexesOrderResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesOrderResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder indexNames(List<String> indexNames) {
-            this.indexNames = Objects.requireNonNull(indexNames);
+            if (indexNames == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesOrderResult", "indexNames");
+            }
+            this.indexNames = indexNames;
             return this;
         }
         public Builder indexNames(String... indexNames) {

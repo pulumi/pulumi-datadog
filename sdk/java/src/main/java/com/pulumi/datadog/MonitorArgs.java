@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.MonitorMonitorThresholdWindowsArgs;
 import com.pulumi.datadog.inputs.MonitorMonitorThresholdsArgs;
 import com.pulumi.datadog.inputs.MonitorSchedulingOptionArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1473,10 +1474,18 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorArgs build() {
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "message");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "name");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "query");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "type");
+            }
             return $;
         }
     }

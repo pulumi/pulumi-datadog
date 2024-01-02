@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardTemplateVariableArgs;
 import com.pulumi.datadog.inputs.DashboardTemplateVariablePresetArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -617,8 +618,12 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DashboardArgs build() {
-            $.layoutType = Objects.requireNonNull($.layoutType, "expected parameter 'layoutType' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.layoutType == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "layoutType");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("DashboardArgs", "title");
+            }
             return $;
         }
     }

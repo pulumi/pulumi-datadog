@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,31 +115,45 @@ public final class GetRumApplicationResult {
 
         @CustomType.Setter
         public Builder clientToken(String clientToken) {
-            this.clientToken = Objects.requireNonNull(clientToken);
+            if (clientToken == null) {
+              throw new MissingRequiredPropertyException("GetRumApplicationResult", "clientToken");
+            }
+            this.clientToken = clientToken;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRumApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRumApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameFilter(@Nullable String nameFilter) {
+
             this.nameFilter = nameFilter;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetRumApplicationResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeFilter(@Nullable String typeFilter) {
+
             this.typeFilter = typeFilter;
             return this;
         }

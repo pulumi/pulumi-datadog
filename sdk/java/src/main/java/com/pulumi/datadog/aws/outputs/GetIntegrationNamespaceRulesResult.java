@@ -4,6 +4,7 @@
 package com.pulumi.datadog.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetIntegrationNamespaceRulesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIntegrationNamespaceRulesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceRules(List<String> namespaceRules) {
-            this.namespaceRules = Objects.requireNonNull(namespaceRules);
+            if (namespaceRules == null) {
+              throw new MissingRequiredPropertyException("GetIntegrationNamespaceRulesResult", "namespaceRules");
+            }
+            this.namespaceRules = namespaceRules;
             return this;
         }
         public Builder namespaceRules(String... namespaceRules) {

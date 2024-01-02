@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class IntegrationLambdaArnArgs extends com.pulumi.resources.Resourc
         }
 
         public IntegrationLambdaArnArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.lambdaArn = Objects.requireNonNull($.lambdaArn, "expected parameter 'lambdaArn' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("IntegrationLambdaArnArgs", "accountId");
+            }
+            if ($.lambdaArn == null) {
+                throw new MissingRequiredPropertyException("IntegrationLambdaArnArgs", "lambdaArn");
+            }
             return $;
         }
     }

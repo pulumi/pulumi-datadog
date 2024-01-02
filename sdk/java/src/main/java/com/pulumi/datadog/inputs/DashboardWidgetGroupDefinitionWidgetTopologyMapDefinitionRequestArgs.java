@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -97,8 +98,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
         }
 
         public DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs build() {
-            $.queries = Objects.requireNonNull($.queries, "expected parameter 'queries' to be non-null");
-            $.requestType = Objects.requireNonNull($.requestType, "expected parameter 'requestType' to be non-null");
+            if ($.queries == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs", "queries");
+            }
+            if ($.requestType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs", "requestType");
+            }
             return $;
         }
     }

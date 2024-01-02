@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SyntheticsTestAssertionTargetxpathArgs extends com.pulumi.res
         }
 
         public SyntheticsTestAssertionTargetxpathArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.xpath = Objects.requireNonNull($.xpath, "expected parameter 'xpath' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetxpathArgs", "operator");
+            }
+            if ($.xpath == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetxpathArgs", "xpath");
+            }
             return $;
         }
     }

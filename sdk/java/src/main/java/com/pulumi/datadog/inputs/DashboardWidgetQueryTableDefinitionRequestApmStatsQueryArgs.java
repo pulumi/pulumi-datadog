@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,11 +311,21 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs e
         }
 
         public DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs build() {
-            $.env = Objects.requireNonNull($.env, "expected parameter 'env' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primaryTag = Objects.requireNonNull($.primaryTag, "expected parameter 'primaryTag' to be non-null");
-            $.rowType = Objects.requireNonNull($.rowType, "expected parameter 'rowType' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.env == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "env");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "name");
+            }
+            if ($.primaryTag == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "primaryTag");
+            }
+            if ($.rowType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "rowType");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "service");
+            }
             return $;
         }
     }

@@ -101,26 +101,31 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis
 
         @CustomType.Setter
         public Builder includeZero(@Nullable Boolean includeZero) {
+
             this.includeZero = includeZero;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder max(@Nullable String max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable String min) {
+
             this.min = min;
             return this;
         }
         @CustomType.Setter
         public Builder scale(@Nullable String scale) {
+
             this.scale = scale;
             return this;
         }

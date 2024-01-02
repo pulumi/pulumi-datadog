@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -171,16 +172,23 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQ
 
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder env(String env) {
-            this.env = Objects.requireNonNull(env);
+            if (env == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery", "env");
+            }
+            this.env = env;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<String> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -189,37 +197,50 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQ
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder operationName(@Nullable String operationName) {
+
             this.operationName = operationName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTagName(@Nullable String primaryTagName) {
+
             this.primaryTagName = primaryTagName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTagValue(@Nullable String primaryTagValue) {
+
             this.primaryTagValue = primaryTagValue;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(@Nullable String resourceName) {
+
             this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery", "service");
+            }
+            this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder stat(String stat) {
-            this.stat = Objects.requireNonNull(stat);
+            if (stat == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery", "stat");
+            }
+            this.stat = stat;
             return this;
         }
         public DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery build() {

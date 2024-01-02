@@ -44,6 +44,7 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptions {
 
         @CustomType.Setter
         public Builder baselineUserLocations(@Nullable Boolean baselineUserLocations) {
+
             this.baselineUserLocations = baselineUserLocations;
             return this;
         }

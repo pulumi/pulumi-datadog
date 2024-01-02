@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -74,17 +75,24 @@ public final class GetPermissionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeRestricted(@Nullable Boolean includeRestricted) {
+
             this.includeRestricted = includeRestricted;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(Map<String,String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public GetPermissionsResult build() {

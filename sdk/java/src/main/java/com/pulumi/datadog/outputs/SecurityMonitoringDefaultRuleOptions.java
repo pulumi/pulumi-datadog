@@ -44,6 +44,7 @@ public final class SecurityMonitoringDefaultRuleOptions {
 
         @CustomType.Setter
         public Builder decreaseCriticalityBasedOnEnv(@Nullable Boolean decreaseCriticalityBasedOnEnv) {
+
             this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             return this;
         }

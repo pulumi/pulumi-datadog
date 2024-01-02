@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableFo
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder dimension(String dimension) {
-            this.dimension = Objects.requireNonNull(dimension);
+            if (dimension == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula", "dimension");
+            }
+            this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder formulaExpression(String formulaExpression) {
-            this.formulaExpression = Objects.requireNonNull(formulaExpression);
+            if (formulaExpression == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula", "formulaExpression");
+            }
+            this.formulaExpression = formulaExpression;
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula build() {

@@ -223,21 +223,25 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder auditQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery auditQuery) {
+
             this.auditQuery = auditQuery;
             return this;
         }
         @CustomType.Setter
         public Builder displayType(@Nullable String displayType) {
+
             this.displayType = displayType;
             return this;
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -246,11 +250,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metadatas(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> metadatas) {
+
             this.metadatas = metadatas;
             return this;
         }
@@ -259,26 +265,31 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         }
         @CustomType.Setter
         public Builder networkQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery networkQuery) {
+
             this.networkQuery = networkQuery;
             return this;
         }
         @CustomType.Setter
         public Builder onRightYaxis(@Nullable Boolean onRightYaxis) {
+
             this.onRightYaxis = onRightYaxis;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -287,16 +298,19 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle style) {
+
             this.style = style;
             return this;
         }

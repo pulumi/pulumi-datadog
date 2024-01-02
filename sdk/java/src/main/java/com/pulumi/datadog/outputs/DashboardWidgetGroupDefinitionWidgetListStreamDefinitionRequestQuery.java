@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,16 +117,21 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder eventSize(@Nullable String eventSize) {
+
             this.eventSize = eventSize;
             return this;
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -134,16 +140,19 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         }
         @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySort sort) {
+
             this.sort = sort;
             return this;
         }
         @CustomType.Setter
         public Builder storage(@Nullable String storage) {
+
             this.storage = storage;
             return this;
         }

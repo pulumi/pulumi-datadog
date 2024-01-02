@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs;
 import com.pulumi.datadog.inputs.DowntimeScheduleOneTimeScheduleArgs;
 import com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -337,7 +338,9 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public DowntimeScheduleArgs build() {
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("DowntimeScheduleArgs", "scope");
+            }
             return $;
         }
     }

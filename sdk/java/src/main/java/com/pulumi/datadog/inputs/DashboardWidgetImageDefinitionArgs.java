@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,7 +337,9 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         public DashboardWidgetImageDefinitionArgs build() {
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetImageDefinitionArgs", "url");
+            }
             return $;
         }
     }

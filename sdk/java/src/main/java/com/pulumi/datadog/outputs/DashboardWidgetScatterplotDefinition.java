@@ -161,6 +161,7 @@ public final class DashboardWidgetScatterplotDefinition {
 
         @CustomType.Setter
         public Builder colorByGroups(@Nullable List<String> colorByGroups) {
+
             this.colorByGroups = colorByGroups;
             return this;
         }
@@ -169,6 +170,7 @@ public final class DashboardWidgetScatterplotDefinition {
         }
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetScatterplotDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -177,36 +179,43 @@ public final class DashboardWidgetScatterplotDefinition {
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder request(@Nullable DashboardWidgetScatterplotDefinitionRequest request) {
+
             this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder xaxis(@Nullable DashboardWidgetScatterplotDefinitionXaxis xaxis) {
+
             this.xaxis = xaxis;
             return this;
         }
         @CustomType.Setter
         public Builder yaxis(@Nullable DashboardWidgetScatterplotDefinitionYaxis yaxis) {
+
             this.yaxis = yaxis;
             return this;
         }

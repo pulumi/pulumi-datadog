@@ -87,21 +87,25 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCusto
 
         @CustomType.Setter
         public Builder isHidden(@Nullable Boolean isHidden) {
+
             this.isHidden = isHidden;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder link(@Nullable String link) {
+
             this.link = link;
             return this;
         }
         @CustomType.Setter
         public Builder overrideLabel(@Nullable String overrideLabel) {
+
             this.overrideLabel = overrideLabel;
             return this;
         }

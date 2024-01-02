@@ -5,6 +5,7 @@ package com.pulumi.datadog.opsgenie;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceObjectArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.opsgenieApiKey = Objects.requireNonNull($.opsgenieApiKey, "expected parameter 'opsgenieApiKey' to be non-null");
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ServiceObjectArgs", "name");
+            }
+            if ($.opsgenieApiKey == null) {
+                throw new MissingRequiredPropertyException("ServiceObjectArgs", "opsgenieApiKey");
+            }
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("ServiceObjectArgs", "region");
+            }
             return $;
         }
     }

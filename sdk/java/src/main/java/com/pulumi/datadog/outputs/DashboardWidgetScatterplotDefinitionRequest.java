@@ -74,6 +74,7 @@ public final class DashboardWidgetScatterplotDefinitionRequest {
 
         @CustomType.Setter
         public Builder scatterplotTables(@Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables) {
+
             this.scatterplotTables = scatterplotTables;
             return this;
         }
@@ -82,6 +83,7 @@ public final class DashboardWidgetScatterplotDefinitionRequest {
         }
         @CustomType.Setter
         public Builder xes(@Nullable List<DashboardWidgetScatterplotDefinitionRequestX> xes) {
+
             this.xes = xes;
             return this;
         }
@@ -90,6 +92,7 @@ public final class DashboardWidgetScatterplotDefinitionRequest {
         }
         @CustomType.Setter
         public Builder ys(@Nullable List<DashboardWidgetScatterplotDefinitionRequestY> ys) {
+
             this.ys = ys;
             return this;
         }

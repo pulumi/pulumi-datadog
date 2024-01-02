@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SpansMetricComputeArgs;
 import com.pulumi.datadog.inputs.SpansMetricFilterArgs;
 import com.pulumi.datadog.inputs.SpansMetricGroupByArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -135,7 +136,9 @@ public final class SpansMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SpansMetricArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SpansMetricArgs", "name");
+            }
             return $;
         }
     }

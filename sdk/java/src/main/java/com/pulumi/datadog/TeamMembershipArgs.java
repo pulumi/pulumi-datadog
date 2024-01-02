@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public TeamMembershipArgs build() {
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("TeamMembershipArgs", "teamId");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("TeamMembershipArgs", "userId");
+            }
             return $;
         }
     }

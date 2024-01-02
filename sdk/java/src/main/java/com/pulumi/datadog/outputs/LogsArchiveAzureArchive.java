@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,40 @@ public final class LogsArchiveAzureArchive {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveAzureArchive", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder container(String container) {
-            this.container = Objects.requireNonNull(container);
+            if (container == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveAzureArchive", "container");
+            }
+            this.container = container;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccount(String storageAccount) {
-            this.storageAccount = Objects.requireNonNull(storageAccount);
+            if (storageAccount == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveAzureArchive", "storageAccount");
+            }
+            this.storageAccount = storageAccount;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveAzureArchive", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public LogsArchiveAzureArchive build() {

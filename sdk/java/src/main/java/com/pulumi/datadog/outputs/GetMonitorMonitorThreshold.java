@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -64,32 +65,50 @@ public final class GetMonitorMonitorThreshold {
 
         @CustomType.Setter
         public Builder critical(String critical) {
-            this.critical = Objects.requireNonNull(critical);
+            if (critical == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "critical");
+            }
+            this.critical = critical;
             return this;
         }
         @CustomType.Setter
         public Builder criticalRecovery(String criticalRecovery) {
-            this.criticalRecovery = Objects.requireNonNull(criticalRecovery);
+            if (criticalRecovery == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "criticalRecovery");
+            }
+            this.criticalRecovery = criticalRecovery;
             return this;
         }
         @CustomType.Setter
         public Builder ok(String ok) {
-            this.ok = Objects.requireNonNull(ok);
+            if (ok == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "ok");
+            }
+            this.ok = ok;
             return this;
         }
         @CustomType.Setter
         public Builder unknown(String unknown) {
-            this.unknown = Objects.requireNonNull(unknown);
+            if (unknown == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "unknown");
+            }
+            this.unknown = unknown;
             return this;
         }
         @CustomType.Setter
         public Builder warning(String warning) {
-            this.warning = Objects.requireNonNull(warning);
+            if (warning == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "warning");
+            }
+            this.warning = warning;
             return this;
         }
         @CustomType.Setter
         public Builder warningRecovery(String warningRecovery) {
-            this.warningRecovery = Objects.requireNonNull(warningRecovery);
+            if (warningRecovery == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThreshold", "warningRecovery");
+            }
+            this.warningRecovery = warningRecovery;
             return this;
         }
         public GetMonitorMonitorThreshold build() {

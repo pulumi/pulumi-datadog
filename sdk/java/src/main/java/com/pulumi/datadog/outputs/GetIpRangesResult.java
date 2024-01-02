@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -296,7 +297,10 @@ public final class GetIpRangesResult {
 
         @CustomType.Setter
         public Builder agentsIpv4s(List<String> agentsIpv4s) {
-            this.agentsIpv4s = Objects.requireNonNull(agentsIpv4s);
+            if (agentsIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "agentsIpv4s");
+            }
+            this.agentsIpv4s = agentsIpv4s;
             return this;
         }
         public Builder agentsIpv4s(String... agentsIpv4s) {
@@ -304,7 +308,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder agentsIpv6s(List<String> agentsIpv6s) {
-            this.agentsIpv6s = Objects.requireNonNull(agentsIpv6s);
+            if (agentsIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "agentsIpv6s");
+            }
+            this.agentsIpv6s = agentsIpv6s;
             return this;
         }
         public Builder agentsIpv6s(String... agentsIpv6s) {
@@ -312,7 +319,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apiIpv4s(List<String> apiIpv4s) {
-            this.apiIpv4s = Objects.requireNonNull(apiIpv4s);
+            if (apiIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apiIpv4s");
+            }
+            this.apiIpv4s = apiIpv4s;
             return this;
         }
         public Builder apiIpv4s(String... apiIpv4s) {
@@ -320,7 +330,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apiIpv6s(List<String> apiIpv6s) {
-            this.apiIpv6s = Objects.requireNonNull(apiIpv6s);
+            if (apiIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apiIpv6s");
+            }
+            this.apiIpv6s = apiIpv6s;
             return this;
         }
         public Builder apiIpv6s(String... apiIpv6s) {
@@ -328,7 +341,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apmIpv4s(List<String> apmIpv4s) {
-            this.apmIpv4s = Objects.requireNonNull(apmIpv4s);
+            if (apmIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apmIpv4s");
+            }
+            this.apmIpv4s = apmIpv4s;
             return this;
         }
         public Builder apmIpv4s(String... apmIpv4s) {
@@ -336,7 +352,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder apmIpv6s(List<String> apmIpv6s) {
-            this.apmIpv6s = Objects.requireNonNull(apmIpv6s);
+            if (apmIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "apmIpv6s");
+            }
+            this.apmIpv6s = apmIpv6s;
             return this;
         }
         public Builder apmIpv6s(String... apmIpv6s) {
@@ -344,12 +363,18 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logsIpv4s(List<String> logsIpv4s) {
-            this.logsIpv4s = Objects.requireNonNull(logsIpv4s);
+            if (logsIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "logsIpv4s");
+            }
+            this.logsIpv4s = logsIpv4s;
             return this;
         }
         public Builder logsIpv4s(String... logsIpv4s) {
@@ -357,7 +382,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder logsIpv6s(List<String> logsIpv6s) {
-            this.logsIpv6s = Objects.requireNonNull(logsIpv6s);
+            if (logsIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "logsIpv6s");
+            }
+            this.logsIpv6s = logsIpv6s;
             return this;
         }
         public Builder logsIpv6s(String... logsIpv6s) {
@@ -365,7 +393,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder orchestratorIpv4s(List<String> orchestratorIpv4s) {
-            this.orchestratorIpv4s = Objects.requireNonNull(orchestratorIpv4s);
+            if (orchestratorIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "orchestratorIpv4s");
+            }
+            this.orchestratorIpv4s = orchestratorIpv4s;
             return this;
         }
         public Builder orchestratorIpv4s(String... orchestratorIpv4s) {
@@ -373,7 +404,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder orchestratorIpv6s(List<String> orchestratorIpv6s) {
-            this.orchestratorIpv6s = Objects.requireNonNull(orchestratorIpv6s);
+            if (orchestratorIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "orchestratorIpv6s");
+            }
+            this.orchestratorIpv6s = orchestratorIpv6s;
             return this;
         }
         public Builder orchestratorIpv6s(String... orchestratorIpv6s) {
@@ -381,7 +415,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder processIpv4s(List<String> processIpv4s) {
-            this.processIpv4s = Objects.requireNonNull(processIpv4s);
+            if (processIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "processIpv4s");
+            }
+            this.processIpv4s = processIpv4s;
             return this;
         }
         public Builder processIpv4s(String... processIpv4s) {
@@ -389,7 +426,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder processIpv6s(List<String> processIpv6s) {
-            this.processIpv6s = Objects.requireNonNull(processIpv6s);
+            if (processIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "processIpv6s");
+            }
+            this.processIpv6s = processIpv6s;
             return this;
         }
         public Builder processIpv6s(String... processIpv6s) {
@@ -397,12 +437,18 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder syntheticsIpv4ByLocation(Map<String,String> syntheticsIpv4ByLocation) {
-            this.syntheticsIpv4ByLocation = Objects.requireNonNull(syntheticsIpv4ByLocation);
+            if (syntheticsIpv4ByLocation == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "syntheticsIpv4ByLocation");
+            }
+            this.syntheticsIpv4ByLocation = syntheticsIpv4ByLocation;
             return this;
         }
         @CustomType.Setter
         public Builder syntheticsIpv4s(List<String> syntheticsIpv4s) {
-            this.syntheticsIpv4s = Objects.requireNonNull(syntheticsIpv4s);
+            if (syntheticsIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "syntheticsIpv4s");
+            }
+            this.syntheticsIpv4s = syntheticsIpv4s;
             return this;
         }
         public Builder syntheticsIpv4s(String... syntheticsIpv4s) {
@@ -410,12 +456,18 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder syntheticsIpv6ByLocation(Map<String,String> syntheticsIpv6ByLocation) {
-            this.syntheticsIpv6ByLocation = Objects.requireNonNull(syntheticsIpv6ByLocation);
+            if (syntheticsIpv6ByLocation == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "syntheticsIpv6ByLocation");
+            }
+            this.syntheticsIpv6ByLocation = syntheticsIpv6ByLocation;
             return this;
         }
         @CustomType.Setter
         public Builder syntheticsIpv6s(List<String> syntheticsIpv6s) {
-            this.syntheticsIpv6s = Objects.requireNonNull(syntheticsIpv6s);
+            if (syntheticsIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "syntheticsIpv6s");
+            }
+            this.syntheticsIpv6s = syntheticsIpv6s;
             return this;
         }
         public Builder syntheticsIpv6s(String... syntheticsIpv6s) {
@@ -423,7 +475,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder webhooksIpv4s(List<String> webhooksIpv4s) {
-            this.webhooksIpv4s = Objects.requireNonNull(webhooksIpv4s);
+            if (webhooksIpv4s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "webhooksIpv4s");
+            }
+            this.webhooksIpv4s = webhooksIpv4s;
             return this;
         }
         public Builder webhooksIpv4s(String... webhooksIpv4s) {
@@ -431,7 +486,10 @@ public final class GetIpRangesResult {
         }
         @CustomType.Setter
         public Builder webhooksIpv6s(List<String> webhooksIpv6s) {
-            this.webhooksIpv6s = Objects.requireNonNull(webhooksIpv6s);
+            if (webhooksIpv6s == null) {
+              throw new MissingRequiredPropertyException("GetIpRangesResult", "webhooksIpv6s");
+            }
+            this.webhooksIpv6s = webhooksIpv6s;
             return this;
         }
         public Builder webhooksIpv6s(String... webhooksIpv6s) {

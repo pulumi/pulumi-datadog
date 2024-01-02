@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersFilterExclusionFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -70,6 +71,7 @@ public final class GetSecurityMonitoringFiltersFilter {
 
         @CustomType.Setter
         public Builder exclusionFilters(@Nullable List<GetSecurityMonitoringFiltersFilterExclusionFilter> exclusionFilters) {
+
             this.exclusionFilters = exclusionFilters;
             return this;
         }
@@ -78,27 +80,40 @@ public final class GetSecurityMonitoringFiltersFilter {
         }
         @CustomType.Setter
         public Builder filteredDataType(@Nullable String filteredDataType) {
+
             this.filteredDataType = filteredDataType;
             return this;
         }
         @CustomType.Setter
         public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = Objects.requireNonNull(isEnabled);
+            if (isEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersFilter", "isEnabled");
+            }
+            this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersFilter", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersFilter", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetSecurityMonitoringFiltersFilter build() {

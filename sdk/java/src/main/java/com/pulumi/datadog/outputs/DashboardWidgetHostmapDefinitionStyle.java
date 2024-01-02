@@ -87,21 +87,25 @@ public final class DashboardWidgetHostmapDefinitionStyle {
 
         @CustomType.Setter
         public Builder fillMax(@Nullable String fillMax) {
+
             this.fillMax = fillMax;
             return this;
         }
         @CustomType.Setter
         public Builder fillMin(@Nullable String fillMin) {
+
             this.fillMin = fillMin;
             return this;
         }
         @CustomType.Setter
         public Builder palette(@Nullable String palette) {
+
             this.palette = palette;
             return this;
         }
         @CustomType.Setter
         public Builder paletteFlip(@Nullable Boolean paletteFlip) {
+
             this.paletteFlip = paletteFlip;
             return this;
         }

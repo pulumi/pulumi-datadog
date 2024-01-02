@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -101,27 +102,40 @@ public final class DashboardWidgetWidgetLayout {
 
         @CustomType.Setter
         public Builder height(Integer height) {
-            this.height = Objects.requireNonNull(height);
+            if (height == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetWidgetLayout", "height");
+            }
+            this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder isColumnBreak(@Nullable Boolean isColumnBreak) {
+
             this.isColumnBreak = isColumnBreak;
             return this;
         }
         @CustomType.Setter
         public Builder width(Integer width) {
-            this.width = Objects.requireNonNull(width);
+            if (width == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetWidgetLayout", "width");
+            }
+            this.width = width;
             return this;
         }
         @CustomType.Setter
         public Builder x(Integer x) {
-            this.x = Objects.requireNonNull(x);
+            if (x == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetWidgetLayout", "x");
+            }
+            this.x = x;
             return this;
         }
         @CustomType.Setter
         public Builder y(Integer y) {
-            this.y = Objects.requireNonNull(y);
+            if (y == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetWidgetLayout", "y");
+            }
+            this.y = y;
             return this;
         }
         public DashboardWidgetWidgetLayout build() {

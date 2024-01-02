@@ -67,6 +67,7 @@ public final class LogsIndexExclusionFilter {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<LogsIndexExclusionFilterFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -75,11 +76,13 @@ public final class LogsIndexExclusionFilter {
         }
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

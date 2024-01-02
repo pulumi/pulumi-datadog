@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SyntheticsConcurrencyCapArgs extends com.pulumi.resources.Res
         }
 
         public SyntheticsConcurrencyCapArgs build() {
-            $.onDemandConcurrencyCap = Objects.requireNonNull($.onDemandConcurrencyCap, "expected parameter 'onDemandConcurrencyCap' to be non-null");
+            if ($.onDemandConcurrencyCap == null) {
+                throw new MissingRequiredPropertyException("SyntheticsConcurrencyCapArgs", "onDemandConcurrencyCap");
+            }
             return $;
         }
     }

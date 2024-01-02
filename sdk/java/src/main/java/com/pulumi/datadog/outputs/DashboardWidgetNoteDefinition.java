@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -157,46 +158,57 @@ public final class DashboardWidgetNoteDefinition {
 
         @CustomType.Setter
         public Builder backgroundColor(@Nullable String backgroundColor) {
+
             this.backgroundColor = backgroundColor;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetNoteDefinition", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder fontSize(@Nullable String fontSize) {
+
             this.fontSize = fontSize;
             return this;
         }
         @CustomType.Setter
         public Builder hasPadding(@Nullable Boolean hasPadding) {
+
             this.hasPadding = hasPadding;
             return this;
         }
         @CustomType.Setter
         public Builder showTick(@Nullable Boolean showTick) {
+
             this.showTick = showTick;
             return this;
         }
         @CustomType.Setter
         public Builder textAlign(@Nullable String textAlign) {
+
             this.textAlign = textAlign;
             return this;
         }
         @CustomType.Setter
         public Builder tickEdge(@Nullable String tickEdge) {
+
             this.tickEdge = tickEdge;
             return this;
         }
         @CustomType.Setter
         public Builder tickPos(@Nullable String tickPos) {
+
             this.tickPos = tickPos;
             return this;
         }
         @CustomType.Setter
         public Builder verticalAlign(@Nullable String verticalAlign) {
+
             this.verticalAlign = verticalAlign;
             return this;
         }

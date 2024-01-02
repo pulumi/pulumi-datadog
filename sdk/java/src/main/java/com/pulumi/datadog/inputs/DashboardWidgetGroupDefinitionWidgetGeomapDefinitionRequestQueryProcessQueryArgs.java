@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -385,9 +386,15 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
         }
 
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.metric = Objects.requireNonNull($.metric, "expected parameter 'metric' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs", "dataSource");
+            }
+            if ($.metric == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs", "metric");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQueryArgs", "name");
+            }
             return $;
         }
     }

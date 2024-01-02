@@ -73,16 +73,19 @@ public final class MonitorSchedulingOptionEvaluationWindow {
 
         @CustomType.Setter
         public Builder dayStarts(@Nullable String dayStarts) {
+
             this.dayStarts = dayStarts;
             return this;
         }
         @CustomType.Setter
         public Builder hourStarts(@Nullable Integer hourStarts) {
+
             this.hourStarts = hourStarts;
             return this;
         }
         @CustomType.Setter
         public Builder monthStarts(@Nullable Integer monthStarts) {
+
             this.monthStarts = monthStarts;
             return this;
         }

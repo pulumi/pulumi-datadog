@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComput
         }
 
         public DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs build() {
-            $.aggregation = Objects.requireNonNull($.aggregation, "expected parameter 'aggregation' to be non-null");
+            if ($.aggregation == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs", "aggregation");
+            }
             return $;
         }
     }

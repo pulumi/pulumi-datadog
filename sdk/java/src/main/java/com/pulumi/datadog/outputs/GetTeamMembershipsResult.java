@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetTeamMembershipsTeamMembership;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,22 +89,32 @@ public final class GetTeamMembershipsResult {
 
         @CustomType.Setter
         public Builder filterKeyword(@Nullable String filterKeyword) {
+
             this.filterKeyword = filterKeyword;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembershipsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder teamId(String teamId) {
-            this.teamId = Objects.requireNonNull(teamId);
+            if (teamId == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembershipsResult", "teamId");
+            }
+            this.teamId = teamId;
             return this;
         }
         @CustomType.Setter
         public Builder teamMemberships(List<GetTeamMembershipsTeamMembership> teamMemberships) {
-            this.teamMemberships = Objects.requireNonNull(teamMemberships);
+            if (teamMemberships == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembershipsResult", "teamMemberships");
+            }
+            this.teamMemberships = teamMemberships;
             return this;
         }
         public Builder teamMemberships(GetTeamMembershipsTeamMembership... teamMemberships) {

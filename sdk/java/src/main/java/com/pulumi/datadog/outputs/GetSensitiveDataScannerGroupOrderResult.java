@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetSensitiveDataScannerGroupOrderResult {
 
         @CustomType.Setter
         public Builder groupIds(List<String> groupIds) {
-            this.groupIds = Objects.requireNonNull(groupIds);
+            if (groupIds == null) {
+              throw new MissingRequiredPropertyException("GetSensitiveDataScannerGroupOrderResult", "groupIds");
+            }
+            this.groupIds = groupIds;
             return this;
         }
         public Builder groupIds(String... groupIds) {
@@ -65,7 +69,10 @@ public final class GetSensitiveDataScannerGroupOrderResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSensitiveDataScannerGroupOrderResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSensitiveDataScannerGroupOrderResult build() {

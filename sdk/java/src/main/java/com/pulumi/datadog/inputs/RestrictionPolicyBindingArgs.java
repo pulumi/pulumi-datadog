@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class RestrictionPolicyBindingArgs extends com.pulumi.resources.Res
         }
 
         public RestrictionPolicyBindingArgs build() {
-            $.principals = Objects.requireNonNull($.principals, "expected parameter 'principals' to be non-null");
-            $.relation = Objects.requireNonNull($.relation, "expected parameter 'relation' to be non-null");
+            if ($.principals == null) {
+                throw new MissingRequiredPropertyException("RestrictionPolicyBindingArgs", "principals");
+            }
+            if ($.relation == null) {
+                throw new MissingRequiredPropertyException("RestrictionPolicyBindingArgs", "relation");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListSchedulingTimeframe;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class SyntheticsTestOptionsListScheduling {
 
         @CustomType.Setter
         public Builder timeframes(List<SyntheticsTestOptionsListSchedulingTimeframe> timeframes) {
-            this.timeframes = Objects.requireNonNull(timeframes);
+            if (timeframes == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestOptionsListScheduling", "timeframes");
+            }
+            this.timeframes = timeframes;
             return this;
         }
         public Builder timeframes(SyntheticsTestOptionsListSchedulingTimeframe... timeframes) {
@@ -66,7 +70,10 @@ public final class SyntheticsTestOptionsListScheduling {
         }
         @CustomType.Setter
         public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestOptionsListScheduling", "timezone");
+            }
+            this.timezone = timezone;
             return this;
         }
         public SyntheticsTestOptionsListScheduling build() {

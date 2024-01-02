@@ -179,6 +179,7 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
 
         @CustomType.Setter
         public Builder columns(@Nullable List<String> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -187,6 +188,7 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -195,46 +197,55 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder messageDisplay(@Nullable String messageDisplay) {
+
             this.messageDisplay = messageDisplay;
             return this;
         }
         @CustomType.Setter
         public Builder query(@Nullable String query) {
+
             this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder showDateColumn(@Nullable Boolean showDateColumn) {
+
             this.showDateColumn = showDateColumn;
             return this;
         }
         @CustomType.Setter
         public Builder showMessageColumn(@Nullable Boolean showMessageColumn) {
+
             this.showMessageColumn = showMessageColumn;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort sort) {
+
             this.sort = sort;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class MonitorVariablesEventQueryCompute {
 
         @CustomType.Setter
         public Builder aggregation(String aggregation) {
-            this.aggregation = Objects.requireNonNull(aggregation);
+            if (aggregation == null) {
+              throw new MissingRequiredPropertyException("MonitorVariablesEventQueryCompute", "aggregation");
+            }
+            this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder metric(@Nullable String metric) {
+
             this.metric = metric;
             return this;
         }

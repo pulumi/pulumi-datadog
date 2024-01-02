@@ -227,26 +227,31 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
         @CustomType.Setter
         public Builder aggregator(@Nullable String aggregator) {
+
             this.aggregator = aggregator;
             return this;
         }
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery) {
+
             this.apmStatsQuery = apmStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder cellDisplayModes(@Nullable List<String> cellDisplayModes) {
+
             this.cellDisplayModes = cellDisplayModes;
             return this;
         }
@@ -255,6 +260,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -263,6 +269,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -271,31 +278,37 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable String order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -304,11 +317,13 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }

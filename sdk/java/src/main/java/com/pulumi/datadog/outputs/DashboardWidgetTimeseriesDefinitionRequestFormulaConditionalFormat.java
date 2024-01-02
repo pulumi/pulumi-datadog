@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -158,47 +159,62 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalF
 
         @CustomType.Setter
         public Builder comparator(String comparator) {
-            this.comparator = Objects.requireNonNull(comparator);
+            if (comparator == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat", "comparator");
+            }
+            this.comparator = comparator;
             return this;
         }
         @CustomType.Setter
         public Builder customBgColor(@Nullable String customBgColor) {
+
             this.customBgColor = customBgColor;
             return this;
         }
         @CustomType.Setter
         public Builder customFgColor(@Nullable String customFgColor) {
+
             this.customFgColor = customFgColor;
             return this;
         }
         @CustomType.Setter
         public Builder hideValue(@Nullable Boolean hideValue) {
+
             this.hideValue = hideValue;
             return this;
         }
         @CustomType.Setter
         public Builder imageUrl(@Nullable String imageUrl) {
+
             this.imageUrl = imageUrl;
             return this;
         }
         @CustomType.Setter
         public Builder metric(@Nullable String metric) {
+
             this.metric = metric;
             return this;
         }
         @CustomType.Setter
         public Builder palette(String palette) {
-            this.palette = Objects.requireNonNull(palette);
+            if (palette == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat", "palette");
+            }
+            this.palette = palette;
             return this;
         }
         @CustomType.Setter
         public Builder timeframe(@Nullable String timeframe) {
+
             this.timeframe = timeframe;
             return this;
         }
         @CustomType.Setter
         public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat", "value");
+            }
+            this.value = value;
             return this;
         }
         public DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat build() {

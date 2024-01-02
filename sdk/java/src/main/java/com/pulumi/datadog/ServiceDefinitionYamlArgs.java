@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ServiceDefinitionYamlArgs extends com.pulumi.resources.Resour
         }
 
         public ServiceDefinitionYamlArgs build() {
-            $.serviceDefinition = Objects.requireNonNull($.serviceDefinition, "expected parameter 'serviceDefinition' to be non-null");
+            if ($.serviceDefinition == null) {
+                throw new MissingRequiredPropertyException("ServiceDefinitionYamlArgs", "serviceDefinition");
+            }
             return $;
         }
     }

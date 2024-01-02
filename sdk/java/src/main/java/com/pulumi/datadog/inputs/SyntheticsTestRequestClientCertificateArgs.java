@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestClientCertificateCertArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestClientCertificateKeyArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -72,8 +73,12 @@ public final class SyntheticsTestRequestClientCertificateArgs extends com.pulumi
         }
 
         public SyntheticsTestRequestClientCertificateArgs build() {
-            $.cert = Objects.requireNonNull($.cert, "expected parameter 'cert' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.cert == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestRequestClientCertificateArgs", "cert");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestRequestClientCertificateArgs", "key");
+            }
             return $;
         }
     }

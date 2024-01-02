@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs exte
         }
 
         public DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs", "index");
+            }
             return $;
         }
     }

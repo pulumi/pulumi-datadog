@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestOptionsListSchedulingTimeframeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class SyntheticsTestOptionsListSchedulingArgs extends com.pulumi.re
         }
 
         public SyntheticsTestOptionsListSchedulingArgs build() {
-            $.timeframes = Objects.requireNonNull($.timeframes, "expected parameter 'timeframes' to be non-null");
-            $.timezone = Objects.requireNonNull($.timezone, "expected parameter 'timezone' to be non-null");
+            if ($.timeframes == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListSchedulingArgs", "timeframes");
+            }
+            if ($.timezone == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListSchedulingArgs", "timezone");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class SyntheticsTestOptionsListCi {
 
         @CustomType.Setter
         public Builder executionRule(@Nullable String executionRule) {
+
             this.executionRule = executionRule;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -41,12 +42,18 @@ public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
 
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilterFilter", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(Double sampleRate) {
-            this.sampleRate = Objects.requireNonNull(sampleRate);
+            if (sampleRate == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilterFilter", "sampleRate");
+            }
+            this.sampleRate = sampleRate;
             return this;
         }
         public GetLogsIndexesLogsIndexExclusionFilterFilter build() {

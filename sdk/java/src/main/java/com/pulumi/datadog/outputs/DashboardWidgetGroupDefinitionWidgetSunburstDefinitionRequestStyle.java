@@ -44,6 +44,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
         @CustomType.Setter
         public Builder palette(@Nullable String palette) {
+
             this.palette = palette;
             return this;
         }

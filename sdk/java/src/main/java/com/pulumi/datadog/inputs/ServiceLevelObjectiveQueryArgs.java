@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServiceLevelObjectiveQueryArgs extends com.pulumi.resources.R
         }
 
         public ServiceLevelObjectiveQueryArgs build() {
-            $.denominator = Objects.requireNonNull($.denominator, "expected parameter 'denominator' to be non-null");
-            $.numerator = Objects.requireNonNull($.numerator, "expected parameter 'numerator' to be non-null");
+            if ($.denominator == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveQueryArgs", "denominator");
+            }
+            if ($.numerator == null) {
+                throw new MissingRequiredPropertyException("ServiceLevelObjectiveQueryArgs", "numerator");
+            }
             return $;
         }
     }

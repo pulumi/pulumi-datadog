@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.MonitorSchedulingOptionEvaluationWindow;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class MonitorSchedulingOption {
 
         @CustomType.Setter
         public Builder evaluationWindows(List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows) {
-            this.evaluationWindows = Objects.requireNonNull(evaluationWindows);
+            if (evaluationWindows == null) {
+              throw new MissingRequiredPropertyException("MonitorSchedulingOption", "evaluationWindows");
+            }
+            this.evaluationWindows = evaluationWindows;
             return this;
         }
         public Builder evaluationWindows(MonitorSchedulingOptionEvaluationWindow... evaluationWindows) {

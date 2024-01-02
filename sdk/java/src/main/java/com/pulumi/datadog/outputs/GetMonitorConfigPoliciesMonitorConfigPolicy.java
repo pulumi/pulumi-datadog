@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -47,17 +48,26 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicy", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(String policyType) {
-            this.policyType = Objects.requireNonNull(policyType);
+            if (policyType == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicy", "policyType");
+            }
+            this.policyType = policyType;
             return this;
         }
         @CustomType.Setter
         public Builder tagPolicy(GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy) {
-            this.tagPolicy = Objects.requireNonNull(tagPolicy);
+            if (tagPolicy == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicy", "tagPolicy");
+            }
+            this.tagPolicy = tagPolicy;
             return this;
         }
         public GetMonitorConfigPoliciesMonitorConfigPolicy build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
         }
 
         public DashboardWidgetGeomapDefinitionViewArgs build() {
-            $.focus = Objects.requireNonNull($.focus, "expected parameter 'focus' to be non-null");
+            if ($.focus == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionViewArgs", "focus");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionRequest;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,21 +88,27 @@ public final class DashboardWidgetSloListDefinition {
 
         @CustomType.Setter
         public Builder request(DashboardWidgetSloListDefinitionRequest request) {
-            this.request = Objects.requireNonNull(request);
+            if (request == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetSloListDefinition", "request");
+            }
+            this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

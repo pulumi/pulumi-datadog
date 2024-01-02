@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRule;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -131,22 +132,30 @@ public final class GetSecurityMonitoringRulesResult {
 
         @CustomType.Setter
         public Builder defaultOnlyFilter(@Nullable Boolean defaultOnlyFilter) {
+
             this.defaultOnlyFilter = defaultOnlyFilter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nameFilter(@Nullable String nameFilter) {
+
             this.nameFilter = nameFilter;
             return this;
         }
         @CustomType.Setter
         public Builder ruleIds(List<String> ruleIds) {
-            this.ruleIds = Objects.requireNonNull(ruleIds);
+            if (ruleIds == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesResult", "ruleIds");
+            }
+            this.ruleIds = ruleIds;
             return this;
         }
         public Builder ruleIds(String... ruleIds) {
@@ -154,7 +163,10 @@ public final class GetSecurityMonitoringRulesResult {
         }
         @CustomType.Setter
         public Builder rules(List<GetSecurityMonitoringRulesRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesResult", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetSecurityMonitoringRulesRule... rules) {
@@ -162,6 +174,7 @@ public final class GetSecurityMonitoringRulesResult {
         }
         @CustomType.Setter
         public Builder tagsFilters(@Nullable List<String> tagsFilters) {
+
             this.tagsFilters = tagsFilters;
             return this;
         }
@@ -170,6 +183,7 @@ public final class GetSecurityMonitoringRulesResult {
         }
         @CustomType.Setter
         public Builder userOnlyFilter(@Nullable Boolean userOnlyFilter) {
+
             this.userOnlyFilter = userOnlyFilter;
             return this;
         }

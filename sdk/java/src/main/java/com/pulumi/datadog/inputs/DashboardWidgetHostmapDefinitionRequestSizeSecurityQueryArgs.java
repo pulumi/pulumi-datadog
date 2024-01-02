@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs 
         }
 
         public DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs", "index");
+            }
             return $;
         }
     }

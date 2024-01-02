@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -49,12 +50,18 @@ public final class LogsCustomPipelineProcessorCategoryProcessorCategory {
 
         @CustomType.Setter
         public Builder filter(LogsCustomPipelineProcessorCategoryProcessorCategoryFilter filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorCategoryProcessorCategory", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorCategoryProcessorCategory", "name");
+            }
+            this.name = name;
             return this;
         }
         public LogsCustomPipelineProcessorCategoryProcessorCategory build() {

@@ -219,21 +219,25 @@ public final class DashboardWidgetChangeDefinitionRequest {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetChangeDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder changeType(@Nullable String changeType) {
+
             this.changeType = changeType;
             return this;
         }
         @CustomType.Setter
         public Builder compareTo(@Nullable String compareTo) {
+
             this.compareTo = compareTo;
             return this;
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetChangeDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -242,36 +246,43 @@ public final class DashboardWidgetChangeDefinitionRequest {
         }
         @CustomType.Setter
         public Builder increaseGood(@Nullable Boolean increaseGood) {
+
             this.increaseGood = increaseGood;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetChangeDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder orderBy(@Nullable String orderBy) {
+
             this.orderBy = orderBy;
             return this;
         }
         @CustomType.Setter
         public Builder orderDir(@Nullable String orderDir) {
+
             this.orderDir = orderDir;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetChangeDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetChangeDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -280,16 +291,19 @@ public final class DashboardWidgetChangeDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetChangeDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetChangeDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder showPresent(@Nullable Boolean showPresent) {
+
             this.showPresent = showPresent;
             return this;
         }

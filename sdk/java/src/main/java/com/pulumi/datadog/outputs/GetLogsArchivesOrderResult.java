@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetLogsArchivesOrderResult {
 
         @CustomType.Setter
         public Builder archiveIds(List<String> archiveIds) {
-            this.archiveIds = Objects.requireNonNull(archiveIds);
+            if (archiveIds == null) {
+              throw new MissingRequiredPropertyException("GetLogsArchivesOrderResult", "archiveIds");
+            }
+            this.archiveIds = archiveIds;
             return this;
         }
         public Builder archiveIds(String... archiveIds) {
@@ -65,7 +69,10 @@ public final class GetLogsArchivesOrderResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogsArchivesOrderResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetLogsArchivesOrderResult build() {

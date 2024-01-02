@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SyntheticsTestApiStepAssertionTargetjsonpathArgs extends com.
         }
 
         public SyntheticsTestApiStepAssertionTargetjsonpathArgs build() {
-            $.jsonpath = Objects.requireNonNull($.jsonpath, "expected parameter 'jsonpath' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
+            if ($.jsonpath == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionTargetjsonpathArgs", "jsonpath");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionTargetjsonpathArgs", "operator");
+            }
             return $;
         }
     }

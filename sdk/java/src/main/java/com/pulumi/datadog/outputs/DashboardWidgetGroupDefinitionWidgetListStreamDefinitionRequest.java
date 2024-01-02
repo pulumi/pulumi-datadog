@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
 
         @CustomType.Setter
         public Builder columns(List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn... columns) {
@@ -73,12 +77,18 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         }
         @CustomType.Setter
         public Builder query(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder responseFormat(String responseFormat) {
-            this.responseFormat = Objects.requireNonNull(responseFormat);
+            if (responseFormat == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest", "responseFormat");
+            }
+            this.responseFormat = responseFormat;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class IntegrationLogCollectionArgs extends com.pulumi.resources.Res
         }
 
         public IntegrationLogCollectionArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.services = Objects.requireNonNull($.services, "expected parameter 'services' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("IntegrationLogCollectionArgs", "accountId");
+            }
+            if ($.services == null) {
+                throw new MissingRequiredPropertyException("IntegrationLogCollectionArgs", "services");
+            }
             return $;
         }
     }

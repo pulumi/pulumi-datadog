@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SyntheticsGlobalVariableOptionsTotpParameters {
 
         @CustomType.Setter
         public Builder digits(Integer digits) {
-            this.digits = Objects.requireNonNull(digits);
+            if (digits == null) {
+              throw new MissingRequiredPropertyException("SyntheticsGlobalVariableOptionsTotpParameters", "digits");
+            }
+            this.digits = digits;
             return this;
         }
         @CustomType.Setter
         public Builder refreshInterval(Integer refreshInterval) {
-            this.refreshInterval = Objects.requireNonNull(refreshInterval);
+            if (refreshInterval == null) {
+              throw new MissingRequiredPropertyException("SyntheticsGlobalVariableOptionsTotpParameters", "refreshInterval");
+            }
+            this.refreshInterval = refreshInterval;
             return this;
         }
         public SyntheticsGlobalVariableOptionsTotpParameters build() {

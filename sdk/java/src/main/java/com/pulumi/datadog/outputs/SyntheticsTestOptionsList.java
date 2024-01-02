@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.SyntheticsTestOptionsListMonitorOptions;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListRetry;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListRumSettings;
 import com.pulumi.datadog.outputs.SyntheticsTestOptionsListScheduling;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -308,86 +309,103 @@ public final class SyntheticsTestOptionsList {
 
         @CustomType.Setter
         public Builder acceptSelfSigned(@Nullable Boolean acceptSelfSigned) {
+
             this.acceptSelfSigned = acceptSelfSigned;
             return this;
         }
         @CustomType.Setter
         public Builder allowInsecure(@Nullable Boolean allowInsecure) {
+
             this.allowInsecure = allowInsecure;
             return this;
         }
         @CustomType.Setter
         public Builder checkCertificateRevocation(@Nullable Boolean checkCertificateRevocation) {
+
             this.checkCertificateRevocation = checkCertificateRevocation;
             return this;
         }
         @CustomType.Setter
         public Builder ci(@Nullable SyntheticsTestOptionsListCi ci) {
+
             this.ci = ci;
             return this;
         }
         @CustomType.Setter
         public Builder disableCors(@Nullable Boolean disableCors) {
+
             this.disableCors = disableCors;
             return this;
         }
         @CustomType.Setter
         public Builder disableCsp(@Nullable Boolean disableCsp) {
+
             this.disableCsp = disableCsp;
             return this;
         }
         @CustomType.Setter
         public Builder followRedirects(@Nullable Boolean followRedirects) {
+
             this.followRedirects = followRedirects;
             return this;
         }
         @CustomType.Setter
         public Builder httpVersion(@Nullable String httpVersion) {
+
             this.httpVersion = httpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreServerCertificateError(@Nullable Boolean ignoreServerCertificateError) {
+
             this.ignoreServerCertificateError = ignoreServerCertificateError;
             return this;
         }
         @CustomType.Setter
         public Builder initialNavigationTimeout(@Nullable Integer initialNavigationTimeout) {
+
             this.initialNavigationTimeout = initialNavigationTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder minFailureDuration(@Nullable Integer minFailureDuration) {
+
             this.minFailureDuration = minFailureDuration;
             return this;
         }
         @CustomType.Setter
         public Builder minLocationFailed(@Nullable Integer minLocationFailed) {
+
             this.minLocationFailed = minLocationFailed;
             return this;
         }
         @CustomType.Setter
         public Builder monitorName(@Nullable String monitorName) {
+
             this.monitorName = monitorName;
             return this;
         }
         @CustomType.Setter
         public Builder monitorOptions(@Nullable SyntheticsTestOptionsListMonitorOptions monitorOptions) {
+
             this.monitorOptions = monitorOptions;
             return this;
         }
         @CustomType.Setter
         public Builder monitorPriority(@Nullable Integer monitorPriority) {
+
             this.monitorPriority = monitorPriority;
             return this;
         }
         @CustomType.Setter
         public Builder noScreenshot(@Nullable Boolean noScreenshot) {
+
             this.noScreenshot = noScreenshot;
             return this;
         }
         @CustomType.Setter
         public Builder restrictedRoles(@Nullable List<String> restrictedRoles) {
+
             this.restrictedRoles = restrictedRoles;
             return this;
         }
@@ -396,22 +414,28 @@ public final class SyntheticsTestOptionsList {
         }
         @CustomType.Setter
         public Builder retry(@Nullable SyntheticsTestOptionsListRetry retry) {
+
             this.retry = retry;
             return this;
         }
         @CustomType.Setter
         public Builder rumSettings(@Nullable SyntheticsTestOptionsListRumSettings rumSettings) {
+
             this.rumSettings = rumSettings;
             return this;
         }
         @CustomType.Setter
         public Builder scheduling(@Nullable SyntheticsTestOptionsListScheduling scheduling) {
+
             this.scheduling = scheduling;
             return this;
         }
         @CustomType.Setter
         public Builder tickEvery(Integer tickEvery) {
-            this.tickEvery = Objects.requireNonNull(tickEvery);
+            if (tickEvery == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestOptionsList", "tickEvery");
+            }
+            this.tickEvery = tickEvery;
             return this;
         }
         public SyntheticsTestOptionsList build() {

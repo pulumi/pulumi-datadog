@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -93,7 +94,9 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IpAllowlistEntryArgs build() {
-            $.cidrBlock = Objects.requireNonNull($.cidrBlock, "expected parameter 'cidrBlock' to be non-null");
+            if ($.cidrBlock == null) {
+                throw new MissingRequiredPropertyException("IpAllowlistEntryArgs", "cidrBlock");
+            }
             return $;
         }
     }

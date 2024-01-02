@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class MonitorJsonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorJsonArgs build() {
-            $.monitor = Objects.requireNonNull($.monitor, "expected parameter 'monitor' to be non-null");
+            if ($.monitor == null) {
+                throw new MissingRequiredPropertyException("MonitorJsonArgs", "monitor");
+            }
             return $;
         }
     }

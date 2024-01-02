@@ -43,6 +43,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
 
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -51,6 +52,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery> queries) {
+
             this.queries = queries;
             return this;
         }

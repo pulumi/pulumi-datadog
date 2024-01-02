@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestQuerySortArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -273,7 +274,9 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         public DashboardWidgetListStreamDefinitionRequestQueryArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetListStreamDefinitionRequestQueryArgs", "dataSource");
+            }
             return $;
         }
     }

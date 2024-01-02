@@ -72,16 +72,19 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
 
         @CustomType.Setter
         public Builder lineType(@Nullable String lineType) {
+
             this.lineType = lineType;
             return this;
         }
         @CustomType.Setter
         public Builder lineWidth(@Nullable String lineWidth) {
+
             this.lineWidth = lineWidth;
             return this;
         }
         @CustomType.Setter
         public Builder palette(@Nullable String palette) {
+
             this.palette = palette;
             return this;
         }

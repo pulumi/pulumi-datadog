@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.SecurityMonitoringRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleSignalQueryArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -503,9 +504,15 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         public SecurityMonitoringRuleArgs build() {
-            $.cases = Objects.requireNonNull($.cases, "expected parameter 'cases' to be non-null");
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.cases == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleArgs", "cases");
+            }
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleArgs", "message");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleArgs", "name");
+            }
             return $;
         }
     }

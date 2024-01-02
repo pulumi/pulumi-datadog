@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -152,7 +153,9 @@ public final class SyntheticsTestOptionsListRumSettingsArgs extends com.pulumi.r
         }
 
         public SyntheticsTestOptionsListRumSettingsArgs build() {
-            $.isEnabled = Objects.requireNonNull($.isEnabled, "expected parameter 'isEnabled' to be non-null");
+            if ($.isEnabled == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestOptionsListRumSettingsArgs", "isEnabled");
+            }
             return $;
         }
     }

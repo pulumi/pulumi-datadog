@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
 
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch", "query");
+            }
+            this.query = query;
             return this;
         }
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch build() {

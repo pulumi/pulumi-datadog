@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsGlobalVariableOptionsArgs;
 import com.pulumi.datadog.inputs.SyntheticsGlobalVariableParseTestOptionsArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -396,8 +397,12 @@ public final class SyntheticsGlobalVariableArgs extends com.pulumi.resources.Res
         }
 
         public SyntheticsGlobalVariableArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsGlobalVariableArgs", "name");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("SyntheticsGlobalVariableArgs", "value");
+            }
             return $;
         }
     }

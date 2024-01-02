@@ -5,6 +5,7 @@ package com.pulumi.datadog.fastly;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class IntegrationServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         public IntegrationServiceArgs build() {
-            $.serviceId = Objects.requireNonNull($.serviceId, "expected parameter 'serviceId' to be non-null");
+            if ($.serviceId == null) {
+                throw new MissingRequiredPropertyException("IntegrationServiceArgs", "serviceId");
+            }
             return $;
         }
     }

@@ -162,6 +162,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -170,26 +171,31 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
         }
         @CustomType.Setter
         public Builder hideTotal(@Nullable Boolean hideTotal) {
+
             this.hideTotal = hideTotal;
             return this;
         }
         @CustomType.Setter
         public Builder legendInline(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline legendInline) {
+
             this.legendInline = legendInline;
             return this;
         }
         @CustomType.Setter
         public Builder legendTable(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTable legendTable) {
+
             this.legendTable = legendTable;
             return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -198,16 +204,19 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

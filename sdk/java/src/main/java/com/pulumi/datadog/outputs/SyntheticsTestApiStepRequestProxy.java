@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -59,12 +60,16 @@ public final class SyntheticsTestApiStepRequestProxy {
 
         @CustomType.Setter
         public Builder headers(@Nullable Map<String,Object> headers) {
+
             this.headers = headers;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestApiStepRequestProxy", "url");
+            }
+            this.url = url;
             return this;
         }
         public SyntheticsTestApiStepRequestProxy build() {

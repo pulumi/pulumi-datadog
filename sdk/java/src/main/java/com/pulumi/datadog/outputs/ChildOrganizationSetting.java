@@ -96,16 +96,19 @@ public final class ChildOrganizationSetting {
 
         @CustomType.Setter
         public Builder privateWidgetShare(@Nullable Boolean privateWidgetShare) {
+
             this.privateWidgetShare = privateWidgetShare;
             return this;
         }
         @CustomType.Setter
         public Builder samlAutocreateAccessRole(@Nullable String samlAutocreateAccessRole) {
+
             this.samlAutocreateAccessRole = samlAutocreateAccessRole;
             return this;
         }
         @CustomType.Setter
         public Builder samlAutocreateUsersDomains(@Nullable List<ChildOrganizationSettingSamlAutocreateUsersDomain> samlAutocreateUsersDomains) {
+
             this.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
             return this;
         }
@@ -114,16 +117,19 @@ public final class ChildOrganizationSetting {
         }
         @CustomType.Setter
         public Builder samlCanBeEnabled(@Nullable Boolean samlCanBeEnabled) {
+
             this.samlCanBeEnabled = samlCanBeEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdpEndpoint(@Nullable String samlIdpEndpoint) {
+
             this.samlIdpEndpoint = samlIdpEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder samlIdpInitiatedLogins(@Nullable List<ChildOrganizationSettingSamlIdpInitiatedLogin> samlIdpInitiatedLogins) {
+
             this.samlIdpInitiatedLogins = samlIdpInitiatedLogins;
             return this;
         }
@@ -132,16 +138,19 @@ public final class ChildOrganizationSetting {
         }
         @CustomType.Setter
         public Builder samlIdpMetadataUploaded(@Nullable Boolean samlIdpMetadataUploaded) {
+
             this.samlIdpMetadataUploaded = samlIdpMetadataUploaded;
             return this;
         }
         @CustomType.Setter
         public Builder samlLoginUrl(@Nullable String samlLoginUrl) {
+
             this.samlLoginUrl = samlLoginUrl;
             return this;
         }
         @CustomType.Setter
         public Builder samlStrictModes(@Nullable List<ChildOrganizationSettingSamlStrictMode> samlStrictModes) {
+
             this.samlStrictModes = samlStrictModes;
             return this;
         }
@@ -150,6 +159,7 @@ public final class ChildOrganizationSetting {
         }
         @CustomType.Setter
         public Builder samls(@Nullable List<ChildOrganizationSettingSaml> samls) {
+
             this.samls = samls;
             return this;
         }

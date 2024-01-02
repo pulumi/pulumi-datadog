@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,22 +103,28 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
 
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder isEncoded(@Nullable Boolean isEncoded) {
+
             this.isEncoded = isEncoded;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<String> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorUserAgentParser", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(String... sources) {
@@ -125,7 +132,10 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
         }
         @CustomType.Setter
         public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorUserAgentParser", "target");
+            }
+            this.target = target;
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorUserAgentParser build() {

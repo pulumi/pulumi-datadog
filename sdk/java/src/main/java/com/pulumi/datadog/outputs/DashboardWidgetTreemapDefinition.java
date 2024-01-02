@@ -60,6 +60,7 @@ public final class DashboardWidgetTreemapDefinition {
 
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetTreemapDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -68,6 +69,7 @@ public final class DashboardWidgetTreemapDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }

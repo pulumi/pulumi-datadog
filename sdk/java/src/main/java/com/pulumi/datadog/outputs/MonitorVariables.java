@@ -44,6 +44,7 @@ public final class MonitorVariables {
 
         @CustomType.Setter
         public Builder eventQueries(@Nullable List<MonitorVariablesEventQuery> eventQueries) {
+
             this.eventQueries = eventQueries;
             return this;
         }

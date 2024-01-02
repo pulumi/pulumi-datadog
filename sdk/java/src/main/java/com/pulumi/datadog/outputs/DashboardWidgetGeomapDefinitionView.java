@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class DashboardWidgetGeomapDefinitionView {
 
         @CustomType.Setter
         public Builder focus(String focus) {
-            this.focus = Objects.requireNonNull(focus);
+            if (focus == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionView", "focus");
+            }
+            this.focus = focus;
             return this;
         }
         public DashboardWidgetGeomapDefinitionView build() {

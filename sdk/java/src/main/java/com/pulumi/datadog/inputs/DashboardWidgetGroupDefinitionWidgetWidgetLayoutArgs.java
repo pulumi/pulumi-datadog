@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         public DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs build() {
-            $.height = Objects.requireNonNull($.height, "expected parameter 'height' to be non-null");
-            $.width = Objects.requireNonNull($.width, "expected parameter 'width' to be non-null");
-            $.x = Objects.requireNonNull($.x, "expected parameter 'x' to be non-null");
-            $.y = Objects.requireNonNull($.y, "expected parameter 'y' to be non-null");
+            if ($.height == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs", "height");
+            }
+            if ($.width == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs", "width");
+            }
+            if ($.x == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs", "x");
+            }
+            if ($.y == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs", "y");
+            }
             return $;
         }
     }

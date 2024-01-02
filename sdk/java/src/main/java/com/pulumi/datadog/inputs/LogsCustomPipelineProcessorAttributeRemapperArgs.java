@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -384,10 +385,18 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         public LogsCustomPipelineProcessorAttributeRemapperArgs build() {
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
-            $.sources = Objects.requireNonNull($.sources, "expected parameter 'sources' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.targetType = Objects.requireNonNull($.targetType, "expected parameter 'targetType' to be non-null");
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapperArgs", "sourceType");
+            }
+            if ($.sources == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapperArgs", "sources");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapperArgs", "target");
+            }
+            if ($.targetType == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorAttributeRemapperArgs", "targetType");
+            }
             return $;
         }
     }

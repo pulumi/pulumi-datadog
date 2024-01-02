@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetMonitorMonitorThresholdWindow {
 
         @CustomType.Setter
         public Builder recoveryWindow(String recoveryWindow) {
-            this.recoveryWindow = Objects.requireNonNull(recoveryWindow);
+            if (recoveryWindow == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThresholdWindow", "recoveryWindow");
+            }
+            this.recoveryWindow = recoveryWindow;
             return this;
         }
         @CustomType.Setter
         public Builder triggerWindow(String triggerWindow) {
-            this.triggerWindow = Objects.requireNonNull(triggerWindow);
+            if (triggerWindow == null) {
+              throw new MissingRequiredPropertyException("GetMonitorMonitorThresholdWindow", "triggerWindow");
+            }
+            this.triggerWindow = triggerWindow;
             return this;
         }
         public GetMonitorMonitorThresholdWindow build() {

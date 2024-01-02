@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -336,9 +337,15 @@ public final class SloCorrectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SloCorrectionArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.sloId = Objects.requireNonNull($.sloId, "expected parameter 'sloId' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("SloCorrectionArgs", "category");
+            }
+            if ($.sloId == null) {
+                throw new MissingRequiredPropertyException("SloCorrectionArgs", "sloId");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("SloCorrectionArgs", "start");
+            }
             return $;
         }
     }

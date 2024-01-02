@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -74,16 +75,21 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
 
         @CustomType.Setter
         public Builder facet(String facet) {
-            this.facet = Objects.requireNonNull(facet);
+            if (facet == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy", "facet");
+            }
+            this.facet = facet;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort sort) {
+
             this.sort = sort;
             return this;
         }

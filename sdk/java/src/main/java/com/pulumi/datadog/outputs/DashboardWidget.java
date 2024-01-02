@@ -524,166 +524,199 @@ public final class DashboardWidget {
 
         @CustomType.Setter
         public Builder alertGraphDefinition(@Nullable DashboardWidgetAlertGraphDefinition alertGraphDefinition) {
+
             this.alertGraphDefinition = alertGraphDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder alertValueDefinition(@Nullable DashboardWidgetAlertValueDefinition alertValueDefinition) {
+
             this.alertValueDefinition = alertValueDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder changeDefinition(@Nullable DashboardWidgetChangeDefinition changeDefinition) {
+
             this.changeDefinition = changeDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder checkStatusDefinition(@Nullable DashboardWidgetCheckStatusDefinition checkStatusDefinition) {
+
             this.checkStatusDefinition = checkStatusDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder distributionDefinition(@Nullable DashboardWidgetDistributionDefinition distributionDefinition) {
+
             this.distributionDefinition = distributionDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder eventStreamDefinition(@Nullable DashboardWidgetEventStreamDefinition eventStreamDefinition) {
+
             this.eventStreamDefinition = eventStreamDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder eventTimelineDefinition(@Nullable DashboardWidgetEventTimelineDefinition eventTimelineDefinition) {
+
             this.eventTimelineDefinition = eventTimelineDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder freeTextDefinition(@Nullable DashboardWidgetFreeTextDefinition freeTextDefinition) {
+
             this.freeTextDefinition = freeTextDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder geomapDefinition(@Nullable DashboardWidgetGeomapDefinition geomapDefinition) {
+
             this.geomapDefinition = geomapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder groupDefinition(@Nullable DashboardWidgetGroupDefinition groupDefinition) {
+
             this.groupDefinition = groupDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder heatmapDefinition(@Nullable DashboardWidgetHeatmapDefinition heatmapDefinition) {
+
             this.heatmapDefinition = heatmapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder hostmapDefinition(@Nullable DashboardWidgetHostmapDefinition hostmapDefinition) {
+
             this.hostmapDefinition = hostmapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder iframeDefinition(@Nullable DashboardWidgetIframeDefinition iframeDefinition) {
+
             this.iframeDefinition = iframeDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder imageDefinition(@Nullable DashboardWidgetImageDefinition imageDefinition) {
+
             this.imageDefinition = imageDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder listStreamDefinition(@Nullable DashboardWidgetListStreamDefinition listStreamDefinition) {
+
             this.listStreamDefinition = listStreamDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder logStreamDefinition(@Nullable DashboardWidgetLogStreamDefinition logStreamDefinition) {
+
             this.logStreamDefinition = logStreamDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder manageStatusDefinition(@Nullable DashboardWidgetManageStatusDefinition manageStatusDefinition) {
+
             this.manageStatusDefinition = manageStatusDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder noteDefinition(@Nullable DashboardWidgetNoteDefinition noteDefinition) {
+
             this.noteDefinition = noteDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder queryTableDefinition(@Nullable DashboardWidgetQueryTableDefinition queryTableDefinition) {
+
             this.queryTableDefinition = queryTableDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder queryValueDefinition(@Nullable DashboardWidgetQueryValueDefinition queryValueDefinition) {
+
             this.queryValueDefinition = queryValueDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder runWorkflowDefinition(@Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition) {
+
             this.runWorkflowDefinition = runWorkflowDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder scatterplotDefinition(@Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition) {
+
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder serviceLevelObjectiveDefinition(@Nullable DashboardWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition) {
+
             this.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder servicemapDefinition(@Nullable DashboardWidgetServicemapDefinition servicemapDefinition) {
+
             this.servicemapDefinition = servicemapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder sloListDefinition(@Nullable DashboardWidgetSloListDefinition sloListDefinition) {
+
             this.sloListDefinition = sloListDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder sunburstDefinition(@Nullable DashboardWidgetSunburstDefinition sunburstDefinition) {
+
             this.sunburstDefinition = sunburstDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder timeseriesDefinition(@Nullable DashboardWidgetTimeseriesDefinition timeseriesDefinition) {
+
             this.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder toplistDefinition(@Nullable DashboardWidgetToplistDefinition toplistDefinition) {
+
             this.toplistDefinition = toplistDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder topologyMapDefinition(@Nullable DashboardWidgetTopologyMapDefinition topologyMapDefinition) {
+
             this.topologyMapDefinition = topologyMapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder traceServiceDefinition(@Nullable DashboardWidgetTraceServiceDefinition traceServiceDefinition) {
+
             this.traceServiceDefinition = traceServiceDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder treemapDefinition(@Nullable DashboardWidgetTreemapDefinition treemapDefinition) {
+
             this.treemapDefinition = treemapDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder widgetLayout(@Nullable DashboardWidgetWidgetLayout widgetLayout) {
+
             this.widgetLayout = widgetLayout;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -130,6 +131,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
 
         @CustomType.Setter
         public Builder columns(@Nullable List<DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn> columns) {
+
             this.columns = columns;
             return this;
         }
@@ -138,32 +140,48 @@ public final class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
         }
         @CustomType.Setter
         public Builder env(String env) {
-            this.env = Objects.requireNonNull(env);
+            if (env == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQuery", "env");
+            }
+            this.env = env;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTag(String primaryTag) {
-            this.primaryTag = Objects.requireNonNull(primaryTag);
+            if (primaryTag == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQuery", "primaryTag");
+            }
+            this.primaryTag = primaryTag;
             return this;
         }
         @CustomType.Setter
         public Builder resource(@Nullable String resource) {
+
             this.resource = resource;
             return this;
         }
         @CustomType.Setter
         public Builder rowType(String rowType) {
-            this.rowType = Objects.requireNonNull(rowType);
+            if (rowType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQuery", "rowType");
+            }
+            this.rowType = rowType;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetQueryTableDefinitionRequestApmStatsQuery", "service");
+            }
+            this.service = service;
             return this;
         }
         public DashboardWidgetQueryTableDefinitionRequestApmStatsQuery build() {

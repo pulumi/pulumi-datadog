@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -167,7 +168,9 @@ public final class DashboardJsonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DashboardJsonArgs build() {
-            $.dashboard = Objects.requireNonNull($.dashboard, "expected parameter 'dashboard' to be non-null");
+            if ($.dashboard == null) {
+                throw new MissingRequiredPropertyException("DashboardJsonArgs", "dashboard");
+            }
             return $;
         }
     }

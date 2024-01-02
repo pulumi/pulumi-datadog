@@ -179,16 +179,19 @@ public final class DashboardWidgetSunburstDefinitionRequest {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetSunburstDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder auditQuery(@Nullable DashboardWidgetSunburstDefinitionRequestAuditQuery auditQuery) {
+
             this.auditQuery = auditQuery;
             return this;
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetSunburstDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -197,26 +200,31 @@ public final class DashboardWidgetSunburstDefinitionRequest {
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetSunburstDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder networkQuery(@Nullable DashboardWidgetSunburstDefinitionRequestNetworkQuery networkQuery) {
+
             this.networkQuery = networkQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetSunburstDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetSunburstDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -225,16 +233,19 @@ public final class DashboardWidgetSunburstDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetSunburstDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetSunburstDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetSunburstDefinitionRequestStyle style) {
+
             this.style = style;
             return this;
         }

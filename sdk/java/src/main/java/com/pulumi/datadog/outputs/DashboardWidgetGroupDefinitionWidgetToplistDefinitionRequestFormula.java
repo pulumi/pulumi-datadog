@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,16 +119,19 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder cellDisplayMode(@Nullable String cellDisplayMode) {
+
             this.cellDisplayMode = cellDisplayMode;
             return this;
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -136,16 +140,21 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
         }
         @CustomType.Setter
         public Builder formulaExpression(String formulaExpression) {
-            this.formulaExpression = Objects.requireNonNull(formulaExpression);
+            if (formulaExpression == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula", "formulaExpression");
+            }
+            this.formulaExpression = formulaExpression;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyle style) {
+
             this.style = style;
             return this;
         }

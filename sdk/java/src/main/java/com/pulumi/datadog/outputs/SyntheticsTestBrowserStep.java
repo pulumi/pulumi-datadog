@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParams;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -145,42 +146,56 @@ public final class SyntheticsTestBrowserStep {
 
         @CustomType.Setter
         public Builder allowFailure(@Nullable Boolean allowFailure) {
+
             this.allowFailure = allowFailure;
             return this;
         }
         @CustomType.Setter
         public Builder forceElementUpdate(@Nullable Boolean forceElementUpdate) {
+
             this.forceElementUpdate = forceElementUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder isCritical(@Nullable Boolean isCritical) {
+
             this.isCritical = isCritical;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestBrowserStep", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder noScreenshot(@Nullable Boolean noScreenshot) {
+
             this.noScreenshot = noScreenshot;
             return this;
         }
         @CustomType.Setter
         public Builder params(SyntheticsTestBrowserStepParams params) {
-            this.params = Objects.requireNonNull(params);
+            if (params == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestBrowserStep", "params");
+            }
+            this.params = params;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestBrowserStep", "type");
+            }
+            this.type = type;
             return this;
         }
         public SyntheticsTestBrowserStep build() {

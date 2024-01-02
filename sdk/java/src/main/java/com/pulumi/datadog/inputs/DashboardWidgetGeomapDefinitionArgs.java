@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionStyleArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionViewArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -360,7 +361,9 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
         }
 
         public DashboardWidgetGeomapDefinitionArgs build() {
-            $.view = Objects.requireNonNull($.view, "expected parameter 'view' to be non-null");
+            if ($.view == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionArgs", "view");
+            }
             return $;
         }
     }

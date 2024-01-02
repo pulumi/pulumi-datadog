@@ -59,11 +59,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
 
         @CustomType.Setter
         public Builder palette(@Nullable String palette) {
+
             this.palette = palette;
             return this;
         }
         @CustomType.Setter
         public Builder paletteIndex(@Nullable Integer paletteIndex) {
+
             this.paletteIndex = paletteIndex;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,7 +89,10 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
 
         @CustomType.Setter
         public Builder requests(List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest> requests) {
-            this.requests = Objects.requireNonNull(requests);
+            if (requests == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetListStreamDefinition", "requests");
+            }
+            this.requests = requests;
             return this;
         }
         public Builder requests(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest... requests) {
@@ -96,16 +100,19 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

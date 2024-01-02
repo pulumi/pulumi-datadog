@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleFilter;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQuery;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSignalQuery;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -103,7 +104,10 @@ public final class GetSecurityMonitoringRulesRule {
 
         @CustomType.Setter
         public Builder cases(List<GetSecurityMonitoringRulesRuleCase> cases) {
-            this.cases = Objects.requireNonNull(cases);
+            if (cases == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRule", "cases");
+            }
+            this.cases = cases;
             return this;
         }
         public Builder cases(GetSecurityMonitoringRulesRuleCase... cases) {
@@ -111,11 +115,13 @@ public final class GetSecurityMonitoringRulesRule {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityMonitoringRulesRuleFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -124,26 +130,35 @@ public final class GetSecurityMonitoringRulesRule {
         }
         @CustomType.Setter
         public Builder hasExtendedTitle(@Nullable Boolean hasExtendedTitle) {
+
             this.hasExtendedTitle = hasExtendedTitle;
             return this;
         }
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRule", "message");
+            }
+            this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder options(@Nullable GetSecurityMonitoringRulesRuleOptions options) {
+
             this.options = options;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<GetSecurityMonitoringRulesRuleQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -152,6 +167,7 @@ public final class GetSecurityMonitoringRulesRule {
         }
         @CustomType.Setter
         public Builder signalQueries(@Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries) {
+
             this.signalQueries = signalQueries;
             return this;
         }
@@ -160,6 +176,7 @@ public final class GetSecurityMonitoringRulesRule {
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -168,6 +185,7 @@ public final class GetSecurityMonitoringRulesRule {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class SyntheticsTestAssertionTargetjsonpath {
 
         @CustomType.Setter
         public Builder jsonpath(String jsonpath) {
-            this.jsonpath = Objects.requireNonNull(jsonpath);
+            if (jsonpath == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetjsonpath", "jsonpath");
+            }
+            this.jsonpath = jsonpath;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetjsonpath", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder targetvalue(@Nullable String targetvalue) {
+
             this.targetvalue = targetvalue;
             return this;
         }
