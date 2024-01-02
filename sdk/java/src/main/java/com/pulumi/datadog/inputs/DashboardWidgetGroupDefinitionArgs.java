@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -274,7 +275,9 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         public DashboardWidgetGroupDefinitionArgs build() {
-            $.layoutType = Objects.requireNonNull($.layoutType, "expected parameter 'layoutType' to be non-null");
+            if ($.layoutType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionArgs", "layoutType");
+            }
             return $;
         }
     }

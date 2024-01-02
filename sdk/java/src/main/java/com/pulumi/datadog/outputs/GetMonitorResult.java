@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetMonitorMonitorThreshold;
 import com.pulumi.datadog.outputs.GetMonitorMonitorThresholdWindow;
 import com.pulumi.datadog.outputs.GetMonitorSchedulingOption;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -504,56 +505,87 @@ public final class GetMonitorResult {
 
         @CustomType.Setter
         public Builder enableLogsSample(Boolean enableLogsSample) {
-            this.enableLogsSample = Objects.requireNonNull(enableLogsSample);
+            if (enableLogsSample == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "enableLogsSample");
+            }
+            this.enableLogsSample = enableLogsSample;
             return this;
         }
         @CustomType.Setter
         public Builder enableSamples(Boolean enableSamples) {
-            this.enableSamples = Objects.requireNonNull(enableSamples);
+            if (enableSamples == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "enableSamples");
+            }
+            this.enableSamples = enableSamples;
             return this;
         }
         @CustomType.Setter
         public Builder escalationMessage(String escalationMessage) {
-            this.escalationMessage = Objects.requireNonNull(escalationMessage);
+            if (escalationMessage == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "escalationMessage");
+            }
+            this.escalationMessage = escalationMessage;
             return this;
         }
         @CustomType.Setter
         public Builder evaluationDelay(Integer evaluationDelay) {
-            this.evaluationDelay = Objects.requireNonNull(evaluationDelay);
+            if (evaluationDelay == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "evaluationDelay");
+            }
+            this.evaluationDelay = evaluationDelay;
             return this;
         }
         @CustomType.Setter
         public Builder groupRetentionDuration(String groupRetentionDuration) {
-            this.groupRetentionDuration = Objects.requireNonNull(groupRetentionDuration);
+            if (groupRetentionDuration == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "groupRetentionDuration");
+            }
+            this.groupRetentionDuration = groupRetentionDuration;
             return this;
         }
         @CustomType.Setter
         public Builder groupbySimpleMonitor(Boolean groupbySimpleMonitor) {
-            this.groupbySimpleMonitor = Objects.requireNonNull(groupbySimpleMonitor);
+            if (groupbySimpleMonitor == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "groupbySimpleMonitor");
+            }
+            this.groupbySimpleMonitor = groupbySimpleMonitor;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeTags(Boolean includeTags) {
-            this.includeTags = Objects.requireNonNull(includeTags);
+            if (includeTags == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "includeTags");
+            }
+            this.includeTags = includeTags;
             return this;
         }
         @CustomType.Setter
         public Builder locked(Boolean locked) {
-            this.locked = Objects.requireNonNull(locked);
+            if (locked == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "locked");
+            }
+            this.locked = locked;
             return this;
         }
         @CustomType.Setter
         public Builder message(String message) {
-            this.message = Objects.requireNonNull(message);
+            if (message == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "message");
+            }
+            this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder monitorTagsFilters(@Nullable List<String> monitorTagsFilters) {
+
             this.monitorTagsFilters = monitorTagsFilters;
             return this;
         }
@@ -562,7 +594,10 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder monitorThresholdWindows(List<GetMonitorMonitorThresholdWindow> monitorThresholdWindows) {
-            this.monitorThresholdWindows = Objects.requireNonNull(monitorThresholdWindows);
+            if (monitorThresholdWindows == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "monitorThresholdWindows");
+            }
+            this.monitorThresholdWindows = monitorThresholdWindows;
             return this;
         }
         public Builder monitorThresholdWindows(GetMonitorMonitorThresholdWindow... monitorThresholdWindows) {
@@ -570,7 +605,10 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder monitorThresholds(List<GetMonitorMonitorThreshold> monitorThresholds) {
-            this.monitorThresholds = Objects.requireNonNull(monitorThresholds);
+            if (monitorThresholds == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "monitorThresholds");
+            }
+            this.monitorThresholds = monitorThresholds;
             return this;
         }
         public Builder monitorThresholds(GetMonitorMonitorThreshold... monitorThresholds) {
@@ -578,42 +616,64 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameFilter(@Nullable String nameFilter) {
+
             this.nameFilter = nameFilter;
             return this;
         }
         @CustomType.Setter
         public Builder newGroupDelay(Integer newGroupDelay) {
-            this.newGroupDelay = Objects.requireNonNull(newGroupDelay);
+            if (newGroupDelay == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "newGroupDelay");
+            }
+            this.newGroupDelay = newGroupDelay;
             return this;
         }
         @CustomType.Setter
         public Builder newHostDelay(Integer newHostDelay) {
-            this.newHostDelay = Objects.requireNonNull(newHostDelay);
+            if (newHostDelay == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "newHostDelay");
+            }
+            this.newHostDelay = newHostDelay;
             return this;
         }
         @CustomType.Setter
         public Builder noDataTimeframe(Integer noDataTimeframe) {
-            this.noDataTimeframe = Objects.requireNonNull(noDataTimeframe);
+            if (noDataTimeframe == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "noDataTimeframe");
+            }
+            this.noDataTimeframe = noDataTimeframe;
             return this;
         }
         @CustomType.Setter
         public Builder notificationPresetName(String notificationPresetName) {
-            this.notificationPresetName = Objects.requireNonNull(notificationPresetName);
+            if (notificationPresetName == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "notificationPresetName");
+            }
+            this.notificationPresetName = notificationPresetName;
             return this;
         }
         @CustomType.Setter
         public Builder notifyAudit(Boolean notifyAudit) {
-            this.notifyAudit = Objects.requireNonNull(notifyAudit);
+            if (notifyAudit == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "notifyAudit");
+            }
+            this.notifyAudit = notifyAudit;
             return this;
         }
         @CustomType.Setter
         public Builder notifyBies(List<String> notifyBies) {
-            this.notifyBies = Objects.requireNonNull(notifyBies);
+            if (notifyBies == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "notifyBies");
+            }
+            this.notifyBies = notifyBies;
             return this;
         }
         public Builder notifyBies(String... notifyBies) {
@@ -621,32 +681,50 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder notifyNoData(Boolean notifyNoData) {
-            this.notifyNoData = Objects.requireNonNull(notifyNoData);
+            if (notifyNoData == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "notifyNoData");
+            }
+            this.notifyNoData = notifyNoData;
             return this;
         }
         @CustomType.Setter
         public Builder onMissingData(String onMissingData) {
-            this.onMissingData = Objects.requireNonNull(onMissingData);
+            if (onMissingData == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "onMissingData");
+            }
+            this.onMissingData = onMissingData;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder renotifyInterval(Integer renotifyInterval) {
-            this.renotifyInterval = Objects.requireNonNull(renotifyInterval);
+            if (renotifyInterval == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "renotifyInterval");
+            }
+            this.renotifyInterval = renotifyInterval;
             return this;
         }
         @CustomType.Setter
         public Builder renotifyOccurrences(Integer renotifyOccurrences) {
-            this.renotifyOccurrences = Objects.requireNonNull(renotifyOccurrences);
+            if (renotifyOccurrences == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "renotifyOccurrences");
+            }
+            this.renotifyOccurrences = renotifyOccurrences;
             return this;
         }
         @CustomType.Setter
         public Builder renotifyStatuses(List<String> renotifyStatuses) {
-            this.renotifyStatuses = Objects.requireNonNull(renotifyStatuses);
+            if (renotifyStatuses == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "renotifyStatuses");
+            }
+            this.renotifyStatuses = renotifyStatuses;
             return this;
         }
         public Builder renotifyStatuses(String... renotifyStatuses) {
@@ -654,12 +732,18 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder requireFullWindow(Boolean requireFullWindow) {
-            this.requireFullWindow = Objects.requireNonNull(requireFullWindow);
+            if (requireFullWindow == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "requireFullWindow");
+            }
+            this.requireFullWindow = requireFullWindow;
             return this;
         }
         @CustomType.Setter
         public Builder restrictedRoles(List<String> restrictedRoles) {
-            this.restrictedRoles = Objects.requireNonNull(restrictedRoles);
+            if (restrictedRoles == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "restrictedRoles");
+            }
+            this.restrictedRoles = restrictedRoles;
             return this;
         }
         public Builder restrictedRoles(String... restrictedRoles) {
@@ -667,7 +751,10 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder schedulingOptions(List<GetMonitorSchedulingOption> schedulingOptions) {
-            this.schedulingOptions = Objects.requireNonNull(schedulingOptions);
+            if (schedulingOptions == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "schedulingOptions");
+            }
+            this.schedulingOptions = schedulingOptions;
             return this;
         }
         public Builder schedulingOptions(GetMonitorSchedulingOption... schedulingOptions) {
@@ -675,7 +762,10 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder tags(List<String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(String... tags) {
@@ -683,6 +773,7 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder tagsFilters(@Nullable List<String> tagsFilters) {
+
             this.tagsFilters = tagsFilters;
             return this;
         }
@@ -691,12 +782,18 @@ public final class GetMonitorResult {
         }
         @CustomType.Setter
         public Builder timeoutH(Integer timeoutH) {
-            this.timeoutH = Objects.requireNonNull(timeoutH);
+            if (timeoutH == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "timeoutH");
+            }
+            this.timeoutH = timeoutH;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetMonitorResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,9 +299,15 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs ext
         }
 
         public DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.measure = Objects.requireNonNull($.measure, "expected parameter 'measure' to be non-null");
-            $.sloId = Objects.requireNonNull($.sloId, "expected parameter 'sloId' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs", "dataSource");
+            }
+            if ($.measure == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs", "measure");
+            }
+            if ($.sloId == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs", "sloId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.IpAllowlistEntryArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class IpAllowlistArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IpAllowlistArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("IpAllowlistArgs", "enabled");
+            }
             return $;
         }
     }

@@ -86,21 +86,25 @@ public final class ChannelDisplay {
 
         @CustomType.Setter
         public Builder message(@Nullable Boolean message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder notified(@Nullable Boolean notified) {
+
             this.notified = notified;
             return this;
         }
         @CustomType.Setter
         public Builder snapshot(@Nullable Boolean snapshot) {
+
             this.snapshot = snapshot;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Boolean tags) {
+
             this.tags = tags;
             return this;
         }

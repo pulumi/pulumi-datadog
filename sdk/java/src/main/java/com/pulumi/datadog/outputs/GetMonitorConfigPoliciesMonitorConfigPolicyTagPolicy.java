@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -48,17 +49,26 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
 
         @CustomType.Setter
         public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+            if (tagKey == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy", "tagKey");
+            }
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagKeyRequired(Boolean tagKeyRequired) {
-            this.tagKeyRequired = Objects.requireNonNull(tagKeyRequired);
+            if (tagKeyRequired == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy", "tagKeyRequired");
+            }
+            this.tagKeyRequired = tagKeyRequired;
             return this;
         }
         @CustomType.Setter
         public Builder validTagValues(List<String> validTagValues) {
-            this.validTagValues = Objects.requireNonNull(validTagValues);
+            if (validTagValues == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy", "validTagValues");
+            }
+            this.validTagValues = validTagValues;
             return this;
         }
         public Builder validTagValues(String... validTagValues) {

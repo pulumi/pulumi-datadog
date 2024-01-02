@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SensitiveDataScannerGroupFilterArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,10 +238,18 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         }
 
         public SensitiveDataScannerGroupArgs build() {
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.isEnabled = Objects.requireNonNull($.isEnabled, "expected parameter 'isEnabled' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.productLists = Objects.requireNonNull($.productLists, "expected parameter 'productLists' to be non-null");
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("SensitiveDataScannerGroupArgs", "filter");
+            }
+            if ($.isEnabled == null) {
+                throw new MissingRequiredPropertyException("SensitiveDataScannerGroupArgs", "isEnabled");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SensitiveDataScannerGroupArgs", "name");
+            }
+            if ($.productLists == null) {
+                throw new MissingRequiredPropertyException("SensitiveDataScannerGroupArgs", "productLists");
+            }
             return $;
         }
     }

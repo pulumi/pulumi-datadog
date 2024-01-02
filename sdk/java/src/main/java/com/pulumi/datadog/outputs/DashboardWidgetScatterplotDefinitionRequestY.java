@@ -133,36 +133,43 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
 
         @CustomType.Setter
         public Builder aggregator(@Nullable String aggregator) {
+
             this.aggregator = aggregator;
             return this;
         }
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }

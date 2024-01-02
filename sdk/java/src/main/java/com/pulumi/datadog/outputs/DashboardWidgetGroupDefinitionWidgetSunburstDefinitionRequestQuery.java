@@ -119,31 +119,37 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
+
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery) {
+
             this.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder eventQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuery eventQuery) {
+
             this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metricQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryMetricQuery metricQuery) {
+
             this.metricQuery = metricQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQuerySloQuery sloQuery) {
+
             this.sloQuery = sloQuery;
             return this;
         }

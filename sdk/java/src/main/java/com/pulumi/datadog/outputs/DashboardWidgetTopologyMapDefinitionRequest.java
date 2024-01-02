@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTopologyMapDefinitionRequestQuery;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +51,10 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
 
         @CustomType.Setter
         public Builder queries(List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries) {
-            this.queries = Objects.requireNonNull(queries);
+            if (queries == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequest", "queries");
+            }
+            this.queries = queries;
             return this;
         }
         public Builder queries(DashboardWidgetTopologyMapDefinitionRequestQuery... queries) {
@@ -58,7 +62,10 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
         }
         @CustomType.Setter
         public Builder requestType(String requestType) {
-            this.requestType = Objects.requireNonNull(requestType);
+            if (requestType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequest", "requestType");
+            }
+            this.requestType = requestType;
             return this;
         }
         public DashboardWidgetTopologyMapDefinitionRequest build() {

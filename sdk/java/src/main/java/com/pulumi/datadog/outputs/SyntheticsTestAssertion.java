@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetjsonpath;
 import com.pulumi.datadog.outputs.SyntheticsTestAssertionTargetxpath;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -116,32 +117,42 @@ public final class SyntheticsTestAssertion {
 
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertion", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder property(@Nullable String property) {
+
             this.property = property;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder targetjsonpath(@Nullable SyntheticsTestAssertionTargetjsonpath targetjsonpath) {
+
             this.targetjsonpath = targetjsonpath;
             return this;
         }
         @CustomType.Setter
         public Builder targetxpath(@Nullable SyntheticsTestAssertionTargetxpath targetxpath) {
+
             this.targetxpath = targetxpath;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertion", "type");
+            }
+            this.type = type;
             return this;
         }
         public SyntheticsTestAssertion build() {

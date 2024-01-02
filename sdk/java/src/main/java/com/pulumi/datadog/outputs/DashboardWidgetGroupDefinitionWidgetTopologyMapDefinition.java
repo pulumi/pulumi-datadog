@@ -103,6 +103,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -111,6 +112,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -119,16 +121,19 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

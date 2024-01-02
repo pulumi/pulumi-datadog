@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class LogsCustomPipelineProcessorPipelineProcessorReferenceTableLoo
         }
 
         public LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs build() {
-            $.lookupEnrichmentTable = Objects.requireNonNull($.lookupEnrichmentTable, "expected parameter 'lookupEnrichmentTable' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.lookupEnrichmentTable == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs", "lookupEnrichmentTable");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs", "source");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorReferenceTableLookupProcessorArgs", "target");
+            }
             return $;
         }
     }

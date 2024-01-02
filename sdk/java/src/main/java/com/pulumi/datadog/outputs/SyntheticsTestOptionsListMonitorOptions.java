@@ -44,6 +44,7 @@ public final class SyntheticsTestOptionsListMonitorOptions {
 
         @CustomType.Setter
         public Builder renotifyInterval(@Nullable Integer renotifyInterval) {
+
             this.renotifyInterval = renotifyInterval;
             return this;
         }

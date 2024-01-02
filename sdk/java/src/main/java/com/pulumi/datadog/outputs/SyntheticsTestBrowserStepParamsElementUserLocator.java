@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SyntheticsTestBrowserStepParamsElementUserLocatorValue;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,12 +52,16 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocator {
 
         @CustomType.Setter
         public Builder failTestOnCannotLocate(@Nullable Boolean failTestOnCannotLocate) {
+
             this.failTestOnCannotLocate = failTestOnCannotLocate;
             return this;
         }
         @CustomType.Setter
         public Builder value(SyntheticsTestBrowserStepParamsElementUserLocatorValue value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestBrowserStepParamsElementUserLocator", "value");
+            }
+            this.value = value;
             return this;
         }
         public SyntheticsTestBrowserStepParamsElementUserLocator build() {

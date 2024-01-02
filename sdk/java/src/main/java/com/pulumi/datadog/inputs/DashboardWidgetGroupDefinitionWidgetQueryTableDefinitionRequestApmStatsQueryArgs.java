@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,11 +311,21 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs build() {
-            $.env = Objects.requireNonNull($.env, "expected parameter 'env' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primaryTag = Objects.requireNonNull($.primaryTag, "expected parameter 'primaryTag' to be non-null");
-            $.rowType = Objects.requireNonNull($.rowType, "expected parameter 'rowType' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.env == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "env");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "name");
+            }
+            if ($.primaryTag == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "primaryTag");
+            }
+            if ($.rowType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "rowType");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs", "service");
+            }
             return $;
         }
     }

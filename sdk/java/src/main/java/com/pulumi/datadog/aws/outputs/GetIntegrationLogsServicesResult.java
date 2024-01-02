@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.aws.outputs.GetIntegrationLogsServicesAwsLogsService;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetIntegrationLogsServicesResult {
 
         @CustomType.Setter
         public Builder awsLogsServices(List<GetIntegrationLogsServicesAwsLogsService> awsLogsServices) {
-            this.awsLogsServices = Objects.requireNonNull(awsLogsServices);
+            if (awsLogsServices == null) {
+              throw new MissingRequiredPropertyException("GetIntegrationLogsServicesResult", "awsLogsServices");
+            }
+            this.awsLogsServices = awsLogsServices;
             return this;
         }
         public Builder awsLogsServices(GetIntegrationLogsServicesAwsLogsService... awsLogsServices) {
@@ -66,7 +70,10 @@ public final class GetIntegrationLogsServicesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIntegrationLogsServicesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetIntegrationLogsServicesResult build() {

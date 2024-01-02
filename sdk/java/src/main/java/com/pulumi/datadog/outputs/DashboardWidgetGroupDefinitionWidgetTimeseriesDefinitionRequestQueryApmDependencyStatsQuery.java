@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -171,52 +172,76 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
 
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder env(String env) {
-            this.env = Objects.requireNonNull(env);
+            if (env == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "env");
+            }
+            this.env = env;
             return this;
         }
         @CustomType.Setter
         public Builder isUpstream(@Nullable Boolean isUpstream) {
+
             this.isUpstream = isUpstream;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder operationName(String operationName) {
-            this.operationName = Objects.requireNonNull(operationName);
+            if (operationName == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "operationName");
+            }
+            this.operationName = operationName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTagName(@Nullable String primaryTagName) {
+
             this.primaryTagName = primaryTagName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTagValue(@Nullable String primaryTagValue) {
+
             this.primaryTagValue = primaryTagValue;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "service");
+            }
+            this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder stat(String stat) {
-            this.stat = Objects.requireNonNull(stat);
+            if (stat == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery", "stat");
+            }
+            this.stat = stat;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery build() {

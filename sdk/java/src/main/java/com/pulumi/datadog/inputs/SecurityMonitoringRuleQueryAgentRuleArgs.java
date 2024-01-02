@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SecurityMonitoringRuleQueryAgentRuleArgs extends com.pulumi.r
         }
 
         public SecurityMonitoringRuleQueryAgentRuleArgs build() {
-            $.agentRuleId = Objects.requireNonNull($.agentRuleId, "expected parameter 'agentRuleId' to be non-null");
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
+            if ($.agentRuleId == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleQueryAgentRuleArgs", "agentRuleId");
+            }
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleQueryAgentRuleArgs", "expression");
+            }
             return $;
         }
     }

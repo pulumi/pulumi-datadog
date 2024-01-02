@@ -48,16 +48,19 @@ public final class ChildOrganizationApplicationKey {
 
         @CustomType.Setter
         public Builder hash(@Nullable String hash) {
+
             this.hash = hash;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder owner(@Nullable String owner) {
+
             this.owner = owner;
             return this;
         }

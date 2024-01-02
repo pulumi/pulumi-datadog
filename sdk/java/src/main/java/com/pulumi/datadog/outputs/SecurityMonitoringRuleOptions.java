@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsNewValueOptions;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -132,36 +133,47 @@ public final class SecurityMonitoringRuleOptions {
 
         @CustomType.Setter
         public Builder decreaseCriticalityBasedOnEnv(@Nullable Boolean decreaseCriticalityBasedOnEnv) {
+
             this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             return this;
         }
         @CustomType.Setter
         public Builder detectionMethod(@Nullable String detectionMethod) {
+
             this.detectionMethod = detectionMethod;
             return this;
         }
         @CustomType.Setter
         public Builder evaluationWindow(@Nullable Integer evaluationWindow) {
+
             this.evaluationWindow = evaluationWindow;
             return this;
         }
         @CustomType.Setter
         public Builder impossibleTravelOptions(@Nullable SecurityMonitoringRuleOptionsImpossibleTravelOptions impossibleTravelOptions) {
+
             this.impossibleTravelOptions = impossibleTravelOptions;
             return this;
         }
         @CustomType.Setter
         public Builder keepAlive(Integer keepAlive) {
-            this.keepAlive = Objects.requireNonNull(keepAlive);
+            if (keepAlive == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptions", "keepAlive");
+            }
+            this.keepAlive = keepAlive;
             return this;
         }
         @CustomType.Setter
         public Builder maxSignalDuration(Integer maxSignalDuration) {
-            this.maxSignalDuration = Objects.requireNonNull(maxSignalDuration);
+            if (maxSignalDuration == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptions", "maxSignalDuration");
+            }
+            this.maxSignalDuration = maxSignalDuration;
             return this;
         }
         @CustomType.Setter
         public Builder newValueOptions(@Nullable SecurityMonitoringRuleOptionsNewValueOptions newValueOptions) {
+
             this.newValueOptions = newValueOptions;
             return this;
         }

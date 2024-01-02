@@ -6,6 +6,7 @@ package com.pulumi.datadog.slack;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.slack.inputs.ChannelDisplayArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class ChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.channelName = Objects.requireNonNull($.channelName, "expected parameter 'channelName' to be non-null");
-            $.display = Objects.requireNonNull($.display, "expected parameter 'display' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "accountName");
+            }
+            if ($.channelName == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "channelName");
+            }
+            if ($.display == null) {
+                throw new MissingRequiredPropertyException("ChannelArgs", "display");
+            }
             return $;
         }
     }

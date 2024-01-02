@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.OrganizationSettingsSettingsSamlArgs;
 import com.pulumi.datadog.inputs.OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs;
 import com.pulumi.datadog.inputs.OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs;
 import com.pulumi.datadog.inputs.OrganizationSettingsSettingsSamlStrictModeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -414,10 +415,18 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         public OrganizationSettingsSettingsArgs build() {
-            $.saml = Objects.requireNonNull($.saml, "expected parameter 'saml' to be non-null");
-            $.samlAutocreateUsersDomains = Objects.requireNonNull($.samlAutocreateUsersDomains, "expected parameter 'samlAutocreateUsersDomains' to be non-null");
-            $.samlIdpInitiatedLogin = Objects.requireNonNull($.samlIdpInitiatedLogin, "expected parameter 'samlIdpInitiatedLogin' to be non-null");
-            $.samlStrictMode = Objects.requireNonNull($.samlStrictMode, "expected parameter 'samlStrictMode' to be non-null");
+            if ($.saml == null) {
+                throw new MissingRequiredPropertyException("OrganizationSettingsSettingsArgs", "saml");
+            }
+            if ($.samlAutocreateUsersDomains == null) {
+                throw new MissingRequiredPropertyException("OrganizationSettingsSettingsArgs", "samlAutocreateUsersDomains");
+            }
+            if ($.samlIdpInitiatedLogin == null) {
+                throw new MissingRequiredPropertyException("OrganizationSettingsSettingsArgs", "samlIdpInitiatedLogin");
+            }
+            if ($.samlStrictMode == null) {
+                throw new MissingRequiredPropertyException("OrganizationSettingsSettingsArgs", "samlStrictMode");
+            }
             return $;
         }
     }

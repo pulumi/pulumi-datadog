@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaStyleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -275,7 +276,9 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestF
         }
 
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs build() {
-            $.formulaExpression = Objects.requireNonNull($.formulaExpression, "expected parameter 'formulaExpression' to be non-null");
+            if ($.formulaExpression == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaArgs", "formulaExpression");
+            }
             return $;
         }
     }

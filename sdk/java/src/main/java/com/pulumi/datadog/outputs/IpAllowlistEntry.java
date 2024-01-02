@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,11 +51,15 @@ public final class IpAllowlistEntry {
 
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("IpAllowlistEntry", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder note(@Nullable String note) {
+
             this.note = note;
             return this;
         }

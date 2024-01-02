@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetHeatmapDefinitionRequestRumQueryArgs extends c
         }
 
         public DashboardWidgetHeatmapDefinitionRequestRumQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetHeatmapDefinitionRequestRumQueryArgs", "index");
+            }
             return $;
         }
     }

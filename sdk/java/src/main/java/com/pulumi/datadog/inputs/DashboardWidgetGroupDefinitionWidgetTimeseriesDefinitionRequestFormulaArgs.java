@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaStyleArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -275,7 +276,9 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         }
 
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaArgs build() {
-            $.formulaExpression = Objects.requireNonNull($.formulaExpression, "expected parameter 'formulaExpression' to be non-null");
+            if ($.formulaExpression == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaArgs", "formulaExpression");
+            }
             return $;
         }
     }

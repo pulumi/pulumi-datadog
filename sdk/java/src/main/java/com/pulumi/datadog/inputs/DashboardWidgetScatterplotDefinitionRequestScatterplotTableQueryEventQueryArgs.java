@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -332,9 +333,15 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs build() {
-            $.computes = Objects.requireNonNull($.computes, "expected parameter 'computes' to be non-null");
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.computes == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs", "computes");
+            }
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs", "dataSource");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs", "name");
+            }
             return $;
         }
     }

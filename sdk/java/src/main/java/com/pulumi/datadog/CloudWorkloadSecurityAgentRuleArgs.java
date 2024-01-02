@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class CloudWorkloadSecurityAgentRuleArgs extends com.pulumi.resourc
         }
 
         public CloudWorkloadSecurityAgentRuleArgs build() {
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("CloudWorkloadSecurityAgentRuleArgs", "expression");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("CloudWorkloadSecurityAgentRuleArgs", "name");
+            }
             return $;
         }
     }

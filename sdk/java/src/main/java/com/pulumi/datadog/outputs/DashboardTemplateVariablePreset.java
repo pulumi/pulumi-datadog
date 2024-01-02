@@ -60,11 +60,13 @@ public final class DashboardTemplateVariablePreset {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder templateVariables(@Nullable List<DashboardTemplateVariablePresetTemplateVariable> templateVariables) {
+
             this.templateVariables = templateVariables;
             return this;
         }

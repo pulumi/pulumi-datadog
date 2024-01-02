@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,35 @@ public final class ServiceLevelObjectiveThreshold {
 
         @CustomType.Setter
         public Builder target(Double target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelObjectiveThreshold", "target");
+            }
+            this.target = target;
             return this;
         }
         @CustomType.Setter
         public Builder targetDisplay(@Nullable String targetDisplay) {
+
             this.targetDisplay = targetDisplay;
             return this;
         }
         @CustomType.Setter
         public Builder timeframe(String timeframe) {
-            this.timeframe = Objects.requireNonNull(timeframe);
+            if (timeframe == null) {
+              throw new MissingRequiredPropertyException("ServiceLevelObjectiveThreshold", "timeframe");
+            }
+            this.timeframe = timeframe;
             return this;
         }
         @CustomType.Setter
         public Builder warning(@Nullable Double warning) {
+
             this.warning = warning;
             return this;
         }
         @CustomType.Setter
         public Builder warningDisplay(@Nullable String warningDisplay) {
+
             this.warningDisplay = warningDisplay;
             return this;
         }

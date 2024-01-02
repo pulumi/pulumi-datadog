@@ -189,6 +189,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -197,6 +198,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
         }
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -205,26 +207,31 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
         }
         @CustomType.Setter
         public Builder noGroupHosts(@Nullable Boolean noGroupHosts) {
+
             this.noGroupHosts = noGroupHosts;
             return this;
         }
         @CustomType.Setter
         public Builder noMetricHosts(@Nullable Boolean noMetricHosts) {
+
             this.noMetricHosts = noMetricHosts;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(@Nullable String nodeType) {
+
             this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder request(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest request) {
+
             this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(@Nullable List<String> scopes) {
+
             this.scopes = scopes;
             return this;
         }
@@ -233,21 +240,25 @@ public final class DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle style) {
+
             this.style = style;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

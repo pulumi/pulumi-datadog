@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -172,27 +173,36 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
 
         @CustomType.Setter
         public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
+
             this.additionalQueryFilters = additionalQueryFilters;
             return this;
         }
         @CustomType.Setter
         public Builder globalTimeTarget(@Nullable String globalTimeTarget) {
+
             this.globalTimeTarget = globalTimeTarget;
             return this;
         }
         @CustomType.Setter
         public Builder showErrorBudget(@Nullable Boolean showErrorBudget) {
+
             this.showErrorBudget = showErrorBudget;
             return this;
         }
         @CustomType.Setter
         public Builder sloId(String sloId) {
-            this.sloId = Objects.requireNonNull(sloId);
+            if (sloId == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinition", "sloId");
+            }
+            this.sloId = sloId;
             return this;
         }
         @CustomType.Setter
         public Builder timeWindows(List<String> timeWindows) {
-            this.timeWindows = Objects.requireNonNull(timeWindows);
+            if (timeWindows == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinition", "timeWindows");
+            }
+            this.timeWindows = timeWindows;
             return this;
         }
         public Builder timeWindows(String... timeWindows) {
@@ -200,27 +210,36 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder viewMode(String viewMode) {
-            this.viewMode = Objects.requireNonNull(viewMode);
+            if (viewMode == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinition", "viewMode");
+            }
+            this.viewMode = viewMode;
             return this;
         }
         @CustomType.Setter
         public Builder viewType(String viewType) {
-            this.viewType = Objects.requireNonNull(viewType);
+            if (viewType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinition", "viewType");
+            }
+            this.viewType = viewType;
             return this;
         }
         public DashboardWidgetServiceLevelObjectiveDefinition build() {

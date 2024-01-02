@@ -5,6 +5,7 @@ package com.pulumi.datadog.azure;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,9 +337,15 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntegrationArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.tenantName = Objects.requireNonNull($.tenantName, "expected parameter 'tenantName' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "clientSecret");
+            }
+            if ($.tenantName == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "tenantName");
+            }
             return $;
         }
     }

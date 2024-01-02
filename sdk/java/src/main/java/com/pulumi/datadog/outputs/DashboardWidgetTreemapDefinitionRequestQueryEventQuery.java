@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,10 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
 
         @CustomType.Setter
         public Builder computes(List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute> computes) {
-            this.computes = Objects.requireNonNull(computes);
+            if (computes == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryEventQuery", "computes");
+            }
+            this.computes = computes;
             return this;
         }
         public Builder computes(DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute... computes) {
@@ -140,11 +144,15 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
-            this.dataSource = Objects.requireNonNull(dataSource);
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryEventQuery", "dataSource");
+            }
+            this.dataSource = dataSource;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -153,6 +161,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder indexes(@Nullable List<String> indexes) {
+
             this.indexes = indexes;
             return this;
         }
@@ -161,16 +170,21 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetTreemapDefinitionRequestQueryEventQuery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder search(@Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch search) {
+
             this.search = search;
             return this;
         }
         @CustomType.Setter
         public Builder storage(@Nullable String storage) {
+
             this.storage = storage;
             return this;
         }

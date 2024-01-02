@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,16 +119,19 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
 
         @CustomType.Setter
         public Builder alias(@Nullable String alias) {
+
             this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder cellDisplayMode(@Nullable String cellDisplayMode) {
+
             this.cellDisplayMode = cellDisplayMode;
             return this;
         }
         @CustomType.Setter
         public Builder conditionalFormats(@Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaConditionalFormat> conditionalFormats) {
+
             this.conditionalFormats = conditionalFormats;
             return this;
         }
@@ -136,16 +140,21 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestF
         }
         @CustomType.Setter
         public Builder formulaExpression(String formulaExpression) {
-            this.formulaExpression = Objects.requireNonNull(formulaExpression);
+            if (formulaExpression == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula", "formulaExpression");
+            }
+            this.formulaExpression = formulaExpression;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaLimit limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormulaStyle style) {
+
             this.style = style;
             return this;
         }

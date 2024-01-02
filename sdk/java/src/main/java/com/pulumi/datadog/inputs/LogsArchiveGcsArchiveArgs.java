@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
         }
 
         public LogsArchiveGcsArchiveArgs build() {
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.clientEmail = Objects.requireNonNull($.clientEmail, "expected parameter 'clientEmail' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveGcsArchiveArgs", "bucket");
+            }
+            if ($.clientEmail == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveGcsArchiveArgs", "clientEmail");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveGcsArchiveArgs", "projectId");
+            }
             return $;
         }
     }

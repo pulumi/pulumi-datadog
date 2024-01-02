@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class LogsArchiveGcsArchive {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveGcsArchive", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder clientEmail(String clientEmail) {
-            this.clientEmail = Objects.requireNonNull(clientEmail);
+            if (clientEmail == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveGcsArchive", "clientEmail");
+            }
+            this.clientEmail = clientEmail;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("LogsArchiveGcsArchive", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         public LogsArchiveGcsArchive build() {

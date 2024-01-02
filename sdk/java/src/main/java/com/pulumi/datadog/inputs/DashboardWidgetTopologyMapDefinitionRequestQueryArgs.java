@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         public DashboardWidgetTopologyMapDefinitionRequestQueryArgs build() {
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequestQueryArgs", "dataSource");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequestQueryArgs", "filters");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequestQueryArgs", "service");
+            }
             return $;
         }
     }

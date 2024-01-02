@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class SensitiveDataScannerGroupOrderArgs extends com.pulumi.resourc
         }
 
         public SensitiveDataScannerGroupOrderArgs build() {
-            $.groupIds = Objects.requireNonNull($.groupIds, "expected parameter 'groupIds' to be non-null");
+            if ($.groupIds == null) {
+                throw new MissingRequiredPropertyException("SensitiveDataScannerGroupOrderArgs", "groupIds");
+            }
             return $;
         }
     }

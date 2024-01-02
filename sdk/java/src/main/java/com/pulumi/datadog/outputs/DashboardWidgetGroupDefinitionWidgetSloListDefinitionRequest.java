@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -49,12 +50,18 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest 
 
         @CustomType.Setter
         public Builder query(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder requestType(String requestType) {
-            this.requestType = Objects.requireNonNull(requestType);
+            if (requestType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest", "requestType");
+            }
+            this.requestType = requestType;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest build() {

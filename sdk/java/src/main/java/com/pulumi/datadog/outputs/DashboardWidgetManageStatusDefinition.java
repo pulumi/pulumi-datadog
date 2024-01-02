@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -177,56 +178,69 @@ public final class DashboardWidgetManageStatusDefinition {
 
         @CustomType.Setter
         public Builder colorPreference(@Nullable String colorPreference) {
+
             this.colorPreference = colorPreference;
             return this;
         }
         @CustomType.Setter
         public Builder displayFormat(@Nullable String displayFormat) {
+
             this.displayFormat = displayFormat;
             return this;
         }
         @CustomType.Setter
         public Builder hideZeroCounts(@Nullable Boolean hideZeroCounts) {
+
             this.hideZeroCounts = hideZeroCounts;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetManageStatusDefinition", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder showLastTriggered(@Nullable Boolean showLastTriggered) {
+
             this.showLastTriggered = showLastTriggered;
             return this;
         }
         @CustomType.Setter
         public Builder showPriority(@Nullable Boolean showPriority) {
+
             this.showPriority = showPriority;
             return this;
         }
         @CustomType.Setter
         public Builder sort(@Nullable String sort) {
+
             this.sort = sort;
             return this;
         }
         @CustomType.Setter
         public Builder summaryType(@Nullable String summaryType) {
+
             this.summaryType = summaryType;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

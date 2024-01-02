@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SecurityMonitoringDefaultRuleFilterArgs extends com.pulumi.re
         }
 
         public SecurityMonitoringDefaultRuleFilterArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleFilterArgs", "action");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleFilterArgs", "query");
+            }
             return $;
         }
     }

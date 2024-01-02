@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,42 @@ public final class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
 
         @CustomType.Setter
         public Builder alertId(String alertId) {
-            this.alertId = Objects.requireNonNull(alertId);
+            if (alertId == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition", "alertId");
+            }
+            this.alertId = alertId;
             return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder vizType(String vizType) {
-            this.vizType = Objects.requireNonNull(vizType);
+            if (vizType == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition", "vizType");
+            }
+            this.vizType = vizType;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition build() {

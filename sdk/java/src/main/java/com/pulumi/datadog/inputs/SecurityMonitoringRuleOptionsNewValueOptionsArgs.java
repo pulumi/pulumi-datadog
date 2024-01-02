@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class SecurityMonitoringRuleOptionsNewValueOptionsArgs extends com.
         }
 
         public SecurityMonitoringRuleOptionsNewValueOptionsArgs build() {
-            $.forgetAfter = Objects.requireNonNull($.forgetAfter, "expected parameter 'forgetAfter' to be non-null");
+            if ($.forgetAfter == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptionsNewValueOptionsArgs", "forgetAfter");
+            }
             return $;
         }
     }

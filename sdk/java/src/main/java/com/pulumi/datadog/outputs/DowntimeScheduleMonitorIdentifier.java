@@ -60,11 +60,13 @@ public final class DowntimeScheduleMonitorIdentifier {
 
         @CustomType.Setter
         public Builder monitorId(@Nullable Integer monitorId) {
+
             this.monitorId = monitorId;
             return this;
         }
         @CustomType.Setter
         public Builder monitorTags(@Nullable List<String> monitorTags) {
+
             this.monitorTags = monitorTags;
             return this;
         }

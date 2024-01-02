@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetSecurityMonitoringFiltersResult {
 
         @CustomType.Setter
         public Builder filters(List<GetSecurityMonitoringFiltersFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetSecurityMonitoringFiltersFilter... filters) {
@@ -80,7 +84,10 @@ public final class GetSecurityMonitoringFiltersResult {
         }
         @CustomType.Setter
         public Builder filtersIds(List<String> filtersIds) {
-            this.filtersIds = Objects.requireNonNull(filtersIds);
+            if (filtersIds == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersResult", "filtersIds");
+            }
+            this.filtersIds = filtersIds;
             return this;
         }
         public Builder filtersIds(String... filtersIds) {
@@ -88,7 +95,10 @@ public final class GetSecurityMonitoringFiltersResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringFiltersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetSecurityMonitoringFiltersResult build() {

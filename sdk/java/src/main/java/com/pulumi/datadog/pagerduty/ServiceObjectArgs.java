@@ -5,6 +5,7 @@ package com.pulumi.datadog.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceObjectArgs build() {
-            $.serviceKey = Objects.requireNonNull($.serviceKey, "expected parameter 'serviceKey' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.serviceKey == null) {
+                throw new MissingRequiredPropertyException("ServiceObjectArgs", "serviceKey");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("ServiceObjectArgs", "serviceName");
+            }
             return $;
         }
     }

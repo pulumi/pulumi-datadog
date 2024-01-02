@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs exte
         }
 
         public DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs", "index");
+            }
             return $;
         }
     }

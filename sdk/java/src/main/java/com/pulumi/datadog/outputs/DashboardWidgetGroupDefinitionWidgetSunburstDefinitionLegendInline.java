@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,22 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendI
 
         @CustomType.Setter
         public Builder hidePercent(@Nullable Boolean hidePercent) {
+
             this.hidePercent = hidePercent;
             return this;
         }
         @CustomType.Setter
         public Builder hideValue(@Nullable Boolean hideValue) {
+
             this.hideValue = hideValue;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline", "type");
+            }
+            this.type = type;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendInline build() {

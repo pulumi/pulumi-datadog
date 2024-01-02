@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         public DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryArgs", "index");
+            }
             return $;
         }
     }

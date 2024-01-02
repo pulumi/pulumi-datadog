@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class RestrictionPolicyBinding {
 
         @CustomType.Setter
         public Builder principals(List<String> principals) {
-            this.principals = Objects.requireNonNull(principals);
+            if (principals == null) {
+              throw new MissingRequiredPropertyException("RestrictionPolicyBinding", "principals");
+            }
+            this.principals = principals;
             return this;
         }
         public Builder principals(String... principals) {
@@ -65,7 +69,10 @@ public final class RestrictionPolicyBinding {
         }
         @CustomType.Setter
         public Builder relation(String relation) {
-            this.relation = Objects.requireNonNull(relation);
+            if (relation == null) {
+              throw new MissingRequiredPropertyException("RestrictionPolicyBinding", "relation");
+            }
+            this.relation = relation;
             return this;
         }
         public RestrictionPolicyBinding build() {

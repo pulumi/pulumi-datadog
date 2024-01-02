@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -116,17 +117,22 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
 
         @CustomType.Setter
         public Builder defaultLookup(@Nullable String defaultLookup) {
+
             this.defaultLookup = defaultLookup;
             return this;
         }
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder lookupTables(List<String> lookupTables) {
-            this.lookupTables = Objects.requireNonNull(lookupTables);
+            if (lookupTables == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorLookupProcessor", "lookupTables");
+            }
+            this.lookupTables = lookupTables;
             return this;
         }
         public Builder lookupTables(String... lookupTables) {
@@ -134,17 +140,24 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorLookupProcessor", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorPipelineProcessorLookupProcessor", "target");
+            }
+            this.target = target;
             return this;
         }
         public LogsCustomPipelineProcessorPipelineProcessorLookupProcessor build() {

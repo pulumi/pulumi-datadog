@@ -219,21 +219,25 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder changeType(@Nullable String changeType) {
+
             this.changeType = changeType;
             return this;
         }
         @CustomType.Setter
         public Builder compareTo(@Nullable String compareTo) {
+
             this.compareTo = compareTo;
             return this;
         }
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -242,36 +246,43 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
         }
         @CustomType.Setter
         public Builder increaseGood(@Nullable Boolean increaseGood) {
+
             this.increaseGood = increaseGood;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder orderBy(@Nullable String orderBy) {
+
             this.orderBy = orderBy;
             return this;
         }
         @CustomType.Setter
         public Builder orderDir(@Nullable String orderDir) {
+
             this.orderDir = orderDir;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }
@@ -280,16 +291,19 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder showPresent(@Nullable Boolean showPresent) {
+
             this.showPresent = showPresent;
             return this;
         }

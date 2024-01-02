@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetHostsHostListMeta;
 import com.pulumi.datadog.outputs.GetHostsHostListMetrics;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -111,7 +112,10 @@ public final class GetHostsHostList {
 
         @CustomType.Setter
         public Builder aliases(List<String> aliases) {
-            this.aliases = Objects.requireNonNull(aliases);
+            if (aliases == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "aliases");
+            }
+            this.aliases = aliases;
             return this;
         }
         public Builder aliases(String... aliases) {
@@ -119,7 +123,10 @@ public final class GetHostsHostList {
         }
         @CustomType.Setter
         public Builder apps(List<String> apps) {
-            this.apps = Objects.requireNonNull(apps);
+            if (apps == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "apps");
+            }
+            this.apps = apps;
             return this;
         }
         public Builder apps(String... apps) {
@@ -127,52 +134,82 @@ public final class GetHostsHostList {
         }
         @CustomType.Setter
         public Builder awsName(String awsName) {
-            this.awsName = Objects.requireNonNull(awsName);
+            if (awsName == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "awsName");
+            }
+            this.awsName = awsName;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isMuted(Boolean isMuted) {
-            this.isMuted = Objects.requireNonNull(isMuted);
+            if (isMuted == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "isMuted");
+            }
+            this.isMuted = isMuted;
             return this;
         }
         @CustomType.Setter
         public Builder lastReportedTime(Integer lastReportedTime) {
-            this.lastReportedTime = Objects.requireNonNull(lastReportedTime);
+            if (lastReportedTime == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "lastReportedTime");
+            }
+            this.lastReportedTime = lastReportedTime;
             return this;
         }
         @CustomType.Setter
         public Builder meta(GetHostsHostListMeta meta) {
-            this.meta = Objects.requireNonNull(meta);
+            if (meta == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "meta");
+            }
+            this.meta = meta;
             return this;
         }
         @CustomType.Setter
         public Builder metrics(GetHostsHostListMetrics metrics) {
-            this.metrics = Objects.requireNonNull(metrics);
+            if (metrics == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "metrics");
+            }
+            this.metrics = metrics;
             return this;
         }
         @CustomType.Setter
         public Builder muteTimeout(Integer muteTimeout) {
-            this.muteTimeout = Objects.requireNonNull(muteTimeout);
+            if (muteTimeout == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "muteTimeout");
+            }
+            this.muteTimeout = muteTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sources(List<String> sources) {
-            this.sources = Objects.requireNonNull(sources);
+            if (sources == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "sources");
+            }
+            this.sources = sources;
             return this;
         }
         public Builder sources(String... sources) {
@@ -180,7 +217,10 @@ public final class GetHostsHostList {
         }
         @CustomType.Setter
         public Builder up(Boolean up) {
-            this.up = Objects.requireNonNull(up);
+            if (up == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "up");
+            }
+            this.up = up;
             return this;
         }
         public GetHostsHostList build() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class LogsArchiveAzureArchiveArgs extends com.pulumi.resources.Reso
         }
 
         public LogsArchiveAzureArchiveArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.container = Objects.requireNonNull($.container, "expected parameter 'container' to be non-null");
-            $.storageAccount = Objects.requireNonNull($.storageAccount, "expected parameter 'storageAccount' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveAzureArchiveArgs", "clientId");
+            }
+            if ($.container == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveAzureArchiveArgs", "container");
+            }
+            if ($.storageAccount == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveAzureArchiveArgs", "storageAccount");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveAzureArchiveArgs", "tenantId");
+            }
             return $;
         }
     }

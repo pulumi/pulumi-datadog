@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,7 +200,9 @@ public final class DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs ex
         }
 
         public DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs build() {
-            $.metric = Objects.requireNonNull($.metric, "expected parameter 'metric' to be non-null");
+            if ($.metric == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs", "metric");
+            }
             return $;
         }
     }

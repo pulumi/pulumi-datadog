@@ -58,11 +58,13 @@ public final class SyntheticsTestOptionsListRetry {
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }

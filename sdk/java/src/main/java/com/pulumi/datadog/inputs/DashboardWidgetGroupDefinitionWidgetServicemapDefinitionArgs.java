@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -283,8 +284,12 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs 
         }
 
         public DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs", "filters");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs", "service");
+            }
             return $;
         }
     }

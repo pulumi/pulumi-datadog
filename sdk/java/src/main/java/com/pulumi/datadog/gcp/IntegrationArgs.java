@@ -5,6 +5,7 @@ package com.pulumi.datadog.gcp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,11 +337,21 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntegrationArgs build() {
-            $.clientEmail = Objects.requireNonNull($.clientEmail, "expected parameter 'clientEmail' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
-            $.privateKeyId = Objects.requireNonNull($.privateKeyId, "expected parameter 'privateKeyId' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.clientEmail == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "clientEmail");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "clientId");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "privateKey");
+            }
+            if ($.privateKeyId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "privateKeyId");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("IntegrationArgs", "projectId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class LogsArchiveS3ArchiveArgs extends com.pulumi.resources.Resourc
         }
 
         public LogsArchiveS3ArchiveArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.bucket = Objects.requireNonNull($.bucket, "expected parameter 'bucket' to be non-null");
-            $.roleName = Objects.requireNonNull($.roleName, "expected parameter 'roleName' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "accountId");
+            }
+            if ($.bucket == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "bucket");
+            }
+            if ($.roleName == null) {
+                throw new MissingRequiredPropertyException("LogsArchiveS3ArchiveArgs", "roleName");
+            }
             return $;
         }
     }

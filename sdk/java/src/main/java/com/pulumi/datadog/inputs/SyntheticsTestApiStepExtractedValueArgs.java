@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepExtractedValueParserArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -186,9 +187,15 @@ public final class SyntheticsTestApiStepExtractedValueArgs extends com.pulumi.re
         }
 
         public SyntheticsTestApiStepExtractedValueArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.parser = Objects.requireNonNull($.parser, "expected parameter 'parser' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepExtractedValueArgs", "name");
+            }
+            if ($.parser == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepExtractedValueArgs", "parser");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepExtractedValueArgs", "type");
+            }
             return $;
         }
     }

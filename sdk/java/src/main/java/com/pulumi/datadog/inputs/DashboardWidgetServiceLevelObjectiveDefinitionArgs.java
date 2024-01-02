@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -421,10 +422,18 @@ public final class DashboardWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         public DashboardWidgetServiceLevelObjectiveDefinitionArgs build() {
-            $.sloId = Objects.requireNonNull($.sloId, "expected parameter 'sloId' to be non-null");
-            $.timeWindows = Objects.requireNonNull($.timeWindows, "expected parameter 'timeWindows' to be non-null");
-            $.viewMode = Objects.requireNonNull($.viewMode, "expected parameter 'viewMode' to be non-null");
-            $.viewType = Objects.requireNonNull($.viewType, "expected parameter 'viewType' to be non-null");
+            if ($.sloId == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinitionArgs", "sloId");
+            }
+            if ($.timeWindows == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinitionArgs", "timeWindows");
+            }
+            if ($.viewMode == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinitionArgs", "viewMode");
+            }
+            if ($.viewType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinitionArgs", "viewType");
+            }
             return $;
         }
     }

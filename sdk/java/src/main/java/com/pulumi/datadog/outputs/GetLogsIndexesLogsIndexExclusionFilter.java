@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexExclusionFilterFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -50,6 +51,7 @@ public final class GetLogsIndexesLogsIndexExclusionFilter {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetLogsIndexesLogsIndexExclusionFilterFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -58,12 +60,18 @@ public final class GetLogsIndexesLogsIndexExclusionFilter {
         }
         @CustomType.Setter
         public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = Objects.requireNonNull(isEnabled);
+            if (isEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilter", "isEnabled");
+            }
+            this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndexExclusionFilter", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetLogsIndexesLogsIndexExclusionFilter build() {

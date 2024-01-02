@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -338,9 +339,15 @@ public final class SyntheticsTestBrowserStepArgs extends com.pulumi.resources.Re
         }
 
         public SyntheticsTestBrowserStepArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.params = Objects.requireNonNull($.params, "expected parameter 'params' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserStepArgs", "name");
+            }
+            if ($.params == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserStepArgs", "params");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestBrowserStepArgs", "type");
+            }
             return $;
         }
     }

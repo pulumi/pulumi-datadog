@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorSchedulingOptionEvaluationWindowArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         public MonitorSchedulingOptionArgs build() {
-            $.evaluationWindows = Objects.requireNonNull($.evaluationWindows, "expected parameter 'evaluationWindows' to be non-null");
+            if ($.evaluationWindows == null) {
+                throw new MissingRequiredPropertyException("MonitorSchedulingOptionArgs", "evaluationWindows");
+            }
             return $;
         }
     }

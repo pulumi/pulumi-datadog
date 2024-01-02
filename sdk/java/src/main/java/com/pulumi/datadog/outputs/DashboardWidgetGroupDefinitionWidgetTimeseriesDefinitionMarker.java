@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
 
         @CustomType.Setter
         public Builder displayType(@Nullable String displayType) {
+
             this.displayType = displayType;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker", "value");
+            }
+            this.value = value;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker build() {

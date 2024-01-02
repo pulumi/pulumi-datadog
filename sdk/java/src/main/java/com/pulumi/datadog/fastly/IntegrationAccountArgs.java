@@ -5,6 +5,7 @@ package com.pulumi.datadog.fastly;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class IntegrationAccountArgs extends com.pulumi.resources.ResourceA
         }
 
         public IntegrationAccountArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountArgs", "apiKey");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountArgs", "name");
+            }
             return $;
         }
     }

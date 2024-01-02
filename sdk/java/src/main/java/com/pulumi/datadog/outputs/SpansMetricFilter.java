@@ -44,6 +44,7 @@ public final class SpansMetricFilter {
 
         @CustomType.Setter
         public Builder query(@Nullable String query) {
+
             this.query = query;
             return this;
         }

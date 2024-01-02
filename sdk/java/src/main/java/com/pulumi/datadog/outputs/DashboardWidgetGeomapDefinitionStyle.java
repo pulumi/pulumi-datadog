@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class DashboardWidgetGeomapDefinitionStyle {
 
         @CustomType.Setter
         public Builder palette(String palette) {
-            this.palette = Objects.requireNonNull(palette);
+            if (palette == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionStyle", "palette");
+            }
+            this.palette = palette;
             return this;
         }
         @CustomType.Setter
         public Builder paletteFlip(Boolean paletteFlip) {
-            this.paletteFlip = Objects.requireNonNull(paletteFlip);
+            if (paletteFlip == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionStyle", "paletteFlip");
+            }
+            this.paletteFlip = paletteFlip;
             return this;
         }
         public DashboardWidgetGeomapDefinitionStyle build() {

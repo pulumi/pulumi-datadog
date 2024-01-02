@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,6 +117,7 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -124,7 +126,10 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
         }
         @CustomType.Setter
         public Builder filters(List<String> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetServicemapDefinition", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(String... filters) {
@@ -132,21 +137,27 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetServicemapDefinition", "service");
+            }
+            this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

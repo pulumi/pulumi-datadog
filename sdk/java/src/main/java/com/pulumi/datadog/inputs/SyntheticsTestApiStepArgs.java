@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestClientCertificateAr
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestProxyArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRetryArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
@@ -531,7 +532,9 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         public SyntheticsTestApiStepArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepArgs", "name");
+            }
             return $;
         }
     }

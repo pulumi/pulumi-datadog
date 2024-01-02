@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -160,9 +161,15 @@ public final class MonitorConfigPolicyTagPolicyArgs extends com.pulumi.resources
         }
 
         public MonitorConfigPolicyTagPolicyArgs build() {
-            $.tagKey = Objects.requireNonNull($.tagKey, "expected parameter 'tagKey' to be non-null");
-            $.tagKeyRequired = Objects.requireNonNull($.tagKeyRequired, "expected parameter 'tagKeyRequired' to be non-null");
-            $.validTagValues = Objects.requireNonNull($.validTagValues, "expected parameter 'validTagValues' to be non-null");
+            if ($.tagKey == null) {
+                throw new MissingRequiredPropertyException("MonitorConfigPolicyTagPolicyArgs", "tagKey");
+            }
+            if ($.tagKeyRequired == null) {
+                throw new MissingRequiredPropertyException("MonitorConfigPolicyTagPolicyArgs", "tagKeyRequired");
+            }
+            if ($.validTagValues == null) {
+                throw new MissingRequiredPropertyException("MonitorConfigPolicyTagPolicyArgs", "validTagValues");
+            }
             return $;
         }
     }

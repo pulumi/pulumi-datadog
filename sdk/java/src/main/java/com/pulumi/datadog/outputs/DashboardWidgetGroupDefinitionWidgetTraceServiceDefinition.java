@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -241,76 +242,97 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
 
         @CustomType.Setter
         public Builder displayFormat(@Nullable String displayFormat) {
+
             this.displayFormat = displayFormat;
             return this;
         }
         @CustomType.Setter
         public Builder env(String env) {
-            this.env = Objects.requireNonNull(env);
+            if (env == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition", "env");
+            }
+            this.env = env;
             return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition", "service");
+            }
+            this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder showBreakdown(@Nullable Boolean showBreakdown) {
+
             this.showBreakdown = showBreakdown;
             return this;
         }
         @CustomType.Setter
         public Builder showDistribution(@Nullable Boolean showDistribution) {
+
             this.showDistribution = showDistribution;
             return this;
         }
         @CustomType.Setter
         public Builder showErrors(@Nullable Boolean showErrors) {
+
             this.showErrors = showErrors;
             return this;
         }
         @CustomType.Setter
         public Builder showHits(@Nullable Boolean showHits) {
+
             this.showHits = showHits;
             return this;
         }
         @CustomType.Setter
         public Builder showLatency(@Nullable Boolean showLatency) {
+
             this.showLatency = showLatency;
             return this;
         }
         @CustomType.Setter
         public Builder showResourceList(@Nullable Boolean showResourceList) {
+
             this.showResourceList = showResourceList;
             return this;
         }
         @CustomType.Setter
         public Builder sizeFormat(@Nullable String sizeFormat) {
+
             this.sizeFormat = sizeFormat;
             return this;
         }
         @CustomType.Setter
         public Builder spanName(String spanName) {
-            this.spanName = Objects.requireNonNull(spanName);
+            if (spanName == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition", "spanName");
+            }
+            this.spanName = spanName;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveQuery;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -187,32 +188,44 @@ public final class GetServiceLevelObjectiveResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metricsQuery(@Nullable String metricsQuery) {
+
             this.metricsQuery = metricsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameQuery(@Nullable String nameQuery) {
+
             this.nameQuery = nameQuery;
             return this;
         }
         @CustomType.Setter
         public Builder queries(List<GetServiceLevelObjectiveQuery> queries) {
-            this.queries = Objects.requireNonNull(queries);
+            if (queries == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "queries");
+            }
+            this.queries = queries;
             return this;
         }
         public Builder queries(GetServiceLevelObjectiveQuery... queries) {
@@ -220,27 +233,40 @@ public final class GetServiceLevelObjectiveResult {
         }
         @CustomType.Setter
         public Builder tagsQuery(@Nullable String tagsQuery) {
+
             this.tagsQuery = tagsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder targetThreshold(Double targetThreshold) {
-            this.targetThreshold = Objects.requireNonNull(targetThreshold);
+            if (targetThreshold == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "targetThreshold");
+            }
+            this.targetThreshold = targetThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder timeframe(String timeframe) {
-            this.timeframe = Objects.requireNonNull(timeframe);
+            if (timeframe == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "timeframe");
+            }
+            this.timeframe = timeframe;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder warningThreshold(Double warningThreshold) {
-            this.warningThreshold = Objects.requireNonNull(warningThreshold);
+            if (warningThreshold == null) {
+              throw new MissingRequiredPropertyException("GetServiceLevelObjectiveResult", "warningThreshold");
+            }
+            this.warningThreshold = warningThreshold;
             return this;
         }
         public GetServiceLevelObjectiveResult build() {

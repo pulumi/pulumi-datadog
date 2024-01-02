@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringFilterExclusionFilterArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,9 +238,15 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         public SecurityMonitoringFilterArgs build() {
-            $.isEnabled = Objects.requireNonNull($.isEnabled, "expected parameter 'isEnabled' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.isEnabled == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringFilterArgs", "isEnabled");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringFilterArgs", "name");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("SecurityMonitoringFilterArgs", "query");
+            }
             return $;
         }
     }

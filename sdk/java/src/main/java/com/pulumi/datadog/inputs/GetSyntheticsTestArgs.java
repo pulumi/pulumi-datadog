@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetSyntheticsTestArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetSyntheticsTestArgs build() {
-            $.testId = Objects.requireNonNull($.testId, "expected parameter 'testId' to be non-null");
+            if ($.testId == null) {
+                throw new MissingRequiredPropertyException("GetSyntheticsTestArgs", "testId");
+            }
             return $;
         }
     }

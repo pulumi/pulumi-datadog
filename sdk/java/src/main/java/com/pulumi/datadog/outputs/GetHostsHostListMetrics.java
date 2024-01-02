@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class GetHostsHostListMetrics {
 
         @CustomType.Setter
         public Builder cpu(Double cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMetrics", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder iowait(Double iowait) {
-            this.iowait = Objects.requireNonNull(iowait);
+            if (iowait == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMetrics", "iowait");
+            }
+            this.iowait = iowait;
             return this;
         }
         @CustomType.Setter
         public Builder load(Double load) {
-            this.load = Objects.requireNonNull(load);
+            if (load == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMetrics", "load");
+            }
+            this.load = load;
             return this;
         }
         public GetHostsHostListMetrics build() {

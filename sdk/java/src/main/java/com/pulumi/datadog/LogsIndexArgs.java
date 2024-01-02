@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
 import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -286,8 +287,12 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogsIndexArgs build() {
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("LogsIndexArgs", "filters");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LogsIndexArgs", "name");
+            }
             return $;
         }
     }

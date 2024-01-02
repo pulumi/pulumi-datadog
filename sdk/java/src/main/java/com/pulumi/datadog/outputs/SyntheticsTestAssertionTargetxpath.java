@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class SyntheticsTestAssertionTargetxpath {
 
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetxpath", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder targetvalue(@Nullable String targetvalue) {
+
             this.targetvalue = targetvalue;
             return this;
         }
         @CustomType.Setter
         public Builder xpath(String xpath) {
-            this.xpath = Objects.requireNonNull(xpath);
+            if (xpath == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestAssertionTargetxpath", "xpath");
+            }
+            this.xpath = xpath;
             return this;
         }
         public SyntheticsTestAssertionTargetxpath build() {

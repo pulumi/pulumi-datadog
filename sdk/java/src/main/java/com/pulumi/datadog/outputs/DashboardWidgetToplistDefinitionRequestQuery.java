@@ -119,31 +119,37 @@ public final class DashboardWidgetToplistDefinitionRequestQuery {
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
+
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery) {
+
             this.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder eventQuery(@Nullable DashboardWidgetToplistDefinitionRequestQueryEventQuery eventQuery) {
+
             this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metricQuery(@Nullable DashboardWidgetToplistDefinitionRequestQueryMetricQuery metricQuery) {
+
             this.metricQuery = metricQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetToplistDefinitionRequestQueryProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardWidgetToplistDefinitionRequestQuerySloQuery sloQuery) {
+
             this.sloQuery = sloQuery;
             return this;
         }

@@ -74,16 +74,19 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestL
 
         @CustomType.Setter
         public Builder facet(@Nullable String facet) {
+
             this.facet = facet;
             return this;
         }
         @CustomType.Setter
         public Builder limit(@Nullable Integer limit) {
+
             this.limit = limit;
             return this;
         }
         @CustomType.Setter
         public Builder sortQuery(@Nullable DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery sortQuery) {
+
             this.sortQuery = sortQuery;
             return this;
         }

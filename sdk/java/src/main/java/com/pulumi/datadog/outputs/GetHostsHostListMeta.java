@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -83,47 +84,74 @@ public final class GetHostsHostListMeta {
 
         @CustomType.Setter
         public Builder agentVersion(String agentVersion) {
-            this.agentVersion = Objects.requireNonNull(agentVersion);
+            if (agentVersion == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "agentVersion");
+            }
+            this.agentVersion = agentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder cpuCores(Integer cpuCores) {
-            this.cpuCores = Objects.requireNonNull(cpuCores);
+            if (cpuCores == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "cpuCores");
+            }
+            this.cpuCores = cpuCores;
             return this;
         }
         @CustomType.Setter
         public Builder gohai(String gohai) {
-            this.gohai = Objects.requireNonNull(gohai);
+            if (gohai == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "gohai");
+            }
+            this.gohai = gohai;
             return this;
         }
         @CustomType.Setter
         public Builder machine(String machine) {
-            this.machine = Objects.requireNonNull(machine);
+            if (machine == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "machine");
+            }
+            this.machine = machine;
             return this;
         }
         @CustomType.Setter
         public Builder platform(String platform) {
-            this.platform = Objects.requireNonNull(platform);
+            if (platform == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "platform");
+            }
+            this.platform = platform;
             return this;
         }
         @CustomType.Setter
         public Builder processor(String processor) {
-            this.processor = Objects.requireNonNull(processor);
+            if (processor == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "processor");
+            }
+            this.processor = processor;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
-            this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            if (pythonVersion == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "pythonVersion");
+            }
+            this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder socketFqdn(String socketFqdn) {
-            this.socketFqdn = Objects.requireNonNull(socketFqdn);
+            if (socketFqdn == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "socketFqdn");
+            }
+            this.socketFqdn = socketFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder socketHostname(String socketHostname) {
-            this.socketHostname = Objects.requireNonNull(socketHostname);
+            if (socketHostname == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostListMeta", "socketHostname");
+            }
+            this.socketHostname = socketHostname;
             return this;
         }
         public GetHostsHostListMeta build() {

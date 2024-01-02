@@ -4,6 +4,7 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -93,7 +94,9 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserPlainArgs build() {
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("GetUserPlainArgs", "filter");
+            }
             return $;
         }
     }

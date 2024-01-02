@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexExclusionFilter;
 import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexFilter;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -62,12 +63,18 @@ public final class GetLogsIndexesLogsIndex {
 
         @CustomType.Setter
         public Builder dailyLimit(Integer dailyLimit) {
-            this.dailyLimit = Objects.requireNonNull(dailyLimit);
+            if (dailyLimit == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "dailyLimit");
+            }
+            this.dailyLimit = dailyLimit;
             return this;
         }
         @CustomType.Setter
         public Builder exclusionFilters(List<GetLogsIndexesLogsIndexExclusionFilter> exclusionFilters) {
-            this.exclusionFilters = Objects.requireNonNull(exclusionFilters);
+            if (exclusionFilters == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "exclusionFilters");
+            }
+            this.exclusionFilters = exclusionFilters;
             return this;
         }
         public Builder exclusionFilters(GetLogsIndexesLogsIndexExclusionFilter... exclusionFilters) {
@@ -75,7 +82,10 @@ public final class GetLogsIndexesLogsIndex {
         }
         @CustomType.Setter
         public Builder filters(List<GetLogsIndexesLogsIndexFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetLogsIndexesLogsIndexFilter... filters) {
@@ -83,12 +93,18 @@ public final class GetLogsIndexesLogsIndex {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder retentionDays(Integer retentionDays) {
-            this.retentionDays = Objects.requireNonNull(retentionDays);
+            if (retentionDays == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "retentionDays");
+            }
+            this.retentionDays = retentionDays;
             return this;
         }
         public GetLogsIndexesLogsIndex build() {

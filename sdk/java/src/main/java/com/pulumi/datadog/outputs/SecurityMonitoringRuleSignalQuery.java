@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,11 +116,13 @@ public final class SecurityMonitoringRuleSignalQuery {
 
         @CustomType.Setter
         public Builder aggregation(@Nullable String aggregation) {
+
             this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder correlatedByFields(@Nullable List<String> correlatedByFields) {
+
             this.correlatedByFields = correlatedByFields;
             return this;
         }
@@ -128,22 +131,28 @@ public final class SecurityMonitoringRuleSignalQuery {
         }
         @CustomType.Setter
         public Builder correlatedQueryIndex(@Nullable String correlatedQueryIndex) {
+
             this.correlatedQueryIndex = correlatedQueryIndex;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRuleId(@Nullable String defaultRuleId) {
+
             this.defaultRuleId = defaultRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ruleId(String ruleId) {
-            this.ruleId = Objects.requireNonNull(ruleId);
+            if (ruleId == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringRuleSignalQuery", "ruleId");
+            }
+            this.ruleId = ruleId;
             return this;
         }
         public SecurityMonitoringRuleSignalQuery build() {

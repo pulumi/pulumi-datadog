@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TeamPermissionSettingArgs extends com.pulumi.resources.Resour
         }
 
         public TeamPermissionSettingArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("TeamPermissionSettingArgs", "action");
+            }
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("TeamPermissionSettingArgs", "teamId");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("TeamPermissionSettingArgs", "value");
+            }
             return $;
         }
     }

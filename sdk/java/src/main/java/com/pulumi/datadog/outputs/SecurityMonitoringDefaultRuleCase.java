@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class SecurityMonitoringDefaultRuleCase {
 
         @CustomType.Setter
         public Builder notifications(List<String> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+            if (notifications == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleCase", "notifications");
+            }
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(String... notifications) {
@@ -65,7 +69,10 @@ public final class SecurityMonitoringDefaultRuleCase {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("SecurityMonitoringDefaultRuleCase", "status");
+            }
+            this.status = status;
             return this;
         }
         public SecurityMonitoringDefaultRuleCase build() {

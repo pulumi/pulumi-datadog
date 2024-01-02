@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepAssertionTargetjsonpathArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepAssertionTargetxpathArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -263,8 +264,12 @@ public final class SyntheticsTestApiStepAssertionArgs extends com.pulumi.resourc
         }
 
         public SyntheticsTestApiStepAssertionArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionArgs", "operator");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertionArgs", "type");
+            }
             return $;
         }
     }

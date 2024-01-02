@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -157,16 +158,21 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
 
         @CustomType.Setter
         public Builder check(String check) {
-            this.check = Objects.requireNonNull(check);
+            if (check == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition", "check");
+            }
+            this.check = check;
             return this;
         }
         @CustomType.Setter
         public Builder group(@Nullable String group) {
+
             this.group = group;
             return this;
         }
         @CustomType.Setter
         public Builder groupBies(@Nullable List<String> groupBies) {
+
             this.groupBies = groupBies;
             return this;
         }
@@ -175,16 +181,21 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
         }
         @CustomType.Setter
         public Builder grouping(String grouping) {
-            this.grouping = Objects.requireNonNull(grouping);
+            if (grouping == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition", "grouping");
+            }
+            this.grouping = grouping;
             return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<String> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -193,16 +204,19 @@ public final class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

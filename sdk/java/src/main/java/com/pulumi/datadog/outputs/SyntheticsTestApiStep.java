@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestClientCertificate;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestDefinition;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestProxy;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRetry;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
@@ -215,11 +216,13 @@ public final class SyntheticsTestApiStep {
 
         @CustomType.Setter
         public Builder allowFailure(@Nullable Boolean allowFailure) {
+
             this.allowFailure = allowFailure;
             return this;
         }
         @CustomType.Setter
         public Builder assertions(@Nullable List<SyntheticsTestApiStepAssertion> assertions) {
+
             this.assertions = assertions;
             return this;
         }
@@ -228,6 +231,7 @@ public final class SyntheticsTestApiStep {
         }
         @CustomType.Setter
         public Builder extractedValues(@Nullable List<SyntheticsTestApiStepExtractedValue> extractedValues) {
+
             this.extractedValues = extractedValues;
             return this;
         }
@@ -236,51 +240,63 @@ public final class SyntheticsTestApiStep {
         }
         @CustomType.Setter
         public Builder isCritical(@Nullable Boolean isCritical) {
+
             this.isCritical = isCritical;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SyntheticsTestApiStep", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requestBasicauth(@Nullable SyntheticsTestApiStepRequestBasicauth requestBasicauth) {
+
             this.requestBasicauth = requestBasicauth;
             return this;
         }
         @CustomType.Setter
         public Builder requestClientCertificate(@Nullable SyntheticsTestApiStepRequestClientCertificate requestClientCertificate) {
+
             this.requestClientCertificate = requestClientCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder requestDefinition(@Nullable SyntheticsTestApiStepRequestDefinition requestDefinition) {
+
             this.requestDefinition = requestDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder requestHeaders(@Nullable Map<String,Object> requestHeaders) {
+
             this.requestHeaders = requestHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder requestProxy(@Nullable SyntheticsTestApiStepRequestProxy requestProxy) {
+
             this.requestProxy = requestProxy;
             return this;
         }
         @CustomType.Setter
         public Builder requestQuery(@Nullable Map<String,Object> requestQuery) {
+
             this.requestQuery = requestQuery;
             return this;
         }
         @CustomType.Setter
         public Builder retry(@Nullable SyntheticsTestApiStepRetry retry) {
+
             this.retry = retry;
             return this;
         }
         @CustomType.Setter
         public Builder subtype(@Nullable String subtype) {
+
             this.subtype = subtype;
             return this;
         }

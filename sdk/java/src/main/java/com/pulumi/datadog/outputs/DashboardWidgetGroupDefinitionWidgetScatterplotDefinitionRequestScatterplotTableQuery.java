@@ -119,31 +119,37 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
+
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery) {
+
             this.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder eventQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery) {
+
             this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
         public Builder metricQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery) {
+
             this.metricQuery = metricQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery) {
+
             this.sloQuery = sloQuery;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -299,7 +300,9 @@ public final class MetricMetadataArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public MetricMetadataArgs build() {
-            $.metric = Objects.requireNonNull($.metric, "expected parameter 'metric' to be non-null");
+            if ($.metric == null) {
+                throw new MissingRequiredPropertyException("MetricMetadataArgs", "metric");
+            }
             return $;
         }
     }

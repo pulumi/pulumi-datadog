@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -157,47 +158,72 @@ public final class GetTeamResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder filterKeyword(@Nullable String filterKeyword) {
+
             this.filterKeyword = filterKeyword;
             return this;
         }
         @CustomType.Setter
         public Builder handle(String handle) {
-            this.handle = Objects.requireNonNull(handle);
+            if (handle == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "handle");
+            }
+            this.handle = handle;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkCount(Integer linkCount) {
-            this.linkCount = Objects.requireNonNull(linkCount);
+            if (linkCount == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "linkCount");
+            }
+            this.linkCount = linkCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder summary(String summary) {
-            this.summary = Objects.requireNonNull(summary);
+            if (summary == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "summary");
+            }
+            this.summary = summary;
             return this;
         }
         @CustomType.Setter
         public Builder teamId(String teamId) {
-            this.teamId = Objects.requireNonNull(teamId);
+            if (teamId == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "teamId");
+            }
+            this.teamId = teamId;
             return this;
         }
         @CustomType.Setter
         public Builder userCount(Integer userCount) {
-            this.userCount = Objects.requireNonNull(userCount);
+            if (userCount == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "userCount");
+            }
+            this.userCount = userCount;
             return this;
         }
         public GetTeamResult build() {

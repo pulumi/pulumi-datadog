@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsMetricComputeArgs;
 import com.pulumi.datadog.inputs.LogsMetricFilterArgs;
 import com.pulumi.datadog.inputs.LogsMetricGroupByArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -201,9 +202,15 @@ public final class LogsMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogsMetricArgs build() {
-            $.compute = Objects.requireNonNull($.compute, "expected parameter 'compute' to be non-null");
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.compute == null) {
+                throw new MissingRequiredPropertyException("LogsMetricArgs", "compute");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("LogsMetricArgs", "filter");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LogsMetricArgs", "name");
+            }
             return $;
         }
     }

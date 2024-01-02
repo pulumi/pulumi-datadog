@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -332,9 +333,15 @@ public final class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs ex
         }
 
         public DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs build() {
-            $.computes = Objects.requireNonNull($.computes, "expected parameter 'computes' to be non-null");
-            $.dataSource = Objects.requireNonNull($.dataSource, "expected parameter 'dataSource' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.computes == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs", "computes");
+            }
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs", "dataSource");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs", "name");
+            }
             return $;
         }
     }

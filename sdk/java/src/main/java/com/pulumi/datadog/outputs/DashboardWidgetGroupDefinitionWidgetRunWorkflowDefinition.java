@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -131,6 +132,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -139,6 +141,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
         }
         @CustomType.Setter
         public Builder inputs(@Nullable List<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput> inputs) {
+
             this.inputs = inputs;
             return this;
         }
@@ -147,27 +150,34 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition {
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder workflowId(String workflowId) {
-            this.workflowId = Objects.requireNonNull(workflowId);
+            if (workflowId == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition", "workflowId");
+            }
+            this.workflowId = workflowId;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition build() {

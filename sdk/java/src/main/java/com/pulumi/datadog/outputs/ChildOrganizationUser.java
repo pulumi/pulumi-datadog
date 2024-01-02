@@ -48,16 +48,19 @@ public final class ChildOrganizationUser {
 
         @CustomType.Setter
         public Builder accessRole(@Nullable String accessRole) {
+
             this.accessRole = accessRole;
             return this;
         }
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

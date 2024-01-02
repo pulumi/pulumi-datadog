@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs 
         }
 
         public DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs build() {
-            $.alertId = Objects.requireNonNull($.alertId, "expected parameter 'alertId' to be non-null");
-            $.vizType = Objects.requireNonNull($.vizType, "expected parameter 'vizType' to be non-null");
+            if ($.alertId == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs", "alertId");
+            }
+            if ($.vizType == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs", "vizType");
+            }
             return $;
         }
     }

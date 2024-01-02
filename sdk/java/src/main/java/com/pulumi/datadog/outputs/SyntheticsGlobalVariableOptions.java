@@ -44,6 +44,7 @@ public final class SyntheticsGlobalVariableOptions {
 
         @CustomType.Setter
         public Builder totpParameters(@Nullable SyntheticsGlobalVariableOptionsTotpParameters totpParameters) {
+
             this.totpParameters = totpParameters;
             return this;
         }

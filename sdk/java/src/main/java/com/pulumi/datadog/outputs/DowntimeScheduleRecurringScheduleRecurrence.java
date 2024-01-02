@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class DowntimeScheduleRecurringScheduleRecurrence {
 
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("DowntimeScheduleRecurringScheduleRecurrence", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder rrule(String rrule) {
-            this.rrule = Objects.requireNonNull(rrule);
+            if (rrule == null) {
+              throw new MissingRequiredPropertyException("DowntimeScheduleRecurringScheduleRecurrence", "rrule");
+            }
+            this.rrule = rrule;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

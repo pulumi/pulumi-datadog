@@ -5,6 +5,7 @@ package com.pulumi.datadog.aws;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class IntegrationTagFilterArgs extends com.pulumi.resources.Resourc
         }
 
         public IntegrationTagFilterArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.namespace = Objects.requireNonNull($.namespace, "expected parameter 'namespace' to be non-null");
-            $.tagFilterStr = Objects.requireNonNull($.tagFilterStr, "expected parameter 'tagFilterStr' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("IntegrationTagFilterArgs", "accountId");
+            }
+            if ($.namespace == null) {
+                throw new MissingRequiredPropertyException("IntegrationTagFilterArgs", "namespace");
+            }
+            if ($.tagFilterStr == null) {
+                throw new MissingRequiredPropertyException("IntegrationTagFilterArgs", "tagFilterStr");
+            }
             return $;
         }
     }

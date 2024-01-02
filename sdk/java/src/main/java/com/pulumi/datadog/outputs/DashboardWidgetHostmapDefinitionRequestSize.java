@@ -119,31 +119,37 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }

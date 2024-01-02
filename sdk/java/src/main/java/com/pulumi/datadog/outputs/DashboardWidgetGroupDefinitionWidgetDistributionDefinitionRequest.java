@@ -141,41 +141,49 @@ public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReq
 
         @CustomType.Setter
         public Builder apmQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery apmQuery) {
+
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
         public Builder apmStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery) {
+
             this.apmStatsQuery = apmStatsQuery;
             return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery logQuery) {
+
             this.logQuery = logQuery;
             return this;
         }
         @CustomType.Setter
         public Builder processQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery processQuery) {
+
             this.processQuery = processQuery;
             return this;
         }
         @CustomType.Setter
         public Builder q(@Nullable String q) {
+
             this.q = q;
             return this;
         }
         @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery rumQuery) {
+
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
         public Builder securityQuery(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery securityQuery) {
+
             this.securityQuery = securityQuery;
             return this;
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle style) {
+
             this.style = style;
             return this;
         }

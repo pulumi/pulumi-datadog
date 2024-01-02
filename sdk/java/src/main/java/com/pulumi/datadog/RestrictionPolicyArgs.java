@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.RestrictionPolicyBindingArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +100,9 @@ public final class RestrictionPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RestrictionPolicyArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("RestrictionPolicyArgs", "resourceId");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefi
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -147,6 +148,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -155,11 +157,13 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -168,27 +172,34 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
         }
         @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle style) {
+
             this.style = style;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder view(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView view) {
-            this.view = Objects.requireNonNull(view);
+            if (view == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinitionWidgetGeomapDefinition", "view");
+            }
+            this.view = view;
             return this;
         }
         public DashboardWidgetGroupDefinitionWidgetGeomapDefinition build() {

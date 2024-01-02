@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -248,7 +249,9 @@ public final class DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs exte
         }
 
         public DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs build() {
-            $.index = Objects.requireNonNull($.index, "expected parameter 'index' to be non-null");
+            if ($.index == null) {
+                throw new MissingRequiredPropertyException("DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs", "index");
+            }
             return $;
         }
     }

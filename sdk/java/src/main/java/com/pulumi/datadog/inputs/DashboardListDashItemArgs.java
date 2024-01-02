@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DashboardListDashItemArgs extends com.pulumi.resources.Resour
         }
 
         public DashboardListDashItemArgs build() {
-            $.dashId = Objects.requireNonNull($.dashId, "expected parameter 'dashId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.dashId == null) {
+                throw new MissingRequiredPropertyException("DashboardListDashItemArgs", "dashId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DashboardListDashItemArgs", "type");
+            }
             return $;
         }
     }

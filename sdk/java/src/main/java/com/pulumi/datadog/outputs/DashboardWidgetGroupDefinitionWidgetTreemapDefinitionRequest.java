@@ -43,6 +43,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest 
 
         @CustomType.Setter
         public Builder formulas(@Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestFormula> formulas) {
+
             this.formulas = formulas;
             return this;
         }
@@ -51,6 +52,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequest 
         }
         @CustomType.Setter
         public Builder queries(@Nullable List<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -106,31 +107,39 @@ public final class DashboardWidgetEventTimelineDefinition {
 
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("DashboardWidgetEventTimelineDefinition", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder tagsExecution(@Nullable String tagsExecution) {
+
             this.tagsExecution = tagsExecution;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }

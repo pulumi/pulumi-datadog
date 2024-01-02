@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class LogsMetricCompute {
 
         @CustomType.Setter
         public Builder aggregationType(String aggregationType) {
-            this.aggregationType = Objects.requireNonNull(aggregationType);
+            if (aggregationType == null) {
+              throw new MissingRequiredPropertyException("LogsMetricCompute", "aggregationType");
+            }
+            this.aggregationType = aggregationType;
             return this;
         }
         @CustomType.Setter
         public Builder includePercentiles(@Nullable Boolean includePercentiles) {
+
             this.includePercentiles = includePercentiles;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }

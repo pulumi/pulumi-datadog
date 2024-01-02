@@ -234,6 +234,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
 
         @CustomType.Setter
         public Builder customLinks(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> customLinks) {
+
             this.customLinks = customLinks;
             return this;
         }
@@ -242,6 +243,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
         }
         @CustomType.Setter
         public Builder events(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> events) {
+
             this.events = events;
             return this;
         }
@@ -250,6 +252,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
         }
         @CustomType.Setter
         public Builder legendColumns(@Nullable List<String> legendColumns) {
+
             this.legendColumns = legendColumns;
             return this;
         }
@@ -258,21 +261,25 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
         }
         @CustomType.Setter
         public Builder legendLayout(@Nullable String legendLayout) {
+
             this.legendLayout = legendLayout;
             return this;
         }
         @CustomType.Setter
         public Builder legendSize(@Nullable String legendSize) {
+
             this.legendSize = legendSize;
             return this;
         }
         @CustomType.Setter
         public Builder liveSpan(@Nullable String liveSpan) {
+
             this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
         public Builder markers(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> markers) {
+
             this.markers = markers;
             return this;
         }
@@ -281,6 +288,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
         }
         @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> requests) {
+
             this.requests = requests;
             return this;
         }
@@ -289,31 +297,37 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
         }
         @CustomType.Setter
         public Builder rightYaxis(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis rightYaxis) {
+
             this.rightYaxis = rightYaxis;
             return this;
         }
         @CustomType.Setter
         public Builder showLegend(@Nullable Boolean showLegend) {
+
             this.showLegend = showLegend;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder titleAlign(@Nullable String titleAlign) {
+
             this.titleAlign = titleAlign;
             return this;
         }
         @CustomType.Setter
         public Builder titleSize(@Nullable String titleSize) {
+
             this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
         public Builder yaxis(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis yaxis) {
+
             this.yaxis = yaxis;
             return this;
         }

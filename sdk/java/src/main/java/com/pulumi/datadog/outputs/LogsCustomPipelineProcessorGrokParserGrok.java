@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class LogsCustomPipelineProcessorGrokParserGrok {
 
         @CustomType.Setter
         public Builder matchRules(String matchRules) {
-            this.matchRules = Objects.requireNonNull(matchRules);
+            if (matchRules == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorGrokParserGrok", "matchRules");
+            }
+            this.matchRules = matchRules;
             return this;
         }
         @CustomType.Setter
         public Builder supportRules(String supportRules) {
-            this.supportRules = Objects.requireNonNull(supportRules);
+            if (supportRules == null) {
+              throw new MissingRequiredPropertyException("LogsCustomPipelineProcessorGrokParserGrok", "supportRules");
+            }
+            this.supportRules = supportRules;
             return this;
         }
         public LogsCustomPipelineProcessorGrokParserGrok build() {

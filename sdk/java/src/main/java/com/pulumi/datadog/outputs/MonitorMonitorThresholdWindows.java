@@ -58,11 +58,13 @@ public final class MonitorMonitorThresholdWindows {
 
         @CustomType.Setter
         public Builder recoveryWindow(@Nullable String recoveryWindow) {
+
             this.recoveryWindow = recoveryWindow;
             return this;
         }
         @CustomType.Setter
         public Builder triggerWindow(@Nullable String triggerWindow) {
+
             this.triggerWindow = triggerWindow;
             return this;
         }
