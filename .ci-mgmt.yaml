@@ -1,5 +1,6 @@
 provider: datadog
 major-version: 4
+upstreamProviderOrg: DataDog
 lint: false
 makeTemplate: bridged
 team: ecosystem
