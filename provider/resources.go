@@ -1,10 +1,9 @@
 package datadog
 
 import (
-	// Allow embedding files
 	"bytes"
 	"context"
-	_ "embed"
+	_ "embed" // Allow embedding files
 	"fmt"
 	"path/filepath"
 	"strings"
@@ -13,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -153,34 +152,22 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_integration_opsgenie_service_object": {Tok: makeResource(opsGenieMod, "ServiceObject")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"datadog_ip_ranges": {
-				Tok: makeDataSource(datadogMod, "getIpRanges"),
-			},
-			"datadog_monitor": {
-				Tok: makeDataSource(datadogMod, "getMonitor"),
-			},
-			"datadog_dashboard_list":                      {Tok: makeDataSource(datadogMod, "getDashboardList")},
-			"datadog_dashboard":                           {Tok: makeDataSource(datadogMod, "getDashboard")},
-			"datadog_synthetics_locations":                {Tok: makeDataSource(datadogMod, "getSyntheticsLocations")},
-			"datadog_permissions":                         {Tok: makeDataSource(datadogMod, "getPermissions")},
-			"datadog_role":                                {Tok: makeDataSource(datadogMod, "getRole")},
-			"datadog_security_monitoring_rules":           {Tok: makeDataSource(datadogMod, "getSecurityMonitoringRules")},
-			"datadog_monitors":                            {Tok: makeDataSource(datadogMod, "getMonitors")},
-			"datadog_service_level_objective":             {Tok: makeDataSource(datadogMod, "getServiceLevelObjective")},
-			"datadog_service_level_objectives":            {Tok: makeDataSource(datadogMod, "getServiceLevelObjectives")},
-			"datadog_api_key":                             {Tok: makeDataSource(datadogMod, "getApiKey")},
-			"datadog_application_key":                     {Tok: makeDataSource(datadogMod, "getApplicationKey")},
-			"datadog_security_monitoring_filters":         {Tok: makeDataSource(datadogMod, "getSecurityMonitoringFilters")},
-			"datadog_synthetics_global_variable":          {Tok: makeDataSource(datadogMod, "getSyntheticsGlobalVariable")},
-			"datadog_user":                                {Tok: makeDataSource(datadogMod, "getUser")},
-			"datadog_roles":                               {Tok: makeDataSource(datadogMod, "getRoles")},
-			"datadog_logs_archives_order":                 {Tok: makeDataSource(datadogMod, "getLogsArchivesOrder")},
-			"datadog_logs_indexes":                        {Tok: makeDataSource(datadogMod, "getLogsIndexes")},
-			"datadog_logs_indexes_order":                  {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
-			"datadog_logs_pipelines":                      {Tok: makeDataSource(datadogMod, "getLogsPipelines")},
-			"datadog_cloud_workload_security_agent_rules": {Tok: makeDataSource(datadogMod, "getCloudWorkloadSecurityAgentRules")},
-			"datadog_rum_application":                     {Tok: makeDataSource(datadogMod, "getRumApplication")},
-			"datadog_synthetics_test":                     {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
+			"datadog_dashboard_list":       {Tok: makeDataSource(datadogMod, "getDashboardList")},
+			"datadog_dashboard":            {Tok: makeDataSource(datadogMod, "getDashboard")},
+			"datadog_synthetics_locations": {Tok: makeDataSource(datadogMod, "getSyntheticsLocations")},
+			"datadog_permissions":          {Tok: makeDataSource(datadogMod, "getPermissions")},
+			"datadog_role":                 {Tok: makeDataSource(datadogMod, "getRole")},
+			"datadog_monitors":             {Tok: makeDataSource(datadogMod, "getMonitors")},
+			"datadog_api_key":              {Tok: makeDataSource(datadogMod, "getApiKey")},
+			"datadog_application_key":      {Tok: makeDataSource(datadogMod, "getApplicationKey")},
+			"datadog_user":                 {Tok: makeDataSource(datadogMod, "getUser")},
+			"datadog_roles":                {Tok: makeDataSource(datadogMod, "getRoles")},
+			"datadog_logs_archives_order":  {Tok: makeDataSource(datadogMod, "getLogsArchivesOrder")},
+			"datadog_logs_indexes":         {Tok: makeDataSource(datadogMod, "getLogsIndexes")},
+			"datadog_logs_indexes_order":   {Tok: makeDataSource(datadogMod, "getLogsIndexesOrder")},
+			"datadog_logs_pipelines":       {Tok: makeDataSource(datadogMod, "getLogsPipelines")},
+			"datadog_rum_application":      {Tok: makeDataSource(datadogMod, "getRumApplication")},
+			"datadog_synthetics_test":      {Tok: makeDataSource(datadogMod, "getSyntheticsTest")},
 
 			"datadog_integration_aws_logs_services": {Tok: makeDataSource(awsMod, "getIntegrationLogsServices")},
 		},
@@ -218,7 +205,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	strategy := x.TokensKnownModules("datadog_", datadogMod, []string{
+	prov.MustComputeTokens(tks.KnownModules("datadog_", datadogMod, []string{
 		"integration",
 	},
 		func(module, name string) (string, error) {
@@ -253,13 +240,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
-		})
-	err := x.ComputeDefaults(&prov, strategy)
-	contract.AssertNoErrorf(err, "failed to apply mapping strategy")
+		}))
 
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "failed to apply token aliasing")
-
+	prov.MustApplyAutoAliases()
 	return prov
 }
 
