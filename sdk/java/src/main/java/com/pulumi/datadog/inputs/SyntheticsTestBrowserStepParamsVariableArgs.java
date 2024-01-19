@@ -16,14 +16,14 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
     public static final SyntheticsTestBrowserStepParamsVariableArgs Empty = new SyntheticsTestBrowserStepParamsVariableArgs();
 
     /**
-     * Example of the extracted variable.
+     * Example of the extracted variable. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="example")
     private @Nullable Output<String> example;
 
     /**
-     * @return Example of the extracted variable.
+     * @return Example of the extracted variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> example() {
@@ -63,7 +63,7 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
         }
 
         /**
-         * @param example Example of the extracted variable.
+         * @param example Example of the extracted variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
         }
 
         /**
-         * @param example Example of the extracted variable.
+         * @param example Example of the extracted variable. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

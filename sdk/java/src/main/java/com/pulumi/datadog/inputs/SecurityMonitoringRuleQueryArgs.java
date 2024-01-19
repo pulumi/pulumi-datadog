@@ -42,14 +42,14 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
     }
 
     /**
-     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -229,7 +229,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class SecurityMonitoringRuleQueryArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+         * @param aggregation The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;count&#34;`.
          * 
          * @return builder
          * 

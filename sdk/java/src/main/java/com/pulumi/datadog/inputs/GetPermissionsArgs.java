@@ -16,14 +16,14 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPermissionsArgs Empty = new GetPermissionsArgs();
 
     /**
-     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     @Import(name="includeRestricted")
     private @Nullable Output<Boolean> includeRestricted;
 
     /**
-     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> includeRestricted() {
@@ -55,7 +55,7 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
          * 
          * @return builder
          * 

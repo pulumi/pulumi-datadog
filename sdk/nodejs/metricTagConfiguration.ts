@@ -37,6 +37,7 @@ import * as utilities from "./utilities";
  *             time: "avg",
  *         },
  *     ],
+ *     excludeTagsMode: false,
  *     metricName: "example.terraform.count.metric",
  *     metricType: "count",
  *     tags: [
@@ -85,6 +86,10 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
      */
     public readonly aggregations!: pulumi.Output<outputs.MetricTagConfigurationAggregation[]>;
     /**
+     * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     */
+    public readonly excludeTagsMode!: pulumi.Output<boolean | undefined>;
+    /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
     public readonly includePercentiles!: pulumi.Output<boolean | undefined>;
@@ -115,6 +120,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MetricTagConfigurationState | undefined;
             resourceInputs["aggregations"] = state ? state.aggregations : undefined;
+            resourceInputs["excludeTagsMode"] = state ? state.excludeTagsMode : undefined;
             resourceInputs["includePercentiles"] = state ? state.includePercentiles : undefined;
             resourceInputs["metricName"] = state ? state.metricName : undefined;
             resourceInputs["metricType"] = state ? state.metricType : undefined;
@@ -131,6 +137,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tags'");
             }
             resourceInputs["aggregations"] = args ? args.aggregations : undefined;
+            resourceInputs["excludeTagsMode"] = args ? args.excludeTagsMode : undefined;
             resourceInputs["includePercentiles"] = args ? args.includePercentiles : undefined;
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["metricType"] = args ? args.metricType : undefined;
@@ -149,6 +156,10 @@ export interface MetricTagConfigurationState {
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
     aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
+    /**
+     * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     */
+    excludeTagsMode?: pulumi.Input<boolean>;
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */
@@ -175,6 +186,10 @@ export interface MetricTagConfigurationArgs {
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
      */
     aggregations?: pulumi.Input<pulumi.Input<inputs.MetricTagConfigurationAggregation>[]>;
+    /**
+     * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     */
+    excludeTagsMode?: pulumi.Input<boolean>;
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
      */

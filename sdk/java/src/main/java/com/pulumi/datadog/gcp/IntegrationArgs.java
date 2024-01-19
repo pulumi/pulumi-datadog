@@ -18,14 +18,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     public static final IntegrationArgs Empty = new IntegrationArgs();
 
     /**
-     * Silence monitors for expected GCE instance shutdowns.
+     * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      * 
      */
     @Import(name="automute")
     private @Nullable Output<Boolean> automute;
 
     /**
-     * @return Silence monitors for expected GCE instance shutdowns.
+     * @return Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automute() {
@@ -63,14 +63,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      * 
      */
     @Import(name="cspmResourceCollectionEnabled")
     private @Nullable Output<Boolean> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cspmResourceCollectionEnabled() {
@@ -169,7 +169,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected GCE instance shutdowns.
+         * @param automute Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automute Silence monitors for expected GCE instance shutdowns.
+         * @param automute Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
          * 
          * @return builder
          * 

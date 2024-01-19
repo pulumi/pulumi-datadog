@@ -19,12 +19,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
      */
     private @Nullable String displayFormat;
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     private String env;
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
      * 
      */
     private @Nullable String liveSpan;
@@ -98,14 +98,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
         return Optional.ofNullable(this.displayFormat);
     }
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public String env() {
         return this.env;
     }
     /**
-     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `1y`, `alert`.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
      * 
      */
     public Optional<String> liveSpan() {

@@ -16,14 +16,14 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
     public static final SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs Empty = new SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs();
 
     /**
-     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
      * 
      */
     @Import(name="baselineUserLocations")
     private @Nullable Output<Boolean> baselineUserLocations;
 
     /**
-     * @return If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     * @return If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> baselineUserLocations() {
@@ -55,7 +55,7 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
         }
 
         /**
-         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs exte
         }
 
         /**
-         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+         * @param baselineUserLocations If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user&#39;s regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
          * 
          * @return builder
          * 

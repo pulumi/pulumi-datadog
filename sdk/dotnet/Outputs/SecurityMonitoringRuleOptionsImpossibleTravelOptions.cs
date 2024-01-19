@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleOptionsImpossibleTravelOptions
     {
         /// <summary>
-        /// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+        /// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access. Defaults to `false`.
         /// </summary>
         public readonly bool? BaselineUserLocations;
 

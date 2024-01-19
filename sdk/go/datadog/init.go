@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
+		r = &ApmRetentionFilter{}
+	case "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder":
+		r = &ApmRetentionFilterOrder{}
 	case "datadog:index/applicationKey:ApplicationKey":
 		r = &ApplicationKey{}
 	case "datadog:index/authnMapping:AuthnMapping":
@@ -73,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitorJson{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
+	case "datadog:index/powerpack:Powerpack":
+		r = &Powerpack{}
 	case "datadog:index/restrictionPolicy:RestrictionPolicy":
 		r = &RestrictionPolicy{}
 	case "datadog:index/role:Role":
@@ -159,6 +165,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/apiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/apmRetentionFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/apmRetentionFilterOrder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -284,6 +300,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/organizationSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/powerpack",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

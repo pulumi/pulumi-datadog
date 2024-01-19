@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationSettingsSettings {
     /**
-     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * @return Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
      * 
      */
     private @Nullable Boolean privateWidgetShare;
@@ -28,7 +28,7 @@ public final class OrganizationSettingsSettings {
      */
     private OrganizationSettingsSettingsSaml saml;
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
      * 
      */
     private @Nullable String samlAutocreateAccessRole;
@@ -70,7 +70,7 @@ public final class OrganizationSettingsSettings {
 
     private OrganizationSettingsSettings() {}
     /**
-     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * @return Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
      * 
      */
     public Optional<Boolean> privateWidgetShare() {
@@ -84,7 +84,7 @@ public final class OrganizationSettingsSettings {
         return this.saml;
     }
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
      * 
      */
     public Optional<String> samlAutocreateAccessRole() {

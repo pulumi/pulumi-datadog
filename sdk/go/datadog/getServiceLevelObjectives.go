@@ -50,18 +50,24 @@ func GetServiceLevelObjectives(ctx *pulumi.Context, args *GetServiceLevelObjecti
 
 // A collection of arguments for invoking getServiceLevelObjectives.
 type GetServiceLevelObjectivesArgs struct {
+	// Throw an error if no results are found. Defaults to `true`.
+	ErrorOnEmptyResult *bool `pulumi:"errorOnEmptyResult"`
 	// An array of SLO IDs to limit the search.
 	Ids []string `pulumi:"ids"`
 	// Filter results based on SLO numerator and denominator.
 	MetricsQuery *string `pulumi:"metricsQuery"`
 	// Filter results based on SLO names.
 	NameQuery *string `pulumi:"nameQuery"`
+	// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+	Query *string `pulumi:"query"`
 	// Filter results based on a single SLO tag.
 	TagsQuery *string `pulumi:"tagsQuery"`
 }
 
 // A collection of values returned by getServiceLevelObjectives.
 type GetServiceLevelObjectivesResult struct {
+	// Throw an error if no results are found. Defaults to `true`.
+	ErrorOnEmptyResult *bool `pulumi:"errorOnEmptyResult"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An array of SLO IDs to limit the search.
@@ -70,6 +76,8 @@ type GetServiceLevelObjectivesResult struct {
 	MetricsQuery *string `pulumi:"metricsQuery"`
 	// Filter results based on SLO names.
 	NameQuery *string `pulumi:"nameQuery"`
+	// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+	Query *string `pulumi:"query"`
 	// List of SLOs
 	Slos []GetServiceLevelObjectivesSlo `pulumi:"slos"`
 	// Filter results based on a single SLO tag.
@@ -91,12 +99,16 @@ func GetServiceLevelObjectivesOutput(ctx *pulumi.Context, args GetServiceLevelOb
 
 // A collection of arguments for invoking getServiceLevelObjectives.
 type GetServiceLevelObjectivesOutputArgs struct {
+	// Throw an error if no results are found. Defaults to `true`.
+	ErrorOnEmptyResult pulumi.BoolPtrInput `pulumi:"errorOnEmptyResult"`
 	// An array of SLO IDs to limit the search.
 	Ids pulumi.StringArrayInput `pulumi:"ids"`
 	// Filter results based on SLO numerator and denominator.
 	MetricsQuery pulumi.StringPtrInput `pulumi:"metricsQuery"`
 	// Filter results based on SLO names.
 	NameQuery pulumi.StringPtrInput `pulumi:"nameQuery"`
+	// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+	Query pulumi.StringPtrInput `pulumi:"query"`
 	// Filter results based on a single SLO tag.
 	TagsQuery pulumi.StringPtrInput `pulumi:"tagsQuery"`
 }
@@ -120,6 +132,11 @@ func (o GetServiceLevelObjectivesResultOutput) ToGetServiceLevelObjectivesResult
 	return o
 }
 
+// Throw an error if no results are found. Defaults to `true`.
+func (o GetServiceLevelObjectivesResultOutput) ErrorOnEmptyResult() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *bool { return v.ErrorOnEmptyResult }).(pulumi.BoolPtrOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o GetServiceLevelObjectivesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) string { return v.Id }).(pulumi.StringOutput)
@@ -138,6 +155,11 @@ func (o GetServiceLevelObjectivesResultOutput) MetricsQuery() pulumi.StringPtrOu
 // Filter results based on SLO names.
 func (o GetServiceLevelObjectivesResultOutput) NameQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.NameQuery }).(pulumi.StringPtrOutput)
+}
+
+// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+func (o GetServiceLevelObjectivesResultOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
 // List of SLOs

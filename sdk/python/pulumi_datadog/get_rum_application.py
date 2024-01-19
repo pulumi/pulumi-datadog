@@ -45,7 +45,7 @@ class GetRumApplicationResult:
     @pulumi.getter(name="clientToken")
     def client_token(self) -> str:
         """
-        The client token
+        The client token.
         """
         return pulumi.get(self, "client_token")
 
@@ -61,7 +61,7 @@ class GetRumApplicationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the RUM application
+        Name of the RUM application.
         """
         return pulumi.get(self, "name")
 
@@ -69,7 +69,7 @@ class GetRumApplicationResult:
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> Optional[str]:
         """
-        The name used to search for a RUM application
+        The name used to search for a RUM application.
         """
         return pulumi.get(self, "name_filter")
 
@@ -77,7 +77,7 @@ class GetRumApplicationResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
         """
         return pulumi.get(self, "type")
 
@@ -85,7 +85,7 @@ class GetRumApplicationResult:
     @pulumi.getter(name="typeFilter")
     def type_filter(self) -> Optional[str]:
         """
-        The type used to search for a RUM application
+        The type used to search for a RUM application.
         """
         return pulumi.get(self, "type_filter")
 
@@ -113,8 +113,8 @@ def get_rum_application(id: Optional[str] = None,
 
 
     :param str id: ID of the RUM application. Cannot be used with name and type filters.
-    :param str name_filter: The name used to search for a RUM application
-    :param str type_filter: The type used to search for a RUM application
+    :param str name_filter: The name used to search for a RUM application.
+    :param str type_filter: The type used to search for a RUM application.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -142,7 +142,7 @@ def get_rum_application_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str id: ID of the RUM application. Cannot be used with name and type filters.
-    :param str name_filter: The name used to search for a RUM application
-    :param str type_filter: The type used to search for a RUM application
+    :param str name_filter: The name used to search for a RUM application.
+    :param str type_filter: The type used to search for a RUM application.
     """
     ...

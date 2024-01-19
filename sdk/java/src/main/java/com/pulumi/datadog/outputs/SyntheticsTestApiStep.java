@@ -80,7 +80,7 @@ public final class SyntheticsTestApiStep {
     private @Nullable Map<String,Object> requestQuery;
     private @Nullable SyntheticsTestApiStepRetry retry;
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     private @Nullable String subtype;
@@ -167,7 +167,7 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.retry);
     }
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<String> subtype() {

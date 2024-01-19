@@ -46,14 +46,14 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
     }
 
     /**
-     * Audience for `oauth-client` or `oauth-rop` authentication.
+     * Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
     /**
-     * @return Audience for `oauth-client` or `oauth-rop` authentication.
+     * @return Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> audience() {
@@ -136,14 +136,14 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
     }
 
     /**
-     * Resource for `oauth-client` or `oauth-rop` authentication.
+     * Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="resource")
     private @Nullable Output<String> resource;
 
     /**
-     * @return Resource for `oauth-client` or `oauth-rop` authentication.
+     * @return Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> resource() {
@@ -151,14 +151,14 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
     }
 
     /**
-     * Scope for `oauth-client` or `oauth-rop` authentication.
+     * Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return Scope for `oauth-client` or `oauth-rop` authentication.
+     * @return Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -226,14 +226,14 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
     }
 
     /**
-     * Type of basic authentication to use when performing the test.
+     * Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of basic authentication to use when performing the test.
+     * @return Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -353,7 +353,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param audience Audience for `oauth-client` or `oauth-rop` authentication.
+         * @param audience Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param audience Audience for `oauth-client` or `oauth-rop` authentication.
+         * @param audience Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resource Resource for `oauth-client` or `oauth-rop` authentication.
+         * @param resource Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param resource Resource for `oauth-client` or `oauth-rop` authentication.
+         * @param resource Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param scope Scope for `oauth-client` or `oauth-rop` authentication.
+         * @param scope Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param scope Scope for `oauth-client` or `oauth-rop` authentication.
+         * @param scope Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type Type of basic authentication to use when performing the test.
+         * @param type Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class SyntheticsTestRequestBasicauthArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type Type of basic authentication to use when performing the test.
+         * @param type Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
          * 
          * @return builder
          * 

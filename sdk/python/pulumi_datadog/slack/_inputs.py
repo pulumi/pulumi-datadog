@@ -21,10 +21,10 @@ class ChannelDisplayArgs:
                  snapshot: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] message: Show the main body of the alert event.
-        :param pulumi.Input[bool] notified: Show the list of @-handles in the alert event.
-        :param pulumi.Input[bool] snapshot: Show the alert event's snapshot image.
-        :param pulumi.Input[bool] tags: Show the scopes on which the monitor alerted.
+        :param pulumi.Input[bool] message: Show the main body of the alert event. Defaults to `true`.
+        :param pulumi.Input[bool] notified: Show the list of @-handles in the alert event. Defaults to `true`.
+        :param pulumi.Input[bool] snapshot: Show the alert event's snapshot image. Defaults to `true`.
+        :param pulumi.Input[bool] tags: Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -39,7 +39,7 @@ class ChannelDisplayArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[bool]]:
         """
-        Show the main body of the alert event.
+        Show the main body of the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "message")
 
@@ -51,7 +51,7 @@ class ChannelDisplayArgs:
     @pulumi.getter
     def notified(self) -> Optional[pulumi.Input[bool]]:
         """
-        Show the list of @-handles in the alert event.
+        Show the list of @-handles in the alert event. Defaults to `true`.
         """
         return pulumi.get(self, "notified")
 
@@ -63,7 +63,7 @@ class ChannelDisplayArgs:
     @pulumi.getter
     def snapshot(self) -> Optional[pulumi.Input[bool]]:
         """
-        Show the alert event's snapshot image.
+        Show the alert event's snapshot image. Defaults to `true`.
         """
         return pulumi.get(self, "snapshot")
 
@@ -75,7 +75,7 @@ class ChannelDisplayArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        Show the scopes on which the monitor alerted.
+        Show the scopes on which the monitor alerted. Defaults to `true`.
         """
         return pulumi.get(self, "tags")
 

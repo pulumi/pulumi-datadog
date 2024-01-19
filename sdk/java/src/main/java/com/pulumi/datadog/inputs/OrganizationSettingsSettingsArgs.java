@@ -22,14 +22,14 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
     public static final OrganizationSettingsSettingsArgs Empty = new OrganizationSettingsSettingsArgs();
 
     /**
-     * Whether or not the organization users can share widgets outside of Datadog.
+     * Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
      * 
      */
     @Import(name="privateWidgetShare")
     private @Nullable Output<Boolean> privateWidgetShare;
 
     /**
-     * @return Whether or not the organization users can share widgets outside of Datadog.
+     * @return Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> privateWidgetShare() {
@@ -52,14 +52,14 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
     }
 
     /**
-     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
      * 
      */
     @Import(name="samlAutocreateAccessRole")
     private @Nullable Output<String> samlAutocreateAccessRole;
 
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
      * 
      */
     public Optional<Output<String>> samlAutocreateAccessRole() {
@@ -205,7 +205,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog.
+         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog.
+         * @param privateWidgetShare Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class OrganizationSettingsSettingsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+         * @param samlAutocreateAccessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
          * 
          * @return builder
          * 

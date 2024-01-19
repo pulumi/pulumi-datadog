@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestBrowserVariable
     {
         /// <summary>
-        /// Example for the variable.
+        /// Example for the variable. Defaults to `""`.
         /// </summary>
         public readonly string? Example;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Pattern of the variable.
+        /// Pattern of the variable. Defaults to `""`.
         /// </summary>
         public readonly string? Pattern;
         /// <summary>

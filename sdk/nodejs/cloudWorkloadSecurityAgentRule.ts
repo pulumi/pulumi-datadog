@@ -58,11 +58,11 @@ export class CloudWorkloadSecurityAgentRule extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the Agent rule.
+     * The description of the Agent rule. Defaults to `""`.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether the Agent rule is enabled.
+     * Whether the Agent rule is enabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -114,11 +114,11 @@ export class CloudWorkloadSecurityAgentRule extends pulumi.CustomResource {
  */
 export interface CloudWorkloadSecurityAgentRuleState {
     /**
-     * The description of the Agent rule.
+     * The description of the Agent rule. Defaults to `""`.
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether the Agent rule is enabled.
+     * Whether the Agent rule is enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -136,11 +136,11 @@ export interface CloudWorkloadSecurityAgentRuleState {
  */
 export interface CloudWorkloadSecurityAgentRuleArgs {
     /**
-     * The description of the Agent rule.
+     * The description of the Agent rule. Defaults to `""`.
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether the Agent rule is enabled.
+     * Whether the Agent rule is enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// APM Environment.
+        /// APM environment.
         /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;

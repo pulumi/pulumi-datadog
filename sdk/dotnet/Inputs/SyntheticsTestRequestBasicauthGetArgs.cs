@@ -35,7 +35,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AccessTokenUrl { get; set; }
 
         /// <summary>
-        /// Audience for `oauth-client` or `oauth-rop` authentication.
+        /// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         [Input("audience")]
         public Input<string>? Audience { get; set; }
@@ -91,13 +91,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Resource for `oauth-client` or `oauth-rop` authentication.
+        /// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }
 
         /// <summary>
-        /// Scope for `oauth-client` or `oauth-rop` authentication.
+        /// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TokenApiAuthentication { get; set; }
 
         /// <summary>
-        /// Type of basic authentication to use when performing the test.
+        /// Type of basic authentication to use when performing the test. Defaults to `"web"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

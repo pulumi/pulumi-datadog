@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetImageDefinition {
     /**
-     * @return Whether to display a background or not.
+     * @return Whether to display a background or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean hasBackground;
     /**
-     * @return Whether to display a border or not.
+     * @return Whether to display a border or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean hasBorder;
@@ -56,14 +56,14 @@ public final class DashboardWidgetGroupDefinitionWidgetImageDefinition {
 
     private DashboardWidgetGroupDefinitionWidgetImageDefinition() {}
     /**
-     * @return Whether to display a background or not.
+     * @return Whether to display a background or not. Defaults to `true`.
      * 
      */
     public Optional<Boolean> hasBackground() {
         return Optional.ofNullable(this.hasBackground);
     }
     /**
-     * @return Whether to display a border or not.
+     * @return Whether to display a border or not. Defaults to `true`.
      * 
      */
     public Optional<Boolean> hasBorder() {

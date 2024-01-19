@@ -34,13 +34,13 @@ namespace Pulumi.Datadog
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name used to search for a RUM application
+        /// The name used to search for a RUM application.
         /// </summary>
         [Input("nameFilter")]
         public string? NameFilter { get; set; }
 
         /// <summary>
-        /// The type used to search for a RUM application
+        /// The type used to search for a RUM application.
         /// </summary>
         [Input("typeFilter")]
         public string? TypeFilter { get; set; }
@@ -60,13 +60,13 @@ namespace Pulumi.Datadog
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name used to search for a RUM application
+        /// The name used to search for a RUM application.
         /// </summary>
         [Input("nameFilter")]
         public Input<string>? NameFilter { get; set; }
 
         /// <summary>
-        /// The type used to search for a RUM application
+        /// The type used to search for a RUM application.
         /// </summary>
         [Input("typeFilter")]
         public Input<string>? TypeFilter { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Datadog
     public sealed class GetRumApplicationResult
     {
         /// <summary>
-        /// The client token
+        /// The client token.
         /// </summary>
         public readonly string ClientToken;
         /// <summary>
@@ -90,19 +90,19 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the RUM application
+        /// Name of the RUM application.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name used to search for a RUM application
+        /// The name used to search for a RUM application.
         /// </summary>
         public readonly string? NameFilter;
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The type used to search for a RUM application
+        /// The type used to search for a RUM application.
         /// </summary>
         public readonly string? TypeFilter;
 

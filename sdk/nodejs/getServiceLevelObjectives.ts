@@ -25,9 +25,11 @@ export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, 
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", {
+        "errorOnEmptyResult": args.errorOnEmptyResult,
         "ids": args.ids,
         "metricsQuery": args.metricsQuery,
         "nameQuery": args.nameQuery,
+        "query": args.query,
         "tagsQuery": args.tagsQuery,
     }, opts);
 }
@@ -36,6 +38,10 @@ export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, 
  * A collection of arguments for invoking getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesArgs {
+    /**
+     * Throw an error if no results are found. Defaults to `true`.
+     */
+    errorOnEmptyResult?: boolean;
     /**
      * An array of SLO IDs to limit the search.
      */
@@ -49,6 +55,10 @@ export interface GetServiceLevelObjectivesArgs {
      */
     nameQuery?: string;
     /**
+     * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     */
+    query?: string;
+    /**
      * Filter results based on a single SLO tag.
      */
     tagsQuery?: string;
@@ -58,6 +68,10 @@ export interface GetServiceLevelObjectivesArgs {
  * A collection of values returned by getServiceLevelObjectives.
  */
 export interface GetServiceLevelObjectivesResult {
+    /**
+     * Throw an error if no results are found. Defaults to `true`.
+     */
+    readonly errorOnEmptyResult?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -74,6 +88,10 @@ export interface GetServiceLevelObjectivesResult {
      * Filter results based on SLO names.
      */
     readonly nameQuery?: string;
+    /**
+     * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     */
+    readonly query?: string;
     /**
      * List of SLOs
      */
@@ -106,6 +124,10 @@ export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectives
  */
 export interface GetServiceLevelObjectivesOutputArgs {
     /**
+     * Throw an error if no results are found. Defaults to `true`.
+     */
+    errorOnEmptyResult?: pulumi.Input<boolean>;
+    /**
      * An array of SLO IDs to limit the search.
      */
     ids?: pulumi.Input<pulumi.Input<string>[]>;
@@ -117,6 +139,10 @@ export interface GetServiceLevelObjectivesOutputArgs {
      * Filter results based on SLO names.
      */
     nameQuery?: pulumi.Input<string>;
+    /**
+     * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     */
+    query?: pulumi.Input<string>;
     /**
      * Filter results based on a single SLO tag.
      */

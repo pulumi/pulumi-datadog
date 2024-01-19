@@ -27,11 +27,11 @@ export interface GetRumApplicationArgs {
      */
     id?: string;
     /**
-     * The name used to search for a RUM application
+     * The name used to search for a RUM application.
      */
     nameFilter?: string;
     /**
-     * The type used to search for a RUM application
+     * The type used to search for a RUM application.
      */
     typeFilter?: string;
 }
@@ -41,7 +41,7 @@ export interface GetRumApplicationArgs {
  */
 export interface GetRumApplicationResult {
     /**
-     * The client token
+     * The client token.
      */
     readonly clientToken: string;
     /**
@@ -49,19 +49,19 @@ export interface GetRumApplicationResult {
      */
     readonly id: string;
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      */
     readonly name: string;
     /**
-     * The name used to search for a RUM application
+     * The name used to search for a RUM application.
      */
     readonly nameFilter?: string;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
      */
     readonly type: string;
     /**
-     * The type used to search for a RUM application
+     * The type used to search for a RUM application.
      */
     readonly typeFilter?: string;
 }
@@ -81,11 +81,11 @@ export interface GetRumApplicationOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * The name used to search for a RUM application
+     * The name used to search for a RUM application.
      */
     nameFilter?: pulumi.Input<string>;
     /**
-     * The type used to search for a RUM application
+     * The type used to search for a RUM application.
      */
     typeFilter?: pulumi.Input<string>;
 }

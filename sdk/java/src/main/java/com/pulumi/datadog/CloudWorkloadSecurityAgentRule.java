@@ -63,28 +63,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule")
 public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomResource {
     /**
-     * The description of the Agent rule.
+     * The description of the Agent rule. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Agent rule.
+     * @return The description of the Agent rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether the Agent rule is enabled.
+     * Whether the Agent rule is enabled. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the Agent rule is enabled.
+     * @return Whether the Agent rule is enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

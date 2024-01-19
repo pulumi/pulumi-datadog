@@ -41,22 +41,22 @@ namespace Pulumi.Datadog
     public partial class RumApplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The client token
+        /// The client token.
         /// </summary>
         [Output("clientToken")]
         public Output<string> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the RUM application
+        /// Name of the RUM application.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,13 +105,13 @@ namespace Pulumi.Datadog
     public sealed class RumApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the RUM application
+        /// Name of the RUM application.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -125,19 +125,19 @@ namespace Pulumi.Datadog
     public sealed class RumApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client token
+        /// The client token.
         /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// The name of the RUM application
+        /// Name of the RUM application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+        /// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

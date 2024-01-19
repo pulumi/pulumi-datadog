@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestBrowserStepParamsElementUserLocatorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defaults to `false`.
+        /// </summary>
         [Input("failTestOnCannotLocate")]
         public Input<bool>? FailTestOnCannotLocate { get; set; }
 

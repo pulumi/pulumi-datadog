@@ -22,7 +22,10 @@ class GetServiceLevelObjectivesResult:
     """
     A collection of values returned by getServiceLevelObjectives.
     """
-    def __init__(__self__, id=None, ids=None, metrics_query=None, name_query=None, slos=None, tags_query=None):
+    def __init__(__self__, error_on_empty_result=None, id=None, ids=None, metrics_query=None, name_query=None, query=None, slos=None, tags_query=None):
+        if error_on_empty_result and not isinstance(error_on_empty_result, bool):
+            raise TypeError("Expected argument 'error_on_empty_result' to be a bool")
+        pulumi.set(__self__, "error_on_empty_result", error_on_empty_result)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,12 +38,23 @@ class GetServiceLevelObjectivesResult:
         if name_query and not isinstance(name_query, str):
             raise TypeError("Expected argument 'name_query' to be a str")
         pulumi.set(__self__, "name_query", name_query)
+        if query and not isinstance(query, str):
+            raise TypeError("Expected argument 'query' to be a str")
+        pulumi.set(__self__, "query", query)
         if slos and not isinstance(slos, list):
             raise TypeError("Expected argument 'slos' to be a list")
         pulumi.set(__self__, "slos", slos)
         if tags_query and not isinstance(tags_query, str):
             raise TypeError("Expected argument 'tags_query' to be a str")
         pulumi.set(__self__, "tags_query", tags_query)
+
+    @property
+    @pulumi.getter(name="errorOnEmptyResult")
+    def error_on_empty_result(self) -> Optional[bool]:
+        """
+        Throw an error if no results are found. Defaults to `true`.
+        """
+        return pulumi.get(self, "error_on_empty_result")
 
     @property
     @pulumi.getter
@@ -76,6 +90,14 @@ class GetServiceLevelObjectivesResult:
 
     @property
     @pulumi.getter
+    def query(self) -> Optional[str]:
+        """
+        The query string to filter results based on SLO names. Some examples of queries include service:\\n\\n and \\n\\n.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
     def slos(self) -> Sequence['outputs.GetServiceLevelObjectivesSloResult']:
         """
         List of SLOs
@@ -97,17 +119,21 @@ class AwaitableGetServiceLevelObjectivesResult(GetServiceLevelObjectivesResult):
         if False:
             yield self
         return GetServiceLevelObjectivesResult(
+            error_on_empty_result=self.error_on_empty_result,
             id=self.id,
             ids=self.ids,
             metrics_query=self.metrics_query,
             name_query=self.name_query,
+            query=self.query,
             slos=self.slos,
             tags_query=self.tags_query)
 
 
-def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
+def get_service_level_objectives(error_on_empty_result: Optional[bool] = None,
+                                 ids: Optional[Sequence[str]] = None,
                                  metrics_query: Optional[str] = None,
                                  name_query: Optional[str] = None,
+                                 query: Optional[str] = None,
                                  tags_query: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceLevelObjectivesResult:
     """
@@ -123,32 +149,40 @@ def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
     ```
 
 
+    :param bool error_on_empty_result: Throw an error if no results are found. Defaults to `true`.
     :param Sequence[str] ids: An array of SLO IDs to limit the search.
     :param str metrics_query: Filter results based on SLO numerator and denominator.
     :param str name_query: Filter results based on SLO names.
+    :param str query: The query string to filter results based on SLO names. Some examples of queries include service:\\n\\n and \\n\\n.
     :param str tags_query: Filter results based on a single SLO tag.
     """
     __args__ = dict()
+    __args__['errorOnEmptyResult'] = error_on_empty_result
     __args__['ids'] = ids
     __args__['metricsQuery'] = metrics_query
     __args__['nameQuery'] = name_query
+    __args__['query'] = query
     __args__['tagsQuery'] = tags_query
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getServiceLevelObjectives:getServiceLevelObjectives', __args__, opts=opts, typ=GetServiceLevelObjectivesResult).value
 
     return AwaitableGetServiceLevelObjectivesResult(
+        error_on_empty_result=pulumi.get(__ret__, 'error_on_empty_result'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         metrics_query=pulumi.get(__ret__, 'metrics_query'),
         name_query=pulumi.get(__ret__, 'name_query'),
+        query=pulumi.get(__ret__, 'query'),
         slos=pulumi.get(__ret__, 'slos'),
         tags_query=pulumi.get(__ret__, 'tags_query'))
 
 
 @_utilities.lift_output_func(get_service_level_objectives)
-def get_service_level_objectives_output(ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.Input[Optional[bool]]] = None,
+                                        ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
                                         name_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                        query: Optional[pulumi.Input[Optional[str]]] = None,
                                         tags_query: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
     """
@@ -164,9 +198,11 @@ def get_service_level_objectives_output(ids: Optional[pulumi.Input[Optional[Sequ
     ```
 
 
+    :param bool error_on_empty_result: Throw an error if no results are found. Defaults to `true`.
     :param Sequence[str] ids: An array of SLO IDs to limit the search.
     :param str metrics_query: Filter results based on SLO numerator and denominator.
     :param str name_query: Filter results based on SLO names.
+    :param str query: The query string to filter results based on SLO names. Some examples of queries include service:\\n\\n and \\n\\n.
     :param str tags_query: Filter results based on a single SLO tag.
     """
     ...

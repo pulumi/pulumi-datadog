@@ -17,14 +17,14 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs exten
     public static final DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs Empty = new DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs();
 
     /**
-     * The number of results to return
+     * The number of results to return.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return The number of results to return
+     * @return The number of results to return.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -72,7 +72,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs exten
         }
 
         /**
-         * @param count The number of results to return
+         * @param count The number of results to return.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaLimitArgs exten
         }
 
         /**
-         * @param count The number of results to return
+         * @param count The number of results to return.
          * 
          * @return builder
          * 

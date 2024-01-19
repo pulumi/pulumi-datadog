@@ -95,7 +95,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
-     * When true the first recovery notification during the downtime will be muted
+     * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
     public readonly muteFirstRecoveryNotification!: pulumi.Output<boolean | undefined>;
     /**
@@ -115,7 +115,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly startDate!: pulumi.Output<string | undefined>;
     /**
-     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -208,7 +208,7 @@ export interface DowntimeState {
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When true the first recovery notification during the downtime will be muted
+     * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
     muteFirstRecoveryNotification?: pulumi.Input<boolean>;
     /**
@@ -228,7 +228,7 @@ export interface DowntimeState {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
     timezone?: pulumi.Input<string>;
 }
@@ -258,7 +258,7 @@ export interface DowntimeArgs {
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When true the first recovery notification during the downtime will be muted
+     * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      */
     muteFirstRecoveryNotification?: pulumi.Input<boolean>;
     /**
@@ -278,7 +278,7 @@ export interface DowntimeArgs {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
      */
     timezone?: pulumi.Input<string>;
 }

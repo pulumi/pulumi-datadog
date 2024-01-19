@@ -19,7 +19,7 @@ public final class GetUserResult {
      */
     private String email;
     /**
-     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute. Defaults to `false`.
      * 
      */
     private @Nullable Boolean exactMatch;
@@ -48,7 +48,7 @@ public final class GetUserResult {
         return this.email;
     }
     /**
-     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute. Defaults to `false`.
      * 
      */
     public Optional<Boolean> exactMatch() {

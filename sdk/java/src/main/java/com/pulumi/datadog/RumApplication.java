@@ -11,7 +11,6 @@ import com.pulumi.datadog.RumApplicationArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.RumApplicationState;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -58,46 +57,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/rumApplication:RumApplication")
 public class RumApplication extends com.pulumi.resources.CustomResource {
     /**
-     * The client token
+     * The client token.
      * 
      */
     @Export(name="clientToken", refs={String.class}, tree="[0]")
     private Output<String> clientToken;
 
     /**
-     * @return The client token
+     * @return The client token.
      * 
      */
     public Output<String> clientToken() {
         return this.clientToken;
     }
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the RUM application
+     * @return Name of the RUM application.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> type;
+    private Output<String> type;
 
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
-    public Output<Optional<String>> type() {
-        return Codegen.optional(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     /**

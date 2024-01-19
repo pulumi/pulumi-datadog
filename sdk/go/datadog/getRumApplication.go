@@ -26,25 +26,25 @@ func LookupRumApplication(ctx *pulumi.Context, args *LookupRumApplicationArgs, o
 type LookupRumApplicationArgs struct {
 	// ID of the RUM application. Cannot be used with name and type filters.
 	Id *string `pulumi:"id"`
-	// The name used to search for a RUM application
+	// The name used to search for a RUM application.
 	NameFilter *string `pulumi:"nameFilter"`
-	// The type used to search for a RUM application
+	// The type used to search for a RUM application.
 	TypeFilter *string `pulumi:"typeFilter"`
 }
 
 // A collection of values returned by getRumApplication.
 type LookupRumApplicationResult struct {
-	// The client token
+	// The client token.
 	ClientToken string `pulumi:"clientToken"`
 	// ID of the RUM application. Cannot be used with name and type filters.
 	Id string `pulumi:"id"`
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name string `pulumi:"name"`
-	// The name used to search for a RUM application
+	// The name used to search for a RUM application.
 	NameFilter *string `pulumi:"nameFilter"`
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
 	Type string `pulumi:"type"`
-	// The type used to search for a RUM application
+	// The type used to search for a RUM application.
 	TypeFilter *string `pulumi:"typeFilter"`
 }
 
@@ -65,9 +65,9 @@ func LookupRumApplicationOutput(ctx *pulumi.Context, args LookupRumApplicationOu
 type LookupRumApplicationOutputArgs struct {
 	// ID of the RUM application. Cannot be used with name and type filters.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name used to search for a RUM application
+	// The name used to search for a RUM application.
 	NameFilter pulumi.StringPtrInput `pulumi:"nameFilter"`
-	// The type used to search for a RUM application
+	// The type used to search for a RUM application.
 	TypeFilter pulumi.StringPtrInput `pulumi:"typeFilter"`
 }
 
@@ -90,7 +90,7 @@ func (o LookupRumApplicationResultOutput) ToLookupRumApplicationResultOutputWith
 	return o
 }
 
-// The client token
+// The client token.
 func (o LookupRumApplicationResultOutput) ClientToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) string { return v.ClientToken }).(pulumi.StringOutput)
 }
@@ -100,22 +100,22 @@ func (o LookupRumApplicationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the RUM application
+// Name of the RUM application.
 func (o LookupRumApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name used to search for a RUM application
+// The name used to search for a RUM application.
 func (o LookupRumApplicationResultOutput) NameFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) *string { return v.NameFilter }).(pulumi.StringPtrOutput)
 }
 
-// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
 func (o LookupRumApplicationResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The type used to search for a RUM application
+// The type used to search for a RUM application.
 func (o LookupRumApplicationResultOutput) TypeFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRumApplicationResult) *string { return v.TypeFilter }).(pulumi.StringPtrOutput)
 }

@@ -64,7 +64,7 @@ type MetricMetadata struct {
 	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrOutput `pulumi:"statsdInterval"`
-	// Metric type such as `gauge` or `rate`.
+	// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
@@ -113,7 +113,7 @@ type metricMetadataState struct {
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval *int `pulumi:"statsdInterval"`
-	// Metric type such as `gauge` or `rate`.
+	// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 	Type *string `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit *string `pulumi:"unit"`
@@ -130,7 +130,7 @@ type MetricMetadataState struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	// Metric type such as `gauge` or `rate`.
+	// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 	Type pulumi.StringPtrInput
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type metricMetadataArgs struct {
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval *int `pulumi:"statsdInterval"`
-	// Metric type such as `gauge` or `rate`.
+	// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 	Type *string `pulumi:"type"`
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit *string `pulumi:"unit"`
@@ -169,7 +169,7 @@ type MetricMetadataArgs struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, statsd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	// Metric type such as `gauge` or `rate`.
+	// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 	Type pulumi.StringPtrInput
 	// Primary unit of the metric such as `byte` or `operation`.
 	Unit pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (o MetricMetadataOutput) StatsdInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricMetadata) pulumi.IntPtrOutput { return v.StatsdInterval }).(pulumi.IntPtrOutput)
 }
 
-// Metric type such as `gauge` or `rate`.
+// Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
 func (o MetricMetadataOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricMetadata) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

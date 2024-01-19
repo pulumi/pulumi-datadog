@@ -22,7 +22,10 @@ class GetTeamMembershipsResult:
     """
     A collection of values returned by getTeamMemberships.
     """
-    def __init__(__self__, filter_keyword=None, id=None, team_id=None, team_memberships=None):
+    def __init__(__self__, exact_match=None, filter_keyword=None, id=None, team_id=None, team_memberships=None):
+        if exact_match and not isinstance(exact_match, bool):
+            raise TypeError("Expected argument 'exact_match' to be a bool")
+        pulumi.set(__self__, "exact_match", exact_match)
         if filter_keyword and not isinstance(filter_keyword, str):
             raise TypeError("Expected argument 'filter_keyword' to be a str")
         pulumi.set(__self__, "filter_keyword", filter_keyword)
@@ -35,6 +38,14 @@ class GetTeamMembershipsResult:
         if team_memberships and not isinstance(team_memberships, list):
             raise TypeError("Expected argument 'team_memberships' to be a list")
         pulumi.set(__self__, "team_memberships", team_memberships)
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[bool]:
+        """
+        When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        """
+        return pulumi.get(self, "exact_match")
 
     @property
     @pulumi.getter(name="filterKeyword")
@@ -75,13 +86,15 @@ class AwaitableGetTeamMembershipsResult(GetTeamMembershipsResult):
         if False:
             yield self
         return GetTeamMembershipsResult(
+            exact_match=self.exact_match,
             filter_keyword=self.filter_keyword,
             id=self.id,
             team_id=self.team_id,
             team_memberships=self.team_memberships)
 
 
-def get_team_memberships(filter_keyword: Optional[str] = None,
+def get_team_memberships(exact_match: Optional[bool] = None,
+                         filter_keyword: Optional[str] = None,
                          team_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamMembershipsResult:
     """
@@ -98,15 +111,18 @@ def get_team_memberships(filter_keyword: Optional[str] = None,
     ```
 
 
+    :param bool exact_match: When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
     :param str filter_keyword: Search query, can be user email or name.
     """
     __args__ = dict()
+    __args__['exactMatch'] = exact_match
     __args__['filterKeyword'] = filter_keyword
     __args__['teamId'] = team_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getTeamMemberships:getTeamMemberships', __args__, opts=opts, typ=GetTeamMembershipsResult).value
 
     return AwaitableGetTeamMembershipsResult(
+        exact_match=pulumi.get(__ret__, 'exact_match'),
         filter_keyword=pulumi.get(__ret__, 'filter_keyword'),
         id=pulumi.get(__ret__, 'id'),
         team_id=pulumi.get(__ret__, 'team_id'),
@@ -114,7 +130,8 @@ def get_team_memberships(filter_keyword: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_team_memberships)
-def get_team_memberships_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None,
+def get_team_memberships_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
+                                filter_keyword: Optional[pulumi.Input[Optional[str]]] = None,
                                 team_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamMembershipsResult]:
     """
@@ -131,6 +148,7 @@ def get_team_memberships_output(filter_keyword: Optional[pulumi.Input[Optional[s
     ```
 
 
+    :param bool exact_match: When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
     :param str filter_keyword: Search query, can be user email or name.
     """
     ...

@@ -190,14 +190,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
      * 
      */
     @Import(name="minLocationFailed")
     private @Nullable Output<Integer> minLocationFailed;
 
     /**
-     * @return Minimum number of locations in failure required to trigger an alert. Default is `1`.
+     * @return Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> minLocationFailed() {
@@ -591,7 +591,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Default is `1`.
+         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Default is `1`.
+         * @param minLocationFailed Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
          * 
          * @return builder
          * 

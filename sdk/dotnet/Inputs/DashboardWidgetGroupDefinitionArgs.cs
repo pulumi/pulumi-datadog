@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> LayoutType { get; set; } = null!;
 
         /// <summary>
-        /// Whether to show the title or not.
+        /// Whether to show the title or not. Defaults to `true`.
         /// </summary>
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
     /**
-     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
@@ -63,7 +63,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
 
     private DashboardWidgetTreemapDefinitionRequestQueryProcessQuery() {}
     /**
-     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {

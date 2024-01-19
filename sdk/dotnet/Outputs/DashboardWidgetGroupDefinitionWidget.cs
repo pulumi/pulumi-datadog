@@ -86,6 +86,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? NoteDefinition;
         /// <summary>
+        /// The definition for a Powerpack widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinition? PowerpackDefinition;
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
@@ -113,6 +117,10 @@ namespace Pulumi.Datadog.Outputs
         /// The definition for an SLO (Service Level Objective) List widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? SloListDefinition;
+        /// <summary>
+        /// The definition for a Split Graph widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? SplitGraphDefinition;
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
@@ -180,6 +188,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? noteDefinition,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinition? powerpackDefinition,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? queryTableDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition? queryValueDefinition,
@@ -193,6 +203,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? servicemapDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? sloListDefinition,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? splitGraphDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? sunburstDefinition,
 
@@ -226,6 +238,7 @@ namespace Pulumi.Datadog.Outputs
             LogStreamDefinition = logStreamDefinition;
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
+            PowerpackDefinition = powerpackDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
@@ -233,6 +246,7 @@ namespace Pulumi.Datadog.Outputs
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
             SloListDefinition = sloListDefinition;
+            SplitGraphDefinition = splitGraphDefinition;
             SunburstDefinition = sunburstDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;

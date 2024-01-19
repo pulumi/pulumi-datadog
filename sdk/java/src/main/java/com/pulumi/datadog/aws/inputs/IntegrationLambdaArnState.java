@@ -16,14 +16,14 @@ public final class IntegrationLambdaArnState extends com.pulumi.resources.Resour
     public static final IntegrationLambdaArnState Empty = new IntegrationLambdaArnState();
 
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * @return Your AWS Account ID without dashes.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -71,7 +71,7 @@ public final class IntegrationLambdaArnState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class IntegrationLambdaArnState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountId Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+         * @param accountId Your AWS Account ID without dashes.
          * 
          * @return builder
          * 

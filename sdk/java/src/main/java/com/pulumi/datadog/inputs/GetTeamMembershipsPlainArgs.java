@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTeamMembershipsPlainArgs Empty = new GetTeamMembershipsPlainArgs();
+
+    /**
+     * When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Boolean exactMatch;
+
+    /**
+     * @return When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * Search query, can be user email or name.
@@ -40,6 +56,7 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
     private GetTeamMembershipsPlainArgs() {}
 
     private GetTeamMembershipsPlainArgs(GetTeamMembershipsPlainArgs $) {
+        this.exactMatch = $.exactMatch;
         this.filterKeyword = $.filterKeyword;
         this.teamId = $.teamId;
     }
@@ -60,6 +77,17 @@ public final class GetTeamMembershipsPlainArgs extends com.pulumi.resources.Invo
 
         public Builder(GetTeamMembershipsPlainArgs defaults) {
             $ = new GetTeamMembershipsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch When true, `filter_keyword` string is exact matched against the user&#39;s `email`, followed by `name`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
         }
 
         /**

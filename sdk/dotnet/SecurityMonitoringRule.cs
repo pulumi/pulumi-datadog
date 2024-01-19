@@ -95,7 +95,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleCase>> Cases { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the rule is enabled.
+        /// Whether the rule is enabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         /// </summary>
         [Output("hasExtendedTitle")]
         public Output<bool?> HasExtendedTitle { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the rule is enabled.
+        /// Whether the rule is enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         /// </summary>
         [Input("hasExtendedTitle")]
         public Input<bool>? HasExtendedTitle { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the rule is enabled.
+        /// Whether the rule is enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Whether the notifications include the triggering group-by values in their title.
+        /// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         /// </summary>
         [Input("hasExtendedTitle")]
         public Input<bool>? HasExtendedTitle { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+        /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

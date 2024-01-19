@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int Height;
         /// <summary>
-        /// Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+        /// Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
         /// </summary>
         public readonly bool? IsColumnBreak;
         /// <summary>

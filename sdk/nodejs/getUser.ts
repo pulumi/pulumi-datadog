@@ -32,7 +32,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     exactMatch?: boolean;
     /**
@@ -50,7 +50,7 @@ export interface GetUserResult {
      */
     readonly email: string;
     /**
-     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     readonly exactMatch?: boolean;
     /**
@@ -89,7 +89,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
      */
     exactMatch?: pulumi.Input<boolean>;
     /**

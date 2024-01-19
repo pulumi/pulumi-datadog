@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelDisplay {
     /**
-     * @return Show the main body of the alert event.
+     * @return Show the main body of the alert event. Defaults to `true`.
      * 
      */
     private @Nullable Boolean message;
     /**
-     * @return Show the list of @-handles in the alert event.
+     * @return Show the list of @-handles in the alert event. Defaults to `true`.
      * 
      */
     private @Nullable Boolean notified;
     /**
-     * @return Show the alert event&#39;s snapshot image.
+     * @return Show the alert event&#39;s snapshot image. Defaults to `true`.
      * 
      */
     private @Nullable Boolean snapshot;
     /**
-     * @return Show the scopes on which the monitor alerted.
+     * @return Show the scopes on which the monitor alerted. Defaults to `true`.
      * 
      */
     private @Nullable Boolean tags;
 
     private ChannelDisplay() {}
     /**
-     * @return Show the main body of the alert event.
+     * @return Show the main body of the alert event. Defaults to `true`.
      * 
      */
     public Optional<Boolean> message() {
         return Optional.ofNullable(this.message);
     }
     /**
-     * @return Show the list of @-handles in the alert event.
+     * @return Show the list of @-handles in the alert event. Defaults to `true`.
      * 
      */
     public Optional<Boolean> notified() {
         return Optional.ofNullable(this.notified);
     }
     /**
-     * @return Show the alert event&#39;s snapshot image.
+     * @return Show the alert event&#39;s snapshot image. Defaults to `true`.
      * 
      */
     public Optional<Boolean> snapshot() {
         return Optional.ofNullable(this.snapshot);
     }
     /**
-     * @return Show the scopes on which the monitor alerted.
+     * @return Show the scopes on which the monitor alerted. Defaults to `true`.
      * 
      */
     public Optional<Boolean> tags() {

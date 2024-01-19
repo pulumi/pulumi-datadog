@@ -16,14 +16,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     public static final RumApplicationState Empty = new RumApplicationState();
 
     /**
-     * The client token
+     * The client token.
      * 
      */
     @Import(name="clientToken")
     private @Nullable Output<String> clientToken;
 
     /**
-     * @return The client token
+     * @return The client token.
      * 
      */
     public Optional<Output<String>> clientToken() {
@@ -31,14 +31,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the RUM application
+     * @return Name of the RUM application.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -87,7 +87,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clientToken The client token
+         * @param clientToken The client token.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clientToken The client token
+         * @param clientToken The client token.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the RUM application
+         * @param name Name of the RUM application.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the RUM application
+         * @param name Name of the RUM application.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 

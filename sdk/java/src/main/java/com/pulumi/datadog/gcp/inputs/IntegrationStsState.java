@@ -78,14 +78,14 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      * 
      */
     @Import(name="isCspmEnabled")
     private @Nullable Output<Boolean> isCspmEnabled;
 
     /**
-     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      * 
      */
     public Optional<Output<Boolean>> isCspmEnabled() {
@@ -215,7 +215,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
          * 
          * @return builder
          * 

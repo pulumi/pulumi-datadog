@@ -21,6 +21,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetListStream
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition;
@@ -28,6 +29,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplo
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
@@ -133,6 +135,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
     /**
+     * @return The definition for a Powerpack widget.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetPowerpackDefinition powerpackDefinition;
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -167,6 +174,11 @@ public final class DashboardWidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
@@ -331,6 +343,13 @@ public final class DashboardWidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Powerpack widget.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetPowerpackDefinition> powerpackDefinition() {
+        return Optional.ofNullable(this.powerpackDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -378,6 +397,13 @@ public final class DashboardWidgetGroupDefinitionWidget {
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetSloListDefinition> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
+    }
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
     }
     /**
      * @return The definition for a Sunburst widget.
@@ -456,6 +482,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
         private @Nullable DashboardWidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetPowerpackDefinition powerpackDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
@@ -463,6 +490,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
         private @Nullable DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
         private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
@@ -491,6 +519,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.powerpackDefinition = defaults.powerpackDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
@@ -498,6 +527,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
     	      this.sloListDefinition = defaults.sloListDefinition;
+    	      this.splitGraphDefinition = defaults.splitGraphDefinition;
     	      this.sunburstDefinition = defaults.sunburstDefinition;
     	      this.timeseriesDefinition = defaults.timeseriesDefinition;
     	      this.toplistDefinition = defaults.toplistDefinition;
@@ -616,6 +646,12 @@ public final class DashboardWidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder powerpackDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetPowerpackDefinition powerpackDefinition) {
+
+            this.powerpackDefinition = powerpackDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -655,6 +691,12 @@ public final class DashboardWidgetGroupDefinitionWidget {
         public Builder sloListDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetSloListDefinition sloListDefinition) {
 
             this.sloListDefinition = sloListDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder splitGraphDefinition(@Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition splitGraphDefinition) {
+
+            this.splitGraphDefinition = splitGraphDefinition;
             return this;
         }
         @CustomType.Setter
@@ -719,6 +761,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.powerpackDefinition = powerpackDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
@@ -726,6 +769,7 @@ public final class DashboardWidgetGroupDefinitionWidget {
             _resultValue.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             _resultValue.servicemapDefinition = servicemapDefinition;
             _resultValue.sloListDefinition = sloListDefinition;
+            _resultValue.splitGraphDefinition = splitGraphDefinition;
             _resultValue.sunburstDefinition = sunburstDefinition;
             _resultValue.timeseriesDefinition = timeseriesDefinition;
             _resultValue.toplistDefinition = toplistDefinition;

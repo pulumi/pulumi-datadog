@@ -58,7 +58,7 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     public readonly hostFilters!: pulumi.Output<string[] | undefined>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      */
     public readonly isCspmEnabled!: pulumi.Output<boolean>;
 
@@ -117,7 +117,7 @@ export interface IntegrationStsState {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
 }
@@ -139,7 +139,7 @@ export interface IntegrationStsArgs {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
 }

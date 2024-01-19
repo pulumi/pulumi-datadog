@@ -54,17 +54,17 @@ export class RumApplication extends pulumi.CustomResource {
     }
 
     /**
-     * The client token
+     * The client token.
      */
     public /*out*/ readonly clientToken!: pulumi.Output<string>;
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a RumApplication resource with the given unique name, arguments, and options.
@@ -101,15 +101,15 @@ export class RumApplication extends pulumi.CustomResource {
  */
 export interface RumApplicationState {
     /**
-     * The client token
+     * The client token.
      */
     clientToken?: pulumi.Input<string>;
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      */
     name?: pulumi.Input<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
     type?: pulumi.Input<string>;
 }
@@ -119,11 +119,11 @@ export interface RumApplicationState {
  */
 export interface RumApplicationArgs {
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      */
     name: pulumi.Input<string>;
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
      */
     type?: pulumi.Input<string>;
 }

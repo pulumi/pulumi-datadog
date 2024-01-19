@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/serviceAccount:ServiceAccount")
 public class ServiceAccount extends com.pulumi.resources.CustomResource {
     /**
-     * Whether the service account is disabled.
+     * Whether the service account is disabled. Defaults to `false`.
      * 
      */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
-     * @return Whether the service account is disabled.
+     * @return Whether the service account is disabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> disabled() {

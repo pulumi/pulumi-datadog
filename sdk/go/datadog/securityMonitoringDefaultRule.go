@@ -61,7 +61,7 @@ type SecurityMonitoringDefaultRule struct {
 
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayOutput `pulumi:"cases"`
-	// Enable the rule.
+	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayOutput `pulumi:"filters"`
@@ -103,7 +103,7 @@ func GetSecurityMonitoringDefaultRule(ctx *pulumi.Context,
 type securityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
-	// Enable the rule.
+	// Enable the rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
@@ -116,7 +116,7 @@ type securityMonitoringDefaultRuleState struct {
 type SecurityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
-	// Enable the rule.
+	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
@@ -133,7 +133,7 @@ func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
 type securityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
-	// Enable the rule.
+	// Enable the rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
 	Filters []SecurityMonitoringDefaultRuleFilter `pulumi:"filters"`
@@ -145,7 +145,7 @@ type securityMonitoringDefaultRuleArgs struct {
 type SecurityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
-	// Enable the rule.
+	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
 	Filters SecurityMonitoringDefaultRuleFilterArrayInput
@@ -245,7 +245,7 @@ func (o SecurityMonitoringDefaultRuleOutput) Cases() SecurityMonitoringDefaultRu
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringDefaultRuleCaseArrayOutput)
 }
 
-// Enable the rule.
+// Enable the rule. Defaults to `true`.
 func (o SecurityMonitoringDefaultRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

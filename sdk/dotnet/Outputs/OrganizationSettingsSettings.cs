@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OrganizationSettingsSettings
     {
         /// <summary>
-        /// Whether or not the organization users can share widgets outside of Datadog.
+        /// Whether or not the organization users can share widgets outside of Datadog. Defaults to `false`.
         /// </summary>
         public readonly bool? PrivateWidgetShare;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.OrganizationSettingsSettingsSaml Saml;
         /// <summary>
-        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `"st"`.
         /// </summary>
         public readonly string? SamlAutocreateAccessRole;
         /// <summary>

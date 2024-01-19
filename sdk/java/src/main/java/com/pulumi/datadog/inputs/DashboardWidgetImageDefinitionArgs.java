@@ -18,14 +18,14 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
     public static final DashboardWidgetImageDefinitionArgs Empty = new DashboardWidgetImageDefinitionArgs();
 
     /**
-     * Whether to display a background or not.
+     * Whether to display a background or not. Defaults to `true`.
      * 
      */
     @Import(name="hasBackground")
     private @Nullable Output<Boolean> hasBackground;
 
     /**
-     * @return Whether to display a background or not.
+     * @return Whether to display a background or not. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> hasBackground() {
@@ -33,14 +33,14 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Whether to display a border or not.
+     * Whether to display a border or not. Defaults to `true`.
      * 
      */
     @Import(name="hasBorder")
     private @Nullable Output<Boolean> hasBorder;
 
     /**
-     * @return Whether to display a border or not.
+     * @return Whether to display a border or not. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> hasBorder() {
@@ -169,7 +169,7 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hasBackground Whether to display a background or not.
+         * @param hasBackground Whether to display a background or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hasBackground Whether to display a background or not.
+         * @param hasBackground Whether to display a background or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hasBorder Whether to display a border or not.
+         * @param hasBorder Whether to display a border or not. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DashboardWidgetImageDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hasBorder Whether to display a border or not.
+         * @param hasBorder Whether to display a border or not. Defaults to `true`.
          * 
          * @return builder
          * 

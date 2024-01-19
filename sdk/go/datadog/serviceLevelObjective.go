@@ -129,7 +129,7 @@ type ServiceLevelObjective struct {
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringOutput `pulumi:"timeframe"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
@@ -196,7 +196,7 @@ type serviceLevelObjectiveState struct {
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type *string `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate *bool `pulumi:"validate"`
@@ -225,7 +225,7 @@ type ServiceLevelObjectiveState struct {
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringPtrInput
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrInput
@@ -258,7 +258,7 @@ type serviceLevelObjectiveArgs struct {
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type string `pulumi:"type"`
 	// Whether or not to validate the SLO.
 	Validate *bool `pulumi:"validate"`
@@ -288,7 +288,7 @@ type ServiceLevelObjectiveArgs struct {
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringInput
 	// Whether or not to validate the SLO.
 	Validate pulumi.BoolPtrInput
@@ -433,7 +433,7 @@ func (o ServiceLevelObjectiveOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 func (o ServiceLevelObjectiveOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

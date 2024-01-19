@@ -109,14 +109,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return this.cases;
     }
     /**
-     * Whether the rule is enabled.
+     * Whether the rule is enabled. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the rule is enabled.
+     * @return Whether the rule is enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -137,14 +137,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.filters);
     }
     /**
-     * Whether the notifications include the triggering group-by values in their title.
+     * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
     @Export(name="hasExtendedTitle", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hasExtendedTitle;
 
     /**
-     * @return Whether the notifications include the triggering group-by values in their title.
+     * @return Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> hasExtendedTitle() {
@@ -235,14 +235,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.tags);
     }
     /**
-     * The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+     * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+     * @return The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
      * 
      */
     public Output<Optional<String>> type() {

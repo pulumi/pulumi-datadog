@@ -26,7 +26,7 @@ public final class SyntheticsTestConfigVariable {
     private String name;
     private @Nullable String pattern;
     /**
-     * @return Whether the value of this variable will be obfuscated in test results.
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
      * 
      */
     private @Nullable Boolean secure;
@@ -58,7 +58,7 @@ public final class SyntheticsTestConfigVariable {
         return Optional.ofNullable(this.pattern);
     }
     /**
-     * @return Whether the value of this variable will be obfuscated in test results.
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
      * 
      */
     public Optional<Boolean> secure() {

@@ -60,14 +60,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:aws/integrationLogCollection:IntegrationLogCollection")
 public class IntegrationLogCollection extends com.pulumi.resources.CustomResource {
     /**
-     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * Your AWS Account ID without dashes.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+     * @return Your AWS Account ID without dashes.
      * 
      */
     public Output<String> accountId() {

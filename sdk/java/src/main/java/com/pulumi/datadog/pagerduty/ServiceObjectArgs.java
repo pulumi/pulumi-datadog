@@ -15,14 +15,14 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
     public static final ServiceObjectArgs Empty = new ServiceObjectArgs();
 
     /**
-     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+     * Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
      * 
      */
     @Import(name="serviceKey", required=true)
     private Output<String> serviceKey;
 
     /**
-     * @return Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+     * @return Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
      * 
      */
     public Output<String> serviceKey() {
@@ -70,7 +70,7 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+         * @param serviceKey Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceObjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceKey Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts to have it destroyed and recreated.
+         * @param serviceKey Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
          * 
          * @return builder
          * 

@@ -22,8 +22,8 @@ class CloudWorkloadSecurityAgentRuleArgs:
         The set of arguments for constructing a CloudWorkloadSecurityAgentRule resource.
         :param pulumi.Input[str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[str] name: The name of the Agent rule.
-        :param pulumi.Input[str] description: The description of the Agent rule.
-        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled.
+        :param pulumi.Input[str] description: The description of the Agent rule. Defaults to `""`.
+        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
@@ -60,7 +60,7 @@ class CloudWorkloadSecurityAgentRuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Agent rule.
+        The description of the Agent rule. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -72,7 +72,7 @@ class CloudWorkloadSecurityAgentRuleArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the Agent rule is enabled.
+        Whether the Agent rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -90,8 +90,8 @@ class _CloudWorkloadSecurityAgentRuleState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CloudWorkloadSecurityAgentRule resources.
-        :param pulumi.Input[str] description: The description of the Agent rule.
-        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled.
+        :param pulumi.Input[str] description: The description of the Agent rule. Defaults to `""`.
+        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled. Defaults to `true`.
         :param pulumi.Input[str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[str] name: The name of the Agent rule.
         """
@@ -108,7 +108,7 @@ class _CloudWorkloadSecurityAgentRuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the Agent rule.
+        The description of the Agent rule. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -120,7 +120,7 @@ class _CloudWorkloadSecurityAgentRuleState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the Agent rule is enabled.
+        Whether the Agent rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -189,8 +189,8 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the Agent rule.
-        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled.
+        :param pulumi.Input[str] description: The description of the Agent rule. Defaults to `""`.
+        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled. Defaults to `true`.
         :param pulumi.Input[str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[str] name: The name of the Agent rule.
         """
@@ -281,8 +281,8 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the Agent rule.
-        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled.
+        :param pulumi.Input[str] description: The description of the Agent rule. Defaults to `""`.
+        :param pulumi.Input[bool] enabled: Whether the Agent rule is enabled. Defaults to `true`.
         :param pulumi.Input[str] expression: The SECL expression of the Agent rule.
         :param pulumi.Input[str] name: The name of the Agent rule.
         """
@@ -300,7 +300,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the Agent rule.
+        The description of the Agent rule. Defaults to `""`.
         """
         return pulumi.get(self, "description")
 
@@ -308,7 +308,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the Agent rule is enabled.
+        Whether the Agent rule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

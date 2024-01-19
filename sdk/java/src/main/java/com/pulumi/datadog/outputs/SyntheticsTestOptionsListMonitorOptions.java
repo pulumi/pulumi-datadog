@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestOptionsListMonitorOptions {
     /**
-     * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
+     * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
      */
     private @Nullable Integer renotifyInterval;
 
     private SyntheticsTestOptionsListMonitorOptions() {}
     /**
-     * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`.
+     * @return Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
      * 
      */
     public Optional<Integer> renotifyInterval() {

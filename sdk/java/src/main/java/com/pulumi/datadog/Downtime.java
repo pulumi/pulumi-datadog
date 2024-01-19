@@ -180,14 +180,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitorTags);
     }
     /**
-     * When true the first recovery notification during the downtime will be muted
+     * When true the first recovery notification during the downtime will be muted Defaults to `false`.
      * 
      */
     @Export(name="muteFirstRecoveryNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> muteFirstRecoveryNotification;
 
     /**
-     * @return When true the first recovery notification during the downtime will be muted
+     * @return When true the first recovery notification during the downtime will be muted Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> muteFirstRecoveryNotification() {
@@ -250,14 +250,14 @@ public class Downtime extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startDate);
     }
     /**
-     * The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
-     * @return The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+     * @return The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `&#34;UTC&#34;`.
      * 
      */
     public Output<Optional<String>> timezone() {
