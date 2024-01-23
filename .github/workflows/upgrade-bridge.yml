@@ -49,7 +49,7 @@ env:
 jobs:
   upgrade_provider:
     name: upgrade-provider
-    runs-on: pulumi-ubuntu-8core
+    runs-on: ubuntu-latest
     steps:
     - name: Call upgrade provider action
       if: github.event_name == 'workflow_dispatch'
@@ -61,7 +61,6 @@ jobs:
         automerge: ${{ inputs.automerge }}
         target-bridge-version: ${{ inputs.target-bridge-version }}
         target-pulumi-version: ${{ inputs.target-pulumi-version }}
-        target-java-version: v0.9.3
         pr-reviewers: ${{ inputs.pr-reviewers }}
         pr-description: ${{ inputs.pr-description }}
     - name: Call upgrade provider action
