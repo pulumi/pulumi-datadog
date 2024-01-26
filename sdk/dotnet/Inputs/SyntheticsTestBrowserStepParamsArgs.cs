@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// For an "assert download" step.
+        /// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
         /// </summary>
         [Input("file")]
         public Input<string>? File { get; set; }

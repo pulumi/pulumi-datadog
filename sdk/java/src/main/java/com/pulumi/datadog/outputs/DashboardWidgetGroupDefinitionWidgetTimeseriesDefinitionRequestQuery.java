@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
@@ -27,6 +28,11 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
     /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryCloudCostQuery cloudCostQuery;
+    /**
      * @return A timeseries formula and functions events query.
      * 
      */
@@ -42,7 +48,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery sloQuery;
@@ -61,6 +67,13 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
+    }
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryCloudCostQuery> cloudCostQuery() {
+        return Optional.ofNullable(this.cloudCostQuery);
     }
     /**
      * @return A timeseries formula and functions events query.
@@ -84,7 +97,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuerySloQuery> sloQuery() {
@@ -102,6 +115,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     public static final class Builder {
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
@@ -111,6 +125,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
+    	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
@@ -127,6 +142,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
             this.apmResourceStatsQuery = apmResourceStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudCostQuery(@Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryCloudCostQuery cloudCostQuery) {
+
+            this.cloudCostQuery = cloudCostQuery;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +178,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
             final var _resultValue = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
+            _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;

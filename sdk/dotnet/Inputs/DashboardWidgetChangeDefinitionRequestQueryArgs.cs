@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQueryArgs>? ApmResourceStatsQuery { get; set; }
 
         /// <summary>
+        /// The Cloud Cost query using formulas and functions.
+        /// </summary>
+        [Input("cloudCostQuery")]
+        public Input<Inputs.DashboardWidgetChangeDefinitionRequestQueryCloudCostQueryArgs>? CloudCostQuery { get; set; }
+
+        /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
         [Input("eventQuery")]
@@ -43,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The slo query using formulas and functions.
+        /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }

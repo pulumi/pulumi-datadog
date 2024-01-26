@@ -23,6 +23,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetPowerpackDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionArgs;
@@ -30,6 +31,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionArgs;
@@ -333,6 +335,21 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The definition for a Powerpack widget.
+     * 
+     */
+    @Import(name="powerpackDefinition")
+    private @Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition;
+
+    /**
+     * @return The definition for a Powerpack widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetPowerpackDefinitionArgs>> powerpackDefinition() {
+        return Optional.ofNullable(this.powerpackDefinition);
+    }
+
+    /**
      * The definition for a Query Table widget.
      * 
      */
@@ -435,6 +452,21 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<DashboardWidgetSloListDefinitionArgs>> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
+    }
+
+    /**
+     * The definition for a Split Graph widget.
+     * 
+     */
+    @Import(name="splitGraphDefinition")
+    private @Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
+
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
     }
 
     /**
@@ -564,6 +596,7 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
+        this.powerpackDefinition = $.powerpackDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
@@ -571,6 +604,7 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
         this.sloListDefinition = $.sloListDefinition;
+        this.splitGraphDefinition = $.splitGraphDefinition;
         this.sunburstDefinition = $.sunburstDefinition;
         this.timeseriesDefinition = $.timeseriesDefinition;
         this.toplistDefinition = $.toplistDefinition;
@@ -998,6 +1032,27 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param powerpackDefinition The definition for a Powerpack widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder powerpackDefinition(@Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition) {
+            $.powerpackDefinition = powerpackDefinition;
+            return this;
+        }
+
+        /**
+         * @param powerpackDefinition The definition for a Powerpack widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder powerpackDefinition(DashboardWidgetPowerpackDefinitionArgs powerpackDefinition) {
+            return powerpackDefinition(Output.of(powerpackDefinition));
+        }
+
+        /**
          * @param queryTableDefinition The definition for a Query Table widget.
          * 
          * @return builder
@@ -1142,6 +1197,27 @@ public final class DashboardWidgetArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder sloListDefinition(DashboardWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
+            $.splitGraphDefinition = splitGraphDefinition;
+            return this;
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(DashboardWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
+            return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
         /**

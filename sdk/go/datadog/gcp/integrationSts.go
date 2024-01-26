@@ -32,7 +32,7 @@ type IntegrationSts struct {
 	DelegateAccountEmail pulumi.StringOutput `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayOutput `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 	IsCspmEnabled pulumi.BoolOutput `pulumi:"isCspmEnabled"`
 }
 
@@ -77,7 +77,7 @@ type integrationStsState struct {
 	DelegateAccountEmail *string `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
 }
 
@@ -90,7 +90,7 @@ type IntegrationStsState struct {
 	DelegateAccountEmail pulumi.StringPtrInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 	IsCspmEnabled pulumi.BoolPtrInput
 }
 
@@ -105,7 +105,7 @@ type integrationStsArgs struct {
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
 }
 
@@ -117,7 +117,7 @@ type IntegrationStsArgs struct {
 	ClientEmail pulumi.StringInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 	IsCspmEnabled pulumi.BoolPtrInput
 }
 
@@ -228,7 +228,7 @@ func (o IntegrationStsOutput) HostFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.StringArrayOutput { return v.HostFilters }).(pulumi.StringArrayOutput)
 }
 
-// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
 func (o IntegrationStsOutput) IsCspmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsCspmEnabled }).(pulumi.BoolOutput)
 }

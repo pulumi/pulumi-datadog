@@ -15,14 +15,14 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetPermissionsPlainArgs Empty = new GetPermissionsPlainArgs();
 
     /**
-     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     @Import(name="includeRestricted")
     private @Nullable Boolean includeRestricted;
 
     /**
-     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     public Optional<Boolean> includeRestricted() {
@@ -54,7 +54,7 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+         * @param includeRestricted Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
          * 
          * @return builder
          * 

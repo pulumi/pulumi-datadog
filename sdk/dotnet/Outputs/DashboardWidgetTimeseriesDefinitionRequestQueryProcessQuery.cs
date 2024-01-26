@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery
     {
         /// <summary>
-        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>

@@ -6,12 +6,15 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestStyleArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +37,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      */
     public Optional<Output<DashboardWidgetHeatmapDefinitionRequestApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
+    }
+
+    @Import(name="formulas")
+    private @Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestFormulaArgs>> formulas;
+
+    public Optional<Output<List<DashboardWidgetHeatmapDefinitionRequestFormulaArgs>>> formulas() {
+        return Optional.ofNullable(this.formulas);
     }
 
     /**
@@ -79,6 +89,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
+    }
+
+    @Import(name="queries")
+    private @Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestQueryArgs>> queries;
+
+    public Optional<Output<List<DashboardWidgetHeatmapDefinitionRequestQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
     }
 
     /**
@@ -130,9 +147,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
 
     private DashboardWidgetHeatmapDefinitionRequestArgs(DashboardWidgetHeatmapDefinitionRequestArgs $) {
         this.apmQuery = $.apmQuery;
+        this.formulas = $.formulas;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
+        this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
         this.style = $.style;
@@ -175,6 +194,19 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          */
         public Builder apmQuery(DashboardWidgetHeatmapDefinitionRequestApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
+        }
+
+        public Builder formulas(@Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestFormulaArgs>> formulas) {
+            $.formulas = formulas;
+            return this;
+        }
+
+        public Builder formulas(List<DashboardWidgetHeatmapDefinitionRequestFormulaArgs> formulas) {
+            return formulas(Output.of(formulas));
+        }
+
+        public Builder formulas(DashboardWidgetHeatmapDefinitionRequestFormulaArgs... formulas) {
+            return formulas(List.of(formulas));
         }
 
         /**
@@ -238,6 +270,19 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          */
         public Builder q(String q) {
             return q(Output.of(q));
+        }
+
+        public Builder queries(@Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestQueryArgs>> queries) {
+            $.queries = queries;
+            return this;
+        }
+
+        public Builder queries(List<DashboardWidgetHeatmapDefinitionRequestQueryArgs> queries) {
+            return queries(Output.of(queries));
+        }
+
+        public Builder queries(DashboardWidgetHeatmapDefinitionRequestQueryArgs... queries) {
+            return queries(List.of(queries));
         }
 
         /**

@@ -31,7 +31,7 @@ public final class DashboardWidgetGroupDefinition {
      */
     private String layoutType;
     /**
-     * @return Whether to show the title or not.
+     * @return Whether to show the title or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean showTitle;
@@ -69,7 +69,7 @@ public final class DashboardWidgetGroupDefinition {
         return this.layoutType;
     }
     /**
-     * @return Whether to show the title or not.
+     * @return Whether to show the title or not. Defaults to `true`.
      * 
      */
     public Optional<Boolean> showTitle() {

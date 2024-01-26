@@ -127,6 +127,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetNoteDefinitionGetArgs>? NoteDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Powerpack widget.
+        /// </summary>
+        [Input("powerpackDefinition")]
+        public Input<Inputs.DashboardWidgetPowerpackDefinitionGetArgs>? PowerpackDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         [Input("queryTableDefinition")]
@@ -167,6 +173,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("sloListDefinition")]
         public Input<Inputs.DashboardWidgetSloListDefinitionGetArgs>? SloListDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Split Graph widget.
+        /// </summary>
+        [Input("splitGraphDefinition")]
+        public Input<Inputs.DashboardWidgetSplitGraphDefinitionGetArgs>? SplitGraphDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Sunburst widget.

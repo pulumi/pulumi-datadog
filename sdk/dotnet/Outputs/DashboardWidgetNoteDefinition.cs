@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? FontSize;
         /// <summary>
-        /// Whether to add padding or not.
+        /// Whether to add padding or not. Defaults to `true`.
         /// </summary>
         public readonly bool? HasPadding;
         /// <summary>

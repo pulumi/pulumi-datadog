@@ -132,14 +132,14 @@ public class MetricMetadata extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.statsdInterval);
     }
     /**
-     * Metric type such as `gauge` or `rate`.
+     * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return Metric type such as `gauge` or `rate`.
+     * @return Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      * 
      */
     public Output<Optional<String>> type() {

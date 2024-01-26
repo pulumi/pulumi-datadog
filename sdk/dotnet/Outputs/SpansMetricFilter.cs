@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SpansMetricFilter
     {
         /// <summary>
-        /// The search query - following the span search syntax.
+        /// The search query - following the span search syntax. Defaults to `"*"`.
         /// </summary>
         public readonly string? Query;
 

@@ -74,7 +74,7 @@ type Downtime struct {
 	MonitorId pulumi.IntPtrOutput `pulumi:"monitorId"`
 	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayOutput `pulumi:"monitorTags"`
-	// When true the first recovery notification during the downtime will be muted
+	// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 	MuteFirstRecoveryNotification pulumi.BoolPtrOutput `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrOutput `pulumi:"recurrence"`
@@ -84,7 +84,7 @@ type Downtime struct {
 	Start pulumi.IntPtrOutput `pulumi:"start"`
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+	// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
 
@@ -137,7 +137,7 @@ type downtimeState struct {
 	MonitorId *int `pulumi:"monitorId"`
 	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags []string `pulumi:"monitorTags"`
-	// When true the first recovery notification during the downtime will be muted
+	// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 	MuteFirstRecoveryNotification *bool `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
@@ -147,7 +147,7 @@ type downtimeState struct {
 	Start *int `pulumi:"start"`
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate *string `pulumi:"startDate"`
-	// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+	// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -168,7 +168,7 @@ type DowntimeState struct {
 	MonitorId pulumi.IntPtrInput
 	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayInput
-	// When true the first recovery notification during the downtime will be muted
+	// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 	MuteFirstRecoveryNotification pulumi.BoolPtrInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
@@ -178,7 +178,7 @@ type DowntimeState struct {
 	Start pulumi.IntPtrInput
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrInput
-	// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+	// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 	Timezone pulumi.StringPtrInput
 }
 
@@ -197,7 +197,7 @@ type downtimeArgs struct {
 	MonitorId *int `pulumi:"monitorId"`
 	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags []string `pulumi:"monitorTags"`
-	// When true the first recovery notification during the downtime will be muted
+	// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 	MuteFirstRecoveryNotification *bool `pulumi:"muteFirstRecoveryNotification"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
@@ -207,7 +207,7 @@ type downtimeArgs struct {
 	Start *int `pulumi:"start"`
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate *string `pulumi:"startDate"`
-	// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+	// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -223,7 +223,7 @@ type DowntimeArgs struct {
 	MonitorId pulumi.IntPtrInput
 	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayInput
-	// When true the first recovery notification during the downtime will be muted
+	// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 	MuteFirstRecoveryNotification pulumi.BoolPtrInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
@@ -233,7 +233,7 @@ type DowntimeArgs struct {
 	Start pulumi.IntPtrInput
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrInput
-	// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+	// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 	Timezone pulumi.StringPtrInput
 }
 
@@ -364,7 +364,7 @@ func (o DowntimeOutput) MonitorTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Downtime) pulumi.StringArrayOutput { return v.MonitorTags }).(pulumi.StringArrayOutput)
 }
 
-// When true the first recovery notification during the downtime will be muted
+// When true the first recovery notification during the downtime will be muted Defaults to `false`.
 func (o DowntimeOutput) MuteFirstRecoveryNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Downtime) pulumi.BoolPtrOutput { return v.MuteFirstRecoveryNotification }).(pulumi.BoolPtrOutput)
 }
@@ -389,7 +389,7 @@ func (o DowntimeOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// The timezone for the downtime, default UTC. Follows IANA timezone database identifiers.
+// The timezone for the downtime. Follows IANA timezone database identifiers. Defaults to `"UTC"`.
 func (o DowntimeOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Downtime) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }

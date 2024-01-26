@@ -19,7 +19,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
      */
     private Integer height;
     /**
-     * @return Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * @return Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
      * 
      */
     private @Nullable Boolean isColumnBreak;
@@ -48,7 +48,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
         return this.height;
     }
     /**
-     * @return Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * @return Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
      * 
      */
     public Optional<Boolean> isColumnBreak() {

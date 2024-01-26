@@ -50,7 +50,10 @@ import com.pulumi.datadog.inputs.GetTeamMembershipsPlainArgs;
 import com.pulumi.datadog.inputs.GetTeamPlainArgs;
 import com.pulumi.datadog.inputs.GetUserArgs;
 import com.pulumi.datadog.inputs.GetUserPlainArgs;
+import com.pulumi.datadog.inputs.GetUsersArgs;
+import com.pulumi.datadog.inputs.GetUsersPlainArgs;
 import com.pulumi.datadog.outputs.GetApiKeyResult;
+import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
@@ -81,6 +84,7 @@ import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
 import com.pulumi.datadog.outputs.GetTeamMembershipsResult;
 import com.pulumi.datadog.outputs.GetTeamResult;
 import com.pulumi.datadog.outputs.GetUserResult;
+import com.pulumi.datadog.outputs.GetUsersResult;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.resources.InvokeArgs;
@@ -308,6 +312,210 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getApiKey:getApiKey", TypeShape.of(GetApiKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder() {
+        return getApmRetentionFiltersOrder(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain() {
+        return getApmRetentionFiltersOrderPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args) {
+        return getApmRetentionFiltersOrder(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain(InvokeArgs args) {
+        return getApmRetentionFiltersOrderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = DatadogFunctions.getApmRetentionFiltersOrder();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing application key.
@@ -4990,5 +5198,233 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers() {
+        return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain() {
+        return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
+        return getUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
+        return getUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing users for use in other resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
+     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
 }

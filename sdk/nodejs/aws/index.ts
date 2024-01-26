@@ -20,6 +20,11 @@ export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
 utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
+export { IntegrationEventBridgeArgs, IntegrationEventBridgeState } from "./integrationEventBridge";
+export type IntegrationEventBridge = import("./integrationEventBridge").IntegrationEventBridge;
+export const IntegrationEventBridge: typeof import("./integrationEventBridge").IntegrationEventBridge = null as any;
+utilities.lazyLoad(exports, ["IntegrationEventBridge"], () => require("./integrationEventBridge"));
+
 export { IntegrationLambdaArnArgs, IntegrationLambdaArnState } from "./integrationLambdaArn";
 export type IntegrationLambdaArn = import("./integrationLambdaArn").IntegrationLambdaArn;
 export const IntegrationLambdaArn: typeof import("./integrationLambdaArn").IntegrationLambdaArn = null as any;
@@ -42,6 +47,8 @@ const _module = {
         switch (type) {
             case "datadog:aws/integration:Integration":
                 return new Integration(name, <any>undefined, { urn })
+            case "datadog:aws/integrationEventBridge:IntegrationEventBridge":
+                return new IntegrationEventBridge(name, <any>undefined, { urn })
             case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
                 return new IntegrationLambdaArn(name, <any>undefined, { urn })
             case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
@@ -54,6 +61,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "aws/integration", _module)
+pulumi.runtime.registerResourceModule("datadog", "aws/integrationEventBridge", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLambdaArn", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLogCollection", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationTagFilter", _module)

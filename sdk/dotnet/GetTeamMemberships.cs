@@ -74,6 +74,12 @@ namespace Pulumi.Datadog
     public sealed class GetTeamMembershipsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// </summary>
+        [Input("exactMatch")]
+        public bool? ExactMatch { get; set; }
+
+        /// <summary>
         /// Search query, can be user email or name.
         /// </summary>
         [Input("filterKeyword")]
@@ -90,6 +96,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetTeamMembershipsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// </summary>
+        [Input("exactMatch")]
+        public Input<bool>? ExactMatch { get; set; }
+
         /// <summary>
         /// Search query, can be user email or name.
         /// </summary>
@@ -110,6 +122,10 @@ namespace Pulumi.Datadog
     public sealed class GetTeamMembershipsResult
     {
         /// <summary>
+        /// When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
+        /// </summary>
+        public readonly bool? ExactMatch;
+        /// <summary>
         /// Search query, can be user email or name.
         /// </summary>
         public readonly string? FilterKeyword;
@@ -128,6 +144,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetTeamMembershipsResult(
+            bool? exactMatch,
+
             string? filterKeyword,
 
             string id,
@@ -136,6 +154,7 @@ namespace Pulumi.Datadog
 
             ImmutableArray<Outputs.GetTeamMembershipsTeamMembershipResult> teamMemberships)
         {
+            ExactMatch = exactMatch;
             FilterKeyword = filterKeyword;
             Id = id;
             TeamId = teamId;

@@ -72,7 +72,7 @@ export class IntegrationResource extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
     public readonly enableCustomMetrics!: pulumi.Output<boolean>;
     /**
@@ -134,7 +134,7 @@ export interface IntegrationResourceState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
     enableCustomMetrics?: pulumi.Input<boolean>;
     /**
@@ -160,7 +160,7 @@ export interface IntegrationResourceArgs {
      */
     accountId: pulumi.Input<string>;
     /**
-     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+     * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags. Defaults to `false`.
      */
     enableCustomMetrics?: pulumi.Input<boolean>;
     /**

@@ -62,14 +62,14 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
     }
 
     /**
-     * Whether the value of this variable will be obfuscated in test results.
+     * Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
      * 
      */
     @Import(name="secure")
     private @Nullable Output<Boolean> secure;
 
     /**
-     * @return Whether the value of this variable will be obfuscated in test results.
+     * @return Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> secure() {
@@ -181,7 +181,7 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secure Whether the value of this variable will be obfuscated in test results.
+         * @param secure Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class SyntheticsTestConfigVariableArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secure Whether the value of this variable will be obfuscated in test results.
+         * @param secure Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class DashboardWidgetChangeDefinitionRequestFormulaLimitArgs extend
     public static final DashboardWidgetChangeDefinitionRequestFormulaLimitArgs Empty = new DashboardWidgetChangeDefinitionRequestFormulaLimitArgs();
 
     /**
-     * The number of results to return
+     * The number of results to return.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return The number of results to return
+     * @return The number of results to return.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -72,7 +72,7 @@ public final class DashboardWidgetChangeDefinitionRequestFormulaLimitArgs extend
         }
 
         /**
-         * @param count The number of results to return
+         * @param count The number of results to return.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DashboardWidgetChangeDefinitionRequestFormulaLimitArgs extend
         }
 
         /**
-         * @param count The number of results to return
+         * @param count The number of results to return.
          * 
          * @return builder
          * 

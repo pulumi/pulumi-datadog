@@ -17,6 +17,7 @@ namespace Pulumi.Datadog.Outputs
         /// The query to use for this widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery? ApmQuery;
+        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -29,6 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// The metric query to use for this widget.
         /// </summary>
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQuery> Queries;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -46,11 +48,15 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetHeatmapDefinitionRequest(
             Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery? apmQuery,
 
+            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery? rumQuery,
 
@@ -59,9 +65,11 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetHeatmapDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

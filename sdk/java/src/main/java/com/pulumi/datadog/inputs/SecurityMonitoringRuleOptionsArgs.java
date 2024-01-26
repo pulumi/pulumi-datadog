@@ -21,14 +21,14 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     public static final SecurityMonitoringRuleOptionsArgs Empty = new SecurityMonitoringRuleOptionsArgs();
 
     /**
-     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
      * 
      */
     @Import(name="decreaseCriticalityBasedOnEnv")
     private @Nullable Output<Boolean> decreaseCriticalityBasedOnEnv;
 
     /**
-     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> decreaseCriticalityBasedOnEnv() {
@@ -36,14 +36,14 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
+     * The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
      * 
      */
     @Import(name="detectionMethod")
     private @Nullable Output<String> detectionMethod;
 
     /**
-     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
      * 
      */
     public Optional<Output<String>> detectionMethod() {
@@ -156,7 +156,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+         * @param decreaseCriticalityBasedOnEnv If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
+         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`.
+         * @param detectionMethod The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
          * 
          * @return builder
          * 

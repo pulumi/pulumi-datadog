@@ -39,14 +39,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether the rule is enabled.
+     * Whether the rule is enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the rule is enabled.
+     * @return Whether the rule is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -69,14 +69,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether the notifications include the triggering group-by values in their title.
+     * Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
     @Import(name="hasExtendedTitle")
     private @Nullable Output<Boolean> hasExtendedTitle;
 
     /**
-     * @return Whether the notifications include the triggering group-by values in their title.
+     * @return Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> hasExtendedTitle() {
@@ -174,14 +174,14 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+     * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+     * @return The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -254,7 +254,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Whether the rule is enabled.
+         * @param enabled Whether the rule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Whether the rule is enabled.
+         * @param enabled Whether the rule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hasExtendedTitle Whether the notifications include the triggering group-by values in their title.
+         * @param hasExtendedTitle Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param hasExtendedTitle Whether the notifications include the triggering group-by values in their title.
+         * @param hasExtendedTitle Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+         * @param type The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The rule type. Valid values are `log_detection`, `workload_security`, `signal_correlation`.
+         * @param type The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
          * 
          * @return builder
          * 

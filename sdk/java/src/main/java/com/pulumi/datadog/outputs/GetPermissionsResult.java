@@ -20,7 +20,7 @@ public final class GetPermissionsResult {
      */
     private String id;
     /**
-     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     private @Nullable Boolean includeRestricted;
@@ -39,7 +39,7 @@ public final class GetPermissionsResult {
         return this.id;
     }
     /**
-     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked.
+     * @return Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
      * 
      */
     public Optional<Boolean> includeRestricted() {

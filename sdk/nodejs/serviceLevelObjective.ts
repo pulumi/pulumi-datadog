@@ -155,7 +155,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly timeframe!: pulumi.Output<string>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -268,7 +268,7 @@ export interface ServiceLevelObjectiveState {
      */
     timeframe?: pulumi.Input<string>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     timeframe?: pulumi.Input<string>;
     /**
-     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
      */
     type: pulumi.Input<string>;
     /**

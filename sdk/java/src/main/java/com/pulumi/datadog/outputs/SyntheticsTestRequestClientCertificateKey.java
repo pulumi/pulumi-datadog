@@ -17,10 +17,6 @@ public final class SyntheticsTestRequestClientCertificateKey {
      * 
      */
     private String content;
-    /**
-     * @return File name for the certificate.
-     * 
-     */
     private @Nullable String filename;
 
     private SyntheticsTestRequestClientCertificateKey() {}
@@ -31,10 +27,6 @@ public final class SyntheticsTestRequestClientCertificateKey {
     public String content() {
         return this.content;
     }
-    /**
-     * @return File name for the certificate.
-     * 
-     */
     public Optional<String> filename() {
         return Optional.ofNullable(this.filename);
     }

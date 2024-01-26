@@ -38,8 +38,10 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// ## Import
     /// 
+    /// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+    /// 
     /// ```sh
-    ///  $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "foobar"
+    ///  $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "&lt;ID&gt;"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:confluent/integrationAccount:IntegrationAccount")]

@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SyntheticsTestBrowserStepParamsElementUserLocator {
+    /**
+     * @return Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean failTestOnCannotLocate;
     /**
      * @return Regex or JSON path used for the parser. Not used with type `raw`.
@@ -21,6 +25,10 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocator {
     private SyntheticsTestBrowserStepParamsElementUserLocatorValue value;
 
     private SyntheticsTestBrowserStepParamsElementUserLocator() {}
+    /**
+     * @return Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> failTestOnCannotLocate() {
         return Optional.ofNullable(this.failTestOnCannotLocate);
     }

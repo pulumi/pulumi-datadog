@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryArgs;
@@ -48,6 +49,21 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
      */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
+    }
+
+    /**
+     * The Cloud Cost query using formulas and functions.
+     * 
+     */
+    @Import(name="cloudCostQuery")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQueryArgs> cloudCostQuery;
+
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQueryArgs>> cloudCostQuery() {
+        return Optional.ofNullable(this.cloudCostQuery);
     }
 
     /**
@@ -96,14 +112,14 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     }
 
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      * 
      */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs> sloQuery;
 
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQueryArgs>> sloQuery() {
@@ -115,6 +131,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
+        this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
@@ -182,6 +199,27 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
+         * @param cloudCostQuery The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQuery(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQueryArgs> cloudCostQuery) {
+            $.cloudCostQuery = cloudCostQuery;
+            return this;
+        }
+
+        /**
+         * @param cloudCostQuery The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQuery(DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQueryArgs cloudCostQuery) {
+            return cloudCostQuery(Output.of(cloudCostQuery));
+        }
+
+        /**
          * @param eventQuery A timeseries formula and functions events query.
          * 
          * @return builder
@@ -245,7 +283,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 
@@ -256,7 +294,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 

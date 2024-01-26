@@ -20,7 +20,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
      */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn> columns;
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     private String env;
@@ -59,7 +59,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         return this.columns == null ? List.of() : this.columns;
     }
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public String env() {

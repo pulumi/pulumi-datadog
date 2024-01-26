@@ -27,7 +27,7 @@ class SecurityMonitoringFilterArgs:
         :param pulumi.Input[str] name: Exclusion filter name.
         :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
-        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`.
+        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "name", name)
@@ -89,7 +89,7 @@ class SecurityMonitoringFilterArgs:
     @pulumi.getter(name="filteredDataType")
     def filtered_data_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The filtered data type. Valid values are `logs`.
+        The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         return pulumi.get(self, "filtered_data_type")
 
@@ -110,7 +110,7 @@ class _SecurityMonitoringFilterState:
         """
         Input properties used for looking up and filtering SecurityMonitoringFilter resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringFilterExclusionFilterArgs']]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
-        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`.
+        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[str] name: Exclusion filter name.
         :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
@@ -145,7 +145,7 @@ class _SecurityMonitoringFilterState:
     @pulumi.getter(name="filteredDataType")
     def filtered_data_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The filtered data type. Valid values are `logs`.
+        The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         return pulumi.get(self, "filtered_data_type")
 
@@ -249,7 +249,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
-        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`.
+        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[str] name: Exclusion filter name.
         :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
@@ -358,7 +358,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
-        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`.
+        :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[str] name: Exclusion filter name.
         :param pulumi.Input[str] query: Exclusion filter query. Logs that match this query are excluded from the security filter.
@@ -388,7 +388,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     @pulumi.getter(name="filteredDataType")
     def filtered_data_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The filtered data type. Valid values are `logs`.
+        The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         """
         return pulumi.get(self, "filtered_data_type")
 

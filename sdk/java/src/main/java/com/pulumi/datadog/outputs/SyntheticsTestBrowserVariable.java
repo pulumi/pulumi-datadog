@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestBrowserVariable {
     /**
-     * @return Example for the variable.
+     * @return Example for the variable. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String example;
@@ -29,7 +29,7 @@ public final class SyntheticsTestBrowserVariable {
      */
     private String name;
     /**
-     * @return Pattern of the variable.
+     * @return Pattern of the variable. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String pattern;
@@ -46,7 +46,7 @@ public final class SyntheticsTestBrowserVariable {
 
     private SyntheticsTestBrowserVariable() {}
     /**
-     * @return Example for the variable.
+     * @return Example for the variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> example() {
@@ -67,7 +67,7 @@ public final class SyntheticsTestBrowserVariable {
         return this.name;
     }
     /**
-     * @return Pattern of the variable.
+     * @return Pattern of the variable. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> pattern() {

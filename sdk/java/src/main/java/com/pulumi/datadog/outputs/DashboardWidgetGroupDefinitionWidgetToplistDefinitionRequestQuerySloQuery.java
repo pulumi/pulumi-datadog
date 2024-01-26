@@ -23,7 +23,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
      */
     private String dataSource;
     /**
-     * @return Group mode to query measures. Valid values are `overall`, `components`.
+     * @return Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
      * 
      */
     private @Nullable String groupMode;
@@ -43,7 +43,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
      */
     private String sloId;
     /**
-     * @return type of the SLO to query. Valid values are `metric`.
+     * @return type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
      * 
      */
     private @Nullable String sloQueryType;
@@ -64,7 +64,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         return this.dataSource;
     }
     /**
-     * @return Group mode to query measures. Valid values are `overall`, `components`.
+     * @return Group mode to query measures. Valid values are `overall`, `components`. Defaults to `&#34;overall&#34;`.
      * 
      */
     public Optional<String> groupMode() {
@@ -92,7 +92,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         return this.sloId;
     }
     /**
-     * @return type of the SLO to query. Valid values are `metric`.
+     * @return type of the SLO to query. Valid values are `metric`. Defaults to `&#34;metric&#34;`.
      * 
      */
     public Optional<String> sloQueryType() {

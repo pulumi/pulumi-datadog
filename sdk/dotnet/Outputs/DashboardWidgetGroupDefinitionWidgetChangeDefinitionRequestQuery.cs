@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
         /// <summary>
+        /// The Cloud Cost query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryCloudCostQuery? CloudCostQuery;
+        /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery? EventQuery;
@@ -34,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
-        /// The slo query using formulas and functions.
+        /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuerySloQuery? SloQuery;
 
@@ -43,6 +47,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryCloudCostQuery? cloudCostQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuery? eventQuery,
 
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
+            CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;

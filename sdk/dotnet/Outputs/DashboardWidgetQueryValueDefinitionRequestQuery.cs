@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
         /// <summary>
+        /// The Cloud Cost query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery? CloudCostQuery;
+        /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery? EventQuery;
@@ -34,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
-        /// The slo query using formulas and functions.
+        /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQuerySloQuery? SloQuery;
 
@@ -43,6 +47,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+
+            Outputs.DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery? cloudCostQuery,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery? eventQuery,
 
@@ -54,6 +60,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
+            CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;

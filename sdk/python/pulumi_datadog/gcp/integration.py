@@ -29,8 +29,8 @@ class IntegrationArgs:
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
-        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         pulumi.set(__self__, "client_email", client_email)
@@ -109,7 +109,7 @@ class IntegrationArgs:
     @pulumi.getter
     def automute(self) -> Optional[pulumi.Input[bool]]:
         """
-        Silence monitors for expected GCE instance shutdowns.
+        Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
@@ -121,7 +121,7 @@ class IntegrationArgs:
     @pulumi.getter(name="cspmResourceCollectionEnabled")
     def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project.
+        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
@@ -155,10 +155,10 @@ class _IntegrationState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
-        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -185,7 +185,7 @@ class _IntegrationState:
     @pulumi.getter
     def automute(self) -> Optional[pulumi.Input[bool]]:
         """
-        Silence monitors for expected GCE instance shutdowns.
+        Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
@@ -221,7 +221,7 @@ class _IntegrationState:
     @pulumi.getter(name="cspmResourceCollectionEnabled")
     def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project.
+        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
@@ -305,10 +305,10 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -408,10 +408,10 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
@@ -435,7 +435,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter
     def automute(self) -> pulumi.Output[Optional[bool]]:
         """
-        Silence monitors for expected GCE instance shutdowns.
+        Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
         return pulumi.get(self, "automute")
 
@@ -459,7 +459,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="cspmResourceCollectionEnabled")
     def cspm_resource_collection_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project.
+        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 

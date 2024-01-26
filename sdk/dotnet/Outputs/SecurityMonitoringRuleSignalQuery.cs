@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SecurityMonitoringRuleSignalQuery
     {
         /// <summary>
-        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+        /// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `"event_count"`.
         /// </summary>
         public readonly string? Aggregation;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CorrelatedByFields;
         /// <summary>
-        /// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+        /// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `""`.
         /// </summary>
         public readonly string? CorrelatedQueryIndex;
         /// <summary>

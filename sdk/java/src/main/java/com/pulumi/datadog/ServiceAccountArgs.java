@@ -19,14 +19,14 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
     public static final ServiceAccountArgs Empty = new ServiceAccountArgs();
 
     /**
-     * Whether the service account is disabled.
+     * Whether the service account is disabled. Defaults to `false`.
      * 
      */
     @Import(name="disabled")
     private @Nullable Output<Boolean> disabled;
 
     /**
-     * @return Whether the service account is disabled.
+     * @return Whether the service account is disabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> disabled() {
@@ -106,7 +106,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disabled Whether the service account is disabled.
+         * @param disabled Whether the service account is disabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disabled Whether the service account is disabled.
+         * @param disabled Whether the service account is disabled. Defaults to `false`.
          * 
          * @return builder
          * 

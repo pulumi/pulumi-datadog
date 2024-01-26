@@ -21,7 +21,7 @@ class ServiceAccountArgs:
         """
         The set of arguments for constructing a ServiceAccount resource.
         :param pulumi.Input[str] email: Email of the associated user.
-        :param pulumi.Input[bool] disabled: Whether the service account is disabled.
+        :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
         """
@@ -49,7 +49,7 @@ class ServiceAccountArgs:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the service account is disabled.
+        Whether the service account is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -91,7 +91,7 @@ class _ServiceAccountState:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAccount resources.
-        :param pulumi.Input[bool] disabled: Whether the service account is disabled.
+        :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
@@ -109,7 +109,7 @@ class _ServiceAccountState:
     @pulumi.getter
     def disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the service account is disabled.
+        Whether the service account is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 
@@ -189,7 +189,7 @@ class ServiceAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disabled: Whether the service account is disabled.
+        :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
@@ -278,7 +278,7 @@ class ServiceAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disabled: Whether the service account is disabled.
+        :param pulumi.Input[bool] disabled: Whether the service account is disabled. Defaults to `false`.
         :param pulumi.Input[str] email: Email of the associated user.
         :param pulumi.Input[str] name: Name for the service account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the service account.
@@ -297,7 +297,7 @@ class ServiceAccount(pulumi.CustomResource):
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the service account is disabled.
+        Whether the service account is disabled. Defaults to `false`.
         """
         return pulumi.get(self, "disabled")
 

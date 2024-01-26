@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRumApplicationResult {
     /**
-     * @return The client token
+     * @return The client token.
      * 
      */
     private String clientToken;
@@ -23,29 +23,29 @@ public final class GetRumApplicationResult {
      */
     private String id;
     /**
-     * @return The name of the RUM application
+     * @return Name of the RUM application.
      * 
      */
     private String name;
     /**
-     * @return The name used to search for a RUM application
+     * @return The name used to search for a RUM application.
      * 
      */
     private @Nullable String nameFilter;
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
      * 
      */
     private String type;
     /**
-     * @return The type used to search for a RUM application
+     * @return The type used to search for a RUM application.
      * 
      */
     private @Nullable String typeFilter;
 
     private GetRumApplicationResult() {}
     /**
-     * @return The client token
+     * @return The client token.
      * 
      */
     public String clientToken() {
@@ -59,28 +59,28 @@ public final class GetRumApplicationResult {
         return this.id;
     }
     /**
-     * @return The name of the RUM application
+     * @return Name of the RUM application.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The name used to search for a RUM application
+     * @return The name used to search for a RUM application.
      * 
      */
     public Optional<String> nameFilter() {
         return Optional.ofNullable(this.nameFilter);
     }
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The type used to search for a RUM application
+     * @return The type used to search for a RUM application.
      * 
      */
     public Optional<String> typeFilter() {

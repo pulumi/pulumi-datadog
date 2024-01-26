@@ -22,6 +22,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetListStreamD
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
@@ -29,6 +30,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplot
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs;
@@ -317,6 +319,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Powerpack widget.
+     * 
+     */
+    @Import(name="powerpackDefinition")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs> powerpackDefinition;
+
+    /**
+     * @return The definition for a Powerpack widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs>> powerpackDefinition() {
+        return Optional.ofNullable(this.powerpackDefinition);
+    }
+
+    /**
      * The definition for a Query Table widget.
      * 
      */
@@ -419,6 +436,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs>> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
+    }
+
+    /**
+     * The definition for a Split Graph widget.
+     * 
+     */
+    @Import(name="splitGraphDefinition")
+    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
+
+    /**
+     * @return The definition for a Split Graph widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
+        return Optional.ofNullable(this.splitGraphDefinition);
     }
 
     /**
@@ -547,6 +579,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
+        this.powerpackDefinition = $.powerpackDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
@@ -554,6 +587,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
         this.sloListDefinition = $.sloListDefinition;
+        this.splitGraphDefinition = $.splitGraphDefinition;
         this.sunburstDefinition = $.sunburstDefinition;
         this.timeseriesDefinition = $.timeseriesDefinition;
         this.toplistDefinition = $.toplistDefinition;
@@ -960,6 +994,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         }
 
         /**
+         * @param powerpackDefinition The definition for a Powerpack widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder powerpackDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs> powerpackDefinition) {
+            $.powerpackDefinition = powerpackDefinition;
+            return this;
+        }
+
+        /**
+         * @param powerpackDefinition The definition for a Powerpack widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder powerpackDefinition(DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs powerpackDefinition) {
+            return powerpackDefinition(Output.of(powerpackDefinition));
+        }
+
+        /**
          * @param queryTableDefinition The definition for a Query Table widget.
          * 
          * @return builder
@@ -1104,6 +1159,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder sloListDefinition(DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
+            $.splitGraphDefinition = splitGraphDefinition;
+            return this;
+        }
+
+        /**
+         * @param splitGraphDefinition The definition for a Split Graph widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder splitGraphDefinition(DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
+            return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
         /**

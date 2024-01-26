@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs;
@@ -48,6 +49,21 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
      */
     public Optional<Output<DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
+    }
+
+    /**
+     * The Cloud Cost query using formulas and functions.
+     * 
+     */
+    @Import(name="cloudCostQuery")
+    private @Nullable Output<DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs> cloudCostQuery;
+
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs>> cloudCostQuery() {
+        return Optional.ofNullable(this.cloudCostQuery);
     }
 
     /**
@@ -96,14 +112,14 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
     }
 
     /**
-     * The slo query using formulas and functions.
+     * The SLO query using formulas and functions.
      * 
      */
     @Import(name="sloQuery")
     private @Nullable Output<DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs> sloQuery;
 
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<Output<DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs>> sloQuery() {
@@ -115,6 +131,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
     private DashboardWidgetSunburstDefinitionRequestQueryArgs(DashboardWidgetSunburstDefinitionRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
+        this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
@@ -182,6 +199,27 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
         }
 
         /**
+         * @param cloudCostQuery The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQuery(@Nullable Output<DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs> cloudCostQuery) {
+            $.cloudCostQuery = cloudCostQuery;
+            return this;
+        }
+
+        /**
+         * @param cloudCostQuery The Cloud Cost query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudCostQuery(DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs cloudCostQuery) {
+            return cloudCostQuery(Output.of(cloudCostQuery));
+        }
+
+        /**
          * @param eventQuery A timeseries formula and functions events query.
          * 
          * @return builder
@@ -245,7 +283,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 
@@ -256,7 +294,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryArgs extends com
         }
 
         /**
-         * @param sloQuery The slo query using formulas and functions.
+         * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
          * 

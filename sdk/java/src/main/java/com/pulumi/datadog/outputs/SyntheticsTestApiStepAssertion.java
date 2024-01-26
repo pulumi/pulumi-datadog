@@ -40,6 +40,11 @@ public final class SyntheticsTestApiStepAssertion {
      */
     private @Nullable SyntheticsTestApiStepAssertionTargetxpath targetxpath;
     /**
+     * @return Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    private @Nullable String timingsScope;
+    /**
      * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
@@ -82,6 +87,13 @@ public final class SyntheticsTestApiStepAssertion {
         return Optional.ofNullable(this.targetxpath);
     }
     /**
+     * @return Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+     * 
+     */
+    public Optional<String> timingsScope() {
+        return Optional.ofNullable(this.timingsScope);
+    }
+    /**
      * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
      * 
      */
@@ -103,6 +115,7 @@ public final class SyntheticsTestApiStepAssertion {
         private @Nullable String target;
         private @Nullable SyntheticsTestApiStepAssertionTargetjsonpath targetjsonpath;
         private @Nullable SyntheticsTestApiStepAssertionTargetxpath targetxpath;
+        private @Nullable String timingsScope;
         private String type;
         public Builder() {}
         public Builder(SyntheticsTestApiStepAssertion defaults) {
@@ -112,6 +125,7 @@ public final class SyntheticsTestApiStepAssertion {
     	      this.target = defaults.target;
     	      this.targetjsonpath = defaults.targetjsonpath;
     	      this.targetxpath = defaults.targetxpath;
+    	      this.timingsScope = defaults.timingsScope;
     	      this.type = defaults.type;
         }
 
@@ -148,6 +162,12 @@ public final class SyntheticsTestApiStepAssertion {
             return this;
         }
         @CustomType.Setter
+        public Builder timingsScope(@Nullable String timingsScope) {
+
+            this.timingsScope = timingsScope;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("SyntheticsTestApiStepAssertion", "type");
@@ -162,6 +182,7 @@ public final class SyntheticsTestApiStepAssertion {
             _resultValue.target = target;
             _resultValue.targetjsonpath = targetjsonpath;
             _resultValue.targetxpath = targetxpath;
+            _resultValue.timingsScope = timingsScope;
             _resultValue.type = type;
             return _resultValue;
         }

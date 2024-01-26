@@ -17,14 +17,14 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
     public static final RumApplicationArgs Empty = new RumApplicationArgs();
 
     /**
-     * The name of the RUM application
+     * Name of the RUM application.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the RUM application
+     * @return Name of the RUM application.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -72,7 +72,7 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the RUM application
+         * @param name Name of the RUM application.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the RUM application
+         * @param name Name of the RUM application.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RumApplicationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 

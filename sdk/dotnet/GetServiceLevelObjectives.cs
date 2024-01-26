@@ -71,6 +71,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetServiceLevelObjectivesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Throw an error if no results are found. Defaults to `true`.
+        /// </summary>
+        [Input("errorOnEmptyResult")]
+        public bool? ErrorOnEmptyResult { get; set; }
+
         [Input("ids")]
         private List<string>? _ids;
 
@@ -96,6 +102,12 @@ namespace Pulumi.Datadog
         public string? NameQuery { get; set; }
 
         /// <summary>
+        /// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+        /// </summary>
+        [Input("query")]
+        public string? Query { get; set; }
+
+        /// <summary>
         /// Filter results based on a single SLO tag.
         /// </summary>
         [Input("tagsQuery")]
@@ -109,6 +121,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetServiceLevelObjectivesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Throw an error if no results are found. Defaults to `true`.
+        /// </summary>
+        [Input("errorOnEmptyResult")]
+        public Input<bool>? ErrorOnEmptyResult { get; set; }
+
         [Input("ids")]
         private InputList<string>? _ids;
 
@@ -134,6 +152,12 @@ namespace Pulumi.Datadog
         public Input<string>? NameQuery { get; set; }
 
         /// <summary>
+        /// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+        /// </summary>
+        [Input("query")]
+        public Input<string>? Query { get; set; }
+
+        /// <summary>
         /// Filter results based on a single SLO tag.
         /// </summary>
         [Input("tagsQuery")]
@@ -149,6 +173,10 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetServiceLevelObjectivesResult
     {
+        /// <summary>
+        /// Throw an error if no results are found. Defaults to `true`.
+        /// </summary>
+        public readonly bool? ErrorOnEmptyResult;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -166,6 +194,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? NameQuery;
         /// <summary>
+        /// The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+        /// </summary>
+        public readonly string? Query;
+        /// <summary>
         /// List of SLOs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceLevelObjectivesSloResult> Slos;
@@ -176,6 +208,8 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetServiceLevelObjectivesResult(
+            bool? errorOnEmptyResult,
+
             string id,
 
             ImmutableArray<string> ids,
@@ -184,14 +218,18 @@ namespace Pulumi.Datadog
 
             string? nameQuery,
 
+            string? query,
+
             ImmutableArray<Outputs.GetServiceLevelObjectivesSloResult> slos,
 
             string? tagsQuery)
         {
+            ErrorOnEmptyResult = errorOnEmptyResult;
             Id = id;
             Ids = ids;
             MetricsQuery = metricsQuery;
             NameQuery = nameQuery;
+            Query = query;
             Slos = slos;
             TagsQuery = tagsQuery;
         }

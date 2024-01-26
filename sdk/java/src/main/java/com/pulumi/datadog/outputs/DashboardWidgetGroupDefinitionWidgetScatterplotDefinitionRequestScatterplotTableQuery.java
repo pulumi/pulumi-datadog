@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery;
@@ -27,6 +28,11 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery;
     /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery cloudCostQuery;
+    /**
      * @return A timeseries formula and functions events query.
      * 
      */
@@ -42,7 +48,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery sloQuery;
@@ -61,6 +67,13 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
+    }
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery> cloudCostQuery() {
+        return Optional.ofNullable(this.cloudCostQuery);
     }
     /**
      * @return A timeseries formula and functions events query.
@@ -84,7 +97,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery> sloQuery() {
@@ -102,6 +115,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
     public static final class Builder {
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery apmDependencyStatsQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery;
+        private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery processQuery;
@@ -111,6 +125,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
+    	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
@@ -127,6 +142,12 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
             this.apmResourceStatsQuery = apmResourceStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudCostQuery(@Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery cloudCostQuery) {
+
+            this.cloudCostQuery = cloudCostQuery;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +178,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequ
             final var _resultValue = new DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
+            _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;

@@ -51,12 +51,12 @@ import (
 type RumApplication struct {
 	pulumi.CustomResourceState
 
-	// The client token
+	// The client token.
 	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewRumApplication registers a new resource with the given unique name, arguments, and options.
@@ -92,20 +92,20 @@ func GetRumApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RumApplication resources.
 type rumApplicationState struct {
-	// The client token
+	// The client token.
 	ClientToken *string `pulumi:"clientToken"`
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name *string `pulumi:"name"`
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type *string `pulumi:"type"`
 }
 
 type RumApplicationState struct {
-	// The client token
+	// The client token.
 	ClientToken pulumi.StringPtrInput
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name pulumi.StringPtrInput
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type pulumi.StringPtrInput
 }
 
@@ -114,17 +114,17 @@ func (RumApplicationState) ElementType() reflect.Type {
 }
 
 type rumApplicationArgs struct {
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name string `pulumi:"name"`
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RumApplication resource.
 type RumApplicationArgs struct {
-	// The name of the RUM application
+	// Name of the RUM application.
 	Name pulumi.StringInput
-	// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
+	// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
 	Type pulumi.StringPtrInput
 }
 
@@ -215,19 +215,19 @@ func (o RumApplicationOutput) ToRumApplicationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The client token
+// The client token.
 func (o RumApplicationOutput) ClientToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.ClientToken }).(pulumi.StringOutput)
 }
 
-// The name of the RUM application
+// Name of the RUM application.
 func (o RumApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The RUM application type. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`
-func (o RumApplicationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RumApplication) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+// Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+func (o RumApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RumApplication) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type RumApplicationArrayOutput struct{ *pulumi.OutputState }

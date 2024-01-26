@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<ImmutableArray<string>> HostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         /// </summary>
         [Output("isCspmEnabled")]
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }

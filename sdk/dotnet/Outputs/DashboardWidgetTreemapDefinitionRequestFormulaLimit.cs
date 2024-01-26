@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTreemapDefinitionRequestFormulaLimit
     {
         /// <summary>
-        /// The number of results to return
+        /// The number of results to return.
         /// </summary>
         public readonly int? Count;
         /// <summary>

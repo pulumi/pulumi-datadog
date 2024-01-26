@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
@@ -27,6 +28,11 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
     /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery cloudCostQuery;
+    /**
      * @return A timeseries formula and functions events query.
      * 
      */
@@ -42,7 +48,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQuerySloQuery sloQuery;
@@ -61,6 +67,13 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
      */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
+    }
+    /**
+     * @return The Cloud Cost query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery> cloudCostQuery() {
+        return Optional.ofNullable(this.cloudCostQuery);
     }
     /**
      * @return A timeseries formula and functions events query.
@@ -84,7 +97,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The slo query using formulas and functions.
+     * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGeomapDefinitionRequestQuerySloQuery> sloQuery() {
@@ -102,6 +115,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
     public static final class Builder {
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
+        private @Nullable DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
@@ -111,6 +125,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
+    	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
@@ -127,6 +142,12 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
         public Builder apmResourceStatsQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
             this.apmResourceStatsQuery = apmResourceStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudCostQuery(@Nullable DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery cloudCostQuery) {
+
+            this.cloudCostQuery = cloudCostQuery;
             return this;
         }
         @CustomType.Setter
@@ -157,6 +178,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
             final var _resultValue = new DashboardWidgetGeomapDefinitionRequestQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
+            _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;

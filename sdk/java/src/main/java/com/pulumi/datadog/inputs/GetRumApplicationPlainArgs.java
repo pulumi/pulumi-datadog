@@ -30,14 +30,14 @@ public final class GetRumApplicationPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The name used to search for a RUM application
+     * The name used to search for a RUM application.
      * 
      */
     @Import(name="nameFilter")
     private @Nullable String nameFilter;
 
     /**
-     * @return The name used to search for a RUM application
+     * @return The name used to search for a RUM application.
      * 
      */
     public Optional<String> nameFilter() {
@@ -45,14 +45,14 @@ public final class GetRumApplicationPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The type used to search for a RUM application
+     * The type used to search for a RUM application.
      * 
      */
     @Import(name="typeFilter")
     private @Nullable String typeFilter;
 
     /**
-     * @return The type used to search for a RUM application
+     * @return The type used to search for a RUM application.
      * 
      */
     public Optional<String> typeFilter() {
@@ -97,7 +97,7 @@ public final class GetRumApplicationPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param nameFilter The name used to search for a RUM application
+         * @param nameFilter The name used to search for a RUM application.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetRumApplicationPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param typeFilter The type used to search for a RUM application
+         * @param typeFilter The type used to search for a RUM application.
          * 
          * @return builder
          * 

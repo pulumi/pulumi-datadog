@@ -34,6 +34,21 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     * 
+     */
+    @Import(name="excludeTagsMode")
+    private @Nullable Output<Boolean> excludeTagsMode;
+
+    /**
+     * @return Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> excludeTagsMode() {
+        return Optional.ofNullable(this.excludeTagsMode);
+    }
+
+    /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
      * 
      */
@@ -97,6 +112,7 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
 
     private MetricTagConfigurationState(MetricTagConfigurationState $) {
         this.aggregations = $.aggregations;
+        this.excludeTagsMode = $.excludeTagsMode;
         this.includePercentiles = $.includePercentiles;
         this.metricName = $.metricName;
         this.metricType = $.metricType;
@@ -150,6 +166,27 @@ public final class MetricTagConfigurationState extends com.pulumi.resources.Reso
          */
         public Builder aggregations(MetricTagConfigurationAggregationArgs... aggregations) {
             return aggregations(List.of(aggregations));
+        }
+
+        /**
+         * @param excludeTagsMode Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeTagsMode(@Nullable Output<Boolean> excludeTagsMode) {
+            $.excludeTagsMode = excludeTagsMode;
+            return this;
+        }
+
+        /**
+         * @param excludeTagsMode Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeTagsMode(Boolean excludeTagsMode) {
+            return excludeTagsMode(Output.of(excludeTagsMode));
         }
 
         /**
