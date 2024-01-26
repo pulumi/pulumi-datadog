@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationSettingsSettingsSaml {
     /**
-     * @return Whether or not SAML is enabled for this organization.
+     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
 
     private OrganizationSettingsSettingsSaml() {}
     /**
-     * @return Whether or not SAML is enabled for this organization.
+     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

@@ -29,7 +29,7 @@ public final class DashboardWidgetGroupDefinitionWidgetNoteDefinition {
      */
     private @Nullable String fontSize;
     /**
-     * @return Whether to add padding or not.
+     * @return Whether to add padding or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean hasPadding;
@@ -82,7 +82,7 @@ public final class DashboardWidgetGroupDefinitionWidgetNoteDefinition {
         return Optional.ofNullable(this.fontSize);
     }
     /**
-     * @return Whether to add padding or not.
+     * @return Whether to add padding or not. Defaults to `true`.
      * 
      */
     public Optional<Boolean> hasPadding() {

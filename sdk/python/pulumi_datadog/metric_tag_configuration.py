@@ -20,6 +20,7 @@ class MetricTagConfigurationArgs:
                  metric_type: pulumi.Input[str],
                  tags: pulumi.Input[Sequence[pulumi.Input[str]]],
                  aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+                 exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a MetricTagConfiguration resource.
@@ -27,6 +28,7 @@ class MetricTagConfigurationArgs:
         :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -34,6 +36,8 @@ class MetricTagConfigurationArgs:
         pulumi.set(__self__, "tags", tags)
         if aggregations is not None:
             pulumi.set(__self__, "aggregations", aggregations)
+        if exclude_tags_mode is not None:
+            pulumi.set(__self__, "exclude_tags_mode", exclude_tags_mode)
         if include_percentiles is not None:
             pulumi.set(__self__, "include_percentiles", include_percentiles)
 
@@ -86,6 +90,18 @@ class MetricTagConfigurationArgs:
         pulumi.set(self, "aggregations", value)
 
     @property
+    @pulumi.getter(name="excludeTagsMode")
+    def exclude_tags_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_tags_mode")
+
+    @exclude_tags_mode.setter
+    def exclude_tags_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_tags_mode", value)
+
+    @property
     @pulumi.getter(name="includePercentiles")
     def include_percentiles(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -102,6 +118,7 @@ class MetricTagConfigurationArgs:
 class _MetricTagConfigurationState:
     def __init__(__self__, *,
                  aggregations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]] = None,
+                 exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metric_type: Optional[pulumi.Input[str]] = None,
@@ -109,6 +126,7 @@ class _MetricTagConfigurationState:
         """
         Input properties used for looking up and filtering MetricTagConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
         :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
@@ -116,6 +134,8 @@ class _MetricTagConfigurationState:
         """
         if aggregations is not None:
             pulumi.set(__self__, "aggregations", aggregations)
+        if exclude_tags_mode is not None:
+            pulumi.set(__self__, "exclude_tags_mode", exclude_tags_mode)
         if include_percentiles is not None:
             pulumi.set(__self__, "include_percentiles", include_percentiles)
         if metric_name is not None:
@@ -136,6 +156,18 @@ class _MetricTagConfigurationState:
     @aggregations.setter
     def aggregations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]]]):
         pulumi.set(self, "aggregations", value)
+
+    @property
+    @pulumi.getter(name="excludeTagsMode")
+    def exclude_tags_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_tags_mode")
+
+    @exclude_tags_mode.setter
+    def exclude_tags_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_tags_mode", value)
 
     @property
     @pulumi.getter(name="includePercentiles")
@@ -192,6 +224,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+                 exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metric_type: Optional[pulumi.Input[str]] = None,
@@ -227,6 +260,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                     time="avg",
                 ),
             ],
+            exclude_tags_mode=False,
             metric_name="example.terraform.count.metric",
             metric_type="count",
             tags=[
@@ -244,6 +278,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
         :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
@@ -285,6 +320,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                     time="avg",
                 ),
             ],
+            exclude_tags_mode=False,
             metric_name="example.terraform.count.metric",
             metric_type="count",
             tags=[
@@ -315,6 +351,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+                 exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metric_type: Optional[pulumi.Input[str]] = None,
@@ -329,6 +366,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
             __props__ = MetricTagConfigurationArgs.__new__(MetricTagConfigurationArgs)
 
             __props__.__dict__["aggregations"] = aggregations
+            __props__.__dict__["exclude_tags_mode"] = exclude_tags_mode
             __props__.__dict__["include_percentiles"] = include_percentiles
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
@@ -350,6 +388,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+            exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
             include_percentiles: Optional[pulumi.Input[bool]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             metric_type: Optional[pulumi.Input[str]] = None,
@@ -362,6 +401,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
         :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
@@ -372,6 +412,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         __props__ = _MetricTagConfigurationState.__new__(_MetricTagConfigurationState)
 
         __props__.__dict__["aggregations"] = aggregations
+        __props__.__dict__["exclude_tags_mode"] = exclude_tags_mode
         __props__.__dict__["include_percentiles"] = include_percentiles
         __props__.__dict__["metric_name"] = metric_name
         __props__.__dict__["metric_type"] = metric_type
@@ -385,6 +426,14 @@ class MetricTagConfiguration(pulumi.CustomResource):
         A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         """
         return pulumi.get(self, "aggregations")
+
+    @property
+    @pulumi.getter(name="excludeTagsMode")
+    def exclude_tags_mode(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_tags_mode")
 
     @property
     @pulumi.getter(name="includePercentiles")

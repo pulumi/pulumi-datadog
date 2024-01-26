@@ -91,6 +91,14 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> ApmIpv6s;
         /// <summary>
+        /// An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+        /// </summary>
+        public readonly ImmutableArray<string> GlobalIpv4s;
+        /// <summary>
+        /// An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+        /// </summary>
+        public readonly ImmutableArray<string> GlobalIpv6s;
+        /// <summary>
         /// The ID of this resource.
         /// </summary>
         public readonly string Id;
@@ -157,6 +165,10 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> apmIpv6s,
 
+            ImmutableArray<string> globalIpv4s,
+
+            ImmutableArray<string> globalIpv6s,
+
             string id,
 
             ImmutableArray<string> logsIpv4s,
@@ -189,6 +201,8 @@ namespace Pulumi.Datadog
             ApiIpv6s = apiIpv6s;
             ApmIpv4s = apmIpv4s;
             ApmIpv6s = apmIpv6s;
+            GlobalIpv4s = globalIpv4s;
+            GlobalIpv6s = globalIpv6s;
             Id = id;
             LogsIpv4s = logsIpv4s;
             LogsIpv6s = logsIpv6s;

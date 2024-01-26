@@ -33,14 +33,14 @@ public final class DashboardWidgetWidgetLayoutArgs extends com.pulumi.resources.
     }
 
     /**
-     * Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
      * 
      */
     @Import(name="isColumnBreak")
     private @Nullable Output<Boolean> isColumnBreak;
 
     /**
-     * @return Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+     * @return Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
      * 
      */
     public Optional<Output<Boolean>> isColumnBreak() {
@@ -142,7 +142,7 @@ public final class DashboardWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param isColumnBreak Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+         * @param isColumnBreak Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class DashboardWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param isColumnBreak Whether the widget should be the first one on the second column in high density or not. Only for the new dashboard layout and only one widget in the dashboard should have this property set to `true`.
+         * @param isColumnBreak Whether the widget should be the first one on the second column in high density or not. Only one widget in the dashboard should have this property set to `true`.
          * 
          * @return builder
          * 

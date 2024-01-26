@@ -22,7 +22,7 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     private @Nullable String accessTokenUrl;
     /**
-     * @return Audience for `oauth-client` or `oauth-rop` authentication.
+     * @return Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String audience;
@@ -52,12 +52,12 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     private @Nullable String region;
     /**
-     * @return Resource for `oauth-client` or `oauth-rop` authentication.
+     * @return Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String resource;
     /**
-     * @return Scope for `oauth-client` or `oauth-rop` authentication.
+     * @return Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String scope;
@@ -82,7 +82,7 @@ public final class SyntheticsTestApiStepRequestBasicauth {
      */
     private @Nullable String tokenApiAuthentication;
     /**
-     * @return Type of basic authentication to use when performing the test.
+     * @return Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
      */
     private @Nullable String type;
@@ -113,7 +113,7 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         return Optional.ofNullable(this.accessTokenUrl);
     }
     /**
-     * @return Audience for `oauth-client` or `oauth-rop` authentication.
+     * @return Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> audience() {
@@ -155,14 +155,14 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return Resource for `oauth-client` or `oauth-rop` authentication.
+     * @return Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> resource() {
         return Optional.ofNullable(this.resource);
     }
     /**
-     * @return Scope for `oauth-client` or `oauth-rop` authentication.
+     * @return Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> scope() {
@@ -197,7 +197,7 @@ public final class SyntheticsTestApiStepRequestBasicauth {
         return Optional.ofNullable(this.tokenApiAuthentication);
     }
     /**
-     * @return Type of basic authentication to use when performing the test.
+     * @return Type of basic authentication to use when performing the test. Defaults to `&#34;web&#34;`.
      * 
      */
     public Optional<String> type() {

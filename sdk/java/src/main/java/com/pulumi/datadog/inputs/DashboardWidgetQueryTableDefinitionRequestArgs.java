@@ -27,14 +27,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
     public static final DashboardWidgetQueryTableDefinitionRequestArgs Empty = new DashboardWidgetQueryTableDefinitionRequestArgs();
 
     /**
-     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -266,7 +266,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 

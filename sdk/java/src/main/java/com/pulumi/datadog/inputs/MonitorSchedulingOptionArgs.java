@@ -5,10 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorSchedulingOptionCustomScheduleArgs;
 import com.pulumi.datadog.inputs.MonitorSchedulingOptionEvaluationWindowArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,23 +18,39 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
     public static final MonitorSchedulingOptionArgs Empty = new MonitorSchedulingOptionArgs();
 
     /**
+     * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
+    @Import(name="customSchedules")
+    private @Nullable Output<List<MonitorSchedulingOptionCustomScheduleArgs>> customSchedules;
+
+    /**
+     * @return Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
+    public Optional<Output<List<MonitorSchedulingOptionCustomScheduleArgs>>> customSchedules() {
+        return Optional.ofNullable(this.customSchedules);
+    }
+
+    /**
      * Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
      * 
      */
-    @Import(name="evaluationWindows", required=true)
-    private Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows;
+    @Import(name="evaluationWindows")
+    private @Nullable Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows;
 
     /**
      * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
      * 
      */
-    public Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows() {
-        return this.evaluationWindows;
+    public Optional<Output<List<MonitorSchedulingOptionEvaluationWindowArgs>>> evaluationWindows() {
+        return Optional.ofNullable(this.evaluationWindows);
     }
 
     private MonitorSchedulingOptionArgs() {}
 
     private MonitorSchedulingOptionArgs(MonitorSchedulingOptionArgs $) {
+        this.customSchedules = $.customSchedules;
         this.evaluationWindows = $.evaluationWindows;
     }
 
@@ -55,12 +73,43 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param customSchedules Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customSchedules(@Nullable Output<List<MonitorSchedulingOptionCustomScheduleArgs>> customSchedules) {
+            $.customSchedules = customSchedules;
+            return this;
+        }
+
+        /**
+         * @param customSchedules Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customSchedules(List<MonitorSchedulingOptionCustomScheduleArgs> customSchedules) {
+            return customSchedules(Output.of(customSchedules));
+        }
+
+        /**
+         * @param customSchedules Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customSchedules(MonitorSchedulingOptionCustomScheduleArgs... customSchedules) {
+            return customSchedules(List.of(customSchedules));
+        }
+
+        /**
          * @param evaluationWindows Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
          * 
          * @return builder
          * 
          */
-        public Builder evaluationWindows(Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows) {
+        public Builder evaluationWindows(@Nullable Output<List<MonitorSchedulingOptionEvaluationWindowArgs>> evaluationWindows) {
             $.evaluationWindows = evaluationWindows;
             return this;
         }
@@ -86,9 +135,6 @@ public final class MonitorSchedulingOptionArgs extends com.pulumi.resources.Reso
         }
 
         public MonitorSchedulingOptionArgs build() {
-            if ($.evaluationWindows == null) {
-                throw new MissingRequiredPropertyException("MonitorSchedulingOptionArgs", "evaluationWindows");
-            }
             return $;
         }
     }

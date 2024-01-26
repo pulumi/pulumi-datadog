@@ -21,7 +21,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, orchestrator_ipv4s=None, orchestrator_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4_by_location=None, synthetics_ipv4s=None, synthetics_ipv6_by_location=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
+    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, global_ipv4s=None, global_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, orchestrator_ipv4s=None, orchestrator_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4_by_location=None, synthetics_ipv4s=None, synthetics_ipv6_by_location=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
         if agents_ipv4s and not isinstance(agents_ipv4s, list):
             raise TypeError("Expected argument 'agents_ipv4s' to be a list")
         pulumi.set(__self__, "agents_ipv4s", agents_ipv4s)
@@ -40,6 +40,12 @@ class GetIpRangesResult:
         if apm_ipv6s and not isinstance(apm_ipv6s, list):
             raise TypeError("Expected argument 'apm_ipv6s' to be a list")
         pulumi.set(__self__, "apm_ipv6s", apm_ipv6s)
+        if global_ipv4s and not isinstance(global_ipv4s, list):
+            raise TypeError("Expected argument 'global_ipv4s' to be a list")
+        pulumi.set(__self__, "global_ipv4s", global_ipv4s)
+        if global_ipv6s and not isinstance(global_ipv6s, list):
+            raise TypeError("Expected argument 'global_ipv6s' to be a list")
+        pulumi.set(__self__, "global_ipv6s", global_ipv6s)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -127,6 +133,22 @@ class GetIpRangesResult:
         An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
         """
         return pulumi.get(self, "apm_ipv6s")
+
+    @property
+    @pulumi.getter(name="globalIpv4s")
+    def global_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for all Datadog endpoints.
+        """
+        return pulumi.get(self, "global_ipv4s")
+
+    @property
+    @pulumi.getter(name="globalIpv6s")
+    def global_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for all Datadog endpoints.
+        """
+        return pulumi.get(self, "global_ipv6s")
 
     @property
     @pulumi.getter
@@ -245,6 +267,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             api_ipv6s=self.api_ipv6s,
             apm_ipv4s=self.apm_ipv4s,
             apm_ipv6s=self.apm_ipv6s,
+            global_ipv4s=self.global_ipv4s,
+            global_ipv6s=self.global_ipv6s,
             id=self.id,
             logs_ipv4s=self.logs_ipv4s,
             logs_ipv6s=self.logs_ipv6s,
@@ -284,6 +308,8 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         api_ipv6s=pulumi.get(__ret__, 'api_ipv6s'),
         apm_ipv4s=pulumi.get(__ret__, 'apm_ipv4s'),
         apm_ipv6s=pulumi.get(__ret__, 'apm_ipv6s'),
+        global_ipv4s=pulumi.get(__ret__, 'global_ipv4s'),
+        global_ipv6s=pulumi.get(__ret__, 'global_ipv6s'),
         id=pulumi.get(__ret__, 'id'),
         logs_ipv4s=pulumi.get(__ret__, 'logs_ipv4s'),
         logs_ipv6s=pulumi.get(__ret__, 'logs_ipv6s'),

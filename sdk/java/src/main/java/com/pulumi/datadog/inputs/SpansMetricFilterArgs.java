@@ -16,14 +16,14 @@ public final class SpansMetricFilterArgs extends com.pulumi.resources.ResourceAr
     public static final SpansMetricFilterArgs Empty = new SpansMetricFilterArgs();
 
     /**
-     * The search query - following the span search syntax.
+     * The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The search query - following the span search syntax.
+     * @return The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
      * 
      */
     public Optional<Output<String>> query() {
@@ -55,7 +55,7 @@ public final class SpansMetricFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param query The search query - following the span search syntax.
+         * @param query The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class SpansMetricFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param query The search query - following the span search syntax.
+         * @param query The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
          * 
          * @return builder
          * 

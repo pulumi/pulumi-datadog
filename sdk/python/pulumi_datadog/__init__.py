@@ -6,6 +6,8 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .api_key import *
+from .apm_retention_filter import *
+from .apm_retention_filter_order import *
 from .application_key import *
 from .authn_mapping import *
 from .child_organization import *
@@ -17,6 +19,7 @@ from .dashboard_list import *
 from .downtime import *
 from .downtime_schedule import *
 from .get_api_key import *
+from .get_apm_retention_filters_order import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
 from .get_dashboard import *
@@ -47,6 +50,7 @@ from .get_synthetics_test import *
 from .get_team import *
 from .get_team_memberships import *
 from .get_user import *
+from .get_users import *
 from .ip_allowlist import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -62,6 +66,7 @@ from .monitor import *
 from .monitor_config_policy import *
 from .monitor_json import *
 from .organization_settings import *
+from .powerpack import *
 from .provider import *
 from .restriction_policy import *
 from .role import *
@@ -135,6 +140,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.aws",
   "classes": {
    "datadog:aws/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "aws/integrationEventBridge",
+  "fqn": "pulumi_datadog.aws",
+  "classes": {
+   "datadog:aws/integrationEventBridge:IntegrationEventBridge": "IntegrationEventBridge"
   }
  },
  {
@@ -231,6 +244,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apmRetentionFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apmRetentionFilter:ApmRetentionFilter": "ApmRetentionFilter"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apmRetentionFilterOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": "ApmRetentionFilterOrder"
   }
  },
  {
@@ -431,6 +460,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/organizationSettings:OrganizationSettings": "OrganizationSettings"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/powerpack",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/powerpack:Powerpack": "Powerpack"
   }
  },
  {

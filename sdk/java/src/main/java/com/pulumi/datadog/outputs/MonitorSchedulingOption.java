@@ -4,26 +4,39 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.MonitorSchedulingOptionCustomSchedule;
 import com.pulumi.datadog.outputs.MonitorSchedulingOptionEvaluationWindow;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorSchedulingOption {
     /**
+     * @return Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
+    private @Nullable List<MonitorSchedulingOptionCustomSchedule> customSchedules;
+    /**
      * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
      * 
      */
-    private List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows;
+    private @Nullable List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows;
 
     private MonitorSchedulingOption() {}
+    /**
+     * @return Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
+    public List<MonitorSchedulingOptionCustomSchedule> customSchedules() {
+        return this.customSchedules == null ? List.of() : this.customSchedules;
+    }
     /**
      * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
      * 
      */
     public List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows() {
-        return this.evaluationWindows;
+        return this.evaluationWindows == null ? List.of() : this.evaluationWindows;
     }
 
     public static Builder builder() {
@@ -35,18 +48,27 @@ public final class MonitorSchedulingOption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows;
+        private @Nullable List<MonitorSchedulingOptionCustomSchedule> customSchedules;
+        private @Nullable List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows;
         public Builder() {}
         public Builder(MonitorSchedulingOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customSchedules = defaults.customSchedules;
     	      this.evaluationWindows = defaults.evaluationWindows;
         }
 
         @CustomType.Setter
-        public Builder evaluationWindows(List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows) {
-            if (evaluationWindows == null) {
-              throw new MissingRequiredPropertyException("MonitorSchedulingOption", "evaluationWindows");
-            }
+        public Builder customSchedules(@Nullable List<MonitorSchedulingOptionCustomSchedule> customSchedules) {
+
+            this.customSchedules = customSchedules;
+            return this;
+        }
+        public Builder customSchedules(MonitorSchedulingOptionCustomSchedule... customSchedules) {
+            return customSchedules(List.of(customSchedules));
+        }
+        @CustomType.Setter
+        public Builder evaluationWindows(@Nullable List<MonitorSchedulingOptionEvaluationWindow> evaluationWindows) {
+
             this.evaluationWindows = evaluationWindows;
             return this;
         }
@@ -55,6 +77,7 @@ public final class MonitorSchedulingOption {
         }
         public MonitorSchedulingOption build() {
             final var _resultValue = new MonitorSchedulingOption();
+            _resultValue.customSchedules = customSchedules;
             _resultValue.evaluationWindows = evaluationWindows;
             return _resultValue;
         }

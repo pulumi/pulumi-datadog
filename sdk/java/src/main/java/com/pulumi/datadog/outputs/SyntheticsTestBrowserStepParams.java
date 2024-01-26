@@ -57,7 +57,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String email;
     /**
-     * @return For an &#34;assert download&#34; step.
+     * @return JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
      * 
      */
     private @Nullable String file;
@@ -170,7 +170,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.email);
     }
     /**
-     * @return For an &#34;assert download&#34; step.
+     * @return JSON encoded string used for an &#34;assert download&#34; step. Refer to the examples for a usage example showing the schema.
      * 
      */
     public Optional<String> file() {

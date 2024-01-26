@@ -69,6 +69,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionSortArgs;
  * import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
  * import com.pulumi.datadog.inputs.DashboardWidgetTraceServiceDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetPowerpackDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardWidgetPowerpackDefinitionTemplateVariablesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -522,6 +524,24 @@ import javax.annotation.Nullable;
  *                         .x(0)
  *                         .y(83)
  *                         .build())
+ *                     .build(),
+ *                 DashboardWidgetArgs.builder()
+ *                     .timeseriesDefinition(DashboardWidgetTimeseriesDefinitionArgs.builder()
+ *                         .request(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .build())
+ *                     .build(),
+ *                 DashboardWidgetArgs.builder()
+ *                     .powerpackDefinition(DashboardWidgetPowerpackDefinitionArgs.builder()
+ *                         .backgroundColor(&#34;blue&#34;)
+ *                         .bannerImg(&#34;https://example.org/example.png&#34;)
+ *                         .powerpackId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *                         .showTitle(true)
+ *                         .templateVariables(DashboardWidgetPowerpackDefinitionTemplateVariablesArgs.builder()
+ *                             .controlledByPowerpack(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                             .controlledExternally(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                             .build())
+ *                         .title(&#34;Powerpack Widget&#34;)
+ *                         .build())
  *                     .build())
  *             .build());
  * 
@@ -583,7 +603,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      * @deprecated
      * Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
@@ -594,7 +614,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> isReadOnly;
 
     /**
-     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+     * @return Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> isReadOnly() {

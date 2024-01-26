@@ -17,9 +17,6 @@ namespace Pulumi.Datadog.Outputs
         /// Content of the certificate.
         /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// File name for the certificate.
-        /// </summary>
         public readonly string? Filename;
 
         [OutputConstructor]

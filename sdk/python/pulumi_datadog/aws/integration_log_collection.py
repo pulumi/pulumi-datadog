@@ -18,7 +18,7 @@ class IntegrationLogCollectionArgs:
                  services: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a IntegrationLogCollection resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -28,7 +28,7 @@ class IntegrationLogCollectionArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -56,7 +56,7 @@ class _IntegrationLogCollectionState:
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IntegrationLogCollection resources.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
         if account_id is not None:
@@ -68,7 +68,7 @@ class _IntegrationLogCollectionState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
@@ -122,7 +122,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
         ...
@@ -205,7 +205,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which services are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -220,7 +220,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 

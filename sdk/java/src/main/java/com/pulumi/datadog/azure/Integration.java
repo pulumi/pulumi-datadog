@@ -13,7 +13,6 @@ import com.pulumi.datadog.azure.inputs.IntegrationState;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -46,6 +45,7 @@ import javax.annotation.Nullable;
  *             .automute(true)
  *             .clientId(&#34;&lt;azure_client_id&gt;&#34;)
  *             .clientSecret(&#34;&lt;azure_client_secret_key&gt;&#34;)
+ *             .containerAppFilters(&#34;examplefilter:true,example:one_more&#34;)
  *             .cspmEnabled(true)
  *             .customMetricsEnabled(false)
  *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
@@ -68,32 +68,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:azure/integration:Integration")
 public class Integration extends com.pulumi.resources.CustomResource {
     /**
-     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="appServicePlanFilters", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> appServicePlanFilters;
+    private Output<String> appServicePlanFilters;
 
     /**
-     * @return This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s).
+     * @return This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure App Service Plans. Only App Service Plans that match one of the defined tags are imported into Datadog. The rest, including the apps and functions running on them, are ignored. This also filters the metrics for any App or Function running on the App Service Plan(s). Defaults to `&#34;&#34;`.
      * 
      */
-    public Output<Optional<String>> appServicePlanFilters() {
-        return Codegen.optional(this.appServicePlanFilters);
+    public Output<String> appServicePlanFilters() {
+        return this.appServicePlanFilters;
     }
     /**
-     * Silence monitors for expected Azure VM shutdowns.
+     * Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
     @Export(name="automute", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> automute;
+    private Output<Boolean> automute;
 
     /**
-     * @return Silence monitors for expected Azure VM shutdowns.
+     * @return Silence monitors for expected Azure VM shutdowns. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> automute() {
-        return Codegen.optional(this.automute);
+    public Output<Boolean> automute() {
+        return this.automute;
     }
     /**
      * Your Azure web application ID.
@@ -124,46 +124,76 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * Enable Cloud Security Management Misconfigurations for your organization.
+     * This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * 
+     */
+    @Export(name="containerAppFilters", refs={String.class}, tree="[0]")
+    private Output<String> containerAppFilters;
+
+    /**
+     * @return This comma-separated list of tags (in the form `key:value,key:value`) defines a filter that Datadog uses when collecting metrics from Azure Container Apps. Only Container Apps that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
+     * 
+     */
+    public Output<String> containerAppFilters() {
+        return this.containerAppFilters;
+    }
+    /**
+     * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
+     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
      * 
      */
     @Export(name="cspmEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> cspmEnabled;
+    private Output<Boolean> cspmEnabled;
 
     /**
-     * @return Enable Cloud Security Management Misconfigurations for your organization.
+     * @return When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
+     * Note: This requires `resource_collection_enabled` to be set to true. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> cspmEnabled() {
-        return Codegen.optional(this.cspmEnabled);
+    public Output<Boolean> cspmEnabled() {
+        return this.cspmEnabled;
     }
     /**
-     * Enable custom metrics for your organization.
+     * Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
     @Export(name="customMetricsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> customMetricsEnabled;
+    private Output<Boolean> customMetricsEnabled;
 
     /**
-     * @return Enable custom metrics for your organization.
+     * @return Enable custom metrics for your organization. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> customMetricsEnabled() {
-        return Codegen.optional(this.customMetricsEnabled);
+    public Output<Boolean> customMetricsEnabled() {
+        return this.customMetricsEnabled;
     }
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="hostFilters", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> hostFilters;
+    private Output<String> hostFilters;
 
     /**
-     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * @return String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red` Defaults to `&#34;&#34;`.
      * 
      */
-    public Output<Optional<String>> hostFilters() {
-        return Codegen.optional(this.hostFilters);
+    public Output<String> hostFilters() {
+        return this.hostFilters;
+    }
+    /**
+     * When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+     * 
+     */
+    @Export(name="resourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> resourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
+     * 
+     */
+    public Output<Boolean> resourceCollectionEnabled() {
+        return this.resourceCollectionEnabled;
     }
     /**
      * Your Azure Active Directory ID.

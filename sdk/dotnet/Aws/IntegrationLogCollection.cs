@@ -47,7 +47,7 @@ namespace Pulumi.Datadog.Aws
     public partial class IntegrationLogCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        /// Your AWS Account ID without dashes.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Datadog.Aws
     public sealed class IntegrationLogCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        /// Your AWS Account ID without dashes.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Datadog.Aws
     public sealed class IntegrationLogCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
+        /// Your AWS Account ID without dashes.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

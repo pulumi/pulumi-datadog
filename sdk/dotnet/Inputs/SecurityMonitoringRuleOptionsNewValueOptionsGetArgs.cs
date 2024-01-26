@@ -19,19 +19,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<int> ForgetAfter { get; set; } = null!;
 
         /// <summary>
-        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
         /// </summary>
         [Input("learningDuration")]
         public Input<int>? LearningDuration { get; set; }
 
         /// <summary>
-        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`.
+        /// The learning method used to determine when signals should be generated for values that weren't learned. Valid values are `duration`, `threshold`. Defaults to `"duration"`.
         /// </summary>
         [Input("learningMethod")]
         public Input<string>? LearningMethod { get; set; }
 
         /// <summary>
-        /// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`.
+        /// A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
         /// </summary>
         [Input("learningThreshold")]
         public Input<int>? LearningThreshold { get; set; }

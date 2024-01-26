@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? MinFailureDuration;
         /// <summary>
-        /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
+        /// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
         /// </summary>
         public readonly int? MinLocationFailed;
         /// <summary>

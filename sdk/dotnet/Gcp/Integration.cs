@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Gcp
     public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         /// </summary>
         [Output("automute")]
         public Output<bool?> Automute { get; private set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         /// </summary>
         [Output("cspmResourceCollectionEnabled")]
         public Output<bool?> CspmResourceCollectionEnabled { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Datadog.Gcp
     public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Datadog.Gcp
     public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Silence monitors for expected GCE instance shutdowns.
+        /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         /// </summary>
         [Input("automute")]
         public Input<bool>? Automute { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Datadog.Gcp
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }

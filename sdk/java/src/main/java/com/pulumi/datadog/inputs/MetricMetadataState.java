@@ -92,14 +92,14 @@ public final class MetricMetadataState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Metric type such as `gauge` or `rate`.
+     * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Metric type such as `gauge` or `rate`.
+     * @return Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      * 
      */
     public Optional<Output<String>> type() {
@@ -257,7 +257,7 @@ public final class MetricMetadataState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Metric type such as `gauge` or `rate`.
+         * @param type Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class MetricMetadataState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Metric type such as `gauge` or `rate`.
+         * @param type Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
          * 
          * @return builder
          * 

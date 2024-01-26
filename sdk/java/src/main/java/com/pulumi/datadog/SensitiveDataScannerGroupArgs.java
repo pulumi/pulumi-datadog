@@ -80,14 +80,14 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * List of products the scanning group applies.
+     * List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      * 
      */
     @Import(name="productLists", required=true)
     private Output<List<String>> productLists;
 
     /**
-     * @return List of products the scanning group applies.
+     * @return List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
      * 
      */
     public Output<List<String>> productLists() {
@@ -207,7 +207,7 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param productLists List of products the scanning group applies.
+         * @param productLists List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param productLists List of products the scanning group applies.
+         * @param productLists List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class SensitiveDataScannerGroupArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param productLists List of products the scanning group applies.
+         * @param productLists List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
          * 
          * @return builder
          * 

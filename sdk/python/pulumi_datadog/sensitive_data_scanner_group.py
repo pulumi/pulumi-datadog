@@ -26,7 +26,7 @@ class SensitiveDataScannerGroupArgs:
         :param pulumi.Input['SensitiveDataScannerGroupFilterArgs'] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         :param pulumi.Input[str] description: Description of the Datadog scanning group.
         """
         pulumi.set(__self__, "filter", filter)
@@ -76,7 +76,7 @@ class SensitiveDataScannerGroupArgs:
     @pulumi.getter(name="productLists")
     def product_lists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of products the scanning group applies.
+        List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         return pulumi.get(self, "product_lists")
 
@@ -111,7 +111,7 @@ class _SensitiveDataScannerGroupState:
         :param pulumi.Input['SensitiveDataScannerGroupFilterArgs'] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -176,7 +176,7 @@ class _SensitiveDataScannerGroupState:
     @pulumi.getter(name="productLists")
     def product_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of products the scanning group applies.
+        List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         return pulumi.get(self, "product_lists")
 
@@ -227,7 +227,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         ...
     @overload
@@ -328,7 +328,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,7 +377,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
     @pulumi.getter(name="productLists")
     def product_lists(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of products the scanning group applies.
+        List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
         """
         return pulumi.get(self, "product_lists")
 

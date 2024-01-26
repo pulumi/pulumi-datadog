@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SpansMetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The search query - following the span search syntax.
+        /// The search query - following the span search syntax. Defaults to `"*"`.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }

@@ -34,14 +34,14 @@ public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReq
     }
 
     /**
-     * APM Environment.
+     * APM environment.
      * 
      */
     @Import(name="env", required=true)
     private Output<String> env;
 
     /**
-     * @return APM Environment.
+     * @return APM environment.
      * 
      */
     public Output<String> env() {
@@ -185,7 +185,7 @@ public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReq
         }
 
         /**
-         * @param env APM Environment.
+         * @param env APM environment.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReq
         }
 
         /**
-         * @param env APM Environment.
+         * @param env APM environment.
          * 
          * @return builder
          * 

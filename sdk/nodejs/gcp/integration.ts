@@ -44,7 +44,7 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
-     * Silence monitors for expected GCE instance shutdowns.
+     * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
     public readonly automute!: pulumi.Output<boolean | undefined>;
     /**
@@ -56,7 +56,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      */
     public readonly cspmResourceCollectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -135,7 +135,7 @@ export class Integration extends pulumi.CustomResource {
  */
 export interface IntegrationState {
     /**
-     * Silence monitors for expected GCE instance shutdowns.
+     * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -147,7 +147,7 @@ export interface IntegrationState {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -173,7 +173,7 @@ export interface IntegrationState {
  */
 export interface IntegrationArgs {
     /**
-     * Silence monitors for expected GCE instance shutdowns.
+     * Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
      */
     automute?: pulumi.Input<boolean>;
     /**
@@ -185,7 +185,7 @@ export interface IntegrationArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
      */
     cspmResourceCollectionEnabled?: pulumi.Input<boolean>;
     /**

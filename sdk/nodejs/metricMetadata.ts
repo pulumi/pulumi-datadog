@@ -78,7 +78,7 @@ export class MetricMetadata extends pulumi.CustomResource {
      */
     public readonly statsdInterval!: pulumi.Output<number | undefined>;
     /**
-     * Metric type such as `gauge` or `rate`.
+     * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface MetricMetadataState {
      */
     statsdInterval?: pulumi.Input<number>;
     /**
-     * Metric type such as `gauge` or `rate`.
+     * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
     type?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface MetricMetadataArgs {
      */
     statsdInterval?: pulumi.Input<number>;
     /**
-     * Metric type such as `gauge` or `rate`.
+     * Metric type such as `count`, `gauge`, or `rate`. Updating a metric of type `distribution` is not supported. If you would like to see the `distribution` type returned, contact [Datadog support](https://docs.datadoghq.com/help/).
      */
     type?: pulumi.Input<string>;
     /**

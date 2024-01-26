@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceLevelObjectivesArgs Empty = new GetServiceLevelObjectivesArgs();
+
+    /**
+     * Throw an error if no results are found. Defaults to `true`.
+     * 
+     */
+    @Import(name="errorOnEmptyResult")
+    private @Nullable Output<Boolean> errorOnEmptyResult;
+
+    /**
+     * @return Throw an error if no results are found. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> errorOnEmptyResult() {
+        return Optional.ofNullable(this.errorOnEmptyResult);
+    }
 
     /**
      * An array of SLO IDs to limit the search.
@@ -62,6 +78,21 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
     }
 
     /**
+     * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * 
+     */
+    @Import(name="query")
+    private @Nullable Output<String> query;
+
+    /**
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * 
+     */
+    public Optional<Output<String>> query() {
+        return Optional.ofNullable(this.query);
+    }
+
+    /**
      * Filter results based on a single SLO tag.
      * 
      */
@@ -79,9 +110,11 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
     private GetServiceLevelObjectivesArgs() {}
 
     private GetServiceLevelObjectivesArgs(GetServiceLevelObjectivesArgs $) {
+        this.errorOnEmptyResult = $.errorOnEmptyResult;
         this.ids = $.ids;
         this.metricsQuery = $.metricsQuery;
         this.nameQuery = $.nameQuery;
+        this.query = $.query;
         this.tagsQuery = $.tagsQuery;
     }
 
@@ -101,6 +134,27 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
 
         public Builder(GetServiceLevelObjectivesArgs defaults) {
             $ = new GetServiceLevelObjectivesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param errorOnEmptyResult Throw an error if no results are found. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorOnEmptyResult(@Nullable Output<Boolean> errorOnEmptyResult) {
+            $.errorOnEmptyResult = errorOnEmptyResult;
+            return this;
+        }
+
+        /**
+         * @param errorOnEmptyResult Throw an error if no results are found. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder errorOnEmptyResult(Boolean errorOnEmptyResult) {
+            return errorOnEmptyResult(Output.of(errorOnEmptyResult));
         }
 
         /**
@@ -174,6 +228,27 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
          */
         public Builder nameQuery(String nameQuery) {
             return nameQuery(Output.of(nameQuery));
+        }
+
+        /**
+         * @param query The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder query(@Nullable Output<String> query) {
+            $.query = query;
+            return this;
+        }
+
+        /**
+         * @param query The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder query(String query) {
+            return query(Output.of(query));
         }
 
         /**

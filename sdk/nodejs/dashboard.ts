@@ -57,7 +57,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
@@ -176,7 +176,7 @@ export interface DashboardState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
@@ -237,7 +237,7 @@ export interface DashboardArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
      *
      * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */

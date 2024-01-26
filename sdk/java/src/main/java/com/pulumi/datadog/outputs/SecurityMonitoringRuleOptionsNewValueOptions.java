@@ -19,17 +19,17 @@ public final class SecurityMonitoringRuleOptionsNewValueOptions {
      */
     private Integer forgetAfter;
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
      * 
      */
     private @Nullable Integer learningDuration;
     /**
-     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
      * 
      */
     private @Nullable String learningMethod;
     /**
-     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
      * 
      */
     private @Nullable Integer learningThreshold;
@@ -43,21 +43,21 @@ public final class SecurityMonitoringRuleOptionsNewValueOptions {
         return this.forgetAfter;
     }
     /**
-     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`.
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned. Valid values are `0`, `1`, `7`. Defaults to `1`.
      * 
      */
     public Optional<Integer> learningDuration() {
         return Optional.ofNullable(this.learningDuration);
     }
     /**
-     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`.
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned. Valid values are `duration`, `threshold`. Defaults to `&#34;duration&#34;`.
      * 
      */
     public Optional<String> learningMethod() {
         return Optional.ofNullable(this.learningMethod);
     }
     /**
-     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`.
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned. Valid values are `0`, `1`. Defaults to `0`.
      * 
      */
     public Optional<Integer> learningThreshold() {

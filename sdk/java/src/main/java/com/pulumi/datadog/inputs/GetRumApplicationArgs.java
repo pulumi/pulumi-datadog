@@ -31,14 +31,14 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The name used to search for a RUM application
+     * The name used to search for a RUM application.
      * 
      */
     @Import(name="nameFilter")
     private @Nullable Output<String> nameFilter;
 
     /**
-     * @return The name used to search for a RUM application
+     * @return The name used to search for a RUM application.
      * 
      */
     public Optional<Output<String>> nameFilter() {
@@ -46,14 +46,14 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The type used to search for a RUM application
+     * The type used to search for a RUM application.
      * 
      */
     @Import(name="typeFilter")
     private @Nullable Output<String> typeFilter;
 
     /**
-     * @return The type used to search for a RUM application
+     * @return The type used to search for a RUM application.
      * 
      */
     public Optional<Output<String>> typeFilter() {
@@ -108,7 +108,7 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param nameFilter The name used to search for a RUM application
+         * @param nameFilter The name used to search for a RUM application.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param nameFilter The name used to search for a RUM application
+         * @param nameFilter The name used to search for a RUM application.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param typeFilter The type used to search for a RUM application
+         * @param typeFilter The type used to search for a RUM application.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetRumApplicationArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param typeFilter The type used to search for a RUM application
+         * @param typeFilter The type used to search for a RUM application.
          * 
          * @return builder
          * 

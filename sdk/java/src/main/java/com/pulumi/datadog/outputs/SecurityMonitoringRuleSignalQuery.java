@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityMonitoringRuleSignalQuery {
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
      * 
      */
     private @Nullable String aggregation;
@@ -24,7 +24,7 @@ public final class SecurityMonitoringRuleSignalQuery {
      */
     private @Nullable List<String> correlatedByFields;
     /**
-     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String correlatedQueryIndex;
@@ -46,7 +46,7 @@ public final class SecurityMonitoringRuleSignalQuery {
 
     private SecurityMonitoringRuleSignalQuery() {}
     /**
-     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`.
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `new_value`, `geo_data`, `event_count`, `none`. Defaults to `&#34;event_count&#34;`.
      * 
      */
     public Optional<String> aggregation() {
@@ -60,7 +60,7 @@ public final class SecurityMonitoringRuleSignalQuery {
         return this.correlatedByFields == null ? List.of() : this.correlatedByFields;
     }
     /**
-     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> correlatedQueryIndex() {
