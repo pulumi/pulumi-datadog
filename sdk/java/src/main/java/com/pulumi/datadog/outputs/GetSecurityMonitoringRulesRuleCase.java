@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRuleCase {
+    /**
+     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     * 
+     */
     private @Nullable String condition;
+    /**
+     * @return Name of the case.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Notification targets for each rule case.
+     * 
+     */
     private @Nullable List<String> notifications;
+    /**
+     * @return Severity of the Security Signal.
+     * 
+     */
     private String status;
 
     private GetSecurityMonitoringRulesRuleCase() {}
+    /**
+     * @return A rule case contains logical operations (`&gt;`,`&gt;=`, `&amp;&amp;`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     * 
+     */
     public Optional<String> condition() {
         return Optional.ofNullable(this.condition);
     }
+    /**
+     * @return Name of the case.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Notification targets for each rule case.
+     * 
+     */
     public List<String> notifications() {
         return this.notifications == null ? List.of() : this.notifications;
     }
+    /**
+     * @return Severity of the Security Signal.
+     * 
+     */
     public String status() {
         return this.status;
     }

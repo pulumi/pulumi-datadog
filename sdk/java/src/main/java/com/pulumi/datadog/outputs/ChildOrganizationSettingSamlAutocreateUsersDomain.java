@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationSettingSamlAutocreateUsersDomain {
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     private @Nullable List<String> domains;
+    /**
+     * @return Whether or not the automated user creation based on SAML domain is enabled.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private ChildOrganizationSettingSamlAutocreateUsersDomain() {}
+    /**
+     * @return List of domains where the SAML automated user creation is enabled.
+     * 
+     */
     public List<String> domains() {
         return this.domains == null ? List.of() : this.domains;
     }
+    /**
+     * @return Whether or not the automated user creation based on SAML domain is enabled.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

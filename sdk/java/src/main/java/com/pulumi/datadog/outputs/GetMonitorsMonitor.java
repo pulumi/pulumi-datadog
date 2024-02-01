@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorsMonitor {
+    /**
+     * @return ID of the monitor
+     * 
+     */
     private Integer id;
+    /**
+     * @return Name of the monitor
+     * 
+     */
     private String name;
+    /**
+     * @return Type of the monitor.
+     * 
+     */
     private String type;
 
     private GetMonitorsMonitor() {}
+    /**
+     * @return ID of the monitor
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Name of the monitor
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Type of the monitor.
+     * 
+     */
     public String type() {
         return this.type;
     }

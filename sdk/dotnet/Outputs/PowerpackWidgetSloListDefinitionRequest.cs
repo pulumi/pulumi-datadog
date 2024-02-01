@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class PowerpackWidgetSloListDefinitionRequest
     {
+        /// <summary>
+        /// Updated SLO List widget.
+        /// </summary>
         public readonly Outputs.PowerpackWidgetSloListDefinitionRequestQuery Query;
         /// <summary>
         /// The request type for the SLO List request. Valid values are `slo_list`.

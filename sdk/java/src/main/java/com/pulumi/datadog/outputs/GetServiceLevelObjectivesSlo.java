@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceLevelObjectivesSlo {
+    /**
+     * @return ID of the Datadog service level objective
+     * 
+     */
     private String id;
+    /**
+     * @return Name of the Datadog service level objective
+     * 
+     */
     private String name;
+    /**
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+     * 
+     */
     private String type;
 
     private GetServiceLevelObjectivesSlo() {}
+    /**
+     * @return ID of the Datadog service level objective
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the Datadog service level objective
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+     * 
+     */
     public String type() {
         return this.type;
     }

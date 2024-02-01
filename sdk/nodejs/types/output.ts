@@ -13,49 +13,118 @@ export interface ApmRetentionFilterFilter {
 }
 
 export interface ChildOrganizationApiKey {
+    /**
+     * API key.
+     */
     key: string;
+    /**
+     * Name of your API key.
+     */
     name: string;
 }
 
 export interface ChildOrganizationApplicationKey {
+    /**
+     * Hash of an application key.
+     */
     hash: string;
+    /**
+     * Name of an application key.
+     */
     name: string;
+    /**
+     * Owner of an application key.
+     */
     owner: string;
 }
 
 export interface ChildOrganizationSetting {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
     privateWidgetShare: boolean;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     */
     samlAutocreateAccessRole: string;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     samlAutocreateUsersDomains: outputs.ChildOrganizationSettingSamlAutocreateUsersDomain[];
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
     samlCanBeEnabled: boolean;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
     samlIdpEndpoint: string;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpInitiatedLogins: outputs.ChildOrganizationSettingSamlIdpInitiatedLogin[];
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpMetadataUploaded: boolean;
+    /**
+     * URL for SAML logging.
+     */
     samlLoginUrl: string;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
     samlStrictModes: outputs.ChildOrganizationSettingSamlStrictMode[];
+    /**
+     * SAML properties
+     */
     samls: outputs.ChildOrganizationSettingSaml[];
 }
 
 export interface ChildOrganizationSettingSaml {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled: boolean;
 }
 
 export interface ChildOrganizationSettingSamlAutocreateUsersDomain {
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     domains: string[];
+    /**
+     * Whether or not the automated user creation based on SAML domain is enabled.
+     */
     enabled: boolean;
 }
 
 export interface ChildOrganizationSettingSamlIdpInitiatedLogin {
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     enabled: boolean;
 }
 
 export interface ChildOrganizationSettingSamlStrictMode {
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
     enabled: boolean;
 }
 
 export interface ChildOrganizationUser {
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     */
     accessRole: string;
+    /**
+     * The new email of the user.
+     */
     email: string;
+    /**
+     * The name of the user.
+     */
     name: string;
 }
 
@@ -837,6 +906,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -917,6 +989,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -933,6 +1008,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -1691,6 +1769,9 @@ export interface DashboardWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -1715,6 +1796,9 @@ export interface DashboardWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -2125,6 +2209,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -2205,6 +2292,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -2221,6 +2311,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -3121,6 +3214,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -3201,6 +3297,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -3217,6 +3316,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -3975,6 +4077,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -3999,6 +4104,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -4409,6 +4517,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -4489,6 +4600,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -4505,6 +4619,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -5188,6 +5305,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -5268,6 +5388,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -5284,6 +5407,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -6471,6 +6597,9 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
      * Column properties used by the front end for display.
      */
     columns: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn[];
+    /**
+     * Updated list stream widget.
+     */
     query: outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -6544,6 +6673,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: string;
+    /**
+     * The query to use in the widget.
+     */
     query?: string;
     /**
      * If the date column should be displayed.
@@ -6595,6 +6727,9 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: boolean;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -7329,6 +7464,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -7409,6 +7547,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -7425,6 +7566,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -8296,6 +8440,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -8376,6 +8523,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -8392,6 +8542,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -8949,6 +9102,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -9029,6 +9185,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -9045,6 +9204,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -10037,6 +10199,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -10638,6 +10803,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -10718,6 +10886,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -10734,6 +10905,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -11345,6 +11519,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -11425,6 +11602,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -11441,6 +11621,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -12211,6 +12394,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -12291,6 +12477,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -12307,6 +12496,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -13178,6 +13370,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -13258,6 +13453,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -13274,6 +13472,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -13770,6 +13971,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -13850,6 +14054,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -13866,6 +14073,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -15439,6 +15649,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -15519,6 +15732,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -15535,6 +15751,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -16518,6 +16737,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -16598,6 +16820,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -16614,6 +16839,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -17526,6 +17754,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -17606,6 +17837,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -17622,6 +17856,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -18102,6 +18339,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -18182,6 +18422,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -18198,6 +18441,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -19021,6 +19267,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -19101,6 +19350,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -19117,6 +19369,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -20100,6 +20355,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -20180,6 +20438,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -20196,6 +20457,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -21108,6 +21372,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -21188,6 +21455,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -21204,6 +21474,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -21493,6 +21766,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustom
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery[];
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -21812,6 +22088,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -21892,6 +22171,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -21908,6 +22190,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -22513,6 +22798,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -22593,6 +22881,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -22609,6 +22900,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -23796,6 +24090,9 @@ export interface DashboardWidgetListStreamDefinitionRequest {
      * Column properties used by the front end for display.
      */
     columns: outputs.DashboardWidgetListStreamDefinitionRequestColumn[];
+    /**
+     * Updated list stream widget.
+     */
     query: outputs.DashboardWidgetListStreamDefinitionRequestQuery;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -23869,6 +24166,9 @@ export interface DashboardWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: string;
+    /**
+     * The query to use in the widget.
+     */
     query?: string;
     /**
      * If the date column should be displayed.
@@ -23920,6 +24220,9 @@ export interface DashboardWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: boolean;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -24654,6 +24957,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -24734,6 +25040,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -24750,6 +25059,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -25621,6 +25933,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -25701,6 +26016,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -25717,6 +26035,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -26274,6 +26595,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -26354,6 +26678,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -26370,6 +26697,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -27362,6 +27692,9 @@ export interface DashboardWidgetSloListDefinition {
 }
 
 export interface DashboardWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: outputs.DashboardWidgetSloListDefinitionRequestQuery;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -27963,6 +28296,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -28043,6 +28379,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -28059,6 +28398,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -28670,6 +29012,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -28750,6 +29095,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -28766,6 +29114,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -29536,6 +29887,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -29616,6 +29970,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -29632,6 +29989,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -30503,6 +30863,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -30583,6 +30946,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -30599,6 +30965,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -31095,6 +31464,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -31175,6 +31547,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -31191,6 +31566,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -32764,6 +33142,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -32844,6 +33225,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -32860,6 +33244,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -33843,6 +34230,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -33923,6 +34313,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -33939,6 +34332,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -34851,6 +35247,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -34931,6 +35330,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -34947,6 +35349,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -35427,6 +35832,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -35507,6 +35915,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -35523,6 +35934,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -36346,6 +36760,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -36426,6 +36843,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByS
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -36442,6 +36862,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -37425,6 +37848,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -37505,6 +37931,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -37521,6 +37950,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -38433,6 +38865,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -38513,6 +38948,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -38529,6 +38967,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -38818,6 +39259,9 @@ export interface DashboardWidgetTopologyMapDefinitionCustomLink {
 }
 
 export interface DashboardWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: outputs.DashboardWidgetTopologyMapDefinitionRequestQuery[];
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -39137,6 +39581,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -39217,6 +39664,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -39233,6 +39683,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -39402,10 +39855,25 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
 }
 
 export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
+    /**
+     * The description of the Agent rule.
+     */
     description: string;
+    /**
+     * Whether the Agent rule is enabled.
+     */
     enabled: boolean;
+    /**
+     * The SECL expression of the Agent rule.
+     */
     expression: string;
+    /**
+     * The id of the Agent rule.
+     */
     id: string;
+    /**
+     * The name of the Agent rule.
+     */
     name: string;
 }
 
@@ -39444,50 +39912,119 @@ export interface GetHostsHostListMetrics {
 }
 
 export interface GetLogsIndexesLogsIndex {
+    /**
+     * The number of log events you can send in this index per day before you are rate-limited.
+     */
     dailyLimit: number;
+    /**
+     * List of exclusion filters.
+     */
     exclusionFilters: outputs.GetLogsIndexesLogsIndexExclusionFilter[];
+    /**
+     * Logs filter
+     */
     filters: outputs.GetLogsIndexesLogsIndexFilter[];
+    /**
+     * The name of the index.
+     */
     name: string;
+    /**
+     * The number of days before logs are deleted from this index.
+     */
     retentionDays: number;
 }
 
 export interface GetLogsIndexesLogsIndexExclusionFilter {
     filters?: outputs.GetLogsIndexesLogsIndexExclusionFilterFilter[];
+    /**
+     * A boolean stating if the exclusion is active or not.
+     */
     isEnabled: boolean;
+    /**
+     * The name of the exclusion filter.
+     */
     name: string;
 }
 
 export interface GetLogsIndexesLogsIndexExclusionFilterFilter {
+    /**
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     */
     query: string;
+    /**
+     * The fraction of logs excluded by the exclusion filter, when active.
+     */
     sampleRate: number;
 }
 
 export interface GetLogsIndexesLogsIndexFilter {
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     */
     query: string;
 }
 
 export interface GetLogsPipelinesLogsPipeline {
+    /**
+     * Pipelines filter
+     */
     filters: outputs.GetLogsPipelinesLogsPipelineFilter[];
+    /**
+     * ID of the pipeline
+     */
     id: string;
+    /**
+     * Whether or not the pipeline is enabled.
+     */
     isEnabled: boolean;
+    /**
+     * Whether or not the pipeline can be edited.
+     */
     isReadOnly: boolean;
+    /**
+     * The name of the pipeline.
+     */
     name: string;
+    /**
+     * Whether or not the pipeline can be edited.
+     */
     type: string;
 }
 
 export interface GetLogsPipelinesLogsPipelineFilter {
+    /**
+     * Pipeline filter criteria.
+     */
     query: string;
 }
 
 export interface GetMonitorConfigPoliciesMonitorConfigPolicy {
+    /**
+     * ID of the monitor config policy
+     */
     id: string;
+    /**
+     * The monitor config policy type
+     */
     policyType: string;
+    /**
+     * Config for a tag policy. Only set if `policyType` is `tag`.
+     */
     tagPolicy: outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
 }
 
 export interface GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
+    /**
+     * The key of the tag
+     */
     tagKey: string;
+    /**
+     * If a tag key is required for monitor creation
+     */
     tagKeyRequired: boolean;
+    /**
+     * Valid values for the tag
+     */
     validTagValues: string[];
 }
 
@@ -39506,138 +40043,355 @@ export interface GetMonitorMonitorThresholdWindow {
 }
 
 export interface GetMonitorSchedulingOption {
+    /**
+     * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     */
     customSchedules: outputs.GetMonitorSchedulingOptionCustomSchedule[];
+    /**
+     * Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
+     */
     evaluationWindows: outputs.GetMonitorSchedulingOptionEvaluationWindow[];
 }
 
 export interface GetMonitorSchedulingOptionCustomSchedule {
+    /**
+     * A list of recurrence definitions. Length must be 1.
+     */
     recurrences: outputs.GetMonitorSchedulingOptionCustomScheduleRecurrence[];
 }
 
 export interface GetMonitorSchedulingOptionCustomScheduleRecurrence {
+    /**
+     * Must be a valid rrule. See api docs for supported fields
+     */
     rrule: string;
+    /**
+     * Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
+     */
     start: string;
+    /**
+     * 'tz database' format. ex: 'America/New_York' or UTC
+     */
     timezone: string;
 }
 
 export interface GetMonitorSchedulingOptionEvaluationWindow {
+    /**
+     * The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+     */
     dayStarts: string;
+    /**
+     * The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+     */
     hourStarts: number;
+    /**
+     * The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+     */
     monthStarts: number;
 }
 
 export interface GetMonitorsMonitor {
+    /**
+     * ID of the monitor
+     */
     id: number;
+    /**
+     * Name of the monitor
+     */
     name: string;
+    /**
+     * Type of the monitor.
+     */
     type: string;
 }
 
 export interface GetRolesRole {
+    /**
+     * ID of the Datadog role
+     */
     id: string;
+    /**
+     * Name of the Datadog role
+     */
     name: string;
+    /**
+     * Number of users that have this role.
+     */
     userCount: number;
 }
 
 export interface GetSecurityMonitoringFiltersFilter {
+    /**
+     * Exclusion filters to exclude some logs from the security filter.
+     */
     exclusionFilters?: outputs.GetSecurityMonitoringFiltersFilterExclusionFilter[];
+    /**
+     * The filtered data type.
+     */
     filteredDataType?: string;
+    /**
+     * Whether the security filter is enabled.
+     */
     isEnabled: boolean;
+    /**
+     * The name of the security filter.
+     */
     name: string;
+    /**
+     * The query of the security filter.
+     */
     query: string;
+    /**
+     * The version of the security filter.
+     */
     version: number;
 }
 
 export interface GetSecurityMonitoringFiltersFilterExclusionFilter {
+    /**
+     * Exclusion filter name.
+     */
     name: string;
+    /**
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     */
     query: string;
 }
 
 export interface GetSecurityMonitoringRulesRule {
+    /**
+     * Cases for generating signals.
+     */
     cases: outputs.GetSecurityMonitoringRulesRuleCase[];
+    /**
+     * Whether the rule is enabled.
+     */
     enabled?: boolean;
+    /**
+     * Additional queries to filter matched events before they are processed.
+     */
     filters?: outputs.GetSecurityMonitoringRulesRuleFilter[];
+    /**
+     * Whether the notifications include the triggering group-by values in their title.
+     */
     hasExtendedTitle?: boolean;
+    /**
+     * Message for generated signals.
+     */
     message: string;
+    /**
+     * The name of the rule.
+     */
     name: string;
+    /**
+     * Options on rules.
+     */
     options?: outputs.GetSecurityMonitoringRulesRuleOptions;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
     queries?: outputs.GetSecurityMonitoringRulesRuleQuery[];
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
     signalQueries?: outputs.GetSecurityMonitoringRulesRuleSignalQuery[];
+    /**
+     * Tags for generated signals.
+     */
     tags?: string[];
+    /**
+     * The rule type.
+     */
     type?: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleCase {
+    /**
+     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     */
     condition?: string;
+    /**
+     * Name of the case.
+     */
     name?: string;
+    /**
+     * Notification targets for each rule case.
+     */
     notifications?: string[];
+    /**
+     * Severity of the Security Signal.
+     */
     status: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleFilter {
+    /**
+     * The type of filtering action.
+     */
     action: string;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
     query: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptions {
+    /**
+     * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+     */
     decreaseCriticalityBasedOnEnv?: boolean;
+    /**
+     * The detection method.
+     */
     detectionMethod?: string;
+    /**
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+     */
     evaluationWindow?: number;
+    /**
+     * Options for rules using the impossible travel detection method.
+     */
     impossibleTravelOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions;
+    /**
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
+     */
     keepAlive: number;
+    /**
+     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
+     */
     maxSignalDuration: number;
+    /**
+     * New value rules specific options.
+     */
     newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
+    /**
+     * If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+     */
     baselineUserLocations?: boolean;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
+    /**
+     * The duration in days after which a learned value is forgotten.
+     */
     forgetAfter: number;
+    /**
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     */
     learningDuration?: number;
+    /**
+     * The learning method used to determine when signals should be generated for values that weren't learned.
+     */
     learningMethod?: string;
+    /**
+     * A number of occurrences after which signals are generated for values that weren't learned.
+     */
     learningThreshold?: number;
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
     /**
+     * **Deprecated**. It won't be applied anymore.
+     *
      * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
      */
     agentRules?: outputs.GetSecurityMonitoringRulesRuleQueryAgentRule[];
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count.
+     */
     aggregation?: string;
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     */
     distinctFields?: string[];
+    /**
+     * Fields to group by.
+     */
     groupByFields?: string[];
     /**
+     * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+     *
      * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      */
     metric?: string;
+    /**
+     * Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
+     */
     metrics: string[];
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
     name?: string;
+    /**
+     * Query to run on logs.
+     */
     query: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleQueryAgentRule {
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
     agentRuleId: string;
+    /**
+     * **Deprecated**. It won't be applied anymore.
+     */
     expression: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleSignalQuery {
+    /**
+     * The aggregation type. For Signal Correlation rules, it must be event_count.
+     */
     aggregation?: string;
+    /**
+     * Fields to correlate by.
+     */
     correlatedByFields?: string[];
+    /**
+     * Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     */
     correlatedQueryIndex?: string;
+    /**
+     * Default Rule ID of the signal to correlate. This value is READ-ONLY.
+     */
     defaultRuleId?: string;
+    /**
+     * Name of the query. Not compatible with `newValue` aggregations.
+     */
     name?: string;
+    /**
+     * Rule ID of the signal to correlate.
+     */
     ruleId: string;
 }
 
 export interface GetServiceLevelObjectiveQuery {
+    /**
+     * The sum of the `total` events.
+     */
     denominator: string;
+    /**
+     * The sum of all the `good` events.
+     */
     numerator: string;
 }
 
 export interface GetServiceLevelObjectivesSlo {
+    /**
+     * ID of the Datadog service level objective
+     */
     id: string;
+    /**
+     * Name of the Datadog service level objective
+     */
     name: string;
+    /**
+     * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+     */
     type: string;
 }
 
@@ -39655,6 +40409,9 @@ export interface GetUsersUser {
 }
 
 export interface IpAllowlistEntry {
+    /**
+     * IP address or range of addresses.
+     */
     cidrBlock: string;
     /**
      * Note accompanying IP address.
@@ -41614,6 +42371,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -41694,6 +42454,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -41710,6 +42473,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -42468,6 +43234,9 @@ export interface PowerpackWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -42492,6 +43261,9 @@ export interface PowerpackWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: string;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -42902,6 +43674,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -42982,6 +43757,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -42998,6 +43776,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -43681,6 +44462,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -43761,6 +44545,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -43777,6 +44564,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -44964,6 +45754,9 @@ export interface PowerpackWidgetListStreamDefinitionRequest {
      * Column properties used by the front end for display.
      */
     columns: outputs.PowerpackWidgetListStreamDefinitionRequestColumn[];
+    /**
+     * Updated list stream widget.
+     */
     query: outputs.PowerpackWidgetListStreamDefinitionRequestQuery;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -45037,6 +45830,9 @@ export interface PowerpackWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: string;
+    /**
+     * The query to use in the widget.
+     */
     query?: string;
     /**
      * If the date column should be displayed.
@@ -45088,6 +45884,9 @@ export interface PowerpackWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: boolean;
+    /**
+     * The query to use in the widget.
+     */
     query: string;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -45754,6 +46553,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -45834,6 +46636,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -45850,6 +46655,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -46721,6 +47529,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -46801,6 +47612,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -46817,6 +47631,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -47374,6 +48191,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -47454,6 +48274,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -47470,6 +48293,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -48462,6 +49288,9 @@ export interface PowerpackWidgetSloListDefinition {
 }
 
 export interface PowerpackWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: outputs.PowerpackWidgetSloListDefinitionRequestQuery;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -49185,6 +50014,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -49265,6 +50097,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByS
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -49281,6 +50116,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -50264,6 +51102,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -50344,6 +51185,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -50360,6 +51204,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -51272,6 +52119,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -51352,6 +52202,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -51368,6 +52221,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -51657,6 +52513,9 @@ export interface PowerpackWidgetTopologyMapDefinitionCustomLink {
 }
 
 export interface PowerpackWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: outputs.PowerpackWidgetTopologyMapDefinitionRequestQuery[];
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -51976,6 +52835,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The cloud cost query definition.
+     */
     query: string;
 }
 
@@ -52056,6 +52918,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: string;
 }
 
@@ -52072,6 +52937,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: string;
+    /**
+     * The metrics query definition.
+     */
     query: string;
 }
 
@@ -52757,6 +53625,9 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
@@ -52765,6 +53636,9 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
@@ -53079,6 +53953,9 @@ export interface SyntheticsTestBrowserStepParamsVariable {
      * Example of the extracted variable. Defaults to `""`.
      */
     example?: string;
+    /**
+     * Name of the extracted variable.
+     */
     name?: string;
 }
 
@@ -53355,6 +54232,9 @@ export interface SyntheticsTestRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
@@ -53363,6 +54243,9 @@ export interface SyntheticsTestRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: string;
+    /**
+     * File name for the certificate.
+     */
     filename?: string;
 }
 
@@ -53458,7 +54341,13 @@ export interface SyntheticsTestRequestProxy {
 
 export namespace aws {
     export interface GetIntegrationLogsServicesAwsLogsService {
+        /**
+         * The id of the AWS log service.
+         */
         id: string;
+        /**
+         * The name of the AWS log service.
+         */
         label: string;
     }
 

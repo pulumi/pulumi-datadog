@@ -15,23 +15,47 @@ public final class ChildOrganizationUserArgs extends com.pulumi.resources.Resour
 
     public static final ChildOrganizationUserArgs Empty = new ChildOrganizationUserArgs();
 
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     * 
+     */
     @Import(name="accessRole")
     private @Nullable Output<String> accessRole;
 
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     * 
+     */
     public Optional<Output<String>> accessRole() {
         return Optional.ofNullable(this.accessRole);
     }
 
+    /**
+     * The new email of the user.
+     * 
+     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
+    /**
+     * @return The new email of the user.
+     * 
+     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
+    /**
+     * The name of the user.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the user.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,29 +86,65 @@ public final class ChildOrganizationUserArgs extends com.pulumi.resources.Resour
             $ = new ChildOrganizationUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessRole(@Nullable Output<String> accessRole) {
             $.accessRole = accessRole;
             return this;
         }
 
+        /**
+         * @param accessRole The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessRole(String accessRole) {
             return accessRole(Output.of(accessRole));
         }
 
+        /**
+         * @param email The new email of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email The new email of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
+        /**
+         * @param name The name of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

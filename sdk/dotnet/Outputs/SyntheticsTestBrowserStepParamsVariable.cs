@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         /// Example of the extracted variable. Defaults to `""`.
         /// </summary>
         public readonly string? Example;
+        /// <summary>
+        /// Name of the extracted variable.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

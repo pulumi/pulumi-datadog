@@ -27,6 +27,10 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
      * 
      */
     private String name;
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryMetricQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
     public String name() {
         return this.name;
     }
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

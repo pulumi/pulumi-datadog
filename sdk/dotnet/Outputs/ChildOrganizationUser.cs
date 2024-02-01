@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationUser
     {
+        /// <summary>
+        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+        /// </summary>
         public readonly string? AccessRole;
+        /// <summary>
+        /// The new email of the user.
+        /// </summary>
         public readonly string? Email;
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

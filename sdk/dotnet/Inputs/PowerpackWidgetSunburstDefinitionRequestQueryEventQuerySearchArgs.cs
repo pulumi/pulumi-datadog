@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The events search string.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

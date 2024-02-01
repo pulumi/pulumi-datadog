@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetIntegrationLogsServicesAwsLogsService struct {
-	Id    string `pulumi:"id"`
+	// The id of the AWS log service.
+	Id string `pulumi:"id"`
+	// The name of the AWS log service.
 	Label string `pulumi:"label"`
 }
 
@@ -30,7 +32,9 @@ type GetIntegrationLogsServicesAwsLogsServiceInput interface {
 }
 
 type GetIntegrationLogsServicesAwsLogsServiceArgs struct {
-	Id    pulumi.StringInput `pulumi:"id"`
+	// The id of the AWS log service.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the AWS log service.
 	Label pulumi.StringInput `pulumi:"label"`
 }
 
@@ -85,10 +89,12 @@ func (o GetIntegrationLogsServicesAwsLogsServiceOutput) ToGetIntegrationLogsServ
 	return o
 }
 
+// The id of the AWS log service.
 func (o GetIntegrationLogsServicesAwsLogsServiceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIntegrationLogsServicesAwsLogsService) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the AWS log service.
 func (o GetIntegrationLogsServicesAwsLogsServiceOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIntegrationLogsServicesAwsLogsService) string { return v.Label }).(pulumi.StringOutput)
 }

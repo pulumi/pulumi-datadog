@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch
     {
+        /// <summary>
+        /// The events search string.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

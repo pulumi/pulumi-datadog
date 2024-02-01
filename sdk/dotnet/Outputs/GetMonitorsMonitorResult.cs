@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorsMonitorResult
     {
+        /// <summary>
+        /// ID of the monitor
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Name of the monitor
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of the monitor.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

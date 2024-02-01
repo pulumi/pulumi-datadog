@@ -15,9 +15,17 @@ public final class ChildOrganizationSettingSamlIdpInitiatedLoginArgs extends com
 
     public static final ChildOrganizationSettingSamlIdpInitiatedLoginArgs Empty = new ChildOrganizationSettingSamlIdpInitiatedLoginArgs();
 
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class ChildOrganizationSettingSamlIdpInitiatedLoginArgs extends com
             $ = new ChildOrganizationSettingSamlIdpInitiatedLoginArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

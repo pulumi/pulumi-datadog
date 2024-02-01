@@ -31,9 +31,17 @@ public final class SyntheticsTestRequestClientCertificateKeyArgs extends com.pul
         return this.content;
     }
 
+    /**
+     * File name for the certificate.
+     * 
+     */
     @Import(name="filename")
     private @Nullable Output<String> filename;
 
+    /**
+     * @return File name for the certificate.
+     * 
+     */
     public Optional<Output<String>> filename() {
         return Optional.ofNullable(this.filename);
     }
@@ -84,11 +92,23 @@ public final class SyntheticsTestRequestClientCertificateKeyArgs extends com.pul
             return content(Output.of(content));
         }
 
+        /**
+         * @param filename File name for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filename(@Nullable Output<String> filename) {
             $.filename = filename;
             return this;
         }
 
+        /**
+         * @param filename File name for the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filename(String filename) {
             return filename(Output.of(filename));
         }

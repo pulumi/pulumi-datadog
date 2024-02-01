@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("hash")]
         private Input<string>? _hash;
+
+        /// <summary>
+        /// Hash of an application key.
+        /// </summary>
         public Input<string>? Hash
         {
             get => _hash;
@@ -24,9 +28,15 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// Name of an application key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Owner of an application key.
+        /// </summary>
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 

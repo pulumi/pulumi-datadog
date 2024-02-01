@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

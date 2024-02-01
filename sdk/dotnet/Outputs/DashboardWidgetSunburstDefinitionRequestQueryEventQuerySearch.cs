@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch
     {
+        /// <summary>
+        /// The events search string.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

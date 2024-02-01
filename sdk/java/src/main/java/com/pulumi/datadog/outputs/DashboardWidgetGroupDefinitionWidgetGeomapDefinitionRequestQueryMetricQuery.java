@@ -27,6 +27,10 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
      * 
      */
     private String name;
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
     public String name() {
         return this.name;
     }
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

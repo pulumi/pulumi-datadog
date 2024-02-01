@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("queries", required: true)]
         private InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestQueryArgs>? _queries;
+
+        /// <summary>
+        /// The query for a Topology request.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestQueryArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestQueryArgs>());

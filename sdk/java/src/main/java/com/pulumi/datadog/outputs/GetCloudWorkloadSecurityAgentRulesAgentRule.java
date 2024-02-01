@@ -11,25 +11,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCloudWorkloadSecurityAgentRulesAgentRule {
+    /**
+     * @return The description of the Agent rule.
+     * 
+     */
     private String description;
+    /**
+     * @return Whether the Agent rule is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return The SECL expression of the Agent rule.
+     * 
+     */
     private String expression;
+    /**
+     * @return The id of the Agent rule.
+     * 
+     */
     private String id;
+    /**
+     * @return The name of the Agent rule.
+     * 
+     */
     private String name;
 
     private GetCloudWorkloadSecurityAgentRulesAgentRule() {}
+    /**
+     * @return The description of the Agent rule.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Whether the Agent rule is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return The SECL expression of the Agent rule.
+     * 
+     */
     public String expression() {
         return this.expression;
     }
+    /**
+     * @return The id of the Agent rule.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the Agent rule.
+     * 
+     */
     public String name() {
         return this.name;
     }

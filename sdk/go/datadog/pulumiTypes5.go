@@ -3531,7 +3531,8 @@ type PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource string `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The cloud cost query definition.
 	Query string `pulumi:"query"`
 }
 
@@ -3552,7 +3553,8 @@ type PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryArgs struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The cloud cost query definition.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -3648,6 +3650,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryOutput) Name()
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The cloud cost query definition.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -3706,6 +3709,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Nam
 	}).(pulumi.StringPtrOutput)
 }
 
+// The cloud cost query definition.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -4380,6 +4384,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch struct {
+	// The events search string.
 	Query string `pulumi:"query"`
 }
 
@@ -4395,6 +4400,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchInput interface
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs struct {
+	// The events search string.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -4475,6 +4481,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) ToPo
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// The events search string.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -4503,6 +4510,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) E
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchOutput)
 }
 
+// The events search string.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch) *string {
 		if v == nil {
@@ -4518,7 +4526,8 @@ type PowerpackWidgetToplistDefinitionRequestQueryMetricQuery struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource *string `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The metrics query definition.
 	Query string `pulumi:"query"`
 }
 
@@ -4539,7 +4548,8 @@ type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -4635,6 +4645,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Name() pu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The metrics query definition.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -4693,6 +4704,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metrics query definition.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -7325,6 +7337,7 @@ func (o PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) Index(i pulum
 }
 
 type PowerpackWidgetTopologyMapDefinitionRequest struct {
+	// The query for a Topology request.
 	Queries []PowerpackWidgetTopologyMapDefinitionRequestQuery `pulumi:"queries"`
 	// The request type for the SLO List request. Valid values are `sloList`.
 	RequestType string `pulumi:"requestType"`
@@ -7342,6 +7355,7 @@ type PowerpackWidgetTopologyMapDefinitionRequestInput interface {
 }
 
 type PowerpackWidgetTopologyMapDefinitionRequestArgs struct {
+	// The query for a Topology request.
 	Queries PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput `pulumi:"queries"`
 	// The request type for the SLO List request. Valid values are `sloList`.
 	RequestType pulumi.StringInput `pulumi:"requestType"`
@@ -7398,6 +7412,7 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) ToPowerpackWidgetTopo
 	return o
 }
 
+// The query for a Topology request.
 func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) Queries() PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequest) []PowerpackWidgetTopologyMapDefinitionRequestQuery {
 		return v.Queries
@@ -9645,7 +9660,8 @@ type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource string `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The cloud cost query definition.
 	Query string `pulumi:"query"`
 }
 
@@ -9666,7 +9682,8 @@ type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The cloud cost query definition.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -9762,6 +9779,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Name()
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The cloud cost query definition.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -9820,6 +9838,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Nam
 	}).(pulumi.StringPtrOutput)
 }
 
+// The cloud cost query definition.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -10494,6 +10513,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch struct {
+	// The events search string.
 	Query string `pulumi:"query"`
 }
 
@@ -10509,6 +10529,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchInput interface
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs struct {
+	// The events search string.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -10589,6 +10610,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) ToPo
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput)
 }
 
+// The events search string.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -10617,6 +10639,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) E
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchOutput)
 }
 
+// The events search string.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch) *string {
 		if v == nil {
@@ -10632,7 +10655,8 @@ type PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource *string `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The metrics query definition.
 	Query string `pulumi:"query"`
 }
 
@@ -10653,7 +10677,8 @@ type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs struct {
 	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
 	// The name of the powerpack template variable.
-	Name  pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -10749,6 +10774,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Name() pu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The metrics query definition.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -10807,6 +10833,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metrics query definition.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -16763,7 +16790,8 @@ func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Key() Synthetics
 
 type SyntheticsTestApiStepRequestClientCertificateCert struct {
 	// Content of the certificate.
-	Content  string  `pulumi:"content"`
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -16780,7 +16808,8 @@ type SyntheticsTestApiStepRequestClientCertificateCertInput interface {
 
 type SyntheticsTestApiStepRequestClientCertificateCertArgs struct {
 	// Content of the certificate.
-	Content  pulumi.StringInput    `pulumi:"content"`
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -16866,6 +16895,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Content() pulum
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -16904,6 +16934,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Content() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) *string {
 		if v == nil {
@@ -16915,7 +16946,8 @@ func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() p
 
 type SyntheticsTestApiStepRequestClientCertificateKey struct {
 	// Content of the certificate.
-	Content  string  `pulumi:"content"`
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -16932,7 +16964,8 @@ type SyntheticsTestApiStepRequestClientCertificateKeyInput interface {
 
 type SyntheticsTestApiStepRequestClientCertificateKeyArgs struct {
 	// Content of the certificate.
-	Content  pulumi.StringInput    `pulumi:"content"`
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -17018,6 +17051,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Content() pulumi
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -17056,6 +17090,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Content() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) *string {
 		if v == nil {
@@ -19088,7 +19123,8 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value()
 type SyntheticsTestBrowserStepParamsVariable struct {
 	// Example of the extracted variable. Defaults to `""`.
 	Example *string `pulumi:"example"`
-	Name    *string `pulumi:"name"`
+	// Name of the extracted variable.
+	Name *string `pulumi:"name"`
 }
 
 // SyntheticsTestBrowserStepParamsVariableInput is an input type that accepts SyntheticsTestBrowserStepParamsVariableArgs and SyntheticsTestBrowserStepParamsVariableOutput values.
@@ -19105,7 +19141,8 @@ type SyntheticsTestBrowserStepParamsVariableInput interface {
 type SyntheticsTestBrowserStepParamsVariableArgs struct {
 	// Example of the extracted variable. Defaults to `""`.
 	Example pulumi.StringPtrInput `pulumi:"example"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the extracted variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (SyntheticsTestBrowserStepParamsVariableArgs) ElementType() reflect.Type {
@@ -19190,6 +19227,7 @@ func (o SyntheticsTestBrowserStepParamsVariableOutput) Example() pulumi.StringPt
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
 }
 
+// Name of the extracted variable.
 func (o SyntheticsTestBrowserStepParamsVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -19228,6 +19266,7 @@ func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Example() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the extracted variable.
 func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *string {
 		if v == nil {
@@ -21491,7 +21530,8 @@ func (o SyntheticsTestRequestClientCertificatePtrOutput) Key() SyntheticsTestReq
 
 type SyntheticsTestRequestClientCertificateCert struct {
 	// Content of the certificate.
-	Content  string  `pulumi:"content"`
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -21508,7 +21548,8 @@ type SyntheticsTestRequestClientCertificateCertInput interface {
 
 type SyntheticsTestRequestClientCertificateCertArgs struct {
 	// Content of the certificate.
-	Content  pulumi.StringInput    `pulumi:"content"`
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -21594,6 +21635,7 @@ func (o SyntheticsTestRequestClientCertificateCertOutput) Content() pulumi.Strin
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -21632,6 +21674,7 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Content() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateCert) *string {
 		if v == nil {
@@ -21643,7 +21686,8 @@ func (o SyntheticsTestRequestClientCertificateCertPtrOutput) Filename() pulumi.S
 
 type SyntheticsTestRequestClientCertificateKey struct {
 	// Content of the certificate.
-	Content  string  `pulumi:"content"`
+	Content string `pulumi:"content"`
+	// File name for the certificate.
 	Filename *string `pulumi:"filename"`
 }
 
@@ -21660,7 +21704,8 @@ type SyntheticsTestRequestClientCertificateKeyInput interface {
 
 type SyntheticsTestRequestClientCertificateKeyArgs struct {
 	// Content of the certificate.
-	Content  pulumi.StringInput    `pulumi:"content"`
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
 	Filename pulumi.StringPtrInput `pulumi:"filename"`
 }
 
@@ -21746,6 +21791,7 @@ func (o SyntheticsTestRequestClientCertificateKeyOutput) Content() pulumi.String
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
 }
@@ -21784,6 +21830,7 @@ func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Content() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// File name for the certificate.
 func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestClientCertificateKey) *string {
 		if v == nil {
@@ -22429,11 +22476,16 @@ func (o SyntheticsTestRequestProxyPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type GetCloudWorkloadSecurityAgentRulesAgentRule struct {
+	// The description of the Agent rule.
 	Description string `pulumi:"description"`
-	Enabled     bool   `pulumi:"enabled"`
-	Expression  string `pulumi:"expression"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
+	// Whether the Agent rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The SECL expression of the Agent rule.
+	Expression string `pulumi:"expression"`
+	// The id of the Agent rule.
+	Id string `pulumi:"id"`
+	// The name of the Agent rule.
+	Name string `pulumi:"name"`
 }
 
 // GetCloudWorkloadSecurityAgentRulesAgentRuleInput is an input type that accepts GetCloudWorkloadSecurityAgentRulesAgentRuleArgs and GetCloudWorkloadSecurityAgentRulesAgentRuleOutput values.
@@ -22448,11 +22500,16 @@ type GetCloudWorkloadSecurityAgentRulesAgentRuleInput interface {
 }
 
 type GetCloudWorkloadSecurityAgentRulesAgentRuleArgs struct {
+	// The description of the Agent rule.
 	Description pulumi.StringInput `pulumi:"description"`
-	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
-	Expression  pulumi.StringInput `pulumi:"expression"`
-	Id          pulumi.StringInput `pulumi:"id"`
-	Name        pulumi.StringInput `pulumi:"name"`
+	// Whether the Agent rule is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The SECL expression of the Agent rule.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The id of the Agent rule.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Agent rule.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetCloudWorkloadSecurityAgentRulesAgentRuleArgs) ElementType() reflect.Type {
@@ -22506,22 +22563,27 @@ func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) ToGetCloudWorkloadSec
 	return o
 }
 
+// The description of the Agent rule.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Whether the Agent rule is enabled.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The SECL expression of the Agent rule.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Expression }).(pulumi.StringOutput)
 }
 
+// The id of the Agent rule.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the Agent rule.
 func (o GetCloudWorkloadSecurityAgentRulesAgentRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudWorkloadSecurityAgentRulesAgentRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -22871,11 +22933,16 @@ func (o GetHostsHostListMetricsOutput) Load() pulumi.Float64Output {
 }
 
 type GetLogsIndexesLogsIndex struct {
-	DailyLimit       int                                      `pulumi:"dailyLimit"`
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit int `pulumi:"dailyLimit"`
+	// List of exclusion filters.
 	ExclusionFilters []GetLogsIndexesLogsIndexExclusionFilter `pulumi:"exclusionFilters"`
-	Filters          []GetLogsIndexesLogsIndexFilter          `pulumi:"filters"`
-	Name             string                                   `pulumi:"name"`
-	RetentionDays    int                                      `pulumi:"retentionDays"`
+	// Logs filter
+	Filters []GetLogsIndexesLogsIndexFilter `pulumi:"filters"`
+	// The name of the index.
+	Name string `pulumi:"name"`
+	// The number of days before logs are deleted from this index.
+	RetentionDays int `pulumi:"retentionDays"`
 }
 
 // GetLogsIndexesLogsIndexInput is an input type that accepts GetLogsIndexesLogsIndexArgs and GetLogsIndexesLogsIndexOutput values.
@@ -22890,11 +22957,16 @@ type GetLogsIndexesLogsIndexInput interface {
 }
 
 type GetLogsIndexesLogsIndexArgs struct {
-	DailyLimit       pulumi.IntInput                                  `pulumi:"dailyLimit"`
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit pulumi.IntInput `pulumi:"dailyLimit"`
+	// List of exclusion filters.
 	ExclusionFilters GetLogsIndexesLogsIndexExclusionFilterArrayInput `pulumi:"exclusionFilters"`
-	Filters          GetLogsIndexesLogsIndexFilterArrayInput          `pulumi:"filters"`
-	Name             pulumi.StringInput                               `pulumi:"name"`
-	RetentionDays    pulumi.IntInput                                  `pulumi:"retentionDays"`
+	// Logs filter
+	Filters GetLogsIndexesLogsIndexFilterArrayInput `pulumi:"filters"`
+	// The name of the index.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of days before logs are deleted from this index.
+	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
 }
 
 func (GetLogsIndexesLogsIndexArgs) ElementType() reflect.Type {
@@ -22948,22 +23020,27 @@ func (o GetLogsIndexesLogsIndexOutput) ToGetLogsIndexesLogsIndexOutputWithContex
 	return o
 }
 
+// The number of log events you can send in this index per day before you are rate-limited.
 func (o GetLogsIndexesLogsIndexOutput) DailyLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.DailyLimit }).(pulumi.IntOutput)
 }
 
+// List of exclusion filters.
 func (o GetLogsIndexesLogsIndexOutput) ExclusionFilters() GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexExclusionFilter { return v.ExclusionFilters }).(GetLogsIndexesLogsIndexExclusionFilterArrayOutput)
 }
 
+// Logs filter
 func (o GetLogsIndexesLogsIndexOutput) Filters() GetLogsIndexesLogsIndexFilterArrayOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexFilter { return v.Filters }).(GetLogsIndexesLogsIndexFilterArrayOutput)
 }
 
+// The name of the index.
 func (o GetLogsIndexesLogsIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of days before logs are deleted from this index.
 func (o GetLogsIndexesLogsIndexOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.RetentionDays }).(pulumi.IntOutput)
 }
@@ -22989,9 +23066,11 @@ func (o GetLogsIndexesLogsIndexArrayOutput) Index(i pulumi.IntInput) GetLogsInde
 }
 
 type GetLogsIndexesLogsIndexExclusionFilter struct {
-	Filters   []GetLogsIndexesLogsIndexExclusionFilterFilter `pulumi:"filters"`
-	IsEnabled bool                                           `pulumi:"isEnabled"`
-	Name      string                                         `pulumi:"name"`
+	Filters []GetLogsIndexesLogsIndexExclusionFilterFilter `pulumi:"filters"`
+	// A boolean stating if the exclusion is active or not.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The name of the exclusion filter.
+	Name string `pulumi:"name"`
 }
 
 // GetLogsIndexesLogsIndexExclusionFilterInput is an input type that accepts GetLogsIndexesLogsIndexExclusionFilterArgs and GetLogsIndexesLogsIndexExclusionFilterOutput values.
@@ -23006,9 +23085,11 @@ type GetLogsIndexesLogsIndexExclusionFilterInput interface {
 }
 
 type GetLogsIndexesLogsIndexExclusionFilterArgs struct {
-	Filters   GetLogsIndexesLogsIndexExclusionFilterFilterArrayInput `pulumi:"filters"`
-	IsEnabled pulumi.BoolInput                                       `pulumi:"isEnabled"`
-	Name      pulumi.StringInput                                     `pulumi:"name"`
+	Filters GetLogsIndexesLogsIndexExclusionFilterFilterArrayInput `pulumi:"filters"`
+	// A boolean stating if the exclusion is active or not.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The name of the exclusion filter.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetLogsIndexesLogsIndexExclusionFilterArgs) ElementType() reflect.Type {
@@ -23068,10 +23149,12 @@ func (o GetLogsIndexesLogsIndexExclusionFilterOutput) Filters() GetLogsIndexesLo
 	}).(GetLogsIndexesLogsIndexExclusionFilterFilterArrayOutput)
 }
 
+// A boolean stating if the exclusion is active or not.
 func (o GetLogsIndexesLogsIndexExclusionFilterOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilter) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
+// The name of the exclusion filter.
 func (o GetLogsIndexesLogsIndexExclusionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23097,7 +23180,9 @@ func (o GetLogsIndexesLogsIndexExclusionFilterArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetLogsIndexesLogsIndexExclusionFilterFilter struct {
-	Query      string  `pulumi:"query"`
+	// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+	Query string `pulumi:"query"`
+	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate float64 `pulumi:"sampleRate"`
 }
 
@@ -23113,7 +23198,9 @@ type GetLogsIndexesLogsIndexExclusionFilterFilterInput interface {
 }
 
 type GetLogsIndexesLogsIndexExclusionFilterFilterArgs struct {
-	Query      pulumi.StringInput  `pulumi:"query"`
+	// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The fraction of logs excluded by the exclusion filter, when active.
 	SampleRate pulumi.Float64Input `pulumi:"sampleRate"`
 }
 
@@ -23168,10 +23255,12 @@ func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) ToGetLogsIndexesLogs
 	return o
 }
 
+// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilterFilter) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The fraction of logs excluded by the exclusion filter, when active.
 func (o GetLogsIndexesLogsIndexExclusionFilterFilterOutput) SampleRate() pulumi.Float64Output {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexExclusionFilterFilter) float64 { return v.SampleRate }).(pulumi.Float64Output)
 }
@@ -23197,6 +23286,7 @@ func (o GetLogsIndexesLogsIndexExclusionFilterFilterArrayOutput) Index(i pulumi.
 }
 
 type GetLogsIndexesLogsIndexFilter struct {
+	// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
 	Query string `pulumi:"query"`
 }
 
@@ -23212,6 +23302,7 @@ type GetLogsIndexesLogsIndexFilterInput interface {
 }
 
 type GetLogsIndexesLogsIndexFilterArgs struct {
+	// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -23266,6 +23357,7 @@ func (o GetLogsIndexesLogsIndexFilterOutput) ToGetLogsIndexesLogsIndexFilterOutp
 	return o
 }
 
+// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
 func (o GetLogsIndexesLogsIndexFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndexFilter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -23291,12 +23383,18 @@ func (o GetLogsIndexesLogsIndexFilterArrayOutput) Index(i pulumi.IntInput) GetLo
 }
 
 type GetLogsPipelinesLogsPipeline struct {
-	Filters    []GetLogsPipelinesLogsPipelineFilter `pulumi:"filters"`
-	Id         string                               `pulumi:"id"`
-	IsEnabled  bool                                 `pulumi:"isEnabled"`
-	IsReadOnly bool                                 `pulumi:"isReadOnly"`
-	Name       string                               `pulumi:"name"`
-	Type       string                               `pulumi:"type"`
+	// Pipelines filter
+	Filters []GetLogsPipelinesLogsPipelineFilter `pulumi:"filters"`
+	// ID of the pipeline
+	Id string `pulumi:"id"`
+	// Whether or not the pipeline is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether or not the pipeline can be edited.
+	IsReadOnly bool `pulumi:"isReadOnly"`
+	// The name of the pipeline.
+	Name string `pulumi:"name"`
+	// Whether or not the pipeline can be edited.
+	Type string `pulumi:"type"`
 }
 
 // GetLogsPipelinesLogsPipelineInput is an input type that accepts GetLogsPipelinesLogsPipelineArgs and GetLogsPipelinesLogsPipelineOutput values.
@@ -23311,12 +23409,18 @@ type GetLogsPipelinesLogsPipelineInput interface {
 }
 
 type GetLogsPipelinesLogsPipelineArgs struct {
-	Filters    GetLogsPipelinesLogsPipelineFilterArrayInput `pulumi:"filters"`
-	Id         pulumi.StringInput                           `pulumi:"id"`
-	IsEnabled  pulumi.BoolInput                             `pulumi:"isEnabled"`
-	IsReadOnly pulumi.BoolInput                             `pulumi:"isReadOnly"`
-	Name       pulumi.StringInput                           `pulumi:"name"`
-	Type       pulumi.StringInput                           `pulumi:"type"`
+	// Pipelines filter
+	Filters GetLogsPipelinesLogsPipelineFilterArrayInput `pulumi:"filters"`
+	// ID of the pipeline
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether or not the pipeline is enabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether or not the pipeline can be edited.
+	IsReadOnly pulumi.BoolInput `pulumi:"isReadOnly"`
+	// The name of the pipeline.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether or not the pipeline can be edited.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetLogsPipelinesLogsPipelineArgs) ElementType() reflect.Type {
@@ -23370,26 +23474,32 @@ func (o GetLogsPipelinesLogsPipelineOutput) ToGetLogsPipelinesLogsPipelineOutput
 	return o
 }
 
+// Pipelines filter
 func (o GetLogsPipelinesLogsPipelineOutput) Filters() GetLogsPipelinesLogsPipelineFilterArrayOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) []GetLogsPipelinesLogsPipelineFilter { return v.Filters }).(GetLogsPipelinesLogsPipelineFilterArrayOutput)
 }
 
+// ID of the pipeline
 func (o GetLogsPipelinesLogsPipelineOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether or not the pipeline is enabled.
 func (o GetLogsPipelinesLogsPipelineOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
+// Whether or not the pipeline can be edited.
 func (o GetLogsPipelinesLogsPipelineOutput) IsReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) bool { return v.IsReadOnly }).(pulumi.BoolOutput)
 }
 
+// The name of the pipeline.
 func (o GetLogsPipelinesLogsPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether or not the pipeline can be edited.
 func (o GetLogsPipelinesLogsPipelineOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipeline) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23415,6 +23525,7 @@ func (o GetLogsPipelinesLogsPipelineArrayOutput) Index(i pulumi.IntInput) GetLog
 }
 
 type GetLogsPipelinesLogsPipelineFilter struct {
+	// Pipeline filter criteria.
 	Query string `pulumi:"query"`
 }
 
@@ -23430,6 +23541,7 @@ type GetLogsPipelinesLogsPipelineFilterInput interface {
 }
 
 type GetLogsPipelinesLogsPipelineFilterArgs struct {
+	// Pipeline filter criteria.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -23484,6 +23596,7 @@ func (o GetLogsPipelinesLogsPipelineFilterOutput) ToGetLogsPipelinesLogsPipeline
 	return o
 }
 
+// Pipeline filter criteria.
 func (o GetLogsPipelinesLogsPipelineFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogsPipelinesLogsPipelineFilter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -23509,9 +23622,12 @@ func (o GetLogsPipelinesLogsPipelineFilterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicy struct {
-	Id         string                                               `pulumi:"id"`
-	PolicyType string                                               `pulumi:"policyType"`
-	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
+	// ID of the monitor config policy
+	Id string `pulumi:"id"`
+	// The monitor config policy type
+	PolicyType string `pulumi:"policyType"`
+	// Config for a tag policy. Only set if `policyType` is `tag`.
+	TagPolicy GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
 }
 
 // GetMonitorConfigPoliciesMonitorConfigPolicyInput is an input type that accepts GetMonitorConfigPoliciesMonitorConfigPolicyArgs and GetMonitorConfigPoliciesMonitorConfigPolicyOutput values.
@@ -23526,9 +23642,12 @@ type GetMonitorConfigPoliciesMonitorConfigPolicyInput interface {
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicyArgs struct {
-	Id         pulumi.StringInput                                        `pulumi:"id"`
-	PolicyType pulumi.StringInput                                        `pulumi:"policyType"`
-	TagPolicy  GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput `pulumi:"tagPolicy"`
+	// ID of the monitor config policy
+	Id pulumi.StringInput `pulumi:"id"`
+	// The monitor config policy type
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// Config for a tag policy. Only set if `policyType` is `tag`.
+	TagPolicy GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput `pulumi:"tagPolicy"`
 }
 
 func (GetMonitorConfigPoliciesMonitorConfigPolicyArgs) ElementType() reflect.Type {
@@ -23582,14 +23701,17 @@ func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) ToGetMonitorConfigPol
 	return o
 }
 
+// ID of the monitor config policy
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The monitor config policy type
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// Config for a tag policy. Only set if `policyType` is `tag`.
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyOutput) TagPolicy() GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicy) GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
 		return v.TagPolicy
@@ -23617,8 +23739,11 @@ func (o GetMonitorConfigPoliciesMonitorConfigPolicyArrayOutput) Index(i pulumi.I
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy struct {
-	TagKey         string   `pulumi:"tagKey"`
-	TagKeyRequired bool     `pulumi:"tagKeyRequired"`
+	// The key of the tag
+	TagKey string `pulumi:"tagKey"`
+	// If a tag key is required for monitor creation
+	TagKeyRequired bool `pulumi:"tagKeyRequired"`
+	// Valid values for the tag
 	ValidTagValues []string `pulumi:"validTagValues"`
 }
 
@@ -23634,8 +23759,11 @@ type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyInput interface {
 }
 
 type GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs struct {
-	TagKey         pulumi.StringInput      `pulumi:"tagKey"`
-	TagKeyRequired pulumi.BoolInput        `pulumi:"tagKeyRequired"`
+	// The key of the tag
+	TagKey pulumi.StringInput `pulumi:"tagKey"`
+	// If a tag key is required for monitor creation
+	TagKeyRequired pulumi.BoolInput `pulumi:"tagKeyRequired"`
+	// Valid values for the tag
 	ValidTagValues pulumi.StringArrayInput `pulumi:"validTagValues"`
 }
 
@@ -23665,14 +23793,17 @@ func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ToGetMonitor
 	return o
 }
 
+// The key of the tag
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) TagKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) string { return v.TagKey }).(pulumi.StringOutput)
 }
 
+// If a tag key is required for monitor creation
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) TagKeyRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) bool { return v.TagKeyRequired }).(pulumi.BoolOutput)
 }
 
+// Valid values for the tag
 func (o GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyOutput) ValidTagValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy) []string { return v.ValidTagValues }).(pulumi.StringArrayOutput)
 }
@@ -23902,7 +24033,9 @@ func (o GetMonitorMonitorThresholdWindowArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetMonitorSchedulingOption struct {
-	CustomSchedules   []GetMonitorSchedulingOptionCustomSchedule   `pulumi:"customSchedules"`
+	// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+	CustomSchedules []GetMonitorSchedulingOptionCustomSchedule `pulumi:"customSchedules"`
+	// Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
 	EvaluationWindows []GetMonitorSchedulingOptionEvaluationWindow `pulumi:"evaluationWindows"`
 }
 
@@ -23918,7 +24051,9 @@ type GetMonitorSchedulingOptionInput interface {
 }
 
 type GetMonitorSchedulingOptionArgs struct {
-	CustomSchedules   GetMonitorSchedulingOptionCustomScheduleArrayInput   `pulumi:"customSchedules"`
+	// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+	CustomSchedules GetMonitorSchedulingOptionCustomScheduleArrayInput `pulumi:"customSchedules"`
+	// Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
 	EvaluationWindows GetMonitorSchedulingOptionEvaluationWindowArrayInput `pulumi:"evaluationWindows"`
 }
 
@@ -23973,12 +24108,14 @@ func (o GetMonitorSchedulingOptionOutput) ToGetMonitorSchedulingOptionOutputWith
 	return o
 }
 
+// Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
 func (o GetMonitorSchedulingOptionOutput) CustomSchedules() GetMonitorSchedulingOptionCustomScheduleArrayOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOption) []GetMonitorSchedulingOptionCustomSchedule {
 		return v.CustomSchedules
 	}).(GetMonitorSchedulingOptionCustomScheduleArrayOutput)
 }
 
+// Configuration options for the evaluation window. If `hourStarts` is set, no other fields may be set. Otherwise, `dayStarts` and `monthStarts` must be set together.
 func (o GetMonitorSchedulingOptionOutput) EvaluationWindows() GetMonitorSchedulingOptionEvaluationWindowArrayOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOption) []GetMonitorSchedulingOptionEvaluationWindow {
 		return v.EvaluationWindows
@@ -24006,6 +24143,7 @@ func (o GetMonitorSchedulingOptionArrayOutput) Index(i pulumi.IntInput) GetMonit
 }
 
 type GetMonitorSchedulingOptionCustomSchedule struct {
+	// A list of recurrence definitions. Length must be 1.
 	Recurrences []GetMonitorSchedulingOptionCustomScheduleRecurrence `pulumi:"recurrences"`
 }
 
@@ -24021,6 +24159,7 @@ type GetMonitorSchedulingOptionCustomScheduleInput interface {
 }
 
 type GetMonitorSchedulingOptionCustomScheduleArgs struct {
+	// A list of recurrence definitions. Length must be 1.
 	Recurrences GetMonitorSchedulingOptionCustomScheduleRecurrenceArrayInput `pulumi:"recurrences"`
 }
 
@@ -24075,6 +24214,7 @@ func (o GetMonitorSchedulingOptionCustomScheduleOutput) ToGetMonitorSchedulingOp
 	return o
 }
 
+// A list of recurrence definitions. Length must be 1.
 func (o GetMonitorSchedulingOptionCustomScheduleOutput) Recurrences() GetMonitorSchedulingOptionCustomScheduleRecurrenceArrayOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionCustomSchedule) []GetMonitorSchedulingOptionCustomScheduleRecurrence {
 		return v.Recurrences
@@ -24102,8 +24242,11 @@ func (o GetMonitorSchedulingOptionCustomScheduleArrayOutput) Index(i pulumi.IntI
 }
 
 type GetMonitorSchedulingOptionCustomScheduleRecurrence struct {
-	Rrule    string `pulumi:"rrule"`
-	Start    string `pulumi:"start"`
+	// Must be a valid rrule. See api docs for supported fields
+	Rrule string `pulumi:"rrule"`
+	// Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
+	Start string `pulumi:"start"`
+	// 'tz database' format. ex: 'America/New_York' or UTC
 	Timezone string `pulumi:"timezone"`
 }
 
@@ -24119,8 +24262,11 @@ type GetMonitorSchedulingOptionCustomScheduleRecurrenceInput interface {
 }
 
 type GetMonitorSchedulingOptionCustomScheduleRecurrenceArgs struct {
-	Rrule    pulumi.StringInput `pulumi:"rrule"`
-	Start    pulumi.StringInput `pulumi:"start"`
+	// Must be a valid rrule. See api docs for supported fields
+	Rrule pulumi.StringInput `pulumi:"rrule"`
+	// Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
+	Start pulumi.StringInput `pulumi:"start"`
+	// 'tz database' format. ex: 'America/New_York' or UTC
 	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
 
@@ -24175,14 +24321,17 @@ func (o GetMonitorSchedulingOptionCustomScheduleRecurrenceOutput) ToGetMonitorSc
 	return o
 }
 
+// Must be a valid rrule. See api docs for supported fields
 func (o GetMonitorSchedulingOptionCustomScheduleRecurrenceOutput) Rrule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionCustomScheduleRecurrence) string { return v.Rrule }).(pulumi.StringOutput)
 }
 
+// Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
 func (o GetMonitorSchedulingOptionCustomScheduleRecurrenceOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionCustomScheduleRecurrence) string { return v.Start }).(pulumi.StringOutput)
 }
 
+// 'tz database' format. ex: 'America/New_York' or UTC
 func (o GetMonitorSchedulingOptionCustomScheduleRecurrenceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionCustomScheduleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
 }
@@ -24208,9 +24357,12 @@ func (o GetMonitorSchedulingOptionCustomScheduleRecurrenceArrayOutput) Index(i p
 }
 
 type GetMonitorSchedulingOptionEvaluationWindow struct {
-	DayStarts   string `pulumi:"dayStarts"`
-	HourStarts  int    `pulumi:"hourStarts"`
-	MonthStarts int    `pulumi:"monthStarts"`
+	// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+	DayStarts string `pulumi:"dayStarts"`
+	// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+	HourStarts int `pulumi:"hourStarts"`
+	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+	MonthStarts int `pulumi:"monthStarts"`
 }
 
 // GetMonitorSchedulingOptionEvaluationWindowInput is an input type that accepts GetMonitorSchedulingOptionEvaluationWindowArgs and GetMonitorSchedulingOptionEvaluationWindowOutput values.
@@ -24225,9 +24377,12 @@ type GetMonitorSchedulingOptionEvaluationWindowInput interface {
 }
 
 type GetMonitorSchedulingOptionEvaluationWindowArgs struct {
-	DayStarts   pulumi.StringInput `pulumi:"dayStarts"`
-	HourStarts  pulumi.IntInput    `pulumi:"hourStarts"`
-	MonthStarts pulumi.IntInput    `pulumi:"monthStarts"`
+	// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+	DayStarts pulumi.StringInput `pulumi:"dayStarts"`
+	// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+	HourStarts pulumi.IntInput `pulumi:"hourStarts"`
+	// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+	MonthStarts pulumi.IntInput `pulumi:"monthStarts"`
 }
 
 func (GetMonitorSchedulingOptionEvaluationWindowArgs) ElementType() reflect.Type {
@@ -24281,14 +24436,17 @@ func (o GetMonitorSchedulingOptionEvaluationWindowOutput) ToGetMonitorScheduling
 	return o
 }
 
+// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
 func (o GetMonitorSchedulingOptionEvaluationWindowOutput) DayStarts() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionEvaluationWindow) string { return v.DayStarts }).(pulumi.StringOutput)
 }
 
+// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
 func (o GetMonitorSchedulingOptionEvaluationWindowOutput) HourStarts() pulumi.IntOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionEvaluationWindow) int { return v.HourStarts }).(pulumi.IntOutput)
 }
 
+// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
 func (o GetMonitorSchedulingOptionEvaluationWindowOutput) MonthStarts() pulumi.IntOutput {
 	return o.ApplyT(func(v GetMonitorSchedulingOptionEvaluationWindow) int { return v.MonthStarts }).(pulumi.IntOutput)
 }
@@ -24314,8 +24472,11 @@ func (o GetMonitorSchedulingOptionEvaluationWindowArrayOutput) Index(i pulumi.In
 }
 
 type GetMonitorsMonitor struct {
-	Id   int    `pulumi:"id"`
+	// ID of the monitor
+	Id int `pulumi:"id"`
+	// Name of the monitor
 	Name string `pulumi:"name"`
+	// Type of the monitor.
 	Type string `pulumi:"type"`
 }
 
@@ -24331,8 +24492,11 @@ type GetMonitorsMonitorInput interface {
 }
 
 type GetMonitorsMonitorArgs struct {
-	Id   pulumi.IntInput    `pulumi:"id"`
+	// ID of the monitor
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the monitor
 	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the monitor.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -24387,14 +24551,17 @@ func (o GetMonitorsMonitorOutput) ToGetMonitorsMonitorOutputWithContext(ctx cont
 	return o
 }
 
+// ID of the monitor
 func (o GetMonitorsMonitorOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetMonitorsMonitor) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the monitor
 func (o GetMonitorsMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorsMonitor) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of the monitor.
 func (o GetMonitorsMonitorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMonitorsMonitor) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -24420,9 +24587,12 @@ func (o GetMonitorsMonitorArrayOutput) Index(i pulumi.IntInput) GetMonitorsMonit
 }
 
 type GetRolesRole struct {
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
-	UserCount int    `pulumi:"userCount"`
+	// ID of the Datadog role
+	Id string `pulumi:"id"`
+	// Name of the Datadog role
+	Name string `pulumi:"name"`
+	// Number of users that have this role.
+	UserCount int `pulumi:"userCount"`
 }
 
 // GetRolesRoleInput is an input type that accepts GetRolesRoleArgs and GetRolesRoleOutput values.
@@ -24437,9 +24607,12 @@ type GetRolesRoleInput interface {
 }
 
 type GetRolesRoleArgs struct {
-	Id        pulumi.StringInput `pulumi:"id"`
-	Name      pulumi.StringInput `pulumi:"name"`
-	UserCount pulumi.IntInput    `pulumi:"userCount"`
+	// ID of the Datadog role
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Datadog role
+	Name pulumi.StringInput `pulumi:"name"`
+	// Number of users that have this role.
+	UserCount pulumi.IntInput `pulumi:"userCount"`
 }
 
 func (GetRolesRoleArgs) ElementType() reflect.Type {
@@ -24493,14 +24666,17 @@ func (o GetRolesRoleOutput) ToGetRolesRoleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ID of the Datadog role
 func (o GetRolesRoleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the Datadog role
 func (o GetRolesRoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRolesRole) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Number of users that have this role.
 func (o GetRolesRoleOutput) UserCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetRolesRole) int { return v.UserCount }).(pulumi.IntOutput)
 }
@@ -24526,12 +24702,18 @@ func (o GetRolesRoleArrayOutput) Index(i pulumi.IntInput) GetRolesRoleOutput {
 }
 
 type GetSecurityMonitoringFiltersFilter struct {
+	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters []GetSecurityMonitoringFiltersFilterExclusionFilter `pulumi:"exclusionFilters"`
-	FilteredDataType *string                                             `pulumi:"filteredDataType"`
-	IsEnabled        bool                                                `pulumi:"isEnabled"`
-	Name             string                                              `pulumi:"name"`
-	Query            string                                              `pulumi:"query"`
-	Version          int                                                 `pulumi:"version"`
+	// The filtered data type.
+	FilteredDataType *string `pulumi:"filteredDataType"`
+	// Whether the security filter is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The name of the security filter.
+	Name string `pulumi:"name"`
+	// The query of the security filter.
+	Query string `pulumi:"query"`
+	// The version of the security filter.
+	Version int `pulumi:"version"`
 }
 
 // GetSecurityMonitoringFiltersFilterInput is an input type that accepts GetSecurityMonitoringFiltersFilterArgs and GetSecurityMonitoringFiltersFilterOutput values.
@@ -24546,12 +24728,18 @@ type GetSecurityMonitoringFiltersFilterInput interface {
 }
 
 type GetSecurityMonitoringFiltersFilterArgs struct {
+	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters GetSecurityMonitoringFiltersFilterExclusionFilterArrayInput `pulumi:"exclusionFilters"`
-	FilteredDataType pulumi.StringPtrInput                                       `pulumi:"filteredDataType"`
-	IsEnabled        pulumi.BoolInput                                            `pulumi:"isEnabled"`
-	Name             pulumi.StringInput                                          `pulumi:"name"`
-	Query            pulumi.StringInput                                          `pulumi:"query"`
-	Version          pulumi.IntInput                                             `pulumi:"version"`
+	// The filtered data type.
+	FilteredDataType pulumi.StringPtrInput `pulumi:"filteredDataType"`
+	// Whether the security filter is enabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The name of the security filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The query of the security filter.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The version of the security filter.
+	Version pulumi.IntInput `pulumi:"version"`
 }
 
 func (GetSecurityMonitoringFiltersFilterArgs) ElementType() reflect.Type {
@@ -24605,28 +24793,34 @@ func (o GetSecurityMonitoringFiltersFilterOutput) ToGetSecurityMonitoringFilters
 	return o
 }
 
+// Exclusion filters to exclude some logs from the security filter.
 func (o GetSecurityMonitoringFiltersFilterOutput) ExclusionFilters() GetSecurityMonitoringFiltersFilterExclusionFilterArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) []GetSecurityMonitoringFiltersFilterExclusionFilter {
 		return v.ExclusionFilters
 	}).(GetSecurityMonitoringFiltersFilterExclusionFilterArrayOutput)
 }
 
+// The filtered data type.
 func (o GetSecurityMonitoringFiltersFilterOutput) FilteredDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) *string { return v.FilteredDataType }).(pulumi.StringPtrOutput)
 }
 
+// Whether the security filter is enabled.
 func (o GetSecurityMonitoringFiltersFilterOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
+// The name of the security filter.
 func (o GetSecurityMonitoringFiltersFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The query of the security filter.
 func (o GetSecurityMonitoringFiltersFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The version of the security filter.
 func (o GetSecurityMonitoringFiltersFilterOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilter) int { return v.Version }).(pulumi.IntOutput)
 }
@@ -24652,7 +24846,9 @@ func (o GetSecurityMonitoringFiltersFilterArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSecurityMonitoringFiltersFilterExclusionFilter struct {
-	Name  string `pulumi:"name"`
+	// Exclusion filter name.
+	Name string `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query string `pulumi:"query"`
 }
 
@@ -24668,7 +24864,9 @@ type GetSecurityMonitoringFiltersFilterExclusionFilterInput interface {
 }
 
 type GetSecurityMonitoringFiltersFilterExclusionFilterArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// Exclusion filter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Exclusion filter query. Logs that match this query are excluded from the security filter.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -24723,10 +24921,12 @@ func (o GetSecurityMonitoringFiltersFilterExclusionFilterOutput) ToGetSecurityMo
 	return o
 }
 
+// Exclusion filter name.
 func (o GetSecurityMonitoringFiltersFilterExclusionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilterExclusionFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Exclusion filter query. Logs that match this query are excluded from the security filter.
 func (o GetSecurityMonitoringFiltersFilterExclusionFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringFiltersFilterExclusionFilter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -24752,17 +24952,28 @@ func (o GetSecurityMonitoringFiltersFilterExclusionFilterArrayOutput) Index(i pu
 }
 
 type GetSecurityMonitoringRulesRule struct {
-	Cases            []GetSecurityMonitoringRulesRuleCase        `pulumi:"cases"`
-	Enabled          *bool                                       `pulumi:"enabled"`
-	Filters          []GetSecurityMonitoringRulesRuleFilter      `pulumi:"filters"`
-	HasExtendedTitle *bool                                       `pulumi:"hasExtendedTitle"`
-	Message          string                                      `pulumi:"message"`
-	Name             string                                      `pulumi:"name"`
-	Options          *GetSecurityMonitoringRulesRuleOptions      `pulumi:"options"`
-	Queries          []GetSecurityMonitoringRulesRuleQuery       `pulumi:"queries"`
-	SignalQueries    []GetSecurityMonitoringRulesRuleSignalQuery `pulumi:"signalQueries"`
-	Tags             []string                                    `pulumi:"tags"`
-	Type             *string                                     `pulumi:"type"`
+	// Cases for generating signals.
+	Cases []GetSecurityMonitoringRulesRuleCase `pulumi:"cases"`
+	// Whether the rule is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed.
+	Filters []GetSecurityMonitoringRulesRuleFilter `pulumi:"filters"`
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
+	// Message for generated signals.
+	Message string `pulumi:"message"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// Options on rules.
+	Options *GetSecurityMonitoringRulesRuleOptions `pulumi:"options"`
+	// Queries for selecting logs which are part of the rule.
+	Queries []GetSecurityMonitoringRulesRuleQuery `pulumi:"queries"`
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries []GetSecurityMonitoringRulesRuleSignalQuery `pulumi:"signalQueries"`
+	// Tags for generated signals.
+	Tags []string `pulumi:"tags"`
+	// The rule type.
+	Type *string `pulumi:"type"`
 }
 
 // GetSecurityMonitoringRulesRuleInput is an input type that accepts GetSecurityMonitoringRulesRuleArgs and GetSecurityMonitoringRulesRuleOutput values.
@@ -24777,17 +24988,28 @@ type GetSecurityMonitoringRulesRuleInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleArgs struct {
-	Cases            GetSecurityMonitoringRulesRuleCaseArrayInput        `pulumi:"cases"`
-	Enabled          pulumi.BoolPtrInput                                 `pulumi:"enabled"`
-	Filters          GetSecurityMonitoringRulesRuleFilterArrayInput      `pulumi:"filters"`
-	HasExtendedTitle pulumi.BoolPtrInput                                 `pulumi:"hasExtendedTitle"`
-	Message          pulumi.StringInput                                  `pulumi:"message"`
-	Name             pulumi.StringInput                                  `pulumi:"name"`
-	Options          GetSecurityMonitoringRulesRuleOptionsPtrInput       `pulumi:"options"`
-	Queries          GetSecurityMonitoringRulesRuleQueryArrayInput       `pulumi:"queries"`
-	SignalQueries    GetSecurityMonitoringRulesRuleSignalQueryArrayInput `pulumi:"signalQueries"`
-	Tags             pulumi.StringArrayInput                             `pulumi:"tags"`
-	Type             pulumi.StringPtrInput                               `pulumi:"type"`
+	// Cases for generating signals.
+	Cases GetSecurityMonitoringRulesRuleCaseArrayInput `pulumi:"cases"`
+	// Whether the rule is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed.
+	Filters GetSecurityMonitoringRulesRuleFilterArrayInput `pulumi:"filters"`
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle pulumi.BoolPtrInput `pulumi:"hasExtendedTitle"`
+	// Message for generated signals.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Options on rules.
+	Options GetSecurityMonitoringRulesRuleOptionsPtrInput `pulumi:"options"`
+	// Queries for selecting logs which are part of the rule.
+	Queries GetSecurityMonitoringRulesRuleQueryArrayInput `pulumi:"queries"`
+	// Queries for selecting logs which are part of the rule.
+	SignalQueries GetSecurityMonitoringRulesRuleSignalQueryArrayInput `pulumi:"signalQueries"`
+	// Tags for generated signals.
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// The rule type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetSecurityMonitoringRulesRuleArgs) ElementType() reflect.Type {
@@ -24841,48 +25063,59 @@ func (o GetSecurityMonitoringRulesRuleOutput) ToGetSecurityMonitoringRulesRuleOu
 	return o
 }
 
+// Cases for generating signals.
 func (o GetSecurityMonitoringRulesRuleOutput) Cases() GetSecurityMonitoringRulesRuleCaseArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleCase { return v.Cases }).(GetSecurityMonitoringRulesRuleCaseArrayOutput)
 }
 
+// Whether the rule is enabled.
 func (o GetSecurityMonitoringRulesRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Additional queries to filter matched events before they are processed.
 func (o GetSecurityMonitoringRulesRuleOutput) Filters() GetSecurityMonitoringRulesRuleFilterArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleFilter { return v.Filters }).(GetSecurityMonitoringRulesRuleFilterArrayOutput)
 }
 
+// Whether the notifications include the triggering group-by values in their title.
 func (o GetSecurityMonitoringRulesRuleOutput) HasExtendedTitle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) *bool { return v.HasExtendedTitle }).(pulumi.BoolPtrOutput)
 }
 
+// Message for generated signals.
 func (o GetSecurityMonitoringRulesRuleOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) string { return v.Message }).(pulumi.StringOutput)
 }
 
+// The name of the rule.
 func (o GetSecurityMonitoringRulesRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Options on rules.
 func (o GetSecurityMonitoringRulesRuleOutput) Options() GetSecurityMonitoringRulesRuleOptionsPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) *GetSecurityMonitoringRulesRuleOptions { return v.Options }).(GetSecurityMonitoringRulesRuleOptionsPtrOutput)
 }
 
+// Queries for selecting logs which are part of the rule.
 func (o GetSecurityMonitoringRulesRuleOutput) Queries() GetSecurityMonitoringRulesRuleQueryArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleQuery { return v.Queries }).(GetSecurityMonitoringRulesRuleQueryArrayOutput)
 }
 
+// Queries for selecting logs which are part of the rule.
 func (o GetSecurityMonitoringRulesRuleOutput) SignalQueries() GetSecurityMonitoringRulesRuleSignalQueryArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleSignalQuery {
 		return v.SignalQueries
 	}).(GetSecurityMonitoringRulesRuleSignalQueryArrayOutput)
 }
 
+// Tags for generated signals.
 func (o GetSecurityMonitoringRulesRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
+// The rule type.
 func (o GetSecurityMonitoringRulesRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -24908,10 +25141,14 @@ func (o GetSecurityMonitoringRulesRuleArrayOutput) Index(i pulumi.IntInput) GetS
 }
 
 type GetSecurityMonitoringRulesRuleCase struct {
-	Condition     *string  `pulumi:"condition"`
-	Name          *string  `pulumi:"name"`
+	// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+	Condition *string `pulumi:"condition"`
+	// Name of the case.
+	Name *string `pulumi:"name"`
+	// Notification targets for each rule case.
 	Notifications []string `pulumi:"notifications"`
-	Status        string   `pulumi:"status"`
+	// Severity of the Security Signal.
+	Status string `pulumi:"status"`
 }
 
 // GetSecurityMonitoringRulesRuleCaseInput is an input type that accepts GetSecurityMonitoringRulesRuleCaseArgs and GetSecurityMonitoringRulesRuleCaseOutput values.
@@ -24926,10 +25163,14 @@ type GetSecurityMonitoringRulesRuleCaseInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleCaseArgs struct {
-	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
-	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+	Condition pulumi.StringPtrInput `pulumi:"condition"`
+	// Name of the case.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Notification targets for each rule case.
 	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
-	Status        pulumi.StringInput      `pulumi:"status"`
+	// Severity of the Security Signal.
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
 func (GetSecurityMonitoringRulesRuleCaseArgs) ElementType() reflect.Type {
@@ -24983,18 +25224,22 @@ func (o GetSecurityMonitoringRulesRuleCaseOutput) ToGetSecurityMonitoringRulesRu
 	return o
 }
 
+// A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
 func (o GetSecurityMonitoringRulesRuleCaseOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleCase) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
+// Name of the case.
 func (o GetSecurityMonitoringRulesRuleCaseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleCase) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Notification targets for each rule case.
 func (o GetSecurityMonitoringRulesRuleCaseOutput) Notifications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
 }
 
+// Severity of the Security Signal.
 func (o GetSecurityMonitoringRulesRuleCaseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleCase) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -25020,8 +25265,10 @@ func (o GetSecurityMonitoringRulesRuleCaseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetSecurityMonitoringRulesRuleFilter struct {
+	// The type of filtering action.
 	Action string `pulumi:"action"`
-	Query  string `pulumi:"query"`
+	// Query for selecting logs to apply the filtering action.
+	Query string `pulumi:"query"`
 }
 
 // GetSecurityMonitoringRulesRuleFilterInput is an input type that accepts GetSecurityMonitoringRulesRuleFilterArgs and GetSecurityMonitoringRulesRuleFilterOutput values.
@@ -25036,8 +25283,10 @@ type GetSecurityMonitoringRulesRuleFilterInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleFilterArgs struct {
+	// The type of filtering action.
 	Action pulumi.StringInput `pulumi:"action"`
-	Query  pulumi.StringInput `pulumi:"query"`
+	// Query for selecting logs to apply the filtering action.
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
 func (GetSecurityMonitoringRulesRuleFilterArgs) ElementType() reflect.Type {
@@ -25091,10 +25340,12 @@ func (o GetSecurityMonitoringRulesRuleFilterOutput) ToGetSecurityMonitoringRules
 	return o
 }
 
+// The type of filtering action.
 func (o GetSecurityMonitoringRulesRuleFilterOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleFilter) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// Query for selecting logs to apply the filtering action.
 func (o GetSecurityMonitoringRulesRuleFilterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleFilter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -25120,13 +25371,20 @@ func (o GetSecurityMonitoringRulesRuleFilterArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetSecurityMonitoringRulesRuleOptions struct {
-	DecreaseCriticalityBasedOnEnv *bool                                                         `pulumi:"decreaseCriticalityBasedOnEnv"`
-	DetectionMethod               *string                                                       `pulumi:"detectionMethod"`
-	EvaluationWindow              *int                                                          `pulumi:"evaluationWindow"`
-	ImpossibleTravelOptions       *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
-	KeepAlive                     int                                                           `pulumi:"keepAlive"`
-	MaxSignalDuration             int                                                           `pulumi:"maxSignalDuration"`
-	NewValueOptions               *GetSecurityMonitoringRulesRuleOptionsNewValueOptions         `pulumi:"newValueOptions"`
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+	DecreaseCriticalityBasedOnEnv *bool `pulumi:"decreaseCriticalityBasedOnEnv"`
+	// The detection method.
+	DetectionMethod *string `pulumi:"detectionMethod"`
+	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+	EvaluationWindow *int `pulumi:"evaluationWindow"`
+	// Options for rules using the impossible travel detection method.
+	ImpossibleTravelOptions *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
+	KeepAlive int `pulumi:"keepAlive"`
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
+	MaxSignalDuration int `pulumi:"maxSignalDuration"`
+	// New value rules specific options.
+	NewValueOptions *GetSecurityMonitoringRulesRuleOptionsNewValueOptions `pulumi:"newValueOptions"`
 }
 
 // GetSecurityMonitoringRulesRuleOptionsInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsArgs and GetSecurityMonitoringRulesRuleOptionsOutput values.
@@ -25141,13 +25399,20 @@ type GetSecurityMonitoringRulesRuleOptionsInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleOptionsArgs struct {
-	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput                                                  `pulumi:"decreaseCriticalityBasedOnEnv"`
-	DetectionMethod               pulumi.StringPtrInput                                                `pulumi:"detectionMethod"`
-	EvaluationWindow              pulumi.IntPtrInput                                                   `pulumi:"evaluationWindow"`
-	ImpossibleTravelOptions       GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
-	KeepAlive                     pulumi.IntInput                                                      `pulumi:"keepAlive"`
-	MaxSignalDuration             pulumi.IntInput                                                      `pulumi:"maxSignalDuration"`
-	NewValueOptions               GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrInput         `pulumi:"newValueOptions"`
+	// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
+	DecreaseCriticalityBasedOnEnv pulumi.BoolPtrInput `pulumi:"decreaseCriticalityBasedOnEnv"`
+	// The detection method.
+	DetectionMethod pulumi.StringPtrInput `pulumi:"detectionMethod"`
+	// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+	EvaluationWindow pulumi.IntPtrInput `pulumi:"evaluationWindow"`
+	// Options for rules using the impossible travel detection method.
+	ImpossibleTravelOptions GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
+	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
+	KeepAlive pulumi.IntInput `pulumi:"keepAlive"`
+	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
+	MaxSignalDuration pulumi.IntInput `pulumi:"maxSignalDuration"`
+	// New value rules specific options.
+	NewValueOptions GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrInput `pulumi:"newValueOptions"`
 }
 
 func (GetSecurityMonitoringRulesRuleOptionsArgs) ElementType() reflect.Type {
@@ -25227,32 +25492,39 @@ func (o GetSecurityMonitoringRulesRuleOptionsOutput) ToGetSecurityMonitoringRule
 	}).(GetSecurityMonitoringRulesRuleOptionsPtrOutput)
 }
 
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *bool { return v.DecreaseCriticalityBasedOnEnv }).(pulumi.BoolPtrOutput)
 }
 
+// The detection method.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) DetectionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *string { return v.DetectionMethod }).(pulumi.StringPtrOutput)
 }
 
+// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) EvaluationWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *int { return v.EvaluationWindow }).(pulumi.IntPtrOutput)
 }
 
+// Options for rules using the impossible travel detection method.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) ImpossibleTravelOptions() GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
 		return v.ImpossibleTravelOptions
 	}).(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) KeepAlive() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) int { return v.KeepAlive }).(pulumi.IntOutput)
 }
 
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) MaxSignalDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) int { return v.MaxSignalDuration }).(pulumi.IntOutput)
 }
 
+// New value rules specific options.
 func (o GetSecurityMonitoringRulesRuleOptionsOutput) NewValueOptions() GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 		return v.NewValueOptions
@@ -25283,6 +25555,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) Elem() GetSecurityMonito
 	}).(GetSecurityMonitoringRulesRuleOptionsOutput)
 }
 
+// If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `logDetection`.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) DecreaseCriticalityBasedOnEnv() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *bool {
 		if v == nil {
@@ -25292,6 +25565,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) DecreaseCriticalityBased
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The detection method.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) DetectionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *string {
 		if v == nil {
@@ -25301,6 +25575,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) DetectionMethod() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) EvaluationWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *int {
 		if v == nil {
@@ -25310,6 +25585,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) EvaluationWindow() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Options for rules using the impossible travel detection method.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) ImpossibleTravelOptions() GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
 		if v == nil {
@@ -25319,6 +25595,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) ImpossibleTravelOptions(
 	}).(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
+// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *int {
 		if v == nil {
@@ -25328,6 +25605,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) KeepAlive() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) MaxSignalDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *int {
 		if v == nil {
@@ -25337,6 +25615,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) MaxSignalDuration() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
+// New value rules specific options.
 func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) NewValueOptions() GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 		if v == nil {
@@ -25347,6 +25626,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) NewValueOptions() GetSec
 }
 
 type GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 	BaselineUserLocations *bool `pulumi:"baselineUserLocations"`
 }
 
@@ -25362,6 +25642,7 @@ type GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsInput interface
 }
 
 type GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsArgs struct {
+	// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 	BaselineUserLocations pulumi.BoolPtrInput `pulumi:"baselineUserLocations"`
 }
 
@@ -25442,6 +25723,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsOutput) ToGe
 	}).(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput)
 }
 
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 func (o GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions) *bool {
 		return v.BaselineUserLocations
@@ -25472,6 +25754,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput) E
 	}).(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsOutput)
 }
 
+// If true, signals are suppressed for the first 24 hours. During that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
 func (o GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput) BaselineUserLocations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions) *bool {
 		if v == nil {
@@ -25482,10 +25765,14 @@ func (o GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput) B
 }
 
 type GetSecurityMonitoringRulesRuleOptionsNewValueOptions struct {
-	ForgetAfter       int     `pulumi:"forgetAfter"`
-	LearningDuration  *int    `pulumi:"learningDuration"`
-	LearningMethod    *string `pulumi:"learningMethod"`
-	LearningThreshold *int    `pulumi:"learningThreshold"`
+	// The duration in days after which a learned value is forgotten.
+	ForgetAfter int `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+	LearningDuration *int `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned.
+	LearningMethod *string `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned.
+	LearningThreshold *int `pulumi:"learningThreshold"`
 }
 
 // GetSecurityMonitoringRulesRuleOptionsNewValueOptionsInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsNewValueOptionsArgs and GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput values.
@@ -25500,10 +25787,14 @@ type GetSecurityMonitoringRulesRuleOptionsNewValueOptionsInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleOptionsNewValueOptionsArgs struct {
-	ForgetAfter       pulumi.IntInput       `pulumi:"forgetAfter"`
-	LearningDuration  pulumi.IntPtrInput    `pulumi:"learningDuration"`
-	LearningMethod    pulumi.StringPtrInput `pulumi:"learningMethod"`
-	LearningThreshold pulumi.IntPtrInput    `pulumi:"learningThreshold"`
+	// The duration in days after which a learned value is forgotten.
+	ForgetAfter pulumi.IntInput `pulumi:"forgetAfter"`
+	// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+	LearningDuration pulumi.IntPtrInput `pulumi:"learningDuration"`
+	// The learning method used to determine when signals should be generated for values that weren't learned.
+	LearningMethod pulumi.StringPtrInput `pulumi:"learningMethod"`
+	// A number of occurrences after which signals are generated for values that weren't learned.
+	LearningThreshold pulumi.IntPtrInput `pulumi:"learningThreshold"`
 }
 
 func (GetSecurityMonitoringRulesRuleOptionsNewValueOptionsArgs) ElementType() reflect.Type {
@@ -25583,18 +25874,22 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput) ToGetSecurit
 	}).(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput)
 }
 
+// The duration in days after which a learned value is forgotten.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput) ForgetAfter() pulumi.IntOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsNewValueOptions) int { return v.ForgetAfter }).(pulumi.IntOutput)
 }
 
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput) LearningDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *int { return v.LearningDuration }).(pulumi.IntPtrOutput)
 }
 
+// The learning method used to determine when signals should be generated for values that weren't learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput) LearningMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *string { return v.LearningMethod }).(pulumi.StringPtrOutput)
 }
 
+// A number of occurrences after which signals are generated for values that weren't learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput) LearningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *int { return v.LearningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -25623,6 +25918,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) Elem() Ge
 	}).(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput)
 }
 
+// The duration in days after which a learned value is forgotten.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) ForgetAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -25632,6 +25928,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) ForgetAft
 	}).(pulumi.IntPtrOutput)
 }
 
+// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -25641,6 +25938,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningD
 	}).(pulumi.IntPtrOutput)
 }
 
+// The learning method used to determine when signals should be generated for values that weren't learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *string {
 		if v == nil {
@@ -25650,6 +25948,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningM
 	}).(pulumi.StringPtrOutput)
 }
 
+// A number of occurrences after which signals are generated for values that weren't learned.
 func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsNewValueOptions) *int {
 		if v == nil {
@@ -25660,16 +25959,26 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningT
 }
 
 type GetSecurityMonitoringRulesRuleQuery struct {
+	// **Deprecated**. It won't be applied anymore.
+	//
 	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
-	AgentRules     []GetSecurityMonitoringRulesRuleQueryAgentRule `pulumi:"agentRules"`
-	Aggregation    *string                                        `pulumi:"aggregation"`
-	DistinctFields []string                                       `pulumi:"distinctFields"`
-	GroupByFields  []string                                       `pulumi:"groupByFields"`
+	AgentRules []GetSecurityMonitoringRulesRuleQueryAgentRule `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count.
+	Aggregation *string `pulumi:"aggregation"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields []string `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+	//
 	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
-	Metric  *string  `pulumi:"metric"`
+	Metric *string `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
 	Metrics []string `pulumi:"metrics"`
-	Name    *string  `pulumi:"name"`
-	Query   string   `pulumi:"query"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Query to run on logs.
+	Query string `pulumi:"query"`
 }
 
 // GetSecurityMonitoringRulesRuleQueryInput is an input type that accepts GetSecurityMonitoringRulesRuleQueryArgs and GetSecurityMonitoringRulesRuleQueryOutput values.
@@ -25684,16 +25993,26 @@ type GetSecurityMonitoringRulesRuleQueryInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleQueryArgs struct {
+	// **Deprecated**. It won't be applied anymore.
+	//
 	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
-	AgentRules     GetSecurityMonitoringRulesRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
-	Aggregation    pulumi.StringPtrInput                                  `pulumi:"aggregation"`
-	DistinctFields pulumi.StringArrayInput                                `pulumi:"distinctFields"`
-	GroupByFields  pulumi.StringArrayInput                                `pulumi:"groupByFields"`
+	AgentRules GetSecurityMonitoringRulesRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Field for which the cardinality is measured. Sent as an array.
+	DistinctFields pulumi.StringArrayInput `pulumi:"distinctFields"`
+	// Fields to group by.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+	//
 	// Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
-	Metric  pulumi.StringPtrInput   `pulumi:"metric"`
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
 	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
-	Name    pulumi.StringPtrInput   `pulumi:"name"`
-	Query   pulumi.StringInput      `pulumi:"query"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Query to run on logs.
+	Query pulumi.StringInput `pulumi:"query"`
 }
 
 func (GetSecurityMonitoringRulesRuleQueryArgs) ElementType() reflect.Type {
@@ -25747,6 +26066,8 @@ func (o GetSecurityMonitoringRulesRuleQueryOutput) ToGetSecurityMonitoringRulesR
 	return o
 }
 
+// **Deprecated**. It won't be applied anymore.
+//
 // Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) AgentRules() GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) []GetSecurityMonitoringRulesRuleQueryAgentRule {
@@ -25754,31 +26075,39 @@ func (o GetSecurityMonitoringRulesRuleQueryOutput) AgentRules() GetSecurityMonit
 	}).(GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput)
 }
 
+// The aggregation type. For Signal Correlation rules, it must be event_count.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
 }
 
+// Field for which the cardinality is measured. Sent as an array.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) DistinctFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) []string { return v.DistinctFields }).(pulumi.StringArrayOutput)
 }
 
+// Fields to group by.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) GroupByFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
 }
 
+// The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
+//
 // Deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
+// Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) []string { return v.Metrics }).(pulumi.StringArrayOutput)
 }
 
+// Name of the query. Not compatible with `newValue` aggregations.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Query to run on logs.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -25804,8 +26133,10 @@ func (o GetSecurityMonitoringRulesRuleQueryArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetSecurityMonitoringRulesRuleQueryAgentRule struct {
+	// **Deprecated**. It won't be applied anymore.
 	AgentRuleId string `pulumi:"agentRuleId"`
-	Expression  string `pulumi:"expression"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression string `pulumi:"expression"`
 }
 
 // GetSecurityMonitoringRulesRuleQueryAgentRuleInput is an input type that accepts GetSecurityMonitoringRulesRuleQueryAgentRuleArgs and GetSecurityMonitoringRulesRuleQueryAgentRuleOutput values.
@@ -25820,8 +26151,10 @@ type GetSecurityMonitoringRulesRuleQueryAgentRuleInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleQueryAgentRuleArgs struct {
+	// **Deprecated**. It won't be applied anymore.
 	AgentRuleId pulumi.StringInput `pulumi:"agentRuleId"`
-	Expression  pulumi.StringInput `pulumi:"expression"`
+	// **Deprecated**. It won't be applied anymore.
+	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
 func (GetSecurityMonitoringRulesRuleQueryAgentRuleArgs) ElementType() reflect.Type {
@@ -25875,10 +26208,12 @@ func (o GetSecurityMonitoringRulesRuleQueryAgentRuleOutput) ToGetSecurityMonitor
 	return o
 }
 
+// **Deprecated**. It won't be applied anymore.
 func (o GetSecurityMonitoringRulesRuleQueryAgentRuleOutput) AgentRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQueryAgentRule) string { return v.AgentRuleId }).(pulumi.StringOutput)
 }
 
+// **Deprecated**. It won't be applied anymore.
 func (o GetSecurityMonitoringRulesRuleQueryAgentRuleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQueryAgentRule) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -25904,12 +26239,18 @@ func (o GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput) Index(i pulumi.
 }
 
 type GetSecurityMonitoringRulesRuleSignalQuery struct {
-	Aggregation          *string  `pulumi:"aggregation"`
-	CorrelatedByFields   []string `pulumi:"correlatedByFields"`
-	CorrelatedQueryIndex *string  `pulumi:"correlatedQueryIndex"`
-	DefaultRuleId        *string  `pulumi:"defaultRuleId"`
-	Name                 *string  `pulumi:"name"`
-	RuleId               string   `pulumi:"ruleId"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count.
+	Aggregation *string `pulumi:"aggregation"`
+	// Fields to correlate by.
+	CorrelatedByFields []string `pulumi:"correlatedByFields"`
+	// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+	CorrelatedQueryIndex *string `pulumi:"correlatedQueryIndex"`
+	// Default Rule ID of the signal to correlate. This value is READ-ONLY.
+	DefaultRuleId *string `pulumi:"defaultRuleId"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name *string `pulumi:"name"`
+	// Rule ID of the signal to correlate.
+	RuleId string `pulumi:"ruleId"`
 }
 
 // GetSecurityMonitoringRulesRuleSignalQueryInput is an input type that accepts GetSecurityMonitoringRulesRuleSignalQueryArgs and GetSecurityMonitoringRulesRuleSignalQueryOutput values.
@@ -25924,12 +26265,18 @@ type GetSecurityMonitoringRulesRuleSignalQueryInput interface {
 }
 
 type GetSecurityMonitoringRulesRuleSignalQueryArgs struct {
-	Aggregation          pulumi.StringPtrInput   `pulumi:"aggregation"`
-	CorrelatedByFields   pulumi.StringArrayInput `pulumi:"correlatedByFields"`
-	CorrelatedQueryIndex pulumi.StringPtrInput   `pulumi:"correlatedQueryIndex"`
-	DefaultRuleId        pulumi.StringPtrInput   `pulumi:"defaultRuleId"`
-	Name                 pulumi.StringPtrInput   `pulumi:"name"`
-	RuleId               pulumi.StringInput      `pulumi:"ruleId"`
+	// The aggregation type. For Signal Correlation rules, it must be event_count.
+	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
+	// Fields to correlate by.
+	CorrelatedByFields pulumi.StringArrayInput `pulumi:"correlatedByFields"`
+	// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+	CorrelatedQueryIndex pulumi.StringPtrInput `pulumi:"correlatedQueryIndex"`
+	// Default Rule ID of the signal to correlate. This value is READ-ONLY.
+	DefaultRuleId pulumi.StringPtrInput `pulumi:"defaultRuleId"`
+	// Name of the query. Not compatible with `newValue` aggregations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Rule ID of the signal to correlate.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
 }
 
 func (GetSecurityMonitoringRulesRuleSignalQueryArgs) ElementType() reflect.Type {
@@ -25983,26 +26330,32 @@ func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) ToGetSecurityMonitoring
 	return o
 }
 
+// The aggregation type. For Signal Correlation rules, it must be event_count.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) *string { return v.Aggregation }).(pulumi.StringPtrOutput)
 }
 
+// Fields to correlate by.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) CorrelatedByFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) []string { return v.CorrelatedByFields }).(pulumi.StringArrayOutput)
 }
 
+// Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) CorrelatedQueryIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) *string { return v.CorrelatedQueryIndex }).(pulumi.StringPtrOutput)
 }
 
+// Default Rule ID of the signal to correlate. This value is READ-ONLY.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) DefaultRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) *string { return v.DefaultRuleId }).(pulumi.StringPtrOutput)
 }
 
+// Name of the query. Not compatible with `newValue` aggregations.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Rule ID of the signal to correlate.
 func (o GetSecurityMonitoringRulesRuleSignalQueryOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleSignalQuery) string { return v.RuleId }).(pulumi.StringOutput)
 }
@@ -26028,8 +26381,10 @@ func (o GetSecurityMonitoringRulesRuleSignalQueryArrayOutput) Index(i pulumi.Int
 }
 
 type GetServiceLevelObjectiveQuery struct {
+	// The sum of the `total` events.
 	Denominator string `pulumi:"denominator"`
-	Numerator   string `pulumi:"numerator"`
+	// The sum of all the `good` events.
+	Numerator string `pulumi:"numerator"`
 }
 
 // GetServiceLevelObjectiveQueryInput is an input type that accepts GetServiceLevelObjectiveQueryArgs and GetServiceLevelObjectiveQueryOutput values.
@@ -26044,8 +26399,10 @@ type GetServiceLevelObjectiveQueryInput interface {
 }
 
 type GetServiceLevelObjectiveQueryArgs struct {
+	// The sum of the `total` events.
 	Denominator pulumi.StringInput `pulumi:"denominator"`
-	Numerator   pulumi.StringInput `pulumi:"numerator"`
+	// The sum of all the `good` events.
+	Numerator pulumi.StringInput `pulumi:"numerator"`
 }
 
 func (GetServiceLevelObjectiveQueryArgs) ElementType() reflect.Type {
@@ -26099,10 +26456,12 @@ func (o GetServiceLevelObjectiveQueryOutput) ToGetServiceLevelObjectiveQueryOutp
 	return o
 }
 
+// The sum of the `total` events.
 func (o GetServiceLevelObjectiveQueryOutput) Denominator() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectiveQuery) string { return v.Denominator }).(pulumi.StringOutput)
 }
 
+// The sum of all the `good` events.
 func (o GetServiceLevelObjectiveQueryOutput) Numerator() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectiveQuery) string { return v.Numerator }).(pulumi.StringOutput)
 }
@@ -26128,8 +26487,11 @@ func (o GetServiceLevelObjectiveQueryArrayOutput) Index(i pulumi.IntInput) GetSe
 }
 
 type GetServiceLevelObjectivesSlo struct {
-	Id   string `pulumi:"id"`
+	// ID of the Datadog service level objective
+	Id string `pulumi:"id"`
+	// Name of the Datadog service level objective
 	Name string `pulumi:"name"`
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
 	Type string `pulumi:"type"`
 }
 
@@ -26145,8 +26507,11 @@ type GetServiceLevelObjectivesSloInput interface {
 }
 
 type GetServiceLevelObjectivesSloArgs struct {
-	Id   pulumi.StringInput `pulumi:"id"`
+	// ID of the Datadog service level objective
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Datadog service level objective
 	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -26201,14 +26566,17 @@ func (o GetServiceLevelObjectivesSloOutput) ToGetServiceLevelObjectivesSloOutput
 	return o
 }
 
+// ID of the Datadog service level objective
 func (o GetServiceLevelObjectivesSloOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesSlo) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the Datadog service level objective
 func (o GetServiceLevelObjectivesSloOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesSlo) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
 func (o GetServiceLevelObjectivesSloOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceLevelObjectivesSlo) string { return v.Type }).(pulumi.StringOutput)
 }

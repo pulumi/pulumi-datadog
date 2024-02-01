@@ -27,6 +27,10 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      * 
      */
     private String name;
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

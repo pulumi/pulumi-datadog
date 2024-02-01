@@ -27,6 +27,10 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
      * 
      */
     private String name;
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     public String name() {
         return this.name;
     }
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

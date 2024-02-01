@@ -18,6 +18,10 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
      * 
      */
     private List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> columns;
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery query;
     /**
      * @return Widget response format. Valid values are `event_list`.
@@ -33,6 +37,10 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
     public List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> columns() {
         return this.columns;
     }
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     public DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery query() {
         return this.query;
     }

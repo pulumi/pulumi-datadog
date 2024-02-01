@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetServiceLevelObjectivesSloResult
     {
+        /// <summary>
+        /// ID of the Datadog service level objective
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the Datadog service level objective
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

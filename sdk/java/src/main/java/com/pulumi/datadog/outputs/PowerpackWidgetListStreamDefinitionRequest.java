@@ -18,6 +18,10 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
      * 
      */
     private List<PowerpackWidgetListStreamDefinitionRequestColumn> columns;
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     private PowerpackWidgetListStreamDefinitionRequestQuery query;
     /**
      * @return Widget response format. Valid values are `event_list`.
@@ -33,6 +37,10 @@ public final class PowerpackWidgetListStreamDefinitionRequest {
     public List<PowerpackWidgetListStreamDefinitionRequestColumn> columns() {
         return this.columns;
     }
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     public PowerpackWidgetListStreamDefinitionRequestQuery query() {
         return this.query;
     }

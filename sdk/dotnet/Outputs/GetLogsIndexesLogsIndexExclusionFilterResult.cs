@@ -14,7 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetLogsIndexesLogsIndexExclusionFilterResult
     {
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexExclusionFilterFilterResult> Filters;
+        /// <summary>
+        /// A boolean stating if the exclusion is active or not.
+        /// </summary>
         public readonly bool IsEnabled;
+        /// <summary>
+        /// The name of the exclusion filter.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

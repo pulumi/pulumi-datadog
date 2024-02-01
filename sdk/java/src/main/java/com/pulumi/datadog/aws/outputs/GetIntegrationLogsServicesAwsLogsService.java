@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIntegrationLogsServicesAwsLogsService {
+    /**
+     * @return The id of the AWS log service.
+     * 
+     */
     private String id;
+    /**
+     * @return The name of the AWS log service.
+     * 
+     */
     private String label;
 
     private GetIntegrationLogsServicesAwsLogsService() {}
+    /**
+     * @return The id of the AWS log service.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the AWS log service.
+     * 
+     */
     public String label() {
         return this.label;
     }

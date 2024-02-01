@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorConfigPoliciesMonitorConfigPolicyResult
     {
+        /// <summary>
+        /// ID of the monitor config policy
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The monitor config policy type
+        /// </summary>
         public readonly string PolicyType;
+        /// <summary>
+        /// Config for a tag policy. Only set if `policy_type` is `tag`.
+        /// </summary>
         public readonly Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult TagPolicy;
 
         [OutputConstructor]
