@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetCloudWorkloadSecurityAgentRulesAgentRuleResult
     {
+        /// <summary>
+        /// The description of the Agent rule.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Whether the Agent rule is enabled.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The SECL expression of the Agent rule.
+        /// </summary>
         public readonly string Expression;
+        /// <summary>
+        /// The id of the Agent rule.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the Agent rule.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

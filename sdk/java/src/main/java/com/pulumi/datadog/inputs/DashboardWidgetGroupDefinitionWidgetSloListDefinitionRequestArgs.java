@@ -15,9 +15,17 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestA
 
     public static final DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs();
 
+    /**
+     * Updated SLO List widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs> query;
 
+    /**
+     * @return Updated SLO List widget.
+     * 
+     */
     public Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs> query() {
         return this.query;
     }
@@ -62,11 +70,23 @@ public final class DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestA
             $ = new DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQueryArgs query) {
             return query(Output.of(query));
         }

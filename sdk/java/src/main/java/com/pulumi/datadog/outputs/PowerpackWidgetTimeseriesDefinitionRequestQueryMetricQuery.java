@@ -27,6 +27,10 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      * 
      */
     private String name;
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     private String query;
 
     private PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery() {}
@@ -51,6 +55,10 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

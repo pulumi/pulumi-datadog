@@ -15,16 +15,32 @@ public final class ChildOrganizationApiKeyArgs extends com.pulumi.resources.Reso
 
     public static final ChildOrganizationApiKeyArgs Empty = new ChildOrganizationApiKeyArgs();
 
+    /**
+     * API key.
+     * 
+     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
+    /**
+     * @return API key.
+     * 
+     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * Name of your API key.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of your API key.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -54,20 +70,44 @@ public final class ChildOrganizationApiKeyArgs extends com.pulumi.resources.Reso
             $ = new ChildOrganizationApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key API key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key API key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param name Name of your API key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of your API key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -19,49 +19,137 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRule {
+    /**
+     * @return Cases for generating signals.
+     * 
+     */
     private List<GetSecurityMonitoringRulesRuleCase> cases;
+    /**
+     * @return Whether the rule is enabled.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return Additional queries to filter matched events before they are processed.
+     * 
+     */
     private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
+    /**
+     * @return Whether the notifications include the triggering group-by values in their title.
+     * 
+     */
     private @Nullable Boolean hasExtendedTitle;
+    /**
+     * @return Message for generated signals.
+     * 
+     */
     private String message;
+    /**
+     * @return The name of the rule.
+     * 
+     */
     private String name;
+    /**
+     * @return Options on rules.
+     * 
+     */
     private @Nullable GetSecurityMonitoringRulesRuleOptions options;
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
     private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
     private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
+    /**
+     * @return Tags for generated signals.
+     * 
+     */
     private @Nullable List<String> tags;
+    /**
+     * @return The rule type.
+     * 
+     */
     private @Nullable String type;
 
     private GetSecurityMonitoringRulesRule() {}
+    /**
+     * @return Cases for generating signals.
+     * 
+     */
     public List<GetSecurityMonitoringRulesRuleCase> cases() {
         return this.cases;
     }
+    /**
+     * @return Whether the rule is enabled.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Additional queries to filter matched events before they are processed.
+     * 
+     */
     public List<GetSecurityMonitoringRulesRuleFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return Whether the notifications include the triggering group-by values in their title.
+     * 
+     */
     public Optional<Boolean> hasExtendedTitle() {
         return Optional.ofNullable(this.hasExtendedTitle);
     }
+    /**
+     * @return Message for generated signals.
+     * 
+     */
     public String message() {
         return this.message;
     }
+    /**
+     * @return The name of the rule.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Options on rules.
+     * 
+     */
     public Optional<GetSecurityMonitoringRulesRuleOptions> options() {
         return Optional.ofNullable(this.options);
     }
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
     public List<GetSecurityMonitoringRulesRuleQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
+    /**
+     * @return Queries for selecting logs which are part of the rule.
+     * 
+     */
     public List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries() {
         return this.signalQueries == null ? List.of() : this.signalQueries;
     }
+    /**
+     * @return Tags for generated signals.
+     * 
+     */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
     }
+    /**
+     * @return The rule type.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

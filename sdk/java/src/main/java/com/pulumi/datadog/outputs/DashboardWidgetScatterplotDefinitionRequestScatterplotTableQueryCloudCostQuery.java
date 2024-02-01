@@ -27,6 +27,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
      * 
      */
     private String name;
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     public String name() {
         return this.name;
     }
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

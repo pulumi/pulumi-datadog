@@ -16,9 +16,17 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
 
     public static final DashboardWidgetTopologyMapDefinitionRequestArgs Empty = new DashboardWidgetTopologyMapDefinitionRequestArgs();
 
+    /**
+     * The query for a Topology request.
+     * 
+     */
     @Import(name="queries", required=true)
     private Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return The query for a Topology request.
+     * 
+     */
     public Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries() {
         return this.queries;
     }
@@ -63,15 +71,33 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
             $ = new DashboardWidgetTopologyMapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetTopologyMapDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }

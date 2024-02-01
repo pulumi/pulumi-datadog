@@ -61,9 +61,17 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQueryArg
         return this.name;
     }
 
+    /**
+     * The cloud cost query definition.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -158,11 +166,23 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQueryArg
             return name(Output.of(name));
         }
 
+        /**
+         * @param query The cloud cost query definition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query The cloud cost query definition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

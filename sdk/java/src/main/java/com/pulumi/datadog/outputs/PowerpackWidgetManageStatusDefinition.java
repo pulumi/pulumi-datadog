@@ -28,6 +28,10 @@ public final class PowerpackWidgetManageStatusDefinition {
      * 
      */
     private @Nullable Boolean hideZeroCounts;
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     private String query;
     /**
      * @return A Boolean indicating whether to show when monitors/groups last triggered.
@@ -87,6 +91,10 @@ public final class PowerpackWidgetManageStatusDefinition {
     public Optional<Boolean> hideZeroCounts() {
         return Optional.ofNullable(this.hideZeroCounts);
     }
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     public String query() {
         return this.query;
     }

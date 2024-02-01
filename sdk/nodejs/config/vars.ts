@@ -101,7 +101,7 @@ Object.defineProperty(exports, "httpClientRetryTimeout", {
 
 /**
  * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
- * is true. When false, api_key won't be checked.
+ * is true. When false, apiKey won't be checked.
  */
 export declare const validate: string | undefined;
 Object.defineProperty(exports, "validate", {

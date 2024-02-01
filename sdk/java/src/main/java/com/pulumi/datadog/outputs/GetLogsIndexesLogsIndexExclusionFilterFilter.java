@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogsIndexesLogsIndexExclusionFilterFilter {
+    /**
+     * @return Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     * 
+     */
     private String query;
+    /**
+     * @return The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     private Double sampleRate;
 
     private GetLogsIndexesLogsIndexExclusionFilterFilter() {}
+    /**
+     * @return Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     * 
+     */
     public String query() {
         return this.query;
     }
+    /**
+     * @return The fraction of logs excluded by the exclusion filter, when active.
+     * 
+     */
     public Double sampleRate() {
         return this.sampleRate;
     }

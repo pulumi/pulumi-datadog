@@ -13,13 +13,37 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringRulesRuleQueryResult
     {
+        /// <summary>
+        /// **Deprecated**. It won't be applied anymore.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryAgentRuleResult> AgentRules;
+        /// <summary>
+        /// The aggregation type. For Signal Correlation rules, it must be event_count.
+        /// </summary>
         public readonly string? Aggregation;
+        /// <summary>
+        /// Field for which the cardinality is measured. Sent as an array.
+        /// </summary>
         public readonly ImmutableArray<string> DistinctFields;
+        /// <summary>
+        /// Fields to group by.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByFields;
+        /// <summary>
+        /// The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
+        /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+        /// </summary>
         public readonly ImmutableArray<string> Metrics;
+        /// <summary>
+        /// Name of the query. Not compatible with `new_value` aggregations.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Query to run on logs.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

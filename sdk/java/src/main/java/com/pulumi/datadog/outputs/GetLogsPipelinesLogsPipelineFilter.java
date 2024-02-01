@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogsPipelinesLogsPipelineFilter {
+    /**
+     * @return Pipeline filter criteria.
+     * 
+     */
     private String query;
 
     private GetLogsPipelinesLogsPipelineFilter() {}
+    /**
+     * @return Pipeline filter criteria.
+     * 
+     */
     public String query() {
         return this.query;
     }

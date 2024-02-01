@@ -15,28 +15,58 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecurityMonitoringRulesRuleQuery {
     /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
      * @deprecated
      * `agent_rule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
     @Deprecated /* `agent_rule` has been deprecated in favor of new Agent Rule resource. */
     private @Nullable List<GetSecurityMonitoringRulesRuleQueryAgentRule> agentRules;
+    /**
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count.
+     * 
+     */
     private @Nullable String aggregation;
+    /**
+     * @return Field for which the cardinality is measured. Sent as an array.
+     * 
+     */
     private @Nullable List<String> distinctFields;
+    /**
+     * @return Fields to group by.
+     * 
+     */
     private @Nullable List<String> groupByFields;
     /**
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
+     * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      */
     @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
     private @Nullable String metric;
+    /**
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * 
+     */
     private List<String> metrics;
+    /**
+     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Query to run on logs.
+     * 
+     */
     private String query;
 
     private GetSecurityMonitoringRulesRuleQuery() {}
     /**
+     * @return **Deprecated**. It won&#39;t be applied anymore.
+     * 
      * @deprecated
      * `agent_rule` has been deprecated in favor of new Agent Rule resource.
      * 
@@ -45,16 +75,30 @@ public final class GetSecurityMonitoringRulesRuleQuery {
     public List<GetSecurityMonitoringRulesRuleQueryAgentRule> agentRules() {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
+    /**
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count.
+     * 
+     */
     public Optional<String> aggregation() {
         return Optional.ofNullable(this.aggregation);
     }
+    /**
+     * @return Field for which the cardinality is measured. Sent as an array.
+     * 
+     */
     public List<String> distinctFields() {
         return this.distinctFields == null ? List.of() : this.distinctFields;
     }
+    /**
+     * @return Fields to group by.
+     * 
+     */
     public List<String> groupByFields() {
         return this.groupByFields == null ? List.of() : this.groupByFields;
     }
     /**
+     * @return The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations.
+     * 
      * @deprecated
      * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
@@ -63,12 +107,24 @@ public final class GetSecurityMonitoringRulesRuleQuery {
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }
+    /**
+     * @return Group of target fields to aggregate over when using the `sum`, `max`, `geo_data`, or `new_value` aggregations. The `sum`, `max`, and `geo_data` aggregations only accept one value in this list, whereas the `new_value` aggregation accepts up to five values.
+     * 
+     */
     public List<String> metrics() {
         return this.metrics;
     }
+    /**
+     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Query to run on logs.
+     * 
+     */
     public String query() {
         return this.query;
     }

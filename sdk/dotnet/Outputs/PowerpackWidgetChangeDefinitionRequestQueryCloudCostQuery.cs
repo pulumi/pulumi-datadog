@@ -25,6 +25,9 @@ namespace Pulumi.Datadog.Outputs
         /// The name of the powerpack template variable.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The cloud cost query definition.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

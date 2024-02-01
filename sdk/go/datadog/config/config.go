@@ -56,7 +56,7 @@ func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
 }
 
 // Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-// is true. When false, api_key won't be checked.
+// is true. When false, apiKey won't be checked.
 func GetValidate(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:validate")
 }

@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorSchedulingOptionEvaluationWindowResult
     {
+        /// <summary>
+        /// The time of the day at which a one day cumulative evaluation window starts. Must be defined in UTC time in `HH:mm` format.
+        /// </summary>
         public readonly string DayStarts;
+        /// <summary>
+        /// The minute of the hour at which a one hour cumulative evaluation window starts. Must be between 0 and 59.
+        /// </summary>
         public readonly int HourStarts;
+        /// <summary>
+        /// The day of the month at which a one month cumulative evaluation window starts. Must be a value of 1.
+        /// </summary>
         public readonly int MonthStarts;
 
         [OutputConstructor]

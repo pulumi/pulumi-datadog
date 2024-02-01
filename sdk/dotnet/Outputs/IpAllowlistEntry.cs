@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class IpAllowlistEntry
     {
+        /// <summary>
+        /// IP address or range of addresses.
+        /// </summary>
         public readonly string CidrBlock;
         /// <summary>
         /// Note accompanying IP address.

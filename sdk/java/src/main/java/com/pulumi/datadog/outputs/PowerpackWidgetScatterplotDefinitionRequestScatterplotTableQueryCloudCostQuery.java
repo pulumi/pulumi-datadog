@@ -27,6 +27,10 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      * 
      */
     private String name;
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     private String query;
 
     private PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery() {}
@@ -51,6 +55,10 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
     public String name() {
         return this.name;
     }
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

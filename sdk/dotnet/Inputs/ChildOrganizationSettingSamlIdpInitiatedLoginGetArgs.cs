@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ChildOrganizationSettingSamlIdpInitiatedLoginGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

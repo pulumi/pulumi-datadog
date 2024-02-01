@@ -16,9 +16,17 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
 
     public static final IpAllowlistEntryArgs Empty = new IpAllowlistEntryArgs();
 
+    /**
+     * IP address or range of addresses.
+     * 
+     */
     @Import(name="cidrBlock", required=true)
     private Output<String> cidrBlock;
 
+    /**
+     * @return IP address or range of addresses.
+     * 
+     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
@@ -63,11 +71,23 @@ public final class IpAllowlistEntryArgs extends com.pulumi.resources.ResourceArg
             $ = new IpAllowlistEntryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidrBlock IP address or range of addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlock(Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
+        /**
+         * @param cidrBlock IP address or range of addresses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The events search string.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

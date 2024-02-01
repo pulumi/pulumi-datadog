@@ -13,49 +13,118 @@ export interface ApmRetentionFilterFilter {
 }
 
 export interface ChildOrganizationApiKey {
+    /**
+     * API key.
+     */
     key?: pulumi.Input<string>;
+    /**
+     * Name of your API key.
+     */
     name?: pulumi.Input<string>;
 }
 
 export interface ChildOrganizationApplicationKey {
+    /**
+     * Hash of an application key.
+     */
     hash?: pulumi.Input<string>;
+    /**
+     * Name of an application key.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Owner of an application key.
+     */
     owner?: pulumi.Input<string>;
 }
 
 export interface ChildOrganizationSetting {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
     privateWidgetShare?: pulumi.Input<boolean>;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     */
     samlAutocreateAccessRole?: pulumi.Input<string>;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     samlAutocreateUsersDomains?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlAutocreateUsersDomain>[]>;
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
     samlCanBeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
     samlIdpEndpoint?: pulumi.Input<string>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpInitiatedLogins?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlIdpInitiatedLogin>[]>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     samlIdpMetadataUploaded?: pulumi.Input<boolean>;
+    /**
+     * URL for SAML logging.
+     */
     samlLoginUrl?: pulumi.Input<string>;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
     samlStrictModes?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlStrictMode>[]>;
+    /**
+     * SAML properties
+     */
     samls?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSaml>[]>;
 }
 
 export interface ChildOrganizationSettingSaml {
+    /**
+     * Whether or not SAML is enabled for this organization.
+     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ChildOrganizationSettingSamlAutocreateUsersDomain {
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether or not the automated user creation based on SAML domain is enabled.
+     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ChildOrganizationSettingSamlIdpInitiatedLogin {
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ChildOrganizationSettingSamlStrictMode {
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
     enabled?: pulumi.Input<boolean>;
 }
 
 export interface ChildOrganizationUser {
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     */
     accessRole?: pulumi.Input<string>;
+    /**
+     * The new email of the user.
+     */
     email?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -837,6 +906,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -917,6 +989,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -933,6 +1008,9 @@ export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -1691,6 +1769,9 @@ export interface DashboardWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -1715,6 +1796,9 @@ export interface DashboardWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -2125,6 +2209,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -2205,6 +2292,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -2221,6 +2311,9 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -3121,6 +3214,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -3201,6 +3297,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -3217,6 +3316,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -3975,6 +4077,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -3999,6 +4104,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -4409,6 +4517,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -4489,6 +4600,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -4505,6 +4619,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -5188,6 +5305,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -5268,6 +5388,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -5284,6 +5407,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -6471,6 +6597,9 @@ export interface DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
      * Column properties used by the front end for display.
      */
     columns: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn>[]>;
+    /**
+     * Updated list stream widget.
+     */
     query: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuery>;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -6544,6 +6673,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query?: pulumi.Input<string>;
     /**
      * If the date column should be displayed.
@@ -6595,6 +6727,9 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: pulumi.Input<boolean>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -7329,6 +7464,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -7409,6 +7547,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -7425,6 +7566,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -8296,6 +8440,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -8376,6 +8523,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -8392,6 +8542,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -8949,6 +9102,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -9029,6 +9185,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -9045,6 +9204,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -10037,6 +10199,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSloListDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionRequestQuery>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -10638,6 +10803,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -10718,6 +10886,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -10734,6 +10905,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -11345,6 +11519,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -11425,6 +11602,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -11441,6 +11621,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -12211,6 +12394,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -12291,6 +12477,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -12307,6 +12496,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13178,6 +13370,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13258,6 +13453,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13274,6 +13472,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13770,6 +13971,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13850,6 +14054,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -13866,6 +14073,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -15439,6 +15649,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -15519,6 +15732,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -15535,6 +15751,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -16518,6 +16737,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -16598,6 +16820,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -16614,6 +16839,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -17526,6 +17754,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -17606,6 +17837,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -17622,6 +17856,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -18102,6 +18339,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -18182,6 +18422,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -18198,6 +18441,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceW
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -19021,6 +19267,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -19101,6 +19350,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -19117,6 +19369,9 @@ export interface DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestQu
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -20100,6 +20355,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -20180,6 +20438,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -20196,6 +20457,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21108,6 +21372,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21188,6 +21455,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21204,6 +21474,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21493,6 +21766,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionCustom
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery>[]>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -21812,6 +22088,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21892,6 +22171,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -21908,6 +22190,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQue
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -22513,6 +22798,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -22593,6 +22881,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -22609,6 +22900,9 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -23796,6 +24090,9 @@ export interface DashboardWidgetListStreamDefinitionRequest {
      * Column properties used by the front end for display.
      */
     columns: pulumi.Input<pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestColumn>[]>;
+    /**
+     * Updated list stream widget.
+     */
     query: pulumi.Input<inputs.DashboardWidgetListStreamDefinitionRequestQuery>;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -23869,6 +24166,9 @@ export interface DashboardWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query?: pulumi.Input<string>;
     /**
      * If the date column should be displayed.
@@ -23920,6 +24220,9 @@ export interface DashboardWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: pulumi.Input<boolean>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -24654,6 +24957,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -24734,6 +25040,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -24750,6 +25059,9 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -25621,6 +25933,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -25701,6 +26016,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -25717,6 +26035,9 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -26274,6 +26595,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -26354,6 +26678,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -26370,6 +26697,9 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -27362,6 +27692,9 @@ export interface DashboardWidgetSloListDefinition {
 }
 
 export interface DashboardWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: pulumi.Input<inputs.DashboardWidgetSloListDefinitionRequestQuery>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -27963,6 +28296,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -28043,6 +28379,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -28059,6 +28398,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChange
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -28670,6 +29012,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -28750,6 +29095,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -28766,6 +29114,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomap
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -29536,6 +29887,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -29616,6 +29970,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -29632,6 +29989,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryT
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -30503,6 +30863,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -30583,6 +30946,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -30599,6 +30965,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryV
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -31095,6 +31464,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -31175,6 +31547,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -31191,6 +31566,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatte
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -32764,6 +33142,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -32844,6 +33225,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -32860,6 +33244,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunbur
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -33843,6 +34230,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -33923,6 +34313,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -33939,6 +34332,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimese
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -34851,6 +35247,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -34931,6 +35330,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -34947,6 +35349,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplis
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -35427,6 +35832,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -35507,6 +35915,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
 }
 
 export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -35523,6 +35934,9 @@ export interface DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreema
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -36346,6 +36760,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -36426,6 +36843,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByS
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -36442,6 +36862,9 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -37425,6 +37848,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -37505,6 +37931,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -37521,6 +37950,9 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -38433,6 +38865,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -38513,6 +38948,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -38529,6 +38967,9 @@ export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -38818,6 +39259,9 @@ export interface DashboardWidgetTopologyMapDefinitionCustomLink {
 }
 
 export interface DashboardWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTopologyMapDefinitionRequestQuery>[]>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -39137,6 +39581,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -39217,6 +39664,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -39233,6 +39683,9 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
      * The name of the variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -39402,6 +39855,9 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
 }
 
 export interface IpAllowlistEntry {
+    /**
+     * IP address or range of addresses.
+     */
     cidrBlock: pulumi.Input<string>;
     /**
      * Note accompanying IP address.
@@ -41361,6 +41817,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -41441,6 +41900,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -41457,6 +41919,9 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -42215,6 +42680,9 @@ export interface PowerpackWidgetEventStreamDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -42239,6 +42707,9 @@ export interface PowerpackWidgetEventTimelineDefinition {
      * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
      */
     liveSpan?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * The execution method for multi-value filters, options: `and` or `or`.
@@ -42649,6 +43120,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -42729,6 +43203,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBySor
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -42745,6 +43222,9 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -43428,6 +43908,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -43508,6 +43991,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -43524,6 +44010,9 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -44711,6 +45200,9 @@ export interface PowerpackWidgetListStreamDefinitionRequest {
      * Column properties used by the front end for display.
      */
     columns: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetListStreamDefinitionRequestColumn>[]>;
+    /**
+     * Updated list stream widget.
+     */
     query: pulumi.Input<inputs.PowerpackWidgetListStreamDefinitionRequestQuery>;
     /**
      * Widget response format. Valid values are `eventList`.
@@ -44784,6 +45276,9 @@ export interface PowerpackWidgetLogStreamDefinition {
      * The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
      */
     messageDisplay?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query?: pulumi.Input<string>;
     /**
      * If the date column should be displayed.
@@ -44835,6 +45330,9 @@ export interface PowerpackWidgetManageStatusDefinition {
      * A Boolean indicating whether to hide empty categories.
      */
     hideZeroCounts?: pulumi.Input<boolean>;
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
     /**
      * A Boolean indicating whether to show when monitors/groups last triggered.
@@ -45501,6 +45999,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -45581,6 +46082,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -45597,6 +46101,9 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -46468,6 +46975,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -46548,6 +47058,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -46564,6 +47077,9 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -47121,6 +47637,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -47201,6 +47720,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -47217,6 +47739,9 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -48209,6 +48734,9 @@ export interface PowerpackWidgetSloListDefinition {
 }
 
 export interface PowerpackWidgetSloListDefinitionRequest {
+    /**
+     * Updated SLO List widget.
+     */
     query: pulumi.Input<inputs.PowerpackWidgetSloListDefinitionRequestQuery>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -48932,6 +49460,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -49012,6 +49543,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByS
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -49028,6 +49562,9 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -50011,6 +50548,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -50091,6 +50631,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupB
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -50107,6 +50650,9 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51019,6 +51565,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51099,6 +51648,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51115,6 +51667,9 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51404,6 +51959,9 @@ export interface PowerpackWidgetTopologyMapDefinitionCustomLink {
 }
 
 export interface PowerpackWidgetTopologyMapDefinitionRequest {
+    /**
+     * The query for a Topology request.
+     */
     queries: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTopologyMapDefinitionRequestQuery>[]>;
     /**
      * The request type for the SLO List request. Valid values are `sloList`.
@@ -51723,6 +52281,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The cloud cost query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51803,6 +52364,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySo
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * The events search string.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -51819,6 +52383,9 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
      * The name of the powerpack template variable.
      */
     name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
+     */
     query: pulumi.Input<string>;
 }
 
@@ -52504,6 +53071,9 @@ export interface SyntheticsTestApiStepRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
+    /**
+     * File name for the certificate.
+     */
     filename?: pulumi.Input<string>;
 }
 
@@ -52512,6 +53082,9 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
+    /**
+     * File name for the certificate.
+     */
     filename?: pulumi.Input<string>;
 }
 
@@ -52826,6 +53399,9 @@ export interface SyntheticsTestBrowserStepParamsVariable {
      * Example of the extracted variable. Defaults to `""`.
      */
     example?: pulumi.Input<string>;
+    /**
+     * Name of the extracted variable.
+     */
     name?: pulumi.Input<string>;
 }
 
@@ -53102,6 +53678,9 @@ export interface SyntheticsTestRequestClientCertificateCert {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
+    /**
+     * File name for the certificate.
+     */
     filename?: pulumi.Input<string>;
 }
 
@@ -53110,6 +53689,9 @@ export interface SyntheticsTestRequestClientCertificateKey {
      * Content of the certificate.
      */
     content: pulumi.Input<string>;
+    /**
+     * File name for the certificate.
+     */
     filename?: pulumi.Input<string>;
 }
 

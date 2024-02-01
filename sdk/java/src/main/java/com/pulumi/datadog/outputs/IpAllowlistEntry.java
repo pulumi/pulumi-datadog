@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IpAllowlistEntry {
+    /**
+     * @return IP address or range of addresses.
+     * 
+     */
     private String cidrBlock;
     /**
      * @return Note accompanying IP address.
@@ -20,6 +24,10 @@ public final class IpAllowlistEntry {
     private @Nullable String note;
 
     private IpAllowlistEntry() {}
+    /**
+     * @return IP address or range of addresses.
+     * 
+     */
     public String cidrBlock() {
         return this.cidrBlock;
     }

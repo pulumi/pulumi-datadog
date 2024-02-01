@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorSchedulingOptionCustomScheduleRecurrence {
+    /**
+     * @return Must be a valid rrule. See api docs for supported fields
+     * 
+     */
     private String rrule;
+    /**
+     * @return Time to start recurrence cycle. Similar to DTSTART. Expected format &#39;YYYY-MM-DDThh:mm:ss&#39;
+     * 
+     */
     private String start;
+    /**
+     * @return &#39;tz database&#39; format. ex: &#39;America/New_York&#39; or UTC
+     * 
+     */
     private String timezone;
 
     private GetMonitorSchedulingOptionCustomScheduleRecurrence() {}
+    /**
+     * @return Must be a valid rrule. See api docs for supported fields
+     * 
+     */
     public String rrule() {
         return this.rrule;
     }
+    /**
+     * @return Time to start recurrence cycle. Similar to DTSTART. Expected format &#39;YYYY-MM-DDThh:mm:ss&#39;
+     * 
+     */
     public String start() {
         return this.start;
     }
+    /**
+     * @return &#39;tz database&#39; format. ex: &#39;America/New_York&#39; or UTC
+     * 
+     */
     public String timezone() {
         return this.timezone;
     }

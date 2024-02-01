@@ -18,17 +18,27 @@ class GetIntegrationLogsServicesAwsLogsServiceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  label: str):
+        """
+        :param str id: The id of the AWS log service.
+        :param str label: The name of the AWS log service.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "label", label)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The id of the AWS log service.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def label(self) -> str:
+        """
+        The name of the AWS log service.
+        """
         return pulumi.get(self, "label")
 
 

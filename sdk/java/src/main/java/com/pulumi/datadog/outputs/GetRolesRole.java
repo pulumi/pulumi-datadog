@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRolesRole {
+    /**
+     * @return ID of the Datadog role
+     * 
+     */
     private String id;
+    /**
+     * @return Name of the Datadog role
+     * 
+     */
     private String name;
+    /**
+     * @return Number of users that have this role.
+     * 
+     */
     private Integer userCount;
 
     private GetRolesRole() {}
+    /**
+     * @return ID of the Datadog role
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the Datadog role
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Number of users that have this role.
+     * 
+     */
     public Integer userCount() {
         return this.userCount;
     }

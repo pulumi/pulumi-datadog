@@ -16,29 +16,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringFiltersFilter {
+    /**
+     * @return Exclusion filters to exclude some logs from the security filter.
+     * 
+     */
     private @Nullable List<GetSecurityMonitoringFiltersFilterExclusionFilter> exclusionFilters;
+    /**
+     * @return The filtered data type.
+     * 
+     */
     private @Nullable String filteredDataType;
+    /**
+     * @return Whether the security filter is enabled.
+     * 
+     */
     private Boolean isEnabled;
+    /**
+     * @return The name of the security filter.
+     * 
+     */
     private String name;
+    /**
+     * @return The query of the security filter.
+     * 
+     */
     private String query;
+    /**
+     * @return The version of the security filter.
+     * 
+     */
     private Integer version;
 
     private GetSecurityMonitoringFiltersFilter() {}
+    /**
+     * @return Exclusion filters to exclude some logs from the security filter.
+     * 
+     */
     public List<GetSecurityMonitoringFiltersFilterExclusionFilter> exclusionFilters() {
         return this.exclusionFilters == null ? List.of() : this.exclusionFilters;
     }
+    /**
+     * @return The filtered data type.
+     * 
+     */
     public Optional<String> filteredDataType() {
         return Optional.ofNullable(this.filteredDataType);
     }
+    /**
+     * @return Whether the security filter is enabled.
+     * 
+     */
     public Boolean isEnabled() {
         return this.isEnabled;
     }
+    /**
+     * @return The name of the security filter.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The query of the security filter.
+     * 
+     */
     public String query() {
         return this.query;
     }
+    /**
+     * @return The version of the security filter.
+     * 
+     */
     public Integer version() {
         return this.version;
     }

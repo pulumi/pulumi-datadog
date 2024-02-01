@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    /**
+     * @return The events search string.
+     * 
+     */
     private String query;
 
     private PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearch() {}
+    /**
+     * @return The events search string.
+     * 
+     */
     public String query() {
         return this.query;
     }
