@@ -16,9 +16,17 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
 
     public static final DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs();
 
+    /**
+     * The query for a Topology request.
+     * 
+     */
     @Import(name="queries", required=true)
     private Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return The query for a Topology request.
+     * 
+     */
     public Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs>> queries() {
         return this.queries;
     }
@@ -63,15 +71,33 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
             $ = new DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(Output<List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }

@@ -78,9 +78,17 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         return Optional.ofNullable(this.messageDisplay);
     }
 
+    /**
+     * The query to use in the widget.
+     * 
+     */
     @Import(name="query")
     private @Nullable Output<String> query;
 
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     public Optional<Output<String>> query() {
         return Optional.ofNullable(this.query);
     }
@@ -313,11 +321,23 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
             return messageDisplay(Output.of(messageDisplay));
         }
 
+        /**
+         * @param query The query to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(@Nullable Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query The query to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

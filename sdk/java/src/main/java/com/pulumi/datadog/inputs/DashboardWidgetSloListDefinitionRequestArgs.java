@@ -15,9 +15,17 @@ public final class DashboardWidgetSloListDefinitionRequestArgs extends com.pulum
 
     public static final DashboardWidgetSloListDefinitionRequestArgs Empty = new DashboardWidgetSloListDefinitionRequestArgs();
 
+    /**
+     * Updated SLO List widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<DashboardWidgetSloListDefinitionRequestQueryArgs> query;
 
+    /**
+     * @return Updated SLO List widget.
+     * 
+     */
     public Output<DashboardWidgetSloListDefinitionRequestQueryArgs> query() {
         return this.query;
     }
@@ -62,11 +70,23 @@ public final class DashboardWidgetSloListDefinitionRequestArgs extends com.pulum
             $ = new DashboardWidgetSloListDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<DashboardWidgetSloListDefinitionRequestQueryArgs> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(DashboardWidgetSloListDefinitionRequestQueryArgs query) {
             return query(Output.of(query));
         }

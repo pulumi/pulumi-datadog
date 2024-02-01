@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
+    /**
+     * @return The duration in days after which a learned value is forgotten.
+     * 
+     */
     private Integer forgetAfter;
+    /**
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     * 
+     */
     private @Nullable Integer learningDuration;
+    /**
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned.
+     * 
+     */
     private @Nullable String learningMethod;
+    /**
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned.
+     * 
+     */
     private @Nullable Integer learningThreshold;
 
     private GetSecurityMonitoringRulesRuleOptionsNewValueOptions() {}
+    /**
+     * @return The duration in days after which a learned value is forgotten.
+     * 
+     */
     public Integer forgetAfter() {
         return this.forgetAfter;
     }
+    /**
+     * @return The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     * 
+     */
     public Optional<Integer> learningDuration() {
         return Optional.ofNullable(this.learningDuration);
     }
+    /**
+     * @return The learning method used to determine when signals should be generated for values that weren&#39;t learned.
+     * 
+     */
     public Optional<String> learningMethod() {
         return Optional.ofNullable(this.learningMethod);
     }
+    /**
+     * @return A number of occurrences after which signals are generated for values that weren&#39;t learned.
+     * 
+     */
     public Optional<Integer> learningThreshold() {
         return Optional.ofNullable(this.learningThreshold);
     }

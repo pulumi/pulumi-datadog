@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetRolesRoleResult
     {
+        /// <summary>
+        /// ID of the Datadog role
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the Datadog role
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Number of users that have this role.
+        /// </summary>
         public readonly int UserCount;
 
         [OutputConstructor]

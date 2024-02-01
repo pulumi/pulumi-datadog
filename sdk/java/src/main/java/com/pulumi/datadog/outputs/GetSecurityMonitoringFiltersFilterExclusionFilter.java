@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecurityMonitoringFiltersFilterExclusionFilter {
+    /**
+     * @return Exclusion filter name.
+     * 
+     */
     private String name;
+    /**
+     * @return Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * 
+     */
     private String query;
 
     private GetSecurityMonitoringFiltersFilterExclusionFilter() {}
+    /**
+     * @return Exclusion filter name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * 
+     */
     public String query() {
         return this.query;
     }

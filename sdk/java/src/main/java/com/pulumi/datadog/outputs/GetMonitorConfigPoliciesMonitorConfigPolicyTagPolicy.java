@@ -12,17 +12,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
+    /**
+     * @return The key of the tag
+     * 
+     */
     private String tagKey;
+    /**
+     * @return If a tag key is required for monitor creation
+     * 
+     */
     private Boolean tagKeyRequired;
+    /**
+     * @return Valid values for the tag
+     * 
+     */
     private List<String> validTagValues;
 
     private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy() {}
+    /**
+     * @return The key of the tag
+     * 
+     */
     public String tagKey() {
         return this.tagKey;
     }
+    /**
+     * @return If a tag key is required for monitor creation
+     * 
+     */
     public Boolean tagKeyRequired() {
         return this.tagKeyRequired;
     }
+    /**
+     * @return Valid values for the tag
+     * 
+     */
     public List<String> validTagValues() {
         return this.validTagValues;
     }

@@ -31,9 +31,17 @@ public final class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionAr
         return Optional.ofNullable(this.liveSpan);
     }
 
+    /**
+     * The query to use in the widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -148,11 +156,23 @@ public final class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionAr
             return liveSpan(Output.of(liveSpan));
         }
 
+        /**
+         * @param query The query to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query The query to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

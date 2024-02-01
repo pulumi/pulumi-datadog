@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationApplicationKey {
+    /**
+     * @return Hash of an application key.
+     * 
+     */
     private @Nullable String hash;
+    /**
+     * @return Name of an application key.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Owner of an application key.
+     * 
+     */
     private @Nullable String owner;
 
     private ChildOrganizationApplicationKey() {}
+    /**
+     * @return Hash of an application key.
+     * 
+     */
     public Optional<String> hash() {
         return Optional.ofNullable(this.hash);
     }
+    /**
+     * @return Name of an application key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Owner of an application key.
+     * 
+     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }

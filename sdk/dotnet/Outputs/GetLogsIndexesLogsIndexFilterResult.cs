@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetLogsIndexesLogsIndexFilterResult
     {
+        /// <summary>
+        /// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

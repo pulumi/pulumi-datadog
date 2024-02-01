@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationApplicationKey
     {
+        /// <summary>
+        /// Hash of an application key.
+        /// </summary>
         public readonly string? Hash;
+        /// <summary>
+        /// Name of an application key.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Owner of an application key.
+        /// </summary>
         public readonly string? Owner;
 
         [OutputConstructor]

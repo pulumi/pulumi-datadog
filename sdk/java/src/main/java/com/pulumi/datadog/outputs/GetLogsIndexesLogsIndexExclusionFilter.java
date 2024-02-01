@@ -15,16 +15,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetLogsIndexesLogsIndexExclusionFilter {
     private @Nullable List<GetLogsIndexesLogsIndexExclusionFilterFilter> filters;
+    /**
+     * @return A boolean stating if the exclusion is active or not.
+     * 
+     */
     private Boolean isEnabled;
+    /**
+     * @return The name of the exclusion filter.
+     * 
+     */
     private String name;
 
     private GetLogsIndexesLogsIndexExclusionFilter() {}
     public List<GetLogsIndexesLogsIndexExclusionFilterFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return A boolean stating if the exclusion is active or not.
+     * 
+     */
     public Boolean isEnabled() {
         return this.isEnabled;
     }
+    /**
+     * @return The name of the exclusion filter.
+     * 
+     */
     public String name() {
         return this.name;
     }

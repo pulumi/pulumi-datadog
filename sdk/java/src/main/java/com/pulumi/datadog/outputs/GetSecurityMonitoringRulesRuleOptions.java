@@ -16,33 +16,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRuleOptions {
+    /**
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * 
+     */
     private @Nullable Boolean decreaseCriticalityBasedOnEnv;
+    /**
+     * @return The detection method.
+     * 
+     */
     private @Nullable String detectionMethod;
+    /**
+     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+     * 
+     */
     private @Nullable Integer evaluationWindow;
+    /**
+     * @return Options for rules using the impossible travel detection method.
+     * 
+     */
     private @Nullable GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions impossibleTravelOptions;
+    /**
+     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
+     * 
+     */
     private Integer keepAlive;
+    /**
+     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
+     * 
+     */
     private Integer maxSignalDuration;
+    /**
+     * @return New value rules specific options.
+     * 
+     */
     private @Nullable GetSecurityMonitoringRulesRuleOptionsNewValueOptions newValueOptions;
 
     private GetSecurityMonitoringRulesRuleOptions() {}
+    /**
+     * @return If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`.
+     * 
+     */
     public Optional<Boolean> decreaseCriticalityBasedOnEnv() {
         return Optional.ofNullable(this.decreaseCriticalityBasedOnEnv);
     }
+    /**
+     * @return The detection method.
+     * 
+     */
     public Optional<String> detectionMethod() {
         return Optional.ofNullable(this.detectionMethod);
     }
+    /**
+     * @return A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+     * 
+     */
     public Optional<Integer> evaluationWindow() {
         return Optional.ofNullable(this.evaluationWindow);
     }
+    /**
+     * @return Options for rules using the impossible travel detection method.
+     * 
+     */
     public Optional<GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions> impossibleTravelOptions() {
         return Optional.ofNullable(this.impossibleTravelOptions);
     }
+    /**
+     * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
+     * 
+     */
     public Integer keepAlive() {
         return this.keepAlive;
     }
+    /**
+     * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
+     * 
+     */
     public Integer maxSignalDuration() {
         return this.maxSignalDuration;
     }
+    /**
+     * @return New value rules specific options.
+     * 
+     */
     public Optional<GetSecurityMonitoringRulesRuleOptionsNewValueOptions> newValueOptions() {
         return Optional.ofNullable(this.newValueOptions);
     }

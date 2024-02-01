@@ -28,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// File name for the certificate.
+        /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
 

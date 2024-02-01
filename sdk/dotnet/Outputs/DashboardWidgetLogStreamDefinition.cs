@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Outputs
         /// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
         /// </summary>
         public readonly string? MessageDisplay;
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         public readonly string? Query;
         /// <summary>
         /// If the date column should be displayed.

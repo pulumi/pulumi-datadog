@@ -14,12 +14,19 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("domains")]
         private InputList<string>? _domains;
+
+        /// <summary>
+        /// List of domains where the SAML automated user creation is enabled.
+        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());
             set => _domains = value;
         }
 
+        /// <summary>
+        /// Whether or not the automated user creation based on SAML domain is enabled.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class PowerpackWidgetSloListDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Updated SLO List widget.
+        /// </summary>
         [Input("query", required: true)]
         public Input<Inputs.PowerpackWidgetSloListDefinitionRequestQueryArgs> Query { get; set; } = null!;
 

@@ -27,6 +27,10 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      * 
      */
     private String name;
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

@@ -15,23 +15,47 @@ public final class ChildOrganizationApplicationKeyArgs extends com.pulumi.resour
 
     public static final ChildOrganizationApplicationKeyArgs Empty = new ChildOrganizationApplicationKeyArgs();
 
+    /**
+     * Hash of an application key.
+     * 
+     */
     @Import(name="hash")
     private @Nullable Output<String> hash;
 
+    /**
+     * @return Hash of an application key.
+     * 
+     */
     public Optional<Output<String>> hash() {
         return Optional.ofNullable(this.hash);
     }
 
+    /**
+     * Name of an application key.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of an application key.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Owner of an application key.
+     * 
+     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
+    /**
+     * @return Owner of an application key.
+     * 
+     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -62,29 +86,65 @@ public final class ChildOrganizationApplicationKeyArgs extends com.pulumi.resour
             $ = new ChildOrganizationApplicationKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hash Hash of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(@Nullable Output<String> hash) {
             $.hash = hash;
             return this;
         }
 
+        /**
+         * @param hash Hash of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hash(String hash) {
             return hash(Output.of(hash));
         }
 
+        /**
+         * @param name Name of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param owner Owner of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
+        /**
+         * @param owner Owner of an application key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }

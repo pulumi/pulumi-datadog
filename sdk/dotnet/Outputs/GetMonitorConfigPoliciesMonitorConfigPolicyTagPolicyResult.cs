@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult
     {
+        /// <summary>
+        /// The key of the tag
+        /// </summary>
         public readonly string TagKey;
+        /// <summary>
+        /// If a tag key is required for monitor creation
+        /// </summary>
         public readonly bool TagKeyRequired;
+        /// <summary>
+        /// Valid values for the tag
+        /// </summary>
         public readonly ImmutableArray<string> ValidTagValues;
 
         [OutputConstructor]

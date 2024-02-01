@@ -27,6 +27,10 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
      * 
      */
     private String name;
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     private String query;
 
     private DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryMetricQuery() {}
@@ -51,6 +55,10 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     public String name() {
         return this.name;
     }
+    /**
+     * @return The metrics query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorSchedulingOptionCustomScheduleResult
     {
+        /// <summary>
+        /// A list of recurrence definitions. Length must be 1.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorSchedulingOptionCustomScheduleRecurrenceResult> Recurrences;
 
         [OutputConstructor]

@@ -48,6 +48,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("messageDisplay")]
         public Input<string>? MessageDisplay { get; set; }
 
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 

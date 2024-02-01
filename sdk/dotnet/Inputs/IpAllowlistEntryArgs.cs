@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class IpAllowlistEntryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP address or range of addresses.
+        /// </summary>
         [Input("cidrBlock", required: true)]
         public Input<string> CidrBlock { get; set; } = null!;
 

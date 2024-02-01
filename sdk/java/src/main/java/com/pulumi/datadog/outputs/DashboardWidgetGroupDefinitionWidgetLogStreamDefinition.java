@@ -34,6 +34,10 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      * 
      */
     private @Nullable String messageDisplay;
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     private @Nullable String query;
     /**
      * @return If the date column should be displayed.
@@ -95,6 +99,10 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     public Optional<String> messageDisplay() {
         return Optional.ofNullable(this.messageDisplay);
     }
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
     }

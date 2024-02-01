@@ -13,29 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityMonitoringRulesRuleSignalQuery {
+    /**
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count.
+     * 
+     */
     private @Nullable String aggregation;
+    /**
+     * @return Fields to correlate by.
+     * 
+     */
     private @Nullable List<String> correlatedByFields;
+    /**
+     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * 
+     */
     private @Nullable String correlatedQueryIndex;
+    /**
+     * @return Default Rule ID of the signal to correlate. This value is READ-ONLY.
+     * 
+     */
     private @Nullable String defaultRuleId;
+    /**
+     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return Rule ID of the signal to correlate.
+     * 
+     */
     private String ruleId;
 
     private GetSecurityMonitoringRulesRuleSignalQuery() {}
+    /**
+     * @return The aggregation type. For Signal Correlation rules, it must be event_count.
+     * 
+     */
     public Optional<String> aggregation() {
         return Optional.ofNullable(this.aggregation);
     }
+    /**
+     * @return Fields to correlate by.
+     * 
+     */
     public List<String> correlatedByFields() {
         return this.correlatedByFields == null ? List.of() : this.correlatedByFields;
     }
+    /**
+     * @return Index of the rule query used to retrieve the correlated field. An empty string applies correlation on the non-projected per query attributes of the rule.
+     * 
+     */
     public Optional<String> correlatedQueryIndex() {
         return Optional.ofNullable(this.correlatedQueryIndex);
     }
+    /**
+     * @return Default Rule ID of the signal to correlate. This value is READ-ONLY.
+     * 
+     */
     public Optional<String> defaultRuleId() {
         return Optional.ofNullable(this.defaultRuleId);
     }
+    /**
+     * @return Name of the query. Not compatible with `new_value` aggregations.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Rule ID of the signal to correlate.
+     * 
+     */
     public String ruleId() {
         return this.ruleId;
     }

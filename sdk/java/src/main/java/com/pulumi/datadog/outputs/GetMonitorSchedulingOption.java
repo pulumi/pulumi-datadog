@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorSchedulingOption {
+    /**
+     * @return Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
     private List<GetMonitorSchedulingOptionCustomSchedule> customSchedules;
+    /**
+     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * 
+     */
     private List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows;
 
     private GetMonitorSchedulingOption() {}
+    /**
+     * @return Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
+     * 
+     */
     public List<GetMonitorSchedulingOptionCustomSchedule> customSchedules() {
         return this.customSchedules;
     }
+    /**
+     * @return Configuration options for the evaluation window. If `hour_starts` is set, no other fields may be set. Otherwise, `day_starts` and `month_starts` must be set together.
+     * 
+     */
     public List<GetMonitorSchedulingOptionEvaluationWindow> evaluationWindows() {
         return this.evaluationWindows;
     }

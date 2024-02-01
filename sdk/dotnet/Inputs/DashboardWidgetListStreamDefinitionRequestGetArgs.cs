@@ -24,6 +24,9 @@ namespace Pulumi.Datadog.Inputs
             set => _columns = value;
         }
 
+        /// <summary>
+        /// Updated list stream widget.
+        /// </summary>
         [Input("query", required: true)]
         public Input<Inputs.DashboardWidgetListStreamDefinitionRequestQueryGetArgs> Query { get; set; } = null!;
 

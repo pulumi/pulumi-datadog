@@ -22,6 +22,10 @@ public final class DashboardWidgetEventStreamDefinition {
      * 
      */
     private @Nullable String liveSpan;
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     private String query;
     /**
      * @return The execution method for multi-value filters, options: `and` or `or`.
@@ -59,6 +63,10 @@ public final class DashboardWidgetEventStreamDefinition {
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
     }
+    /**
+     * @return The query to use in the widget.
+     * 
+     */
     public String query() {
         return this.query;
     }

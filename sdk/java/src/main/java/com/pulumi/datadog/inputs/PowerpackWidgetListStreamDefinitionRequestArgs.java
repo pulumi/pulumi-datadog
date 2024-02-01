@@ -32,9 +32,17 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
         return this.columns;
     }
 
+    /**
+     * Updated list stream widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<PowerpackWidgetListStreamDefinitionRequestQueryArgs> query;
 
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     public Output<PowerpackWidgetListStreamDefinitionRequestQueryArgs> query() {
         return this.query;
     }
@@ -111,11 +119,23 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
             return columns(List.of(columns));
         }
 
+        /**
+         * @param query Updated list stream widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<PowerpackWidgetListStreamDefinitionRequestQueryArgs> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Updated list stream widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(PowerpackWidgetListStreamDefinitionRequestQueryArgs query) {
             return query(Output.of(query));
         }
