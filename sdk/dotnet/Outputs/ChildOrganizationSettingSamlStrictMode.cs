@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationSettingSamlStrictMode
     {
+        /// <summary>
+        /// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

@@ -30,9 +30,17 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
         return Optional.ofNullable(this.example);
     }
 
+    /**
+     * Name of the extracted variable.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the extracted variable.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -83,11 +91,23 @@ public final class SyntheticsTestBrowserStepParamsVariableArgs extends com.pulum
             return example(Output.of(example));
         }
 
+        /**
+         * @param name Name of the extracted variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the extracted variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

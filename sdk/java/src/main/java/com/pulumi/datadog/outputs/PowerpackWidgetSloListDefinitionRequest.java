@@ -11,6 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class PowerpackWidgetSloListDefinitionRequest {
+    /**
+     * @return Updated SLO List widget.
+     * 
+     */
     private PowerpackWidgetSloListDefinitionRequestQuery query;
     /**
      * @return The request type for the SLO List request. Valid values are `slo_list`.
@@ -19,6 +23,10 @@ public final class PowerpackWidgetSloListDefinitionRequest {
     private String requestType;
 
     private PowerpackWidgetSloListDefinitionRequest() {}
+    /**
+     * @return Updated SLO List widget.
+     * 
+     */
     public PowerpackWidgetSloListDefinitionRequestQuery query() {
         return this.query;
     }

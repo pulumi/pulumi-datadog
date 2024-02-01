@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
+    /**
+     * @return ID of the monitor config policy
+     * 
+     */
     private String id;
+    /**
+     * @return The monitor config policy type
+     * 
+     */
     private String policyType;
+    /**
+     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * 
+     */
     private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy;
 
     private GetMonitorConfigPoliciesMonitorConfigPolicy() {}
+    /**
+     * @return ID of the monitor config policy
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The monitor config policy type
+     * 
+     */
     public String policyType() {
         return this.policyType;
     }
+    /**
+     * @return Config for a tag policy. Only set if `policy_type` is `tag`.
+     * 
+     */
     public GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy() {
         return this.tagPolicy;
     }

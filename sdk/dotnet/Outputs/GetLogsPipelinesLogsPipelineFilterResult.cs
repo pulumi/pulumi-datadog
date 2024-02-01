@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetLogsPipelinesLogsPipelineFilterResult
     {
+        /// <summary>
+        /// Pipeline filter criteria.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

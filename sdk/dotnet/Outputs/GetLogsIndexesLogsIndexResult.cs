@@ -13,10 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetLogsIndexesLogsIndexResult
     {
+        /// <summary>
+        /// The number of log events you can send in this index per day before you are rate-limited.
+        /// </summary>
         public readonly int DailyLimit;
+        /// <summary>
+        /// List of exclusion filters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexExclusionFilterResult> ExclusionFilters;
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexFilterResult> Filters;
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The number of days before logs are deleted from this index.
+        /// </summary>
         public readonly int RetentionDays;
 
         [OutputConstructor]

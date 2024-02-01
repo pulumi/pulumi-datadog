@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("key")]
         private Input<string>? _key;
+
+        /// <summary>
+        /// API key.
+        /// </summary>
         public Input<string>? Key
         {
             get => _key;
@@ -24,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// Name of your API key.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

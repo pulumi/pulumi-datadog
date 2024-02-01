@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetMonitorSchedulingOptionCustomScheduleRecurrenceResult
     {
+        /// <summary>
+        /// Must be a valid rrule. See api docs for supported fields
+        /// </summary>
         public readonly string Rrule;
+        /// <summary>
+        /// Time to start recurrence cycle. Similar to DTSTART. Expected format 'YYYY-MM-DDThh:mm:ss'
+        /// </summary>
         public readonly string Start;
+        /// <summary>
+        /// 'tz database' format. ex: 'America/New_York' or UTC
+        /// </summary>
         public readonly string Timezone;
 
         [OutputConstructor]

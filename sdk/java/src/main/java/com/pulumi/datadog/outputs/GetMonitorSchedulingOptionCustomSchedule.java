@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorSchedulingOptionCustomSchedule {
+    /**
+     * @return A list of recurrence definitions. Length must be 1.
+     * 
+     */
     private List<GetMonitorSchedulingOptionCustomScheduleRecurrence> recurrences;
 
     private GetMonitorSchedulingOptionCustomSchedule() {}
+    /**
+     * @return A list of recurrence definitions. Length must be 1.
+     * 
+     */
     public List<GetMonitorSchedulingOptionCustomScheduleRecurrence> recurrences() {
         return this.recurrences;
     }

@@ -15,9 +15,17 @@ public final class ChildOrganizationSettingSamlStrictModeArgs extends com.pulumi
 
     public static final ChildOrganizationSettingSamlStrictModeArgs Empty = new ChildOrganizationSettingSamlStrictModeArgs();
 
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -46,11 +54,23 @@ public final class ChildOrganizationSettingSamlStrictModeArgs extends com.pulumi
             $ = new ChildOrganizationSettingSamlStrictModeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

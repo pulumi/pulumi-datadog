@@ -16,6 +16,10 @@ public final class SyntheticsTestBrowserStepParamsVariable {
      * 
      */
     private @Nullable String example;
+    /**
+     * @return Name of the extracted variable.
+     * 
+     */
     private @Nullable String name;
 
     private SyntheticsTestBrowserStepParamsVariable() {}
@@ -26,6 +30,10 @@ public final class SyntheticsTestBrowserStepParamsVariable {
     public Optional<String> example() {
         return Optional.ofNullable(this.example);
     }
+    /**
+     * @return Name of the extracted variable.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationSettingSaml
     {
+        /// <summary>
+        /// Whether or not SAML is enabled for this organization.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

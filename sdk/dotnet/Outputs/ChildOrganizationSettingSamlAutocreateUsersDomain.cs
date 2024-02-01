@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationSettingSamlAutocreateUsersDomain
     {
+        /// <summary>
+        /// List of domains where the SAML automated user creation is enabled.
+        /// </summary>
         public readonly ImmutableArray<string> Domains;
+        /// <summary>
+        /// Whether or not the automated user creation based on SAML domain is enabled.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

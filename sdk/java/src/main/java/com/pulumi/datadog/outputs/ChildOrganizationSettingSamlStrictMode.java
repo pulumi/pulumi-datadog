@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationSettingSamlStrictMode {
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private ChildOrganizationSettingSamlStrictMode() {}
+    /**
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

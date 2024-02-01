@@ -14,9 +14,17 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
 
     public static final DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearchArgs Empty = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearchArgs();
 
+    /**
+     * The events search string.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<String> query;
 
+    /**
+     * @return The events search string.
+     * 
+     */
     public Output<String> query() {
         return this.query;
     }
@@ -45,11 +53,23 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
             $ = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestQueryEventQuerySearchArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query The events search string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<String> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query The events search string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(String query) {
             return query(Output.of(query));
         }

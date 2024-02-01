@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationSettingSamlIdpInitiatedLogin {
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     private @Nullable Boolean enabled;
 
     private ChildOrganizationSettingSamlIdpInitiatedLogin() {}
+    /**
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

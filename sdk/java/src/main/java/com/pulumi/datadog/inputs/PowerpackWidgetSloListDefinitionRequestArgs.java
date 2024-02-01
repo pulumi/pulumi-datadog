@@ -15,9 +15,17 @@ public final class PowerpackWidgetSloListDefinitionRequestArgs extends com.pulum
 
     public static final PowerpackWidgetSloListDefinitionRequestArgs Empty = new PowerpackWidgetSloListDefinitionRequestArgs();
 
+    /**
+     * Updated SLO List widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<PowerpackWidgetSloListDefinitionRequestQueryArgs> query;
 
+    /**
+     * @return Updated SLO List widget.
+     * 
+     */
     public Output<PowerpackWidgetSloListDefinitionRequestQueryArgs> query() {
         return this.query;
     }
@@ -62,11 +70,23 @@ public final class PowerpackWidgetSloListDefinitionRequestArgs extends com.pulum
             $ = new PowerpackWidgetSloListDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<PowerpackWidgetSloListDefinitionRequestQueryArgs> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Updated SLO List widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(PowerpackWidgetSloListDefinitionRequestQueryArgs query) {
             return query(Output.of(query));
         }

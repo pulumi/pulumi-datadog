@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    /**
+     * @return The events search string.
+     * 
+     */
     private String query;
 
     private PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearch() {}
+    /**
+     * @return The events search string.
+     * 
+     */
     public String query() {
         return this.query;
     }

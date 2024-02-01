@@ -13,29 +13,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogsPipelinesLogsPipeline {
+    /**
+     * @return Pipelines filter
+     * 
+     */
     private List<GetLogsPipelinesLogsPipelineFilter> filters;
+    /**
+     * @return ID of the pipeline
+     * 
+     */
     private String id;
+    /**
+     * @return Whether or not the pipeline is enabled.
+     * 
+     */
     private Boolean isEnabled;
+    /**
+     * @return Whether or not the pipeline can be edited.
+     * 
+     */
     private Boolean isReadOnly;
+    /**
+     * @return The name of the pipeline.
+     * 
+     */
     private String name;
+    /**
+     * @return Whether or not the pipeline can be edited.
+     * 
+     */
     private String type;
 
     private GetLogsPipelinesLogsPipeline() {}
+    /**
+     * @return Pipelines filter
+     * 
+     */
     public List<GetLogsPipelinesLogsPipelineFilter> filters() {
         return this.filters;
     }
+    /**
+     * @return ID of the pipeline
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Whether or not the pipeline is enabled.
+     * 
+     */
     public Boolean isEnabled() {
         return this.isEnabled;
     }
+    /**
+     * @return Whether or not the pipeline can be edited.
+     * 
+     */
     public Boolean isReadOnly() {
         return this.isReadOnly;
     }
+    /**
+     * @return The name of the pipeline.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether or not the pipeline can be edited.
+     * 
+     */
     public String type() {
         return this.type;
     }

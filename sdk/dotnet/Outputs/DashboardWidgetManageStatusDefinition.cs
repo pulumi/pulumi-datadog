@@ -25,6 +25,9 @@ namespace Pulumi.Datadog.Outputs
         /// A Boolean indicating whether to hide empty categories.
         /// </summary>
         public readonly bool? HideZeroCounts;
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         public readonly string Query;
         /// <summary>
         /// A Boolean indicating whether to show when monitors/groups last triggered.

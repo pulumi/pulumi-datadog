@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationUser {
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     * 
+     */
     private @Nullable String accessRole;
+    /**
+     * @return The new email of the user.
+     * 
+     */
     private @Nullable String email;
+    /**
+     * @return The name of the user.
+     * 
+     */
     private @Nullable String name;
 
     private ChildOrganizationUser() {}
+    /**
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+     * 
+     */
     public Optional<String> accessRole() {
         return Optional.ofNullable(this.accessRole);
     }
+    /**
+     * @return The new email of the user.
+     * 
+     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
+    /**
+     * @return The name of the user.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

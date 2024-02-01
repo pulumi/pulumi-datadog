@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class PowerpackWidgetTopologyMapDefinitionRequest {
+    /**
+     * @return The query for a Topology request.
+     * 
+     */
     private List<PowerpackWidgetTopologyMapDefinitionRequestQuery> queries;
     /**
      * @return The request type for the SLO List request. Valid values are `slo_list`.
@@ -20,6 +24,10 @@ public final class PowerpackWidgetTopologyMapDefinitionRequest {
     private String requestType;
 
     private PowerpackWidgetTopologyMapDefinitionRequest() {}
+    /**
+     * @return The query for a Topology request.
+     * 
+     */
     public List<PowerpackWidgetTopologyMapDefinitionRequestQuery> queries() {
         return this.queries;
     }

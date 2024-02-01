@@ -14,25 +14,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogsIndexesLogsIndex {
+    /**
+     * @return The number of log events you can send in this index per day before you are rate-limited.
+     * 
+     */
     private Integer dailyLimit;
+    /**
+     * @return List of exclusion filters.
+     * 
+     */
     private List<GetLogsIndexesLogsIndexExclusionFilter> exclusionFilters;
+    /**
+     * @return Logs filter
+     * 
+     */
     private List<GetLogsIndexesLogsIndexFilter> filters;
+    /**
+     * @return The name of the index.
+     * 
+     */
     private String name;
+    /**
+     * @return The number of days before logs are deleted from this index.
+     * 
+     */
     private Integer retentionDays;
 
     private GetLogsIndexesLogsIndex() {}
+    /**
+     * @return The number of log events you can send in this index per day before you are rate-limited.
+     * 
+     */
     public Integer dailyLimit() {
         return this.dailyLimit;
     }
+    /**
+     * @return List of exclusion filters.
+     * 
+     */
     public List<GetLogsIndexesLogsIndexExclusionFilter> exclusionFilters() {
         return this.exclusionFilters;
     }
+    /**
+     * @return Logs filter
+     * 
+     */
     public List<GetLogsIndexesLogsIndexFilter> filters() {
         return this.filters;
     }
+    /**
+     * @return The name of the index.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The number of days before logs are deleted from this index.
+     * 
+     */
     public Integer retentionDays() {
         return this.retentionDays;
     }

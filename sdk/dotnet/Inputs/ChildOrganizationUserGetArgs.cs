@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ChildOrganizationUserGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`
+        /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
 
+        /// <summary>
+        /// The new email of the user.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

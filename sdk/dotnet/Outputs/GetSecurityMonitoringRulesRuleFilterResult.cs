@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringRulesRuleFilterResult
     {
+        /// <summary>
+        /// The type of filtering action.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// Query for selecting logs to apply the filtering action.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

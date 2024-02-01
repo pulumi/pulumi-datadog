@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Outputs
         /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         /// </summary>
         public readonly string? LiveSpan;
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         public readonly string Query;
         /// <summary>
         /// The execution method for multi-value filters, options: `and` or `or`.

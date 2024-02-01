@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ChildOrganizationSettingSamlStrictModeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

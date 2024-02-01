@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetSloListDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Updated SLO List widget.
+        /// </summary>
         [Input("query", required: true)]
         public Input<Inputs.DashboardWidgetSloListDefinitionRequestQueryGetArgs> Query { get; set; } = null!;
 

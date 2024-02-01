@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         /// Column properties used by the front end for display.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestColumn> Columns;
+        /// <summary>
+        /// Updated list stream widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetListStreamDefinitionRequestQuery Query;
         /// <summary>
         /// Widget response format. Valid values are `event_list`.

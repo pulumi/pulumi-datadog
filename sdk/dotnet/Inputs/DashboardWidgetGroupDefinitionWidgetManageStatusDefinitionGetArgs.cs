@@ -30,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("hideZeroCounts")]
         public Input<bool>? HideZeroCounts { get; set; }
 
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

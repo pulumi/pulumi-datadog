@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Aws.Outputs
     [OutputType]
     public sealed class GetIntegrationLogsServicesAwsLogsServiceResult
     {
+        /// <summary>
+        /// The id of the AWS log service.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the AWS log service.
+        /// </summary>
         public readonly string Label;
 
         [OutputConstructor]

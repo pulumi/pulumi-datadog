@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChildOrganizationApiKey {
+    /**
+     * @return API key.
+     * 
+     */
     private @Nullable String key;
+    /**
+     * @return Name of your API key.
+     * 
+     */
     private @Nullable String name;
 
     private ChildOrganizationApiKey() {}
+    /**
+     * @return API key.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
+    /**
+     * @return Name of your API key.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

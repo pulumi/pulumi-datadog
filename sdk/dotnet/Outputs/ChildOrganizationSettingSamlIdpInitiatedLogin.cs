@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationSettingSamlIdpInitiatedLogin
     {
+        /// <summary>
+        /// Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

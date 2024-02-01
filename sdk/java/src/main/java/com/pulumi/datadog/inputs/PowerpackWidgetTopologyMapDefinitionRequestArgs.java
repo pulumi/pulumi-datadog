@@ -16,9 +16,17 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestArgs extends com.p
 
     public static final PowerpackWidgetTopologyMapDefinitionRequestArgs Empty = new PowerpackWidgetTopologyMapDefinitionRequestArgs();
 
+    /**
+     * The query for a Topology request.
+     * 
+     */
     @Import(name="queries", required=true)
     private Output<List<PowerpackWidgetTopologyMapDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return The query for a Topology request.
+     * 
+     */
     public Output<List<PowerpackWidgetTopologyMapDefinitionRequestQueryArgs>> queries() {
         return this.queries;
     }
@@ -63,15 +71,33 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestArgs extends com.p
             $ = new PowerpackWidgetTopologyMapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(Output<List<PowerpackWidgetTopologyMapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<PowerpackWidgetTopologyMapDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries The query for a Topology request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(PowerpackWidgetTopologyMapDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }

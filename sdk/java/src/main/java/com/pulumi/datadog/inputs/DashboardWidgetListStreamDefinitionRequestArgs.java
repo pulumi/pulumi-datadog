@@ -32,9 +32,17 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
         return this.columns;
     }
 
+    /**
+     * Updated list stream widget.
+     * 
+     */
     @Import(name="query", required=true)
     private Output<DashboardWidgetListStreamDefinitionRequestQueryArgs> query;
 
+    /**
+     * @return Updated list stream widget.
+     * 
+     */
     public Output<DashboardWidgetListStreamDefinitionRequestQueryArgs> query() {
         return this.query;
     }
@@ -111,11 +119,23 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
             return columns(List.of(columns));
         }
 
+        /**
+         * @param query Updated list stream widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(Output<DashboardWidgetListStreamDefinitionRequestQueryArgs> query) {
             $.query = query;
             return this;
         }
 
+        /**
+         * @param query Updated list stream widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder query(DashboardWidgetListStreamDefinitionRequestQueryArgs query) {
             return query(Output.of(query));
         }

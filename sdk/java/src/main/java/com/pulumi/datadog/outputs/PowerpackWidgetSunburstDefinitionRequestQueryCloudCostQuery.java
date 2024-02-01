@@ -27,6 +27,10 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      * 
      */
     private String name;
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     private String query;
 
     private PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery() {}
@@ -51,6 +55,10 @@ public final class PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The cloud cost query definition.
+     * 
+     */
     public String query() {
         return this.query;
     }

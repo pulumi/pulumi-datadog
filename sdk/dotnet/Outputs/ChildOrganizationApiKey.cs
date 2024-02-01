@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ChildOrganizationApiKey
     {
+        /// <summary>
+        /// API key.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// Name of your API key.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]
