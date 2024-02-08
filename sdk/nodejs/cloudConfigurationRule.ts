@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  * Security monitoring rules can be imported using ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
+ * $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
  * ```
  */
 export class CloudConfigurationRule extends pulumi.CustomResource {

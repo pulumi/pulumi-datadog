@@ -165,7 +165,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         Importing a service account's application key cannot import the value of the key.
 
         ```sh
-         $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
+        $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,7 +199,7 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         Importing a service account's application key cannot import the value of the key.
 
         ```sh
-         $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
+        $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
         ```
 
         :param str resource_name: The name of the resource.

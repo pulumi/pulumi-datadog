@@ -156,7 +156,7 @@ class Channel(pulumi.CustomResource):
         Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
 
         ```sh
-         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
+        $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,7 +196,7 @@ class Channel(pulumi.CustomResource):
         Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
 
         ```sh
-         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
+        $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
 
         :param str resource_name: The name of the resource.

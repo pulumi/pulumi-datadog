@@ -31,7 +31,7 @@ import * as utilities from "./utilities";
  * Synthetics global variables can be imported using their string ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+ * $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
  * ```
  */
 export class SyntheticsGlobalVariable extends pulumi.CustomResource {

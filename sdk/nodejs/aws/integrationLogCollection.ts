@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * Amazon Web Services log collection integrations can be imported using the `account ID`.
  *
  * ```sh
- *  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
+ * $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
  * ```
  */
 export class IntegrationLogCollection extends pulumi.CustomResource {

@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Aws
     /// Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+    /// $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:aws/integrationTagFilter:IntegrationTagFilter")]

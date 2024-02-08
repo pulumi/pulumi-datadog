@@ -444,7 +444,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         Security monitoring rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
+        $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.
@@ -519,7 +519,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         Security monitoring rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
+        $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.

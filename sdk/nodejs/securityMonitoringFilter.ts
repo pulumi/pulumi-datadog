@@ -37,7 +37,7 @@ import * as utilities from "./utilities";
  * Security monitoring filters can be imported using ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
+ * $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
  * ```
  */
 export class SecurityMonitoringFilter extends pulumi.CustomResource {

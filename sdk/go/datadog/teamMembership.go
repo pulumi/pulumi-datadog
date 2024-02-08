@@ -61,9 +61,7 @@ import (
 // This resource is imported using team_id and user_id seperated by `:`.
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
-//
+// $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState

@@ -86,9 +86,7 @@ import (
 // Security monitoring rules can be imported using ID, e.g.
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
-//
+// $ pulumi import datadog:index/cloudConfigurationRule:CloudConfigurationRule my_rule m0o-hto-lkb
 // ```
 type CloudConfigurationRule struct {
 	pulumi.CustomResourceState

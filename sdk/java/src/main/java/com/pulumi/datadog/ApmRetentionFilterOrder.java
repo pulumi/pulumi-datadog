@@ -62,10 +62,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import existing APM retention filter order NoteValue of &lt;foo&gt; can be anything as this id is not stored by the resource
+ * Import existing APM retention filter order
+ * 
+ *  Note: Value of &lt;foo&gt; can be anything as this id is not stored by the resource
  * 
  * ```sh
- *  $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar &lt;foo&gt;
+ * $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar &lt;foo&gt;
  * ```
  * 
  */

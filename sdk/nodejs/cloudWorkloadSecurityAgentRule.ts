@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  * Cloud Workload Security Agent rules can be imported using ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
+ * $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
  * ```
  */
 export class CloudWorkloadSecurityAgentRule extends pulumi.CustomResource {

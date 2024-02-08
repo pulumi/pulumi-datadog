@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  * Synthetics private locations can be imported using their string ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
+ * $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
  * ```
  */
 export class SyntheticsPrivateLocation extends pulumi.CustomResource {

@@ -59,10 +59,14 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Default rules need to be imported using their ID before applying. resource &#34;datadog_security_monitoring_default_rule&#34; &#34;adefaultrule&#34; { }
+ * Default rules need to be imported using their ID before applying.
+ * 
+ *  resource &#34;datadog_security_monitoring_default_rule&#34; &#34;adefaultrule&#34; {
+ * 
+ *  }
  * 
  * ```sh
- *  $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
+ * $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
  * ```
  * 
  */
