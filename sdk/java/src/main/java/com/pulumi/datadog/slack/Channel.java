@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
  * 
  * ```sh
- *  $ pulumi import datadog:slack/channel:Channel test_channel &#34;foo:#test_channel&#34;
+ * $ pulumi import datadog:slack/channel:Channel test_channel &#34;foo:#test_channel&#34;
  * ```
  * 
  */

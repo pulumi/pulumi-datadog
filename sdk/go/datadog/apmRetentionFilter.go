@@ -51,9 +51,7 @@ import (
 // # Import existing APM retention filter
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
-//
+// $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
 // ```
 type ApmRetentionFilter struct {
 	pulumi.CustomResourceState

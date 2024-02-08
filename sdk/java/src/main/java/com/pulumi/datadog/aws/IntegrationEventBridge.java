@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * Amazon Web Service EventBridge integrations are imported using the Event Source name as listed for an integrated AWS account in Datadog
  * 
  * ```sh
- *  $ pulumi import datadog:aws/integrationEventBridge:IntegrationEventBridge foo event-source-name-abc12345
+ * $ pulumi import datadog:aws/integrationEventBridge:IntegrationEventBridge foo event-source-name-abc12345
  * ```
  * 
  */

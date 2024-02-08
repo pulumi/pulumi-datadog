@@ -49,7 +49,7 @@ namespace Pulumi.Datadog
     /// Roles can be imported using their ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
+    /// $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/role:Role")]

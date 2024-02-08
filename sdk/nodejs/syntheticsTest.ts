@@ -389,7 +389,7 @@ import * as utilities from "./utilities";
  * Synthetics tests can be imported using their public string ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+ * $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
  * ```
  */
 export class SyntheticsTest extends pulumi.CustomResource {

@@ -354,7 +354,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Synthetics global variables can be imported using their string ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+        $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
         ```
 
         :param str resource_name: The name of the resource.
@@ -399,7 +399,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Synthetics global variables can be imported using their string ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+        $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
         ```
 
         :param str resource_name: The name of the resource.

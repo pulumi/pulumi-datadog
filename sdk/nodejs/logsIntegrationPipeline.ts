@@ -18,10 +18,12 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * To find the pipeline ID, click the "view" button in the UI to open the pipeline details. The pipeline ID is the last part of the URL.
+ * To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
+ *
+ *  The pipeline ID is the last part of the URL.
  *
  * ```sh
- *  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
+ * $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
  * ```
  */
 export class LogsIntegrationPipeline extends pulumi.CustomResource {

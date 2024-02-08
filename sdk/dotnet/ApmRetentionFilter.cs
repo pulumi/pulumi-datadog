@@ -43,7 +43,7 @@ namespace Pulumi.Datadog
     /// Import existing APM retention filter
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo &lt;filter_id&gt;
+    /// $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo &lt;filter_id&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/apmRetentionFilter:ApmRetentionFilter")]

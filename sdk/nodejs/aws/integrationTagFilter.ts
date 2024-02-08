@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
  *
  * ```sh
- *  $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+ * $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
  * ```
  */
 export class IntegrationTagFilter extends pulumi.CustomResource {

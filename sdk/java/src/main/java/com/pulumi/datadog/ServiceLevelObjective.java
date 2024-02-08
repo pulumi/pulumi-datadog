@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * Service Level Objectives can be imported using their string ID, e.g.
  * 
  * ```sh
- *  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+ * $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
  * ```
  * 
  */

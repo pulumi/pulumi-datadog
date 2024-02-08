@@ -57,9 +57,7 @@ import (
 // Security monitoring filters can be imported using ID, e.g.
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
-//
+// $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
 // ```
 type SecurityMonitoringFilter struct {
 	pulumi.CustomResourceState

@@ -300,7 +300,7 @@ class Integration(pulumi.CustomResource):
         Google Cloud Platform integrations can be imported using their project ID, e.g.
 
         ```sh
-         $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+        $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
         ```
 
         :param str resource_name: The name of the resource.
@@ -328,7 +328,7 @@ class Integration(pulumi.CustomResource):
         Google Cloud Platform integrations can be imported using their project ID, e.g.
 
         ```sh
-         $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+        $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
         ```
 
         :param str resource_name: The name of the resource.

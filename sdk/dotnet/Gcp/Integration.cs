@@ -17,7 +17,7 @@ namespace Pulumi.Datadog.Gcp
     /// Google Cloud Platform integrations can be imported using their project ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+    /// $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:gcp/integration:Integration")]

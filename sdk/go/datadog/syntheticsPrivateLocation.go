@@ -50,9 +50,7 @@ import (
 // Synthetics private locations can be imported using their string ID, e.g.
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
-//
+// $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
 // ```
 type SyntheticsPrivateLocation struct {
 	pulumi.CustomResourceState

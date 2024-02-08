@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
  *
  * ```sh
- *  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
+ * $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
  * ```
  */
 export class Integration extends pulumi.CustomResource {
