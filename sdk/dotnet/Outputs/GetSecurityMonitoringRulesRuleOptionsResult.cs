@@ -32,15 +32,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
         /// </summary>
-        public readonly int KeepAlive;
+        public readonly int? KeepAlive;
         /// <summary>
         /// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
         /// </summary>
-        public readonly int MaxSignalDuration;
+        public readonly int? MaxSignalDuration;
         /// <summary>
         /// New value rules specific options.
         /// </summary>
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? NewValueOptions;
+        /// <summary>
+        /// Options for rules using the third-party detection method.
+        /// </summary>
+        public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsResult? ThirdPartyRuleOptions;
 
         [OutputConstructor]
         private GetSecurityMonitoringRulesRuleOptionsResult(
@@ -52,11 +56,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsResult? impossibleTravelOptions,
 
-            int keepAlive,
+            int? keepAlive,
 
-            int maxSignalDuration,
+            int? maxSignalDuration,
 
-            Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? newValueOptions)
+            Outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptionsResult? newValueOptions,
+
+            Outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsResult? thirdPartyRuleOptions)
         {
             DecreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             DetectionMethod = detectionMethod;
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             KeepAlive = keepAlive;
             MaxSignalDuration = maxSignalDuration;
             NewValueOptions = newValueOptions;
+            ThirdPartyRuleOptions = thirdPartyRuleOptions;
         }
     }
 }

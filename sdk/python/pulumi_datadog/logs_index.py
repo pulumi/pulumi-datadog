@@ -19,6 +19,8 @@ class LogsIndexArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]],
                  name: pulumi.Input[str],
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 daily_limit_reset: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']] = None,
+                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
@@ -27,6 +29,8 @@ class LogsIndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the exclusion filter.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input['LogsIndexDailyLimitResetArgs'] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
@@ -35,6 +39,10 @@ class LogsIndexArgs:
         pulumi.set(__self__, "name", name)
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
+        if daily_limit_reset is not None:
+            pulumi.set(__self__, "daily_limit_reset", daily_limit_reset)
+        if daily_limit_warning_threshold_percentage is not None:
+            pulumi.set(__self__, "daily_limit_warning_threshold_percentage", daily_limit_warning_threshold_percentage)
         if disable_daily_limit is not None:
             pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
@@ -79,6 +87,30 @@ class LogsIndexArgs:
         pulumi.set(self, "daily_limit", value)
 
     @property
+    @pulumi.getter(name="dailyLimitReset")
+    def daily_limit_reset(self) -> Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]:
+        """
+        Object containing options to override the default daily limit reset time.
+        """
+        return pulumi.get(self, "daily_limit_reset")
+
+    @daily_limit_reset.setter
+    def daily_limit_reset(self, value: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]):
+        pulumi.set(self, "daily_limit_reset", value)
+
+    @property
+    @pulumi.getter(name="dailyLimitWarningThresholdPercentage")
+    def daily_limit_warning_threshold_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        """
+        return pulumi.get(self, "daily_limit_warning_threshold_percentage")
+
+    @daily_limit_warning_threshold_percentage.setter
+    def daily_limit_warning_threshold_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_limit_warning_threshold_percentage", value)
+
+    @property
     @pulumi.getter(name="disableDailyLimit")
     def disable_daily_limit(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -119,6 +151,8 @@ class LogsIndexArgs:
 class _LogsIndexState:
     def __init__(__self__, *,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 daily_limit_reset: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']] = None,
+                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
@@ -127,6 +161,8 @@ class _LogsIndexState:
         """
         Input properties used for looking up and filtering LogsIndex resources.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input['LogsIndexDailyLimitResetArgs'] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
@@ -135,6 +171,10 @@ class _LogsIndexState:
         """
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
+        if daily_limit_reset is not None:
+            pulumi.set(__self__, "daily_limit_reset", daily_limit_reset)
+        if daily_limit_warning_threshold_percentage is not None:
+            pulumi.set(__self__, "daily_limit_warning_threshold_percentage", daily_limit_warning_threshold_percentage)
         if disable_daily_limit is not None:
             pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
@@ -157,6 +197,30 @@ class _LogsIndexState:
     @daily_limit.setter
     def daily_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "daily_limit", value)
+
+    @property
+    @pulumi.getter(name="dailyLimitReset")
+    def daily_limit_reset(self) -> Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]:
+        """
+        Object containing options to override the default daily limit reset time.
+        """
+        return pulumi.get(self, "daily_limit_reset")
+
+    @daily_limit_reset.setter
+    def daily_limit_reset(self, value: Optional[pulumi.Input['LogsIndexDailyLimitResetArgs']]):
+        pulumi.set(self, "daily_limit_reset", value)
+
+    @property
+    @pulumi.getter(name="dailyLimitWarningThresholdPercentage")
+    def daily_limit_warning_threshold_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        """
+        return pulumi.get(self, "daily_limit_warning_threshold_percentage")
+
+    @daily_limit_warning_threshold_percentage.setter
+    def daily_limit_warning_threshold_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_limit_warning_threshold_percentage", value)
 
     @property
     @pulumi.getter(name="disableDailyLimit")
@@ -225,6 +289,8 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
@@ -240,6 +306,11 @@ class LogsIndex(pulumi.CustomResource):
 
         sample_index = datadog.LogsIndex("sampleIndex",
             daily_limit=200000,
+            daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
+                reset_time="14:00",
+                reset_utc_offset="+02:00",
+            ),
+            daily_limit_warning_threshold_percentage=50,
             exclusion_filters=[
                 datadog.LogsIndexExclusionFilterArgs(
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
@@ -274,6 +345,8 @@ class LogsIndex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
@@ -295,6 +368,11 @@ class LogsIndex(pulumi.CustomResource):
 
         sample_index = datadog.LogsIndex("sampleIndex",
             daily_limit=200000,
+            daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
+                reset_time="14:00",
+                reset_utc_offset="+02:00",
+            ),
+            daily_limit_warning_threshold_percentage=50,
             exclusion_filters=[
                 datadog.LogsIndexExclusionFilterArgs(
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
@@ -342,6 +420,8 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+                 daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
@@ -357,6 +437,8 @@ class LogsIndex(pulumi.CustomResource):
             __props__ = LogsIndexArgs.__new__(LogsIndexArgs)
 
             __props__.__dict__["daily_limit"] = daily_limit
+            __props__.__dict__["daily_limit_reset"] = daily_limit_reset
+            __props__.__dict__["daily_limit_warning_threshold_percentage"] = daily_limit_warning_threshold_percentage
             __props__.__dict__["disable_daily_limit"] = disable_daily_limit
             __props__.__dict__["exclusion_filters"] = exclusion_filters
             if filters is None and not opts.urn:
@@ -377,6 +459,8 @@ class LogsIndex(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             daily_limit: Optional[pulumi.Input[int]] = None,
+            daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+            daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
             disable_daily_limit: Optional[pulumi.Input[bool]] = None,
             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
@@ -390,6 +474,8 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
@@ -401,6 +487,8 @@ class LogsIndex(pulumi.CustomResource):
         __props__ = _LogsIndexState.__new__(_LogsIndexState)
 
         __props__.__dict__["daily_limit"] = daily_limit
+        __props__.__dict__["daily_limit_reset"] = daily_limit_reset
+        __props__.__dict__["daily_limit_warning_threshold_percentage"] = daily_limit_warning_threshold_percentage
         __props__.__dict__["disable_daily_limit"] = disable_daily_limit
         __props__.__dict__["exclusion_filters"] = exclusion_filters
         __props__.__dict__["filters"] = filters
@@ -415,6 +503,22 @@ class LogsIndex(pulumi.CustomResource):
         The number of log events you can send in this index per day before you are rate-limited.
         """
         return pulumi.get(self, "daily_limit")
+
+    @property
+    @pulumi.getter(name="dailyLimitReset")
+    def daily_limit_reset(self) -> pulumi.Output[Optional['outputs.LogsIndexDailyLimitReset']]:
+        """
+        Object containing options to override the default daily limit reset time.
+        """
+        return pulumi.get(self, "daily_limit_reset")
+
+    @property
+    @pulumi.getter(name="dailyLimitWarningThresholdPercentage")
+    def daily_limit_warning_threshold_percentage(self) -> pulumi.Output[float]:
+        """
+        A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        """
+        return pulumi.get(self, "daily_limit_warning_threshold_percentage")
 
     @property
     @pulumi.getter(name="disableDailyLimit")

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApiKeyResult {
+    /**
+     * @return Whether to use exact match when searching by name.
+     * 
+     */
+    private @Nullable Boolean exactMatch;
     /**
      * @return The ID of this resource.
      * 
@@ -29,6 +35,13 @@ public final class GetApiKeyResult {
     private @Nullable String name;
 
     private GetApiKeyResult() {}
+    /**
+     * @return Whether to use exact match when searching by name.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
     /**
      * @return The ID of this resource.
      * 
@@ -60,17 +73,25 @@ public final class GetApiKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean exactMatch;
         private @Nullable String id;
         private String key;
         private @Nullable String name;
         public Builder() {}
         public Builder(GetApiKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.exactMatch = defaults.exactMatch;
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+
+            this.exactMatch = exactMatch;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
 
@@ -93,6 +114,7 @@ public final class GetApiKeyResult {
         }
         public GetApiKeyResult build() {
             final var _resultValue = new GetApiKeyResult();
+            _resultValue.exactMatch = exactMatch;
             _resultValue.id = id;
             _resultValue.key = key;
             _resultValue.name = name;

@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs and PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput).ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs, PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtr and PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtr(v *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackWidgetToplistDefinitionRequestApmQueryMultiCompute struct {
 	// The aggregation method.
 	Aggregation string `pulumi:"aggregation"`
@@ -12503,11 +12678,13 @@ type SecurityMonitoringRuleOptions struct {
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions *SecurityMonitoringRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
 	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
-	KeepAlive int `pulumi:"keepAlive"`
+	KeepAlive *int `pulumi:"keepAlive"`
 	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
-	MaxSignalDuration int `pulumi:"maxSignalDuration"`
+	MaxSignalDuration *int `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions *SecurityMonitoringRuleOptionsNewValueOptions `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions *SecurityMonitoringRuleOptionsThirdPartyRuleOptions `pulumi:"thirdPartyRuleOptions"`
 }
 
 // SecurityMonitoringRuleOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsArgs and SecurityMonitoringRuleOptionsOutput values.
@@ -12531,11 +12708,13 @@ type SecurityMonitoringRuleOptionsArgs struct {
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
 	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
-	KeepAlive pulumi.IntInput `pulumi:"keepAlive"`
+	KeepAlive pulumi.IntPtrInput `pulumi:"keepAlive"`
 	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
-	MaxSignalDuration pulumi.IntInput `pulumi:"maxSignalDuration"`
+	MaxSignalDuration pulumi.IntPtrInput `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions SecurityMonitoringRuleOptionsNewValueOptionsPtrInput `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput `pulumi:"thirdPartyRuleOptions"`
 }
 
 func (SecurityMonitoringRuleOptionsArgs) ElementType() reflect.Type {
@@ -12638,13 +12817,13 @@ func (o SecurityMonitoringRuleOptionsOutput) ImpossibleTravelOptions() SecurityM
 }
 
 // Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
-func (o SecurityMonitoringRuleOptionsOutput) KeepAlive() pulumi.IntOutput {
-	return o.ApplyT(func(v SecurityMonitoringRuleOptions) int { return v.KeepAlive }).(pulumi.IntOutput)
+func (o SecurityMonitoringRuleOptionsOutput) KeepAlive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.KeepAlive }).(pulumi.IntPtrOutput)
 }
 
 // A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
-func (o SecurityMonitoringRuleOptionsOutput) MaxSignalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v SecurityMonitoringRuleOptions) int { return v.MaxSignalDuration }).(pulumi.IntOutput)
+func (o SecurityMonitoringRuleOptionsOutput) MaxSignalDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *int { return v.MaxSignalDuration }).(pulumi.IntPtrOutput)
 }
 
 // New value rules specific options.
@@ -12652,6 +12831,13 @@ func (o SecurityMonitoringRuleOptionsOutput) NewValueOptions() SecurityMonitorin
 	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsNewValueOptions {
 		return v.NewValueOptions
 	}).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o SecurityMonitoringRuleOptionsOutput) ThirdPartyRuleOptions() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		return v.ThirdPartyRuleOptions
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
 }
 
 type SecurityMonitoringRuleOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -12724,7 +12910,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) KeepAlive() pulumi.IntPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return &v.KeepAlive
+		return v.KeepAlive
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -12734,7 +12920,7 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) MaxSignalDuration() pulumi.IntPt
 		if v == nil {
 			return nil
 		}
-		return &v.MaxSignalDuration
+		return v.MaxSignalDuration
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -12746,6 +12932,16 @@ func (o SecurityMonitoringRuleOptionsPtrOutput) NewValueOptions() SecurityMonito
 		}
 		return v.NewValueOptions
 	}).(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o SecurityMonitoringRuleOptionsPtrOutput) ThirdPartyRuleOptions() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ThirdPartyRuleOptions
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
 }
 
 type SecurityMonitoringRuleOptionsImpossibleTravelOptions struct {
@@ -13077,6 +13273,308 @@ func (o SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput) LearningThreshold
 		}
 		return v.LearningThreshold
 	}).(pulumi.IntPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptions struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications []string `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	DefaultStatus string `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate *string `pulumi:"signalTitleTemplate"`
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{...}
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications pulumi.StringArrayInput `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	DefaultStatus pulumi.StringInput `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate pulumi.StringPtrInput `pulumi:"signalTitleTemplate"`
+}
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput).ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs, SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtr and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput` via:
+//
+//	        SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput
+}
+
+type securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs
+
+func SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtr(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput {
+	return (*securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType)(v)
+}
+
+func (*securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i *securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRuleOptionsThirdPartyRuleOptionsPtrType) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		return &v
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []string { return v.DefaultNotifications }).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) DefaultStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) string { return v.DefaultStatus }).(pulumi.StringOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) RootQueries() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return v.RootQueries
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string { return v.SignalTitleTemplate }).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) Elem() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRuleOptionsThirdPartyRuleOptions
+		return ret
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNotifications
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) RootQueries() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		if v == nil {
+			return nil
+		}
+		return v.RootQueries
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignalTitleTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// Query for selecting logs to apply the filtering action.
+	Query string `pulumi:"query"`
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...}
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// Query for selecting logs to apply the filtering action.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
+}
+
+// SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput is an input type that accepts SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray and SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput` via:
+//
+//	SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray{ SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...} }
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+	ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray []SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return i.ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+// Fields to group by. If empty, each log triggers a signal.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
+}
+
+// Query for selecting logs to apply the filtering action.
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToSecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return vs[0].([]SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery)[vs[1].(int)]
+	}).(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
 }
 
 type SecurityMonitoringRuleQuery struct {
@@ -13499,6 +13997,130 @@ func (o SecurityMonitoringRuleSignalQueryArrayOutput) Index(i pulumi.IntInput) S
 	}).(SecurityMonitoringRuleSignalQueryOutput)
 }
 
+type SecurityMonitoringRuleThirdPartyCase struct {
+	// Name of the case.
+	Name *string `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query *string `pulumi:"query"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status string `pulumi:"status"`
+}
+
+// SecurityMonitoringRuleThirdPartyCaseInput is an input type that accepts SecurityMonitoringRuleThirdPartyCaseArgs and SecurityMonitoringRuleThirdPartyCaseOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleThirdPartyCaseInput` via:
+//
+//	SecurityMonitoringRuleThirdPartyCaseArgs{...}
+type SecurityMonitoringRuleThirdPartyCaseInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput
+	ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(context.Context) SecurityMonitoringRuleThirdPartyCaseOutput
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArgs struct {
+	// Name of the case.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (SecurityMonitoringRuleThirdPartyCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArgs) ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput {
+	return i.ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArgs) ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleThirdPartyCaseOutput)
+}
+
+// SecurityMonitoringRuleThirdPartyCaseArrayInput is an input type that accepts SecurityMonitoringRuleThirdPartyCaseArray and SecurityMonitoringRuleThirdPartyCaseArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleThirdPartyCaseArrayInput` via:
+//
+//	SecurityMonitoringRuleThirdPartyCaseArray{ SecurityMonitoringRuleThirdPartyCaseArgs{...} }
+type SecurityMonitoringRuleThirdPartyCaseArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput
+	ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArray []SecurityMonitoringRuleThirdPartyCaseInput
+
+func (SecurityMonitoringRuleThirdPartyCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArray) ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return i.ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleThirdPartyCaseArray) ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleThirdPartyCaseArrayOutput)
+}
+
+type SecurityMonitoringRuleThirdPartyCaseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleThirdPartyCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) ToSecurityMonitoringRuleThirdPartyCaseOutput() SecurityMonitoringRuleThirdPartyCaseOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) ToSecurityMonitoringRuleThirdPartyCaseOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return o
+}
+
+// Name of the case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Notification targets for each rule case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// A query to associate a third-party event to this case.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+func (o SecurityMonitoringRuleThirdPartyCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityMonitoringRuleThirdPartyCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type SecurityMonitoringRuleThirdPartyCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleThirdPartyCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) ToSecurityMonitoringRuleThirdPartyCaseArrayOutput() SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) ToSecurityMonitoringRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleThirdPartyCaseArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleThirdPartyCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRuleThirdPartyCase {
+		return vs[0].([]SecurityMonitoringRuleThirdPartyCase)[vs[1].(int)]
+	}).(SecurityMonitoringRuleThirdPartyCaseOutput)
+}
+
 type SensitiveDataScannerGroupFilter struct {
 	// Query to filter the events.
 	Query string `pulumi:"query"`
@@ -13634,6 +14256,162 @@ func (o SensitiveDataScannerGroupFilterPtrOutput) Query() pulumi.StringPtrOutput
 		}
 		return &v.Query
 	}).(pulumi.StringPtrOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfiguration struct {
+	// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+	CharacterCount int `pulumi:"characterCount"`
+	// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+	Keywords []string `pulumi:"keywords"`
+}
+
+// SensitiveDataScannerRuleIncludedKeywordConfigurationInput is an input type that accepts SensitiveDataScannerRuleIncludedKeywordConfigurationArgs and SensitiveDataScannerRuleIncludedKeywordConfigurationOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleIncludedKeywordConfigurationInput` via:
+//
+//	SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{...}
+type SensitiveDataScannerRuleIncludedKeywordConfigurationInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationArgs struct {
+	// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+	CharacterCount pulumi.IntInput `pulumi:"characterCount"`
+	// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+	Keywords pulumi.StringArrayInput `pulumi:"keywords"`
+}
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput)
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput).ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx)
+}
+
+// SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput is an input type that accepts SensitiveDataScannerRuleIncludedKeywordConfigurationArgs, SensitiveDataScannerRuleIncludedKeywordConfigurationPtr and SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput values.
+// You can construct a concrete instance of `SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput` via:
+//
+//	        SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput
+	ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput
+}
+
+type sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType SensitiveDataScannerRuleIncludedKeywordConfigurationArgs
+
+func SensitiveDataScannerRuleIncludedKeywordConfigurationPtr(v *SensitiveDataScannerRuleIncludedKeywordConfigurationArgs) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput {
+	return (*sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType)(v)
+}
+
+func (*sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (i *sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return i.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sensitiveDataScannerRuleIncludedKeywordConfigurationPtrType) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o.ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitiveDataScannerRuleIncludedKeywordConfiguration) *SensitiveDataScannerRuleIncludedKeywordConfiguration {
+		return &v
+	}).(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput)
+}
+
+// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) CharacterCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleIncludedKeywordConfiguration) int { return v.CharacterCount }).(pulumi.IntOutput)
+}
+
+// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SensitiveDataScannerRuleIncludedKeywordConfiguration) []string { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+type SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitiveDataScannerRuleIncludedKeywordConfiguration)(nil)).Elem()
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput() SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) ToSensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutputWithContext(ctx context.Context) SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput {
+	return o
+}
+
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) Elem() SensitiveDataScannerRuleIncludedKeywordConfigurationOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) SensitiveDataScannerRuleIncludedKeywordConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SensitiveDataScannerRuleIncludedKeywordConfiguration
+		return ret
+	}).(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput)
+}
+
+// Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) CharacterCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CharacterCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+func (o SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRuleIncludedKeywordConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keywords
+	}).(pulumi.StringArrayOutput)
 }
 
 type SensitiveDataScannerRuleTextReplacement struct {
@@ -13964,6 +14742,895 @@ func (o ServiceLevelObjectiveQueryPtrOutput) Numerator() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.Numerator
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecification struct {
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSlice `pulumi:"timeSlice"`
+}
+
+// ServiceLevelObjectiveSliSpecificationInput is an input type that accepts ServiceLevelObjectiveSliSpecificationArgs and ServiceLevelObjectiveSliSpecificationOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationArgs{...}
+type ServiceLevelObjectiveSliSpecificationInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput
+	ToServiceLevelObjectiveSliSpecificationOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationArgs struct {
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSliceInput `pulumi:"timeSlice"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationArgs) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationOutput).ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationArgs, ServiceLevelObjectiveSliSpecificationPtr and ServiceLevelObjectiveSliSpecificationPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput
+	ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationPtrType ServiceLevelObjectiveSliSpecificationArgs
+
+func ServiceLevelObjectiveSliSpecificationPtr(v *ServiceLevelObjectiveSliSpecificationArgs) ServiceLevelObjectiveSliSpecificationPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationPtrType) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationPtrType) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationOutput() ServiceLevelObjectiveSliSpecificationOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecification {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
+}
+
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+func (o ServiceLevelObjectiveSliSpecificationOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecification) ServiceLevelObjectiveSliSpecificationTimeSlice {
+		return v.TimeSlice
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecification)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) ToServiceLevelObjectiveSliSpecificationPtrOutput() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) ToServiceLevelObjectiveSliSpecificationPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) ServiceLevelObjectiveSliSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecification
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationOutput)
+}
+
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+func (o ServiceLevelObjectiveSliSpecificationPtrOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecificationTimeSlice {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeSlice
+	}).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSlice struct {
+	// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query ServiceLevelObjectiveSliSpecificationTimeSliceQuery `pulumi:"query"`
+	// The threshold value to which each SLI value will be compared.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceArgs and ServiceLevelObjectiveSliSpecificationTimeSliceOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceArgs struct {
+	// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput `pulumi:"query"`
+	// The threshold value to which each SLI value will be compared.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput).ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceArgs, ServiceLevelObjectiveSliSpecificationTimeSlicePtr and ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSlicePtrType ServiceLevelObjectiveSliSpecificationTimeSliceArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSlicePtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSlicePtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSlice) *ServiceLevelObjectiveSliSpecificationTimeSlice {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
+// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Comparator() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) string { return v.Comparator }).(pulumi.StringOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Query() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		return v.Query
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+// The threshold value to which each SLI value will be compared.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) ServiceLevelObjectiveSliSpecificationTimeSlice {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSlice
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Comparator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comparator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Query() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+// The threshold value to which each SLI value will be compared.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQuery struct {
+	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula `pulumi:"formula"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Queries []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery `pulumi:"queries"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs struct {
+	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput `pulumi:"formula"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Queries ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput `pulumi:"queries"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Formula() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		return v.Formula
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		return v.Queries
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQuery
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Formula() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		if v == nil {
+			return nil
+		}
+		return &v.Formula
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Queries
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula struct {
+	// The formula string, which is an expression involving named queries.
+	FormulaExpression string `pulumi:"formulaExpression"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs struct {
+	// The formula string, which is an expression involving named queries.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+// The formula string, which is an expression involving named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) FormulaExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+// The formula string, which is an expression involving named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) FormulaExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FormulaExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery struct {
+	// A timeseries formula and functions metrics query.
+	MetricQuery *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery `pulumi:"metricQuery"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs struct {
+	// A timeseries formula and functions metrics query.
+	MetricQuery ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput `pulumi:"metricQuery"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray{ ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{...} }
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return o
+}
+
+// A timeseries formula and functions metrics query.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) MetricQuery() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		return v.MetricQuery
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		return vs[0].([]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)[vs[1].(int)]
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery struct {
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource *string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query string `pulumi:"query"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs struct {
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22935,6 +24602,10 @@ func (o GetHostsHostListMetricsOutput) Load() pulumi.Float64Output {
 type GetLogsIndexesLogsIndex struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit int `pulumi:"dailyLimit"`
+	// Object containing options to override the default daily limit reset time.
+	DailyLimitResets []GetLogsIndexesLogsIndexDailyLimitReset `pulumi:"dailyLimitResets"`
+	// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+	DailyLimitWarningThresholdPercentage float64 `pulumi:"dailyLimitWarningThresholdPercentage"`
 	// List of exclusion filters.
 	ExclusionFilters []GetLogsIndexesLogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
@@ -22959,6 +24630,10 @@ type GetLogsIndexesLogsIndexInput interface {
 type GetLogsIndexesLogsIndexArgs struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit pulumi.IntInput `pulumi:"dailyLimit"`
+	// Object containing options to override the default daily limit reset time.
+	DailyLimitResets GetLogsIndexesLogsIndexDailyLimitResetArrayInput `pulumi:"dailyLimitResets"`
+	// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+	DailyLimitWarningThresholdPercentage pulumi.Float64Input `pulumi:"dailyLimitWarningThresholdPercentage"`
 	// List of exclusion filters.
 	ExclusionFilters GetLogsIndexesLogsIndexExclusionFilterArrayInput `pulumi:"exclusionFilters"`
 	// Logs filter
@@ -23025,6 +24700,16 @@ func (o GetLogsIndexesLogsIndexOutput) DailyLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) int { return v.DailyLimit }).(pulumi.IntOutput)
 }
 
+// Object containing options to override the default daily limit reset time.
+func (o GetLogsIndexesLogsIndexOutput) DailyLimitResets() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexDailyLimitReset { return v.DailyLimitResets }).(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput)
+}
+
+// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+func (o GetLogsIndexesLogsIndexOutput) DailyLimitWarningThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndex) float64 { return v.DailyLimitWarningThresholdPercentage }).(pulumi.Float64Output)
+}
+
 // List of exclusion filters.
 func (o GetLogsIndexesLogsIndexOutput) ExclusionFilters() GetLogsIndexesLogsIndexExclusionFilterArrayOutput {
 	return o.ApplyT(func(v GetLogsIndexesLogsIndex) []GetLogsIndexesLogsIndexExclusionFilter { return v.ExclusionFilters }).(GetLogsIndexesLogsIndexExclusionFilterArrayOutput)
@@ -23063,6 +24748,112 @@ func (o GetLogsIndexesLogsIndexArrayOutput) Index(i pulumi.IntInput) GetLogsInde
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogsIndexesLogsIndex {
 		return vs[0].([]GetLogsIndexesLogsIndex)[vs[1].(int)]
 	}).(GetLogsIndexesLogsIndexOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitReset struct {
+	// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+	ResetTime string `pulumi:"resetTime"`
+	// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+	ResetUtcOffset string `pulumi:"resetUtcOffset"`
+}
+
+// GetLogsIndexesLogsIndexDailyLimitResetInput is an input type that accepts GetLogsIndexesLogsIndexDailyLimitResetArgs and GetLogsIndexesLogsIndexDailyLimitResetOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexDailyLimitResetInput` via:
+//
+//	GetLogsIndexesLogsIndexDailyLimitResetArgs{...}
+type GetLogsIndexesLogsIndexDailyLimitResetInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput
+	ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArgs struct {
+	// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+	ResetTime pulumi.StringInput `pulumi:"resetTime"`
+	// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+	ResetUtcOffset pulumi.StringInput `pulumi:"resetUtcOffset"`
+}
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArgs) ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return i.ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArgs) ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexDailyLimitResetOutput)
+}
+
+// GetLogsIndexesLogsIndexDailyLimitResetArrayInput is an input type that accepts GetLogsIndexesLogsIndexDailyLimitResetArray and GetLogsIndexesLogsIndexDailyLimitResetArrayOutput values.
+// You can construct a concrete instance of `GetLogsIndexesLogsIndexDailyLimitResetArrayInput` via:
+//
+//	GetLogsIndexesLogsIndexDailyLimitResetArray{ GetLogsIndexesLogsIndexDailyLimitResetArgs{...} }
+type GetLogsIndexesLogsIndexDailyLimitResetArrayInput interface {
+	pulumi.Input
+
+	ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput
+	ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArray []GetLogsIndexesLogsIndexDailyLimitResetInput
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArray) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return i.ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogsIndexesLogsIndexDailyLimitResetArray) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexDailyLimitResetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ToGetLogsIndexesLogsIndexDailyLimitResetOutput() GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ToGetLogsIndexesLogsIndexDailyLimitResetOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return o
+}
+
+// String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ResetTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexDailyLimitReset) string { return v.ResetTime }).(pulumi.StringOutput)
+}
+
+// String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+func (o GetLogsIndexesLogsIndexDailyLimitResetOutput) ResetUtcOffset() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogsIndexesLogsIndexDailyLimitReset) string { return v.ResetUtcOffset }).(pulumi.StringOutput)
+}
+
+type GetLogsIndexesLogsIndexDailyLimitResetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogsIndexesLogsIndexDailyLimitReset)(nil)).Elem()
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutput() GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) ToGetLogsIndexesLogsIndexDailyLimitResetArrayOutputWithContext(ctx context.Context) GetLogsIndexesLogsIndexDailyLimitResetArrayOutput {
+	return o
+}
+
+func (o GetLogsIndexesLogsIndexDailyLimitResetArrayOutput) Index(i pulumi.IntInput) GetLogsIndexesLogsIndexDailyLimitResetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLogsIndexesLogsIndexDailyLimitReset {
+		return vs[0].([]GetLogsIndexesLogsIndexDailyLimitReset)[vs[1].(int)]
+	}).(GetLogsIndexesLogsIndexDailyLimitResetOutput)
 }
 
 type GetLogsIndexesLogsIndexExclusionFilter struct {
@@ -24972,6 +26763,8 @@ type GetSecurityMonitoringRulesRule struct {
 	SignalQueries []GetSecurityMonitoringRulesRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases []GetSecurityMonitoringRulesRuleThirdPartyCase `pulumi:"thirdPartyCases"`
 	// The rule type.
 	Type *string `pulumi:"type"`
 }
@@ -25008,6 +26801,8 @@ type GetSecurityMonitoringRulesRuleArgs struct {
 	SignalQueries GetSecurityMonitoringRulesRuleSignalQueryArrayInput `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput `pulumi:"tags"`
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput `pulumi:"thirdPartyCases"`
 	// The rule type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -25113,6 +26908,13 @@ func (o GetSecurityMonitoringRulesRuleOutput) SignalQueries() GetSecurityMonitor
 // Tags for generated signals.
 func (o GetSecurityMonitoringRulesRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+func (o GetSecurityMonitoringRulesRuleOutput) ThirdPartyCases() GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleThirdPartyCase {
+		return v.ThirdPartyCases
+	}).(GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput)
 }
 
 // The rule type.
@@ -25380,11 +27182,13 @@ type GetSecurityMonitoringRulesRuleOptions struct {
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions *GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions `pulumi:"impossibleTravelOptions"`
 	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
-	KeepAlive int `pulumi:"keepAlive"`
+	KeepAlive *int `pulumi:"keepAlive"`
 	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
-	MaxSignalDuration int `pulumi:"maxSignalDuration"`
+	MaxSignalDuration *int `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions *GetSecurityMonitoringRulesRuleOptionsNewValueOptions `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions `pulumi:"thirdPartyRuleOptions"`
 }
 
 // GetSecurityMonitoringRulesRuleOptionsInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsArgs and GetSecurityMonitoringRulesRuleOptionsOutput values.
@@ -25408,11 +27212,13 @@ type GetSecurityMonitoringRulesRuleOptionsArgs struct {
 	// Options for rules using the impossible travel detection method.
 	ImpossibleTravelOptions GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrInput `pulumi:"impossibleTravelOptions"`
 	// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
-	KeepAlive pulumi.IntInput `pulumi:"keepAlive"`
+	KeepAlive pulumi.IntPtrInput `pulumi:"keepAlive"`
 	// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
-	MaxSignalDuration pulumi.IntInput `pulumi:"maxSignalDuration"`
+	MaxSignalDuration pulumi.IntPtrInput `pulumi:"maxSignalDuration"`
 	// New value rules specific options.
 	NewValueOptions GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrInput `pulumi:"newValueOptions"`
+	// Options for rules using the third-party detection method.
+	ThirdPartyRuleOptions GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput `pulumi:"thirdPartyRuleOptions"`
 }
 
 func (GetSecurityMonitoringRulesRuleOptionsArgs) ElementType() reflect.Type {
@@ -25515,13 +27321,13 @@ func (o GetSecurityMonitoringRulesRuleOptionsOutput) ImpossibleTravelOptions() G
 }
 
 // Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
-func (o GetSecurityMonitoringRulesRuleOptionsOutput) KeepAlive() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) int { return v.KeepAlive }).(pulumi.IntOutput)
+func (o GetSecurityMonitoringRulesRuleOptionsOutput) KeepAlive() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *int { return v.KeepAlive }).(pulumi.IntPtrOutput)
 }
 
 // A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
-func (o GetSecurityMonitoringRulesRuleOptionsOutput) MaxSignalDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) int { return v.MaxSignalDuration }).(pulumi.IntOutput)
+func (o GetSecurityMonitoringRulesRuleOptionsOutput) MaxSignalDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *int { return v.MaxSignalDuration }).(pulumi.IntPtrOutput)
 }
 
 // New value rules specific options.
@@ -25529,6 +27335,13 @@ func (o GetSecurityMonitoringRulesRuleOptionsOutput) NewValueOptions() GetSecuri
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 		return v.NewValueOptions
 	}).(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o GetSecurityMonitoringRulesRuleOptionsOutput) ThirdPartyRuleOptions() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
+		return v.ThirdPartyRuleOptions
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput)
 }
 
 type GetSecurityMonitoringRulesRuleOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -25601,7 +27414,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) KeepAlive() pulumi.IntPt
 		if v == nil {
 			return nil
 		}
-		return &v.KeepAlive
+		return v.KeepAlive
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -25611,7 +27424,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) MaxSignalDuration() pulu
 		if v == nil {
 			return nil
 		}
-		return &v.MaxSignalDuration
+		return v.MaxSignalDuration
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -25623,6 +27436,16 @@ func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) NewValueOptions() GetSec
 		}
 		return v.NewValueOptions
 	}).(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput)
+}
+
+// Options for rules using the third-party detection method.
+func (o GetSecurityMonitoringRulesRuleOptionsPtrOutput) ThirdPartyRuleOptions() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptions) *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ThirdPartyRuleOptions
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput)
 }
 
 type GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions struct {
@@ -25956,6 +27779,314 @@ func (o GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput) LearningT
 		}
 		return v.LearningThreshold
 	}).(pulumi.IntPtrOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications []string `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match.
+	DefaultStatus string `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries []GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate *string `pulumi:"signalTitleTemplate"`
+}
+
+// GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs and GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsInput` via:
+//
+//	GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs{...}
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs struct {
+	// Notification targets for the default rule case, when none of the third-party cases match.
+	DefaultNotifications pulumi.StringArrayInput `pulumi:"defaultNotifications"`
+	// Severity of the default rule case, when none of the third-party cases match.
+	DefaultStatus pulumi.StringInput `pulumi:"defaultStatus"`
+	// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+	RootQueries GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput `pulumi:"rootQueries"`
+	// A template for the signal title; if omitted, the title is generated based on the case name.
+	SignalTitleTemplate pulumi.StringPtrInput `pulumi:"signalTitleTemplate"`
+}
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput {
+	return i.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput).ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx)
+}
+
+// GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs, GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtr and GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput` via:
+//
+//	        GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput
+}
+
+type getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrType GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs
+
+func GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtr(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput {
+	return (*getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrType)(v)
+}
+
+func (*getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (i *getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrType) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return i.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrType) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
+		return &v
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) []string {
+		return v.DefaultNotifications
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) DefaultStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) string { return v.DefaultStatus }).(pulumi.StringOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) RootQueries() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) []GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return v.RootQueries
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) *string {
+		return v.SignalTitleTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) Elem() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions
+		return ret
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput)
+}
+
+// Notification targets for the default rule case, when none of the third-party cases match.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultNotifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNotifications
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity of the default rule case, when none of the third-party cases match.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) DefaultStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) RootQueries() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) []GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery {
+		if v == nil {
+			return nil
+		}
+		return v.RootQueries
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+// A template for the signal title; if omitted, the title is generated based on the case name.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput) SignalTitleTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignalTitleTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields []string `pulumi:"groupByFields"`
+	// Query to filter logs.
+	Query string `pulumi:"query"`
+}
+
+// GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs and GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryInput` via:
+//
+//	GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...}
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs struct {
+	// Fields to group by. If empty, each log triggers a signal.
+	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
+	// Query to filter logs.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return i.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
+}
+
+// GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput is an input type that accepts GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray and GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput` via:
+//
+//	GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray{ GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs{...} }
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+	ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray []GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryInput
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return i.ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return o
+}
+
+// Fields to group by. If empty, each log triggers a signal.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput) GroupByFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery) []string {
+		return v.GroupByFields
+	}).(pulumi.StringArrayOutput)
+}
+
+// Query to filter logs.
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput() GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) ToGetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) Index(i pulumi.IntInput) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery {
+		return vs[0].([]GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery)[vs[1].(int)]
+	}).(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput)
 }
 
 type GetSecurityMonitoringRulesRuleQuery struct {
@@ -26378,6 +28509,260 @@ func (o GetSecurityMonitoringRulesRuleSignalQueryArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringRulesRuleSignalQuery {
 		return vs[0].([]GetSecurityMonitoringRulesRuleSignalQuery)[vs[1].(int)]
 	}).(GetSecurityMonitoringRulesRuleSignalQueryOutput)
+}
+
+type GetSecurityMonitoringRulesRuleThirdPartyCase struct {
+	// Name of the case.
+	Name *string `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications []string `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query *string `pulumi:"query"`
+	// Severity of the Security Signal.
+	Status string `pulumi:"status"`
+}
+
+// GetSecurityMonitoringRulesRuleThirdPartyCaseInput is an input type that accepts GetSecurityMonitoringRulesRuleThirdPartyCaseArgs and GetSecurityMonitoringRulesRuleThirdPartyCaseOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleThirdPartyCaseInput` via:
+//
+//	GetSecurityMonitoringRulesRuleThirdPartyCaseArgs{...}
+type GetSecurityMonitoringRulesRuleThirdPartyCaseInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseOutput
+	ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseOutput
+}
+
+type GetSecurityMonitoringRulesRuleThirdPartyCaseArgs struct {
+	// Name of the case.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Notification targets for each rule case.
+	Notifications pulumi.StringArrayInput `pulumi:"notifications"`
+	// A query to associate a third-party event to this case.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Severity of the Security Signal.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetSecurityMonitoringRulesRuleThirdPartyCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleThirdPartyCaseArgs) ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseOutput {
+	return i.ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleThirdPartyCaseArgs) ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleThirdPartyCaseOutput)
+}
+
+// GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput is an input type that accepts GetSecurityMonitoringRulesRuleThirdPartyCaseArray and GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput` via:
+//
+//	GetSecurityMonitoringRulesRuleThirdPartyCaseArray{ GetSecurityMonitoringRulesRuleThirdPartyCaseArgs{...} }
+type GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput
+	ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutputWithContext(context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput
+}
+
+type GetSecurityMonitoringRulesRuleThirdPartyCaseArray []GetSecurityMonitoringRulesRuleThirdPartyCaseInput
+
+func (GetSecurityMonitoringRulesRuleThirdPartyCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringRulesRuleThirdPartyCaseArray) ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput {
+	return i.ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringRulesRuleThirdPartyCaseArray) ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput)
+}
+
+type GetSecurityMonitoringRulesRuleThirdPartyCaseOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) ToGetSecurityMonitoringRulesRuleThirdPartyCaseOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseOutput {
+	return o
+}
+
+// Name of the case.
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleThirdPartyCase) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Notification targets for each rule case.
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) Notifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleThirdPartyCase) []string { return v.Notifications }).(pulumi.StringArrayOutput)
+}
+
+// A query to associate a third-party event to this case.
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleThirdPartyCase) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Severity of the Security Signal.
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleThirdPartyCase) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringRulesRuleThirdPartyCase)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput) ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput() GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput) ToGetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput) Index(i pulumi.IntInput) GetSecurityMonitoringRulesRuleThirdPartyCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringRulesRuleThirdPartyCase {
+		return vs[0].([]GetSecurityMonitoringRulesRuleThirdPartyCase)[vs[1].(int)]
+	}).(GetSecurityMonitoringRulesRuleThirdPartyCaseOutput)
+}
+
+type GetSecurityMonitoringSuppressionsSuppression struct {
+	Description      string `pulumi:"description"`
+	Enabled          bool   `pulumi:"enabled"`
+	ExpirationDate   string `pulumi:"expirationDate"`
+	Id               string `pulumi:"id"`
+	Name             string `pulumi:"name"`
+	RuleQuery        string `pulumi:"ruleQuery"`
+	SuppressionQuery string `pulumi:"suppressionQuery"`
+}
+
+// GetSecurityMonitoringSuppressionsSuppressionInput is an input type that accepts GetSecurityMonitoringSuppressionsSuppressionArgs and GetSecurityMonitoringSuppressionsSuppressionOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringSuppressionsSuppressionInput` via:
+//
+//	GetSecurityMonitoringSuppressionsSuppressionArgs{...}
+type GetSecurityMonitoringSuppressionsSuppressionInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringSuppressionsSuppressionOutput() GetSecurityMonitoringSuppressionsSuppressionOutput
+	ToGetSecurityMonitoringSuppressionsSuppressionOutputWithContext(context.Context) GetSecurityMonitoringSuppressionsSuppressionOutput
+}
+
+type GetSecurityMonitoringSuppressionsSuppressionArgs struct {
+	Description      pulumi.StringInput `pulumi:"description"`
+	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
+	ExpirationDate   pulumi.StringInput `pulumi:"expirationDate"`
+	Id               pulumi.StringInput `pulumi:"id"`
+	Name             pulumi.StringInput `pulumi:"name"`
+	RuleQuery        pulumi.StringInput `pulumi:"ruleQuery"`
+	SuppressionQuery pulumi.StringInput `pulumi:"suppressionQuery"`
+}
+
+func (GetSecurityMonitoringSuppressionsSuppressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringSuppressionsSuppression)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringSuppressionsSuppressionArgs) ToGetSecurityMonitoringSuppressionsSuppressionOutput() GetSecurityMonitoringSuppressionsSuppressionOutput {
+	return i.ToGetSecurityMonitoringSuppressionsSuppressionOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringSuppressionsSuppressionArgs) ToGetSecurityMonitoringSuppressionsSuppressionOutputWithContext(ctx context.Context) GetSecurityMonitoringSuppressionsSuppressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringSuppressionsSuppressionOutput)
+}
+
+// GetSecurityMonitoringSuppressionsSuppressionArrayInput is an input type that accepts GetSecurityMonitoringSuppressionsSuppressionArray and GetSecurityMonitoringSuppressionsSuppressionArrayOutput values.
+// You can construct a concrete instance of `GetSecurityMonitoringSuppressionsSuppressionArrayInput` via:
+//
+//	GetSecurityMonitoringSuppressionsSuppressionArray{ GetSecurityMonitoringSuppressionsSuppressionArgs{...} }
+type GetSecurityMonitoringSuppressionsSuppressionArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityMonitoringSuppressionsSuppressionArrayOutput() GetSecurityMonitoringSuppressionsSuppressionArrayOutput
+	ToGetSecurityMonitoringSuppressionsSuppressionArrayOutputWithContext(context.Context) GetSecurityMonitoringSuppressionsSuppressionArrayOutput
+}
+
+type GetSecurityMonitoringSuppressionsSuppressionArray []GetSecurityMonitoringSuppressionsSuppressionInput
+
+func (GetSecurityMonitoringSuppressionsSuppressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringSuppressionsSuppression)(nil)).Elem()
+}
+
+func (i GetSecurityMonitoringSuppressionsSuppressionArray) ToGetSecurityMonitoringSuppressionsSuppressionArrayOutput() GetSecurityMonitoringSuppressionsSuppressionArrayOutput {
+	return i.ToGetSecurityMonitoringSuppressionsSuppressionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityMonitoringSuppressionsSuppressionArray) ToGetSecurityMonitoringSuppressionsSuppressionArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringSuppressionsSuppressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityMonitoringSuppressionsSuppressionArrayOutput)
+}
+
+type GetSecurityMonitoringSuppressionsSuppressionOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringSuppressionsSuppressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringSuppressionsSuppression)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) ToGetSecurityMonitoringSuppressionsSuppressionOutput() GetSecurityMonitoringSuppressionsSuppressionOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) ToGetSecurityMonitoringSuppressionsSuppressionOutputWithContext(ctx context.Context) GetSecurityMonitoringSuppressionsSuppressionOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) RuleQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.RuleQuery }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) SuppressionQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.SuppressionQuery }).(pulumi.StringOutput)
+}
+
+type GetSecurityMonitoringSuppressionsSuppressionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringSuppressionsSuppressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityMonitoringSuppressionsSuppression)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionArrayOutput) ToGetSecurityMonitoringSuppressionsSuppressionArrayOutput() GetSecurityMonitoringSuppressionsSuppressionArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionArrayOutput) ToGetSecurityMonitoringSuppressionsSuppressionArrayOutputWithContext(ctx context.Context) GetSecurityMonitoringSuppressionsSuppressionArrayOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionArrayOutput) Index(i pulumi.IntInput) GetSecurityMonitoringSuppressionsSuppressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityMonitoringSuppressionsSuppression {
+		return vs[0].([]GetSecurityMonitoringSuppressionsSuppression)[vs[1].(int)]
+	}).(GetSecurityMonitoringSuppressionsSuppressionOutput)
 }
 
 type GetServiceLevelObjectiveQuery struct {
@@ -26820,6 +29205,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestAuditQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestAuditQueryArgs{})
@@ -26970,18 +29357,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsNewValueOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsNewValueOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsNewValueOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryInput)(nil)).Elem(), SecurityMonitoringRuleQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleQueryAgentRuleArrayInput)(nil)).Elem(), SecurityMonitoringRuleQueryAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleSignalQueryArrayInput)(nil)).Elem(), SecurityMonitoringRuleSignalQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleThirdPartyCaseArrayInput)(nil)).Elem(), SecurityMonitoringRuleThirdPartyCaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerGroupFilterPtrInput)(nil)).Elem(), SensitiveDataScannerGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleIncludedKeywordConfigurationPtrInput)(nil)).Elem(), SensitiveDataScannerRuleIncludedKeywordConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SensitiveDataScannerRuleTextReplacementPtrInput)(nil)).Elem(), SensitiveDataScannerRuleTextReplacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdArrayInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricComputeInput)(nil)).Elem(), SpansMetricComputeArgs{})
@@ -27078,6 +29485,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetricsInput)(nil)).Elem(), GetHostsHostListMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexInput)(nil)).Elem(), GetLogsIndexesLogsIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitResetInput)(nil)).Elem(), GetLogsIndexesLogsIndexDailyLimitResetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexDailyLimitResetArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexDailyLimitResetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterArrayInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogsIndexesLogsIndexExclusionFilterFilterInput)(nil)).Elem(), GetLogsIndexesLogsIndexExclusionFilterFilterArgs{})
@@ -27123,12 +29532,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsNewValueOptionsInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsNewValueOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsNewValueOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryAgentRuleInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleQueryAgentRuleArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleQueryAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleSignalQueryInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleSignalQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleSignalQueryArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleSignalQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleThirdPartyCaseInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleThirdPartyCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringRulesRuleThirdPartyCaseArrayInput)(nil)).Elem(), GetSecurityMonitoringRulesRuleThirdPartyCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringSuppressionsSuppressionInput)(nil)).Elem(), GetSecurityMonitoringSuppressionsSuppressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringSuppressionsSuppressionArrayInput)(nil)).Elem(), GetSecurityMonitoringSuppressionsSuppressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectiveQueryInput)(nil)).Elem(), GetServiceLevelObjectiveQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectiveQueryArrayInput)(nil)).Elem(), GetServiceLevelObjectiveQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLevelObjectivesSloInput)(nil)).Elem(), GetServiceLevelObjectivesSloArgs{})
@@ -27137,6 +29554,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestApmQueryGroupBySortQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestApmQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestAuditQueryOutput{})
@@ -27287,18 +29706,38 @@ func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsImpossibleTravelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsNewValueOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsNewValueOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleQueryAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleSignalQueryArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleThirdPartyCaseArrayOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerGroupFilterPtrOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationOutput{})
+	pulumi.RegisterOutputType(SensitiveDataScannerRuleIncludedKeywordConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementOutput{})
 	pulumi.RegisterOutputType(SensitiveDataScannerRuleTextReplacementPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveQueryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdArrayOutput{})
 	pulumi.RegisterOutputType(SpansMetricComputeOutput{})
@@ -27395,6 +29834,8 @@ func init() {
 	pulumi.RegisterOutputType(GetHostsHostListMetricsOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexDailyLimitResetOutput{})
+	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexDailyLimitResetArrayOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLogsIndexesLogsIndexExclusionFilterFilterOutput{})
@@ -27440,12 +29881,20 @@ func init() {
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsNewValueOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryAgentRuleOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleSignalQueryOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleSignalQueryArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleThirdPartyCaseOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringSuppressionsSuppressionOutput{})
+	pulumi.RegisterOutputType(GetSecurityMonitoringSuppressionsSuppressionArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLevelObjectiveQueryOutput{})
 	pulumi.RegisterOutputType(GetServiceLevelObjectiveQueryArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLevelObjectivesSloOutput{})

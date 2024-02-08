@@ -38,6 +38,10 @@ export interface GetSensitiveDataScannerStandardPatternResult {
      */
     readonly id: string;
     /**
+     * List of recommended keywords to improve rule accuracy.
+     */
+    readonly includedKeywords: string[];
+    /**
      * Name of the standard pattern.
      */
     readonly name: string;

@@ -54,6 +54,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Tags;
         /// <summary>
+        /// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleThirdPartyCaseResult> ThirdPartyCases;
+        /// <summary>
         /// The rule type.
         /// </summary>
         public readonly string? Type;
@@ -80,6 +84,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> tags,
 
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleThirdPartyCaseResult> thirdPartyCases,
+
             string? type)
         {
             Cases = cases;
@@ -92,6 +98,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             SignalQueries = signalQueries;
             Tags = tags;
+            ThirdPartyCases = thirdPartyCases;
             Type = type;
         }
     }

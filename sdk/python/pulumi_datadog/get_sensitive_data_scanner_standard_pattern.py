@@ -21,13 +21,16 @@ class GetSensitiveDataScannerStandardPatternResult:
     """
     A collection of values returned by getSensitiveDataScannerStandardPattern.
     """
-    def __init__(__self__, filter=None, id=None, name=None, pattern=None, tags=None):
+    def __init__(__self__, filter=None, id=None, included_keywords=None, name=None, pattern=None, tags=None):
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if included_keywords and not isinstance(included_keywords, list):
+            raise TypeError("Expected argument 'included_keywords' to be a list")
+        pulumi.set(__self__, "included_keywords", included_keywords)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,6 +56,14 @@ class GetSensitiveDataScannerStandardPatternResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includedKeywords")
+    def included_keywords(self) -> Sequence[str]:
+        """
+        List of recommended keywords to improve rule accuracy.
+        """
+        return pulumi.get(self, "included_keywords")
 
     @property
     @pulumi.getter
@@ -87,6 +98,7 @@ class AwaitableGetSensitiveDataScannerStandardPatternResult(GetSensitiveDataScan
         return GetSensitiveDataScannerStandardPatternResult(
             filter=self.filter,
             id=self.id,
+            included_keywords=self.included_keywords,
             name=self.name,
             pattern=self.pattern,
             tags=self.tags)
@@ -108,6 +120,7 @@ def get_sensitive_data_scanner_standard_pattern(filter: Optional[str] = None,
     return AwaitableGetSensitiveDataScannerStandardPatternResult(
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
+        included_keywords=pulumi.get(__ret__, 'included_keywords'),
         name=pulumi.get(__ret__, 'name'),
         pattern=pulumi.get(__ret__, 'pattern'),
         tags=pulumi.get(__ret__, 'tags'))

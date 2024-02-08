@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleTextReplacementArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -61,6 +62,21 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
      */
     public Optional<Output<String>> groupId() {
         return Optional.ofNullable(this.groupId);
+    }
+
+    /**
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * 
+     */
+    @Import(name="includedKeywordConfiguration")
+    private @Nullable Output<SensitiveDataScannerRuleIncludedKeywordConfigurationArgs> includedKeywordConfiguration;
+
+    /**
+     * @return Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * 
+     */
+    public Optional<Output<SensitiveDataScannerRuleIncludedKeywordConfigurationArgs>> includedKeywordConfiguration() {
+        return Optional.ofNullable(this.includedKeywordConfiguration);
     }
 
     /**
@@ -174,6 +190,7 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
         this.description = $.description;
         this.excludedNamespaces = $.excludedNamespaces;
         this.groupId = $.groupId;
+        this.includedKeywordConfiguration = $.includedKeywordConfiguration;
         this.isEnabled = $.isEnabled;
         this.name = $.name;
         this.namespaces = $.namespaces;
@@ -272,6 +289,27 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
          */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
+        }
+
+        /**
+         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includedKeywordConfiguration(@Nullable Output<SensitiveDataScannerRuleIncludedKeywordConfigurationArgs> includedKeywordConfiguration) {
+            $.includedKeywordConfiguration = includedKeywordConfiguration;
+            return this;
+        }
+
+        /**
+         * @param includedKeywordConfiguration Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includedKeywordConfiguration(SensitiveDataScannerRuleIncludedKeywordConfigurationArgs includedKeywordConfiguration) {
+            return includedKeywordConfiguration(Output.of(includedKeywordConfiguration));
         }
 
         /**

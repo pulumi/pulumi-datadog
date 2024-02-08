@@ -22,6 +22,11 @@ public final class GetSensitiveDataScannerStandardPatternResult {
      */
     private String id;
     /**
+     * @return List of recommended keywords to improve rule accuracy.
+     * 
+     */
+    private List<String> includedKeywords;
+    /**
      * @return Name of the standard pattern.
      * 
      */
@@ -51,6 +56,13 @@ public final class GetSensitiveDataScannerStandardPatternResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return List of recommended keywords to improve rule accuracy.
+     * 
+     */
+    public List<String> includedKeywords() {
+        return this.includedKeywords;
     }
     /**
      * @return Name of the standard pattern.
@@ -85,6 +97,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     public static final class Builder {
         private String filter;
         private String id;
+        private List<String> includedKeywords;
         private String name;
         private String pattern;
         private List<String> tags;
@@ -93,6 +106,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
     	      this.id = defaults.id;
+    	      this.includedKeywords = defaults.includedKeywords;
     	      this.name = defaults.name;
     	      this.pattern = defaults.pattern;
     	      this.tags = defaults.tags;
@@ -113,6 +127,17 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder includedKeywords(List<String> includedKeywords) {
+            if (includedKeywords == null) {
+              throw new MissingRequiredPropertyException("GetSensitiveDataScannerStandardPatternResult", "includedKeywords");
+            }
+            this.includedKeywords = includedKeywords;
+            return this;
+        }
+        public Builder includedKeywords(String... includedKeywords) {
+            return includedKeywords(List.of(includedKeywords));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -145,6 +170,7 @@ public final class GetSensitiveDataScannerStandardPatternResult {
             final var _resultValue = new GetSensitiveDataScannerStandardPatternResult();
             _resultValue.filter = filter;
             _resultValue.id = id;
+            _resultValue.includedKeywords = includedKeywords;
             _resultValue.name = name;
             _resultValue.pattern = pattern;
             _resultValue.tags = tags;

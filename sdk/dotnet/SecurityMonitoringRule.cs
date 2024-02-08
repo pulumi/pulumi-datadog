@@ -149,6 +149,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        /// </summary>
+        [Output("thirdPartyCases")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringRuleThirdPartyCase>> ThirdPartyCases { get; private set; } = null!;
+
+        /// <summary>
         /// The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         /// </summary>
         [Output("type")]
@@ -200,7 +206,7 @@ namespace Pulumi.Datadog
 
     public sealed class SecurityMonitoringRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cases", required: true)]
+        [Input("cases")]
         private InputList<Inputs.SecurityMonitoringRuleCaseArgs>? _cases;
 
         /// <summary>
@@ -288,6 +294,18 @@ namespace Pulumi.Datadog
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
+        }
+
+        [Input("thirdPartyCases")]
+        private InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseArgs>? _thirdPartyCases;
+
+        /// <summary>
+        /// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseArgs> ThirdPartyCases
+        {
+            get => _thirdPartyCases ?? (_thirdPartyCases = new InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseArgs>());
+            set => _thirdPartyCases = value;
         }
 
         /// <summary>
@@ -392,6 +410,18 @@ namespace Pulumi.Datadog
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
+        }
+
+        [Input("thirdPartyCases")]
+        private InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseGetArgs>? _thirdPartyCases;
+
+        /// <summary>
+        /// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseGetArgs> ThirdPartyCases
+        {
+            get => _thirdPartyCases ?? (_thirdPartyCases = new InputList<Inputs.SecurityMonitoringRuleThirdPartyCaseGetArgs>());
+            set => _thirdPartyCases = value;
         }
 
         /// <summary>

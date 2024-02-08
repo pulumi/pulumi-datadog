@@ -12,94 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Metric-Based SLO
-    ///     // Create a new Datadog service level objective
-    ///     var foo = new Datadog.ServiceLevelObjective("foo", new()
-    ///     {
-    ///         Description = "My custom metric SLO",
-    ///         Name = "Example Metric SLO",
-    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
-    ///         {
-    ///             Denominator = "sum:my.custom.count.metric{*}.as_count()",
-    ///             Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
-    ///         },
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///             "baz",
-    ///         },
-    ///         TargetThreshold = 99.9,
-    ///         Thresholds = new[]
-    ///         {
-    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///             {
-    ///                 Target = 99.9,
-    ///                 Timeframe = "7d",
-    ///                 Warning = 99.99,
-    ///             },
-    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///             {
-    ///                 Target = 99.9,
-    ///                 Timeframe = "30d",
-    ///                 Warning = 99.99,
-    ///             },
-    ///         },
-    ///         Timeframe = "30d",
-    ///         Type = "metric",
-    ///         WarningThreshold = 99.99,
-    ///     });
-    /// 
-    ///     // Monitor-Based SLO
-    ///     // Create a new Datadog service level objective
-    ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
-    ///     {
-    ///         Description = "My custom monitor SLO",
-    ///         MonitorIds = new[]
-    ///         {
-    ///             1,
-    ///             2,
-    ///             3,
-    ///         },
-    ///         Name = "Example Monitor SLO",
-    ///         Tags = new[]
-    ///         {
-    ///             "foo:bar",
-    ///             "baz",
-    ///         },
-    ///         TargetThreshold = 99.9,
-    ///         Thresholds = new[]
-    ///         {
-    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///             {
-    ///                 Target = 99.9,
-    ///                 Timeframe = "7d",
-    ///                 Warning = 99.99,
-    ///             },
-    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
-    ///             {
-    ///                 Target = 99.9,
-    ///                 Timeframe = "30d",
-    ///                 Warning = 99.99,
-    ///             },
-    ///         },
-    ///         Timeframe = "30d",
-    ///         Type = "monitor",
-    ///         WarningThreshold = 99.99,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Service Level Objectives can be imported using their string ID, e.g.
@@ -136,16 +48,22 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<int>> MonitorIds { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Datadog service level objective
+        /// The name of the query for use in formulas.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The metric query of good / total events
+        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
         /// </summary>
         [Output("query")]
         public Output<Outputs.ServiceLevelObjectiveQuery?> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of SLI specifications to use as part of the SLO.
+        /// </summary>
+        [Output("sliSpecification")]
+        public Output<Outputs.ServiceLevelObjectiveSliSpecification?> SliSpecification { get; private set; } = null!;
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -272,16 +190,22 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Name of Datadog service level objective
+        /// The name of the query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The metric query of good / total events
+        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryArgs>? Query { get; set; }
+
+        /// <summary>
+        /// A map of SLI specifications to use as part of the SLO.
+        /// </summary>
+        [Input("sliSpecification")]
+        public Input<Inputs.ServiceLevelObjectiveSliSpecificationArgs>? SliSpecification { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -382,16 +306,22 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Name of Datadog service level objective
+        /// The name of the query for use in formulas.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The metric query of good / total events
+        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryGetArgs>? Query { get; set; }
+
+        /// <summary>
+        /// A map of SLI specifications to use as part of the SLO.
+        /// </summary>
+        [Input("sliSpecification")]
+        public Input<Inputs.ServiceLevelObjectiveSliSpecificationGetArgs>? SliSpecification { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;

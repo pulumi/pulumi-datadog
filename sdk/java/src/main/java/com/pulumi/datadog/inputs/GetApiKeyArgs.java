@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GetApiKeyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApiKeyArgs Empty = new GetApiKeyArgs();
+
+    /**
+     * Whether to use exact match when searching by name.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Output<Boolean> exactMatch;
+
+    /**
+     * @return Whether to use exact match when searching by name.
+     * 
+     */
+    public Optional<Output<Boolean>> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * The ID of this resource.
@@ -48,6 +64,7 @@ public final class GetApiKeyArgs extends com.pulumi.resources.InvokeArgs {
     private GetApiKeyArgs() {}
 
     private GetApiKeyArgs(GetApiKeyArgs $) {
+        this.exactMatch = $.exactMatch;
         this.id = $.id;
         this.name = $.name;
     }
@@ -68,6 +85,27 @@ public final class GetApiKeyArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetApiKeyArgs defaults) {
             $ = new GetApiKeyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch Whether to use exact match when searching by name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Output<Boolean> exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
+        }
+
+        /**
+         * @param exactMatch Whether to use exact match when searching by name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(Boolean exactMatch) {
+            return exactMatch(Output.of(exactMatch));
         }
 
         /**

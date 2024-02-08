@@ -73,6 +73,7 @@ import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesResult;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringSuppressionsResult;
 import com.pulumi.datadog.outputs.GetSensitiveDataScannerGroupOrderResult;
 import com.pulumi.datadog.outputs.GetSensitiveDataScannerStandardPatternResult;
 import com.pulumi.datadog.outputs.GetServiceAccountResult;
@@ -3794,6 +3795,48 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", TypeShape.of(GetSecurityMonitoringRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static Output<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressions() {
+        return getSecurityMonitoringSuppressions(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressionsPlain() {
+        return getSecurityMonitoringSuppressionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static Output<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressions(InvokeArgs args) {
+        return getSecurityMonitoringSuppressions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressionsPlain(InvokeArgs args) {
+        return getSecurityMonitoringSuppressionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static Output<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressions(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", TypeShape.of(GetSecurityMonitoringSuppressionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing suppression rules, and use them in other resources.
+     * 
+     */
+    public static CompletableFuture<GetSecurityMonitoringSuppressionsResult> getSecurityMonitoringSuppressionsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions", TypeShape.of(GetSecurityMonitoringSuppressionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.

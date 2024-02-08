@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.SensitiveDataScannerRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleState;
+import com.pulumi.datadog.outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration;
 import com.pulumi.datadog.outputs.SensitiveDataScannerRuleTextReplacement;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
+ * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
  * 
  * ## Example Usage
  * ```java
@@ -33,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.SensitiveDataScannerRule;
  * import com.pulumi.datadog.SensitiveDataScannerRuleArgs;
  * import com.pulumi.datadog.inputs.SensitiveDataScannerRuleTextReplacementArgs;
+ * import com.pulumi.datadog.inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs;
  * import com.pulumi.datadog.DatadogFunctions;
  * import com.pulumi.datadog.inputs.GetSensitiveDataScannerStandardPatternArgs;
  * import java.util.List;
@@ -70,6 +72,12 @@ import javax.annotation.Nullable;
  *                 .numberOfChars(0)
  *                 .replacementString(&#34;&#34;)
  *                 .type(&#34;hash&#34;)
+ *                 .build())
+ *             .includedKeywordConfiguration(SensitiveDataScannerRuleIncludedKeywordConfigurationArgs.builder()
+ *                 .keywords(                
+ *                     &#34;cc&#34;,
+ *                     &#34;credit card&#34;)
+ *                 .characterCount(30)
  *                 .build())
  *             .build());
  * 
@@ -141,6 +149,20 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      */
     public Output<String> groupId() {
         return this.groupId;
+    }
+    /**
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * 
+     */
+    @Export(name="includedKeywordConfiguration", refs={SensitiveDataScannerRuleIncludedKeywordConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ SensitiveDataScannerRuleIncludedKeywordConfiguration> includedKeywordConfiguration;
+
+    /**
+     * @return Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     * 
+     */
+    public Output<Optional<SensitiveDataScannerRuleIncludedKeywordConfiguration>> includedKeywordConfiguration() {
+        return Codegen.optional(this.includedKeywordConfiguration);
     }
     /**
      * Whether or not the rule is enabled.

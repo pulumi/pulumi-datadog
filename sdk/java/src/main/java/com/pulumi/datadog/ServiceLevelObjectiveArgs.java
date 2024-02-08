@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
+import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationArgs;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -83,14 +84,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Name of Datadog service level objective
+     * The name of the query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of Datadog service level objective
+     * @return The name of the query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -98,18 +99,33 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The metric query of good / total events
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      * 
      */
     @Import(name="query")
     private @Nullable Output<ServiceLevelObjectiveQueryArgs> query;
 
     /**
-     * @return The metric query of good / total events
+     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      * 
      */
     public Optional<Output<ServiceLevelObjectiveQueryArgs>> query() {
         return Optional.ofNullable(this.query);
+    }
+
+    /**
+     * A map of SLI specifications to use as part of the SLO.
+     * 
+     */
+    @Import(name="sliSpecification")
+    private @Nullable Output<ServiceLevelObjectiveSliSpecificationArgs> sliSpecification;
+
+    /**
+     * @return A map of SLI specifications to use as part of the SLO.
+     * 
+     */
+    public Optional<Output<ServiceLevelObjectiveSliSpecificationArgs>> sliSpecification() {
+        return Optional.ofNullable(this.sliSpecification);
     }
 
     /**
@@ -226,6 +242,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         this.monitorIds = $.monitorIds;
         this.name = $.name;
         this.query = $.query;
+        this.sliSpecification = $.sliSpecification;
         this.tags = $.tags;
         this.targetThreshold = $.targetThreshold;
         this.thresholds = $.thresholds;
@@ -358,7 +375,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name of Datadog service level objective
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 
@@ -369,7 +386,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name Name of Datadog service level objective
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 
@@ -379,7 +396,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param query The metric query of good / total events
+         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
          * 
          * @return builder
          * 
@@ -390,13 +407,34 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param query The metric query of good / total events
+         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
          * 
          * @return builder
          * 
          */
         public Builder query(ServiceLevelObjectiveQueryArgs query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param sliSpecification A map of SLI specifications to use as part of the SLO.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sliSpecification(@Nullable Output<ServiceLevelObjectiveSliSpecificationArgs> sliSpecification) {
+            $.sliSpecification = sliSpecification;
+            return this;
+        }
+
+        /**
+         * @param sliSpecification A map of SLI specifications to use as part of the SLO.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sliSpecification(ServiceLevelObjectiveSliSpecificationArgs sliSpecification) {
+            return sliSpecification(Output.of(sliSpecification));
         }
 
         /**

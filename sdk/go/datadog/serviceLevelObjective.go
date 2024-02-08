@@ -14,89 +14,6 @@ import (
 
 // Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewServiceLevelObjective(ctx, "foo", &datadog.ServiceLevelObjectiveArgs{
-//				Description: pulumi.String("My custom metric SLO"),
-//				Name:        pulumi.String("Example Metric SLO"),
-//				Query: &datadog.ServiceLevelObjectiveQueryArgs{
-//					Denominator: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
-//					Numerator:   pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
-//				},
-//				Tags: pulumi.StringArray{
-//					pulumi.String("foo:bar"),
-//					pulumi.String("baz"),
-//				},
-//				TargetThreshold: pulumi.Float64(99.9),
-//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
-//					&datadog.ServiceLevelObjectiveThresholdArgs{
-//						Target:    pulumi.Float64(99.9),
-//						Timeframe: pulumi.String("7d"),
-//						Warning:   pulumi.Float64(99.99),
-//					},
-//					&datadog.ServiceLevelObjectiveThresholdArgs{
-//						Target:    pulumi.Float64(99.9),
-//						Timeframe: pulumi.String("30d"),
-//						Warning:   pulumi.Float64(99.99),
-//					},
-//				},
-//				Timeframe:        pulumi.String("30d"),
-//				Type:             pulumi.String("metric"),
-//				WarningThreshold: pulumi.Float64(99.99),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
-//				Description: pulumi.String("My custom monitor SLO"),
-//				MonitorIds: pulumi.IntArray{
-//					pulumi.Int(1),
-//					pulumi.Int(2),
-//					pulumi.Int(3),
-//				},
-//				Name: pulumi.String("Example Monitor SLO"),
-//				Tags: pulumi.StringArray{
-//					pulumi.String("foo:bar"),
-//					pulumi.String("baz"),
-//				},
-//				TargetThreshold: pulumi.Float64(99.9),
-//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
-//					&datadog.ServiceLevelObjectiveThresholdArgs{
-//						Target:    pulumi.Float64(99.9),
-//						Timeframe: pulumi.String("7d"),
-//						Warning:   pulumi.Float64(99.99),
-//					},
-//					&datadog.ServiceLevelObjectiveThresholdArgs{
-//						Target:    pulumi.Float64(99.9),
-//						Timeframe: pulumi.String("30d"),
-//						Warning:   pulumi.Float64(99.99),
-//					},
-//				},
-//				Timeframe:        pulumi.String("30d"),
-//				Type:             pulumi.String("monitor"),
-//				WarningThreshold: pulumi.Float64(99.99),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Service Level Objectives can be imported using their string ID, e.g.
@@ -117,10 +34,12 @@ type ServiceLevelObjective struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayOutput `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
+	// The name of the query for use in formulas.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The metric query of good / total events
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
+	// A map of SLI specifications to use as part of the SLO.
+	SliSpecification ServiceLevelObjectiveSliSpecificationPtrOutput `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
@@ -184,10 +103,12 @@ type serviceLevelObjectiveState struct {
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds []int `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
+	// The name of the query for use in formulas.
 	Name *string `pulumi:"name"`
-	// The metric query of good / total events
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
+	// A map of SLI specifications to use as part of the SLO.
+	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
@@ -213,10 +134,12 @@ type ServiceLevelObjectiveState struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// Name of Datadog service level objective
+	// The name of the query for use in formulas.
 	Name pulumi.StringPtrInput
-	// The metric query of good / total events
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query ServiceLevelObjectiveQueryPtrInput
+	// A map of SLI specifications to use as part of the SLO.
+	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
@@ -246,10 +169,12 @@ type serviceLevelObjectiveArgs struct {
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds []int `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
+	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
-	// The metric query of good / total events
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
+	// A map of SLI specifications to use as part of the SLO.
+	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
@@ -276,10 +201,12 @@ type ServiceLevelObjectiveArgs struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// Name of Datadog service level objective
+	// The name of the query for use in formulas.
 	Name pulumi.StringInput
-	// The metric query of good / total events
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query ServiceLevelObjectiveQueryPtrInput
+	// A map of SLI specifications to use as part of the SLO.
+	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
@@ -403,14 +330,21 @@ func (o ServiceLevelObjectiveOutput) MonitorIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.IntArrayOutput { return v.MonitorIds }).(pulumi.IntArrayOutput)
 }
 
-// Name of Datadog service level objective
+// The name of the query for use in formulas.
 func (o ServiceLevelObjectiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The metric query of good / total events
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 func (o ServiceLevelObjectiveOutput) Query() ServiceLevelObjectiveQueryPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveQueryPtrOutput { return v.Query }).(ServiceLevelObjectiveQueryPtrOutput)
+}
+
+// A map of SLI specifications to use as part of the SLO.
+func (o ServiceLevelObjectiveOutput) SliSpecification() ServiceLevelObjectiveSliSpecificationPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveSliSpecificationPtrOutput {
+		return v.SliSpecification
+	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
 }
 
 // A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API

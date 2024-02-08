@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationKeyResult {
+    /**
+     * @return Whether to use exact match when searching by name.
+     * 
+     */
+    private @Nullable Boolean exactMatch;
     /**
      * @return Id for Application Key.
      * 
@@ -29,6 +35,13 @@ public final class GetApplicationKeyResult {
     private @Nullable String name;
 
     private GetApplicationKeyResult() {}
+    /**
+     * @return Whether to use exact match when searching by name.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
     /**
      * @return Id for Application Key.
      * 
@@ -60,17 +73,25 @@ public final class GetApplicationKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean exactMatch;
         private @Nullable String id;
         private String key;
         private @Nullable String name;
         public Builder() {}
         public Builder(GetApplicationKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.exactMatch = defaults.exactMatch;
     	      this.id = defaults.id;
     	      this.key = defaults.key;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+
+            this.exactMatch = exactMatch;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
 
@@ -93,6 +114,7 @@ public final class GetApplicationKeyResult {
         }
         public GetApplicationKeyResult build() {
             final var _resultValue = new GetApplicationKeyResult();
+            _resultValue.exactMatch = exactMatch;
             _resultValue.id = id;
             _resultValue.key = key;
             _resultValue.name = name;

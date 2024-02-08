@@ -86,7 +86,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     /**
      * Cases for generating signals.
      */
-    public readonly cases!: pulumi.Output<outputs.SecurityMonitoringRuleCase[]>;
+    public readonly cases!: pulumi.Output<outputs.SecurityMonitoringRuleCase[] | undefined>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
@@ -124,6 +124,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     */
+    public readonly thirdPartyCases!: pulumi.Output<outputs.SecurityMonitoringRuleThirdPartyCase[] | undefined>;
+    /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
@@ -151,12 +155,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["queries"] = state ? state.queries : undefined;
             resourceInputs["signalQueries"] = state ? state.signalQueries : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["thirdPartyCases"] = state ? state.thirdPartyCases : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
-            if ((!args || args.cases === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cases'");
-            }
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
@@ -173,6 +175,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["queries"] = args ? args.queries : undefined;
             resourceInputs["signalQueries"] = args ? args.signalQueries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thirdPartyCases"] = args ? args.thirdPartyCases : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -225,6 +228,10 @@ export interface SecurityMonitoringRuleState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     */
+    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[]>;
+    /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     type?: pulumi.Input<string>;
@@ -237,7 +244,7 @@ export interface SecurityMonitoringRuleArgs {
     /**
      * Cases for generating signals.
      */
-    cases: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
     /**
      * Whether the rule is enabled. Defaults to `true`.
      */
@@ -274,6 +281,10 @@ export interface SecurityMonitoringRuleArgs {
      * Tags for generated signals.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     */
+    thirdPartyCases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleThirdPartyCase>[]>;
     /**
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
