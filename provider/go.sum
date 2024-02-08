@@ -692,8 +692,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/DataDog/datadog-api-client-go/v2 v2.21.0 h1:u9a3HgyF61Zjui12r13xrVANnpLsuNFCBAox34StOtc=
-github.com/DataDog/datadog-api-client-go/v2 v2.21.0/go.mod h1:oD5Lx8Li3oPRa/BSBenkn4i48z+91gwYORF/+6ph71g=
+github.com/DataDog/datadog-api-client-go/v2 v2.22.0 h1:+DtWu4PjGxsJU8FESjPi7C2rTDMojNungejsIzNFe70=
+github.com/DataDog/datadog-api-client-go/v2 v2.22.0/go.mod h1:QKOu6vscsh87fMY1lHfLEmNSunyXImj8BUaUWJXOehc=
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/DataDog/zstd v1.5.2 h1:vUG4lAyuPCXO0TLbXvPv7EB7cNK1QV/luu55UHLrrn8=
 github.com/DataDog/zstd v1.5.2/go.mod h1:g4AWEaM3yOg3HYfnJ3YIawPnVdXJh9QME85blwSAmyw=
@@ -1505,8 +1505,8 @@ github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/uuid v1.2.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
-github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/google/uuid v1.5.0 h1:1p67kYwdtXjb0gL0BPiP1Av9wiZPo5A8z2cWkTZ+eyU=
+github.com/google/uuid v1.5.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/wire v0.5.0 h1:I7ELFeVBr3yfPIcc8+MWvrjk+3VjbcSzoXm3JVa+jD8=
 github.com/google/wire v0.5.0/go.mod h1:ngWDr9Qvq3yZA10YrxfyGELY/AFWGVpy9c1LTRi1EoU=
 github.com/googleapis/enterprise-certificate-proxy v0.0.0-20220520183353-fd19c99a87aa/go.mod h1:17drOmN3MwGY7t0e+Ei9b45FFGA3fBs3x36SsCg1hq8=
@@ -2223,8 +2223,8 @@ github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQK
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=
 github.com/pulumi/terraform-diff-reader v0.0.2/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9 h1:p8vtMw4abpcmwE0v8b6x2GKZQKisrmdjojkoP3oelak=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9/go.mod h1:qH/34G25Ugdj5FcM95cSoXzUgIbgfhVLXCcEcYaMwq8=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9 h1:k3SdGlmaJ49yaRV79Ktb5KGdPvuNfeiv4+oHXN+wyhs=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9/go.mod h1:qH/34G25Ugdj5FcM95cSoXzUgIbgfhVLXCcEcYaMwq8=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/remyoudompheng/bigfft v0.0.0-20200410134404-eec4a21b6bb0/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=

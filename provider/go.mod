@@ -11,7 +11,7 @@ require (
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240129205329-74776a5cd5f9
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
 	github.com/hashicorp/terraform-plugin-test => github.com/hashicorp/terraform-plugin-test v1.3.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 	github.com/terraform-providers/terraform-provider-datadog => ../upstream
@@ -34,7 +34,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/AzureAD/microsoft-authentication-library-for-go v1.2.0 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
-	github.com/DataDog/datadog-api-client-go/v2 v2.21.0 // indirect
+	github.com/DataDog/datadog-api-client-go/v2 v2.22.0 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
@@ -100,7 +100,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
-	github.com/google/uuid v1.4.0 // indirect
+	github.com/google/uuid v1.5.0 // indirect
 	github.com/google/wire v0.5.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
