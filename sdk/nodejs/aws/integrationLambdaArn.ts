@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
  *
  * ```sh
- *  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
+ * $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
  * ```
  */
 export class IntegrationLambdaArn extends pulumi.CustomResource {

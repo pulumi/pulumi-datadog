@@ -45,9 +45,7 @@ import (
 // The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
-//
+// $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
 // ```
 type SyntheticsConcurrencyCap struct {
 	pulumi.CustomResourceState

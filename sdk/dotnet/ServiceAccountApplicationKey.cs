@@ -37,7 +37,7 @@ namespace Pulumi.Datadog
     /// Importing a service account's application key cannot import the value of the key.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "&lt;service_account_id&gt;:&lt;application_key_id&gt;"
+    /// $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "&lt;service_account_id&gt;:&lt;application_key_id&gt;"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey")]

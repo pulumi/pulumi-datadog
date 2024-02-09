@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * This resource is imported using team_id and user_id seperated by `:`.
  * 
  * ```sh
- *  $ pulumi import datadog:index/teamMembership:TeamMembership foo &#34;${team_id}:${user_id}&#34;
+ * $ pulumi import datadog:index/teamMembership:TeamMembership foo &#34;${team_id}:${user_id}&#34;
  * ```
  * 
  */

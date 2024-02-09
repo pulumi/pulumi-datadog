@@ -150,7 +150,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 
         ```sh
-         $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+        $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,7 +186,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         Amazon Web Services log filter resource can be imported using their account ID and namespace separated with a colon (:).
 
         ```sh
-         $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
+        $ pulumi import datadog:aws/integrationTagFilter:IntegrationTagFilter foo ${account_id}:${namespace}
         ```
 
         :param str resource_name: The name of the resource.

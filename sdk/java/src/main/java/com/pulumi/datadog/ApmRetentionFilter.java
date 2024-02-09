@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * Import existing APM retention filter
  * 
  * ```sh
- *  $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo &lt;filter_id&gt;
+ * $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo &lt;filter_id&gt;
  * ```
  * 
  */

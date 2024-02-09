@@ -184,7 +184,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         Cloud Workload Security Agent rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
+        $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,7 +221,7 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         Cloud Workload Security Agent rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
+        $ pulumi import datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule my_agent_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.

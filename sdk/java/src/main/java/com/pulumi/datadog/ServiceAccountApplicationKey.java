@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * Importing a service account&#39;s application key cannot import the value of the key.
  * 
  * ```sh
- *  $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this &#34;&lt;service_account_id&gt;:&lt;application_key_id&gt;&#34;
+ * $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this &#34;&lt;service_account_id&gt;:&lt;application_key_id&gt;&#34;
  * ```
  * 
  */

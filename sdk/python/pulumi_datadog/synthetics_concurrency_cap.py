@@ -83,7 +83,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
+        $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -114,7 +114,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         The Synthetics concurrency cap can be imported. <name> can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
+        $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this <name>
         ```
 
         :param str resource_name: The name of the resource.

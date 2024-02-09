@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * AuthN mappings can be imported using their ID, e.g.
  * 
  * ```sh
- *  $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
+ * $ pulumi import datadog:index/authnMapping:AuthnMapping dev_ro_mapping 000000-0000-0000-0000-000000000000
  * ```
  * 
  */

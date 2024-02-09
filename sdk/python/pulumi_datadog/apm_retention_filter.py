@@ -221,7 +221,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         Import existing APM retention filter
 
         ```sh
-         $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
+        $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,7 +263,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         Import existing APM retention filter
 
         ```sh
-         $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
+        $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
         ```
 
         :param str resource_name: The name of the resource.

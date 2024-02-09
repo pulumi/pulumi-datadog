@@ -47,12 +47,12 @@ import (
 //
 // ## Import
 //
-// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
+//
+//	https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
 //
 // ```sh
-//
-//	$ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
-//
+// $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
 // ```
 type IntegrationAccount struct {
 	pulumi.CustomResourceState

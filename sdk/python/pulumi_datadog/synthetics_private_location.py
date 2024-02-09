@@ -205,7 +205,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
+        $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,7 +244,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
+        $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

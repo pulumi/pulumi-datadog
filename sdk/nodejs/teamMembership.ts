@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * This resource is imported using team_id and user_id seperated by `:`.
  *
  * ```sh
- *  $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
+ * $ pulumi import datadog:index/teamMembership:TeamMembership foo "${team_id}:${user_id}"
  * ```
  */
 export class TeamMembership extends pulumi.CustomResource {
