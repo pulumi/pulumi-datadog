@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Slack
     /// Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
+    /// $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:slack/channel:Channel")]

@@ -70,10 +70,12 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
 
         ## Import
 
-        Import existing APM retention filter order NoteValue of <foo> can be anything as this id is not stored by the resource
+        Import existing APM retention filter order
+
+         Note: Value of <foo> can be anything as this id is not stored by the resource
 
         ```sh
-         $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
+        $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
         ```
 
         :param str resource_name: The name of the resource.
@@ -91,10 +93,12 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
 
         ## Import
 
-        Import existing APM retention filter order NoteValue of <foo> can be anything as this id is not stored by the resource
+        Import existing APM retention filter order
+
+         Note: Value of <foo> can be anything as this id is not stored by the resource
 
         ```sh
-         $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
+        $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>
         ```
 
         :param str resource_name: The name of the resource.

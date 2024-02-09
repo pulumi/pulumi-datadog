@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * Import existing APM retention filter
  *
  * ```sh
- *  $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
+ * $ pulumi import datadog:index/apmRetentionFilter:ApmRetentionFilter foo <filter_id>
  * ```
  */
 export class ApmRetentionFilter extends pulumi.CustomResource {

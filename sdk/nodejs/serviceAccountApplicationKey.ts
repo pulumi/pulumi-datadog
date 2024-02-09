@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  * Importing a service account's application key cannot import the value of the key.
  *
  * ```sh
- *  $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
+ * $ pulumi import datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey this "<service_account_id>:<application_key_id>"
  * ```
  */
 export class ServiceAccountApplicationKey extends pulumi.CustomResource {

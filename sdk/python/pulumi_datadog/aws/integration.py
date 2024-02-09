@@ -447,7 +447,7 @@ class Integration(pulumi.CustomResource):
         Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
 
         ```sh
-         $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+        $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
         ```
 
         :param str resource_name: The name of the resource.
@@ -503,7 +503,7 @@ class Integration(pulumi.CustomResource):
         Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
 
         ```sh
-         $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
+        $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
         ```
 
         :param str resource_name: The name of the resource.

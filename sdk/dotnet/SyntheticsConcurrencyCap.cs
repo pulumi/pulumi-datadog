@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
     /// The Synthetics concurrency cap can be imported. &lt;name&gt; can be whatever you specify in your code. Datadog does not store the name on the server.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this &lt;name&gt;
+    /// $ pulumi import datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap this &lt;name&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap")]

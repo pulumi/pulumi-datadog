@@ -50,7 +50,7 @@ namespace Pulumi.Datadog
     /// Security monitoring filters can be imported using ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
+    /// $ pulumi import datadog:index/securityMonitoringFilter:SecurityMonitoringFilter my_filter m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter")]

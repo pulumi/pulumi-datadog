@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
  *
  * ```sh
- *  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
+ * $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
  * ```
  */
 export class LogsArchiveOrder extends pulumi.CustomResource {

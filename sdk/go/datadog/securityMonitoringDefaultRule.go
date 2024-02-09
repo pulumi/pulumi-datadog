@@ -49,12 +49,14 @@ import (
 //
 // ## Import
 //
-// Default rules need to be imported using their ID before applying. resource "datadog_security_monitoring_default_rule" "adefaultrule" { }
+// Default rules need to be imported using their ID before applying.
+//
+//	resource "datadog_security_monitoring_default_rule" "adefaultrule" {
+//
+//	}
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
-//
+// $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
 // ```
 type SecurityMonitoringDefaultRule struct {
 	pulumi.CustomResourceState

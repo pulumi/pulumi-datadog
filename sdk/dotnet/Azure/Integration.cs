@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Azure
     /// Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
+    /// $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:azure/integration:Integration")]
