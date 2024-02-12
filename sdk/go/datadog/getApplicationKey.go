@@ -50,6 +50,8 @@ func LookupApplicationKey(ctx *pulumi.Context, args *LookupApplicationKeyArgs, o
 
 // A collection of arguments for invoking getApplicationKey.
 type LookupApplicationKeyArgs struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Id for Application Key.
 	Id *string `pulumi:"id"`
 	// Name for Application Key.
@@ -58,6 +60,8 @@ type LookupApplicationKeyArgs struct {
 
 // A collection of values returned by getApplicationKey.
 type LookupApplicationKeyResult struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Id for Application Key.
 	Id *string `pulumi:"id"`
 	// The value of the Application Key.
@@ -81,6 +85,8 @@ func LookupApplicationKeyOutput(ctx *pulumi.Context, args LookupApplicationKeyOu
 
 // A collection of arguments for invoking getApplicationKey.
 type LookupApplicationKeyOutputArgs struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Id for Application Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name for Application Key.
@@ -104,6 +110,11 @@ func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutput() L
 
 func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutputWithContext(ctx context.Context) LookupApplicationKeyResultOutput {
 	return o
+}
+
+// Whether to use exact match when searching by name.
+func (o LookupApplicationKeyResultOutput) ExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApplicationKeyResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }
 
 // Id for Application Key.

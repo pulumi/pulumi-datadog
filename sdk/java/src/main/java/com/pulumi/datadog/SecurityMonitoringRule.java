@@ -15,6 +15,7 @@ import com.pulumi.datadog.outputs.SecurityMonitoringRuleFilter;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleQuery;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleSignalQuery;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleThirdPartyCase;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -99,14 +100,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="cases", refs={List.class,SecurityMonitoringRuleCase.class}, tree="[0,1]")
-    private Output<List<SecurityMonitoringRuleCase>> cases;
+    private Output</* @Nullable */ List<SecurityMonitoringRuleCase>> cases;
 
     /**
      * @return Cases for generating signals.
      * 
      */
-    public Output<List<SecurityMonitoringRuleCase>> cases() {
-        return this.cases;
+    public Output<Optional<List<SecurityMonitoringRuleCase>>> cases() {
+        return Codegen.optional(this.cases);
     }
     /**
      * Whether the rule is enabled. Defaults to `true`.
@@ -233,6 +234,20 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    @Export(name="thirdPartyCases", refs={List.class,SecurityMonitoringRuleThirdPartyCase.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SecurityMonitoringRuleThirdPartyCase>> thirdPartyCases;
+
+    /**
+     * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    public Output<Optional<List<SecurityMonitoringRuleThirdPartyCase>>> thirdPartyCases() {
+        return Codegen.optional(this.thirdPartyCases);
     }
     /**
      * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.

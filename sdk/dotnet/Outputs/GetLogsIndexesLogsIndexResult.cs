@@ -18,6 +18,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int DailyLimit;
         /// <summary>
+        /// Object containing options to override the default daily limit reset time.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexDailyLimitResetResult> DailyLimitResets;
+        /// <summary>
+        /// The percentage threshold of the daily quota at which a Datadog warning event is generated.
+        /// </summary>
+        public readonly double DailyLimitWarningThresholdPercentage;
+        /// <summary>
         /// List of exclusion filters.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLogsIndexesLogsIndexExclusionFilterResult> ExclusionFilters;
@@ -38,6 +46,10 @@ namespace Pulumi.Datadog.Outputs
         private GetLogsIndexesLogsIndexResult(
             int dailyLimit,
 
+            ImmutableArray<Outputs.GetLogsIndexesLogsIndexDailyLimitResetResult> dailyLimitResets,
+
+            double dailyLimitWarningThresholdPercentage,
+
             ImmutableArray<Outputs.GetLogsIndexesLogsIndexExclusionFilterResult> exclusionFilters,
 
             ImmutableArray<Outputs.GetLogsIndexesLogsIndexFilterResult> filters,
@@ -47,6 +59,8 @@ namespace Pulumi.Datadog.Outputs
             int retentionDays)
         {
             DailyLimit = dailyLimit;
+            DailyLimitResets = dailyLimitResets;
+            DailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
             ExclusionFilters = exclusionFilters;
             Filters = filters;
             Name = name;

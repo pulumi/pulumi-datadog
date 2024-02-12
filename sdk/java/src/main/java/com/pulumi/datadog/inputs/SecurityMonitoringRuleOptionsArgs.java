@@ -7,7 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -84,30 +84,30 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
      * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      * 
      */
-    @Import(name="keepAlive", required=true)
-    private Output<Integer> keepAlive;
+    @Import(name="keepAlive")
+    private @Nullable Output<Integer> keepAlive;
 
     /**
      * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      * 
      */
-    public Output<Integer> keepAlive() {
-        return this.keepAlive;
+    public Optional<Output<Integer>> keepAlive() {
+        return Optional.ofNullable(this.keepAlive);
     }
 
     /**
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
-    @Import(name="maxSignalDuration", required=true)
-    private Output<Integer> maxSignalDuration;
+    @Import(name="maxSignalDuration")
+    private @Nullable Output<Integer> maxSignalDuration;
 
     /**
      * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
-    public Output<Integer> maxSignalDuration() {
-        return this.maxSignalDuration;
+    public Optional<Output<Integer>> maxSignalDuration() {
+        return Optional.ofNullable(this.maxSignalDuration);
     }
 
     /**
@@ -125,6 +125,21 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         return Optional.ofNullable(this.newValueOptions);
     }
 
+    /**
+     * Options for rules using the third-party detection method.
+     * 
+     */
+    @Import(name="thirdPartyRuleOptions")
+    private @Nullable Output<SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs> thirdPartyRuleOptions;
+
+    /**
+     * @return Options for rules using the third-party detection method.
+     * 
+     */
+    public Optional<Output<SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs>> thirdPartyRuleOptions() {
+        return Optional.ofNullable(this.thirdPartyRuleOptions);
+    }
+
     private SecurityMonitoringRuleOptionsArgs() {}
 
     private SecurityMonitoringRuleOptionsArgs(SecurityMonitoringRuleOptionsArgs $) {
@@ -135,6 +150,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
         this.keepAlive = $.keepAlive;
         this.maxSignalDuration = $.maxSignalDuration;
         this.newValueOptions = $.newValueOptions;
+        this.thirdPartyRuleOptions = $.thirdPartyRuleOptions;
     }
 
     public static Builder builder() {
@@ -245,7 +261,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder keepAlive(Output<Integer> keepAlive) {
+        public Builder keepAlive(@Nullable Output<Integer> keepAlive) {
             $.keepAlive = keepAlive;
             return this;
         }
@@ -266,7 +282,7 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder maxSignalDuration(Output<Integer> maxSignalDuration) {
+        public Builder maxSignalDuration(@Nullable Output<Integer> maxSignalDuration) {
             $.maxSignalDuration = maxSignalDuration;
             return this;
         }
@@ -302,13 +318,28 @@ public final class SecurityMonitoringRuleOptionsArgs extends com.pulumi.resource
             return newValueOptions(Output.of(newValueOptions));
         }
 
+        /**
+         * @param thirdPartyRuleOptions Options for rules using the third-party detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thirdPartyRuleOptions(@Nullable Output<SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs> thirdPartyRuleOptions) {
+            $.thirdPartyRuleOptions = thirdPartyRuleOptions;
+            return this;
+        }
+
+        /**
+         * @param thirdPartyRuleOptions Options for rules using the third-party detection method.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thirdPartyRuleOptions(SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs thirdPartyRuleOptions) {
+            return thirdPartyRuleOptions(Output.of(thirdPartyRuleOptions));
+        }
+
         public SecurityMonitoringRuleOptionsArgs build() {
-            if ($.keepAlive == null) {
-                throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptionsArgs", "keepAlive");
-            }
-            if ($.maxSignalDuration == null) {
-                throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptionsArgs", "maxSignalDuration");
-            }
             return $;
         }
     }

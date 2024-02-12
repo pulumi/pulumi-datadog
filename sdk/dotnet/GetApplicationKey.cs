@@ -72,6 +72,12 @@ namespace Pulumi.Datadog
     public sealed class GetApplicationKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Whether to use exact match when searching by name.
+        /// </summary>
+        [Input("exactMatch")]
+        public bool? ExactMatch { get; set; }
+
+        /// <summary>
         /// Id for Application Key.
         /// </summary>
         [Input("id")]
@@ -91,6 +97,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetApplicationKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Whether to use exact match when searching by name.
+        /// </summary>
+        [Input("exactMatch")]
+        public Input<bool>? ExactMatch { get; set; }
+
         /// <summary>
         /// Id for Application Key.
         /// </summary>
@@ -114,6 +126,10 @@ namespace Pulumi.Datadog
     public sealed class GetApplicationKeyResult
     {
         /// <summary>
+        /// Whether to use exact match when searching by name.
+        /// </summary>
+        public readonly bool? ExactMatch;
+        /// <summary>
         /// Id for Application Key.
         /// </summary>
         public readonly string? Id;
@@ -128,12 +144,15 @@ namespace Pulumi.Datadog
 
         [OutputConstructor]
         private GetApplicationKeyResult(
+            bool? exactMatch,
+
             string? id,
 
             string key,
 
             string? name)
         {
+            ExactMatch = exactMatch;
             Id = id;
             Key = key;
             Name = name;

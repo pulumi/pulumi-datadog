@@ -6,7 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions;
 import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsNewValueOptions;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.datadog.outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -40,17 +40,22 @@ public final class SecurityMonitoringRuleOptions {
      * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      * 
      */
-    private Integer keepAlive;
+    private @Nullable Integer keepAlive;
     /**
      * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
-    private Integer maxSignalDuration;
+    private @Nullable Integer maxSignalDuration;
     /**
      * @return New value rules specific options.
      * 
      */
     private @Nullable SecurityMonitoringRuleOptionsNewValueOptions newValueOptions;
+    /**
+     * @return Options for rules using the third-party detection method.
+     * 
+     */
+    private @Nullable SecurityMonitoringRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions;
 
     private SecurityMonitoringRuleOptions() {}
     /**
@@ -85,15 +90,15 @@ public final class SecurityMonitoringRuleOptions {
      * @return Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      * 
      */
-    public Integer keepAlive() {
-        return this.keepAlive;
+    public Optional<Integer> keepAlive() {
+        return Optional.ofNullable(this.keepAlive);
     }
     /**
      * @return A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      * 
      */
-    public Integer maxSignalDuration() {
-        return this.maxSignalDuration;
+    public Optional<Integer> maxSignalDuration() {
+        return Optional.ofNullable(this.maxSignalDuration);
     }
     /**
      * @return New value rules specific options.
@@ -101,6 +106,13 @@ public final class SecurityMonitoringRuleOptions {
      */
     public Optional<SecurityMonitoringRuleOptionsNewValueOptions> newValueOptions() {
         return Optional.ofNullable(this.newValueOptions);
+    }
+    /**
+     * @return Options for rules using the third-party detection method.
+     * 
+     */
+    public Optional<SecurityMonitoringRuleOptionsThirdPartyRuleOptions> thirdPartyRuleOptions() {
+        return Optional.ofNullable(this.thirdPartyRuleOptions);
     }
 
     public static Builder builder() {
@@ -116,9 +128,10 @@ public final class SecurityMonitoringRuleOptions {
         private @Nullable String detectionMethod;
         private @Nullable Integer evaluationWindow;
         private @Nullable SecurityMonitoringRuleOptionsImpossibleTravelOptions impossibleTravelOptions;
-        private Integer keepAlive;
-        private Integer maxSignalDuration;
+        private @Nullable Integer keepAlive;
+        private @Nullable Integer maxSignalDuration;
         private @Nullable SecurityMonitoringRuleOptionsNewValueOptions newValueOptions;
+        private @Nullable SecurityMonitoringRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions;
         public Builder() {}
         public Builder(SecurityMonitoringRuleOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -129,6 +142,7 @@ public final class SecurityMonitoringRuleOptions {
     	      this.keepAlive = defaults.keepAlive;
     	      this.maxSignalDuration = defaults.maxSignalDuration;
     	      this.newValueOptions = defaults.newValueOptions;
+    	      this.thirdPartyRuleOptions = defaults.thirdPartyRuleOptions;
         }
 
         @CustomType.Setter
@@ -156,18 +170,14 @@ public final class SecurityMonitoringRuleOptions {
             return this;
         }
         @CustomType.Setter
-        public Builder keepAlive(Integer keepAlive) {
-            if (keepAlive == null) {
-              throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptions", "keepAlive");
-            }
+        public Builder keepAlive(@Nullable Integer keepAlive) {
+
             this.keepAlive = keepAlive;
             return this;
         }
         @CustomType.Setter
-        public Builder maxSignalDuration(Integer maxSignalDuration) {
-            if (maxSignalDuration == null) {
-              throw new MissingRequiredPropertyException("SecurityMonitoringRuleOptions", "maxSignalDuration");
-            }
+        public Builder maxSignalDuration(@Nullable Integer maxSignalDuration) {
+
             this.maxSignalDuration = maxSignalDuration;
             return this;
         }
@@ -175,6 +185,12 @@ public final class SecurityMonitoringRuleOptions {
         public Builder newValueOptions(@Nullable SecurityMonitoringRuleOptionsNewValueOptions newValueOptions) {
 
             this.newValueOptions = newValueOptions;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder thirdPartyRuleOptions(@Nullable SecurityMonitoringRuleOptionsThirdPartyRuleOptions thirdPartyRuleOptions) {
+
+            this.thirdPartyRuleOptions = thirdPartyRuleOptions;
             return this;
         }
         public SecurityMonitoringRuleOptions build() {
@@ -186,6 +202,7 @@ public final class SecurityMonitoringRuleOptions {
             _resultValue.keepAlive = keepAlive;
             _resultValue.maxSignalDuration = maxSignalDuration;
             _resultValue.newValueOptions = newValueOptions;
+            _resultValue.thirdPartyRuleOptions = thirdPartyRuleOptions;
             return _resultValue;
         }
     }

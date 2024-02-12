@@ -21,7 +21,10 @@ class GetApiKeyResult:
     """
     A collection of values returned by getApiKey.
     """
-    def __init__(__self__, id=None, key=None, name=None):
+    def __init__(__self__, exact_match=None, id=None, key=None, name=None):
+        if exact_match and not isinstance(exact_match, bool):
+            raise TypeError("Expected argument 'exact_match' to be a bool")
+        pulumi.set(__self__, "exact_match", exact_match)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,6 +34,14 @@ class GetApiKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[bool]:
+        """
+        Whether to use exact match when searching by name.
+        """
+        return pulumi.get(self, "exact_match")
 
     @property
     @pulumi.getter
@@ -63,12 +74,14 @@ class AwaitableGetApiKeyResult(GetApiKeyResult):
         if False:
             yield self
         return GetApiKeyResult(
+            exact_match=self.exact_match,
             id=self.id,
             key=self.key,
             name=self.name)
 
 
-def get_api_key(id: Optional[str] = None,
+def get_api_key(exact_match: Optional[bool] = None,
+                id: Optional[str] = None,
                 name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiKeyResult:
     """
@@ -84,23 +97,27 @@ def get_api_key(id: Optional[str] = None,
     ```
 
 
+    :param bool exact_match: Whether to use exact match when searching by name.
     :param str id: The ID of this resource.
     :param str name: Name for API Key.
     """
     __args__ = dict()
+    __args__['exactMatch'] = exact_match
     __args__['id'] = id
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('datadog:index/getApiKey:getApiKey', __args__, opts=opts, typ=GetApiKeyResult).value
 
     return AwaitableGetApiKeyResult(
+        exact_match=pulumi.get(__ret__, 'exact_match'),
         id=pulumi.get(__ret__, 'id'),
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_api_key)
-def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_api_key_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
+                       id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
     """
@@ -116,6 +133,7 @@ def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
 
+    :param bool exact_match: Whether to use exact match when searching by name.
     :param str id: The ID of this resource.
     :param str name: Name for API Key.
     """

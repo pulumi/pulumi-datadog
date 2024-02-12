@@ -10,9 +10,11 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.LogsIndexArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.LogsIndexState;
+import com.pulumi.datadog.outputs.LogsIndexDailyLimitReset;
 import com.pulumi.datadog.outputs.LogsIndexExclusionFilter;
 import com.pulumi.datadog.outputs.LogsIndexFilter;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -29,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.LogsIndex;
  * import com.pulumi.datadog.LogsIndexArgs;
+ * import com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;
  * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
  * import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
  * import java.util.List;
@@ -46,6 +49,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sampleIndex = new LogsIndex(&#34;sampleIndex&#34;, LogsIndexArgs.builder()        
  *             .dailyLimit(200000)
+ *             .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()
+ *                 .resetTime(&#34;14:00&#34;)
+ *                 .resetUtcOffset(&#34;+02:00&#34;)
+ *                 .build())
+ *             .dailyLimitWarningThresholdPercentage(50)
  *             .exclusionFilters(            
  *                 LogsIndexExclusionFilterArgs.builder()
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
@@ -96,6 +104,34 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> dailyLimit() {
         return Codegen.optional(this.dailyLimit);
+    }
+    /**
+     * Object containing options to override the default daily limit reset time.
+     * 
+     */
+    @Export(name="dailyLimitReset", refs={LogsIndexDailyLimitReset.class}, tree="[0]")
+    private Output</* @Nullable */ LogsIndexDailyLimitReset> dailyLimitReset;
+
+    /**
+     * @return Object containing options to override the default daily limit reset time.
+     * 
+     */
+    public Output<Optional<LogsIndexDailyLimitReset>> dailyLimitReset() {
+        return Codegen.optional(this.dailyLimitReset);
+    }
+    /**
+     * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    @Export(name="dailyLimitWarningThresholdPercentage", refs={Double.class}, tree="[0]")
+    private Output<Double> dailyLimitWarningThresholdPercentage;
+
+    /**
+     * @return A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    public Output<Double> dailyLimitWarningThresholdPercentage() {
+        return this.dailyLimitWarningThresholdPercentage;
     }
     /**
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index&#39;s current daily_limit is maintained.

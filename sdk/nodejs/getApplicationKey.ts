@@ -23,6 +23,7 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApplicationKey:getApplicationKey", {
+        "exactMatch": args.exactMatch,
         "id": args.id,
         "name": args.name,
     }, opts);
@@ -32,6 +33,10 @@ export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.In
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyArgs {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    exactMatch?: boolean;
     /**
      * Id for Application Key.
      */
@@ -46,6 +51,10 @@ export interface GetApplicationKeyArgs {
  * A collection of values returned by getApplicationKey.
  */
 export interface GetApplicationKeyResult {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    readonly exactMatch?: boolean;
     /**
      * Id for Application Key.
      */
@@ -81,6 +90,10 @@ export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts
  * A collection of arguments for invoking getApplicationKey.
  */
 export interface GetApplicationKeyOutputArgs {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    exactMatch?: pulumi.Input<boolean>;
     /**
      * Id for Application Key.
      */

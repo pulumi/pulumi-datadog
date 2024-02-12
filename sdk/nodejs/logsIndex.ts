@@ -15,6 +15,11 @@ import * as utilities from "./utilities";
  *
  * const sampleIndex = new datadog.LogsIndex("sampleIndex", {
  *     dailyLimit: 200000,
+ *     dailyLimitReset: {
+ *         resetTime: "14:00",
+ *         resetUtcOffset: "+02:00",
+ *     },
+ *     dailyLimitWarningThresholdPercentage: 50,
  *     exclusionFilters: [
  *         {
  *             filters: [{
@@ -80,6 +85,14 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly dailyLimit!: pulumi.Output<number | undefined>;
     /**
+     * Object containing options to override the default daily limit reset time.
+     */
+    public readonly dailyLimitReset!: pulumi.Output<outputs.LogsIndexDailyLimitReset | undefined>;
+    /**
+     * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     */
+    public readonly dailyLimitWarningThresholdPercentage!: pulumi.Output<number>;
+    /**
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
     public readonly disableDailyLimit!: pulumi.Output<boolean>;
@@ -114,6 +127,8 @@ export class LogsIndex extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
             resourceInputs["dailyLimit"] = state ? state.dailyLimit : undefined;
+            resourceInputs["dailyLimitReset"] = state ? state.dailyLimitReset : undefined;
+            resourceInputs["dailyLimitWarningThresholdPercentage"] = state ? state.dailyLimitWarningThresholdPercentage : undefined;
             resourceInputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
             resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
@@ -128,6 +143,8 @@ export class LogsIndex extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["dailyLimit"] = args ? args.dailyLimit : undefined;
+            resourceInputs["dailyLimitReset"] = args ? args.dailyLimitReset : undefined;
+            resourceInputs["dailyLimitWarningThresholdPercentage"] = args ? args.dailyLimitWarningThresholdPercentage : undefined;
             resourceInputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
             resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
@@ -147,6 +164,14 @@ export interface LogsIndexState {
      * The number of log events you can send in this index per day before you are rate-limited.
      */
     dailyLimit?: pulumi.Input<number>;
+    /**
+     * Object containing options to override the default daily limit reset time.
+     */
+    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset>;
+    /**
+     * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     */
+    dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
     /**
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */
@@ -177,6 +202,14 @@ export interface LogsIndexArgs {
      * The number of log events you can send in this index per day before you are rate-limited.
      */
     dailyLimit?: pulumi.Input<number>;
+    /**
+     * Object containing options to override the default daily limit reset time.
+     */
+    dailyLimitReset?: pulumi.Input<inputs.LogsIndexDailyLimitReset>;
+    /**
+     * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     */
+    dailyLimitWarningThresholdPercentage?: pulumi.Input<number>;
     /**
      * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
      */

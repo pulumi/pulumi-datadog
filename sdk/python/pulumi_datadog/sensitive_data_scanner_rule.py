@@ -19,6 +19,7 @@ class SensitiveDataScannerRuleArgs:
                  group_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_keyword_configuration: Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31,6 +32,7 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[str] group_id: Id of the scanning group the rule belongs to.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
+        :param pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs'] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
@@ -44,6 +46,8 @@ class SensitiveDataScannerRuleArgs:
             pulumi.set(__self__, "description", description)
         if excluded_namespaces is not None:
             pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
+        if included_keyword_configuration is not None:
+            pulumi.set(__self__, "included_keyword_configuration", included_keyword_configuration)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -94,6 +98,18 @@ class SensitiveDataScannerRuleArgs:
     @excluded_namespaces.setter
     def excluded_namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_namespaces", value)
+
+    @property
+    @pulumi.getter(name="includedKeywordConfiguration")
+    def included_keyword_configuration(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]:
+        """
+        Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        """
+        return pulumi.get(self, "included_keyword_configuration")
+
+    @included_keyword_configuration.setter
+    def included_keyword_configuration(self, value: Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]):
+        pulumi.set(self, "included_keyword_configuration", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -186,6 +202,7 @@ class _SensitiveDataScannerRuleState:
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 included_keyword_configuration: Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -198,6 +215,7 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[str] group_id: Id of the scanning group the rule belongs to.
+        :param pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs'] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
@@ -212,6 +230,8 @@ class _SensitiveDataScannerRuleState:
             pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
+        if included_keyword_configuration is not None:
+            pulumi.set(__self__, "included_keyword_configuration", included_keyword_configuration)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
@@ -262,6 +282,18 @@ class _SensitiveDataScannerRuleState:
     @group_id.setter
     def group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter(name="includedKeywordConfiguration")
+    def included_keyword_configuration(self) -> Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]:
+        """
+        Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        """
+        return pulumi.get(self, "included_keyword_configuration")
+
+    @included_keyword_configuration.setter
+    def included_keyword_configuration(self, value: Optional[pulumi.Input['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]):
+        pulumi.set(self, "included_keyword_configuration", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -356,6 +388,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 included_keyword_configuration: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -365,7 +398,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  text_replacement: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']]] = None,
                  __props__=None):
         """
-        Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
+        Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 
         ## Example Usage
 
@@ -394,6 +427,13 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                 number_of_chars=0,
                 replacement_string="",
                 type="hash",
+            ),
+            included_keyword_configuration=datadog.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs(
+                keywords=[
+                    "cc",
+                    "credit card",
+                ],
+                character_count=30,
             ))
         aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
         mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
@@ -417,6 +457,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[str] group_id: Id of the scanning group the rule belongs to.
+        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
@@ -432,7 +473,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  args: SensitiveDataScannerRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
+        Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 
         ## Example Usage
 
@@ -461,6 +502,13 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                 number_of_chars=0,
                 replacement_string="",
                 type="hash",
+            ),
+            included_keyword_configuration=datadog.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs(
+                keywords=[
+                    "cc",
+                    "credit card",
+                ],
+                character_count=30,
             ))
         aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
         mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
@@ -497,6 +545,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
+                 included_keyword_configuration: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -518,6 +567,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
+            __props__.__dict__["included_keyword_configuration"] = included_keyword_configuration
             __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["namespaces"] = namespaces
@@ -538,6 +588,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
+            included_keyword_configuration: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -555,6 +606,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[str] group_id: Id of the scanning group the rule belongs to.
+        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
@@ -570,6 +622,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["excluded_namespaces"] = excluded_namespaces
         __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["included_keyword_configuration"] = included_keyword_configuration
         __props__.__dict__["is_enabled"] = is_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["namespaces"] = namespaces
@@ -602,6 +655,14 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         Id of the scanning group the rule belongs to.
         """
         return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="includedKeywordConfiguration")
+    def included_keyword_configuration(self) -> pulumi.Output[Optional['outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']]:
+        """
+        Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        """
+        return pulumi.get(self, "included_keyword_configuration")
 
     @property
     @pulumi.getter(name="isEnabled")

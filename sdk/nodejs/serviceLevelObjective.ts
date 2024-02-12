@@ -9,75 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Metric-Based SLO
- * // Create a new Datadog service level objective
- * const foo = new datadog.ServiceLevelObjective("foo", {
- *     description: "My custom metric SLO",
- *     name: "Example Metric SLO",
- *     query: {
- *         denominator: "sum:my.custom.count.metric{*}.as_count()",
- *         numerator: "sum:my.custom.count.metric{type:good_events}.as_count()",
- *     },
- *     tags: [
- *         "foo:bar",
- *         "baz",
- *     ],
- *     targetThreshold: 99.9,
- *     thresholds: [
- *         {
- *             target: 99.9,
- *             timeframe: "7d",
- *             warning: 99.99,
- *         },
- *         {
- *             target: 99.9,
- *             timeframe: "30d",
- *             warning: 99.99,
- *         },
- *     ],
- *     timeframe: "30d",
- *     type: "metric",
- *     warningThreshold: 99.99,
- * });
- * // Monitor-Based SLO
- * // Create a new Datadog service level objective
- * const bar = new datadog.ServiceLevelObjective("bar", {
- *     description: "My custom monitor SLO",
- *     monitorIds: [
- *         1,
- *         2,
- *         3,
- *     ],
- *     name: "Example Monitor SLO",
- *     tags: [
- *         "foo:bar",
- *         "baz",
- *     ],
- *     targetThreshold: 99.9,
- *     thresholds: [
- *         {
- *             target: 99.9,
- *             timeframe: "7d",
- *             warning: 99.99,
- *         },
- *         {
- *             target: 99.9,
- *             timeframe: "30d",
- *             warning: 99.99,
- *         },
- *     ],
- *     timeframe: "30d",
- *     type: "monitor",
- *     warningThreshold: 99.99,
- * });
- * ```
- *
  * ## Import
  *
  * Service Level Objectives can be imported using their string ID, e.g.
@@ -131,13 +62,17 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly monitorIds!: pulumi.Output<number[] | undefined>;
     /**
-     * Name of Datadog service level objective
+     * The name of the query for use in formulas.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The metric query of good / total events
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      */
     public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
+    /**
+     * A map of SLI specifications to use as part of the SLO.
+     */
+    public readonly sliSpecification!: pulumi.Output<outputs.ServiceLevelObjectiveSliSpecification | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -186,6 +121,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["monitorIds"] = state ? state.monitorIds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["sliSpecification"] = state ? state.sliSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["targetThreshold"] = state ? state.targetThreshold : undefined;
             resourceInputs["thresholds"] = state ? state.thresholds : undefined;
@@ -210,6 +146,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["monitorIds"] = args ? args.monitorIds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["sliSpecification"] = args ? args.sliSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetThreshold"] = args ? args.targetThreshold : undefined;
             resourceInputs["thresholds"] = args ? args.thresholds : undefined;
@@ -244,13 +181,17 @@ export interface ServiceLevelObjectiveState {
      */
     monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Name of Datadog service level objective
+     * The name of the query for use in formulas.
      */
     name?: pulumi.Input<string>;
     /**
-     * The metric query of good / total events
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    /**
+     * A map of SLI specifications to use as part of the SLO.
+     */
+    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -302,13 +243,17 @@ export interface ServiceLevelObjectiveArgs {
      */
     monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Name of Datadog service level objective
+     * The name of the query for use in formulas.
      */
     name: pulumi.Input<string>;
     /**
-     * The metric query of good / total events
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    /**
+     * A map of SLI specifications to use as part of the SLO.
+     */
+    sliSpecification?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecification>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */

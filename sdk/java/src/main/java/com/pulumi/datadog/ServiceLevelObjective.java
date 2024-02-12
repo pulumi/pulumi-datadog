@@ -11,6 +11,7 @@ import com.pulumi.datadog.ServiceLevelObjectiveArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveState;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveQuery;
+import com.pulumi.datadog.outputs.ServiceLevelObjectiveSliSpecification;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveThreshold;
 import java.lang.Boolean;
 import java.lang.Double;
@@ -24,6 +25,7 @@ import javax.annotation.Nullable;
  * Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -34,6 +36,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.ServiceLevelObjectiveArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveQueryArgs;
  * import com.pulumi.datadog.inputs.ServiceLevelObjectiveThresholdArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs;
+ * import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,6 +104,35 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .timeframe(&#34;30d&#34;)
  *             .type(&#34;monitor&#34;)
+ *             .warningThreshold(99.99)
+ *             .build());
+ * 
+ *         var timeSliceSlo = new ServiceLevelObjective(&#34;timeSliceSlo&#34;, ServiceLevelObjectiveArgs.builder()        
+ *             .description(&#34;My custom time slice SLO&#34;)
+ *             .name(&#34;Example Time Slice SLO&#34;)
+ *             .sliSpecification(ServiceLevelObjectiveSliSpecificationArgs.builder()
+ *                 .timeSlice(ServiceLevelObjectiveSliSpecificationTimeSliceArgs.builder()
+ *                     .comparator(&#34;&gt;&#34;)
+ *                     .query(ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs.builder()
+ *                         .formula(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs.builder()
+ *                             .formulaExpression(&#34;query1&#34;)
+ *                             .build())
+ *                         .query(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .build())
+ *                     .threshold(0.9)
+ *                     .build())
+ *                 .build())
+ *             .tags(            
+ *                 &#34;service:myservice&#34;,
+ *                 &#34;team:myteam&#34;)
+ *             .targetThreshold(99.9)
+ *             .thresholds(ServiceLevelObjectiveThresholdArgs.builder()
+ *                 .target(99.9)
+ *                 .timeframe(&#34;7d&#34;)
+ *                 .warning(99.99)
+ *                 .build())
+ *             .timeframe(&#34;7d&#34;)
+ *             .type(&#34;time_slice&#34;)
  *             .warningThreshold(99.99)
  *             .build());
  * 
@@ -173,32 +208,46 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitorIds);
     }
     /**
-     * Name of Datadog service level objective
+     * The name of the query for use in formulas.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of Datadog service level objective
+     * @return The name of the query for use in formulas.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The metric query of good / total events
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      * 
      */
     @Export(name="query", refs={ServiceLevelObjectiveQuery.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLevelObjectiveQuery> query;
 
     /**
-     * @return The metric query of good / total events
+     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      * 
      */
     public Output<Optional<ServiceLevelObjectiveQuery>> query() {
         return Codegen.optional(this.query);
+    }
+    /**
+     * A map of SLI specifications to use as part of the SLO.
+     * 
+     */
+    @Export(name="sliSpecification", refs={ServiceLevelObjectiveSliSpecification.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceLevelObjectiveSliSpecification> sliSpecification;
+
+    /**
+     * @return A map of SLI specifications to use as part of the SLO.
+     * 
+     */
+    public Output<Optional<ServiceLevelObjectiveSliSpecification>> sliSpecification() {
+        return Codegen.optional(this.sliSpecification);
     }
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API

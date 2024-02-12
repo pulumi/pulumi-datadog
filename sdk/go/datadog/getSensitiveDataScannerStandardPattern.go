@@ -34,6 +34,8 @@ type GetSensitiveDataScannerStandardPatternResult struct {
 	Filter string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// List of recommended keywords to improve rule accuracy.
+	IncludedKeywords []string `pulumi:"includedKeywords"`
 	// Name of the standard pattern.
 	Name string `pulumi:"name"`
 	// Regex that the standard pattern applies.
@@ -88,6 +90,11 @@ func (o GetSensitiveDataScannerStandardPatternResultOutput) Filter() pulumi.Stri
 // The provider-assigned unique ID for this managed resource.
 func (o GetSensitiveDataScannerStandardPatternResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of recommended keywords to improve rule accuracy.
+func (o GetSensitiveDataScannerStandardPatternResultOutput) IncludedKeywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSensitiveDataScannerStandardPatternResult) []string { return v.IncludedKeywords }).(pulumi.StringArrayOutput)
 }
 
 // Name of the standard pattern.

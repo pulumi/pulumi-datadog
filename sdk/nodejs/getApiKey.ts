@@ -23,6 +23,7 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getApiKey:getApiKey", {
+        "exactMatch": args.exactMatch,
         "id": args.id,
         "name": args.name,
     }, opts);
@@ -32,6 +33,10 @@ export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyArgs {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    exactMatch?: boolean;
     /**
      * The ID of this resource.
      */
@@ -46,6 +51,10 @@ export interface GetApiKeyArgs {
  * A collection of values returned by getApiKey.
  */
 export interface GetApiKeyResult {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    readonly exactMatch?: boolean;
     /**
      * The ID of this resource.
      */
@@ -81,6 +90,10 @@ export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getApiKey.
  */
 export interface GetApiKeyOutputArgs {
+    /**
+     * Whether to use exact match when searching by name.
+     */
+    exactMatch?: pulumi.Input<boolean>;
     /**
      * The ID of this resource.
      */

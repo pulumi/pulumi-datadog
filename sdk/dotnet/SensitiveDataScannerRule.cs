@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
+    /// Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
     /// 
     /// ## Example Usage
     /// 
@@ -58,6 +58,15 @@ namespace Pulumi.Datadog
     ///             NumberOfChars = 0,
     ///             ReplacementString = "",
     ///             Type = "hash",
+    ///         },
+    ///         IncludedKeywordConfiguration = new Datadog.Inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs
+    ///         {
+    ///             Keywords = new[]
+    ///             {
+    ///                 "cc",
+    ///                 "credit card",
+    ///             },
+    ///             CharacterCount = 30,
     ///         },
     ///     });
     /// 
@@ -112,6 +121,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        /// </summary>
+        [Output("includedKeywordConfiguration")]
+        public Output<Outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration?> IncludedKeywordConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not the rule is enabled.
@@ -226,6 +241,12 @@ namespace Pulumi.Datadog
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
+        /// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        /// </summary>
+        [Input("includedKeywordConfiguration")]
+        public Input<Inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs>? IncludedKeywordConfiguration { get; set; }
+
+        /// <summary>
         /// Whether or not the rule is enabled.
         /// </summary>
         [Input("isEnabled")]
@@ -310,6 +331,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        /// </summary>
+        [Input("includedKeywordConfiguration")]
+        public Input<Inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationGetArgs>? IncludedKeywordConfiguration { get; set; }
 
         /// <summary>
         /// Whether or not the rule is enabled.

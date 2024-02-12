@@ -50,6 +50,8 @@ func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyArgs struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// The ID of this resource.
 	Id *string `pulumi:"id"`
 	// Name for API Key.
@@ -58,6 +60,8 @@ type LookupApiKeyArgs struct {
 
 // A collection of values returned by getApiKey.
 type LookupApiKeyResult struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// The ID of this resource.
 	Id *string `pulumi:"id"`
 	// The value of the API Key.
@@ -81,6 +85,8 @@ func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts .
 
 // A collection of arguments for invoking getApiKey.
 type LookupApiKeyOutputArgs struct {
+	// Whether to use exact match when searching by name.
+	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// The ID of this resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name for API Key.
@@ -104,6 +110,11 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutput() LookupApiKeyResul
 
 func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx context.Context) LookupApiKeyResultOutput {
 	return o
+}
+
+// Whether to use exact match when searching by name.
+func (o LookupApiKeyResultOutput) ExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of this resource.

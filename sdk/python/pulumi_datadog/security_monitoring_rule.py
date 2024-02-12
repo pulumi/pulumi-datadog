@@ -16,9 +16,9 @@ __all__ = ['SecurityMonitoringRuleArgs', 'SecurityMonitoringRule']
 @pulumi.input_type
 class SecurityMonitoringRuleArgs:
     def __init__(__self__, *,
-                 cases: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]],
                  message: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
                  has_extended_title: Optional[pulumi.Input[bool]] = None,
@@ -26,12 +26,13 @@ class SecurityMonitoringRuleArgs:
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: Name of the case.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
@@ -39,11 +40,13 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
-        pulumi.set(__self__, "cases", cases)
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "name", name)
+        if cases is not None:
+            pulumi.set(__self__, "cases", cases)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if filters is not None:
@@ -58,20 +61,10 @@ class SecurityMonitoringRuleArgs:
             pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if third_party_cases is not None:
+            pulumi.set(__self__, "third_party_cases", third_party_cases)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def cases(self) -> pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]:
-        """
-        Cases for generating signals.
-        """
-        return pulumi.get(self, "cases")
-
-    @cases.setter
-    def cases(self, value: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]):
-        pulumi.set(self, "cases", value)
 
     @property
     @pulumi.getter
@@ -96,6 +89,18 @@ class SecurityMonitoringRuleArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def cases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]]:
+        """
+        Cases for generating signals.
+        """
+        return pulumi.get(self, "cases")
+
+    @cases.setter
+    def cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]]):
+        pulumi.set(self, "cases", value)
 
     @property
     @pulumi.getter
@@ -182,6 +187,18 @@ class SecurityMonitoringRuleArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="thirdPartyCases")
+    def third_party_cases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]]:
+        """
+        Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        """
+        return pulumi.get(self, "third_party_cases")
+
+    @third_party_cases.setter
+    def third_party_cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]]):
+        pulumi.set(self, "third_party_cases", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -207,6 +224,7 @@ class _SecurityMonitoringRuleState:
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringRule resources.
@@ -220,6 +238,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         if cases is not None:
@@ -242,6 +261,8 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "signal_queries", signal_queries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if third_party_cases is not None:
+            pulumi.set(__self__, "third_party_cases", third_party_cases)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -366,6 +387,18 @@ class _SecurityMonitoringRuleState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="thirdPartyCases")
+    def third_party_cases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]]:
+        """
+        Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        """
+        return pulumi.get(self, "third_party_cases")
+
+    @third_party_cases.setter
+    def third_party_cases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]]):
+        pulumi.set(self, "third_party_cases", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -393,6 +426,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -455,6 +489,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         ...
@@ -536,6 +571,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -546,8 +582,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityMonitoringRuleArgs.__new__(SecurityMonitoringRuleArgs)
 
-            if cases is None and not opts.urn:
-                raise TypeError("Missing required property 'cases'")
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["filters"] = filters
@@ -562,6 +596,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             __props__.__dict__["queries"] = queries
             __props__.__dict__["signal_queries"] = signal_queries
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["third_party_cases"] = third_party_cases
             __props__.__dict__["type"] = type
         super(SecurityMonitoringRule, __self__).__init__(
             'datadog:index/securityMonitoringRule:SecurityMonitoringRule',
@@ -583,6 +618,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
             signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'SecurityMonitoringRule':
         """
         Get an existing SecurityMonitoringRule resource's state with the given name, id, and optional extra
@@ -601,6 +637,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -617,12 +654,13 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         __props__.__dict__["queries"] = queries
         __props__.__dict__["signal_queries"] = signal_queries
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["third_party_cases"] = third_party_cases
         __props__.__dict__["type"] = type
         return SecurityMonitoringRule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def cases(self) -> pulumi.Output[Sequence['outputs.SecurityMonitoringRuleCase']]:
+    def cases(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleCase']]]:
         """
         Cases for generating signals.
         """
@@ -699,6 +737,14 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         Tags for generated signals.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="thirdPartyCases")
+    def third_party_cases(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleThirdPartyCase']]]:
+        """
+        Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+        """
+        return pulumi.get(self, "third_party_cases")
 
     @property
     @pulumi.getter

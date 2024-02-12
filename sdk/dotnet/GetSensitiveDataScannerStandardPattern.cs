@@ -66,6 +66,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// List of recommended keywords to improve rule accuracy.
+        /// </summary>
+        public readonly ImmutableArray<string> IncludedKeywords;
+        /// <summary>
         /// Name of the standard pattern.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.Datadog
 
             string id,
 
+            ImmutableArray<string> includedKeywords,
+
             string name,
 
             string pattern,
@@ -92,6 +98,7 @@ namespace Pulumi.Datadog
         {
             Filter = filter;
             Id = id;
+            IncludedKeywords = includedKeywords;
             Name = name;
             Pattern = pattern;
             Tags = tags;
