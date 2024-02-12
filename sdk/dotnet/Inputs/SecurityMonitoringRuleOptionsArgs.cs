@@ -39,20 +39,26 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
         /// </summary>
-        [Input("keepAlive", required: true)]
-        public Input<int> KeepAlive { get; set; } = null!;
+        [Input("keepAlive")]
+        public Input<int>? KeepAlive { get; set; }
 
         /// <summary>
         /// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         /// </summary>
-        [Input("maxSignalDuration", required: true)]
-        public Input<int> MaxSignalDuration { get; set; } = null!;
+        [Input("maxSignalDuration")]
+        public Input<int>? MaxSignalDuration { get; set; }
 
         /// <summary>
         /// New value rules specific options.
         /// </summary>
         [Input("newValueOptions")]
         public Input<Inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs>? NewValueOptions { get; set; }
+
+        /// <summary>
+        /// Options for rules using the third-party detection method.
+        /// </summary>
+        [Input("thirdPartyRuleOptions")]
+        public Input<Inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptionsArgs>? ThirdPartyRuleOptions { get; set; }
 
         public SecurityMonitoringRuleOptionsArgs()
         {

@@ -40760,6 +40760,17 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
     target: pulumi.Input<string>;
 }
 
+export interface LogsIndexDailyLimitReset {
+    /**
+     * String in `HH:00` format representing the time of day the daily limit should be reset. The hours must be between 00 and 23 (inclusive).
+     */
+    resetTime: pulumi.Input<string>;
+    /**
+     * String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours must be between -12 and +14 (inclusive).
+     */
+    resetUtcOffset: pulumi.Input<string>;
+}
+
 export interface LogsIndexExclusionFilter {
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilterFilter>[]>;
     /**
@@ -52594,15 +52605,19 @@ export interface SecurityMonitoringRuleOptions {
     /**
      * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      */
-    keepAlive: pulumi.Input<number>;
+    keepAlive?: pulumi.Input<number>;
     /**
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
-    maxSignalDuration: pulumi.Input<number>;
+    maxSignalDuration?: pulumi.Input<number>;
     /**
      * New value rules specific options.
      */
     newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
+    /**
+     * Options for rules using the third-party detection method.
+     */
+    thirdPartyRuleOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions>;
 }
 
 export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
@@ -52629,6 +52644,36 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
      */
     learningThreshold?: pulumi.Input<number>;
+}
+
+export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+    /**
+     * Notification targets for the default rule case, when none of the third-party cases match.
+     */
+    defaultNotifications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    defaultStatus: pulumi.Input<string>;
+    /**
+     * Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+     */
+    rootQueries: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery>[]>;
+    /**
+     * A template for the signal title; if omitted, the title is generated based on the case name.
+     */
+    signalTitleTemplate?: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+    /**
+     * Fields to group by. If empty, each log triggers a signal.
+     */
+    groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
+    query: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -52708,11 +52753,41 @@ export interface SecurityMonitoringRuleSignalQuery {
     ruleId: pulumi.Input<string>;
 }
 
+export interface SecurityMonitoringRuleThirdPartyCase {
+    /**
+     * Name of the case.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Notification targets for each rule case.
+     */
+    notifications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A query to associate a third-party event to this case.
+     */
+    query?: pulumi.Input<string>;
+    /**
+     * Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    status: pulumi.Input<string>;
+}
+
 export interface SensitiveDataScannerGroupFilter {
     /**
      * Query to filter the events.
      */
     query: pulumi.Input<string>;
+}
+
+export interface SensitiveDataScannerRuleIncludedKeywordConfiguration {
+    /**
+     * Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+     */
+    characterCount: pulumi.Input<number>;
+    /**
+     * Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+     */
+    keywords: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface SensitiveDataScannerRuleTextReplacement {
@@ -52739,6 +52814,68 @@ export interface ServiceLevelObjectiveQuery {
      * The sum of all the `good` events.
      */
     numerator: pulumi.Input<string>;
+}
+
+export interface ServiceLevelObjectiveSliSpecification {
+    /**
+     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     */
+    timeSlice: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSlice>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSlice {
+    /**
+     * The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+     */
+    comparator: pulumi.Input<string>;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    query: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery>;
+    /**
+     * The threshold value to which each SLI value will be compared.
+     */
+    threshold: pulumi.Input<number>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+    /**
+     * A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+     */
+    formula: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula>;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    queries: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery>[]>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+    /**
+     * The formula string, which is an expression involving named queries.
+     */
+    formulaExpression: pulumi.Input<string>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery>;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+    /**
+     * The data source for metrics queries. Defaults to `"metrics"`.
+     */
+    dataSource?: pulumi.Input<string>;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    query: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveThreshold {

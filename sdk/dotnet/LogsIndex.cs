@@ -23,6 +23,12 @@ namespace Pulumi.Datadog
     ///     var sampleIndex = new Datadog.LogsIndex("sampleIndex", new()
     ///     {
     ///         DailyLimit = 200000,
+    ///         DailyLimitReset = new Datadog.Inputs.LogsIndexDailyLimitResetArgs
+    ///         {
+    ///             ResetTime = "14:00",
+    ///             ResetUtcOffset = "+02:00",
+    ///         },
+    ///         DailyLimitWarningThresholdPercentage = 50,
     ///         ExclusionFilters = new[]
     ///         {
     ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
@@ -80,6 +86,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("dailyLimit")]
         public Output<int?> DailyLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// Object containing options to override the default daily limit reset time.
+        /// </summary>
+        [Output("dailyLimitReset")]
+        public Output<Outputs.LogsIndexDailyLimitReset?> DailyLimitReset { get; private set; } = null!;
+
+        /// <summary>
+        /// A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        /// </summary>
+        [Output("dailyLimitWarningThresholdPercentage")]
+        public Output<double> DailyLimitWarningThresholdPercentage { get; private set; } = null!;
 
         /// <summary>
         /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
@@ -164,6 +182,18 @@ namespace Pulumi.Datadog
         public Input<int>? DailyLimit { get; set; }
 
         /// <summary>
+        /// Object containing options to override the default daily limit reset time.
+        /// </summary>
+        [Input("dailyLimitReset")]
+        public Input<Inputs.LogsIndexDailyLimitResetArgs>? DailyLimitReset { get; set; }
+
+        /// <summary>
+        /// A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        /// </summary>
+        [Input("dailyLimitWarningThresholdPercentage")]
+        public Input<double>? DailyLimitWarningThresholdPercentage { get; set; }
+
+        /// <summary>
         /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         /// </summary>
         [Input("disableDailyLimit")]
@@ -218,6 +248,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("dailyLimit")]
         public Input<int>? DailyLimit { get; set; }
+
+        /// <summary>
+        /// Object containing options to override the default daily limit reset time.
+        /// </summary>
+        [Input("dailyLimitReset")]
+        public Input<Inputs.LogsIndexDailyLimitResetGetArgs>? DailyLimitReset { get; set; }
+
+        /// <summary>
+        /// A percentage threshold of the daily quota at which a Datadog warning event is generated.
+        /// </summary>
+        [Input("dailyLimitWarningThresholdPercentage")]
+        public Input<double>? DailyLimitWarningThresholdPercentage { get; set; }
 
         /// <summary>
         /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.

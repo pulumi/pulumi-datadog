@@ -4,9 +4,11 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexDailyLimitReset;
 import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexExclusionFilter;
 import com.pulumi.datadog.outputs.GetLogsIndexesLogsIndexFilter;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,6 +21,16 @@ public final class GetLogsIndexesLogsIndex {
      * 
      */
     private Integer dailyLimit;
+    /**
+     * @return Object containing options to override the default daily limit reset time.
+     * 
+     */
+    private List<GetLogsIndexesLogsIndexDailyLimitReset> dailyLimitResets;
+    /**
+     * @return The percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    private Double dailyLimitWarningThresholdPercentage;
     /**
      * @return List of exclusion filters.
      * 
@@ -47,6 +59,20 @@ public final class GetLogsIndexesLogsIndex {
      */
     public Integer dailyLimit() {
         return this.dailyLimit;
+    }
+    /**
+     * @return Object containing options to override the default daily limit reset time.
+     * 
+     */
+    public List<GetLogsIndexesLogsIndexDailyLimitReset> dailyLimitResets() {
+        return this.dailyLimitResets;
+    }
+    /**
+     * @return The percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    public Double dailyLimitWarningThresholdPercentage() {
+        return this.dailyLimitWarningThresholdPercentage;
     }
     /**
      * @return List of exclusion filters.
@@ -87,6 +113,8 @@ public final class GetLogsIndexesLogsIndex {
     @CustomType.Builder
     public static final class Builder {
         private Integer dailyLimit;
+        private List<GetLogsIndexesLogsIndexDailyLimitReset> dailyLimitResets;
+        private Double dailyLimitWarningThresholdPercentage;
         private List<GetLogsIndexesLogsIndexExclusionFilter> exclusionFilters;
         private List<GetLogsIndexesLogsIndexFilter> filters;
         private String name;
@@ -95,6 +123,8 @@ public final class GetLogsIndexesLogsIndex {
         public Builder(GetLogsIndexesLogsIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dailyLimit = defaults.dailyLimit;
+    	      this.dailyLimitResets = defaults.dailyLimitResets;
+    	      this.dailyLimitWarningThresholdPercentage = defaults.dailyLimitWarningThresholdPercentage;
     	      this.exclusionFilters = defaults.exclusionFilters;
     	      this.filters = defaults.filters;
     	      this.name = defaults.name;
@@ -107,6 +137,25 @@ public final class GetLogsIndexesLogsIndex {
               throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "dailyLimit");
             }
             this.dailyLimit = dailyLimit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dailyLimitResets(List<GetLogsIndexesLogsIndexDailyLimitReset> dailyLimitResets) {
+            if (dailyLimitResets == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "dailyLimitResets");
+            }
+            this.dailyLimitResets = dailyLimitResets;
+            return this;
+        }
+        public Builder dailyLimitResets(GetLogsIndexesLogsIndexDailyLimitReset... dailyLimitResets) {
+            return dailyLimitResets(List.of(dailyLimitResets));
+        }
+        @CustomType.Setter
+        public Builder dailyLimitWarningThresholdPercentage(Double dailyLimitWarningThresholdPercentage) {
+            if (dailyLimitWarningThresholdPercentage == null) {
+              throw new MissingRequiredPropertyException("GetLogsIndexesLogsIndex", "dailyLimitWarningThresholdPercentage");
+            }
+            this.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +199,8 @@ public final class GetLogsIndexesLogsIndex {
         public GetLogsIndexesLogsIndex build() {
             final var _resultValue = new GetLogsIndexesLogsIndex();
             _resultValue.dailyLimit = dailyLimit;
+            _resultValue.dailyLimitResets = dailyLimitResets;
+            _resultValue.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
             _resultValue.exclusionFilters = exclusionFilters;
             _resultValue.filters = filters;
             _resultValue.name = name;

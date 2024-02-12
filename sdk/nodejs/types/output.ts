@@ -39917,6 +39917,14 @@ export interface GetLogsIndexesLogsIndex {
      */
     dailyLimit: number;
     /**
+     * Object containing options to override the default daily limit reset time.
+     */
+    dailyLimitResets: outputs.GetLogsIndexesLogsIndexDailyLimitReset[];
+    /**
+     * The percentage threshold of the daily quota at which a Datadog warning event is generated.
+     */
+    dailyLimitWarningThresholdPercentage: number;
+    /**
      * List of exclusion filters.
      */
     exclusionFilters: outputs.GetLogsIndexesLogsIndexExclusionFilter[];
@@ -39932,6 +39940,17 @@ export interface GetLogsIndexesLogsIndex {
      * The number of days before logs are deleted from this index.
      */
     retentionDays: number;
+}
+
+export interface GetLogsIndexesLogsIndexDailyLimitReset {
+    /**
+     * String in `HH:00` format representing the time of day the daily limit should be reset. The hours between 00 and 23 (inclusive).
+     */
+    resetTime: string;
+    /**
+     * String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours between -12 and +14 (inclusive).
+     */
+    resetUtcOffset: string;
 }
 
 export interface GetLogsIndexesLogsIndexExclusionFilter {
@@ -40162,7 +40181,7 @@ export interface GetSecurityMonitoringRulesRule {
     /**
      * Cases for generating signals.
      */
-    cases: outputs.GetSecurityMonitoringRulesRuleCase[];
+    cases?: outputs.GetSecurityMonitoringRulesRuleCase[];
     /**
      * Whether the rule is enabled.
      */
@@ -40199,6 +40218,10 @@ export interface GetSecurityMonitoringRulesRule {
      * Tags for generated signals.
      */
     tags?: string[];
+    /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     */
+    thirdPartyCases?: outputs.GetSecurityMonitoringRulesRuleThirdPartyCase[];
     /**
      * The rule type.
      */
@@ -40255,15 +40278,19 @@ export interface GetSecurityMonitoringRulesRuleOptions {
     /**
      * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds).
      */
-    keepAlive: number;
+    keepAlive?: number;
     /**
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp.
      */
-    maxSignalDuration: number;
+    maxSignalDuration?: number;
     /**
      * New value rules specific options.
      */
     newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
+    /**
+     * Options for rules using the third-party detection method.
+     */
+    thirdPartyRuleOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions;
 }
 
 export interface GetSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions {
@@ -40290,6 +40317,36 @@ export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned.
      */
     learningThreshold?: number;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions {
+    /**
+     * Notification targets for the default rule case, when none of the third-party cases match.
+     */
+    defaultNotifications?: string[];
+    /**
+     * Severity of the default rule case, when none of the third-party cases match.
+     */
+    defaultStatus: string;
+    /**
+     * Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+     */
+    rootQueries: outputs.GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery[];
+    /**
+     * A template for the signal title; if omitted, the title is generated based on the case name.
+     */
+    signalTitleTemplate?: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery {
+    /**
+     * Fields to group by. If empty, each log triggers a signal.
+     */
+    groupByFields?: string[];
+    /**
+     * Query to filter logs.
+     */
+    query: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
@@ -40367,6 +40424,35 @@ export interface GetSecurityMonitoringRulesRuleSignalQuery {
      * Rule ID of the signal to correlate.
      */
     ruleId: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleThirdPartyCase {
+    /**
+     * Name of the case.
+     */
+    name?: string;
+    /**
+     * Notification targets for each rule case.
+     */
+    notifications?: string[];
+    /**
+     * A query to associate a third-party event to this case.
+     */
+    query?: string;
+    /**
+     * Severity of the Security Signal.
+     */
+    status: string;
+}
+
+export interface GetSecurityMonitoringSuppressionsSuppression {
+    description: string;
+    enabled: boolean;
+    expirationDate: string;
+    id: string;
+    name: string;
+    ruleQuery: string;
+    suppressionQuery: string;
 }
 
 export interface GetServiceLevelObjectiveQuery {
@@ -41312,6 +41398,17 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
      * Name of the attribute that contains the result of the arithmetic operation.
      */
     target: string;
+}
+
+export interface LogsIndexDailyLimitReset {
+    /**
+     * String in `HH:00` format representing the time of day the daily limit should be reset. The hours must be between 00 and 23 (inclusive).
+     */
+    resetTime: string;
+    /**
+     * String in `(-|+)HH:00` format representing the UTC offset to apply to the given reset time. The hours must be between -12 and +14 (inclusive).
+     */
+    resetUtcOffset: string;
 }
 
 export interface LogsIndexExclusionFilter {
@@ -53148,15 +53245,19 @@ export interface SecurityMonitoringRuleOptions {
     /**
      * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
      */
-    keepAlive: number;
+    keepAlive?: number;
     /**
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
      */
-    maxSignalDuration: number;
+    maxSignalDuration?: number;
     /**
      * New value rules specific options.
      */
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
+    /**
+     * Options for rules using the third-party detection method.
+     */
+    thirdPartyRuleOptions?: outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions;
 }
 
 export interface SecurityMonitoringRuleOptionsImpossibleTravelOptions {
@@ -53183,6 +53284,36 @@ export interface SecurityMonitoringRuleOptionsNewValueOptions {
      * A number of occurrences after which signals are generated for values that weren't learned. Valid values are `0`, `1`. Defaults to `0`.
      */
     learningThreshold?: number;
+}
+
+export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptions {
+    /**
+     * Notification targets for the default rule case, when none of the third-party cases match.
+     */
+    defaultNotifications?: string[];
+    /**
+     * Severity of the default rule case, when none of the third-party cases match. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    defaultStatus: string;
+    /**
+     * Queries to be combined with third-party case queries. Each of them can have different group by fields, to aggregate differently based on the type of alert.
+     */
+    rootQueries: outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery[];
+    /**
+     * A template for the signal title; if omitted, the title is generated based on the case name.
+     */
+    signalTitleTemplate?: string;
+}
+
+export interface SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
+    /**
+     * Fields to group by. If empty, each log triggers a signal.
+     */
+    groupByFields?: string[];
+    /**
+     * Query for selecting logs to apply the filtering action.
+     */
+    query: string;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -53262,11 +53393,41 @@ export interface SecurityMonitoringRuleSignalQuery {
     ruleId: string;
 }
 
+export interface SecurityMonitoringRuleThirdPartyCase {
+    /**
+     * Name of the case.
+     */
+    name?: string;
+    /**
+     * Notification targets for each rule case.
+     */
+    notifications?: string[];
+    /**
+     * A query to associate a third-party event to this case.
+     */
+    query?: string;
+    /**
+     * Severity of the Security Signal. Valid values are `info`, `low`, `medium`, `high`, `critical`.
+     */
+    status: string;
+}
+
 export interface SensitiveDataScannerGroupFilter {
     /**
      * Query to filter the events.
      */
     query: string;
+}
+
+export interface SensitiveDataScannerRuleIncludedKeywordConfiguration {
+    /**
+     * Number of characters before the match to find a keyword validating the match. It must be between 1 and 50 (inclusive).
+     */
+    characterCount: number;
+    /**
+     * Keyword list that is checked during scanning in order to validate a match. The number of keywords in the list must be lower than or equal to 30.
+     */
+    keywords: string[];
 }
 
 export interface SensitiveDataScannerRuleTextReplacement {
@@ -53293,6 +53454,68 @@ export interface ServiceLevelObjectiveQuery {
      * The sum of all the `good` events.
      */
     numerator: string;
+}
+
+export interface ServiceLevelObjectiveSliSpecification {
+    /**
+     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     */
+    timeSlice: outputs.ServiceLevelObjectiveSliSpecificationTimeSlice;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSlice {
+    /**
+     * The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+     */
+    comparator: string;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    query: outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery;
+    /**
+     * The threshold value to which each SLI value will be compared.
+     */
+    threshold: number;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+    /**
+     * A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+     */
+    formula: outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    queries: outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery[];
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+    /**
+     * The formula string, which is an expression involving named queries.
+     */
+    formulaExpression: string;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+    /**
+     * A timeseries formula and functions metrics query.
+     */
+    metricQuery?: outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery;
+}
+
+export interface ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+    /**
+     * The data source for metrics queries. Defaults to `"metrics"`.
+     */
+    dataSource?: string;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: string;
+    /**
+     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     */
+    query: string;
 }
 
 export interface ServiceLevelObjectiveThreshold {

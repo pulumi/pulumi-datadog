@@ -175,6 +175,11 @@ export const getSecurityMonitoringRules: typeof import("./getSecurityMonitoringR
 export const getSecurityMonitoringRulesOutput: typeof import("./getSecurityMonitoringRules").getSecurityMonitoringRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityMonitoringRules","getSecurityMonitoringRulesOutput"], () => require("./getSecurityMonitoringRules"));
 
+export { GetSecurityMonitoringSuppressionsResult } from "./getSecurityMonitoringSuppressions";
+export const getSecurityMonitoringSuppressions: typeof import("./getSecurityMonitoringSuppressions").getSecurityMonitoringSuppressions = null as any;
+export const getSecurityMonitoringSuppressionsOutput: typeof import("./getSecurityMonitoringSuppressions").getSecurityMonitoringSuppressionsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityMonitoringSuppressions","getSecurityMonitoringSuppressionsOutput"], () => require("./getSecurityMonitoringSuppressions"));
+
 export { GetSensitiveDataScannerGroupOrderResult } from "./getSensitiveDataScannerGroupOrder";
 export const getSensitiveDataScannerGroupOrder: typeof import("./getSensitiveDataScannerGroupOrder").getSensitiveDataScannerGroupOrder = null as any;
 export const getSensitiveDataScannerGroupOrderOutput: typeof import("./getSensitiveDataScannerGroupOrder").getSensitiveDataScannerGroupOrderOutput = null as any;
@@ -305,6 +310,11 @@ export type MonitorJson = import("./monitorJson").MonitorJson;
 export const MonitorJson: typeof import("./monitorJson").MonitorJson = null as any;
 utilities.lazyLoad(exports, ["MonitorJson"], () => require("./monitorJson"));
 
+export { OpenapiApiArgs, OpenapiApiState } from "./openapiApi";
+export type OpenapiApi = import("./openapiApi").OpenapiApi;
+export const OpenapiApi: typeof import("./openapiApi").OpenapiApi = null as any;
+utilities.lazyLoad(exports, ["OpenapiApi"], () => require("./openapiApi"));
+
 export { OrganizationSettingsArgs, OrganizationSettingsState } from "./organizationSettings";
 export type OrganizationSettings = import("./organizationSettings").OrganizationSettings;
 export const OrganizationSettings: typeof import("./organizationSettings").OrganizationSettings = null as any;
@@ -349,6 +359,11 @@ export { SecurityMonitoringRuleArgs, SecurityMonitoringRuleState } from "./secur
 export type SecurityMonitoringRule = import("./securityMonitoringRule").SecurityMonitoringRule;
 export const SecurityMonitoringRule: typeof import("./securityMonitoringRule").SecurityMonitoringRule = null as any;
 utilities.lazyLoad(exports, ["SecurityMonitoringRule"], () => require("./securityMonitoringRule"));
+
+export { SecurityMonitoringSuppressionArgs, SecurityMonitoringSuppressionState } from "./securityMonitoringSuppression";
+export type SecurityMonitoringSuppression = import("./securityMonitoringSuppression").SecurityMonitoringSuppression;
+export const SecurityMonitoringSuppression: typeof import("./securityMonitoringSuppression").SecurityMonitoringSuppression = null as any;
+utilities.lazyLoad(exports, ["SecurityMonitoringSuppression"], () => require("./securityMonitoringSuppression"));
 
 export { SensitiveDataScannerGroupArgs, SensitiveDataScannerGroupState } from "./sensitiveDataScannerGroup";
 export type SensitiveDataScannerGroup = import("./sensitiveDataScannerGroup").SensitiveDataScannerGroup;
@@ -536,6 +551,8 @@ const _module = {
                 return new MonitorConfigPolicy(name, <any>undefined, { urn })
             case "datadog:index/monitorJson:MonitorJson":
                 return new MonitorJson(name, <any>undefined, { urn })
+            case "datadog:index/openapiApi:OpenapiApi":
+                return new OpenapiApi(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/powerpack:Powerpack":
@@ -552,6 +569,8 @@ const _module = {
                 return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
+            case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
+                return new SecurityMonitoringSuppression(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
                 return new SensitiveDataScannerGroup(name, <any>undefined, { urn })
             case "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder":
@@ -624,6 +643,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration",
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorConfigPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/openapiApi", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/powerpack", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/restrictionPolicy", _module)
@@ -632,6 +652,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringSuppression", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroup", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerGroupOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sensitiveDataScannerRule", _module)

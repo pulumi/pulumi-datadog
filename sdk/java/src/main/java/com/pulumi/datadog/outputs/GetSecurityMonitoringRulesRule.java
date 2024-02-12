@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleFilter;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleOptions;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleQuery;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleSignalQuery;
+import com.pulumi.datadog.outputs.GetSecurityMonitoringRulesRuleThirdPartyCase;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -23,7 +24,7 @@ public final class GetSecurityMonitoringRulesRule {
      * @return Cases for generating signals.
      * 
      */
-    private List<GetSecurityMonitoringRulesRuleCase> cases;
+    private @Nullable List<GetSecurityMonitoringRulesRuleCase> cases;
     /**
      * @return Whether the rule is enabled.
      * 
@@ -70,6 +71,11 @@ public final class GetSecurityMonitoringRulesRule {
      */
     private @Nullable List<String> tags;
     /**
+     * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    private @Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases;
+    /**
      * @return The rule type.
      * 
      */
@@ -81,7 +87,7 @@ public final class GetSecurityMonitoringRulesRule {
      * 
      */
     public List<GetSecurityMonitoringRulesRuleCase> cases() {
-        return this.cases;
+        return this.cases == null ? List.of() : this.cases;
     }
     /**
      * @return Whether the rule is enabled.
@@ -147,6 +153,13 @@ public final class GetSecurityMonitoringRulesRule {
         return this.tags == null ? List.of() : this.tags;
     }
     /**
+     * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    public List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases() {
+        return this.thirdPartyCases == null ? List.of() : this.thirdPartyCases;
+    }
+    /**
      * @return The rule type.
      * 
      */
@@ -163,7 +176,7 @@ public final class GetSecurityMonitoringRulesRule {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetSecurityMonitoringRulesRuleCase> cases;
+        private @Nullable List<GetSecurityMonitoringRulesRuleCase> cases;
         private @Nullable Boolean enabled;
         private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
         private @Nullable Boolean hasExtendedTitle;
@@ -173,6 +186,7 @@ public final class GetSecurityMonitoringRulesRule {
         private @Nullable List<GetSecurityMonitoringRulesRuleQuery> queries;
         private @Nullable List<GetSecurityMonitoringRulesRuleSignalQuery> signalQueries;
         private @Nullable List<String> tags;
+        private @Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases;
         private @Nullable String type;
         public Builder() {}
         public Builder(GetSecurityMonitoringRulesRule defaults) {
@@ -187,14 +201,13 @@ public final class GetSecurityMonitoringRulesRule {
     	      this.queries = defaults.queries;
     	      this.signalQueries = defaults.signalQueries;
     	      this.tags = defaults.tags;
+    	      this.thirdPartyCases = defaults.thirdPartyCases;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder cases(List<GetSecurityMonitoringRulesRuleCase> cases) {
-            if (cases == null) {
-              throw new MissingRequiredPropertyException("GetSecurityMonitoringRulesRule", "cases");
-            }
+        public Builder cases(@Nullable List<GetSecurityMonitoringRulesRuleCase> cases) {
+
             this.cases = cases;
             return this;
         }
@@ -272,6 +285,15 @@ public final class GetSecurityMonitoringRulesRule {
             return tags(List.of(tags));
         }
         @CustomType.Setter
+        public Builder thirdPartyCases(@Nullable List<GetSecurityMonitoringRulesRuleThirdPartyCase> thirdPartyCases) {
+
+            this.thirdPartyCases = thirdPartyCases;
+            return this;
+        }
+        public Builder thirdPartyCases(GetSecurityMonitoringRulesRuleThirdPartyCase... thirdPartyCases) {
+            return thirdPartyCases(List.of(thirdPartyCases));
+        }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
 
             this.type = type;
@@ -289,6 +311,7 @@ public final class GetSecurityMonitoringRulesRule {
             _resultValue.queries = queries;
             _resultValue.signalQueries = signalQueries;
             _resultValue.tags = tags;
+            _resultValue.thirdPartyCases = thirdPartyCases;
             _resultValue.type = type;
             return _resultValue;
         }

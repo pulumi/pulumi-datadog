@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitorConfigPolicy{}
 	case "datadog:index/monitorJson:MonitorJson":
 		r = &MonitorJson{}
+	case "datadog:index/openapiApi:OpenapiApi":
+		r = &OpenapiApi{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
 	case "datadog:index/powerpack:Powerpack":
@@ -91,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityMonitoringFilter{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
 		r = &SecurityMonitoringRule{}
+	case "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression":
+		r = &SecurityMonitoringSuppression{}
 	case "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup":
 		r = &SensitiveDataScannerGroup{}
 	case "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder":
@@ -299,6 +303,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/openapiApi",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/organizationSettings",
 		&module{version},
 	)
@@ -335,6 +344,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityMonitoringRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityMonitoringSuppression",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

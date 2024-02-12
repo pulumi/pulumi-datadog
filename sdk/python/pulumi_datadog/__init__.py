@@ -39,6 +39,7 @@ from .get_roles import *
 from .get_rum_application import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
+from .get_security_monitoring_suppressions import *
 from .get_sensitive_data_scanner_group_order import *
 from .get_sensitive_data_scanner_standard_pattern import *
 from .get_service_account import *
@@ -65,6 +66,7 @@ from .metric_tag_configuration import *
 from .monitor import *
 from .monitor_config_policy import *
 from .monitor_json import *
+from .openapi_api import *
 from .organization_settings import *
 from .powerpack import *
 from .provider import *
@@ -74,6 +76,7 @@ from .rum_application import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_filter import *
 from .security_monitoring_rule import *
+from .security_monitoring_suppression import *
 from .sensitive_data_scanner_group import *
 from .sensitive_data_scanner_group_order import *
 from .sensitive_data_scanner_rule import *
@@ -456,6 +459,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/openapiApi",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/openapiApi:OpenapiApi": "OpenapiApi"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/organizationSettings",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -516,6 +527,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "SecurityMonitoringRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityMonitoringSuppression",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": "SecurityMonitoringSuppression"
   }
  },
  {

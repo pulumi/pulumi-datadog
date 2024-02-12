@@ -107,6 +107,8 @@ type SecurityMonitoringRule struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayOutput `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -118,9 +120,6 @@ func NewSecurityMonitoringRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Cases == nil {
-		return nil, errors.New("invalid value for required argument 'Cases'")
-	}
 	if args.Message == nil {
 		return nil, errors.New("invalid value for required argument 'Message'")
 	}
@@ -170,6 +169,8 @@ type securityMonitoringRuleState struct {
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
 }
@@ -195,6 +196,8 @@ type SecurityMonitoringRuleState struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
 }
@@ -224,6 +227,8 @@ type securityMonitoringRuleArgs struct {
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
 }
@@ -250,6 +255,8 @@ type SecurityMonitoringRuleArgs struct {
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
+	// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
 }
@@ -389,6 +396,13 @@ func (o SecurityMonitoringRuleOutput) SignalQueries() SecurityMonitoringRuleSign
 // Tags for generated signals.
 func (o SecurityMonitoringRuleOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+func (o SecurityMonitoringRuleOutput) ThirdPartyCases() SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleThirdPartyCaseArrayOutput {
+		return v.ThirdPartyCases
+	}).(SecurityMonitoringRuleThirdPartyCaseArrayOutput)
 }
 
 // The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.

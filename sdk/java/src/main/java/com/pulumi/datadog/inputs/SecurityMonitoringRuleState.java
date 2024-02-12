@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.SecurityMonitoringRuleFilterArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
 import com.pulumi.datadog.inputs.SecurityMonitoringRuleSignalQueryArgs;
+import com.pulumi.datadog.inputs.SecurityMonitoringRuleThirdPartyCaseArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -173,6 +174,21 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    @Import(name="thirdPartyCases")
+    private @Nullable Output<List<SecurityMonitoringRuleThirdPartyCaseArgs>> thirdPartyCases;
+
+    /**
+     * @return Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+     * 
+     */
+    public Optional<Output<List<SecurityMonitoringRuleThirdPartyCaseArgs>>> thirdPartyCases() {
+        return Optional.ofNullable(this.thirdPartyCases);
+    }
+
+    /**
      * The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `&#34;log_detection&#34;`.
      * 
      */
@@ -200,6 +216,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         this.queries = $.queries;
         this.signalQueries = $.signalQueries;
         this.tags = $.tags;
+        this.thirdPartyCases = $.thirdPartyCases;
         this.type = $.type;
     }
 
@@ -479,6 +496,37 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
          */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
+        }
+
+        /**
+         * @param thirdPartyCases Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thirdPartyCases(@Nullable Output<List<SecurityMonitoringRuleThirdPartyCaseArgs>> thirdPartyCases) {
+            $.thirdPartyCases = thirdPartyCases;
+            return this;
+        }
+
+        /**
+         * @param thirdPartyCases Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thirdPartyCases(List<SecurityMonitoringRuleThirdPartyCaseArgs> thirdPartyCases) {
+            return thirdPartyCases(Output.of(thirdPartyCases));
+        }
+
+        /**
+         * @param thirdPartyCases Cases for generating signals for third-party rules. Only required and accepted for third-party rules
+         * 
+         * @return builder
+         * 
+         */
+        public Builder thirdPartyCases(SecurityMonitoringRuleThirdPartyCaseArgs... thirdPartyCases) {
+            return thirdPartyCases(List.of(thirdPartyCases));
         }
 
         /**

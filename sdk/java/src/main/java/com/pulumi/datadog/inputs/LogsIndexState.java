@@ -5,9 +5,11 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;
 import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
 import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -33,6 +35,36 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> dailyLimit() {
         return Optional.ofNullable(this.dailyLimit);
+    }
+
+    /**
+     * Object containing options to override the default daily limit reset time.
+     * 
+     */
+    @Import(name="dailyLimitReset")
+    private @Nullable Output<LogsIndexDailyLimitResetArgs> dailyLimitReset;
+
+    /**
+     * @return Object containing options to override the default daily limit reset time.
+     * 
+     */
+    public Optional<Output<LogsIndexDailyLimitResetArgs>> dailyLimitReset() {
+        return Optional.ofNullable(this.dailyLimitReset);
+    }
+
+    /**
+     * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    @Import(name="dailyLimitWarningThresholdPercentage")
+    private @Nullable Output<Double> dailyLimitWarningThresholdPercentage;
+
+    /**
+     * @return A percentage threshold of the daily quota at which a Datadog warning event is generated.
+     * 
+     */
+    public Optional<Output<Double>> dailyLimitWarningThresholdPercentage() {
+        return Optional.ofNullable(this.dailyLimitWarningThresholdPercentage);
     }
 
     /**
@@ -114,6 +146,8 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
 
     private LogsIndexState(LogsIndexState $) {
         this.dailyLimit = $.dailyLimit;
+        this.dailyLimitReset = $.dailyLimitReset;
+        this.dailyLimitWarningThresholdPercentage = $.dailyLimitWarningThresholdPercentage;
         this.disableDailyLimit = $.disableDailyLimit;
         this.exclusionFilters = $.exclusionFilters;
         this.filters = $.filters;
@@ -158,6 +192,48 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dailyLimit(Integer dailyLimit) {
             return dailyLimit(Output.of(dailyLimit));
+        }
+
+        /**
+         * @param dailyLimitReset Object containing options to override the default daily limit reset time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dailyLimitReset(@Nullable Output<LogsIndexDailyLimitResetArgs> dailyLimitReset) {
+            $.dailyLimitReset = dailyLimitReset;
+            return this;
+        }
+
+        /**
+         * @param dailyLimitReset Object containing options to override the default daily limit reset time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dailyLimitReset(LogsIndexDailyLimitResetArgs dailyLimitReset) {
+            return dailyLimitReset(Output.of(dailyLimitReset));
+        }
+
+        /**
+         * @param dailyLimitWarningThresholdPercentage A percentage threshold of the daily quota at which a Datadog warning event is generated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dailyLimitWarningThresholdPercentage(@Nullable Output<Double> dailyLimitWarningThresholdPercentage) {
+            $.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
+            return this;
+        }
+
+        /**
+         * @param dailyLimitWarningThresholdPercentage A percentage threshold of the daily quota at which a Datadog warning event is generated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dailyLimitWarningThresholdPercentage(Double dailyLimitWarningThresholdPercentage) {
+            return dailyLimitWarningThresholdPercentage(Output.of(dailyLimitWarningThresholdPercentage));
         }
 
         /**

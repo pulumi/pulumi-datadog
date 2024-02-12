@@ -32,15 +32,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
         /// </summary>
-        public readonly int KeepAlive;
+        public readonly int? KeepAlive;
         /// <summary>
         /// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration (in seconds). This time is calculated from the first seen timestamp. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`, `43200`, `86400`.
         /// </summary>
-        public readonly int MaxSignalDuration;
+        public readonly int? MaxSignalDuration;
         /// <summary>
         /// New value rules specific options.
         /// </summary>
         public readonly Outputs.SecurityMonitoringRuleOptionsNewValueOptions? NewValueOptions;
+        /// <summary>
+        /// Options for rules using the third-party detection method.
+        /// </summary>
+        public readonly Outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions? ThirdPartyRuleOptions;
 
         [OutputConstructor]
         private SecurityMonitoringRuleOptions(
@@ -52,11 +56,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SecurityMonitoringRuleOptionsImpossibleTravelOptions? impossibleTravelOptions,
 
-            int keepAlive,
+            int? keepAlive,
 
-            int maxSignalDuration,
+            int? maxSignalDuration,
 
-            Outputs.SecurityMonitoringRuleOptionsNewValueOptions? newValueOptions)
+            Outputs.SecurityMonitoringRuleOptionsNewValueOptions? newValueOptions,
+
+            Outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions? thirdPartyRuleOptions)
         {
             DecreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
             DetectionMethod = detectionMethod;
@@ -65,6 +71,7 @@ namespace Pulumi.Datadog.Outputs
             KeepAlive = keepAlive;
             MaxSignalDuration = maxSignalDuration;
             NewValueOptions = newValueOptions;
+            ThirdPartyRuleOptions = thirdPartyRuleOptions;
         }
     }
 }

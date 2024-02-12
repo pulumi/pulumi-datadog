@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule.
+ * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `includedKeywordConfiguration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
  *
  * ## Example Usage
  *
@@ -37,6 +37,13 @@ import * as utilities from "./utilities";
  *         numberOfChars: 0,
  *         replacementString: "",
  *         type: "hash",
+ *     },
+ *     includedKeywordConfiguration: {
+ *         keywords: [
+ *             "cc",
+ *             "credit card",
+ *         ],
+ *         characterCount: 30,
  *     },
  * });
  * const awsSp = datadog.getSensitiveDataScannerStandardPattern({
@@ -100,6 +107,10 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
      */
     public readonly groupId!: pulumi.Output<string>;
     /**
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     */
+    public readonly includedKeywordConfiguration!: pulumi.Output<outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration | undefined>;
+    /**
      * Whether or not the rule is enabled.
      */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
@@ -144,6 +155,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["excludedNamespaces"] = state ? state.excludedNamespaces : undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["includedKeywordConfiguration"] = state ? state.includedKeywordConfiguration : undefined;
             resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaces"] = state ? state.namespaces : undefined;
@@ -159,6 +171,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["excludedNamespaces"] = args ? args.excludedNamespaces : undefined;
             resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["includedKeywordConfiguration"] = args ? args.includedKeywordConfiguration : undefined;
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaces"] = args ? args.namespaces : undefined;
@@ -188,6 +201,10 @@ export interface SensitiveDataScannerRuleState {
      * Id of the scanning group the rule belongs to.
      */
     groupId?: pulumi.Input<string>;
+    /**
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     */
+    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
     /**
      * Whether or not the rule is enabled.
      */
@@ -234,6 +251,10 @@ export interface SensitiveDataScannerRuleArgs {
      * Id of the scanning group the rule belongs to.
      */
     groupId: pulumi.Input<string>;
+    /**
+     * Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+     */
+    includedKeywordConfiguration?: pulumi.Input<inputs.SensitiveDataScannerRuleIncludedKeywordConfiguration>;
     /**
      * Whether or not the rule is enabled.
      */
