@@ -10262,6 +10262,9 @@
                 "current": "datadog:index/logsIndex:LogsIndex",
                 "majorVersion": 4,
                 "fields": {
+                    "daily_limit_reset": {
+                        "maxItemsOne": true
+                    },
                     "exclusion_filter": {
                         "maxItemsOne": false,
                         "elem": {
@@ -10425,6 +10428,10 @@
             },
             "datadog_monitor_json": {
                 "current": "datadog:index/monitorJson:MonitorJson",
+                "majorVersion": 4
+            },
+            "datadog_openapi_api": {
+                "current": "datadog:index/openapiApi:OpenapiApi",
                 "majorVersion": 4
             },
             "datadog_organization_settings": {
@@ -13302,6 +13309,26 @@
                                 },
                                 "new_value_options": {
                                     "maxItemsOne": true
+                                },
+                                "third_party_rule_options": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "default_notifications": {
+                                                "maxItemsOne": false
+                                            },
+                                            "root_query": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "group_by_fields": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -13337,8 +13364,22 @@
                     },
                     "tags": {
                         "maxItemsOne": false
+                    },
+                    "third_party_case": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "notifications": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
+            },
+            "datadog_security_monitoring_suppression": {
+                "current": "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression",
+                "majorVersion": 4
             },
             "datadog_sensitive_data_scanner_group": {
                 "current": "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup",
@@ -13367,6 +13408,16 @@
                 "fields": {
                     "excluded_namespaces": {
                         "maxItemsOne": false
+                    },
+                    "included_keyword_configuration": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "keywords": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "namespaces": {
                         "maxItemsOne": false
@@ -13408,6 +13459,40 @@
                     },
                     "query": {
                         "maxItemsOne": true
+                    },
+                    "sli_specification": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "time_slice": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "query": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "formula": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "query": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "metric_query": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "tags": {
                         "maxItemsOne": false
@@ -13860,6 +13945,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "daily_limit_reset": {
+                                    "maxItemsOne": false
+                                },
                                 "exclusion_filter": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -14064,6 +14152,26 @@
                                             },
                                             "new_value_options": {
                                                 "maxItemsOne": true
+                                            },
+                                            "third_party_rule_options": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "default_notifications": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "root_query": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "group_by_fields": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -14099,11 +14207,33 @@
                                 },
                                 "tags": {
                                     "maxItemsOne": false
+                                },
+                                "third_party_case": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "notifications": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     },
                     "tags_filter": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_security_monitoring_suppressions": {
+                "current": "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions",
+                "majorVersion": 4,
+                "fields": {
+                    "suppression_ids": {
+                        "maxItemsOne": false
+                    },
+                    "suppressions": {
                         "maxItemsOne": false
                     }
                 }
@@ -14121,6 +14251,9 @@
                 "current": "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern",
                 "majorVersion": 4,
                 "fields": {
+                    "included_keywords": {
+                        "maxItemsOne": false
+                    },
                     "tags": {
                         "maxItemsOne": false
                     }
@@ -14234,7 +14367,7 @@
             "datadog:index/dashboardList:DashboardList": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
-            "datadog:index/ipAllowlist:IpAllowlist": 0,
+            "datadog:index/ipAllowlist:IpAllowlist": 1,
             "datadog:index/logsArchive:LogsArchive": 0,
             "datadog:index/logsArchiveOrder:LogsArchiveOrder": 0,
             "datadog:index/logsCustomPipeline:LogsCustomPipeline": 0,
@@ -14248,6 +14381,7 @@
             "datadog:index/monitor:Monitor": 0,
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": 0,
             "datadog:index/monitorJson:MonitorJson": 0,
+            "datadog:index/openapiApi:OpenapiApi": 1,
             "datadog:index/organizationSettings:OrganizationSettings": 0,
             "datadog:index/powerpack:Powerpack": 0,
             "datadog:index/restrictionPolicy:RestrictionPolicy": 1,
@@ -14256,6 +14390,7 @@
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": 0,
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": 0,
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": 0,
+            "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": 1,
             "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": 0,
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": 1,
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": 0,
@@ -14305,6 +14440,7 @@
             "datadog:index/getRumApplication:getRumApplication": 1,
             "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters": 0,
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": 0,
+            "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions": 1,
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": 1,
             "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": 0,
             "datadog:index/getServiceAccount:getServiceAccount": 1,
@@ -14361,6 +14497,7 @@
             "datadog:index/monitor:Monitor": "datadog_monitor",
             "datadog:index/monitorConfigPolicy:MonitorConfigPolicy": "datadog_monitor_config_policy",
             "datadog:index/monitorJson:MonitorJson": "datadog_monitor_json",
+            "datadog:index/openapiApi:OpenapiApi": "datadog_openapi_api",
             "datadog:index/organizationSettings:OrganizationSettings": "datadog_organization_settings",
             "datadog:index/powerpack:Powerpack": "datadog_powerpack",
             "datadog:index/restrictionPolicy:RestrictionPolicy": "datadog_restriction_policy",
@@ -14369,6 +14506,7 @@
             "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": "datadog_security_monitoring_default_rule",
             "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": "datadog_security_monitoring_filter",
             "datadog:index/securityMonitoringRule:SecurityMonitoringRule": "datadog_security_monitoring_rule",
+            "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": "datadog_security_monitoring_suppression",
             "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": "datadog_sensitive_data_scanner_group",
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": "datadog_sensitive_data_scanner_group_order",
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": "datadog_sensitive_data_scanner_rule",
@@ -14418,6 +14556,7 @@
             "datadog:index/getRumApplication:getRumApplication": "datadog_rum_application",
             "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters": "datadog_security_monitoring_filters",
             "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": "datadog_security_monitoring_rules",
+            "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions": "datadog_security_monitoring_suppressions",
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": "datadog_sensitive_data_scanner_group_order",
             "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": "datadog_sensitive_data_scanner_standard_pattern",
             "datadog:index/getServiceAccount:getServiceAccount": "datadog_service_account",
@@ -20715,6 +20854,10 @@
                 "isEnabled": "is_enabled",
                 "isEncoded": "is_encoded"
             },
+            "datadog:index/LogsIndexDailyLimitReset:LogsIndexDailyLimitReset": {
+                "resetTime": "reset_time",
+                "resetUtcOffset": "reset_utc_offset"
+            },
             "datadog:index/LogsIndexExclusionFilter:LogsIndexExclusionFilter": {
                 "filters": "filter",
                 "isEnabled": "is_enabled"
@@ -22505,7 +22648,8 @@
                 "impossibleTravelOptions": "impossible_travel_options",
                 "keepAlive": "keep_alive",
                 "maxSignalDuration": "max_signal_duration",
-                "newValueOptions": "new_value_options"
+                "newValueOptions": "new_value_options",
+                "thirdPartyRuleOptions": "third_party_rule_options"
             },
             "datadog:index/SecurityMonitoringRuleOptionsImpossibleTravelOptions:SecurityMonitoringRuleOptionsImpossibleTravelOptions": {
                 "baselineUserLocations": "baseline_user_locations"
@@ -22515,6 +22659,15 @@
                 "learningDuration": "learning_duration",
                 "learningMethod": "learning_method",
                 "learningThreshold": "learning_threshold"
+            },
+            "datadog:index/SecurityMonitoringRuleOptionsThirdPartyRuleOptions:SecurityMonitoringRuleOptionsThirdPartyRuleOptions": {
+                "defaultNotifications": "default_notifications",
+                "defaultStatus": "default_status",
+                "rootQueries": "root_query",
+                "signalTitleTemplate": "signal_title_template"
+            },
+            "datadog:index/SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery:SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery": {
+                "groupByFields": "group_by_fields"
             },
             "datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery": {
                 "agentRules": "agent_rule",
@@ -22530,9 +22683,27 @@
                 "defaultRuleId": "default_rule_id",
                 "ruleId": "rule_id"
             },
+            "datadog:index/SensitiveDataScannerRuleIncludedKeywordConfiguration:SensitiveDataScannerRuleIncludedKeywordConfiguration": {
+                "characterCount": "character_count"
+            },
             "datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement": {
                 "numberOfChars": "number_of_chars",
                 "replacementString": "replacement_string"
+            },
+            "datadog:index/ServiceLevelObjectiveSliSpecification:ServiceLevelObjectiveSliSpecification": {
+                "timeSlice": "time_slice"
+            },
+            "datadog:index/ServiceLevelObjectiveSliSpecificationTimeSliceQuery:ServiceLevelObjectiveSliSpecificationTimeSliceQuery": {
+                "queries": "query"
+            },
+            "datadog:index/ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula:ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula": {
+                "formulaExpression": "formula_expression"
+            },
+            "datadog:index/ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery:ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery": {
+                "metricQuery": "metric_query"
+            },
+            "datadog:index/ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery:ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery": {
+                "dataSource": "data_source"
             },
             "datadog:index/ServiceLevelObjectiveThreshold:ServiceLevelObjectiveThreshold": {
                 "targetDisplay": "target_display",
@@ -22723,8 +22894,14 @@
                 "oneTimeSchedule": "one_time_schedule",
                 "recurringSchedule": "recurring_schedule"
             },
+            "datadog:index/getApiKey:getApiKey": {
+                "exactMatch": "exact_match"
+            },
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": {
                 "filterIds": "filter_ids"
+            },
+            "datadog:index/getApplicationKey:getApplicationKey": {
+                "exactMatch": "exact_match"
             },
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": {
                 "agentRules": "agent_rules"
@@ -22781,9 +22958,15 @@
             },
             "datadog:index/getLogsIndexesLogsIndex:getLogsIndexesLogsIndex": {
                 "dailyLimit": "daily_limit",
+                "dailyLimitResets": "daily_limit_reset",
+                "dailyLimitWarningThresholdPercentage": "daily_limit_warning_threshold_percentage",
                 "exclusionFilters": "exclusion_filter",
                 "filters": "filter",
                 "retentionDays": "retention_days"
+            },
+            "datadog:index/getLogsIndexesLogsIndexDailyLimitReset:getLogsIndexesLogsIndexDailyLimitReset": {
+                "resetTime": "reset_time",
+                "resetUtcOffset": "reset_utc_offset"
             },
             "datadog:index/getLogsIndexesLogsIndexExclusionFilter:getLogsIndexesLogsIndexExclusionFilter": {
                 "filters": "filter",
@@ -22904,7 +23087,8 @@
                 "filters": "filter",
                 "hasExtendedTitle": "has_extended_title",
                 "queries": "query",
-                "signalQueries": "signal_query"
+                "signalQueries": "signal_query",
+                "thirdPartyCases": "third_party_case"
             },
             "datadog:index/getSecurityMonitoringRulesRuleOptions:getSecurityMonitoringRulesRuleOptions": {
                 "decreaseCriticalityBasedOnEnv": "decrease_criticality_based_on_env",
@@ -22913,7 +23097,8 @@
                 "impossibleTravelOptions": "impossible_travel_options",
                 "keepAlive": "keep_alive",
                 "maxSignalDuration": "max_signal_duration",
-                "newValueOptions": "new_value_options"
+                "newValueOptions": "new_value_options",
+                "thirdPartyRuleOptions": "third_party_rule_options"
             },
             "datadog:index/getSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions:getSecurityMonitoringRulesRuleOptionsImpossibleTravelOptions": {
                 "baselineUserLocations": "baseline_user_locations"
@@ -22923,6 +23108,15 @@
                 "learningDuration": "learning_duration",
                 "learningMethod": "learning_method",
                 "learningThreshold": "learning_threshold"
+            },
+            "datadog:index/getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions:getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptions": {
+                "defaultNotifications": "default_notifications",
+                "defaultStatus": "default_status",
+                "rootQueries": "root_query",
+                "signalTitleTemplate": "signal_title_template"
+            },
+            "datadog:index/getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery:getSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQuery": {
+                "groupByFields": "group_by_fields"
             },
             "datadog:index/getSecurityMonitoringRulesRuleQuery:getSecurityMonitoringRulesRuleQuery": {
                 "agentRules": "agent_rule",
@@ -22938,8 +23132,19 @@
                 "defaultRuleId": "default_rule_id",
                 "ruleId": "rule_id"
             },
+            "datadog:index/getSecurityMonitoringSuppressions:getSecurityMonitoringSuppressions": {
+                "suppressionIds": "suppression_ids"
+            },
+            "datadog:index/getSecurityMonitoringSuppressionsSuppression:getSecurityMonitoringSuppressionsSuppression": {
+                "expirationDate": "expiration_date",
+                "ruleQuery": "rule_query",
+                "suppressionQuery": "suppression_query"
+            },
             "datadog:index/getSensitiveDataScannerGroupOrder:getSensitiveDataScannerGroupOrder": {
                 "groupIds": "group_ids"
+            },
+            "datadog:index/getSensitiveDataScannerStandardPattern:getSensitiveDataScannerStandardPattern": {
+                "includedKeywords": "included_keywords"
             },
             "datadog:index/getServiceAccount:getServiceAccount": {
                 "filterStatus": "filter_status"
@@ -23004,6 +23209,8 @@
             },
             "datadog:index/logsIndex:LogsIndex": {
                 "dailyLimit": "daily_limit",
+                "dailyLimitReset": "daily_limit_reset",
+                "dailyLimitWarningThresholdPercentage": "daily_limit_warning_threshold_percentage",
                 "disableDailyLimit": "disable_daily_limit",
                 "exclusionFilters": "exclusion_filter",
                 "filters": "filter",
@@ -23090,7 +23297,13 @@
                 "filters": "filter",
                 "hasExtendedTitle": "has_extended_title",
                 "queries": "query",
-                "signalQueries": "signal_query"
+                "signalQueries": "signal_query",
+                "thirdPartyCases": "third_party_case"
+            },
+            "datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression": {
+                "expirationDate": "expiration_date",
+                "ruleQuery": "rule_query",
+                "suppressionQuery": "suppression_query"
             },
             "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": {
                 "isEnabled": "is_enabled",
@@ -23102,6 +23315,7 @@
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": {
                 "excludedNamespaces": "excluded_namespaces",
                 "groupId": "group_id",
+                "includedKeywordConfiguration": "included_keyword_configuration",
                 "isEnabled": "is_enabled",
                 "standardPatternId": "standard_pattern_id",
                 "textReplacement": "text_replacement"
@@ -23116,6 +23330,7 @@
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": {
                 "forceDelete": "force_delete",
                 "monitorIds": "monitor_ids",
+                "sliSpecification": "sli_specification",
                 "targetThreshold": "target_threshold",
                 "warningThreshold": "warning_threshold"
             },
