@@ -53283,11 +53283,17 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     persistCookies?: pulumi.Input<boolean>;
     /**
+     * The content of a proto file as a string.
+     */
+    plainProtoFile?: pulumi.Input<string>;
+    /**
      * Port to use when performing the test.
      */
     port?: pulumi.Input<number>;
     /**
-     * A protobuf JSON descriptor.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+     *
+     * @deprecated Use `plain_proto_file` instead.
      */
     protoJsonDescriptor?: pulumi.Input<string>;
     /**
@@ -53882,11 +53888,17 @@ export interface SyntheticsTestRequestDefinition {
      */
     persistCookies?: pulumi.Input<boolean>;
     /**
+     * The content of a proto file as a string.
+     */
+    plainProtoFile?: pulumi.Input<string>;
+    /**
      * Port to use when performing the test.
      */
     port?: pulumi.Input<number>;
     /**
-     * A protobuf JSON descriptor.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+     *
+     * @deprecated Use `plain_proto_file` instead.
      */
     protoJsonDescriptor?: pulumi.Input<string>;
     /**

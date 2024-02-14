@@ -103,13 +103,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? PersistCookies { get; set; }
 
         /// <summary>
+        /// The content of a proto file as a string.
+        /// </summary>
+        [Input("plainProtoFile")]
+        public Input<string>? PlainProtoFile { get; set; }
+
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// A protobuf JSON descriptor.
+        /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         /// </summary>
         [Input("protoJsonDescriptor")]
         public Input<string>? ProtoJsonDescriptor { get; set; }

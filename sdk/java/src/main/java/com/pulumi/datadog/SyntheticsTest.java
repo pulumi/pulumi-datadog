@@ -409,7 +409,7 @@ import javax.annotation.Nullable;
  *                 .host(&#34;google.com&#34;)
  *                 .port(50050)
  *                 .service(&#34;Hello&#34;)
- *                 .protoJsonDescriptor(&#34;&#34;&#34;
+ *                 .plainProtoFile(&#34;&#34;&#34;
  * syntax = &#34;proto3&#34;;
  * option java_multiple_files = true;
  * option java_package = &#34;io.grpc.examples.helloworld&#34;;

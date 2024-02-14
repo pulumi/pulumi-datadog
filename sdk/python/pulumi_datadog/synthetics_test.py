@@ -1076,7 +1076,7 @@ class SyntheticsTest(pulumi.CustomResource):
                 host="google.com",
                 port=50050,
                 service="Hello",
-                proto_json_descriptor=\"\"\"syntax = "proto3";
+                plain_proto_file=\"\"\"syntax = "proto3";
         option java_multiple_files = true;
         option java_package = "io.grpc.examples.helloworld";
         option java_outer_classname = "HelloWorldProto";
@@ -1485,7 +1485,7 @@ class SyntheticsTest(pulumi.CustomResource):
                 host="google.com",
                 port=50050,
                 service="Hello",
-                proto_json_descriptor=\"\"\"syntax = "proto3";
+                plain_proto_file=\"\"\"syntax = "proto3";
         option java_multiple_files = true;
         option java_package = "io.grpc.examples.helloworld";
         option java_outer_classname = "HelloWorldProto";

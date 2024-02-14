@@ -91,7 +91,7 @@ namespace Pulumi.Datadog
         /// Object containing options to override the default daily limit reset time.
         /// </summary>
         [Output("dailyLimitReset")]
-        public Output<Outputs.LogsIndexDailyLimitReset?> DailyLimitReset { get; private set; } = null!;
+        public Output<Outputs.LogsIndexDailyLimitReset> DailyLimitReset { get; private set; } = null!;
 
         /// <summary>
         /// A percentage threshold of the daily quota at which a Datadog warning event is generated.

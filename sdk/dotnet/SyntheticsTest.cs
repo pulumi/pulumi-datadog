@@ -464,7 +464,7 @@ namespace Pulumi.Datadog
     ///             Host = "google.com",
     ///             Port = 50050,
     ///             Service = "Hello",
-    ///             ProtoJsonDescriptor = @"syntax = ""proto3"";
+    ///             PlainProtoFile = @"syntax = ""proto3"";
     /// option java_multiple_files = true;
     /// option java_package = ""io.grpc.examples.helloworld"";
     /// option java_outer_classname = ""HelloWorldProto"";

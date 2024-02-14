@@ -110,14 +110,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dailyLimitReset", refs={LogsIndexDailyLimitReset.class}, tree="[0]")
-    private Output</* @Nullable */ LogsIndexDailyLimitReset> dailyLimitReset;
+    private Output<LogsIndexDailyLimitReset> dailyLimitReset;
 
     /**
      * @return Object containing options to override the default daily limit reset time.
      * 
      */
-    public Output<Optional<LogsIndexDailyLimitReset>> dailyLimitReset() {
-        return Codegen.optional(this.dailyLimitReset);
+    public Output<LogsIndexDailyLimitReset> dailyLimitReset() {
+        return this.dailyLimitReset;
     }
     /**
      * A percentage threshold of the daily quota at which a Datadog warning event is generated.

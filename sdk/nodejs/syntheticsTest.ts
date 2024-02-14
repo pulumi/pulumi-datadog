@@ -323,7 +323,7 @@ import * as utilities from "./utilities";
  *         host: "google.com",
  *         port: 50050,
  *         service: "Hello",
- *         protoJsonDescriptor: `syntax = "proto3";
+ *         plainProtoFile: `syntax = "proto3";
  * option java_multiple_files = true;
  * option java_package = "io.grpc.examples.helloworld";
  * option java_outer_classname = "HelloWorldProto";

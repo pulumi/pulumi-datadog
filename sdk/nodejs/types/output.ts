@@ -53923,11 +53923,17 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     persistCookies?: boolean;
     /**
+     * The content of a proto file as a string.
+     */
+    plainProtoFile?: string;
+    /**
      * Port to use when performing the test.
      */
     port?: number;
     /**
-     * A protobuf JSON descriptor.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+     *
+     * @deprecated Use `plain_proto_file` instead.
      */
     protoJsonDescriptor?: string;
     /**
@@ -54522,11 +54528,17 @@ export interface SyntheticsTestRequestDefinition {
      */
     persistCookies?: boolean;
     /**
+     * The content of a proto file as a string.
+     */
+    plainProtoFile?: string;
+    /**
      * Port to use when performing the test.
      */
     port?: number;
     /**
-     * A protobuf JSON descriptor.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+     *
+     * @deprecated Use `plain_proto_file` instead.
      */
     protoJsonDescriptor?: string;
     /**
