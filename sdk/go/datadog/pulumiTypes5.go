@@ -18796,9 +18796,13 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	NumberOfPackets *int `pulumi:"numberOfPackets"`
 	// Persist cookies across redirects.
 	PersistCookies *bool `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile *string `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
 	Port *int `pulumi:"port"`
-	// A protobuf JSON descriptor.
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plain_proto_file` instead.
 	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername *string `pulumi:"servername"`
@@ -18852,9 +18856,13 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
 	// Persist cookies across redirects.
 	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// A protobuf JSON descriptor.
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plain_proto_file` instead.
 	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername pulumi.StringPtrInput `pulumi:"servername"`
@@ -19015,12 +19023,19 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) PersistCookies() pulumi.Bo
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
 }
 
+// The content of a proto file as a string.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.PlainProtoFile }).(pulumi.StringPtrOutput)
+}
+
 // Port to use when performing the test.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// A protobuf JSON descriptor.
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plain_proto_file` instead.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
 }
@@ -19214,6 +19229,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PersistCookies() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The content of a proto file as a string.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainProtoFile
+	}).(pulumi.StringPtrOutput)
+}
+
 // Port to use when performing the test.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
@@ -19224,7 +19249,9 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// A protobuf JSON descriptor.
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plain_proto_file` instead.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
@@ -23532,9 +23559,13 @@ type SyntheticsTestRequestDefinition struct {
 	NumberOfPackets *int `pulumi:"numberOfPackets"`
 	// Persist cookies across redirects.
 	PersistCookies *bool `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile *string `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
 	Port *int `pulumi:"port"`
-	// A protobuf JSON descriptor.
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plain_proto_file` instead.
 	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername *string `pulumi:"servername"`
@@ -23584,9 +23615,13 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
 	// Persist cookies across redirects.
 	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
 	// Port to use when performing the test.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// A protobuf JSON descriptor.
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plain_proto_file` instead.
 	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername pulumi.StringPtrInput `pulumi:"servername"`
@@ -23737,12 +23772,19 @@ func (o SyntheticsTestRequestDefinitionOutput) PersistCookies() pulumi.BoolPtrOu
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
 }
 
+// The content of a proto file as a string.
+func (o SyntheticsTestRequestDefinitionOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.PlainProtoFile }).(pulumi.StringPtrOutput)
+}
+
 // Port to use when performing the test.
 func (o SyntheticsTestRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// A protobuf JSON descriptor.
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plain_proto_file` instead.
 func (o SyntheticsTestRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
 }
@@ -23916,6 +23958,16 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) PersistCookies() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The content of a proto file as a string.
+func (o SyntheticsTestRequestDefinitionPtrOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainProtoFile
+	}).(pulumi.StringPtrOutput)
+}
+
 // Port to use when performing the test.
 func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
@@ -23926,7 +23978,9 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A protobuf JSON descriptor.
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plain_proto_file` instead.
 func (o SyntheticsTestRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {

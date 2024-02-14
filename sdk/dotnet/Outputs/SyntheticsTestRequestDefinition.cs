@@ -62,11 +62,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? PersistCookies;
         /// <summary>
+        /// The content of a proto file as a string.
+        /// </summary>
+        public readonly string? PlainProtoFile;
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// A protobuf JSON descriptor.
+        /// A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         /// </summary>
         public readonly string? ProtoJsonDescriptor;
         /// <summary>
@@ -116,6 +120,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? persistCookies,
 
+            string? plainProtoFile,
+
             int? port,
 
             string? protoJsonDescriptor,
@@ -142,6 +148,7 @@ namespace Pulumi.Datadog.Outputs
             NoSavingResponseBody = noSavingResponseBody;
             NumberOfPackets = numberOfPackets;
             PersistCookies = persistCookies;
+            PlainProtoFile = plainProtoFile;
             Port = port;
             ProtoJsonDescriptor = protoJsonDescriptor;
             Servername = servername;

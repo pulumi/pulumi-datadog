@@ -419,7 +419,7 @@ import (
 //					Host:    pulumi.String("google.com"),
 //					Port:    pulumi.Int(50050),
 //					Service: pulumi.String("Hello"),
-//					ProtoJsonDescriptor: pulumi.String(`syntax = "proto3";
+//					PlainProtoFile: pulumi.String(`syntax = "proto3";
 //
 // option java_multiple_files = true;
 // option java_package = "io.grpc.examples.helloworld";

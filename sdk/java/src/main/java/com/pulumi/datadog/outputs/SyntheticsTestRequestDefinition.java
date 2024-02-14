@@ -75,14 +75,23 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable Boolean persistCookies;
     /**
+     * @return The content of a proto file as a string.
+     * 
+     */
+    private @Nullable String plainProtoFile;
+    /**
      * @return Port to use when performing the test.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return A protobuf JSON descriptor.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * 
+     * @deprecated
+     * Use `plain_proto_file` instead.
      * 
      */
+    @Deprecated /* Use `plain_proto_file` instead. */
     private @Nullable String protoJsonDescriptor;
     /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -196,6 +205,13 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.persistCookies);
     }
     /**
+     * @return The content of a proto file as a string.
+     * 
+     */
+    public Optional<String> plainProtoFile() {
+        return Optional.ofNullable(this.plainProtoFile);
+    }
+    /**
      * @return Port to use when performing the test.
      * 
      */
@@ -203,9 +219,13 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return A protobuf JSON descriptor.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * 
+     * @deprecated
+     * Use `plain_proto_file` instead.
      * 
      */
+    @Deprecated /* Use `plain_proto_file` instead. */
     public Optional<String> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }
@@ -266,6 +286,7 @@ public final class SyntheticsTestRequestDefinition {
         private @Nullable Boolean noSavingResponseBody;
         private @Nullable Integer numberOfPackets;
         private @Nullable Boolean persistCookies;
+        private @Nullable String plainProtoFile;
         private @Nullable Integer port;
         private @Nullable String protoJsonDescriptor;
         private @Nullable String servername;
@@ -288,6 +309,7 @@ public final class SyntheticsTestRequestDefinition {
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
     	      this.numberOfPackets = defaults.numberOfPackets;
     	      this.persistCookies = defaults.persistCookies;
+    	      this.plainProtoFile = defaults.plainProtoFile;
     	      this.port = defaults.port;
     	      this.protoJsonDescriptor = defaults.protoJsonDescriptor;
     	      this.servername = defaults.servername;
@@ -373,6 +395,12 @@ public final class SyntheticsTestRequestDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder plainProtoFile(@Nullable String plainProtoFile) {
+
+            this.plainProtoFile = plainProtoFile;
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
 
             this.port = port;
@@ -428,6 +456,7 @@ public final class SyntheticsTestRequestDefinition {
             _resultValue.noSavingResponseBody = noSavingResponseBody;
             _resultValue.numberOfPackets = numberOfPackets;
             _resultValue.persistCookies = persistCookies;
+            _resultValue.plainProtoFile = plainProtoFile;
             _resultValue.port = port;
             _resultValue.protoJsonDescriptor = protoJsonDescriptor;
             _resultValue.servername = servername;

@@ -87,7 +87,7 @@ export class LogsIndex extends pulumi.CustomResource {
     /**
      * Object containing options to override the default daily limit reset time.
      */
-    public readonly dailyLimitReset!: pulumi.Output<outputs.LogsIndexDailyLimitReset | undefined>;
+    public readonly dailyLimitReset!: pulumi.Output<outputs.LogsIndexDailyLimitReset>;
     /**
      * A percentage threshold of the daily quota at which a Datadog warning event is generated.
      */

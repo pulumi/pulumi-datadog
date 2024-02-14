@@ -506,7 +506,7 @@ class LogsIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyLimitReset")
-    def daily_limit_reset(self) -> pulumi.Output[Optional['outputs.LogsIndexDailyLimitReset']]:
+    def daily_limit_reset(self) -> pulumi.Output['outputs.LogsIndexDailyLimitReset']:
         """
         Object containing options to override the default daily limit reset time.
         """

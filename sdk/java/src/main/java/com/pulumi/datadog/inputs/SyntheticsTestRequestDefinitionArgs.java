@@ -199,6 +199,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
+     * The content of a proto file as a string.
+     * 
+     */
+    @Import(name="plainProtoFile")
+    private @Nullable Output<String> plainProtoFile;
+
+    /**
+     * @return The content of a proto file as a string.
+     * 
+     */
+    public Optional<Output<String>> plainProtoFile() {
+        return Optional.ofNullable(this.plainProtoFile);
+    }
+
+    /**
      * Port to use when performing the test.
      * 
      */
@@ -214,16 +229,24 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * A protobuf JSON descriptor.
+     * A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * 
+     * @deprecated
+     * Use `plain_proto_file` instead.
      * 
      */
+    @Deprecated /* Use `plain_proto_file` instead. */
     @Import(name="protoJsonDescriptor")
     private @Nullable Output<String> protoJsonDescriptor;
 
     /**
-     * @return A protobuf JSON descriptor.
+     * @return A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
+     * 
+     * @deprecated
+     * Use `plain_proto_file` instead.
      * 
      */
+    @Deprecated /* Use `plain_proto_file` instead. */
     public Optional<Output<String>> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }
@@ -318,6 +341,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         this.noSavingResponseBody = $.noSavingResponseBody;
         this.numberOfPackets = $.numberOfPackets;
         this.persistCookies = $.persistCookies;
+        this.plainProtoFile = $.plainProtoFile;
         this.port = $.port;
         this.protoJsonDescriptor = $.protoJsonDescriptor;
         this.servername = $.servername;
@@ -608,6 +632,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
+         * @param plainProtoFile The content of a proto file as a string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plainProtoFile(@Nullable Output<String> plainProtoFile) {
+            $.plainProtoFile = plainProtoFile;
+            return this;
+        }
+
+        /**
+         * @param plainProtoFile The content of a proto file as a string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder plainProtoFile(String plainProtoFile) {
+            return plainProtoFile(Output.of(plainProtoFile));
+        }
+
+        /**
          * @param port Port to use when performing the test.
          * 
          * @return builder
@@ -629,22 +674,30 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param protoJsonDescriptor A protobuf JSON descriptor.
+         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `plain_proto_file` instead.
+         * 
          */
+        @Deprecated /* Use `plain_proto_file` instead. */
         public Builder protoJsonDescriptor(@Nullable Output<String> protoJsonDescriptor) {
             $.protoJsonDescriptor = protoJsonDescriptor;
             return this;
         }
 
         /**
-         * @param protoJsonDescriptor A protobuf JSON descriptor.
+         * @param protoJsonDescriptor A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `plain_proto_file` instead.
+         * 
          */
+        @Deprecated /* Use `plain_proto_file` instead. */
         public Builder protoJsonDescriptor(String protoJsonDescriptor) {
             return protoJsonDescriptor(Output.of(protoJsonDescriptor));
         }
