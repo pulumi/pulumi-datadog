@@ -22764,6 +22764,7 @@
                 "noSavingResponseBody": "no_saving_response_body",
                 "numberOfPackets": "number_of_packets",
                 "persistCookies": "persist_cookies",
+                "plainProtoFile": "plain_proto_file",
                 "protoJsonDescriptor": "proto_json_descriptor",
                 "shouldTrackHops": "should_track_hops"
             },
@@ -22836,6 +22837,7 @@
                 "noSavingResponseBody": "no_saving_response_body",
                 "numberOfPackets": "number_of_packets",
                 "persistCookies": "persist_cookies",
+                "plainProtoFile": "plain_proto_file",
                 "protoJsonDescriptor": "proto_json_descriptor",
                 "shouldTrackHops": "should_track_hops"
             },
