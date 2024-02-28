@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog - Amazon Web Services integration log collection
 //			_, err := aws.NewIntegrationLogCollection(ctx, "main", &aws.IntegrationLogCollectionArgs{
 //				AccountId: pulumi.String("1234567890"),
 //				Services: pulumi.StringArray{

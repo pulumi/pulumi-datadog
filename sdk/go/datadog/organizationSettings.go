@@ -27,6 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Manage Datadog Organization
 //			_, err := datadog.NewOrganizationSettings(ctx, "organization", &datadog.OrganizationSettingsArgs{
 //				Name: pulumi.String("foo-organization"),
 //			})

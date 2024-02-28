@@ -44,6 +44,7 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
+//			// Create a new Datadog webhook
 //			_, err = datadog.NewWebhook(ctx, "foo", &datadog.WebhookArgs{
 //				Name:          pulumi.String("test-webhook"),
 //				Url:           pulumi.String("example.com"),

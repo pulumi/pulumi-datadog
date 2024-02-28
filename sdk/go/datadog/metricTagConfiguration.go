@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Manage a tag configuration for a Datadog distribution metric with/without percentiles
 //			_, err := datadog.NewMetricTagConfiguration(ctx, "exampleDistMetric", &datadog.MetricTagConfigurationArgs{
 //				IncludePercentiles: pulumi.Bool(false),
 //				MetricName:         pulumi.String("example.terraform.dist.metric"),
@@ -40,6 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Manage tag configurations for a Datadog count or gauge metric
 //			_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
 //				Aggregations: datadog.MetricTagConfigurationAggregationArray{
 //					&datadog.MetricTagConfigurationAggregationArgs{

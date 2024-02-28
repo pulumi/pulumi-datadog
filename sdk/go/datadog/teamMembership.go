@@ -42,6 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create new team_membership resource
 //			_, err = datadog.NewTeamMembership(ctx, "fooTeamMembership", &datadog.TeamMembershipArgs{
 //				TeamId: fooTeam.ID(),
 //				UserId: fooUser.ID(),

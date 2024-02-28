@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Usage (Synthetics Concurrency Cap Configuration)
 //			_, err := datadog.NewSyntheticsConcurrencyCap(ctx, "this", &datadog.SyntheticsConcurrencyCapArgs{
 //				OnDemandConcurrencyCap: pulumi.Int(1),
 //			})

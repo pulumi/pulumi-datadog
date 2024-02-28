@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog - Amazon Web Services integration tag filter
 //			_, err := aws.NewIntegrationTagFilter(ctx, "foo", &aws.IntegrationTagFilterArgs{
 //				AccountId:    pulumi.String("123456789010"),
 //				Namespace:    pulumi.String("sqs"),

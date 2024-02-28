@@ -39,6 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create new integration_confluent_resource resource
 //			_, err = confluent.NewIntegrationResource(ctx, "fooIntegrationResource", &confluent.IntegrationResourceArgs{
 //				AccountId:    fooIntegrationAccount.ID(),
 //				ResourceId:   pulumi.String("123456"),

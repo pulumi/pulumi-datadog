@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog Child Organization
 //			_, err := datadog.NewChildOrganization(ctx, "organization", &datadog.ChildOrganizationArgs{
 //				Name: pulumi.String("foo-organization"),
 //			})

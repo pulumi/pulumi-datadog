@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create APM retention filter
 //			_, err := datadog.NewApmRetentionFilter(ctx, "foo", &datadog.ApmRetentionFilterArgs{
 //				Enabled: pulumi.Bool(false),
 //				Filter: &datadog.ApmRetentionFilterFilterArgs{

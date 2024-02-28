@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog Application Key
 //			_, err := datadog.NewApplicationKey(ctx, "foo", &datadog.ApplicationKeyArgs{
 //				Name: pulumi.String("foo-application"),
 //			})

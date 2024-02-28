@@ -91,6 +91,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Usage (Synthetics API test)
+//			// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
 //			_, err := datadog.NewSyntheticsTest(ctx, "testUptime", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("An Uptime test on example.org"),
 //				Type:    pulumi.String("api"),
@@ -133,6 +135,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Authenticated API test)
+//			// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
 //			_, err = datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("An API test on example.org"),
 //				Type:    pulumi.String("api"),
@@ -176,6 +180,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Synthetics SSL test)
+//			// Create a new Datadog Synthetics API/SSL test on example.org
 //			_, err = datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("An API test on example.org"),
 //				Type:    pulumi.String("api"),
@@ -209,6 +215,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Synthetics TCP test)
+//			// Create a new Datadog Synthetics API/TCP test on example.org
 //			_, err = datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("An API test on example.org"),
 //				Type:    pulumi.String("api"),
@@ -248,6 +256,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Synthetics DNS test)
+//			// Create a new Datadog Synthetics API/DNS test on example.org
 //			_, err = datadog.NewSyntheticsTest(ctx, "testDns", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("An API test on example.org"),
 //				Type:    pulumi.String("api"),
@@ -280,6 +290,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (Synthetics Multistep API test)
+//			// Create a new Datadog Synthetics Multistep API test
 //			_, err = datadog.NewSyntheticsTest(ctx, "testMultiStep", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("Multistep API test"),
 //				Type:    pulumi.String("api"),
@@ -352,6 +364,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
+//			// Example Usage (Synthetics Browser test)
+//			// Create a new Datadog Synthetics Browser test starting on https://www.example.org
 //			_, err = datadog.NewSyntheticsTest(ctx, "testBrowser", &datadog.SyntheticsTestArgs{
 //				Name:    pulumi.String("A Browser test on example.org"),
 //				Type:    pulumi.String("browser"),
@@ -411,6 +425,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage (GRPC API test)
+//			// Create a new Datadog GRPC API test starting on google.org:50050
 //			_, err = datadog.NewSyntheticsTest(ctx, "grpc", &datadog.SyntheticsTestArgs{
 //				Type:    pulumi.String("api"),
 //				Subtype: pulumi.String("grpc"),

@@ -27,6 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog - Amazon Web Services integration
 //			_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
 //				AccountId: pulumi.String("1234567890"),
 //				AccountSpecificNamespaceRules: pulumi.Map{

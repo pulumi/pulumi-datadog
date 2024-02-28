@@ -74,6 +74,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new Dashboard List with two Dashboards
 //			_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
 //				Name: pulumi.String("Automated Created List"),
 //				DashItems: datadog.DashboardListDashItemArray{

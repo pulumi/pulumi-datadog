@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Dashboard JSON
 //			_, err := datadog.NewDashboardJson(ctx, "dashboardJson", &datadog.DashboardJsonArgs{
 //				Dashboard: pulumi.String(`{
 //	   "title":"Ordered Layout Dashboard",

@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new service_account_application_key resource
 //			_, err := datadog.NewServiceAccountApplicationKey(ctx, "foo", &datadog.ServiceAccountApplicationKeyArgs{
 //				Name:             pulumi.String("Application key for managing dashboards"),
 //				ServiceAccountId: pulumi.String("00000000-0000-1234-0000-000000000000"),
