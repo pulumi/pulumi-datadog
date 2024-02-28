@@ -34,6 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new Datadog user
 //			_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
 //				Email: pulumi.String("new@example.com"),
 //				Roles: pulumi.StringArray{

@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog - Microsoft Azure integration
 //			_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
 //				AppServicePlanFilters: pulumi.String("examplefilter:true,example:another"),
 //				Automute:              pulumi.Bool(true),

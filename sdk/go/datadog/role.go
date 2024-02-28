@@ -32,6 +32,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new Datadog role
 //			_, err = datadog.NewRole(ctx, "foo", &datadog.RoleArgs{
 //				Name: pulumi.String("foo"),
 //				Permissions: datadog.RolePermissionArray{

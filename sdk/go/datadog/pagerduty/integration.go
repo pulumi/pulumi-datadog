@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Services as Individual Resources
 //			_, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
 //				ApiToken: pulumi.String("38457822378273432587234242874"),
 //				Schedules: pulumi.StringArray{

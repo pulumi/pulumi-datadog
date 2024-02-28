@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
 //			exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
 //				Name:        pulumi.String("example slo"),
 //				Type:        pulumi.String("metric"),

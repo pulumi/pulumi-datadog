@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
 //			mygroup, err := datadog.NewSensitiveDataScannerGroup(ctx, "mygroup", &datadog.SensitiveDataScannerGroupArgs{
 //				Name:        pulumi.String("My new scanning group"),
 //				Description: pulumi.String("A relevant description"),

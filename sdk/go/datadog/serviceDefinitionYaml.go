@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Service Definition with v2.2 Schema Definition
 //			_, err := datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV22", &datadog.ServiceDefinitionYamlArgs{
 //				ServiceDefinition: pulumi.String(`schema-version: v2.2
 //
@@ -91,6 +92,7 @@ import (
 //	if err != nil {
 //		return err
 //	}
+//	// Service Definition with v2.1 Schema Definition
 //	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV21", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`schema-version: v2.1
 //
@@ -145,6 +147,7 @@ import (
 //	if err != nil {
 //		return err
 //	}
+//	// Service Definition with v2 Schema Definition
 //	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV2", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`schema-version: v2
 //
@@ -195,6 +198,7 @@ import (
 //	if err != nil {
 //		return err
 //	}
+//	// Service Definition with backstage.io Schema
 //	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionBackstage", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`apiVersion: backstage.io/v1alpha1
 //

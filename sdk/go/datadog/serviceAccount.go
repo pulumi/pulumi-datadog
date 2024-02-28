@@ -34,6 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a new Datadog service account
 //			_, err = datadog.NewServiceAccount(ctx, "bar", &datadog.ServiceAccountArgs{
 //				Email: pulumi.String("new@example.com"),
 //				Name:  pulumi.String("Service Account Bar"),

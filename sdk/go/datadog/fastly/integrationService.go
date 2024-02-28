@@ -35,6 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create new integration_fastly_service resource
 //			_, err = fastly.NewIntegrationService(ctx, "fooIntegrationService", &fastly.IntegrationServiceArgs{
 //				AccountId: fooIntegrationAccount.ID(),
 //				Tags: pulumi.StringArray{

@@ -33,6 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a dashboard and register it in the list above.
 //			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
 //				DashboardLists: pulumi.IntArray{
 //					*pulumi.String(test.Id),

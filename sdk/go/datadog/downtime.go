@@ -28,6 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example: downtime for all monitors
+//			// Create a new daily 1700-0900 Datadog downtime for all monitors
 //			_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
 //				End: pulumi.Int(1483365600),
 //				Recurrence: &datadog.DowntimeRecurrenceArgs{

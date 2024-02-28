@@ -31,6 +31,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Using data source to set pipeline order
 //			_, err = datadog.NewLogsPipelineOrder(ctx, "lpo", &datadog.LogsPipelineOrderArgs{
 //				Name:      pulumi.String("lpo"),
 //				Pipelines: "TODO: For expression",
