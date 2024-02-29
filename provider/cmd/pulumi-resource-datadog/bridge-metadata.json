@@ -14394,7 +14394,7 @@
             "datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup": 0,
             "datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder": 1,
             "datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule": 0,
-            "datadog:index/serviceAccount:ServiceAccount": 0,
+            "datadog:index/serviceAccount:ServiceAccount": 1,
             "datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey": 1,
             "datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml": 0,
             "datadog:index/serviceLevelObjective:ServiceLevelObjective": 0,
