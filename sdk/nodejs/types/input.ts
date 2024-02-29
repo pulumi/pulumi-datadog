@@ -40959,7 +40959,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -53033,7 +53033,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
 }

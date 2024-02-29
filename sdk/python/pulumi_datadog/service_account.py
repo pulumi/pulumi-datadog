@@ -295,7 +295,7 @@ class ServiceAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> pulumi.Output[Optional[bool]]:
+    def disabled(self) -> pulumi.Output[bool]:
         """
         Whether the service account is disabled. Defaults to `false`.
         """

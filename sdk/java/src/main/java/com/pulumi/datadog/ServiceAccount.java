@@ -71,14 +71,14 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disabled;
+    private Output<Boolean> disabled;
 
     /**
      * @return Whether the service account is disabled. Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> disabled() {
-        return Codegen.optional(this.disabled);
+    public Output<Boolean> disabled() {
+        return this.disabled;
     }
     /**
      * Email of the associated user.

@@ -6,6 +6,30 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const mySuppression = new datadog.SecurityMonitoringSuppression("mySuppression", {
+ *     description: "Suppression for low severity CloudTrail signals from test environments limited to 2024",
+ *     enabled: true,
+ *     expirationDate: "2024-12-31T12:00:00Z",
+ *     name: "My suppression",
+ *     ruleQuery: "severity:low source:cloudtrail",
+ *     suppressionQuery: "env:test",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Security monitoring suppressions can be imported using ID, for example:
+ *
+ * ```sh
+ * $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
+ * ```
  */
 export class SecurityMonitoringSuppression extends pulumi.CustomResource {
     /**

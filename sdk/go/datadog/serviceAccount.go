@@ -62,7 +62,7 @@ type ServiceAccount struct {
 	pulumi.CustomResourceState
 
 	// Whether the service account is disabled. Defaults to `false`.
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	Disabled pulumi.BoolOutput `pulumi:"disabled"`
 	// Email of the associated user.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Name for the service account.
@@ -240,8 +240,8 @@ func (o ServiceAccountOutput) ToServiceAccountOutputWithContext(ctx context.Cont
 }
 
 // Whether the service account is disabled. Defaults to `false`.
-func (o ServiceAccountOutput) Disabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceAccount) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
+func (o ServiceAccountOutput) Disabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServiceAccount) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
 }
 
 // Email of the associated user.

@@ -36,6 +36,14 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+    /// 
+    /// ```sh
+    /// $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
     public partial class ServiceObject : global::Pulumi.CustomResource

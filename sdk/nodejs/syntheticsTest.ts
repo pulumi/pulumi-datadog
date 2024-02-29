@@ -498,7 +498,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -671,7 +671,7 @@ export interface SyntheticsTestState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**
@@ -762,7 +762,7 @@ export interface SyntheticsTestArgs {
      */
     status: pulumi.Input<string>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
     /**

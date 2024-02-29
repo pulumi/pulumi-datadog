@@ -18,6 +18,49 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SecurityMonitoringSuppression;
+ * import com.pulumi.datadog.SecurityMonitoringSuppressionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mySuppression = new SecurityMonitoringSuppression(&#34;mySuppression&#34;, SecurityMonitoringSuppressionArgs.builder()        
+ *             .description(&#34;Suppression for low severity CloudTrail signals from test environments limited to 2024&#34;)
+ *             .enabled(true)
+ *             .expirationDate(&#34;2024-12-31T12:00:00Z&#34;)
+ *             .name(&#34;My suppression&#34;)
+ *             .ruleQuery(&#34;severity:low source:cloudtrail&#34;)
+ *             .suppressionQuery(&#34;env:test&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Security monitoring suppressions can be imported using ID, for example:
+ * 
+ * ```sh
+ * $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
+ * ```
+ * 
  */
 @ResourceType(type="datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression")
 public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomResource {
