@@ -114,6 +114,14 @@ class ServiceObject(pulumi.CustomResource):
             service_name="testing_bar")
         ```
 
+        ## Import
+
+        Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+
+        ```sh
+        $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration documentation to have it destroyed and recreated.
@@ -140,6 +148,14 @@ class ServiceObject(pulumi.CustomResource):
         testing_bar = datadog.pagerduty.ServiceObject("testingBar",
             service_key="54321098765432109876",
             service_name="testing_bar")
+        ```
+
+        ## Import
+
+        Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+
+        ```sh
+        $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
         ```
 
         :param str resource_name: The name of the resource.

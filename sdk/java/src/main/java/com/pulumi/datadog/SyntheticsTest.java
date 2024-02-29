@@ -754,14 +754,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Output<Optional<String>> subtype() {

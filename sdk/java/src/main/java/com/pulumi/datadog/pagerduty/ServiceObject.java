@@ -53,6 +53,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * Pagerduty service object can be imported using the service_name, while the service_key should be passed by setting the environment variable SERVICE_KEY
+ * 
+ * ```sh
+ * $ pulumi import datadog:pagerduty/serviceObject:ServiceObject SERVICE_KEY=${service_key} datadog_integration_pagerduty_service_object.foo ${service_name}
+ * ```
+ * 
  */
 @ResourceType(type="datadog:pagerduty/serviceObject:ServiceObject")
 public class ServiceObject extends com.pulumi.resources.CustomResource {

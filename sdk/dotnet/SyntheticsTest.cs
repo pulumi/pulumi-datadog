@@ -667,7 +667,7 @@ namespace Pulumi.Datadog
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -902,7 +902,7 @@ namespace Pulumi.Datadog
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -1111,7 +1111,7 @@ namespace Pulumi.Datadog
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }

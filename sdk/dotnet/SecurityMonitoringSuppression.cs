@@ -11,6 +11,37 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mySuppression = new Datadog.SecurityMonitoringSuppression("mySuppression", new()
+    ///     {
+    ///         Description = "Suppression for low severity CloudTrail signals from test environments limited to 2024",
+    ///         Enabled = true,
+    ///         ExpirationDate = "2024-12-31T12:00:00Z",
+    ///         Name = "My suppression",
+    ///         RuleQuery = "severity:low source:cloudtrail",
+    ///         SuppressionQuery = "env:test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Security monitoring suppressions can be imported using ID, for example:
+    /// 
+    /// ```sh
+    /// $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression")]
     public partial class SecurityMonitoringSuppression : global::Pulumi.CustomResource

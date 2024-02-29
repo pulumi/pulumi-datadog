@@ -54,7 +54,7 @@ namespace Pulumi.Datadog
         /// Whether the service account is disabled. Defaults to `false`.
         /// </summary>
         [Output("disabled")]
-        public Output<bool?> Disabled { get; private set; } = null!;
+        public Output<bool> Disabled { get; private set; } = null!;
 
         /// <summary>
         /// Email of the associated user.

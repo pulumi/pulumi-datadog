@@ -61,7 +61,7 @@ export class ServiceAccount extends pulumi.CustomResource {
     /**
      * Whether the service account is disabled. Defaults to `false`.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    public readonly disabled!: pulumi.Output<boolean>;
     /**
      * Email of the associated user.
      */

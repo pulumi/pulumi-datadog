@@ -59,7 +59,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableDictionary<string, object>? RequestQuery;
         public readonly Outputs.SyntheticsTestApiStepRetry? Retry;
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
         /// </summary>
         public readonly string? Subtype;
 

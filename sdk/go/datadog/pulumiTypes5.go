@@ -16989,7 +16989,7 @@ type SyntheticsTestApiStep struct {
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{}      `pulumi:"requestQuery"`
 	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
 }
 
@@ -17028,7 +17028,7 @@ type SyntheticsTestApiStepArgs struct {
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput                    `pulumi:"requestQuery"`
 	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
 }
 
@@ -17144,7 +17144,7 @@ func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRetry { return v.Retry }).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
 func (o SyntheticsTestApiStepOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) *string { return v.Subtype }).(pulumi.StringPtrOutput)
 }

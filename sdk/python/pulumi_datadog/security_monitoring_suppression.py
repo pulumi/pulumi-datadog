@@ -230,6 +230,29 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         """
         Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_suppression = datadog.SecurityMonitoringSuppression("mySuppression",
+            description="Suppression for low severity CloudTrail signals from test environments limited to 2024",
+            enabled=True,
+            expiration_date="2024-12-31T12:00:00Z",
+            name="My suppression",
+            rule_query="severity:low source:cloudtrail",
+            suppression_query="env:test")
+        ```
+
+        ## Import
+
+        Security monitoring suppressions can be imported using ID, for example:
+
+        ```sh
+        $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the suppression rule.
@@ -247,6 +270,29 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog Security Monitoring Suppression API resource. It can be used to create and manage Datadog security monitoring suppression rules.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        my_suppression = datadog.SecurityMonitoringSuppression("mySuppression",
+            description="Suppression for low severity CloudTrail signals from test environments limited to 2024",
+            enabled=True,
+            expiration_date="2024-12-31T12:00:00Z",
+            name="My suppression",
+            rule_query="severity:low source:cloudtrail",
+            suppression_query="env:test")
+        ```
+
+        ## Import
+
+        Security monitoring suppressions can be imported using ID, for example:
+
+        ```sh
+        $ pulumi import datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression my_suppression m0o-hto-lkb
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityMonitoringSuppressionArgs args: The arguments to use to populate this resource's properties.

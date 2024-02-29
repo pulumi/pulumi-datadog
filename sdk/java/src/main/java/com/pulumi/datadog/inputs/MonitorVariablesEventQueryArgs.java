@@ -36,14 +36,14 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
      * 
      */
     public Output<String> dataSource() {
@@ -171,7 +171,7 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class MonitorVariablesEventQueryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
          * 
          * @return builder
          * 

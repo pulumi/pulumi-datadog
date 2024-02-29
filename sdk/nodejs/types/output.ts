@@ -41599,7 +41599,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: outputs.MonitorVariablesEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`.
      */
     dataSource: string;
     /**
@@ -53673,7 +53673,7 @@ export interface SyntheticsTestApiStep {
     requestQuery?: {[key: string]: any};
     retry?: outputs.SyntheticsTestApiStepRetry;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`. Defaults to `"http"`.
+     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
      */
     subtype?: string;
 }
