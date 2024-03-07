@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,11 +31,12 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
+    /// $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:fastly/integrationAccount:IntegrationAccount")]

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog dashboard JSON resource. This can be used to create and manage Datadog dashboards using the JSON definition.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -535,11 +537,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
+ * $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
  * ```
  * 
  */

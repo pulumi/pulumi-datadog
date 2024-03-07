@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,11 +69,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
+    /// $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/powerpack:Powerpack")]

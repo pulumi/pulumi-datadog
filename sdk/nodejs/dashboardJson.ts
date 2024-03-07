@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -502,11 +503,12 @@ import * as utilities from "./utilities";
  *
  * `});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
+ * $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
  * ```
  */
 export class DashboardJson extends pulumi.CustomResource {

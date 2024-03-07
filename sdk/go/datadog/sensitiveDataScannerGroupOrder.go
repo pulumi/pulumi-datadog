@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,13 +44,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder mygrouporder order
-//
+// $ pulumi import datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder mygrouporder order
 // ```
 type SensitiveDataScannerGroupOrder struct {
 	pulumi.CustomResourceState

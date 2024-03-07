@@ -402,6 +402,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -445,11 +446,12 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             is_enabled=True,
             tags=["sensitive_data:true"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
         ```
 
         :param str resource_name: The name of the resource.
@@ -477,6 +479,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -520,11 +523,12 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             is_enabled=True,
             tags=["sensitive_data:true"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
         ```
 
         :param str resource_name: The name of the resource.

@@ -102,6 +102,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -111,6 +112,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
             account_id="1234567890",
             services=["lambda"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -136,6 +138,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -145,6 +148,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
             account_id="1234567890",
             services=["lambda"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

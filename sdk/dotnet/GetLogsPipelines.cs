@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to list all existing logs pipelines for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,8 +39,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogsPipelinesResult> InvokeAsync(GetLogsPipelinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to list all existing logs pipelines for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,8 +72,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogsPipelinesResult> Invoke(GetLogsPipelinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesInvokeArgs(), options.WithDefaults());

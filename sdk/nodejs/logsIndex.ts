@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -45,11 +46,12 @@ import * as utilities from "./utilities";
  *     retentionDays: 7,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
+ * $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
  * ```
  */
 export class LogsIndex extends pulumi.CustomResource {

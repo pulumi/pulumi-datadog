@@ -70,6 +70,7 @@ class OpenapiApi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -77,11 +78,12 @@ class OpenapiApi(pulumi.CustomResource):
         # Create new openapi_api resource
         my_api = datadog.OpenapiApi("my-api", spec=(lambda path: open(path).read())("./path/my-api.yaml"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
+        $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
         ```
 
         :param str resource_name: The name of the resource.
@@ -99,6 +101,7 @@ class OpenapiApi(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -106,11 +109,12 @@ class OpenapiApi(pulumi.CustomResource):
         # Create new openapi_api resource
         my_api = datadog.OpenapiApi("my-api", spec=(lambda path: open(path).read())("./path/my-api.yaml"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
+        $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
         ```
 
         :param str resource_name: The name of the resource.

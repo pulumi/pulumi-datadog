@@ -169,6 +169,7 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -180,11 +181,12 @@ class ServiceAccount(pulumi.CustomResource):
             name="Service Account Bar",
             roles=[ro_role.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+        $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,6 +207,7 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -216,11 +219,12 @@ class ServiceAccount(pulumi.CustomResource):
             name="Service Account Bar",
             roles=[ro_role.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+        $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
 
         :param str resource_name: The name of the resource.

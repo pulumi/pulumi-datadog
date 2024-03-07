@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,13 +42,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
-//
+// $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
 // ```
 type Team struct {
 	pulumi.CustomResourceState

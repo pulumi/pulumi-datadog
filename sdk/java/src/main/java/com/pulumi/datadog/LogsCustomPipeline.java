@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -202,12 +203,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * To find the pipeline ID, click the &#34;edit&#34; button in the UI to open the pipeline details.
  * 
- *  The pipeline ID is the last part of the URL.
+ * The pipeline ID is the last part of the URL.
  * 
  * ```sh
  * $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name&gt; &lt;pipelineID&gt;

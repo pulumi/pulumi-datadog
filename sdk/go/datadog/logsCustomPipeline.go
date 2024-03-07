@@ -18,7 +18,7 @@ import (
 //
 // To find the pipeline ID, click the "edit" button in the UI to open the pipeline details.
 //
-//	The pipeline ID is the last part of the URL.
+// The pipeline ID is the last part of the URL.
 //
 // ```sh
 // $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>

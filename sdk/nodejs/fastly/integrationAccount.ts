@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,11 +19,12 @@ import * as utilities from "../utilities";
  *     name: "test-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
+ * $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
  * ```
  */
 export class IntegrationAccount extends pulumi.CustomResource {

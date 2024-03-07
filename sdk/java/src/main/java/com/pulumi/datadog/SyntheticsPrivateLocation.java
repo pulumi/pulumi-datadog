@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

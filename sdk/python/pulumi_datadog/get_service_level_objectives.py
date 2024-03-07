@@ -141,12 +141,14 @@ def get_service_level_objectives(error_on_empty_result: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool error_on_empty_result: Throw an error if no results are found. Defaults to `true`.
@@ -190,12 +192,14 @@ def get_service_level_objectives_output(error_on_empty_result: Optional[pulumi.I
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool error_on_empty_result: Throw an error if no results are found. Defaults to `true`.

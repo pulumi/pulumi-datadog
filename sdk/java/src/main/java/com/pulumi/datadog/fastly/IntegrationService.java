@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog IntegrationFastlyService resource. This can be used to create and manage Datadog integration_fastly_service.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,11 +60,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:fastly/integrationService:IntegrationService new_list &#34;service-id&#34;
+ * $ pulumi import datadog:fastly/integrationService:IntegrationService new_list &#34;service-id&#34;
  * ```
  * 
  */

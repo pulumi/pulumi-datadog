@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog - Amazon Web Services integration EventBridge resource. This can be used to create and manage Event Sources for each Datadog integrated AWS account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

@@ -96,6 +96,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,6 +126,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiKeyResult> getApiKey() {
@@ -133,6 +136,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +166,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain() {
@@ -170,6 +176,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -198,6 +206,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args) {
@@ -207,6 +216,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -235,6 +246,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args) {
@@ -244,6 +256,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,6 +286,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApiKeyResult> getApiKey(GetApiKeyArgs args, InvokeOptions options) {
@@ -281,6 +296,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing api key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -309,6 +326,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApiKeyResult> getApiKeyPlain(GetApiKeyPlainArgs args, InvokeOptions options) {
@@ -318,6 +336,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -343,6 +363,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder() {
@@ -352,6 +373,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -377,6 +400,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain() {
@@ -386,6 +410,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -411,6 +437,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args) {
@@ -420,6 +447,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -445,6 +474,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain(InvokeArgs args) {
@@ -454,6 +484,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -479,6 +511,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrder(InvokeArgs args, InvokeOptions options) {
@@ -488,6 +521,8 @@ public final class DatadogFunctions {
      * Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -513,6 +548,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApmRetentionFiltersOrderResult> getApmRetentionFiltersOrderPlain(InvokeArgs args, InvokeOptions options) {
@@ -522,6 +558,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +588,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationKeyResult> getApplicationKey() {
@@ -559,6 +598,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -587,6 +628,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationKeyResult> getApplicationKeyPlain() {
@@ -596,6 +638,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -624,6 +668,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationKeyResult> getApplicationKey(GetApplicationKeyArgs args) {
@@ -633,6 +678,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -661,6 +708,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationKeyResult> getApplicationKeyPlain(GetApplicationKeyPlainArgs args) {
@@ -670,6 +718,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -698,6 +748,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationKeyResult> getApplicationKey(GetApplicationKeyArgs args, InvokeOptions options) {
@@ -707,6 +758,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing application key.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -735,6 +788,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationKeyResult> getApplicationKeyPlain(GetApplicationKeyPlainArgs args, InvokeOptions options) {
@@ -744,6 +798,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -769,6 +825,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRules() {
@@ -778,6 +835,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -803,6 +862,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRulesPlain() {
@@ -812,6 +872,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +899,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRules(InvokeArgs args) {
@@ -846,6 +909,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -871,6 +936,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs args) {
@@ -880,6 +946,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -905,6 +973,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRules(InvokeArgs args, InvokeOptions options) {
@@ -914,6 +983,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -939,6 +1010,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs args, InvokeOptions options) {
@@ -948,6 +1020,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -976,6 +1050,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args) {
@@ -985,6 +1060,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1013,6 +1090,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDashboardResult> getDashboardPlain(GetDashboardPlainArgs args) {
@@ -1022,6 +1100,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1050,6 +1130,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDashboardResult> getDashboard(GetDashboardArgs args, InvokeOptions options) {
@@ -1059,6 +1140,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1087,6 +1170,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDashboardResult> getDashboardPlain(GetDashboardPlainArgs args, InvokeOptions options) {
@@ -1096,6 +1180,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1144,6 +1230,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDashboardListResult> getDashboardList(GetDashboardListArgs args) {
@@ -1153,6 +1240,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1201,6 +1290,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDashboardListResult> getDashboardListPlain(GetDashboardListPlainArgs args) {
@@ -1210,6 +1300,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1258,6 +1350,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDashboardListResult> getDashboardList(GetDashboardListArgs args, InvokeOptions options) {
@@ -1267,6 +1360,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1315,6 +1410,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDashboardListResult> getDashboardListPlain(GetDashboardListPlainArgs args, InvokeOptions options) {
@@ -1325,6 +1421,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1354,6 +1451,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostsResult> getHosts() {
@@ -1364,6 +1462,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1393,6 +1492,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain() {
@@ -1403,6 +1503,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1432,6 +1533,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostsResult> getHosts(GetHostsArgs args) {
@@ -1442,6 +1544,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1471,6 +1574,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args) {
@@ -1481,6 +1585,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1510,6 +1615,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOptions options) {
@@ -1520,6 +1626,7 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1549,6 +1656,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
@@ -1558,6 +1666,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1583,6 +1693,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges() {
@@ -1592,6 +1703,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1617,6 +1730,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain() {
@@ -1626,6 +1740,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1651,6 +1767,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args) {
@@ -1660,6 +1777,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1685,6 +1804,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args) {
@@ -1694,6 +1814,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1719,6 +1841,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpRangesResult> getIpRanges(InvokeArgs args, InvokeOptions options) {
@@ -1728,6 +1851,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about Datadog&#39;s IP addresses.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1753,6 +1878,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpRangesResult> getIpRangesPlain(InvokeArgs args, InvokeOptions options) {
@@ -1804,6 +1930,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1829,6 +1957,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesResult> getLogsIndexes() {
@@ -1838,6 +1967,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1863,6 +1994,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesResult> getLogsIndexesPlain() {
@@ -1872,6 +2004,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1897,6 +2031,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesResult> getLogsIndexes(InvokeArgs args) {
@@ -1906,6 +2041,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1931,6 +2068,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesResult> getLogsIndexesPlain(InvokeArgs args) {
@@ -1940,6 +2078,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1965,6 +2105,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesResult> getLogsIndexes(InvokeArgs args, InvokeOptions options) {
@@ -1974,6 +2115,8 @@ public final class DatadogFunctions {
      * Use this data source to list several existing logs indexes for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1999,6 +2142,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesResult> getLogsIndexesPlain(InvokeArgs args, InvokeOptions options) {
@@ -2008,6 +2152,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2033,6 +2179,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesOrderResult> getLogsIndexesOrder() {
@@ -2042,6 +2189,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2067,6 +2216,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesOrderResult> getLogsIndexesOrderPlain() {
@@ -2076,6 +2226,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2101,6 +2253,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesOrderResult> getLogsIndexesOrder(InvokeArgs args) {
@@ -2110,6 +2263,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2135,6 +2290,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesOrderResult> getLogsIndexesOrderPlain(InvokeArgs args) {
@@ -2144,6 +2300,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2169,6 +2327,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogsIndexesOrderResult> getLogsIndexesOrder(InvokeArgs args, InvokeOptions options) {
@@ -2178,6 +2337,8 @@ public final class DatadogFunctions {
      * Get the current order of your log indexes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2203,6 +2364,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsIndexesOrderResult> getLogsIndexesOrderPlain(InvokeArgs args, InvokeOptions options) {
@@ -2213,6 +2375,9 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines() {
         return getLogsPipelines(GetLogsPipelinesArgs.Empty, InvokeOptions.Empty);
@@ -2221,6 +2386,9 @@ public final class DatadogFunctions {
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain() {
@@ -2231,6 +2399,9 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args) {
         return getLogsPipelines(args, InvokeOptions.Empty);
@@ -2239,6 +2410,9 @@ public final class DatadogFunctions {
      * Use this data source to list all existing logs pipelines for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args) {
@@ -2249,6 +2423,9 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetLogsPipelinesResult> getLogsPipelines(GetLogsPipelinesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
@@ -2258,6 +2435,9 @@ public final class DatadogFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetLogsPipelinesResult> getLogsPipelinesPlain(GetLogsPipelinesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getLogsPipelines:getLogsPipelines", TypeShape.of(GetLogsPipelinesResult.class), args, Utilities.withVersion(options));
@@ -2266,6 +2446,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2295,6 +2477,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorResult> getMonitor() {
@@ -2304,6 +2487,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2333,6 +2518,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain() {
@@ -2342,6 +2528,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2371,6 +2559,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args) {
@@ -2380,6 +2569,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2409,6 +2600,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args) {
@@ -2418,6 +2610,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2447,6 +2641,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOptions options) {
@@ -2456,6 +2651,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing monitor for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2485,6 +2682,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args, InvokeOptions options) {
@@ -2494,6 +2692,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2519,6 +2719,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorConfigPoliciesResult> getMonitorConfigPolicies() {
@@ -2528,6 +2729,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2553,6 +2756,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorConfigPoliciesResult> getMonitorConfigPoliciesPlain() {
@@ -2562,6 +2766,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2587,6 +2793,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorConfigPoliciesResult> getMonitorConfigPolicies(InvokeArgs args) {
@@ -2596,6 +2803,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2621,6 +2830,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorConfigPoliciesResult> getMonitorConfigPoliciesPlain(InvokeArgs args) {
@@ -2630,6 +2840,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2655,6 +2867,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorConfigPoliciesResult> getMonitorConfigPolicies(InvokeArgs args, InvokeOptions options) {
@@ -2664,6 +2877,8 @@ public final class DatadogFunctions {
      * Use this data source to list existing monitor config policies for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2689,6 +2904,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorConfigPoliciesResult> getMonitorConfigPoliciesPlain(InvokeArgs args, InvokeOptions options) {
@@ -2740,6 +2956,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2766,6 +2984,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionsResult> getPermissions() {
@@ -2775,6 +2994,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2801,6 +3022,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain() {
@@ -2810,6 +3032,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2836,6 +3060,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args) {
@@ -2845,6 +3070,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2871,6 +3098,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args) {
@@ -2880,6 +3108,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2906,6 +3136,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args, InvokeOptions options) {
@@ -2915,6 +3146,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2941,6 +3174,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
@@ -2950,6 +3184,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing role for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2978,6 +3214,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleResult> getRole(GetRoleArgs args) {
@@ -2987,6 +3224,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing role for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3015,6 +3254,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args) {
@@ -3024,6 +3264,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing role for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3052,6 +3294,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoleResult> getRole(GetRoleArgs args, InvokeOptions options) {
@@ -3061,6 +3304,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing role for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3089,6 +3334,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
@@ -3098,6 +3344,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3126,6 +3374,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles() {
@@ -3135,6 +3384,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3163,6 +3414,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain() {
@@ -3172,6 +3424,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3200,6 +3454,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args) {
@@ -3209,6 +3464,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3237,6 +3494,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args) {
@@ -3246,6 +3504,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3274,6 +3534,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRolesResult> getRoles(GetRolesArgs args, InvokeOptions options) {
@@ -3283,6 +3544,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple roles for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3311,6 +3574,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRolesResult> getRolesPlain(GetRolesPlainArgs args, InvokeOptions options) {
@@ -3362,6 +3626,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3387,6 +3653,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFilters() {
@@ -3396,6 +3663,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3421,6 +3690,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFiltersPlain() {
@@ -3430,6 +3700,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3455,6 +3727,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFilters(InvokeArgs args) {
@@ -3464,6 +3737,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3489,6 +3764,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFiltersPlain(InvokeArgs args) {
@@ -3498,6 +3774,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3523,6 +3801,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFilters(InvokeArgs args, InvokeOptions options) {
@@ -3532,6 +3811,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring filters for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3557,6 +3838,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringFiltersResult> getSecurityMonitoringFiltersPlain(InvokeArgs args, InvokeOptions options) {
@@ -3566,6 +3848,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3596,6 +3880,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringRulesResult> getSecurityMonitoringRules() {
@@ -3605,6 +3890,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3635,6 +3922,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain() {
@@ -3644,6 +3932,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3674,6 +3964,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringRulesResult> getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs args) {
@@ -3683,6 +3974,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3713,6 +4006,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args) {
@@ -3722,6 +4016,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3752,6 +4048,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityMonitoringRulesResult> getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs args, InvokeOptions options) {
@@ -3761,6 +4058,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing security monitoring rules for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3791,6 +4090,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityMonitoringRulesResult> getSecurityMonitoringRulesPlain(GetSecurityMonitoringRulesPlainArgs args, InvokeOptions options) {
@@ -3842,6 +4142,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3873,6 +4175,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder() {
@@ -3882,6 +4185,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3913,6 +4218,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain() {
@@ -3922,6 +4228,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3953,6 +4261,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder(InvokeArgs args) {
@@ -3962,6 +4271,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3993,6 +4304,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain(InvokeArgs args) {
@@ -4002,6 +4314,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4033,6 +4347,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrder(InvokeArgs args, InvokeOptions options) {
@@ -4042,6 +4357,8 @@ public final class DatadogFunctions {
      * Provides a Datadog Sensitive Data Scanner Group Order API data source. This can be used to retrieve the order of Datadog Sensitive Data Scanner Groups.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4073,6 +4390,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSensitiveDataScannerGroupOrderResult> getSensitiveDataScannerGroupOrderPlain(InvokeArgs args, InvokeOptions options) {
@@ -4152,6 +4470,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4185,6 +4505,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectiveResult> getServiceLevelObjective() {
@@ -4194,6 +4515,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4227,6 +4550,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectiveResult> getServiceLevelObjectivePlain() {
@@ -4236,6 +4560,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4269,6 +4595,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectiveResult> getServiceLevelObjective(GetServiceLevelObjectiveArgs args) {
@@ -4278,6 +4605,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4311,6 +4640,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectiveResult> getServiceLevelObjectivePlain(GetServiceLevelObjectivePlainArgs args) {
@@ -4320,6 +4650,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4353,6 +4685,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectiveResult> getServiceLevelObjective(GetServiceLevelObjectiveArgs args, InvokeOptions options) {
@@ -4362,6 +4695,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing SLO for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4395,6 +4730,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectiveResult> getServiceLevelObjectivePlain(GetServiceLevelObjectivePlainArgs args, InvokeOptions options) {
@@ -4404,6 +4740,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4432,6 +4770,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectivesResult> getServiceLevelObjectives() {
@@ -4441,6 +4780,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4469,6 +4810,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectivesResult> getServiceLevelObjectivesPlain() {
@@ -4478,6 +4820,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4506,6 +4850,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectivesResult> getServiceLevelObjectives(GetServiceLevelObjectivesArgs args) {
@@ -4515,6 +4860,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4543,6 +4890,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectivesResult> getServiceLevelObjectivesPlain(GetServiceLevelObjectivesPlainArgs args) {
@@ -4552,6 +4900,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4580,6 +4930,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceLevelObjectivesResult> getServiceLevelObjectives(GetServiceLevelObjectivesArgs args, InvokeOptions options) {
@@ -4589,6 +4940,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about multiple SLOs for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4617,6 +4970,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceLevelObjectivesResult> getServiceLevelObjectivesPlain(GetServiceLevelObjectivesPlainArgs args, InvokeOptions options) {
@@ -4724,6 +5078,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4752,6 +5108,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam() {
@@ -4761,6 +5118,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4789,6 +5148,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain() {
@@ -4798,6 +5158,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4826,6 +5188,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
@@ -4835,6 +5198,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4863,6 +5228,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args) {
@@ -4872,6 +5238,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4900,6 +5268,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
@@ -4909,6 +5278,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing Datadog team.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4937,6 +5308,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
@@ -4946,6 +5318,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Datadog team memberships.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4975,6 +5349,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamMembershipsResult> getTeamMemberships(GetTeamMembershipsArgs args) {
@@ -4984,6 +5359,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Datadog team memberships.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5013,6 +5390,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args) {
@@ -5022,6 +5400,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Datadog team memberships.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5051,6 +5431,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamMembershipsResult> getTeamMemberships(GetTeamMembershipsArgs args, InvokeOptions options) {
@@ -5060,6 +5441,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing Datadog team memberships.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5089,6 +5472,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamMembershipsResult> getTeamMembershipsPlain(GetTeamMembershipsPlainArgs args, InvokeOptions options) {
@@ -5098,6 +5482,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5126,6 +5512,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -5135,6 +5522,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5163,6 +5552,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -5172,6 +5562,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5200,6 +5592,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -5209,6 +5602,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about an existing user to use it in an other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5237,6 +5632,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -5246,6 +5642,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5275,6 +5673,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers() {
@@ -5284,6 +5683,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5313,6 +5714,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -5322,6 +5724,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5351,6 +5755,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -5360,6 +5765,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5389,6 +5796,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -5398,6 +5806,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5427,6 +5837,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -5436,6 +5847,8 @@ public final class DatadogFunctions {
      * Use this data source to retrieve information about existing users for use in other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5465,6 +5878,7 @@ public final class DatadogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

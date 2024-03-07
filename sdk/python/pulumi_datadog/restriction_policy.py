@@ -97,6 +97,7 @@ class RestrictionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -114,11 +115,12 @@ class RestrictionPolicy(pulumi.CustomResource):
             ],
             resource_id="security-rule:abc-def-ghi")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
         ```
 
         :param str resource_name: The name of the resource.
@@ -136,6 +138,7 @@ class RestrictionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -153,11 +156,12 @@ class RestrictionPolicy(pulumi.CustomResource):
             ],
             resource_id="security-rule:abc-def-ghi")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
         ```
 
         :param str resource_name: The name of the resource.

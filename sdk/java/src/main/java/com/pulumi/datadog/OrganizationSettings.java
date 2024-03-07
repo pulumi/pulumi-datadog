@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Organization resource. This can be used to manage your Datadog organization&#39;s settings.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,11 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
  * ```
  * 
  */

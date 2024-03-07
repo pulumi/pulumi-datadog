@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -19,11 +20,12 @@ import * as utilities from "./utilities";
  *     name: "Example Team",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
+ * $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
  * ```
  */
 export class Team extends pulumi.CustomResource {

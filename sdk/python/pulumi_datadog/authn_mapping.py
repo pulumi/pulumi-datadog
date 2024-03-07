@@ -134,6 +134,7 @@ class AuthnMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -145,6 +146,7 @@ class AuthnMapping(pulumi.CustomResource):
             value="Development",
             role=ro_role.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,6 +173,7 @@ class AuthnMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -182,6 +185,7 @@ class AuthnMapping(pulumi.CustomResource):
             value="Development",
             role=ro_role.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

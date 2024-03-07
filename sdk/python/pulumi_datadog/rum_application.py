@@ -119,6 +119,7 @@ class RumApplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -127,11 +128,12 @@ class RumApplication(pulumi.CustomResource):
             name="my-application",
             type="browser")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
+        $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
         ```
 
         :param str resource_name: The name of the resource.
@@ -150,6 +152,7 @@ class RumApplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -158,11 +161,12 @@ class RumApplication(pulumi.CustomResource):
             name="my-application",
             type="browser")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
+        $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
         ```
 
         :param str resource_name: The name of the resource.

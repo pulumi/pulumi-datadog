@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -23,14 +24,15 @@ import * as utilities from "./utilities";
  *     enabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Default rules need to be imported using their ID before applying.
  *
- *  resource "datadog_security_monitoring_default_rule" "adefaultrule" {
+ * resource "datadog_security_monitoring_default_rule" "adefaultrule" {
  *
- *  }
+ * }
  *
  * ```sh
  * $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb

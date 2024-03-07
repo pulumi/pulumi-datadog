@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityMonitoringRulesResult> InvokeAsync(GetSecurityMonitoringRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about existing security monitoring rules for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityMonitoringRulesResult> Invoke(GetSecurityMonitoringRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());

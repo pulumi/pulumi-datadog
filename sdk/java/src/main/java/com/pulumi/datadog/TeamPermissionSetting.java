@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog TeamPermissionSetting resource. This can be used to manage Datadog team_permission_setting.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="datadog:index/teamPermissionSetting:TeamPermissionSetting")

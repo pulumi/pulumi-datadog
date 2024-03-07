@@ -232,6 +232,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -244,6 +245,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             rule_query="severity:low source:cloudtrail",
             suppression_query="env:test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,6 +275,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -285,6 +288,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             rule_query="severity:low source:cloudtrail",
             suppression_query="env:test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

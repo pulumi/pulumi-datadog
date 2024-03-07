@@ -182,6 +182,7 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -191,11 +192,12 @@ class Team(pulumi.CustomResource):
             handle="example-team",
             name="Example Team")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
+        $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,6 +217,7 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -224,11 +227,12 @@ class Team(pulumi.CustomResource):
             handle="example-team",
             name="Example Team")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
+        $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
         ```
 
         :param str resource_name: The name of the resource.

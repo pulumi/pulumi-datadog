@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,11 +64,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+    /// $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/metricTagConfiguration:MetricTagConfiguration")]

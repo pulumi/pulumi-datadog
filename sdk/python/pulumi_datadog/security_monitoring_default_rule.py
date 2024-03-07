@@ -188,6 +188,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -199,14 +200,15 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             )],
             enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Default rules need to be imported using their ID before applying.
 
-         resource "datadog_security_monitoring_default_rule" "adefaultrule" {
+        resource "datadog_security_monitoring_default_rule" "adefaultrule" {
 
-         }
+        }
 
         ```sh
         $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb
@@ -230,6 +232,7 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -241,14 +244,15 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
             )],
             enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Default rules need to be imported using their ID before applying.
 
-         resource "datadog_security_monitoring_default_rule" "adefaultrule" {
+        resource "datadog_security_monitoring_default_rule" "adefaultrule" {
 
-         }
+        }
 
         ```sh
         $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb

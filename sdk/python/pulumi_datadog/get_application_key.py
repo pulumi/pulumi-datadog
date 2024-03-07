@@ -89,12 +89,14 @@ def get_application_key(exact_match: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_application_key(name="foo-application")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: Whether to use exact match when searching by name.
@@ -125,12 +127,14 @@ def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_application_key(name="foo-application")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: Whether to use exact match when searching by name.

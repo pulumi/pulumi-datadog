@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +47,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/openapiApi:OpenapiApi new_list &#34;90646597-5fdb-4a17-a240-647003f8c028&#34;
+ * $ pulumi import datadog:index/openapiApi:OpenapiApi new_list &#34;90646597-5fdb-4a17-a240-647003f8c028&#34;
  * ```
  * 
  */

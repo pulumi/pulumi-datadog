@@ -70,6 +70,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -228,11 +229,12 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
+        $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,6 +252,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -408,11 +411,12 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
+        $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
         ```
 
         :param str resource_name: The name of the resource.

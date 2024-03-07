@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog TeamLink resource. This can be used to create and manage Datadog team_link.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,11 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/teamLink:TeamLink new_list &#34;${team_id}:${resource_id}&#34;
+ * $ pulumi import datadog:index/teamLink:TeamLink new_list &#34;${team_id}:${resource_id}&#34;
  * ```
  * 
  */

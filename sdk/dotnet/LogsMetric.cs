@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,11 +52,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+    /// $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsMetric:LogsMetric")]

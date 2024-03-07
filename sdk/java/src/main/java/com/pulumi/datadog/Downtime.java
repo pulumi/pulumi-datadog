@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * This resource is deprecated — use the `datadog.DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,11 +59,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+ * $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
  * ```
  * 
  */

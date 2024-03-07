@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,13 +51,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
-//
+// $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
 // ```
 type OpenapiApi struct {
 	pulumi.CustomResourceState

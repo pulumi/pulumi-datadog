@@ -89,6 +89,7 @@ def get_users(filter: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -96,6 +97,7 @@ def get_users(filter: Optional[str] = None,
     test = datadog.get_users(filter="user.name@company.com",
         filter_status="Active,Pending")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter all users by the given string.
@@ -123,6 +125,7 @@ def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -130,6 +133,7 @@ def get_users_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     test = datadog.get_users(filter="user.name@company.com",
         filter_status="Active,Pending")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter all users by the given string.

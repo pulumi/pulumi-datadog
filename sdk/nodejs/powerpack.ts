@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -41,11 +42,12 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
  * ```
  */
 export class Powerpack extends pulumi.CustomResource {

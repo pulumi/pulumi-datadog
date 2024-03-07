@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog service account resource. This can be used to create and manage Datadog service accounts.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,11 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+ * $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
  * ```
  * 
  */

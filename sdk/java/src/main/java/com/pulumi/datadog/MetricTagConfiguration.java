@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,11 +75,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+ * $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
  * ```
  * 
  */

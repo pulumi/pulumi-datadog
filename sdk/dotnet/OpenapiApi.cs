@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -31,11 +32,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
+    /// $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/openapiApi:OpenapiApi")]

@@ -70,6 +70,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -77,6 +78,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         # Example Usage (Synthetics Concurrency Cap Configuration)
         this = datadog.SyntheticsConcurrencyCap("this", on_demand_concurrency_cap=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -101,6 +103,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -108,6 +111,7 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         # Example Usage (Synthetics Concurrency Cap Configuration)
         this = datadog.SyntheticsConcurrencyCap("this", on_demand_concurrency_cap=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

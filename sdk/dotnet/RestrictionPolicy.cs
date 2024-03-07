@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,11 +49,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+    /// $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/restrictionPolicy:RestrictionPolicy")]

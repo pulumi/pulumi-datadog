@@ -299,6 +299,7 @@ class SloCorrection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -334,11 +335,12 @@ class SloCorrection(pulumi.CustomResource):
             slo_id=example_slo.id,
             timezone="UTC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+        $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,6 +365,7 @@ class SloCorrection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -398,11 +401,12 @@ class SloCorrection(pulumi.CustomResource):
             slo_id=example_slo.id,
             timezone="UTC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+        $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
         ```
 
         :param str resource_name: The name of the resource.

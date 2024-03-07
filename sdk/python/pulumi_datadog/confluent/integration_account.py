@@ -135,6 +135,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -147,12 +148,13 @@ class IntegrationAccount(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
 
-         https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+        https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
 
         ```sh
         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"
@@ -175,6 +177,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -187,12 +190,13 @@ class IntegrationAccount(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
 
-         https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+        https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
 
         ```sh
         $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"

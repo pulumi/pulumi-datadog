@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,11 +49,12 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
+    /// $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:confluent/integrationResource:IntegrationResource")]

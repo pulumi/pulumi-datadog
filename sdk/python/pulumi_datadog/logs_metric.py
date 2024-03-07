@@ -169,6 +169,7 @@ class LogsMetric(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -193,11 +194,12 @@ class LogsMetric(pulumi.CustomResource):
             ],
             name="testing.logs.metric")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+        $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,6 +220,7 @@ class LogsMetric(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -242,11 +245,12 @@ class LogsMetric(pulumi.CustomResource):
             ],
             name="testing.logs.metric")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+        $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
         ```
 
         :param str resource_name: The name of the resource.

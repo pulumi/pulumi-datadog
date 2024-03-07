@@ -17,9 +17,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
-//
+// $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
 // ```
 type Dashboard struct {
 	pulumi.CustomResourceState

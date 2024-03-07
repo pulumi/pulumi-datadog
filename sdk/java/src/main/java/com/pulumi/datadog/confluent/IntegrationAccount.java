@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog IntegrationConfluentAccount resource. This can be used to create and manage Datadog integration_confluent_account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,12 +53,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
  * 
- *  https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+ * https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
  * 
  * ```sh
  * $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list &#34;&lt;ID&gt;&#34;

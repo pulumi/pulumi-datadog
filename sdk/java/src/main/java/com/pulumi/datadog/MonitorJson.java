@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog monitor JSON resource. This can be used to create and manage Datadog monitors using the JSON definition.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,11 +71,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
+ * $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
  * ```
  * 
  */

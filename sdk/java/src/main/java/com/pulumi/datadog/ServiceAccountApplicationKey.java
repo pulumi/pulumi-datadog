@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog `service_account_application_key` resource. This can be used to create and manage Datadog service account application keys.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,6 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
