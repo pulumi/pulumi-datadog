@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog IntegrationConfluentResource resource. This can be used to create and manage Datadog integration_confluent_resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,11 +65,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list &#34;confluent_account_id:confluent_resource_id&#34;
+ * $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list &#34;confluent_account_id:confluent_resource_id&#34;
  * ```
  * 
  */

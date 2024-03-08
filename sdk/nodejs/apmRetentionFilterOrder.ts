@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * Import existing APM retention filter order
  *
- *  Note: Value of <foo> can be anything as this id is not stored by the resource
+ * Note: Value of <foo> can be anything as this id is not stored by the resource
  *
  * ```sh
  * $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar <foo>

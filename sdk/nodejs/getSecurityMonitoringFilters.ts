@@ -11,12 +11,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getSecurityMonitoringFilters({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityMonitoringFilters(opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringFiltersResult> {
 
@@ -47,12 +49,14 @@ export interface GetSecurityMonitoringFiltersResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getSecurityMonitoringFilters({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityMonitoringFiltersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringFiltersResult> {
     return pulumi.output(getSecurityMonitoringFilters(opts))

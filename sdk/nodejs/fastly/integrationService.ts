@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -27,11 +28,12 @@ import * as utilities from "../utilities";
  *     serviceId: "my-service-id",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+ * $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
  * ```
  */
 export class IntegrationService extends pulumi.CustomResource {

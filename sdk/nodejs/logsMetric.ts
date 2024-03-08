@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -36,11 +37,12 @@ import * as utilities from "./utilities";
  *     name: "testing.logs.metric",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+ * $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
  * ```
  */
 export class LogsMetric extends pulumi.CustomResource {

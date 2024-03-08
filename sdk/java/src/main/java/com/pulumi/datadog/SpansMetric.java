@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,11 +67,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
+ * $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
  * ```
  * 
  */

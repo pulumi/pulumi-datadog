@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -98,11 +100,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list &#34;&#34;
+ * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list &#34;&#34;
  * ```
  * 
  */

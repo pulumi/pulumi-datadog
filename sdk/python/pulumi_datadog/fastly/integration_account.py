@@ -102,6 +102,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -110,11 +111,12 @@ class IntegrationAccount(pulumi.CustomResource):
             api_key="ABCDEFG123",
             name="test-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
+        $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
         ```
 
         :param str resource_name: The name of the resource.
@@ -133,6 +135,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -141,11 +144,12 @@ class IntegrationAccount(pulumi.CustomResource):
             api_key="ABCDEFG123",
             name="test-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
+        $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
         ```
 
         :param str resource_name: The name of the resource.

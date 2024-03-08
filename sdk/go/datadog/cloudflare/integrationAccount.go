@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,13 +42,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
-//
+// $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
 // ```
 type IntegrationAccount struct {
 	pulumi.CustomResourceState

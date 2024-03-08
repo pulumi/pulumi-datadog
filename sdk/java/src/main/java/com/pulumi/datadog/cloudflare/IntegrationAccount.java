@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog IntegrationCloudflareAccount resource. This can be used to create and manage Datadog integration_cloudflare_account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,11 +51,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list &#34;&#34;
+ * $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list &#34;&#34;
  * ```
  * 
  */

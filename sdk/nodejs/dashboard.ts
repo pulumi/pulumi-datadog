@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+ * $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
  * ```
  */
 export class Dashboard extends pulumi.CustomResource {

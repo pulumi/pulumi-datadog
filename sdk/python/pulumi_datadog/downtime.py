@@ -450,6 +450,7 @@ class Downtime(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -465,11 +466,12 @@ class Downtime(pulumi.CustomResource):
             scopes=["*"],
             start=1483308000)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+        $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
         ```
 
         :param str resource_name: The name of the resource.
@@ -497,6 +499,7 @@ class Downtime(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -512,11 +515,12 @@ class Downtime(pulumi.CustomResource):
             scopes=["*"],
             start=1483308000)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+        $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
         ```
 
         :param str resource_name: The name of the resource.

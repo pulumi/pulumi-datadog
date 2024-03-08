@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -27,11 +28,12 @@ import * as utilities from "./utilities";
  *     start: 1483308000,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+ * $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
  * ```
  */
 export class Downtime extends pulumi.CustomResource {

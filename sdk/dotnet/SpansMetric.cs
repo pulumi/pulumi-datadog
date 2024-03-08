@@ -15,7 +15,7 @@ namespace Pulumi.Datadog
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
+    /// $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/spansMetric:SpansMetric")]

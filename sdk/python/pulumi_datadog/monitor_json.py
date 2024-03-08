@@ -103,6 +103,7 @@ class MonitorJson(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -132,11 +133,12 @@ class MonitorJson(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
+        $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,6 +157,7 @@ class MonitorJson(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -184,11 +187,12 @@ class MonitorJson(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
+        $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
         ```
 
         :param str resource_name: The name of the resource.

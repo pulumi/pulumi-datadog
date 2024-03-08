@@ -11,12 +11,14 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getMonitorConfigPolicies({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMonitorConfigPolicies(opts?: pulumi.InvokeOptions): Promise<GetMonitorConfigPoliciesResult> {
 
@@ -43,12 +45,14 @@ export interface GetMonitorConfigPoliciesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getMonitorConfigPolicies({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMonitorConfigPoliciesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorConfigPoliciesResult> {
     return pulumi.output(getMonitorConfigPolicies(opts))

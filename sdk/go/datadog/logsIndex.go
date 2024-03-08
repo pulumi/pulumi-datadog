@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,13 +72,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
-//
+// $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
 // ```
 type LogsIndex struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,11 +40,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+    /// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup")]

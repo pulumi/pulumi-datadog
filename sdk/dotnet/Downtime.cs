@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,11 +42,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+    /// $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/downtime:Downtime")]

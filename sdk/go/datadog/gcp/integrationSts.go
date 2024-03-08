@@ -17,9 +17,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"
-//
+// $ pulumi import datadog:gcp/integrationSts:IntegrationSts foo "9c303af3-b963-45e0-8c8f-469b9e1a213f"
 // ```
 type IntegrationSts struct {
 	pulumi.CustomResourceState

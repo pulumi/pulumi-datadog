@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Cloudflare
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,11 +32,12 @@ namespace Pulumi.Datadog.Cloudflare
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+    /// $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:cloudflare/integrationAccount:IntegrationAccount")]

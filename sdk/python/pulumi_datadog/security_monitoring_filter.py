@@ -218,6 +218,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -237,6 +238,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
             name="My filter",
             query="The filter is filtering.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,6 +267,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -284,6 +287,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
             name="My filter",
             query="The filter is filtering.")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

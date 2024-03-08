@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,11 +68,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+ * $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
  * ```
  * 
  */

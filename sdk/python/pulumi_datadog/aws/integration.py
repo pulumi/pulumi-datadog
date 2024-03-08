@@ -419,6 +419,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -441,6 +442,7 @@ class Integration(pulumi.CustomResource):
             ],
             role_name="DatadogAWSIntegrationRole")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -475,6 +477,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -497,6 +500,7 @@ class Integration(pulumi.CustomResource):
             ],
             role_name="DatadogAWSIntegrationRole")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

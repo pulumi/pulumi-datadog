@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     tagsQuery: "owner:ft-foo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectivesResult> {
     args = args || {};
@@ -106,6 +108,7 @@ export interface GetServiceLevelObjectivesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -114,6 +117,7 @@ export interface GetServiceLevelObjectivesResult {
  *     tagsQuery: "owner:ft-foo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectivesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectivesResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelObjectives(a, opts))

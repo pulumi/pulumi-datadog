@@ -201,6 +201,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -215,6 +216,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
             name="Sample order",
             rate="1.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,6 +245,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -257,6 +260,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
             name="Sample order",
             rate="1.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

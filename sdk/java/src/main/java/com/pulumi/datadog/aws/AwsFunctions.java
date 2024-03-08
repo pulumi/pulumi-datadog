@@ -60,6 +60,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +87,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRules() {
@@ -94,6 +97,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -119,6 +124,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRulesPlain() {
@@ -128,6 +134,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRules(InvokeArgs args) {
@@ -162,6 +171,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -187,6 +198,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRulesPlain(InvokeArgs args) {
@@ -196,6 +208,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -221,6 +235,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRules(InvokeArgs args, InvokeOptions options) {
@@ -230,6 +245,8 @@ public final class AwsFunctions {
      * Provides a Datadog AWS Integration Namespace Rules data source. This can be used to retrieve all available namespace rules for a Datadog-AWS integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -255,6 +272,7 @@ public final class AwsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntegrationNamespaceRulesResult> getIntegrationNamespaceRulesPlain(InvokeArgs args, InvokeOptions options) {

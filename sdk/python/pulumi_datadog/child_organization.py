@@ -168,6 +168,7 @@ class ChildOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -175,6 +176,7 @@ class ChildOrganization(pulumi.CustomResource):
         # Create a new Datadog Child Organization
         organization = datadog.ChildOrganization("organization", name="foo-organization")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,6 +193,7 @@ class ChildOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -198,6 +201,7 @@ class ChildOrganization(pulumi.CustomResource):
         # Create a new Datadog Child Organization
         organization = datadog.ChildOrganization("organization", name="foo-organization")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ChildOrganizationArgs args: The arguments to use to populate this resource's properties.

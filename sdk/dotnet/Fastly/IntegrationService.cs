@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,11 +43,12 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+    /// $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:fastly/integrationService:IntegrationService")]

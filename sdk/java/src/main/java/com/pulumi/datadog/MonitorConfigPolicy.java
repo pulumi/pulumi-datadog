@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="datadog:index/monitorConfigPolicy:MonitorConfigPolicy")

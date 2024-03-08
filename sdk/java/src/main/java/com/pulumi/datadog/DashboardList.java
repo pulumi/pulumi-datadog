@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -107,11 +109,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+ * $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
  * ```
  * 
  */

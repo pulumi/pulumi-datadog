@@ -136,6 +136,7 @@ class IntegrationService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -152,11 +153,12 @@ class IntegrationService(pulumi.CustomResource):
             ],
             service_id="my-service-id")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
         ```
 
         :param str resource_name: The name of the resource.
@@ -176,6 +178,7 @@ class IntegrationService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -192,11 +195,12 @@ class IntegrationService(pulumi.CustomResource):
             ],
             service_id="my-service-id")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
         ```
 
         :param str resource_name: The name of the resource.

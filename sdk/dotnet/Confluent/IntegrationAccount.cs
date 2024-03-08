@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,12 +36,13 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
     /// 
-    ///  https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+    /// https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
     /// 
     /// ```sh
     /// $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "&lt;ID&gt;"

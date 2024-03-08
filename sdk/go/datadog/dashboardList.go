@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,13 +100,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
-//
+// $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
 // ```
 type DashboardList struct {
 	pulumi.CustomResourceState

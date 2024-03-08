@@ -369,6 +369,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -385,6 +386,7 @@ class Integration(pulumi.CustomResource):
             host_filters="examplefilter:true,example:true",
             tenant_name="<azure_tenant_name>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -419,6 +421,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -435,6 +438,7 @@ class Integration(pulumi.CustomResource):
             host_filters="examplefilter:true,example:true",
             tenant_name="<azure_tenant_name>")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

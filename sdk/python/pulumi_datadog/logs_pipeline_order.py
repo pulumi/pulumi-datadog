@@ -102,6 +102,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -113,6 +114,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                 datadog_logs_integration_pipeline["python"]["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -138,6 +140,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -149,6 +152,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                 datadog_logs_integration_pipeline["python"]["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Child Organization resource. This can be used to create Datadog Child Organizations. To manage created organization use `datadog.OrganizationSettings`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="datadog:index/childOrganization:ChildOrganization")
