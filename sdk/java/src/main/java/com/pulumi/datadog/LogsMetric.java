@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Resource for interacting with the logs_metric API
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,11 +71,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+ * $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
  * ```
  * 
  */

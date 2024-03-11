@@ -167,6 +167,7 @@ class TeamLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -182,11 +183,12 @@ class TeamLink(pulumi.CustomResource):
             position="Example link",
             url="https://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
+        $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,6 +209,7 @@ class TeamLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -222,11 +225,12 @@ class TeamLink(pulumi.CustomResource):
             position="Example link",
             url="https://example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
+        $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
         ```
 
         :param str resource_name: The name of the resource.

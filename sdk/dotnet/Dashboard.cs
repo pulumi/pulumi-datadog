@@ -15,7 +15,7 @@ namespace Pulumi.Datadog
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+    /// $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/dashboard:Dashboard")]

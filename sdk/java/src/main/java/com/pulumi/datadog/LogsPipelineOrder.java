@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 

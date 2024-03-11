@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +39,7 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [DatadogResourceType("datadog:index/teamPermissionSetting:TeamPermissionSetting")]
     public partial class TeamPermissionSetting : global::Pulumi.CustomResource

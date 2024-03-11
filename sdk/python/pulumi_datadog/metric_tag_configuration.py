@@ -235,6 +235,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -268,11 +269,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
                 "datacenter",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+        $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,6 +297,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -328,11 +331,12 @@ class MetricTagConfiguration(pulumi.CustomResource):
                 "datacenter",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
+        $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
         ```
 
         :param str resource_name: The name of the resource.

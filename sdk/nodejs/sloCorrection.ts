@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -47,11 +48,12 @@ import * as utilities from "./utilities";
  *     timezone: "UTC",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+ * $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
  * ```
  */
 export class SloCorrection extends pulumi.CustomResource {

@@ -123,14 +123,14 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%!&#34;(MISSING)` is centered alignment.
      * 
      */
     @Import(name="tickPos")
     private @Nullable Output<String> tickPos;
 
     /**
-     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+     * @return When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%!&#34;(MISSING)` is centered alignment.
      * 
      */
     public Optional<Output<String>> tickPos() {
@@ -332,7 +332,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tickPos When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+         * @param tickPos When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%!&#34;(MISSING)` is centered alignment.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tickPos When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%&#34;` is centered alignment.
+         * @param tickPos When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = &#34;50%!&#34;(MISSING)` is centered alignment.
          * 
          * @return builder
          * 

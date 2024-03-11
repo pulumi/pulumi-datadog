@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +41,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
+    /// $ pulumi import datadog:index/serviceAccount:ServiceAccount example_sa 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/serviceAccount:ServiceAccount")]

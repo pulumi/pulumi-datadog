@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,8 +29,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApmRetentionFiltersOrderResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApmRetentionFiltersOrderResult>("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", InvokeArgs.Empty, options.WithDefaults());
@@ -39,10 +37,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Provides a Datadog [APM Retention Filters API](https://docs.datadoghq.com/api/v2/apm-retention-filters/) order datasource. This can be used to retrieve APM retention filters order.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +52,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApmRetentionFiltersOrderResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApmRetentionFiltersOrderResult>("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", InvokeArgs.Empty, options.WithDefaults());

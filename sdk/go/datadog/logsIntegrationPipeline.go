@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,12 +39,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
 //
-//	The pipeline ID is the last part of the URL.
+// The pipeline ID is the last part of the URL.
 //
 // ```sh
 // $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>

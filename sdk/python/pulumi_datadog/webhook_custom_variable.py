@@ -134,6 +134,7 @@ class WebhookCustomVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -143,11 +144,12 @@ class WebhookCustomVariable(pulumi.CustomResource):
             name="EXAMPLE_VARIABLE",
             value="EXAMPLE-VALUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
+        $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,6 +169,7 @@ class WebhookCustomVariable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -176,11 +179,12 @@ class WebhookCustomVariable(pulumi.CustomResource):
             name="EXAMPLE_VARIABLE",
             value="EXAMPLE-VALUE")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
+        $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
         ```
 
         :param str resource_name: The name of the resource.

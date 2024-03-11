@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,13 +41,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
-//
+// $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list "a8f5f167f44f4964e6c998dee827110c"
 // ```
 type IntegrationAccount struct {
 	pulumi.CustomResourceState

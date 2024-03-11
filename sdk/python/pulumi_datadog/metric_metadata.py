@@ -268,6 +268,7 @@ class MetricMetadata(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -280,11 +281,12 @@ class MetricMetadata(pulumi.CustomResource):
             type="gauge",
             unit="millisecond")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+        $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,6 +310,7 @@ class MetricMetadata(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -320,11 +323,12 @@ class MetricMetadata(pulumi.CustomResource):
             type="gauge",
             unit="millisecond")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+        $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
         ```
 
         :param str resource_name: The name of the resource.

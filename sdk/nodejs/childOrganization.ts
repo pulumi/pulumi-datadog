@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,6 +19,7 @@ import * as utilities from "./utilities";
  * // Create a new Datadog Child Organization
  * const organization = new datadog.ChildOrganization("organization", {name: "foo-organization"});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ChildOrganization extends pulumi.CustomResource {
     /**

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can&#39;t create a default rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,14 +58,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Default rules need to be imported using their ID before applying.
  * 
- *  resource &#34;datadog_security_monitoring_default_rule&#34; &#34;adefaultrule&#34; {
+ * resource &#34;datadog_security_monitoring_default_rule&#34; &#34;adefaultrule&#34; {
  * 
- *  }
+ * }
  * 
  * ```sh
  * $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb

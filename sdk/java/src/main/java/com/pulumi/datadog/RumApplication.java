@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog RUM application resource. This can be used to create and manage Datadog RUM applications.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
+ * $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
  * ```
  * 
  */

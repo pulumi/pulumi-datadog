@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,13 +41,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
-//
+// $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
 // ```
 type RumApplication struct {
 	pulumi.CustomResourceState

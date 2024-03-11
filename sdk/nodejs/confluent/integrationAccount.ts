@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -22,12 +23,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
  *
- *  https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+ * https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
  *
  * ```sh
  * $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"

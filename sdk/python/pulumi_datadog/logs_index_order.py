@@ -103,6 +103,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -111,12 +112,13 @@ class LogsIndexOrder(pulumi.CustomResource):
             name="sample_index_order",
             indexes=[datadog_logs_index["sample_index"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
 
-         `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
+        `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
@@ -138,6 +140,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -146,12 +149,13 @@ class LogsIndexOrder(pulumi.CustomResource):
             name="sample_index_order",
             indexes=[datadog_logs_index["sample_index"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
 
-         `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
+        `<name>` can be whatever you specify in your code. Datadog does not store the name on the server.
 
         ```sh
         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>

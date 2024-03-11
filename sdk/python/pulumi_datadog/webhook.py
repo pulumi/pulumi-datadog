@@ -201,6 +201,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -218,11 +219,12 @@ class Webhook(pulumi.CustomResource):
                 "custom": "payload",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/webhook:Webhook foo example-webhook
+        $ pulumi import datadog:index/webhook:Webhook foo example-webhook
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,6 +246,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -261,11 +264,12 @@ class Webhook(pulumi.CustomResource):
                 "custom": "payload",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/webhook:Webhook foo example-webhook
+        $ pulumi import datadog:index/webhook:Webhook foo example-webhook
         ```
 
         :param str resource_name: The name of the resource.

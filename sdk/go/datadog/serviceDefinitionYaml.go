@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -239,13 +240,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
-//
+// $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
 // ```
 type ServiceDefinitionYaml struct {
 	pulumi.CustomResourceState

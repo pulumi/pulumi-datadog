@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,11 +19,12 @@ import * as utilities from "./utilities";
  *     type: "browser",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
+ * $ pulumi import datadog:index/rumApplication:RumApplication rum_application a1b2c3d4-a1b2-a1b2-a1b2-a1b2c3d4e5f6
  * ```
  */
 export class RumApplication extends pulumi.CustomResource {

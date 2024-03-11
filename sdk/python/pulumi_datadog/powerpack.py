@@ -304,6 +304,7 @@ class Powerpack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -333,11 +334,12 @@ class Powerpack(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
+        $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
         ```
 
         :param str resource_name: The name of the resource.
@@ -362,6 +364,7 @@ class Powerpack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -391,11 +394,12 @@ class Powerpack(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
+        $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
         ```
 
         :param str resource_name: The name of the resource.

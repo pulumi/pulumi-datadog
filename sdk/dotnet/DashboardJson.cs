@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -516,11 +517,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
+    /// $ pulumi import datadog:index/dashboardJson:DashboardJson my_service_dashboard sv7-gyh-kas
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/dashboardJson:DashboardJson")]

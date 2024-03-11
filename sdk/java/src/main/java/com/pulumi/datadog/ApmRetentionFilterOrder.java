@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,12 +60,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Import existing APM retention filter order
  * 
- *  Note: Value of &lt;foo&gt; can be anything as this id is not stored by the resource
+ * Note: Value of &lt;foo&gt; can be anything as this id is not stored by the resource
  * 
  * ```sh
  * $ pulumi import datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder bar &lt;foo&gt;

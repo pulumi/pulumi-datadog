@@ -62,12 +62,14 @@ def get_logs_indexes_order(opts: Optional[pulumi.InvokeOptions] = None) -> Await
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_logs_indexes_order()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,11 +87,13 @@ def get_logs_indexes_order_output(opts: Optional[pulumi.InvokeOptions] = None) -
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_logs_indexes_order()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

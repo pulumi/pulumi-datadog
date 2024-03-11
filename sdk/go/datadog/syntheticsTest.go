@@ -21,6 +21,7 @@ import (
 //
 // In practice, it means going from (simplified configuration):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,9 +38,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // to
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,8 +59,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // which you can now use in your request definition:
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,9 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -512,6 +519,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

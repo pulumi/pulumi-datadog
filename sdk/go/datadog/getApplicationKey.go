@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupApplicationKey(ctx *pulumi.Context, args *LookupApplicationKeyArgs, opts ...pulumi.InvokeOption) (*LookupApplicationKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationKeyResult

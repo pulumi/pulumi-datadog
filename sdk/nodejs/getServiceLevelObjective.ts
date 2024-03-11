@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -23,6 +24,7 @@ import * as utilities from "./utilities";
  *     id: data.terraform_remote_state.api.outputs.slo,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelObjective(args?: GetServiceLevelObjectiveArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectiveResult> {
     args = args || {};
@@ -112,6 +114,7 @@ export interface GetServiceLevelObjectiveResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -124,6 +127,7 @@ export interface GetServiceLevelObjectiveResult {
  *     id: data.terraform_remote_state.api.outputs.slo,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceLevelObjectiveOutput(args?: GetServiceLevelObjectiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectiveResult> {
     return pulumi.output(args).apply((a: any) => getServiceLevelObjective(a, opts))

@@ -313,7 +313,7 @@ class DowntimeSchedule(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
+        $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
         ```
 
         :param str resource_name: The name of the resource.
@@ -337,7 +337,7 @@ class DowntimeSchedule(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
+        $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list "00e000000-0000-1234-0000-000000000000"
         ```
 
         :param str resource_name: The name of the resource.

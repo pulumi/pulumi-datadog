@@ -300,6 +300,7 @@ class LogsIndex(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -335,11 +336,12 @@ class LogsIndex(pulumi.CustomResource):
             name="your index",
             retention_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
+        $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
         ```
 
         :param str resource_name: The name of the resource.
@@ -362,6 +364,7 @@ class LogsIndex(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -397,11 +400,12 @@ class LogsIndex(pulumi.CustomResource):
             name="your index",
             retention_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
+        $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
         ```
 
         :param str resource_name: The name of the resource.

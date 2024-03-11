@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetCloudWorkloadSecurityAgentRules(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCloudWorkloadSecurityAgentRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCloudWorkloadSecurityAgentRulesResult

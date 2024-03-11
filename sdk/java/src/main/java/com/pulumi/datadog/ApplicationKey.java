@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
  * ```
  * 
  */

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,13 +41,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
-//
+// $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
 // ```
 type ApplicationKey struct {
 	pulumi.CustomResourceState

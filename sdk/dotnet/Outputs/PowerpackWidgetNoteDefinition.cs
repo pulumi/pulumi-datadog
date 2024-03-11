@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TickEdge;
         /// <summary>
-        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%"` is centered alignment.
+        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%!"(MISSING)` is centered alignment.
         /// </summary>
         public readonly string? TickPos;
         /// <summary>

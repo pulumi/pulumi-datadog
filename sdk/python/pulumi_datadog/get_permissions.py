@@ -75,12 +75,14 @@ def get_permissions(include_restricted: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     permissions = datadog.get_permissions()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.
@@ -104,12 +106,14 @@ def get_permissions_output(include_restricted: Optional[pulumi.Input[Optional[bo
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     permissions = datadog.get_permissions()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool include_restricted: Whether to include restricted permissions. Restricted permissions are granted by default to all users of a Datadog org, and cannot be manually granted or revoked. Defaults to `false`.

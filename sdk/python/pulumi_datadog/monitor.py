@@ -1291,6 +1291,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -1311,11 +1312,12 @@ class Monitor(pulumi.CustomResource):
             ],
             type="metric alert")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+        $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
         ```
 
         :param str resource_name: The name of the resource.
@@ -1397,6 +1399,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -1417,11 +1420,12 @@ class Monitor(pulumi.CustomResource):
             ],
             type="metric alert")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+        $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
         ```
 
         :param str resource_name: The name of the resource.

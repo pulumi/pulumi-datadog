@@ -71,18 +71,20 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
 
-         The pipeline ID is the last part of the URL.
+        The pipeline ID is the last part of the URL.
 
         ```sh
         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
@@ -103,18 +105,20 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
 
-         The pipeline ID is the last part of the URL.
+        The pipeline ID is the last part of the URL.
 
         ```sh
         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>

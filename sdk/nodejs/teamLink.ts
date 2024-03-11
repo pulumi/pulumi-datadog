@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -26,11 +27,12 @@ import * as utilities from "./utilities";
  *     url: "https://example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
+ * $ pulumi import datadog:index/teamLink:TeamLink new_list "${team_id}:${resource_id}"
  * ```
  */
 export class TeamLink extends pulumi.CustomResource {

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -17,11 +18,12 @@ import * as utilities from "./utilities";
  * // Create new openapi_api resource
  * const my_api = new datadog.OpenapiApi("my-api", {spec: fs.readFileSync("./path/my-api.yaml", "utf8")});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
+ * $ pulumi import datadog:index/openapiApi:OpenapiApi new_list "90646597-5fdb-4a17-a240-647003f8c028"
  * ```
  */
 export class OpenapiApi extends pulumi.CustomResource {

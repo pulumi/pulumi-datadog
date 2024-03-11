@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,11 +32,12 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
+    /// $ pulumi import datadog:index/team:Team foo "bf064c56-edb0-11ed-ae91-da7ad0900002"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/team:Team")]

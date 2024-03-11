@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog metric_metadata resource. This can be used to manage a metric&#39;s metadata.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,11 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
+ * $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
  * ```
  * 
  */

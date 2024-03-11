@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,11 +73,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list &#34;00e000000-0000-1234-0000-000000000000&#34;
+ * $ pulumi import datadog:index/downtimeSchedule:DowntimeSchedule new_list &#34;00e000000-0000-1234-0000-000000000000&#34;
  * ```
  * 
  */
