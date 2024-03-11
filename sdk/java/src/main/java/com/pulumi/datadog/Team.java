@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Team resource. This can be used to create and manage Datadog team.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,11 +50,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/team:Team foo &#34;bf064c56-edb0-11ed-ae91-da7ad0900002&#34;
+ * $ pulumi import datadog:index/team:Team foo &#34;bf064c56-edb0-11ed-ae91-da7ad0900002&#34;
  * ```
  * 
  */

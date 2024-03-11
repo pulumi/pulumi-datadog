@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -25,11 +26,12 @@ import * as utilities from "./utilities";
  *     productLists: ["apm"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+ * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
  * ```
  */
 export class SensitiveDataScannerGroup extends pulumi.CustomResource {

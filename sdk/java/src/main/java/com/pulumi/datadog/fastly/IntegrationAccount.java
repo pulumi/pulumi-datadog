@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog IntegrationFastlyAccount resource. This can be used to create and manage Datadog integration_fastly_account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list &#34;a8f5f167f44f4964e6c998dee827110c&#34;
+ * $ pulumi import datadog:fastly/integrationAccount:IntegrationAccount new_list &#34;a8f5f167f44f4964e6c998dee827110c&#34;
  * ```
  * 
  */

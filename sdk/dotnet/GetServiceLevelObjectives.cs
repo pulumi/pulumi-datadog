@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about multiple SLOs for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceLevelObjectivesResult> InvokeAsync(GetServiceLevelObjectivesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about multiple SLOs for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceLevelObjectivesResult> Invoke(GetServiceLevelObjectivesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectivesResult>("datadog:index/getServiceLevelObjectives:getServiceLevelObjectives", args ?? new GetServiceLevelObjectivesInvokeArgs(), options.WithDefaults());

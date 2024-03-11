@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [DatadogResourceType("datadog:index/monitorConfigPolicy:MonitorConfigPolicy")]
     public partial class MonitorConfigPolicy : global::Pulumi.CustomResource

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     tagsFilters: ["foo:bar"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
     args = args || {};
@@ -94,6 +96,7 @@ export interface GetSecurityMonitoringRulesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -104,6 +107,7 @@ export interface GetSecurityMonitoringRulesResult {
  *     tagsFilters: ["foo:bar"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
     return pulumi.output(args).apply((a: any) => getSecurityMonitoringRules(a, opts))

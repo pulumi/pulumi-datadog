@@ -102,6 +102,7 @@ class ServiceObject(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -113,6 +114,7 @@ class ServiceObject(pulumi.CustomResource):
             service_key="54321098765432109876",
             service_name="testing_bar")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -138,6 +140,7 @@ class ServiceObject(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -149,6 +152,7 @@ class ServiceObject(pulumi.CustomResource):
             service_key="54321098765432109876",
             service_name="testing_bar")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

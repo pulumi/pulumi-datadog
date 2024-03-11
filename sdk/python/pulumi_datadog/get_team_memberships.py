@@ -102,6 +102,7 @@ def get_team_memberships(exact_match: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -109,6 +110,7 @@ def get_team_memberships(exact_match: Optional[bool] = None,
     foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
         team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.
@@ -139,6 +141,7 @@ def get_team_memberships_output(exact_match: Optional[pulumi.Input[Optional[bool
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -146,6 +149,7 @@ def get_team_memberships_output(exact_match: Optional[pulumi.Input[Optional[bool
     foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
         team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: When true, `filter_keyword` string is exact matched against the user's `email`, followed by `name`.

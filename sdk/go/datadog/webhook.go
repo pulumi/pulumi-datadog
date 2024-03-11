@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,13 +61,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/webhook:Webhook foo example-webhook
-//
+// $ pulumi import datadog:index/webhook:Webhook foo example-webhook
 // ```
 type Webhook struct {
 	pulumi.CustomResourceState

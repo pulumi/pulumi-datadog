@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Resource for interacting with Datadog Opsgenie Service API.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="datadog:opsgenie/serviceObject:ServiceObject")

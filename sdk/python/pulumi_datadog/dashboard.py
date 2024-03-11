@@ -500,7 +500,7 @@ class Dashboard(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+        $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
         ```
 
         :param str resource_name: The name of the resource.
@@ -532,7 +532,7 @@ class Dashboard(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+        $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
         ```
 
         :param str resource_name: The name of the resource.

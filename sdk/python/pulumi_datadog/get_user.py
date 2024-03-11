@@ -100,12 +100,14 @@ def get_user(exact_match: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_user(filter="user.name@company.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.
@@ -134,12 +136,14 @@ def get_user_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_user(filter="user.name@company.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute. Defaults to `false`.

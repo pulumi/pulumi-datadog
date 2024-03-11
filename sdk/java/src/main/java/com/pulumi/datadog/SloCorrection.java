@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Resource for interacting with the slo_correction API.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,11 +84,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
+ * $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e
  * ```
  * 
  */

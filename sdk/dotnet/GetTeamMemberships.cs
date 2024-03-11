@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about existing Datadog team memberships.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTeamMembershipsResult> InvokeAsync(GetTeamMembershipsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about existing Datadog team memberships.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTeamMembershipsResult> Invoke(GetTeamMembershipsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsInvokeArgs(), options.WithDefaults());

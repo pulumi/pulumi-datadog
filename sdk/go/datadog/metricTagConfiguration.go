@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,13 +70,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
-//
+// $ pulumi import datadog:index/metricTagConfiguration:MetricTagConfiguration example_dist_metric example.terraform.dist.metric
 // ```
 type MetricTagConfiguration struct {
 	pulumi.CustomResourceState

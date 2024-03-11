@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -71,11 +72,12 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+ * $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
  * ```
  */
 export class DashboardList extends pulumi.CustomResource {

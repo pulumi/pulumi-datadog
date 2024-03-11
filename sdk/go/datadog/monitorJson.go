@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,13 +65,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
-//
+// $ pulumi import datadog:index/monitorJson:MonitorJson monitor_json 123456
 // ```
 type MonitorJson struct {
 	pulumi.CustomResourceState

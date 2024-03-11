@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -20,6 +21,7 @@ import * as utilities from "./utilities";
  *     nameFilter: "My awesome monitor",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     args = args || {};
@@ -193,6 +195,7 @@ export interface GetMonitorResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -202,6 +205,7 @@ export interface GetMonitorResult {
  *     nameFilter: "My awesome monitor",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMonitorOutput(args?: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

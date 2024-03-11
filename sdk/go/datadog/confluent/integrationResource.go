@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,13 +58,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
-//
+// $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
 // ```
 type IntegrationResource struct {
 	pulumi.CustomResourceState

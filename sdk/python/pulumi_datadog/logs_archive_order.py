@@ -71,6 +71,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -80,6 +81,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
             datadog_logs_archive["sample_archive_2"]["id"],
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -104,6 +106,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -113,6 +116,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
             datadog_logs_archive["sample_archive_2"]["id"],
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

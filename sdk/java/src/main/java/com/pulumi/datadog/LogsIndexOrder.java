@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,12 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
  * 
- *  `&lt;name&gt;` can be whatever you specify in your code. Datadog does not store the name on the server.
+ * `&lt;name&gt;` can be whatever you specify in your code. Datadog does not store the name on the server.
  * 
  * ```sh
  * $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name&gt; &lt;name&gt;

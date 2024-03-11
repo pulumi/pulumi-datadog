@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog service definition resource. This can be used to create and manage Datadog service definitions in the service catalog using the YAML/JSON definition.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -206,11 +208,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition &#34;&lt;dd-service&gt;&#34;
+ * $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition &#34;&lt;dd-service&gt;&#34;
  * ```
  * 
  */

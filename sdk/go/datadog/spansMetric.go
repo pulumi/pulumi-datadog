@@ -17,9 +17,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
-//
+// $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
 // ```
 type SpansMetric struct {
 	pulumi.CustomResourceState

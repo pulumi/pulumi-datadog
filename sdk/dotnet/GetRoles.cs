@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about multiple roles for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about multiple roles for use in other resources.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());

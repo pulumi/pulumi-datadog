@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about an existing application key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationKeyResult> InvokeAsync(GetApplicationKeyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about an existing application key.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationKeyResult> Invoke(GetApplicationKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithDefaults());

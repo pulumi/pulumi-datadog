@@ -148,12 +148,14 @@ def get_team(filter_keyword: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_team(team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str filter_keyword: Search query. Can be team name, team handle, or email of team member.
@@ -186,12 +188,14 @@ def get_team_output(filter_keyword: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_team(team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str filter_keyword: Search query. Can be team name, team handle, or email of team member.

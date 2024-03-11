@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Datadog powerpack resource. This can be used to create and manage Datadog powerpacks.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -81,11 +83,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/powerpack:Powerpack foo 11111111-2222-3333-4444-555555555555
  * ```
  * 
  */

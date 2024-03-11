@@ -136,6 +136,7 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -150,6 +151,7 @@ class Channel(pulumi.CustomResource):
                 tags=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,6 +178,7 @@ class Channel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -190,6 +193,7 @@ class Channel(pulumi.CustomResource):
                 tags=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

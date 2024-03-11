@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Sensitive Data Scanner group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,11 +58,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list &#34;&#34;
+ * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list &#34;&#34;
  * ```
  * 
  */

@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -548,11 +549,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+ * $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
  * ```
  * 
  */

@@ -136,6 +136,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -157,6 +158,7 @@ class Integration(pulumi.CustomResource):
             service_name="testing_bar",
             opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,6 +177,7 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -196,6 +199,7 @@ class Integration(pulumi.CustomResource):
             service_name="testing_bar",
             opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

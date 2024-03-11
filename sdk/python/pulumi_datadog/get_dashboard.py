@@ -87,12 +87,14 @@ def get_dashboard(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_dashboard(name="My super dashboard")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The dashboard name to search for. Must only match one dashboard.
@@ -117,12 +119,14 @@ def get_dashboard_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_dashboard(name="My super dashboard")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The dashboard name to search for. Must only match one dashboard.

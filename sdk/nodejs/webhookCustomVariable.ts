@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -19,11 +20,12 @@ import * as utilities from "./utilities";
  *     value: "EXAMPLE-VALUE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
+ * $ pulumi import datadog:index/webhookCustomVariable:WebhookCustomVariable foo EXAMPLE_VARIABLE
  * ```
  */
 export class WebhookCustomVariable extends pulumi.CustomResource {

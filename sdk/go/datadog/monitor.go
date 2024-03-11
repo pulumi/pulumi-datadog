@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,13 +53,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
-//
+// $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState

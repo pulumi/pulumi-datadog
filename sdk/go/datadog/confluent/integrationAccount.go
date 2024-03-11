@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,12 +45,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
+// # Confluent account ID can be retrieved using the ListConfluentAccounts endpoint
 //
-//	https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
+// https://docs.datadoghq.com/api/latest/confluent-cloud/#list-confluent-accounts
 //
 // ```sh
 // $ pulumi import datadog:confluent/integrationAccount:IntegrationAccount new_list "<ID>"

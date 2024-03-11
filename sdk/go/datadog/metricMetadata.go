@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,13 +45,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
-//
+// $ pulumi import datadog:index/metricMetadata:MetricMetadata request_time request.time
 // ```
 type MetricMetadata struct {
 	pulumi.CustomResourceState

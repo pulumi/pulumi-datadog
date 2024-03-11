@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,11 +19,12 @@ import * as utilities from "./utilities";
  * // Manage Datadog Organization
  * const organization = new datadog.OrganizationSettings("organization", {name: "foo-organization"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/organizationSettings:OrganizationSettings organization 11111111-2222-3333-4444-555555555555
  * ```
  */
 export class OrganizationSettings extends pulumi.CustomResource {

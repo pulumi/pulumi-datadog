@@ -135,6 +135,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -144,11 +145,12 @@ class IntegrationAccount(pulumi.CustomResource):
             email="test-email@example.com",
             name="test-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,6 +170,7 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -177,11 +180,12 @@ class IntegrationAccount(pulumi.CustomResource):
             email="test-email@example.com",
             name="test-name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
         ```
 
         :param str resource_name: The name of the resource.

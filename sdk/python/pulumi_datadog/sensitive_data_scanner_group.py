@@ -201,6 +201,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -214,11 +215,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             name="My new scanning group",
             product_lists=["apm"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,6 +242,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -253,11 +256,12 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             name="My new scanning group",
             product_lists=["apm"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
         ```
 
         :param str resource_name: The name of the resource.

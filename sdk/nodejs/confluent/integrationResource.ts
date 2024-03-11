@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -32,11 +33,12 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
+ * $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
  * ```
  */
 export class IntegrationResource extends pulumi.CustomResource {

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,14 +47,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Default rules need to be imported using their ID before applying.
 //
-//	resource "datadog_security_monitoring_default_rule" "adefaultrule" {
+// resource "datadog_security_monitoring_default_rule" "adefaultrule" {
 //
-//	}
+// }
 //
 // ```sh
 // $ pulumi import datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule adefaultrule m0o-hto-lkb

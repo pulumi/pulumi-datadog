@@ -62,6 +62,7 @@ def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -69,6 +70,7 @@ def get_sensitive_data_scanner_group_order(opts: Optional[pulumi.InvokeOptions] 
     foo = datadog.get_sensitive_data_scanner_group_order()
     foobar = datadog.SensitiveDataScannerGroupOrder("foobar", group_ids=foo.group_ids)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -86,6 +88,7 @@ def get_sensitive_data_scanner_group_order_output(opts: Optional[pulumi.InvokeOp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -93,5 +96,6 @@ def get_sensitive_data_scanner_group_order_output(opts: Optional[pulumi.InvokeOp
     foo = datadog.get_sensitive_data_scanner_group_order()
     foobar = datadog.SensitiveDataScannerGroupOrder("foobar", group_ids=foo.group_ids)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

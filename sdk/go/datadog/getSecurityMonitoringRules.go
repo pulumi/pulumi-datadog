@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoringRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityMonitoringRulesResult

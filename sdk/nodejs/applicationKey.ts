@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -16,11 +17,12 @@ import * as utilities from "./utilities";
  * // Create a new Datadog Application Key
  * const foo = new datadog.ApplicationKey("foo", {name: "foo-application"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
+ * $ pulumi import datadog:index/applicationKey:ApplicationKey foo 11111111-2222-3333-4444-555555555555
  * ```
  */
 export class ApplicationKey extends pulumi.CustomResource {

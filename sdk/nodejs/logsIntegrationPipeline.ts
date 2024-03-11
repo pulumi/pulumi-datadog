@@ -9,18 +9,20 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const python = new datadog.LogsIntegrationPipeline("python", {isEnabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * To find the pipeline ID, click the "view" button in the UI to open the pipeline details.
  *
- *  The pipeline ID is the last part of the URL.
+ * The pipeline ID is the last part of the URL.
  *
  * ```sh
  * $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>

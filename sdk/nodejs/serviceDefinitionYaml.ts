@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -167,11 +168,12 @@ import * as utilities from "./utilities";
  *
  * `});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
+ * $ pulumi import datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml service_definition "<dd-service>"
  * ```
  */
 export class ServiceDefinitionYaml extends pulumi.CustomResource {

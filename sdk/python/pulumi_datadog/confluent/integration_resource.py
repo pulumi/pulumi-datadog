@@ -201,6 +201,7 @@ class IntegrationResource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -222,11 +223,12 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
+        $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,6 +250,7 @@ class IntegrationResource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -269,11 +272,12 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
+        $ pulumi import datadog:confluent/integrationResource:IntegrationResource new_list "confluent_account_id:confluent_resource_id"
         ```
 
         :param str resource_name: The name of the resource.

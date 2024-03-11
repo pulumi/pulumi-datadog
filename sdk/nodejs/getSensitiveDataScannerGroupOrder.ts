@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -16,6 +17,7 @@ import * as utilities from "./utilities";
  * const foo = datadog.getSensitiveDataScannerGroupOrder({});
  * const foobar = new datadog.SensitiveDataScannerGroupOrder("foobar", {groupIds: foo.then(foo => foo.groupIds)});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveDataScannerGroupOrder(opts?: pulumi.InvokeOptions): Promise<GetSensitiveDataScannerGroupOrderResult> {
 
@@ -42,6 +44,7 @@ export interface GetSensitiveDataScannerGroupOrderResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -49,6 +52,7 @@ export interface GetSensitiveDataScannerGroupOrderResult {
  * const foo = datadog.getSensitiveDataScannerGroupOrder({});
  * const foobar = new datadog.SensitiveDataScannerGroupOrder("foobar", {groupIds: foo.then(foo => foo.groupIds)});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSensitiveDataScannerGroupOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSensitiveDataScannerGroupOrderResult> {
     return pulumi.output(getSensitiveDataScannerGroupOrder(opts))

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,6 +62,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opts ...pulumi.InvokeOption) (*LookupDashboardListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDashboardListResult

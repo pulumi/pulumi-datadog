@@ -14,10 +14,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,8 +29,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", args ?? new GetPermissionsArgs(), options.WithDefaults());
@@ -39,10 +37,9 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +52,7 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("datadog:index/getPermissions:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithDefaults());

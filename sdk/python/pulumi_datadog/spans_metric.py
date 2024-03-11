@@ -148,7 +148,7 @@ class SpansMetric(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
+        $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,7 +167,7 @@ class SpansMetric(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
+        $ pulumi import datadog:index/spansMetric:SpansMetric testing_spans_metric testing.span.metric
         ```
 
         :param str resource_name: The name of the resource.

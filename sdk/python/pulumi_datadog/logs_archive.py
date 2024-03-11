@@ -302,6 +302,7 @@ class LogsArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -316,11 +317,12 @@ class LogsArchive(pulumi.CustomResource):
                 role_name="my-role-name",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+        $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,6 +347,7 @@ class LogsArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -359,11 +362,12 @@ class LogsArchive(pulumi.CustomResource):
                 role_name="my-role-name",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+        $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
         ```
 
         :param str resource_name: The name of the resource.
