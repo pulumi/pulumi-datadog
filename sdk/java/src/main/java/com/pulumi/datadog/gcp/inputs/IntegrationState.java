@@ -62,14 +62,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
      * 
      */
     @Import(name="cspmResourceCollectionEnabled")
     private @Nullable Output<Boolean> cspmResourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> cspmResourceCollectionEnabled() {
@@ -77,18 +77,33 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="hostFilters")
     private @Nullable Output<String> hostFilters;
 
     /**
-     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+     * @return Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> hostFilters() {
         return Optional.ofNullable(this.hostFilters);
+    }
+
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    @Import(name="isSecurityCommandCenterEnabled")
+    private @Nullable Output<Boolean> isSecurityCommandCenterEnabled;
+
+    /**
+     * @return When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isSecurityCommandCenterEnabled() {
+        return Optional.ofNullable(this.isSecurityCommandCenterEnabled);
     }
 
     /**
@@ -136,6 +151,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.projectId);
     }
 
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    @Import(name="resourceCollectionEnabled")
+    private @Nullable Output<Boolean> resourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    public Optional<Output<Boolean>> resourceCollectionEnabled() {
+        return Optional.ofNullable(this.resourceCollectionEnabled);
+    }
+
     private IntegrationState() {}
 
     private IntegrationState(IntegrationState $) {
@@ -144,9 +174,11 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.clientId = $.clientId;
         this.cspmResourceCollectionEnabled = $.cspmResourceCollectionEnabled;
         this.hostFilters = $.hostFilters;
+        this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
         this.privateKey = $.privateKey;
         this.privateKeyId = $.privateKeyId;
         this.projectId = $.projectId;
+        this.resourceCollectionEnabled = $.resourceCollectionEnabled;
     }
 
     public static Builder builder() {
@@ -231,7 +263,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -242,7 +274,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+         * @param cspmResourceCollectionEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -252,7 +284,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -263,13 +295,34 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+         * @param hostFilters Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
          */
         public Builder hostFilters(String hostFilters) {
             return hostFilters(Output.of(hostFilters));
+        }
+
+        /**
+         * @param isSecurityCommandCenterEnabled When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecurityCommandCenterEnabled(@Nullable Output<Boolean> isSecurityCommandCenterEnabled) {
+            $.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+            return this;
+        }
+
+        /**
+         * @param isSecurityCommandCenterEnabled When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
+            return isSecurityCommandCenterEnabled(Output.of(isSecurityCommandCenterEnabled));
         }
 
         /**
@@ -333,6 +386,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
+        }
+
+        /**
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceCollectionEnabled(@Nullable Output<Boolean> resourceCollectionEnabled) {
+            $.resourceCollectionEnabled = resourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+            return resourceCollectionEnabled(Output.of(resourceCollectionEnabled));
         }
 
         public IntegrationState build() {

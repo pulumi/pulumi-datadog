@@ -42,6 +42,10 @@ export class IntegrationSts extends pulumi.CustomResource {
     }
 
     /**
+     * Tags to be associated with GCP metrics and service checks from your account.
+     */
+    public readonly accountTags!: pulumi.Output<string[] | undefined>;
+    /**
      * Silence monitors for expected GCE instance shutdowns.
      */
     public readonly automute!: pulumi.Output<boolean>;
@@ -58,9 +62,17 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     public readonly hostFilters!: pulumi.Output<string[] | undefined>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
     public readonly isCspmEnabled!: pulumi.Output<boolean>;
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     */
+    public readonly isSecurityCommandCenterEnabled!: pulumi.Output<boolean>;
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     */
+    public readonly resourceCollectionEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a IntegrationSts resource with the given unique name, arguments, and options.
@@ -75,20 +87,26 @@ export class IntegrationSts extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationStsState | undefined;
+            resourceInputs["accountTags"] = state ? state.accountTags : undefined;
             resourceInputs["automute"] = state ? state.automute : undefined;
             resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
             resourceInputs["delegateAccountEmail"] = state ? state.delegateAccountEmail : undefined;
             resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = state ? state.isCspmEnabled : undefined;
+            resourceInputs["isSecurityCommandCenterEnabled"] = state ? state.isSecurityCommandCenterEnabled : undefined;
+            resourceInputs["resourceCollectionEnabled"] = state ? state.resourceCollectionEnabled : undefined;
         } else {
             const args = argsOrState as IntegrationStsArgs | undefined;
             if ((!args || args.clientEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientEmail'");
             }
+            resourceInputs["accountTags"] = args ? args.accountTags : undefined;
             resourceInputs["automute"] = args ? args.automute : undefined;
             resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
             resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
             resourceInputs["isCspmEnabled"] = args ? args.isCspmEnabled : undefined;
+            resourceInputs["isSecurityCommandCenterEnabled"] = args ? args.isSecurityCommandCenterEnabled : undefined;
+            resourceInputs["resourceCollectionEnabled"] = args ? args.resourceCollectionEnabled : undefined;
             resourceInputs["delegateAccountEmail"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -100,6 +118,10 @@ export class IntegrationSts extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationSts resources.
  */
 export interface IntegrationStsState {
+    /**
+     * Tags to be associated with GCP metrics and service checks from your account.
+     */
+    accountTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
@@ -117,15 +139,27 @@ export interface IntegrationStsState {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     */
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     */
+    resourceCollectionEnabled?: pulumi.Input<boolean>;
 }
 
 /**
  * The set of arguments for constructing a IntegrationSts resource.
  */
 export interface IntegrationStsArgs {
+    /**
+     * Tags to be associated with GCP metrics and service checks from your account.
+     */
+    accountTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
@@ -139,7 +173,15 @@ export interface IntegrationStsArgs {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     */
+    isSecurityCommandCenterEnabled?: pulumi.Input<boolean>;
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     */
+    resourceCollectionEnabled?: pulumi.Input<boolean>;
 }

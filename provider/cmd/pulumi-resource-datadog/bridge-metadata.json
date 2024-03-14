@@ -9880,6 +9880,9 @@
                 "current": "datadog:gcp/integrationSts:IntegrationSts",
                 "majorVersion": 4,
                 "fields": {
+                    "account_tags": {
+                        "maxItemsOne": false
+                    },
                     "host_filters": {
                         "maxItemsOne": false
                     }
@@ -14352,7 +14355,7 @@
             "datadog:confluent/integrationResource:IntegrationResource": 1,
             "datadog:fastly/integrationAccount:IntegrationAccount": 1,
             "datadog:fastly/integrationService:IntegrationService": 1,
-            "datadog:gcp/integration:Integration": 0,
+            "datadog:gcp/integration:Integration": 1,
             "datadog:gcp/integrationSts:IntegrationSts": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,

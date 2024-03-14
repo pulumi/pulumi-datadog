@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Gcp
 {
     /// <summary>
-    /// This resource is deprecated — use the `datadog.gcp.IntegrationSts resource` instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+    /// This resource is deprecated—use the `datadog.gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
     /// 
     /// ## Import
     /// 
@@ -27,7 +27,7 @@ namespace Pulumi.Datadog.Gcp
         /// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         /// </summary>
         [Output("automute")]
-        public Output<bool?> Automute { get; private set; } = null!;
+        public Output<bool> Automute { get; private set; } = null!;
 
         /// <summary>
         /// Your email found in your JSON service account key.
@@ -42,16 +42,22 @@ namespace Pulumi.Datadog.Gcp
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
         [Output("cspmResourceCollectionEnabled")]
-        public Output<bool?> CspmResourceCollectionEnabled { get; private set; } = null!;
+        public Output<bool> CspmResourceCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Output("hostFilters")]
-        public Output<string?> HostFilters { get; private set; } = null!;
+        public Output<string> HostFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Output("isSecurityCommandCenterEnabled")]
+        public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Your private key name found in your JSON service account key.
@@ -70,6 +76,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Output("resourceCollectionEnabled")]
+        public Output<bool> ResourceCollectionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,16 +152,22 @@ namespace Pulumi.Datadog.Gcp
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Input("isSecurityCommandCenterEnabled")]
+        public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
 
         [Input("privateKey", required: true)]
         private Input<string>? _privateKey;
@@ -179,6 +197,12 @@ namespace Pulumi.Datadog.Gcp
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<bool>? ResourceCollectionEnabled { get; set; }
+
         public IntegrationArgs()
         {
         }
@@ -206,16 +230,22 @@ namespace Pulumi.Datadog.Gcp
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         /// </summary>
         [Input("cspmResourceCollectionEnabled")]
         public Input<bool>? CspmResourceCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Input("isSecurityCommandCenterEnabled")]
+        public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
 
         [Input("privateKey")]
         private Input<string>? _privateKey;
@@ -244,6 +274,12 @@ namespace Pulumi.Datadog.Gcp
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<bool>? ResourceCollectionEnabled { get; set; }
 
         public IntegrationState()
         {

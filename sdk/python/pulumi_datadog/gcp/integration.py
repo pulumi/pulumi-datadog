@@ -21,7 +21,9 @@ class IntegrationArgs:
                  project_id: pulumi.Input[str],
                  automute: Optional[pulumi.Input[bool]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
-                 host_filters: Optional[pulumi.Input[str]] = None):
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
@@ -30,8 +32,10 @@ class IntegrationArgs:
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         pulumi.set(__self__, "client_email", client_email)
         pulumi.set(__self__, "client_id", client_id)
@@ -44,6 +48,10 @@ class IntegrationArgs:
             pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
+        if is_security_command_center_enabled is not None:
+            pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -121,7 +129,7 @@ class IntegrationArgs:
     @pulumi.getter(name="cspmResourceCollectionEnabled")
     def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
@@ -133,13 +141,37 @@ class IntegrationArgs:
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
     def host_filters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_filters", value)
+
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
+
+    @is_security_command_center_enabled.setter
+    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_security_command_center_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resource_collection_enabled", value)
 
 
 @pulumi.input_type
@@ -150,19 +182,23 @@ class _IntegrationState:
                  client_id: Optional[pulumi.Input[str]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
-                 project_id: Optional[pulumi.Input[str]] = None):
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
@@ -174,12 +210,16 @@ class _IntegrationState:
             pulumi.set(__self__, "cspm_resource_collection_enabled", cspm_resource_collection_enabled)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
+        if is_security_command_center_enabled is not None:
+            pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
         if private_key_id is not None:
             pulumi.set(__self__, "private_key_id", private_key_id)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
     @property
     @pulumi.getter
@@ -221,7 +261,7 @@ class _IntegrationState:
     @pulumi.getter(name="cspmResourceCollectionEnabled")
     def cspm_resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
@@ -233,13 +273,25 @@ class _IntegrationState:
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         """
         return pulumi.get(self, "host_filters")
 
     @host_filters.setter
     def host_filters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_filters", value)
+
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
+
+    @is_security_command_center_enabled.setter
+    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_security_command_center_enabled", value)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -277,6 +329,18 @@ class _IntegrationState:
     def project_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_id", value)
 
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resource_collection_enabled", value)
+
 
 class Integration(pulumi.CustomResource):
     @overload
@@ -288,12 +352,14 @@ class Integration(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[str]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        This resource is deprecated — use the `gcp.IntegrationSts resource` instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+        This resource is deprecated—use the `gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
         ## Import
 
@@ -308,11 +374,13 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         ...
     @overload
@@ -321,7 +389,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource is deprecated — use the `gcp.IntegrationSts resource` instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+        This resource is deprecated—use the `gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
         ## Import
 
@@ -351,9 +419,11 @@ class Integration(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[str]] = None,
                  cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_id: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -372,6 +442,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
             __props__.__dict__["host_filters"] = host_filters
+            __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
@@ -381,6 +452,7 @@ class Integration(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Integration, __self__).__init__(
@@ -398,9 +470,11 @@ class Integration(pulumi.CustomResource):
             client_id: Optional[pulumi.Input[str]] = None,
             cspm_resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
+            is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
             private_key: Optional[pulumi.Input[str]] = None,
             private_key_id: Optional[pulumi.Input[str]] = None,
-            project_id: Optional[pulumi.Input[str]] = None) -> 'Integration':
+            project_id: Optional[pulumi.Input[str]] = None,
+            resource_collection_enabled: Optional[pulumi.Input[bool]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -411,11 +485,13 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        :param pulumi.Input[bool] cspm_resource_collection_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -426,14 +502,16 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["cspm_resource_collection_enabled"] = cspm_resource_collection_enabled
         __props__.__dict__["host_filters"] = host_filters
+        __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
         __props__.__dict__["private_key"] = private_key
         __props__.__dict__["private_key_id"] = private_key_id
         __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def automute(self) -> pulumi.Output[Optional[bool]]:
+    def automute(self) -> pulumi.Output[bool]:
         """
         Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
         """
@@ -457,19 +535,27 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cspmResourceCollectionEnabled")
-    def cspm_resource_collection_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def cspm_resource_collection_enabled(self) -> pulumi.Output[bool]:
         """
-        Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "cspm_resource_collection_enabled")
 
     @property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> pulumi.Output[Optional[str]]:
+    def host_filters(self) -> pulumi.Output[str]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
         """
         return pulumi.get(self, "host_filters")
+
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> pulumi.Output[bool]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
 
     @property
     @pulumi.getter(name="privateKey")
@@ -494,4 +580,12 @@ class Integration(pulumi.CustomResource):
         Your Google Cloud project ID found in your JSON service account key.
         """
         return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> pulumi.Output[bool]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
 

@@ -15,23 +15,35 @@ __all__ = ['IntegrationStsArgs', 'IntegrationSts']
 class IntegrationStsArgs:
     def __init__(__self__, *,
                  client_email: pulumi.Input[str],
+                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 is_cspm_enabled: Optional[pulumi.Input[bool]] = None):
+                 is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a IntegrationSts resource.
         :param pulumi.Input[str] client_email: Your service account email address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         pulumi.set(__self__, "client_email", client_email)
+        if account_tags is not None:
+            pulumi.set(__self__, "account_tags", account_tags)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_security_command_center_enabled is not None:
+            pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -44,6 +56,18 @@ class IntegrationStsArgs:
     @client_email.setter
     def client_email(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="accountTags")
+    def account_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags to be associated with GCP metrics and service checks from your account.
+        """
+        return pulumi.get(self, "account_tags")
+
+    @account_tags.setter
+    def account_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "account_tags", value)
 
     @property
     @pulumi.getter
@@ -73,7 +97,7 @@ class IntegrationStsArgs:
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         """
         return pulumi.get(self, "is_cspm_enabled")
 
@@ -81,23 +105,55 @@ class IntegrationStsArgs:
     def is_cspm_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_cspm_enabled", value)
 
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
+
+    @is_security_command_center_enabled.setter
+    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_security_command_center_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resource_collection_enabled", value)
+
 
 @pulumi.input_type
 class _IntegrationStsState:
     def __init__(__self__, *,
+                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  delegate_account_email: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 is_cspm_enabled: Optional[pulumi.Input[bool]] = None):
+                 is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering IntegrationSts resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
+        if account_tags is not None:
+            pulumi.set(__self__, "account_tags", account_tags)
         if automute is not None:
             pulumi.set(__self__, "automute", automute)
         if client_email is not None:
@@ -108,6 +164,22 @@ class _IntegrationStsState:
             pulumi.set(__self__, "host_filters", host_filters)
         if is_cspm_enabled is not None:
             pulumi.set(__self__, "is_cspm_enabled", is_cspm_enabled)
+        if is_security_command_center_enabled is not None:
+            pulumi.set(__self__, "is_security_command_center_enabled", is_security_command_center_enabled)
+        if resource_collection_enabled is not None:
+            pulumi.set(__self__, "resource_collection_enabled", resource_collection_enabled)
+
+    @property
+    @pulumi.getter(name="accountTags")
+    def account_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags to be associated with GCP metrics and service checks from your account.
+        """
+        return pulumi.get(self, "account_tags")
+
+    @account_tags.setter
+    def account_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "account_tags", value)
 
     @property
     @pulumi.getter
@@ -161,7 +233,7 @@ class _IntegrationStsState:
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         """
         return pulumi.get(self, "is_cspm_enabled")
 
@@ -169,16 +241,43 @@ class _IntegrationStsState:
     def is_cspm_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_cspm_enabled", value)
 
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
+
+    @is_security_command_center_enabled.setter
+    def is_security_command_center_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_security_command_center_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
+
+    @resource_collection_enabled.setter
+    def resource_collection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resource_collection_enabled", value)
+
 
 class IntegrationSts(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides a Datadog Integration GCP Sts resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
@@ -191,10 +290,13 @@ class IntegrationSts(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         ...
     @overload
@@ -226,10 +328,13 @@ class IntegrationSts(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_collection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,12 +344,15 @@ class IntegrationSts(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationStsArgs.__new__(IntegrationStsArgs)
 
+            __props__.__dict__["account_tags"] = account_tags
             __props__.__dict__["automute"] = automute
             if client_email is None and not opts.urn:
                 raise TypeError("Missing required property 'client_email'")
             __props__.__dict__["client_email"] = client_email
             __props__.__dict__["host_filters"] = host_filters
             __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+            __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
+            __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
             __props__.__dict__["delegate_account_email"] = None
         super(IntegrationSts, __self__).__init__(
             'datadog:gcp/integrationSts:IntegrationSts',
@@ -256,11 +364,14 @@ class IntegrationSts(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             automute: Optional[pulumi.Input[bool]] = None,
             client_email: Optional[pulumi.Input[str]] = None,
             delegate_account_email: Optional[pulumi.Input[str]] = None,
             host_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            is_cspm_enabled: Optional[pulumi.Input[bool]] = None) -> 'IntegrationSts':
+            is_cspm_enabled: Optional[pulumi.Input[bool]] = None,
+            is_security_command_center_enabled: Optional[pulumi.Input[bool]] = None,
+            resource_collection_enabled: Optional[pulumi.Input[bool]] = None) -> 'IntegrationSts':
         """
         Get an existing IntegrationSts resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -268,22 +379,36 @@ class IntegrationSts(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_tags: Tags to be associated with GCP metrics and service checks from your account.
         :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your service account email address.
         :param pulumi.Input[str] delegate_account_email: Datadog's STS Delegate Email.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_filters: Your Host Filters.
-        :param pulumi.Input[bool] is_cspm_enabled: When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        :param pulumi.Input[bool] is_cspm_enabled: Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
+        :param pulumi.Input[bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        :param pulumi.Input[bool] resource_collection_enabled: When enabled, Datadog scans for all resources in your GCP environment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _IntegrationStsState.__new__(_IntegrationStsState)
 
+        __props__.__dict__["account_tags"] = account_tags
         __props__.__dict__["automute"] = automute
         __props__.__dict__["client_email"] = client_email
         __props__.__dict__["delegate_account_email"] = delegate_account_email
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["is_cspm_enabled"] = is_cspm_enabled
+        __props__.__dict__["is_security_command_center_enabled"] = is_security_command_center_enabled
+        __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return IntegrationSts(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountTags")
+    def account_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Tags to be associated with GCP metrics and service checks from your account.
+        """
+        return pulumi.get(self, "account_tags")
 
     @property
     @pulumi.getter
@@ -321,7 +446,23 @@ class IntegrationSts(pulumi.CustomResource):
     @pulumi.getter(name="isCspmEnabled")
     def is_cspm_enabled(self) -> pulumi.Output[bool]:
         """
-        When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         """
         return pulumi.get(self, "is_cspm_enabled")
+
+    @property
+    @pulumi.getter(name="isSecurityCommandCenterEnabled")
+    def is_security_command_center_enabled(self) -> pulumi.Output[bool]:
+        """
+        When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        """
+        return pulumi.get(self, "is_security_command_center_enabled")
+
+    @property
+    @pulumi.getter(name="resourceCollectionEnabled")
+    def resource_collection_enabled(self) -> pulumi.Output[bool]:
+        """
+        When enabled, Datadog scans for all resources in your GCP environment.
+        """
+        return pulumi.get(self, "resource_collection_enabled")
 

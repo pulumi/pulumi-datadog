@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource is deprecated — use the `gcp.IntegrationSts resource` instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+// This resource is deprecated—use the `gcp.IntegrationSts` resource instead. Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 //
 // ## Import
 //
@@ -25,21 +25,25 @@ type Integration struct {
 	pulumi.CustomResourceState
 
 	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
-	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
+	Automute pulumi.BoolOutput `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-	CspmResourceCollectionEnabled pulumi.BoolPtrOutput `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
+	CspmResourceCollectionEnabled pulumi.BoolOutput `pulumi:"cspmResourceCollectionEnabled"`
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+	HostFilters pulumi.StringOutput `pulumi:"hostFilters"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolOutput `pulumi:"isSecurityCommandCenterEnabled"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
 	PrivateKeyId pulumi.StringOutput `pulumi:"privateKeyId"`
 	// Your Google Cloud project ID found in your JSON service account key.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolOutput `pulumi:"resourceCollectionEnabled"`
 }
 
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
@@ -100,16 +104,20 @@ type integrationState struct {
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	HostFilters *string `pulumi:"hostFilters"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
 	PrivateKeyId *string `pulumi:"privateKeyId"`
 	// Your Google Cloud project ID found in your JSON service account key.
 	ProjectId *string `pulumi:"projectId"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
 
 type IntegrationState struct {
@@ -119,16 +127,20 @@ type IntegrationState struct {
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	HostFilters pulumi.StringPtrInput
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringPtrInput
 	// Your private key ID found in your JSON service account key.
 	PrivateKeyId pulumi.StringPtrInput
 	// Your Google Cloud project ID found in your JSON service account key.
 	ProjectId pulumi.StringPtrInput
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationState) ElementType() reflect.Type {
@@ -142,16 +154,20 @@ type integrationArgs struct {
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled *bool `pulumi:"cspmResourceCollectionEnabled"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	HostFilters *string `pulumi:"hostFilters"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey string `pulumi:"privateKey"`
 	// Your private key ID found in your JSON service account key.
 	PrivateKeyId string `pulumi:"privateKeyId"`
 	// Your Google Cloud project ID found in your JSON service account key.
 	ProjectId string `pulumi:"projectId"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
 
 // The set of arguments for constructing a Integration resource.
@@ -162,16 +178,20 @@ type IntegrationArgs struct {
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
 	CspmResourceCollectionEnabled pulumi.BoolPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
 	HostFilters pulumi.StringPtrInput
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringInput
 	// Your private key ID found in your JSON service account key.
 	PrivateKeyId pulumi.StringInput
 	// Your Google Cloud project ID found in your JSON service account key.
 	ProjectId pulumi.StringInput
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationArgs) ElementType() reflect.Type {
@@ -262,8 +282,8 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 }
 
 // Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
-func (o IntegrationOutput) Automute() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.Automute }).(pulumi.BoolPtrOutput)
+func (o IntegrationOutput) Automute() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.Automute }).(pulumi.BoolOutput)
 }
 
 // Your email found in your JSON service account key.
@@ -276,14 +296,19 @@ func (o IntegrationOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Whether Datadog collects cloud security posture management resources from your GCP project. Defaults to `false`.
-func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Integration) pulumi.BoolPtrOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolPtrOutput)
+// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled. Defaults to `false`.
+func (o IntegrationOutput) CspmResourceCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.CspmResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
-// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-func (o IntegrationOutput) HostFilters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.HostFilters }).(pulumi.StringPtrOutput)
+// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. Defaults to `""`.
+func (o IntegrationOutput) HostFilters() pulumi.StringOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.HostFilters }).(pulumi.StringOutput)
+}
+
+// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+func (o IntegrationOutput) IsSecurityCommandCenterEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.IsSecurityCommandCenterEnabled }).(pulumi.BoolOutput)
 }
 
 // Your private key name found in your JSON service account key.
@@ -299,6 +324,11 @@ func (o IntegrationOutput) PrivateKeyId() pulumi.StringOutput {
 // Your Google Cloud project ID found in your JSON service account key.
 func (o IntegrationOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// When enabled, Datadog scans for all resources in your GCP environment.
+func (o IntegrationOutput) ResourceCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Integration) pulumi.BoolOutput { return v.ResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
 type IntegrationArrayOutput struct{ *pulumi.OutputState }

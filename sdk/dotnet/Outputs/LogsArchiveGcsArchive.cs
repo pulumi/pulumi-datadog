@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Your project id.
         /// </summary>
-        public readonly string ProjectId;
+        public readonly string? ProjectId;
 
         [OutputConstructor]
         private LogsArchiveGcsArchive(
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? path,
 
-            string projectId)
+            string? projectId)
         {
             Bucket = bucket;
             ClientEmail = clientEmail;

@@ -19,6 +19,21 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     public static final IntegrationStsArgs Empty = new IntegrationStsArgs();
 
     /**
+     * Tags to be associated with GCP metrics and service checks from your account.
+     * 
+     */
+    @Import(name="accountTags")
+    private @Nullable Output<List<String>> accountTags;
+
+    /**
+     * @return Tags to be associated with GCP metrics and service checks from your account.
+     * 
+     */
+    public Optional<Output<List<String>>> accountTags() {
+        return Optional.ofNullable(this.accountTags);
+    }
+
+    /**
      * Silence monitors for expected GCE instance shutdowns.
      * 
      */
@@ -64,27 +79,60 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
      * 
      */
     @Import(name="isCspmEnabled")
     private @Nullable Output<Boolean> isCspmEnabled;
 
     /**
-     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
      * 
      */
     public Optional<Output<Boolean>> isCspmEnabled() {
         return Optional.ofNullable(this.isCspmEnabled);
     }
 
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    @Import(name="isSecurityCommandCenterEnabled")
+    private @Nullable Output<Boolean> isSecurityCommandCenterEnabled;
+
+    /**
+     * @return When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isSecurityCommandCenterEnabled() {
+        return Optional.ofNullable(this.isSecurityCommandCenterEnabled);
+    }
+
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    @Import(name="resourceCollectionEnabled")
+    private @Nullable Output<Boolean> resourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    public Optional<Output<Boolean>> resourceCollectionEnabled() {
+        return Optional.ofNullable(this.resourceCollectionEnabled);
+    }
+
     private IntegrationStsArgs() {}
 
     private IntegrationStsArgs(IntegrationStsArgs $) {
+        this.accountTags = $.accountTags;
         this.automute = $.automute;
         this.clientEmail = $.clientEmail;
         this.hostFilters = $.hostFilters;
         this.isCspmEnabled = $.isCspmEnabled;
+        this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
+        this.resourceCollectionEnabled = $.resourceCollectionEnabled;
     }
 
     public static Builder builder() {
@@ -103,6 +151,37 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(IntegrationStsArgs defaults) {
             $ = new IntegrationStsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountTags Tags to be associated with GCP metrics and service checks from your account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountTags(@Nullable Output<List<String>> accountTags) {
+            $.accountTags = accountTags;
+            return this;
+        }
+
+        /**
+         * @param accountTags Tags to be associated with GCP metrics and service checks from your account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountTags(List<String> accountTags) {
+            return accountTags(Output.of(accountTags));
+        }
+
+        /**
+         * @param accountTags Tags to be associated with GCP metrics and service checks from your account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountTags(String... accountTags) {
+            return accountTags(List.of(accountTags));
         }
 
         /**
@@ -179,7 +258,7 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
          * 
          * @return builder
          * 
@@ -190,13 +269,55 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isCspmEnabled When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
          * 
          * @return builder
          * 
          */
         public Builder isCspmEnabled(Boolean isCspmEnabled) {
             return isCspmEnabled(Output.of(isCspmEnabled));
+        }
+
+        /**
+         * @param isSecurityCommandCenterEnabled When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecurityCommandCenterEnabled(@Nullable Output<Boolean> isSecurityCommandCenterEnabled) {
+            $.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+            return this;
+        }
+
+        /**
+         * @param isSecurityCommandCenterEnabled When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
+            return isSecurityCommandCenterEnabled(Output.of(isSecurityCommandCenterEnabled));
+        }
+
+        /**
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceCollectionEnabled(@Nullable Output<Boolean> resourceCollectionEnabled) {
+            $.resourceCollectionEnabled = resourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+            return resourceCollectionEnabled(Output.of(resourceCollectionEnabled));
         }
 
         public IntegrationStsArgs build() {

@@ -65,15 +65,15 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
      * Your project id.
      * 
      */
-    @Import(name="projectId", required=true)
-    private Output<String> projectId;
+    @Import(name="projectId")
+    private @Nullable Output<String> projectId;
 
     /**
      * @return Your project id.
      * 
      */
-    public Output<String> projectId() {
-        return this.projectId;
+    public Optional<Output<String>> projectId() {
+        return Optional.ofNullable(this.projectId);
     }
 
     private LogsArchiveGcsArchiveArgs() {}
@@ -172,7 +172,7 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder projectId(Output<String> projectId) {
+        public Builder projectId(@Nullable Output<String> projectId) {
             $.projectId = projectId;
             return this;
         }
@@ -193,9 +193,6 @@ public final class LogsArchiveGcsArchiveArgs extends com.pulumi.resources.Resour
             }
             if ($.clientEmail == null) {
                 throw new MissingRequiredPropertyException("LogsArchiveGcsArchiveArgs", "clientEmail");
-            }
-            if ($.projectId == null) {
-                throw new MissingRequiredPropertyException("LogsArchiveGcsArchiveArgs", "projectId");
             }
             return $;
         }

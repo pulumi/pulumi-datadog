@@ -31,7 +31,7 @@ public final class LogsArchiveGcsArchive {
      * @return Your project id.
      * 
      */
-    private String projectId;
+    private @Nullable String projectId;
 
     private LogsArchiveGcsArchive() {}
     /**
@@ -59,8 +59,8 @@ public final class LogsArchiveGcsArchive {
      * @return Your project id.
      * 
      */
-    public String projectId() {
-        return this.projectId;
+    public Optional<String> projectId() {
+        return Optional.ofNullable(this.projectId);
     }
 
     public static Builder builder() {
@@ -75,7 +75,7 @@ public final class LogsArchiveGcsArchive {
         private String bucket;
         private String clientEmail;
         private @Nullable String path;
-        private String projectId;
+        private @Nullable String projectId;
         public Builder() {}
         public Builder(LogsArchiveGcsArchive defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,10 +108,8 @@ public final class LogsArchiveGcsArchive {
             return this;
         }
         @CustomType.Setter
-        public Builder projectId(String projectId) {
-            if (projectId == null) {
-              throw new MissingRequiredPropertyException("LogsArchiveGcsArchive", "projectId");
-            }
+        public Builder projectId(@Nullable String projectId) {
+
             this.projectId = projectId;
             return this;
         }

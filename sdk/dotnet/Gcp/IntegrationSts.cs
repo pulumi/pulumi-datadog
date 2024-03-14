@@ -22,6 +22,12 @@ namespace Pulumi.Datadog.Gcp
     public partial class IntegrationSts : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Tags to be associated with GCP metrics and service checks from your account.
+        /// </summary>
+        [Output("accountTags")]
+        public Output<ImmutableArray<string>> AccountTags { get; private set; } = null!;
+
+        /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
         /// </summary>
         [Output("automute")]
@@ -46,10 +52,22 @@ namespace Pulumi.Datadog.Gcp
         public Output<ImmutableArray<string>> HostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         /// </summary>
         [Output("isCspmEnabled")]
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Output("isSecurityCommandCenterEnabled")]
+        public Output<bool> IsSecurityCommandCenterEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Output("resourceCollectionEnabled")]
+        public Output<bool> ResourceCollectionEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,6 +115,18 @@ namespace Pulumi.Datadog.Gcp
 
     public sealed class IntegrationStsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accountTags")]
+        private InputList<string>? _accountTags;
+
+        /// <summary>
+        /// Tags to be associated with GCP metrics and service checks from your account.
+        /// </summary>
+        public InputList<string> AccountTags
+        {
+            get => _accountTags ?? (_accountTags = new InputList<string>());
+            set => _accountTags = value;
+        }
+
         /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
         /// </summary>
@@ -122,10 +152,22 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Input("isSecurityCommandCenterEnabled")]
+        public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<bool>? ResourceCollectionEnabled { get; set; }
 
         public IntegrationStsArgs()
         {
@@ -135,6 +177,18 @@ namespace Pulumi.Datadog.Gcp
 
     public sealed class IntegrationStsState : global::Pulumi.ResourceArgs
     {
+        [Input("accountTags")]
+        private InputList<string>? _accountTags;
+
+        /// <summary>
+        /// Tags to be associated with GCP metrics and service checks from your account.
+        /// </summary>
+        public InputList<string> AccountTags
+        {
+            get => _accountTags ?? (_accountTags = new InputList<string>());
+            set => _accountTags = value;
+        }
+
         /// <summary>
         /// Silence monitors for expected GCE instance shutdowns.
         /// </summary>
@@ -166,10 +220,22 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+        /// </summary>
+        [Input("isSecurityCommandCenterEnabled")]
+        public Input<bool>? IsSecurityCommandCenterEnabled { get; set; }
+
+        /// <summary>
+        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// </summary>
+        [Input("resourceCollectionEnabled")]
+        public Input<bool>? ResourceCollectionEnabled { get; set; }
 
         public IntegrationStsState()
         {

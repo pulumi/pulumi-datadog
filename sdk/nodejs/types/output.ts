@@ -40544,7 +40544,7 @@ export interface LogsArchiveGcsArchive {
     /**
      * Your project id.
      */
-    projectId: string;
+    projectId?: string;
 }
 
 export interface LogsArchiveS3Archive {

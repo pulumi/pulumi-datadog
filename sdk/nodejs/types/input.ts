@@ -39904,7 +39904,7 @@ export interface LogsArchiveGcsArchive {
     /**
      * Your project id.
      */
-    projectId: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
 }
 
 export interface LogsArchiveS3Archive {
