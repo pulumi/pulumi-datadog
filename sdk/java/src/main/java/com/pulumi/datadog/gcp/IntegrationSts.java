@@ -29,6 +29,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:gcp/integrationSts:IntegrationSts")
 public class IntegrationSts extends com.pulumi.resources.CustomResource {
     /**
+     * Tags to be associated with GCP metrics and service checks from your account.
+     * 
+     */
+    @Export(name="accountTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> accountTags;
+
+    /**
+     * @return Tags to be associated with GCP metrics and service checks from your account.
+     * 
+     */
+    public Output<Optional<List<String>>> accountTags() {
+        return Codegen.optional(this.accountTags);
+    }
+    /**
      * Silence monitors for expected GCE instance shutdowns.
      * 
      */
@@ -85,18 +99,46 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hostFilters);
     }
     /**
-     * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
      * 
      */
     @Export(name="isCspmEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isCspmEnabled;
 
     /**
-     * @return When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resource_collection_enabled` to also be enabled.
      * 
      */
     public Output<Boolean> isCspmEnabled() {
         return this.isCspmEnabled;
+    }
+    /**
+     * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    @Export(name="isSecurityCommandCenterEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isSecurityCommandCenterEnabled;
+
+    /**
+     * @return When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+     * 
+     */
+    public Output<Boolean> isSecurityCommandCenterEnabled() {
+        return this.isSecurityCommandCenterEnabled;
+    }
+    /**
+     * When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    @Export(name="resourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> resourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for all resources in your GCP environment.
+     * 
+     */
+    public Output<Boolean> resourceCollectionEnabled() {
+        return this.resourceCollectionEnabled;
     }
 
     /**

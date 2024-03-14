@@ -22,6 +22,8 @@ import (
 type IntegrationSts struct {
 	pulumi.CustomResourceState
 
+	// Tags to be associated with GCP metrics and service checks from your account.
+	AccountTags pulumi.StringArrayOutput `pulumi:"accountTags"`
 	// Silence monitors for expected GCE instance shutdowns.
 	Automute pulumi.BoolOutput `pulumi:"automute"`
 	// Your service account email address.
@@ -30,8 +32,12 @@ type IntegrationSts struct {
 	DelegateAccountEmail pulumi.StringOutput `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayOutput `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolOutput `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolOutput `pulumi:"isSecurityCommandCenterEnabled"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolOutput `pulumi:"resourceCollectionEnabled"`
 }
 
 // NewIntegrationSts registers a new resource with the given unique name, arguments, and options.
@@ -67,6 +73,8 @@ func GetIntegrationSts(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationSts resources.
 type integrationStsState struct {
+	// Tags to be associated with GCP metrics and service checks from your account.
+	AccountTags []string `pulumi:"accountTags"`
 	// Silence monitors for expected GCE instance shutdowns.
 	Automute *bool `pulumi:"automute"`
 	// Your service account email address.
@@ -75,11 +83,17 @@ type integrationStsState struct {
 	DelegateAccountEmail *string `pulumi:"delegateAccountEmail"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
 
 type IntegrationStsState struct {
+	// Tags to be associated with GCP metrics and service checks from your account.
+	AccountTags pulumi.StringArrayInput
 	// Silence monitors for expected GCE instance shutdowns.
 	Automute pulumi.BoolPtrInput
 	// Your service account email address.
@@ -88,8 +102,12 @@ type IntegrationStsState struct {
 	DelegateAccountEmail pulumi.StringPtrInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationStsState) ElementType() reflect.Type {
@@ -97,26 +115,38 @@ func (IntegrationStsState) ElementType() reflect.Type {
 }
 
 type integrationStsArgs struct {
+	// Tags to be associated with GCP metrics and service checks from your account.
+	AccountTags []string `pulumi:"accountTags"`
 	// Silence monitors for expected GCE instance shutdowns.
 	Automute *bool `pulumi:"automute"`
 	// Your service account email address.
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your Host Filters.
 	HostFilters []string `pulumi:"hostFilters"`
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled *bool `pulumi:"isSecurityCommandCenterEnabled"`
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled *bool `pulumi:"resourceCollectionEnabled"`
 }
 
 // The set of arguments for constructing a IntegrationSts resource.
 type IntegrationStsArgs struct {
+	// Tags to be associated with GCP metrics and service checks from your account.
+	AccountTags pulumi.StringArrayInput
 	// Silence monitors for expected GCE instance shutdowns.
 	Automute pulumi.BoolPtrInput
 	// Your service account email address.
 	ClientEmail pulumi.StringInput
 	// Your Host Filters.
 	HostFilters pulumi.StringArrayInput
-	// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+	IsSecurityCommandCenterEnabled pulumi.BoolPtrInput
+	// When enabled, Datadog scans for all resources in your GCP environment.
+	ResourceCollectionEnabled pulumi.BoolPtrInput
 }
 
 func (IntegrationStsArgs) ElementType() reflect.Type {
@@ -206,6 +236,11 @@ func (o IntegrationStsOutput) ToIntegrationStsOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Tags to be associated with GCP metrics and service checks from your account.
+func (o IntegrationStsOutput) AccountTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.StringArrayOutput { return v.AccountTags }).(pulumi.StringArrayOutput)
+}
+
 // Silence monitors for expected GCE instance shutdowns.
 func (o IntegrationStsOutput) Automute() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.Automute }).(pulumi.BoolOutput)
@@ -226,9 +261,19 @@ func (o IntegrationStsOutput) HostFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.StringArrayOutput { return v.HostFilters }).(pulumi.StringArrayOutput)
 }
 
-// When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource, which may incur additional charges.
+// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
 func (o IntegrationStsOutput) IsCspmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsCspmEnabled }).(pulumi.BoolOutput)
+}
+
+// When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
+func (o IntegrationStsOutput) IsSecurityCommandCenterEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsSecurityCommandCenterEnabled }).(pulumi.BoolOutput)
+}
+
+// When enabled, Datadog scans for all resources in your GCP environment.
+func (o IntegrationStsOutput) ResourceCollectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.ResourceCollectionEnabled }).(pulumi.BoolOutput)
 }
 
 type IntegrationStsArrayOutput struct{ *pulumi.OutputState }

@@ -33,8 +33,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Your project id.
         /// </summary>
-        [Input("projectId", required: true)]
-        public Input<string> ProjectId { get; set; } = null!;
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
 
         public LogsArchiveGcsArchiveArgs()
         {
