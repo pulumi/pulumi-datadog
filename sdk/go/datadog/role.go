@@ -38,10 +38,10 @@ import (
 //				Name: pulumi.String("foo"),
 //				Permissions: datadog.RolePermissionArray{
 //					&datadog.RolePermissionArgs{
-//						Id: *pulumi.String(bar.Permissions.MonitorsDowntime),
+//						Id: pulumi.String(bar.Permissions.MonitorsDowntime),
 //					},
 //					&datadog.RolePermissionArgs{
-//						Id: *pulumi.String(bar.Permissions.MonitorsWrite),
+//						Id: pulumi.String(bar.Permissions.MonitorsWrite),
 //					},
 //				},
 //			})

@@ -13580,7 +13580,7 @@ func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArrayOutput) 
 type SecurityMonitoringRuleQuery struct {
 	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
 	//
-	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules []SecurityMonitoringRuleQueryAgentRule `pulumi:"agentRules"`
 	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
 	Aggregation *string `pulumi:"aggregation"`
@@ -13614,7 +13614,7 @@ type SecurityMonitoringRuleQueryInput interface {
 type SecurityMonitoringRuleQueryArgs struct {
 	// **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
 	//
-	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules SecurityMonitoringRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
 	// The aggregation type. For Signal Correlation rules, it must be event_count. Valid values are `count`, `cardinality`, `sum`, `max`, `newValue`, `geoData`, `eventCount`, `none`. Defaults to `"count"`.
 	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
@@ -13687,7 +13687,7 @@ func (o SecurityMonitoringRuleQueryOutput) ToSecurityMonitoringRuleQueryOutputWi
 
 // **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
 //
-// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 func (o SecurityMonitoringRuleQueryOutput) AgentRules() SecurityMonitoringRuleQueryAgentRuleArrayOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleQuery) []SecurityMonitoringRuleQueryAgentRule { return v.AgentRules }).(SecurityMonitoringRuleQueryAgentRuleArrayOutput)
 }
@@ -18802,7 +18802,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	Port *int `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
-	// Deprecated: Use `plain_proto_file` instead.
+	// Deprecated: Use `plainProtoFile` instead.
 	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername *string `pulumi:"servername"`
@@ -18862,7 +18862,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
-	// Deprecated: Use `plain_proto_file` instead.
+	// Deprecated: Use `plainProtoFile` instead.
 	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername pulumi.StringPtrInput `pulumi:"servername"`
@@ -19035,7 +19035,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) Port() pulumi.IntPtrOutput
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 //
-// Deprecated: Use `plain_proto_file` instead.
+// Deprecated: Use `plainProtoFile` instead.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
 }
@@ -19251,7 +19251,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.IntPtrOut
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 //
-// Deprecated: Use `plain_proto_file` instead.
+// Deprecated: Use `plainProtoFile` instead.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
@@ -23565,7 +23565,7 @@ type SyntheticsTestRequestDefinition struct {
 	Port *int `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
-	// Deprecated: Use `plain_proto_file` instead.
+	// Deprecated: Use `plainProtoFile` instead.
 	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername *string `pulumi:"servername"`
@@ -23621,7 +23621,7 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 	//
-	// Deprecated: Use `plain_proto_file` instead.
+	// Deprecated: Use `plainProtoFile` instead.
 	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
 	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
 	Servername pulumi.StringPtrInput `pulumi:"servername"`
@@ -23784,7 +23784,7 @@ func (o SyntheticsTestRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 //
-// Deprecated: Use `plain_proto_file` instead.
+// Deprecated: Use `plainProtoFile` instead.
 func (o SyntheticsTestRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
 }
@@ -23980,7 +23980,7 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
 
 // A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
 //
-// Deprecated: Use `plain_proto_file` instead.
+// Deprecated: Use `plainProtoFile` instead.
 func (o SyntheticsTestRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
@@ -28146,7 +28146,7 @@ func (o GetSecurityMonitoringRulesRuleOptionsThirdPartyRuleOptionsRootQueryArray
 type GetSecurityMonitoringRulesRuleQuery struct {
 	// **Deprecated**. It won't be applied anymore.
 	//
-	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules []GetSecurityMonitoringRulesRuleQueryAgentRule `pulumi:"agentRules"`
 	// The aggregation type. For Signal Correlation rules, it must be event_count.
 	Aggregation *string `pulumi:"aggregation"`
@@ -28180,7 +28180,7 @@ type GetSecurityMonitoringRulesRuleQueryInput interface {
 type GetSecurityMonitoringRulesRuleQueryArgs struct {
 	// **Deprecated**. It won't be applied anymore.
 	//
-	// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+	// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 	AgentRules GetSecurityMonitoringRulesRuleQueryAgentRuleArrayInput `pulumi:"agentRules"`
 	// The aggregation type. For Signal Correlation rules, it must be event_count.
 	Aggregation pulumi.StringPtrInput `pulumi:"aggregation"`
@@ -28253,7 +28253,7 @@ func (o GetSecurityMonitoringRulesRuleQueryOutput) ToGetSecurityMonitoringRulesR
 
 // **Deprecated**. It won't be applied anymore.
 //
-// Deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.
+// Deprecated: `agentRule` has been deprecated in favor of new Agent Rule resource.
 func (o GetSecurityMonitoringRulesRuleQueryOutput) AgentRules() GetSecurityMonitoringRulesRuleQueryAgentRuleArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRuleQuery) []GetSecurityMonitoringRulesRuleQueryAgentRule {
 		return v.AgentRules

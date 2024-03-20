@@ -40353,7 +40353,7 @@ export interface GetSecurityMonitoringRulesRuleQuery {
     /**
      * **Deprecated**. It won't be applied anymore.
      *
-     * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      */
     agentRules?: outputs.GetSecurityMonitoringRulesRuleQueryAgentRule[];
     /**
@@ -53320,7 +53320,7 @@ export interface SecurityMonitoringRuleQuery {
     /**
      * **Deprecated**. It won't be applied anymore. **Deprecated.** `agentRule` has been deprecated in favor of new Agent Rule resource.
      *
-     * @deprecated `agent_rule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      */
     agentRules?: outputs.SecurityMonitoringRuleQueryAgentRule[];
     /**
@@ -53933,7 +53933,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      *
-     * @deprecated Use `plain_proto_file` instead.
+     * @deprecated Use `plainProtoFile` instead.
      */
     protoJsonDescriptor?: string;
     /**
@@ -54538,7 +54538,7 @@ export interface SyntheticsTestRequestDefinition {
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      *
-     * @deprecated Use `plain_proto_file` instead.
+     * @deprecated Use `plainProtoFile` instead.
      */
     protoJsonDescriptor?: string;
     /**
