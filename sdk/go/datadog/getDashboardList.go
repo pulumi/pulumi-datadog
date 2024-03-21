@@ -37,7 +37,7 @@ import (
 //			// Create a dashboard and register it in the list above.
 //			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
 //				DashboardLists: pulumi.IntArray{
-//					*pulumi.String(test.Id),
+//					pulumi.String(test.Id),
 //				},
 //				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				IsReadOnly:  pulumi.Bool(true),

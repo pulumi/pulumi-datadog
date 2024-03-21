@@ -82,7 +82,7 @@ import (
 //				Name:              pulumi.String("My library rule"),
 //				Description:       pulumi.String("A description"),
 //				GroupId:           mygroup.ID(),
-//				StandardPatternId: *pulumi.String(awsSp.Id),
+//				StandardPatternId: pulumi.String(awsSp.Id),
 //				ExcludedNamespaces: pulumi.StringArray{
 //					pulumi.String("username"),
 //				},

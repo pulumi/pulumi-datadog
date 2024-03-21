@@ -39,7 +39,7 @@ import (
 //			_, err = datadog.NewAuthnMapping(ctx, "devRoRoleMapping", &datadog.AuthnMappingArgs{
 //				Key:   pulumi.String("Member-of"),
 //				Value: pulumi.String("Development"),
-//				Role:  *pulumi.String(roRole.Id),
+//				Role:  pulumi.String(roRole.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -40,7 +40,7 @@ import (
 //				Email: pulumi.String("new@example.com"),
 //				Name:  pulumi.String("Service Account Bar"),
 //				Roles: pulumi.StringArray{
-//					*pulumi.String(roRole.Id),
+//					pulumi.String(roRole.Id),
 //				},
 //			})
 //			if err != nil {

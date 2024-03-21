@@ -39,7 +39,7 @@ import (
 //			_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
 //				Email: pulumi.String("new@example.com"),
 //				Roles: pulumi.StringArray{
-//					*pulumi.String(roRole.Id),
+//					pulumi.String(roRole.Id),
 //				},
 //			})
 //			if err != nil {

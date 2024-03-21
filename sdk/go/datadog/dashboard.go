@@ -31,7 +31,7 @@ type Dashboard struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
-	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
 	// The layout type of the group. Valid values are `ordered`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
@@ -100,7 +100,7 @@ type dashboardState struct {
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
-	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the group. Valid values are `ordered`.
 	LayoutType *string `pulumi:"layoutType"`
@@ -134,7 +134,7 @@ type DashboardState struct {
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
-	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the group. Valid values are `ordered`.
 	LayoutType pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type dashboardArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
-	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the group. Valid values are `ordered`.
 	LayoutType string `pulumi:"layoutType"`
@@ -203,7 +203,7 @@ type DashboardArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 	//
-	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the group. Valid values are `ordered`.
 	LayoutType pulumi.StringInput
@@ -332,7 +332,7 @@ func (o DashboardOutput) Description() pulumi.StringPtrOutput {
 
 // Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard. Defaults to `false`.
 //
-// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
+// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 func (o DashboardOutput) IsReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.BoolPtrOutput { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
 }
