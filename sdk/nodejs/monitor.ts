@@ -113,7 +113,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      *
-     * @deprecated Use `restricted_roles`.
+     * @deprecated Use `restrictedRoles`.
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
     /**
@@ -144,7 +144,7 @@ export class Monitor extends pulumi.CustomResource {
      * and monitors not grouped by host. The only case when this should be used is to override the default and set
      * `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
@@ -390,7 +390,7 @@ export interface MonitorState {
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      *
-     * @deprecated Use `restricted_roles`.
+     * @deprecated Use `restrictedRoles`.
      */
     locked?: pulumi.Input<boolean>;
     /**
@@ -421,7 +421,7 @@ export interface MonitorState {
      * and monitors not grouped by host. The only case when this should be used is to override the default and set
      * `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**
@@ -562,7 +562,7 @@ export interface MonitorArgs {
     /**
      * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      *
-     * @deprecated Use `restricted_roles`.
+     * @deprecated Use `restrictedRoles`.
      */
     locked?: pulumi.Input<boolean>;
     /**
@@ -593,7 +593,7 @@ export interface MonitorArgs {
      * and monitors not grouped by host. The only case when this should be used is to override the default and set
      * `new_host_delay` to zero for monitors grouped by host.
      *
-     * @deprecated Use `new_group_delay` except when setting `new_host_delay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      */
     newHostDelay?: pulumi.Input<number>;
     /**

@@ -90,7 +90,7 @@ type Monitor struct {
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
-	// Deprecated: Use `restricted_roles`.
+	// Deprecated: Use `restrictedRoles`.
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringOutput `pulumi:"message"`
@@ -109,7 +109,7 @@ type Monitor struct {
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
 	// `new_host_delay` to zero for monitors grouped by host.
 	//
-	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
 	// timeframe for metric alerts or 2 minutes for service checks.
@@ -239,7 +239,7 @@ type monitorState struct {
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
-	// Deprecated: Use `restricted_roles`.
+	// Deprecated: Use `restrictedRoles`.
 	Locked *bool `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message *string `pulumi:"message"`
@@ -258,7 +258,7 @@ type monitorState struct {
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
 	// `new_host_delay` to zero for monitors grouped by host.
 	//
-	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
 	// timeframe for metric alerts or 2 minutes for service checks.
@@ -347,7 +347,7 @@ type MonitorState struct {
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
-	// Deprecated: Use `restricted_roles`.
+	// Deprecated: Use `restrictedRoles`.
 	Locked pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringPtrInput
@@ -366,7 +366,7 @@ type MonitorState struct {
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
 	// `new_host_delay` to zero for monitors grouped by host.
 	//
-	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
 	// timeframe for metric alerts or 2 minutes for service checks.
@@ -456,7 +456,7 @@ type monitorArgs struct {
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
-	// Deprecated: Use `restricted_roles`.
+	// Deprecated: Use `restrictedRoles`.
 	Locked *bool `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message string `pulumi:"message"`
@@ -475,7 +475,7 @@ type monitorArgs struct {
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
 	// `new_host_delay` to zero for monitors grouped by host.
 	//
-	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
 	// timeframe for metric alerts or 2 minutes for service checks.
@@ -562,7 +562,7 @@ type MonitorArgs struct {
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 	//
-	// Deprecated: Use `restricted_roles`.
+	// Deprecated: Use `restrictedRoles`.
 	Locked pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringInput
@@ -581,7 +581,7 @@ type MonitorArgs struct {
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
 	// `new_host_delay` to zero for monitors grouped by host.
 	//
-	// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. We recommend at least 2x the monitor
 	// timeframe for metric alerts or 2 minutes for service checks.
@@ -780,7 +780,7 @@ func (o MonitorOutput) IncludeTags() pulumi.BoolPtrOutput {
 
 // A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
 //
-// Deprecated: Use `restricted_roles`.
+// Deprecated: Use `restrictedRoles`.
 func (o MonitorOutput) Locked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.Locked }).(pulumi.BoolPtrOutput)
 }
@@ -817,7 +817,7 @@ func (o MonitorOutput) NewGroupDelay() pulumi.IntPtrOutput {
 // and monitors not grouped by host. The only case when this should be used is to override the default and set
 // `new_host_delay` to zero for monitors grouped by host.
 //
-// Deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.
+// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 func (o MonitorOutput) NewHostDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NewHostDelay }).(pulumi.IntPtrOutput)
 }
