@@ -9772,11 +9772,9 @@
                 "majorVersion": 4,
                 "fields": {
                     "monitor_identifier": {
-                        "elem": {
-                            "fields": {
-                                "monitor_tags": {
-                                    "maxItemsOne": false
-                                }
+                        "fields": {
+                            "monitor_tags": {
+                                "maxItemsOne": false
                             }
                         }
                     },
@@ -9787,11 +9785,9 @@
                         "maxItemsOne": false
                     },
                     "recurring_schedule": {
-                        "elem": {
-                            "fields": {
-                                "recurrence": {
-                                    "maxItemsOne": false
-                                }
+                        "fields": {
+                            "recurrence": {
+                                "maxItemsOne": false
                             }
                         }
                     }
@@ -13836,17 +13832,15 @@
                     "host_list": {
                         "maxItemsOne": false,
                         "elem": {
-                            "elem": {
-                                "fields": {
-                                    "aliases": {
-                                        "maxItemsOne": false
-                                    },
-                                    "apps": {
-                                        "maxItemsOne": false
-                                    },
-                                    "sources": {
-                                        "maxItemsOne": false
-                                    }
+                            "fields": {
+                                "aliases": {
+                                    "maxItemsOne": false
+                                },
+                                "apps": {
+                                    "maxItemsOne": false
+                                },
+                                "sources": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -14338,6 +14332,17 @@
                     "users": {
                         "maxItemsOne": false
                     }
+                }
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "datadog_monitor": {
+                "maxItemsOneOverrides": {
+                    "scheduling_options": false,
+                    "scheduling_options.$.custom_schedule": false,
+                    "scheduling_options.$.evaluation_window": false
                 }
             }
         }

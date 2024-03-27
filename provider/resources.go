@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -218,7 +218,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	strategy := x.TokensKnownModules("datadog_", datadogMod, []string{
+	strategy := tks.KnownModules("datadog_", datadogMod, []string{
 		"integration",
 	},
 		func(module, name string) (string, error) {
@@ -254,11 +254,9 @@ func Provider() tfbridge.ProviderInfo {
 			lower := string(unicode.ToLower(rune(name[0]))) + name[1:]
 			return datadogPkg + ":" + module + "/" + lower + ":" + name, nil
 		})
-	err := x.ComputeDefaults(&prov, strategy)
-	contract.AssertNoErrorf(err, "failed to apply mapping strategy")
 
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "failed to apply token aliasing")
+	prov.MustComputeTokens(strategy)
+	prov.MustApplyAutoAliases()
 
 	return prov
 }
