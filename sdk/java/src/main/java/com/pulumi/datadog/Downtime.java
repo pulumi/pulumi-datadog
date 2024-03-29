@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example: downtime for all monitors
+ *         // Create a new daily 1700-0900 Datadog downtime for all monitors
  *         var foo = new Downtime(&#34;foo&#34;, DowntimeArgs.builder()        
  *             .end(1483365600)
  *             .recurrence(DowntimeRecurrenceArgs.builder()

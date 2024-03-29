@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog Application Key
  *         var foo = new ApplicationKey(&#34;foo&#34;, ApplicationKeyArgs.builder()        
  *             .name(&#34;foo-application&#34;)
  *             .build());

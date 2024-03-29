@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var bar = DatadogFunctions.getPermissions();
  * 
+ *         // Create a new Datadog role
  *         var foo = new Role(&#34;foo&#34;, RoleArgs.builder()        
  *             .name(&#34;foo&#34;)
  *             .permissions(            

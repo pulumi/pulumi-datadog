@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *             .filter(&#34;Datadog Read Only Role&#34;)
  *             .build());
  * 
+ *         // Create a new Datadog user
  *         var foo = new User(&#34;foo&#34;, UserArgs.builder()        
  *             .email(&#34;new@example.com&#34;)
  *             .roles(roRole.applyValue(getRoleResult -&gt; getRoleResult.id()))

@@ -41,9 +41,9 @@ namespace Pulumi.Datadog.PagerDuty
     ///         ServiceName = "testing_foo",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             "datadog_integration_pagerduty.pd",
+    ///             "datadog_integration_pagerduty.pd", 
     ///         },
     ///     });
     /// 
@@ -53,9 +53,9 @@ namespace Pulumi.Datadog.PagerDuty
     ///         ServiceName = "testing_bar",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             "datadog_integration_pagerduty.pd",
+    ///             "datadog_integration_pagerduty.pd", 
     ///         },
     ///     });
     /// 

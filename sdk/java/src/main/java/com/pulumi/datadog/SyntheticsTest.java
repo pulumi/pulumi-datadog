@@ -152,6 +152,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Usage (Synthetics API test)
+ *         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  *         var testUptime = new SyntheticsTest(&#34;testUptime&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;An Uptime test on example.org&#34;)
  *             .type(&#34;api&#34;)
@@ -185,6 +187,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Authenticated API test)
+ *         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  *         var testApi = new SyntheticsTest(&#34;testApi&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;An API test on example.org&#34;)
  *             .type(&#34;api&#34;)
@@ -221,6 +225,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics SSL test)
+ *         // Create a new Datadog Synthetics API/SSL test on example.org
  *         var testSsl = new SyntheticsTest(&#34;testSsl&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;An API test on example.org&#34;)
  *             .type(&#34;api&#34;)
@@ -247,6 +253,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics TCP test)
+ *         // Create a new Datadog Synthetics API/TCP test on example.org
  *         var testTcp = new SyntheticsTest(&#34;testTcp&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;An API test on example.org&#34;)
  *             .type(&#34;api&#34;)
@@ -277,6 +285,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics DNS test)
+ *         // Create a new Datadog Synthetics API/DNS test on example.org
  *         var testDns = new SyntheticsTest(&#34;testDns&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;An API test on example.org&#34;)
  *             .type(&#34;api&#34;)
@@ -302,6 +312,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics Multistep API test)
+ *         // Create a new Datadog Synthetics Multistep API test
  *         var testMultiStep = new SyntheticsTest(&#34;testMultiStep&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;Multistep API test&#34;)
  *             .type(&#34;api&#34;)
@@ -349,6 +361,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (Synthetics Browser test)
+ *         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
  *         var testBrowser = new SyntheticsTest(&#34;testBrowser&#34;, SyntheticsTestArgs.builder()        
  *             .name(&#34;A Browser test on example.org&#34;)
  *             .type(&#34;browser&#34;)
@@ -411,6 +425,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example Usage (GRPC API test)
+ *         // Create a new Datadog GRPC API test starting on google.org:50050
  *         var grpc = new SyntheticsTest(&#34;grpc&#34;, SyntheticsTestArgs.builder()        
  *             .type(&#34;api&#34;)
  *             .subtype(&#34;grpc&#34;)

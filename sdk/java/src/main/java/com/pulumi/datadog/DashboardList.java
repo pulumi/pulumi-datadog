@@ -89,6 +89,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Create a new Dashboard List with two Dashboards
  *         var newList = new DashboardList(&#34;newList&#34;, DashboardListArgs.builder()        
  *             .name(&#34;Automated Created List&#34;)
  *             .dashItems(            

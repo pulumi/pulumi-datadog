@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
  *         var exampleSlo = new ServiceLevelObjective(&#34;exampleSlo&#34;, ServiceLevelObjectiveArgs.builder()        
  *             .name(&#34;example slo&#34;)
  *             .type(&#34;metric&#34;)
