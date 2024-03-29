@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;Example Team-updated&#34;)
  *             .build());
  * 
+ *         // Create new team_link resource
  *         var fooTeamLink = new TeamLink(&#34;fooTeamLink&#34;, TeamLinkArgs.builder()        
  *             .teamId(fooTeam.id())
  *             .label(&#34;Link label&#34;)

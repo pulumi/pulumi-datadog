@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Services as Individual Resources
  *         var pd = new Integration(&#34;pd&#34;, IntegrationArgs.builder()        
  *             .apiToken(&#34;38457822378273432587234242874&#34;)
  *             .schedules(            

@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *             .email(&#34;new@example.com&#34;)
  *             .build());
  * 
+ *         // Create new team_membership resource
  *         var fooTeamMembership = new TeamMembership(&#34;fooTeamMembership&#34;, TeamMembershipArgs.builder()        
  *             .teamId(fooTeam.id())
  *             .userId(fooUser.id())

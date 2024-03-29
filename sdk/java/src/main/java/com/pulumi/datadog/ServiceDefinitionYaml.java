@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Service Definition with v2.2 Schema Definition
  *         var serviceDefinitionV22 = new ServiceDefinitionYaml(&#34;serviceDefinitionV22&#34;, ServiceDefinitionYamlArgs.builder()        
  *             .serviceDefinition(&#34;&#34;&#34;
  * schema-version: v2.2
@@ -92,6 +93,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
+ *         // Service Definition with v2.1 Schema Definition
  *         var serviceDefinitionV21 = new ServiceDefinitionYaml(&#34;serviceDefinitionV21&#34;, ServiceDefinitionYamlArgs.builder()        
  *             .serviceDefinition(&#34;&#34;&#34;
  * schema-version: v2.1
@@ -137,6 +139,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
+ *         // Service Definition with v2 Schema Definition
  *         var serviceDefinitionV2 = new ServiceDefinitionYaml(&#34;serviceDefinitionV2&#34;, ServiceDefinitionYamlArgs.builder()        
  *             .serviceDefinition(&#34;&#34;&#34;
  * schema-version: v2
@@ -176,6 +179,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
+ *         // Service Definition with backstage.io Schema
  *         var serviceDefinitionBackstage = new ServiceDefinitionYaml(&#34;serviceDefinitionBackstage&#34;, ServiceDefinitionYamlArgs.builder()        
  *             .serviceDefinition(&#34;&#34;&#34;
  * apiVersion: backstage.io/v1alpha1

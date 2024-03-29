@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;test-name&#34;)
  *             .build());
  * 
+ *         // Create new integration_fastly_service resource
  *         var fooIntegrationService = new IntegrationService(&#34;fooIntegrationService&#34;, IntegrationServiceArgs.builder()        
  *             .accountId(fooIntegrationAccount.id())
  *             .tags(            

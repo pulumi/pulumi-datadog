@@ -85,6 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Ordered Layout
  *         var orderedDashboard = new Dashboard(&#34;orderedDashboard&#34;, DashboardArgs.builder()        
  *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .isReadOnly(true)
@@ -325,6 +326,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // Example Free Layout
  *         var freeDashboard = new Dashboard(&#34;freeDashboard&#34;, DashboardArgs.builder()        
  *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .isReadOnly(false)

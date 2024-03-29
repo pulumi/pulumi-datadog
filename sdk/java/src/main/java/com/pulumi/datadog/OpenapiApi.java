@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new openapi_api resource
  *         var my_api = new OpenapiApi(&#34;my-api&#34;, OpenapiApiArgs.builder()        
  *             .spec(Files.readString(Paths.get(&#34;./path/my-api.yaml&#34;)))
  *             .build());

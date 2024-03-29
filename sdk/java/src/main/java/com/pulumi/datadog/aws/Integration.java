@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog - Amazon Web Services integration
  *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
  *             .accountId(&#34;1234567890&#34;)
  *             .accountSpecificNamespaceRules(Map.ofEntries(

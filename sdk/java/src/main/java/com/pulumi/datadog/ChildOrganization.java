@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog Child Organization
  *         var organization = new ChildOrganization(&#34;organization&#34;, ChildOrganizationArgs.builder()        
  *             .name(&#34;foo-organization&#34;)
  *             .build());

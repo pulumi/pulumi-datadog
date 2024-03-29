@@ -54,6 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Metric-Based SLO
+ *         // Create a new Datadog service level objective
  *         var foo = new ServiceLevelObjective(&#34;foo&#34;, ServiceLevelObjectiveArgs.builder()        
  *             .description(&#34;My custom metric SLO&#34;)
  *             .name(&#34;Example Metric SLO&#34;)
@@ -81,6 +83,8 @@ import javax.annotation.Nullable;
  *             .warningThreshold(99.99)
  *             .build());
  * 
+ *         // Monitor-Based SLO
+ *         // Create a new Datadog service level objective
  *         var bar = new ServiceLevelObjective(&#34;bar&#34;, ServiceLevelObjectiveArgs.builder()        
  *             .description(&#34;My custom monitor SLO&#34;)
  *             .monitorIds(            

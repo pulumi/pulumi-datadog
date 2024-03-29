@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Dashboard JSON
  *         var dashboardJson = new DashboardJson(&#34;dashboardJson&#34;, DashboardJsonArgs.builder()        
  *             .dashboard(&#34;&#34;&#34;
  * {
