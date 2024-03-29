@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog - Amazon Web Services integration tag filter
  *         var foo = new IntegrationTagFilter(&#34;foo&#34;, IntegrationTagFilterArgs.builder()        
  *             .accountId(&#34;123456789010&#34;)
  *             .namespace(&#34;sqs&#34;)

@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Datadog - Microsoft Azure integration
  *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
  *             .appServicePlanFilters(&#34;examplefilter:true,example:another&#34;)
  *             .automute(true)

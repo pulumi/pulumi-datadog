@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *                 &#34;mytag2:myvalue&#34;)
  *             .build());
  * 
+ *         // Create new integration_confluent_resource resource
  *         var fooIntegrationResource = new IntegrationResource(&#34;fooIntegrationResource&#34;, IntegrationResourceArgs.builder()        
  *             .accountId(fooIntegrationAccount.id())
  *             .resourceId(&#34;123456&#34;)

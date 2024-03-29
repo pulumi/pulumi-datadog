@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Usage (Synthetics Concurrency Cap Configuration)
  *         var this_ = new SyntheticsConcurrencyCap(&#34;this&#34;, SyntheticsConcurrencyCapArgs.builder()        
  *             .onDemandConcurrencyCap(1)
  *             .build());

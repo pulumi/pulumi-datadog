@@ -93,10 +93,10 @@ namespace Pulumi.Datadog
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             screen,
-    ///             time,
+    ///             screen, 
+    ///             time, 
     ///         },
     ///     });
     /// 

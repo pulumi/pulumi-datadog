@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
  *         var mygroup = new SensitiveDataScannerGroup(&#34;mygroup&#34;, SensitiveDataScannerGroupArgs.builder()        
  *             .name(&#34;My new scanning group&#34;)
  *             .description(&#34;A relevant description&#34;)

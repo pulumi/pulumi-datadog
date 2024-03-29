@@ -1211,6 +1211,7 @@ public final class DatadogFunctions {
      *             .name(&#34;My super list&#34;)
      *             .build());
      * 
+     *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
@@ -1271,6 +1272,7 @@ public final class DatadogFunctions {
      *             .name(&#34;My super list&#34;)
      *             .build());
      * 
+     *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
@@ -1331,6 +1333,7 @@ public final class DatadogFunctions {
      *             .name(&#34;My super list&#34;)
      *             .build());
      * 
+     *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
@@ -1391,6 +1394,7 @@ public final class DatadogFunctions {
      *             .name(&#34;My super list&#34;)
      *             .build());
      * 
+     *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
      *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
      *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
@@ -2376,6 +2380,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2388,6 +2426,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2400,6 +2472,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2412,6 +2518,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2424,6 +2564,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2436,6 +2610,40 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
+     * import com.pulumi.datadog.LogsPipelineOrder;
+     * import com.pulumi.datadog.LogsPipelineOrderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var pipelines = DatadogFunctions.getLogsPipelines();
+     * 
+     *         // Using data source to set pipeline order
+     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
+     *             .name(&#34;lpo&#34;)
+     *             .pipelines(&#34;TODO: ForExpression&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

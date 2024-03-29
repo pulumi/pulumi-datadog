@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Manage a tag configuration for a Datadog distribution metric with/without percentiles
  *         var exampleDistMetric = new MetricTagConfiguration(&#34;exampleDistMetric&#34;, MetricTagConfigurationArgs.builder()        
  *             .includePercentiles(false)
  *             .metricName(&#34;example.terraform.dist.metric&#34;)
@@ -54,6 +55,7 @@ import javax.annotation.Nullable;
  *                 &#34;datacenter&#34;)
  *             .build());
  * 
+ *         // Manage tag configurations for a Datadog count or gauge metric
  *         var exampleCountMetric = new MetricTagConfiguration(&#34;exampleCountMetric&#34;, MetricTagConfigurationArgs.builder()        
  *             .aggregations(            
  *                 MetricTagConfigurationAggregationArgs.builder()
