@@ -6791,7 +6791,7 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
      */
     tickEdge?: pulumi.Input<string>;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: pulumi.Input<string>;
     /**
@@ -24284,7 +24284,7 @@ export interface DashboardWidgetNoteDefinition {
      */
     tickEdge?: pulumi.Input<string>;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: pulumi.Input<string>;
     /**
@@ -45405,7 +45405,7 @@ export interface PowerpackWidgetNoteDefinition {
      */
     tickEdge?: pulumi.Input<string>;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: pulumi.Input<string>;
     /**
