@@ -16,26 +16,9 @@ import * as utilities from "./utilities";
  *
  * In practice, it means going from (simplified configuration):
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * to
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * which you can now use in your request definition:
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example Usage
  *
