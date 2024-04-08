@@ -1,0 +1,13 @@
+name: index_dashboardjson9U7gf72vIqou
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/68f2f139-57ff-4232-91e7-72b54f6cec77.zip
+resources:
+  my_datadog_dashboard_json:
+    properties:
+      dashboard: '{"title": "Sample Dashboard", "widgets": [], "layout_type": "ordered"}'
+      url: https://app.datadoghq.com/dashboard/lists
+    type: datadog:DashboardJson

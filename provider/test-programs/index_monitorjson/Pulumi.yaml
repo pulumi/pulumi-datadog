@@ -1,0 +1,24 @@
+name: index_monitorjson4edyVyNPd5mb
+runtime: yaml
+description: A minimal Pulumi program that creates a DataDog monitor using MonitorJson resource.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/cb201bda-63b6-4a77-b0fb-b56def6f45d8.zip
+resources:
+  myMonitorJson:
+    properties:
+      monitor: |
+        {
+          "name": "Example Monitor",
+          "type": "query alert",
+          "query": "avg(last_1h):sum:system.net.bytes_rcvd{host:host0} > 100",
+          "message": "Bytes received on host0 is too high",
+          "tags": ["environment:test"],
+          "options": {
+            "notify_no_data": true,
+            "no_data_timeframe": 20
+          }
+        }
+      url: https://raw.githubusercontent.com/my-org/my-repo/main/monitor.json
+    type: datadog:MonitorJson

@@ -1,0 +1,21 @@
+name: index_monitor9gyQJ9FGrtmi
+runtime: yaml
+description: A minimal Datadog monitor setup in Pulumi YAML
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/f0809af7-9934-4e31-92a3-69a36aabf426.zip
+outputs:
+  monitorId: ${myDatadogMonitor.id}
+resources:
+  datadogApiKey:
+    type: datadog:index/apiKey:ApiKey
+  myDatadogMonitor:
+    properties:
+      message: Bytes received on host0 is too high
+      query: avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100
+      tags:
+        - environment:production
+        - team:core
+      type: metric alert
+    type: datadog:index/monitor:Monitor

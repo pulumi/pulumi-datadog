@@ -1,0 +1,16 @@
+name: index_logscustompipelineqAzO442RDaIa
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/ffddeb16-4a62-4703-be3a-e13744251a78.zip
+resources:
+  logs-custom-pipeline:
+    properties:
+      filters:
+        - query: source:python
+      isEnabled: true
+
+      processors: []
+    type: datadog:LogsCustomPipeline

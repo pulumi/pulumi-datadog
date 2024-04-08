@@ -1,0 +1,10 @@
+name: index_apikeyGrx1Jo4mtRy8
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/cef5cfba-6f6d-4ef1-afac-fe029857cdf5.zip
+resources:
+  datadogApiKey:
+    type: datadog:ApiKey
