@@ -9,7 +9,7 @@ configuration: {}
 resources:
   my-datadog-logs-index:
     properties:
-      name: ${randomName.result}
+      name: a${randomName.result}
       disableDailyLimit: false
       filters:
         - query: source:python
