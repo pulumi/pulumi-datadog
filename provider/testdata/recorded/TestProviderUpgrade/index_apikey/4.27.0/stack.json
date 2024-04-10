@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T17:00:42.961834+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Lny0jUd3wAo=:v1:WqIjaLv5cOlq6ELB:lBFmU+w6nk06dm40f9TLyTSIRhYuSA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:pulumi:Stack::index_apikeyGrx1Jo4mtRy8-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T16:00:42.266528Z",
+        "modified": "2024-04-10T16:00:42.266528Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:providers:random::default",
+        "custom": true,
+        "id": "58678344-5e53-4db5-a3df-f6bcb572a9d5",
+        "type": "pulumi:providers:random",
+        "created": "2024-04-10T16:00:42.370374Z",
+        "modified": "2024-04-10T16:00:42.370374Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::random:index/randomString:RandomString::randomName",
+        "custom": true,
+        "id": "d7717bajs6",
+        "type": "random:index/randomString:RandomString",
+        "inputs": {
+          "length": 10,
+          "special": false,
+          "upper": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"2\"}",
+          "id": "d7717bajs6",
+          "length": 10,
+          "lower": true,
+          "minLower": 0,
+          "minNumeric": 0,
+          "minSpecial": 0,
+          "minUpper": 0,
+          "number": true,
+          "numeric": true,
+          "result": "d7717bajs6",
+          "special": false,
+          "upper": false
+        },
+        "parent": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:pulumi:Stack::index_apikeyGrx1Jo4mtRy8-test",
+        "provider": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:providers:random::default::58678344-5e53-4db5-a3df-f6bcb572a9d5",
+        "propertyDependencies": {
+          "length": [],
+          "special": [],
+          "upper": []
+        },
+        "created": "2024-04-10T16:00:42.374089Z",
+        "modified": "2024-04-10T16:00:42.374089Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:providers:datadog::default",
+        "custom": true,
+        "id": "47480f4c-986a-4d67-9ffa-c7f108b21ed7",
+        "type": "pulumi:providers:datadog",
+        "created": "2024-04-10T16:00:42.405034Z",
+        "modified": "2024-04-10T16:00:42.405034Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::datadog:index/apiKey:ApiKey::datadogApiKey",
+        "custom": true,
+        "id": "3db65c44-ea2a-4692-945c-58b5c1149f21",
+        "type": "datadog:index/apiKey:ApiKey",
+        "inputs": {
+          "name": "d7717bajs6"
+        },
+        "outputs": {
+          "id": "3db65c44-ea2a-4692-945c-58b5c1149f21",
+          "key": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"8bd4dc9e984be70a7916d324b609219b\""
+          },
+          "name": "d7717bajs6"
+        },
+        "parent": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:pulumi:Stack::index_apikeyGrx1Jo4mtRy8-test",
+        "dependencies": [
+          "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::random:index/randomString:RandomString::randomName"
+        ],
+        "provider": "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::pulumi:providers:datadog::default::47480f4c-986a-4d67-9ffa-c7f108b21ed7",
+        "propertyDependencies": {
+          "name": [
+            "urn:pulumi:test::index_apikeyGrx1Jo4mtRy8::random:index/randomString:RandomString::randomName"
+          ]
+        },
+        "additionalSecretOutputs": [
+          "key"
+        ],
+        "created": "2024-04-10T16:00:42.961732Z",
+        "modified": "2024-04-10T16:00:42.961732Z"
+      }
+    ]
+  }
+}

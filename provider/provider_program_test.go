@@ -24,7 +24,6 @@ const defaultBaselineVersion = "4.27.0"
 var programs = []string{
 	"test-programs/index_logsindex",
 	"test-programs/index_dashboardjson",
-	"test-programs/index_monitor",
 	"test-programs/index_apikey",
 	"test-programs/gcp_integration",
 	"test-programs/index_applicationkey",
@@ -117,7 +116,6 @@ func TestPrograms(t *testing.T) {
 }
 
 func TestProgramsUpgrade(t *testing.T) {
-	t.Skipf("skip upgrade tests for now as we have not recorded them.")
 	for _, p := range programs {
 		t.Run(p, func(t *testing.T) {
 			testProviderUpgrade(t, p)

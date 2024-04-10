@@ -1,0 +1,57 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T16:54:31.289883+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:UFBz9vx+zKc=:v1:5m/bgJbSay/7Lyh1:icTC9WK7Si4MqQlcEwo2GCyY/gy9mQ=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_monitorjson4edyVyNPd5mb::pulumi:pulumi:Stack::index_monitorjson4edyVyNPd5mb-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T15:54:30.592501Z",
+        "modified": "2024-04-10T15:54:30.592501Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitorjson4edyVyNPd5mb::pulumi:providers:datadog::default",
+        "custom": true,
+        "id": "632a2a57-9a68-4d2e-9269-41993ab5ca2f",
+        "type": "pulumi:providers:datadog",
+        "created": "2024-04-10T15:54:30.678737Z",
+        "modified": "2024-04-10T15:54:30.678737Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitorjson4edyVyNPd5mb::datadog:index/monitorJson:MonitorJson::myMonitorJson",
+        "custom": true,
+        "id": "142931646",
+        "type": "datadog:index/monitorJson:MonitorJson",
+        "inputs": {
+          "__defaults": [],
+          "monitor": "{\n  \"name\": \"Example Monitor\",\n  \"type\": \"query alert\",\n  \"query\": \"avg(last_1h):sum:system.net.bytes_rcvd{host:host0} \u003e 100\",\n  \"message\": \"Bytes received on host0 is too high\",\n  \"tags\": [\"environment:test\"],\n  \"options\": {\n    \"notify_no_data\": true,\n    \"no_data_timeframe\": 20\n  }\n}\n",
+          "url": "https://raw.githubusercontent.com/my-org/my-repo/main/monitor.json"
+        },
+        "outputs": {
+          "id": "142931646",
+          "monitor": "{\"message\":\"Bytes received on host0 is too high\",\"name\":\"Example Monitor\",\"options\":{\"include_tags\":true,\"new_host_delay\":300,\"no_data_timeframe\":20,\"notify_audit\":false,\"notify_no_data\":true},\"priority\":null,\"query\":\"avg(last_1h):sum:system.net.bytes_rcvd{host:host0} \\u003e 100\",\"tags\":[\"environment:test\"],\"type\":\"query alert\"}",
+          "url": "https://raw.githubusercontent.com/my-org/my-repo/main/monitor.json"
+        },
+        "parent": "urn:pulumi:test::index_monitorjson4edyVyNPd5mb::pulumi:pulumi:Stack::index_monitorjson4edyVyNPd5mb-test",
+        "provider": "urn:pulumi:test::index_monitorjson4edyVyNPd5mb::pulumi:providers:datadog::default::632a2a57-9a68-4d2e-9269-41993ab5ca2f",
+        "propertyDependencies": {
+          "monitor": [],
+          "url": []
+        },
+        "created": "2024-04-10T15:54:31.28979Z",
+        "modified": "2024-04-10T15:54:31.28979Z"
+      }
+    ]
+  }
+}

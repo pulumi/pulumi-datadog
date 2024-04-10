@@ -1,0 +1,57 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T16:54:10.957441+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:msi2oZ+J6y0=:v1:Q6psmYHmfXc58KUI:JPd0h9I41iV4kzH4FUaIA4NpYLW9Hw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_dashboardjson9U7gf72vIqou::pulumi:pulumi:Stack::index_dashboardjson9U7gf72vIqou-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T15:54:10.111453Z",
+        "modified": "2024-04-10T15:54:10.111453Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_dashboardjson9U7gf72vIqou::pulumi:providers:datadog::default",
+        "custom": true,
+        "id": "b61d80c8-e2a8-4104-91db-e90e04eeeb7b",
+        "type": "pulumi:providers:datadog",
+        "created": "2024-04-10T15:54:10.23491Z",
+        "modified": "2024-04-10T15:54:10.23491Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_dashboardjson9U7gf72vIqou::datadog:index/dashboardJson:DashboardJson::my_datadog_dashboard_json",
+        "custom": true,
+        "id": "baf-ta3-f26",
+        "type": "datadog:index/dashboardJson:DashboardJson",
+        "inputs": {
+          "__defaults": [],
+          "dashboard": "{\"title\": \"Sample Dashboard\", \"widgets\": [], \"layout_type\": \"ordered\"}",
+          "url": "https://app.datadoghq.com/dashboard/lists"
+        },
+        "outputs": {
+          "dashboard": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":null,\"template_variables\":null,\"title\":\"Sample Dashboard\",\"widgets\":[]}",
+          "id": "baf-ta3-f26",
+          "url": "/dashboard/baf-ta3-f26/sample-dashboard"
+        },
+        "parent": "urn:pulumi:test::index_dashboardjson9U7gf72vIqou::pulumi:pulumi:Stack::index_dashboardjson9U7gf72vIqou-test",
+        "provider": "urn:pulumi:test::index_dashboardjson9U7gf72vIqou::pulumi:providers:datadog::default::b61d80c8-e2a8-4104-91db-e90e04eeeb7b",
+        "propertyDependencies": {
+          "dashboard": [],
+          "url": []
+        },
+        "created": "2024-04-10T15:54:10.957346Z",
+        "modified": "2024-04-10T15:54:10.957346Z"
+      }
+    ]
+  }
+}

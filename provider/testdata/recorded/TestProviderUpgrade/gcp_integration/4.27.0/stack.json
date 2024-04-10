@@ -1,0 +1,79 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T16:54:22.699053+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:pMXrSC4K7MA=:v1:Ay/apVOLbzmsujpA:bbSnmGdFu6xbP8y0EICKVTM8X0+VVA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::gcp_integrationHR22X8OmprG3::pulumi:pulumi:Stack::gcp_integrationHR22X8OmprG3-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-04-10T15:54:21.663957Z",
+        "modified": "2024-04-10T15:54:21.663957Z"
+      },
+      {
+        "urn": "urn:pulumi:test::gcp_integrationHR22X8OmprG3::pulumi:providers:datadog::default",
+        "custom": true,
+        "id": "d2477906-b9b9-4a78-b4fc-29e50d9df049",
+        "type": "pulumi:providers:datadog",
+        "created": "2024-04-10T15:54:21.767611Z",
+        "modified": "2024-04-10T15:54:21.767611Z"
+      },
+      {
+        "urn": "urn:pulumi:test::gcp_integrationHR22X8OmprG3::datadog:gcp/integration:Integration::datadogGcpIntegration",
+        "custom": true,
+        "id": "\u003cYOUR_PROJECT_ID\u003e",
+        "type": "datadog:gcp/integration:Integration",
+        "inputs": {
+          "clientEmail": "\u003cYOUR_CLIENT_EMAIL\u003e",
+          "clientId": "\u003cYOUR_CLIENT_ID\u003e",
+          "privateKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"\\u003cYOUR_PRIVATE_KEY\\u003e\""
+          },
+          "privateKeyId": "\u003cYOUR_PRIVATE_KEY_ID\u003e",
+          "projectId": "\u003cYOUR_PROJECT_ID\u003e"
+        },
+        "outputs": {
+          "automute": false,
+          "clientEmail": "\u003cYOUR_CLIENT_EMAIL\u003e",
+          "clientId": "\u003cYOUR_CLIENT_ID\u003e",
+          "cspmResourceCollectionEnabled": false,
+          "hostFilters": "",
+          "id": "\u003cYOUR_PROJECT_ID\u003e",
+          "isSecurityCommandCenterEnabled": false,
+          "privateKey": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"\\u003cYOUR_PRIVATE_KEY\\u003e\""
+          },
+          "privateKeyId": "\u003cYOUR_PRIVATE_KEY_ID\u003e",
+          "projectId": "\u003cYOUR_PROJECT_ID\u003e",
+          "resourceCollectionEnabled": false
+        },
+        "parent": "urn:pulumi:test::gcp_integrationHR22X8OmprG3::pulumi:pulumi:Stack::gcp_integrationHR22X8OmprG3-test",
+        "provider": "urn:pulumi:test::gcp_integrationHR22X8OmprG3::pulumi:providers:datadog::default::d2477906-b9b9-4a78-b4fc-29e50d9df049",
+        "propertyDependencies": {
+          "clientEmail": [],
+          "clientId": [],
+          "privateKey": [],
+          "privateKeyId": [],
+          "projectId": []
+        },
+        "additionalSecretOutputs": [
+          "privateKey"
+        ],
+        "created": "2024-04-10T15:54:22.69885Z",
+        "modified": "2024-04-10T15:54:22.69885Z"
+      }
+    ]
+  }
+}

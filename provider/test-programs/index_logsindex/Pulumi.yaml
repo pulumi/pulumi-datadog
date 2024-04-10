@@ -9,9 +9,15 @@ configuration: {}
 resources:
   my-datadog-logs-index:
     properties:
+      name: ${randomName.result}
       disableDailyLimit: false
       filters:
         - query: source:python
-
       retentionDays: 15
     type: datadog:LogsIndex
+  randomName:
+    type: random:RandomString
+    properties:
+      length: 10
+      special: false
+      upper: false

@@ -8,3 +8,11 @@ config:
 resources:
   datadogApiKey:
     type: datadog:ApiKey
+    properties:
+      name: ${randomName.result}
+  randomName:
+    type: random:RandomString
+    properties:
+      length: 10
+      special: false
+      upper: false

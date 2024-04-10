@@ -1,0 +1,182 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-04-10T16:59:14.675054+01:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:rReJpJ+5NYQ=:v1:Vnf0OsfJQoh53ZZf:rCu5/457YrgFKEB+i/dR/y5GuXz8nA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:pulumi:Stack::index_monitor9gyQJ9FGrtmi-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "monitorId": "142931815"
+        },
+        "created": "2024-04-10T15:59:13.498022Z",
+        "modified": "2024-04-10T15:59:13.498022Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:providers:random::default",
+        "custom": true,
+        "id": "75741eab-909f-44f7-95fe-949d8ce96fdf",
+        "type": "pulumi:providers:random",
+        "created": "2024-04-10T15:59:13.600255Z",
+        "modified": "2024-04-10T15:59:13.600255Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::random:index/randomString:RandomString::randomName",
+        "custom": true,
+        "id": "qij5efpkyu",
+        "type": "random:index/randomString:RandomString",
+        "inputs": {
+          "length": 10,
+          "special": false,
+          "upper": false
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"2\"}",
+          "id": "qij5efpkyu",
+          "length": 10,
+          "lower": true,
+          "minLower": 0,
+          "minNumeric": 0,
+          "minSpecial": 0,
+          "minUpper": 0,
+          "number": true,
+          "numeric": true,
+          "result": "qij5efpkyu",
+          "special": false,
+          "upper": false
+        },
+        "parent": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:pulumi:Stack::index_monitor9gyQJ9FGrtmi-test",
+        "provider": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:providers:random::default::75741eab-909f-44f7-95fe-949d8ce96fdf",
+        "propertyDependencies": {
+          "length": [],
+          "special": [],
+          "upper": []
+        },
+        "created": "2024-04-10T15:59:13.604299Z",
+        "modified": "2024-04-10T15:59:13.604299Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:providers:datadog::default",
+        "custom": true,
+        "id": "9a406d2f-8511-4387-a872-d094be85aafb",
+        "type": "pulumi:providers:datadog",
+        "created": "2024-04-10T15:59:13.634724Z",
+        "modified": "2024-04-10T15:59:13.634724Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::datadog:index/apiKey:ApiKey::datadogApiKey",
+        "custom": true,
+        "id": "9e9bce19-e331-45d3-8675-5dbf0486e771",
+        "type": "datadog:index/apiKey:ApiKey",
+        "inputs": {
+          "name": "qij5efpkyu"
+        },
+        "outputs": {
+          "id": "9e9bce19-e331-45d3-8675-5dbf0486e771",
+          "key": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"d33d8027663384516f3dea121e4cf845\""
+          },
+          "name": "qij5efpkyu"
+        },
+        "parent": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:pulumi:Stack::index_monitor9gyQJ9FGrtmi-test",
+        "dependencies": [
+          "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::random:index/randomString:RandomString::randomName"
+        ],
+        "provider": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:providers:datadog::default::9a406d2f-8511-4387-a872-d094be85aafb",
+        "propertyDependencies": {
+          "name": [
+            "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::random:index/randomString:RandomString::randomName"
+          ]
+        },
+        "additionalSecretOutputs": [
+          "key"
+        ],
+        "created": "2024-04-10T15:59:14.26364Z",
+        "modified": "2024-04-10T15:59:14.26364Z"
+      },
+      {
+        "urn": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::datadog:index/monitor:Monitor::myDatadogMonitor",
+        "custom": true,
+        "id": "142931815",
+        "type": "datadog:index/monitor:Monitor",
+        "inputs": {
+          "__defaults": [
+            "includeTags",
+            "noDataTimeframe",
+            "notifyNoData",
+            "requireFullWindow"
+          ],
+          "includeTags": true,
+          "message": "Bytes received on host0 is too high",
+          "name": "monitor-qij5efpkyu",
+          "noDataTimeframe": 10,
+          "notifyNoData": false,
+          "query": "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} \u003e 100",
+          "requireFullWindow": true,
+          "tags": [
+            "environment:production",
+            "team:core"
+          ],
+          "type": "metric alert"
+        },
+        "outputs": {
+          "escalationMessage": "",
+          "evaluationDelay": 0,
+          "groupRetentionDuration": "",
+          "id": "142931815",
+          "includeTags": true,
+          "locked": false,
+          "message": "Bytes received on host0 is too high",
+          "name": "monitor-qij5efpkyu",
+          "newGroupDelay": 0,
+          "newHostDelay": 300,
+          "noDataTimeframe": 0,
+          "notificationPresetName": "",
+          "notifyAudit": false,
+          "notifyBies": [],
+          "notifyNoData": false,
+          "onMissingData": "",
+          "priority": 0,
+          "query": "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} \u003e 100",
+          "renotifyInterval": 0,
+          "renotifyOccurrences": 0,
+          "requireFullWindow": true,
+          "tags": [
+            "environment:production",
+            "team:core"
+          ],
+          "timeoutH": 0,
+          "type": "metric alert"
+        },
+        "parent": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:pulumi:Stack::index_monitor9gyQJ9FGrtmi-test",
+        "dependencies": [
+          "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::random:index/randomString:RandomString::randomName"
+        ],
+        "provider": "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::pulumi:providers:datadog::default::9a406d2f-8511-4387-a872-d094be85aafb",
+        "propertyDependencies": {
+          "message": [],
+          "name": [
+            "urn:pulumi:test::index_monitor9gyQJ9FGrtmi::random:index/randomString:RandomString::randomName"
+          ],
+          "query": [],
+          "tags": [],
+          "type": []
+        },
+        "created": "2024-04-10T15:59:14.666097Z",
+        "modified": "2024-04-10T15:59:14.666097Z"
+      }
+    ]
+  }
+}
