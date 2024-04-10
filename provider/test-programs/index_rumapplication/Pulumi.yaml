@@ -1,0 +1,19 @@
+name: index_rumapplicationQl13R7Djryk0
+runtime: yaml
+description: A minimal valid Pulumi program to create a Datadog RUM Application
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/7a5cc6fc-24d6-49ac-ae2f-1aca54fde6c6.zip
+resources:
+  myRumApplication:
+    properties:
+      name: rum-application-${randomName.result}
+      type: browser
+    type: datadog:RumApplication
+  randomName:
+    type: random:RandomString
+    properties:
+      length: 10
+      special: false
+      upper: false

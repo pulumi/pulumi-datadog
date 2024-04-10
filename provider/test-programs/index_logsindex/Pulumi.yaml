@@ -1,0 +1,23 @@
+name: index_logsindexQBpkrKSan2lX
+runtime: yaml
+description: A minimal valid Pulumi program to create a Datadog Logs Index
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/bff9b923-40b6-4e46-8376-b572445cf0b5.zip
+configuration: {}
+resources:
+  my-datadog-logs-index:
+    properties:
+      name: ${randomName.result}
+      disableDailyLimit: false
+      filters:
+        - query: source:python
+      retentionDays: 15
+    type: datadog:LogsIndex
+  randomName:
+    type: random:RandomString
+    properties:
+      length: 10
+      special: false
+      upper: false
