@@ -103,6 +103,7 @@ func testProgram(t *testing.T, dir string) {
 	require.NoError(t, err)
 	test := pulumitest.NewPulumiTest(t, dir,
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
 	)
 	test.Up()
 }
