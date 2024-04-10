@@ -6791,7 +6791,7 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
      */
     tickEdge?: string;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: string;
     /**
@@ -24284,7 +24284,7 @@ export interface DashboardWidgetNoteDefinition {
      */
     tickEdge?: string;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: string;
     /**
@@ -46045,7 +46045,7 @@ export interface PowerpackWidgetNoteDefinition {
      */
     tickEdge?: string;
     /**
-     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%!"(MISSING)` is centered alignment.
+     * When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
      */
     tickPos?: string;
     /**

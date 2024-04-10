@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TickEdge { get; set; }
 
         /// <summary>
-        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%!"(MISSING)` is centered alignment.
+        /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tick_pos = "50%"` is centered alignment.
         /// </summary>
         [Input("tickPos")]
         public Input<string>? TickPos { get; set; }
