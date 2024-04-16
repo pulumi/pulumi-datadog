@@ -43,10 +43,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myAgentRule = new CloudWorkloadSecurityAgentRule(&#34;myAgentRule&#34;, CloudWorkloadSecurityAgentRuleArgs.builder()        
+ *             .name(&#34;my_agent_rule&#34;)
  *             .description(&#34;My agent rule&#34;)
  *             .enabled(true)
  *             .expression(&#34;exec.file.name == \&#34;java\&#34;&#34;)
- *             .name(&#34;my_agent_rule&#34;)
  *             .build());
  * 
  *     }

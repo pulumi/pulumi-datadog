@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Aws
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Datadog - Amazon Web Services integration Lambda ARN
-    ///     var mainCollector = new Datadog.Aws.IntegrationLambdaArn("mainCollector", new()
+    ///     var mainCollector = new Datadog.Aws.IntegrationLambdaArn("main_collector", new()
     ///     {
     ///         AccountId = "1234567890",
     ///         LambdaArn = "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",

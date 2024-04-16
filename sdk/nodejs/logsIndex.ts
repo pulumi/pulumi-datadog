@@ -14,36 +14,37 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const sampleIndex = new datadog.LogsIndex("sampleIndex", {
+ * // A sample Datadog logs index resource definition.
+ * const sampleIndex = new datadog.LogsIndex("sample_index", {
+ *     name: "your index",
  *     dailyLimit: 200000,
  *     dailyLimitReset: {
  *         resetTime: "14:00",
  *         resetUtcOffset: "+02:00",
  *     },
  *     dailyLimitWarningThresholdPercentage: 50,
+ *     retentionDays: 7,
+ *     filters: [{
+ *         query: "*",
+ *     }],
  *     exclusionFilters: [
  *         {
+ *             name: "Filter coredns logs",
+ *             isEnabled: true,
  *             filters: [{
  *                 query: "app:coredns",
  *                 sampleRate: 0.97,
  *             }],
- *             isEnabled: true,
- *             name: "Filter coredns logs",
  *         },
  *         {
+ *             name: "Kubernetes apiserver",
+ *             isEnabled: true,
  *             filters: [{
  *                 query: "service:kube_apiserver",
  *                 sampleRate: 1,
  *             }],
- *             isEnabled: true,
- *             name: "Kubernetes apiserver",
  *         },
  *     ],
- *     filters: [{
- *         query: "*",
- *     }],
- *     name: "your index",
- *     retentionDays: 7,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

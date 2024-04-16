@@ -159,6 +159,7 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source the permissions
         bar = datadog.get_permissions()
         # Create a new Datadog role
         foo = datadog.Role("foo",
@@ -204,6 +205,7 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source the permissions
         bar = datadog.get_permissions()
         # Create a new Datadog role
         foo = datadog.Role("foo",

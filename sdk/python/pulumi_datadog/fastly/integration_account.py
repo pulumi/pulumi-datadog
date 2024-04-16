@@ -107,6 +107,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_fastly_account resource
         foo = datadog.fastly.IntegrationAccount("foo",
             api_key="ABCDEFG123",
             name="test-name")
@@ -140,6 +141,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_fastly_account resource
         foo = datadog.fastly.IntegrationAccount("foo",
             api_key="ABCDEFG123",
             name="test-name")

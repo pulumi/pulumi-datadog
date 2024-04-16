@@ -20,24 +20,24 @@ import * as utilities from "./utilities";
  * const organization = new datadog.OrganizationSettings("organization", {name: "foo-organization"});
  * const foo = new datadog.Powerpack("foo", {
  *     description: "Created using the Datadog provider in terraform",
+ *     liveSpan: "4h",
  *     layout: {
  *         height: 10,
  *         width: 3,
  *         x: 1,
  *         y: 0,
  *     },
- *     liveSpan: "4h",
  *     templateVariables: [{
  *         defaults: ["defaults"],
  *         name: "datacenter",
  *     }],
  *     widgets: [{
  *         eventStreamDefinition: {
- *             eventSize: "l",
  *             query: "*",
+ *             eventSize: "l",
  *             title: "Widget Title",
- *             titleAlign: "right",
  *             titleSize: "16",
+ *             titleAlign: "right",
  *         },
  *     }],
  * });

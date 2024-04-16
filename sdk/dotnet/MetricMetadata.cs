@@ -24,11 +24,11 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage a Datadog metric's metadata
-    ///     var requestTime = new Datadog.MetricMetadata("requestTime", new()
+    ///     var requestTime = new Datadog.MetricMetadata("request_time", new()
     ///     {
-    ///         Description = "99th percentile request time in milliseconds",
     ///         Metric = "request.time",
     ///         ShortName = "Request time",
+    ///         Description = "99th percentile request time in milliseconds",
     ///         Type = "gauge",
     ///         Unit = "millisecond",
     ///     });

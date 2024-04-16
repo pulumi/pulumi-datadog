@@ -241,32 +241,32 @@ class MetricTagConfiguration(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage a tag configuration for a Datadog distribution metric with/without percentiles
-        example_dist_metric = datadog.MetricTagConfiguration("exampleDistMetric",
-            include_percentiles=False,
+        example_dist_metric = datadog.MetricTagConfiguration("example_dist_metric",
             metric_name="example.terraform.dist.metric",
             metric_type="distribution",
             tags=[
                 "sport",
                 "datacenter",
-            ])
-        # Manage tag configurations for a Datadog count or gauge metric
-        example_count_metric = datadog.MetricTagConfiguration("exampleCountMetric",
-            aggregations=[
-                datadog.MetricTagConfigurationAggregationArgs(
-                    space="min",
-                    time="avg",
-                ),
-                datadog.MetricTagConfigurationAggregationArgs(
-                    space="max",
-                    time="avg",
-                ),
             ],
-            exclude_tags_mode=False,
+            include_percentiles=False)
+        # Manage tag configurations for a Datadog count or gauge metric
+        example_count_metric = datadog.MetricTagConfiguration("example_count_metric",
             metric_name="example.terraform.count.metric",
             metric_type="count",
             tags=[
                 "sport",
                 "datacenter",
+            ],
+            exclude_tags_mode=False,
+            aggregations=[
+                datadog.MetricTagConfigurationAggregationArgs(
+                    time="avg",
+                    space="min",
+                ),
+                datadog.MetricTagConfigurationAggregationArgs(
+                    time="avg",
+                    space="max",
+                ),
             ])
         ```
         <!--End PulumiCodeChooser -->
@@ -303,32 +303,32 @@ class MetricTagConfiguration(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage a tag configuration for a Datadog distribution metric with/without percentiles
-        example_dist_metric = datadog.MetricTagConfiguration("exampleDistMetric",
-            include_percentiles=False,
+        example_dist_metric = datadog.MetricTagConfiguration("example_dist_metric",
             metric_name="example.terraform.dist.metric",
             metric_type="distribution",
             tags=[
                 "sport",
                 "datacenter",
-            ])
-        # Manage tag configurations for a Datadog count or gauge metric
-        example_count_metric = datadog.MetricTagConfiguration("exampleCountMetric",
-            aggregations=[
-                datadog.MetricTagConfigurationAggregationArgs(
-                    space="min",
-                    time="avg",
-                ),
-                datadog.MetricTagConfigurationAggregationArgs(
-                    space="max",
-                    time="avg",
-                ),
             ],
-            exclude_tags_mode=False,
+            include_percentiles=False)
+        # Manage tag configurations for a Datadog count or gauge metric
+        example_count_metric = datadog.MetricTagConfiguration("example_count_metric",
             metric_name="example.terraform.count.metric",
             metric_type="count",
             tags=[
                 "sport",
                 "datacenter",
+            ],
+            exclude_tags_mode=False,
+            aggregations=[
+                datadog.MetricTagConfigurationAggregationArgs(
+                    time="avg",
+                    space="min",
+                ),
+                datadog.MetricTagConfigurationAggregationArgs(
+                    time="avg",
+                    space="max",
+                ),
             ])
         ```
         <!--End PulumiCodeChooser -->

@@ -25,22 +25,22 @@ namespace Pulumi.Datadog
     /// {
     ///     var foo = new Datadog.Monitor("foo", new()
     ///     {
-    ///         EscalationMessage = "Escalation message @pagerduty",
-    ///         IncludeTags = true,
+    ///         Name = "Name for monitor foo",
+    ///         Type = "metric alert",
     ///         Message = "Monitor triggered. Notify: @hipchat-channel",
+    ///         EscalationMessage = "Escalation message @pagerduty",
+    ///         Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
     ///         MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
     ///         {
-    ///             Critical = "4",
     ///             Warning = "2",
+    ///             Critical = "4",
     ///         },
-    ///         Name = "Name for monitor foo",
-    ///         Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
+    ///         IncludeTags = true,
     ///         Tags = new[]
     ///         {
     ///             "foo:bar",
     ///             "team:fooBar",
     ///         },
-    ///         Type = "metric alert",
     ///     });
     /// 
     /// });

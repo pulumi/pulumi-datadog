@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.SpansMetric;
  * import com.pulumi.datadog.SpansMetricArgs;
- * import com.pulumi.datadog.inputs.SpansMetricComputeArgs;
- * import com.pulumi.datadog.inputs.SpansMetricFilterArgs;
  * import com.pulumi.datadog.inputs.SpansMetricGroupByArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -48,10 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new spans_metric resource
  *         var testingSpansMetric = new SpansMetric(&#34;testingSpansMetric&#34;, SpansMetricArgs.builder()        
+ *             .name(&#34;testing.span.metric&#34;)
  *             .compute(SpansMetricComputeArgs.builder()
- *                 .aggregation_type(&#34;distribution&#34;)
- *                 .include_percentiles(false)
+ *                 .aggregationType(&#34;distribution&#34;)
+ *                 .includePercentiles(false)
  *                 .path(&#34;@duration&#34;)
  *                 .build())
  *             .filter(SpansMetricFilterArgs.builder()
@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  *                 .path(&#34;resource_name&#34;)
  *                 .tagName(&#34;resource_name&#34;)
  *                 .build())
- *             .name(&#34;testing.span.metric&#34;)
  *             .build());
  * 
  *     }

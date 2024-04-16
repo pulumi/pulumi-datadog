@@ -107,12 +107,12 @@ class ServiceObject(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo")
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar")
+        testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
+            service_name="testing_foo",
+            service_key="9876543210123456789")
+        testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
+            service_name="testing_bar",
+            service_key="54321098765432109876")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -145,12 +145,12 @@ class ServiceObject(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo")
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar")
+        testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
+            service_name="testing_foo",
+            service_key="9876543210123456789")
+        testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
+            service_name="testing_bar",
+            service_key="54321098765432109876")
         ```
         <!--End PulumiCodeChooser -->
 

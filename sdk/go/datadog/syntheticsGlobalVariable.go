@@ -29,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "testVariable", &datadog.SyntheticsGlobalVariableArgs{
-//				Description: pulumi.String("Description of the variable"),
+//			_, err := datadog.NewSyntheticsGlobalVariable(ctx, "test_variable", &datadog.SyntheticsGlobalVariableArgs{
 //				Name:        pulumi.String("EXAMPLE_VARIABLE"),
+//				Description: pulumi.String("Description of the variable"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("foo:bar"),
 //					pulumi.String("env:test"),

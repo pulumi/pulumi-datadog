@@ -23,7 +23,7 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooIntegrationAccount = new Datadog.Confluent.IntegrationAccount("fooIntegrationAccount", new()
+    ///     var foo = new Datadog.Confluent.IntegrationAccount("foo", new()
     ///     {
     ///         ApiKey = "TESTAPIKEY123",
     ///         ApiSecret = "test-api-secret-123",
@@ -35,9 +35,9 @@ namespace Pulumi.Datadog.Confluent
     ///     });
     /// 
     ///     // Create new integration_confluent_resource resource
-    ///     var fooIntegrationResource = new Datadog.Confluent.IntegrationResource("fooIntegrationResource", new()
+    ///     var fooIntegrationResource = new Datadog.Confluent.IntegrationResource("foo", new()
     ///     {
-    ///         AccountId = fooIntegrationAccount.Id,
+    ///         AccountId = foo.Id,
     ///         ResourceId = "123456",
     ///         ResourceType = "kafka",
     ///         Tags = new[]

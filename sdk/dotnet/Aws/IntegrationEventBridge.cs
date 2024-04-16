@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Aws
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new integration_aws_event_bridge resource
     ///     var foo = new Datadog.Aws.IntegrationEventBridge("foo", new()
     ///     {
     ///         AccountId = "123456789012",

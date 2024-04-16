@@ -76,7 +76,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Service Definition with v2.2 Schema Definition
-        service_definition_v22 = datadog.ServiceDefinitionYaml("serviceDefinitionV22", service_definition=\"\"\"schema-version: v2.2
+        service_definition_v22 = datadog.ServiceDefinitionYaml("service_definition_v2_2", service_definition=\"\"\"schema-version: v2.2
         dd-service: shopping-cart
         team: e-commerce-team
         contacts:
@@ -122,10 +122,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           mycompany.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with v2.1 Schema Definition
-        service_definition_v21 = datadog.ServiceDefinitionYaml("serviceDefinitionV21", service_definition=\"\"\"schema-version: v2.1
+        service_definition_v21 = datadog.ServiceDefinitionYaml("service_definition_v2_1", service_definition=\"\"\"schema-version: v2.1
         dd-service: shopping-cart
         team: e-commerce-team
         contacts:
@@ -164,10 +163,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           mycompany.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with v2 Schema Definition
-        service_definition_v2 = datadog.ServiceDefinitionYaml("serviceDefinitionV2", service_definition=\"\"\"schema-version: v2
+        service_definition_v2 = datadog.ServiceDefinitionYaml("service_definition_v2", service_definition=\"\"\"schema-version: v2
         dd-service: shopping-cart
         team: E Commerce
         contacts:
@@ -200,10 +198,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           datadoghq.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with backstage.io Schema
-        service_definition_backstage = datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
+        service_definition_backstage = datadog.ServiceDefinitionYaml("service_definition_backstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
         kind: Component
         metadata:
           annotations:
@@ -226,7 +223,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
           lifecycle: production
           owner: e-commerce
           system: retail
-
         \"\"\")
         ```
         <!--End PulumiCodeChooser -->
@@ -258,7 +254,7 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Service Definition with v2.2 Schema Definition
-        service_definition_v22 = datadog.ServiceDefinitionYaml("serviceDefinitionV22", service_definition=\"\"\"schema-version: v2.2
+        service_definition_v22 = datadog.ServiceDefinitionYaml("service_definition_v2_2", service_definition=\"\"\"schema-version: v2.2
         dd-service: shopping-cart
         team: e-commerce-team
         contacts:
@@ -304,10 +300,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           mycompany.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with v2.1 Schema Definition
-        service_definition_v21 = datadog.ServiceDefinitionYaml("serviceDefinitionV21", service_definition=\"\"\"schema-version: v2.1
+        service_definition_v21 = datadog.ServiceDefinitionYaml("service_definition_v2_1", service_definition=\"\"\"schema-version: v2.1
         dd-service: shopping-cart
         team: e-commerce-team
         contacts:
@@ -346,10 +341,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           mycompany.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with v2 Schema Definition
-        service_definition_v2 = datadog.ServiceDefinitionYaml("serviceDefinitionV2", service_definition=\"\"\"schema-version: v2
+        service_definition_v2 = datadog.ServiceDefinitionYaml("service_definition_v2", service_definition=\"\"\"schema-version: v2
         dd-service: shopping-cart
         team: E Commerce
         contacts:
@@ -382,10 +376,9 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         extensions:
           datadoghq.com/shopping-cart:
             customField: customValue
-
         \"\"\")
         # Service Definition with backstage.io Schema
-        service_definition_backstage = datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
+        service_definition_backstage = datadog.ServiceDefinitionYaml("service_definition_backstage", service_definition=\"\"\"apiVersion: backstage.io/v1alpha1
         kind: Component
         metadata:
           annotations:
@@ -408,7 +401,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
           lifecycle: production
           owner: e-commerce
           system: retail
-
         \"\"\")
         ```
         <!--End PulumiCodeChooser -->

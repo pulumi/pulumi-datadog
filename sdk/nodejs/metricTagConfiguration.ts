@@ -17,33 +17,33 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage a tag configuration for a Datadog distribution metric with/without percentiles
- * const exampleDistMetric = new datadog.MetricTagConfiguration("exampleDistMetric", {
- *     includePercentiles: false,
+ * const exampleDistMetric = new datadog.MetricTagConfiguration("example_dist_metric", {
  *     metricName: "example.terraform.dist.metric",
  *     metricType: "distribution",
  *     tags: [
  *         "sport",
  *         "datacenter",
  *     ],
+ *     includePercentiles: false,
  * });
  * // Manage tag configurations for a Datadog count or gauge metric
- * const exampleCountMetric = new datadog.MetricTagConfiguration("exampleCountMetric", {
- *     aggregations: [
- *         {
- *             space: "min",
- *             time: "avg",
- *         },
- *         {
- *             space: "max",
- *             time: "avg",
- *         },
- *     ],
- *     excludeTagsMode: false,
+ * const exampleCountMetric = new datadog.MetricTagConfiguration("example_count_metric", {
  *     metricName: "example.terraform.count.metric",
  *     metricType: "count",
  *     tags: [
  *         "sport",
  *         "datacenter",
+ *     ],
+ *     excludeTagsMode: false,
+ *     aggregations: [
+ *         {
+ *             time: "avg",
+ *             space: "min",
+ *         },
+ *         {
+ *             time: "avg",
+ *             space: "max",
+ *         },
  *     ],
  * });
  * ```

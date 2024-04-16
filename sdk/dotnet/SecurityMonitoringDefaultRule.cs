@@ -25,18 +25,18 @@ namespace Pulumi.Datadog
     /// {
     ///     var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new()
     ///     {
+    ///         Enabled = true,
     ///         Cases = new[]
     ///         {
     ///             new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs
     ///             {
+    ///                 Status = "high",
     ///                 Notifications = new[]
     ///                 {
     ///                     "@me",
     ///                 },
-    ///                 Status = "high",
     ///             },
     ///         },
-    ///         Enabled = true,
     ///     });
     /// 
     /// });

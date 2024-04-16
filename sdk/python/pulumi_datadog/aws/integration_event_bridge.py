@@ -172,6 +172,7 @@ class IntegrationEventBridge(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_aws_event_bridge resource
         foo = datadog.aws.IntegrationEventBridge("foo",
             account_id="123456789012",
             create_event_bus=True,
@@ -211,6 +212,7 @@ class IntegrationEventBridge(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_aws_event_bridge resource
         foo = datadog.aws.IntegrationEventBridge("foo",
             account_id="123456789012",
             create_event_bus=True,

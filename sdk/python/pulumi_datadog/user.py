@@ -239,6 +239,7 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source a role
         ro_role = datadog.get_role(filter="Datadog Read Only Role")
         # Create a new Datadog user
         foo = datadog.User("foo",
@@ -277,6 +278,7 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source a role
         ro_role = datadog.get_role(filter="Datadog Read Only Role")
         # Create a new Datadog user
         foo = datadog.User("foo",

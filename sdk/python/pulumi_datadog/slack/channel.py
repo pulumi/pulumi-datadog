@@ -141,7 +141,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_channel = datadog.slack.Channel("testChannel",
+        test_channel = datadog.slack.Channel("test_channel",
             account_name="foo",
             channel_name="#test_channel",
             display=datadog.slack.ChannelDisplayArgs(
@@ -183,7 +183,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_channel = datadog.slack.Channel("testChannel",
+        test_channel = datadog.slack.Channel("test_channel",
             account_name="foo",
             channel_name="#test_channel",
             display=datadog.slack.ChannelDisplayArgs(

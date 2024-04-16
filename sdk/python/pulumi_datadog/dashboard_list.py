@@ -145,7 +145,7 @@ class DashboardList(pulumi.CustomResource):
                 ),
             )])
         # Create a new Dashboard List with two Dashboards
-        new_list = datadog.DashboardList("newList",
+        new_list = datadog.DashboardList("new_list",
             name="Automated Created List",
             dash_items=[
                 datadog.DashboardListDashItemArgs(
@@ -226,7 +226,7 @@ class DashboardList(pulumi.CustomResource):
                 ),
             )])
         # Create a new Dashboard List with two Dashboards
-        new_list = datadog.DashboardList("newList",
+        new_list = datadog.DashboardList("new_list",
             name="Automated Created List",
             dash_items=[
                 datadog.DashboardListDashItemArgs(

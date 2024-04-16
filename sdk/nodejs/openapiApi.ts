@@ -7,19 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- * import * as fs from "fs";
- *
- * // Create new openapi_api resource
- * const my_api = new datadog.OpenapiApi("my-api", {spec: fs.readFileSync("./path/my-api.yaml", "utf8")});
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * ```sh

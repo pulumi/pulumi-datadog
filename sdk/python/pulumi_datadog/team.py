@@ -187,6 +187,7 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new team resource
         foo = datadog.Team("foo",
             description="Team description",
             handle="example-team",
@@ -222,6 +223,7 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new team resource
         foo = datadog.Team("foo",
             description="Team description",
             handle="example-team",

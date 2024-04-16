@@ -12,6 +12,146 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Metric-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var foo = new Datadog.ServiceLevelObjective("foo", new()
+    ///     {
+    ///         Name = "Example Metric SLO",
+    ///         Type = "metric",
+    ///         Description = "My custom metric SLO",
+    ///         Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
+    ///         {
+    ///             Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
+    ///             Denominator = "sum:my.custom.count.metric{*}.as_count()",
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "7d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "30d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "30d",
+    ///         TargetThreshold = 99.9,
+    ///         WarningThreshold = 99.99,
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///     });
+    /// 
+    ///     // Monitor-Based SLO
+    ///     // Create a new Datadog service level objective
+    ///     var bar = new Datadog.ServiceLevelObjective("bar", new()
+    ///     {
+    ///         Name = "Example Monitor SLO",
+    ///         Type = "monitor",
+    ///         Description = "My custom monitor SLO",
+    ///         MonitorIds = new[]
+    ///         {
+    ///             1,
+    ///             2,
+    ///             3,
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "7d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "30d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "30d",
+    ///         TargetThreshold = 99.9,
+    ///         WarningThreshold = 99.99,
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "baz",
+    ///         },
+    ///     });
+    /// 
+    ///     var timeSliceSlo = new Datadog.ServiceLevelObjective("time_slice_slo", new()
+    ///     {
+    ///         Name = "Example Time Slice SLO",
+    ///         Type = "time_slice",
+    ///         Description = "My custom time slice SLO",
+    ///         SliSpecification = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationArgs
+    ///         {
+    ///             TimeSlice = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs
+    ///             {
+    ///                 Query = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs
+    ///                 {
+    ///                     Formula = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs
+    ///                     {
+    ///                         FormulaExpression = "query1",
+    ///                     },
+    ///                     Queries = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs
+    ///                         {
+    ///                             MetricQuery = new Datadog.Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs
+    ///                             {
+    ///                                 Name = "query1",
+    ///                                 Query = "avg:my.custom.count.metric{*}.as_count()",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Comparator = "&gt;",
+    ///                 Threshold = 0.9,
+    ///             },
+    ///         },
+    ///         Thresholds = new[]
+    ///         {
+    ///             new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///             {
+    ///                 Timeframe = "7d",
+    ///                 Target = 99.9,
+    ///                 Warning = 99.99,
+    ///             },
+    ///         },
+    ///         Timeframe = "7d",
+    ///         TargetThreshold = 99.9,
+    ///         WarningThreshold = 99.99,
+    ///         Tags = new[]
+    ///         {
+    ///             "service:myservice",
+    ///             "team:myteam",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Service Level Objectives can be imported using their string ID, e.g.

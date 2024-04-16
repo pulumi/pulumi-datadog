@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
- *             .escalationMessage(&#34;Escalation message @pagerduty&#34;)
- *             .includeTags(true)
- *             .message(&#34;Monitor triggered. Notify: @hipchat-channel&#34;)
- *             .monitorThresholds(MonitorMonitorThresholdsArgs.builder()
- *                 .critical(4)
- *                 .warning(2)
- *                 .build())
  *             .name(&#34;Name for monitor foo&#34;)
+ *             .type(&#34;metric alert&#34;)
+ *             .message(&#34;Monitor triggered. Notify: @hipchat-channel&#34;)
+ *             .escalationMessage(&#34;Escalation message @pagerduty&#34;)
  *             .query(&#34;avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4&#34;)
+ *             .monitorThresholds(MonitorMonitorThresholdsArgs.builder()
+ *                 .warning(2)
+ *                 .critical(4)
+ *                 .build())
+ *             .includeTags(true)
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;team:fooBar&#34;)
- *             .type(&#34;metric alert&#34;)
  *             .build());
  * 
  *     }

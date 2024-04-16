@@ -14,9 +14,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const sampleIndexOrder = new datadog.LogsIndexOrder("sampleIndexOrder", {
+ * const sampleIndexOrder = new datadog.LogsIndexOrder("sample_index_order", {
  *     name: "sample_index_order",
- *     indexes: [datadog_logs_index.sample_index.id],
+ *     indexes: [sampleIndex.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

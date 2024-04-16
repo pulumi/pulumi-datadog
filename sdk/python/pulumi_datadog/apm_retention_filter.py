@@ -199,25 +199,6 @@ class ApmRetentionFilter(pulumi.CustomResource):
         """
         The object describing the configuration of the retention filter to create/update.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create APM retention filter
-        foo = datadog.ApmRetentionFilter("foo",
-            enabled=False,
-            filter=datadog.ApmRetentionFilterFilterArgs(
-                query="*",
-            ),
-            filter_type="spans-sampling-processor",
-            name="Sample order",
-            rate="1.0")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Import existing APM retention filter
@@ -242,25 +223,6 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The object describing the configuration of the retention filter to create/update.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create APM retention filter
-        foo = datadog.ApmRetentionFilter("foo",
-            enabled=False,
-            filter=datadog.ApmRetentionFilterFilterArgs(
-                query="*",
-            ),
-            filter_type="spans-sampling-processor",
-            name="Sample order",
-            rate="1.0")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

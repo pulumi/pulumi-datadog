@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new integration_cloudflare_account resource
 //			_, err := cloudflare.NewIntegrationAccount(ctx, "foo", &cloudflare.IntegrationAccountArgs{
 //				ApiKey: pulumi.String("12345678910abc"),
 //				Email:  pulumi.String("test-email@example.com"),

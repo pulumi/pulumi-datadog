@@ -23,15 +23,16 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new sensitive_data_scanner_group resource
     ///     var mygroup = new Datadog.SensitiveDataScannerGroup("mygroup", new()
     ///     {
+    ///         Name = "My new scanning group",
     ///         Description = "A relevant description",
     ///         Filter = new Datadog.Inputs.SensitiveDataScannerGroupFilterArgs
     ///         {
     ///             Query = "service:my-service",
     ///         },
     ///         IsEnabled = true,
-    ///         Name = "My new scanning group",
     ///         ProductLists = new[]
     ///         {
     ///             "apm",

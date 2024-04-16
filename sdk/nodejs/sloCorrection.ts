@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
- * const exampleSlo = new datadog.ServiceLevelObjective("exampleSlo", {
+ * const exampleSlo = new datadog.ServiceLevelObjective("example_slo", {
  *     name: "example slo",
  *     type: "metric",
  *     description: "some updated description about example_slo SLO",
@@ -30,7 +30,7 @@ import * as utilities from "./utilities";
  *     }],
  *     tags: ["foo:bar"],
  * });
- * const exampleSloCorrection = new datadog.SloCorrection("exampleSloCorrection", {
+ * const exampleSloCorrection = new datadog.SloCorrection("example_slo_correction", {
  *     category: "Scheduled Maintenance",
  *     description: "correction example",
  *     start: 1735707000,
@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  *     sloId: exampleSlo.id,
  *     timezone: "UTC",
  * });
- * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("exampleSloCorrectionWithRecurrence", {
+ * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("example_slo_correction_with_recurrence", {
  *     category: "Scheduled Maintenance",
  *     description: "correction example with recurrence",
  *     start: 1735707000,

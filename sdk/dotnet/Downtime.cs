@@ -12,38 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// This resource is deprecated — use the `datadog.DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Example: downtime for all monitors
-    ///     // Create a new daily 1700-0900 Datadog downtime for all monitors
-    ///     var foo = new Datadog.Downtime("foo", new()
-    ///     {
-    ///         End = 1483365600,
-    ///         Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs
-    ///         {
-    ///             Period = 1,
-    ///             Type = "days",
-    ///         },
-    ///         Scopes = new[]
-    ///         {
-    ///             "*",
-    ///         },
-    ///         Start = 1483308000,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// ```sh

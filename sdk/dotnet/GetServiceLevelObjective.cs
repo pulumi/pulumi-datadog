@@ -33,7 +33,7 @@ namespace Pulumi.Datadog
         /// 
         ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
         ///     {
-        ///         Id = data.Terraform_remote_state.Api.Outputs.Slo,
+        ///         Id = api.Outputs.Slo,
         ///     });
         /// 
         /// });
@@ -65,7 +65,7 @@ namespace Pulumi.Datadog
         /// 
         ///     var apiSlo = Datadog.GetServiceLevelObjective.Invoke(new()
         ///     {
-        ///         Id = data.Terraform_remote_state.Api.Outputs.Slo,
+        ///         Id = api.Outputs.Slo,
         ///     });
         /// 
         /// });

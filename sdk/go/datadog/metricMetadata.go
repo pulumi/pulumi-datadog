@@ -30,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Manage a Datadog metric's metadata
-//			_, err := datadog.NewMetricMetadata(ctx, "requestTime", &datadog.MetricMetadataArgs{
-//				Description: pulumi.String("99th percentile request time in milliseconds"),
+//			_, err := datadog.NewMetricMetadata(ctx, "request_time", &datadog.MetricMetadataArgs{
 //				Metric:      pulumi.String("request.time"),
 //				ShortName:   pulumi.String("Request time"),
+//				Description: pulumi.String("99th percentile request time in milliseconds"),
 //				Type:        pulumi.String("gauge"),
 //				Unit:        pulumi.String("millisecond"),
 //			})

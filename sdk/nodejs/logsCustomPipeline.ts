@@ -9,6 +9,180 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `datadog.LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const samplePipeline = new datadog.LogsCustomPipeline("sample_pipeline", {
+ *     filters: [{
+ *         query: "source:foo",
+ *     }],
+ *     name: "sample pipeline",
+ *     isEnabled: true,
+ *     processors: [
+ *         {
+ *             arithmeticProcessor: {
+ *                 expression: "(time1 - time2)*1000",
+ *                 target: "my_arithmetic",
+ *                 isReplaceMissing: true,
+ *                 name: "sample arithmetic processor",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             attributeRemapper: {
+ *                 sources: ["db.instance"],
+ *                 sourceType: "tag",
+ *                 target: "db",
+ *                 targetType: "attribute",
+ *                 targetFormat: "string",
+ *                 preserveSource: true,
+ *                 overrideOnConflict: false,
+ *                 name: "sample attribute processor",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             categoryProcessor: {
+ *                 target: "foo.severity",
+ *                 categories: [
+ *                     {
+ *                         name: "debug",
+ *                         filter: {
+ *                             query: "@severity: \".\"",
+ *                         },
+ *                     },
+ *                     {
+ *                         name: "verbose",
+ *                         filter: {
+ *                             query: "@severity: \"-\"",
+ *                         },
+ *                     },
+ *                 ],
+ *                 name: "sample category processor",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             dateRemapper: {
+ *                 sources: [
+ *                     "_timestamp",
+ *                     "published_date",
+ *                 ],
+ *                 name: "sample date remapper",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             geoIpParser: {
+ *                 sources: ["network.client.ip"],
+ *                 target: "network.client.geoip",
+ *                 name: "sample geo ip parser",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             grokParser: {
+ *                 samples: ["sample log 1"],
+ *                 source: "message",
+ *                 grok: {
+ *                     supportRules: "",
+ *                     matchRules: "Rule %{word:my_word2} %{number:my_float2}",
+ *                 },
+ *                 name: "sample grok parser",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             lookupProcessor: {
+ *                 source: "service_id",
+ *                 target: "service_name",
+ *                 lookupTables: ["1,my service"],
+ *                 defaultLookup: "unknown service",
+ *                 name: "sample lookup processor",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             messageRemapper: {
+ *                 sources: ["msg"],
+ *                 name: "sample message remapper",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             pipeline: {
+ *                 filters: [{
+ *                     query: "source:foo",
+ *                 }],
+ *                 processors: [{
+ *                     urlParser: {
+ *                         name: "sample url parser",
+ *                         sources: [
+ *                             "url",
+ *                             "extra",
+ *                         ],
+ *                         target: "http_url",
+ *                         normalizeEndingSlashes: true,
+ *                     },
+ *                 }],
+ *                 name: "nested pipeline",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             serviceRemapper: {
+ *                 sources: ["service"],
+ *                 name: "sample service remapper",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             statusRemapper: {
+ *                 sources: [
+ *                     "info",
+ *                     "trace",
+ *                 ],
+ *                 name: "sample status remapper",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             stringBuilderProcessor: {
+ *                 target: "user_activity",
+ *                 template: "%{user.name} logged in at %{timestamp}",
+ *                 name: "sample string builder processor",
+ *                 isEnabled: true,
+ *                 isReplaceMissing: false,
+ *             },
+ *         },
+ *         {
+ *             traceIdRemapper: {
+ *                 sources: ["dd.trace_id"],
+ *                 name: "sample trace id remapper",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *         {
+ *             userAgentParser: {
+ *                 sources: [
+ *                     "user",
+ *                     "agent",
+ *                 ],
+ *                 target: "http_agent",
+ *                 isEncoded: false,
+ *                 name: "sample user agent parser",
+ *                 isEnabled: true,
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * To find the pipeline ID, click the "edit" button in the UI to open the pipeline details.

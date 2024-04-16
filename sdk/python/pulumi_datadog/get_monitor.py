@@ -452,8 +452,8 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
-        name_filter="My awesome monitor")
+    test = datadog.get_monitor(name_filter="My awesome monitor",
+        monitor_tags_filters=["foo:bar"])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -521,8 +521,8 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
-        name_filter="My awesome monitor")
+    test = datadog.get_monitor(name_filter="My awesome monitor",
+        monitor_tags_filters=["foo:bar"])
     ```
     <!--End PulumiCodeChooser -->
 

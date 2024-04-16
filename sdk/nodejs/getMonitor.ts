@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getMonitor({
- *     monitorTagsFilters: ["foo:bar"],
  *     nameFilter: "My awesome monitor",
+ *     monitorTagsFilters: ["foo:bar"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -201,8 +201,8 @@ export interface GetMonitorResult {
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getMonitor({
- *     monitorTagsFilters: ["foo:bar"],
  *     nameFilter: "My awesome monitor",
+ *     monitorTagsFilters: ["foo:bar"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -14,11 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myAgentRule = new datadog.CloudWorkloadSecurityAgentRule("myAgentRule", {
+ * const myAgentRule = new datadog.CloudWorkloadSecurityAgentRule("my_agent_rule", {
+ *     name: "my_agent_rule",
  *     description: "My agent rule",
  *     enabled: true,
  *     expression: "exec.file.name == \"java\"",
- *     name: "my_agent_rule",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

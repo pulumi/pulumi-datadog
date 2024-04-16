@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Source the role
 //			roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
 //				Filter: "Datadog Read Only Role",
 //			}, nil)
@@ -36,7 +37,7 @@ import (
 //				return err
 //			}
 //			// Create a new AuthN mapping
-//			_, err = datadog.NewAuthnMapping(ctx, "devRoRoleMapping", &datadog.AuthnMappingArgs{
+//			_, err = datadog.NewAuthnMapping(ctx, "dev_ro_role_mapping", &datadog.AuthnMappingArgs{
 //				Key:   pulumi.String("Member-of"),
 //				Value: pulumi.String("Development"),
 //				Role:  pulumi.String(roRole.Id),

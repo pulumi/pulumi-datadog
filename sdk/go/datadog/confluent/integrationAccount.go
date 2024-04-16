@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new integration_confluent_account resource
 //			_, err := confluent.NewIntegrationAccount(ctx, "foo", &confluent.IntegrationAccountArgs{
 //				ApiKey:    pulumi.String("TESTAPIKEY123"),
 //				ApiSecret: pulumi.String("test-api-secret-123"),

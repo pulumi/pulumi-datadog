@@ -14,14 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fooTeam = new datadog.Team("fooTeam", {
+ * const foo = new datadog.Team("foo", {
  *     description: "Example team",
  *     handle: "example-team-updated",
  *     name: "Example Team-updated",
  * });
  * // Create new team_link resource
- * const fooTeamLink = new datadog.TeamLink("fooTeamLink", {
- *     teamId: fooTeam.id,
+ * const fooTeamLink = new datadog.TeamLink("foo", {
+ *     teamId: foo.id,
  *     label: "Link label",
  *     position: "Example link",
  *     url: "https://example.com",

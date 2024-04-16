@@ -132,9 +132,9 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_security_monitoring_rules(default_only_filter=True,
-        name_filter="attack",
-        tags_filters=["foo:bar"])
+    test = datadog.get_security_monitoring_rules(name_filter="attack",
+        tags_filters=["foo:bar"],
+        default_only_filter=True)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -178,9 +178,9 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
     import pulumi
     import pulumi_datadog as datadog
 
-    test = datadog.get_security_monitoring_rules(default_only_filter=True,
-        name_filter="attack",
-        tags_filters=["foo:bar"])
+    test = datadog.get_security_monitoring_rules(name_filter="attack",
+        tags_filters=["foo:bar"],
+        default_only_filter=True)
     ```
     <!--End PulumiCodeChooser -->
 

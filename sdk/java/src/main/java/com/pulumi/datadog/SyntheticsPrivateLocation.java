@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var privateLocation = new SyntheticsPrivateLocation(&#34;privateLocation&#34;, SyntheticsPrivateLocationArgs.builder()        
- *             .description(&#34;Description of the private location&#34;)
  *             .name(&#34;First private location&#34;)
+ *             .description(&#34;Description of the private location&#34;)
  *             .tags(            
  *                 &#34;foo:bar&#34;,
  *                 &#34;env:test&#34;)

@@ -42,13 +42,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testingFoo = new ServiceObject(&#34;testingFoo&#34;, ServiceObjectArgs.builder()        
- *             .serviceKey(&#34;9876543210123456789&#34;)
  *             .serviceName(&#34;testing_foo&#34;)
+ *             .serviceKey(&#34;9876543210123456789&#34;)
  *             .build());
  * 
  *         var testingBar = new ServiceObject(&#34;testingBar&#34;, ServiceObjectArgs.builder()        
- *             .serviceKey(&#34;54321098765432109876&#34;)
  *             .serviceName(&#34;testing_bar&#34;)
+ *             .serviceKey(&#34;54321098765432109876&#34;)
  *             .build());
  * 
  *     }

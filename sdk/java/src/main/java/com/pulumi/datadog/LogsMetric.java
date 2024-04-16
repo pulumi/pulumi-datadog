@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testingLogsMetric = new LogsMetric(&#34;testingLogsMetric&#34;, LogsMetricArgs.builder()        
+ *             .name(&#34;testing.logs.metric&#34;)
  *             .compute(LogsMetricComputeArgs.builder()
  *                 .aggregationType(&#34;distribution&#34;)
  *                 .path(&#34;@duration&#34;)
@@ -65,7 +66,6 @@ import javax.annotation.Nullable;
  *                     .path(&#34;@version&#34;)
  *                     .tagName(&#34;version&#34;)
  *                     .build())
- *             .name(&#34;testing.logs.metric&#34;)
  *             .build());
  * 
  *     }

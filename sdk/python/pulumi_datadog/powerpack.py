@@ -313,24 +313,24 @@ class Powerpack(pulumi.CustomResource):
         organization = datadog.OrganizationSettings("organization", name="foo-organization")
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
+            live_span="4h",
             layout=datadog.PowerpackLayoutArgs(
                 height=10,
                 width=3,
                 x=1,
                 y=0,
             ),
-            live_span="4h",
             template_variables=[datadog.PowerpackTemplateVariableArgs(
                 defaults=["defaults"],
                 name="datacenter",
             )],
             widgets=[datadog.PowerpackWidgetArgs(
                 event_stream_definition=datadog.PowerpackWidgetEventStreamDefinitionArgs(
-                    event_size="l",
                     query="*",
+                    event_size="l",
                     title="Widget Title",
-                    title_align="right",
                     title_size="16",
+                    title_align="right",
                 ),
             )])
         ```
@@ -373,24 +373,24 @@ class Powerpack(pulumi.CustomResource):
         organization = datadog.OrganizationSettings("organization", name="foo-organization")
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
+            live_span="4h",
             layout=datadog.PowerpackLayoutArgs(
                 height=10,
                 width=3,
                 x=1,
                 y=0,
             ),
-            live_span="4h",
             template_variables=[datadog.PowerpackTemplateVariableArgs(
                 defaults=["defaults"],
                 name="datacenter",
             )],
             widgets=[datadog.PowerpackWidgetArgs(
                 event_stream_definition=datadog.PowerpackWidgetEventStreamDefinitionArgs(
-                    event_size="l",
                     query="*",
+                    event_size="l",
                     title="Widget Title",
-                    title_align="right",
                     title_size="16",
+                    title_align="right",
                 ),
             )])
         ```

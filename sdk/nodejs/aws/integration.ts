@@ -17,6 +17,12 @@ import * as utilities from "../utilities";
  * // Create a new Datadog - Amazon Web Services integration
  * const sandbox = new datadog.aws.Integration("sandbox", {
  *     accountId: "1234567890",
+ *     roleName: "DatadogAWSIntegrationRole",
+ *     filterTags: ["key:value"],
+ *     hostTags: [
+ *         "key:value",
+ *         "key2:value2",
+ *     ],
  *     accountSpecificNamespaceRules: {
  *         auto_scaling: false,
  *         opsworks: false,
@@ -25,12 +31,6 @@ import * as utilities from "../utilities";
  *         "us-east-1",
  *         "us-west-2",
  *     ],
- *     filterTags: ["key:value"],
- *     hostTags: [
- *         "key:value",
- *         "key2:value2",
- *     ],
- *     roleName: "DatadogAWSIntegrationRole",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

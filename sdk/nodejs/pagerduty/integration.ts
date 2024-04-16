@@ -14,26 +14,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
  * // Services as Individual Resources
  * const pd = new datadog.pagerduty.Integration("pd", {
- *     apiToken: "38457822378273432587234242874",
  *     schedules: [
  *         "https://ddog.pagerduty.com/schedules/X123VF",
  *         "https://ddog.pagerduty.com/schedules/X321XX",
  *     ],
  *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
  * });
- * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
- *     serviceKey: "9876543210123456789",
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
  *     serviceName: "testing_foo",
+ *     serviceKey: "9876543210123456789",
  * }, {
- *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ *     dependsOn: [pd],
  * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
- *     serviceKey: "54321098765432109876",
+ * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
  *     serviceName: "testing_bar",
+ *     serviceKey: "54321098765432109876",
  * }, {
- *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ *     dependsOn: [pd],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

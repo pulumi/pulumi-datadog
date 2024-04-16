@@ -15,10 +15,10 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage a Datadog metric's metadata
- * const requestTime = new datadog.MetricMetadata("requestTime", {
- *     description: "99th percentile request time in milliseconds",
+ * const requestTime = new datadog.MetricMetadata("request_time", {
  *     metric: "request.time",
  *     shortName: "Request time",
+ *     description: "99th percentile request time in milliseconds",
  *     type: "gauge",
  *     unit: "millisecond",
  * });

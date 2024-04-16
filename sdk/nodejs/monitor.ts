@@ -17,20 +17,20 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const foo = new datadog.Monitor("foo", {
- *     escalationMessage: "Escalation message @pagerduty",
- *     includeTags: true,
- *     message: "Monitor triggered. Notify: @hipchat-channel",
- *     monitorThresholds: {
- *         critical: "4",
- *         warning: "2",
- *     },
  *     name: "Name for monitor foo",
+ *     type: "metric alert",
+ *     message: "Monitor triggered. Notify: @hipchat-channel",
+ *     escalationMessage: "Escalation message @pagerduty",
  *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+ *     monitorThresholds: {
+ *         warning: "2",
+ *         critical: "4",
+ *     },
+ *     includeTags: true,
  *     tags: [
  *         "foo:bar",
  *         "team:fooBar",
  *     ],
- *     type: "metric alert",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

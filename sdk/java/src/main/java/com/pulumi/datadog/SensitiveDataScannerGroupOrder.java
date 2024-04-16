@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new sensitive_data_scanner_group_order resource
  *         var mygrouporder = new SensitiveDataScannerGroupOrder(&#34;mygrouporder&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
  *             .groupIds(            
  *                 &#34;group-id-1&#34;,

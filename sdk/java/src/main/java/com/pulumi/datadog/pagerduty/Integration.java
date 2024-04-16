@@ -45,27 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
  *         // Services as Individual Resources
  *         var pd = new Integration(&#34;pd&#34;, IntegrationArgs.builder()        
- *             .apiToken(&#34;38457822378273432587234242874&#34;)
  *             .schedules(            
  *                 &#34;https://ddog.pagerduty.com/schedules/X123VF&#34;,
  *                 &#34;https://ddog.pagerduty.com/schedules/X321XX&#34;)
  *             .subdomain(&#34;ddog&#34;)
+ *             .apiToken(&#34;38457822378273432587234242874&#34;)
  *             .build());
  * 
  *         var testingFoo = new ServiceObject(&#34;testingFoo&#34;, ServiceObjectArgs.builder()        
- *             .serviceKey(&#34;9876543210123456789&#34;)
  *             .serviceName(&#34;testing_foo&#34;)
+ *             .serviceKey(&#34;9876543210123456789&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(&#34;datadog_integration_pagerduty.pd&#34;)
+ *                 .dependsOn(pd)
  *                 .build());
  * 
  *         var testingBar = new ServiceObject(&#34;testingBar&#34;, ServiceObjectArgs.builder()        
- *             .serviceKey(&#34;54321098765432109876&#34;)
  *             .serviceName(&#34;testing_bar&#34;)
+ *             .serviceKey(&#34;54321098765432109876&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(&#34;datadog_integration_pagerduty.pd&#34;)
+ *                 .dependsOn(pd)
  *                 .build());
  * 
  *     }

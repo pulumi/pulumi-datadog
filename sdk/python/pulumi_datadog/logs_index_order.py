@@ -108,9 +108,9 @@ class LogsIndexOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
+        sample_index_order = datadog.LogsIndexOrder("sample_index_order",
             name="sample_index_order",
-            indexes=[datadog_logs_index["sample_index"]["id"]])
+            indexes=[sample_index["id"]])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -145,9 +145,9 @@ class LogsIndexOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
+        sample_index_order = datadog.LogsIndexOrder("sample_index_order",
             name="sample_index_order",
-            indexes=[datadog_logs_index["sample_index"]["id"]])
+            indexes=[sample_index["id"]])
         ```
         <!--End PulumiCodeChooser -->
 

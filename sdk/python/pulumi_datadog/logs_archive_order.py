@@ -76,9 +76,9 @@ class LogsArchiveOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_archive_order = datadog.LogsArchiveOrder("sampleArchiveOrder", archive_ids=[
-            datadog_logs_archive["sample_archive_1"]["id"],
-            datadog_logs_archive["sample_archive_2"]["id"],
+        sample_archive_order = datadog.LogsArchiveOrder("sample_archive_order", archive_ids=[
+            sample_archive1["id"],
+            sample_archive2["id"],
         ])
         ```
         <!--End PulumiCodeChooser -->
@@ -111,9 +111,9 @@ class LogsArchiveOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_archive_order = datadog.LogsArchiveOrder("sampleArchiveOrder", archive_ids=[
-            datadog_logs_archive["sample_archive_1"]["id"],
-            datadog_logs_archive["sample_archive_2"]["id"],
+        sample_archive_order = datadog.LogsArchiveOrder("sample_archive_order", archive_ids=[
+            sample_archive1["id"],
+            sample_archive2["id"],
         ])
         ```
         <!--End PulumiCodeChooser -->

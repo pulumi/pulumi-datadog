@@ -12,28 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create new openapi_api resource
-    ///     var my_api = new Datadog.OpenapiApi("my-api", new()
-    ///     {
-    ///         Spec = File.ReadAllText("./path/my-api.yaml"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// ```sh

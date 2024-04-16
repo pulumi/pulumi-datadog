@@ -27,11 +27,11 @@ namespace Pulumi.Datadog
         /// {
         ///     var test = Datadog.GetMonitor.Invoke(new()
         ///     {
+        ///         NameFilter = "My awesome monitor",
         ///         MonitorTagsFilters = new[]
         ///         {
         ///             "foo:bar",
         ///         },
-        ///         NameFilter = "My awesome monitor",
         ///     });
         /// 
         /// });
@@ -57,11 +57,11 @@ namespace Pulumi.Datadog
         /// {
         ///     var test = Datadog.GetMonitor.Invoke(new()
         ///     {
+        ///         NameFilter = "My awesome monitor",
         ///         MonitorTagsFilters = new[]
         ///         {
         ///             "foo:bar",
         ///         },
-        ///         NameFilter = "My awesome monitor",
         ///     });
         /// 
         /// });

@@ -26,8 +26,8 @@ namespace Pulumi.Datadog
     ///     // Create new service_account_application_key resource
     ///     var foo = new Datadog.ServiceAccountApplicationKey("foo", new()
     ///     {
-    ///         Name = "Application key for managing dashboards",
     ///         ServiceAccountId = "00000000-0000-1234-0000-000000000000",
+    ///         Name = "Application key for managing dashboards",
     ///     });
     /// 
     /// });

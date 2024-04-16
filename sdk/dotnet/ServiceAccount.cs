@@ -23,6 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Source a role
     ///     var roRole = Datadog.GetRole.Invoke(new()
     ///     {
     ///         Filter = "Datadog Read Only Role",

@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new sensitive_data_scanner_group_order resource
  * const mygrouporder = new datadog.SensitiveDataScannerGroupOrder("mygrouporder", {groupIds: [
  *     "group-id-1",
  *     "group-id-2",

@@ -139,9 +139,10 @@ class AuthnMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source the role
         ro_role = datadog.get_role(filter="Datadog Read Only Role")
         # Create a new AuthN mapping
-        dev_ro_role_mapping = datadog.AuthnMapping("devRoRoleMapping",
+        dev_ro_role_mapping = datadog.AuthnMapping("dev_ro_role_mapping",
             key="Member-of",
             value="Development",
             role=ro_role.id)
@@ -178,9 +179,10 @@ class AuthnMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Source the role
         ro_role = datadog.get_role(filter="Datadog Read Only Role")
         # Create a new AuthN mapping
-        dev_ro_role_mapping = datadog.AuthnMapping("devRoRoleMapping",
+        dev_ro_role_mapping = datadog.AuthnMapping("dev_ro_role_mapping",
             key="Member-of",
             value="Development",
             role=ro_role.id)

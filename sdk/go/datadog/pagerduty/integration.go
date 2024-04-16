@@ -29,32 +29,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
 //			// Services as Individual Resources
-//			_, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
-//				ApiToken: pulumi.String("38457822378273432587234242874"),
+//			pd, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
 //				Schedules: pulumi.StringArray{
 //					pulumi.String("https://ddog.pagerduty.com/schedules/X123VF"),
 //					pulumi.String("https://ddog.pagerduty.com/schedules/X321XX"),
 //				},
 //				Subdomain: pulumi.String("ddog"),
+//				ApiToken:  pulumi.String("38457822378273432587234242874"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("9876543210123456789"),
+//			_, err = pagerduty.NewServiceObject(ctx, "testing_foo", &pagerduty.ServiceObjectArgs{
 //				ServiceName: pulumi.String("testing_foo"),
+//				ServiceKey:  pulumi.String("9876543210123456789"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				pulumi.Resource("datadog_integration_pagerduty.pd"),
+//				pd,
 //			}))
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("54321098765432109876"),
+//			_, err = pagerduty.NewServiceObject(ctx, "testing_bar", &pagerduty.ServiceObjectArgs{
 //				ServiceName: pulumi.String("testing_bar"),
+//				ServiceKey:  pulumi.String("54321098765432109876"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				pulumi.Resource("datadog_integration_pagerduty.pd"),
+//				pd,
 //			}))
 //			if err != nil {
 //				return err

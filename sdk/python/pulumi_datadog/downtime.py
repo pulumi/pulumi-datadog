@@ -448,26 +448,6 @@ class Downtime(pulumi.CustomResource):
         """
         This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Example: downtime for all monitors
-        # Create a new daily 1700-0900 Datadog downtime for all monitors
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         ```sh
@@ -496,26 +476,6 @@ class Downtime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Example: downtime for all monitors
-        # Create a new daily 1700-0900 Datadog downtime for all monitors
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

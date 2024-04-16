@@ -21,48 +21,6 @@ import javax.annotation.Nullable;
 /**
  * This resource is deprecated — use the `datadog.DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.Downtime;
- * import com.pulumi.datadog.DowntimeArgs;
- * import com.pulumi.datadog.inputs.DowntimeRecurrenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Example: downtime for all monitors
- *         // Create a new daily 1700-0900 Datadog downtime for all monitors
- *         var foo = new Downtime(&#34;foo&#34;, DowntimeArgs.builder()        
- *             .end(1483365600)
- *             .recurrence(DowntimeRecurrenceArgs.builder()
- *                 .period(1)
- *                 .type(&#34;days&#34;)
- *                 .build())
- *             .scopes(&#34;*&#34;)
- *             .start(1483308000)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh

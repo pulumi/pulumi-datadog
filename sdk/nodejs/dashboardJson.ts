@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Example Dashboard JSON
- * const dashboardJson = new datadog.DashboardJson("dashboardJson", {dashboard: `{
+ * const dashboardJson = new datadog.DashboardJson("dashboard_json", {dashboard: `{
  *    "title":"Ordered Layout Dashboard",
  *    "description":"Created using the Datadog provider in Pulumi",
  *    "widgets":[
@@ -500,7 +500,6 @@ import * as utilities from "./utilities";
  *       }
  *    ]
  * }
- *
  * `});
  * ```
  * <!--End PulumiCodeChooser -->

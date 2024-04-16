@@ -9,59 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `createBeforeDestroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `includedKeywordConfiguration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
- * const mygroup = new datadog.SensitiveDataScannerGroup("mygroup", {
- *     name: "My new scanning group",
- *     description: "A relevant description",
- *     filter: {
- *         query: "service:my-service",
- *     },
- *     isEnabled: true,
- *     productLists: ["apm"],
- * });
- * const myrule = new datadog.SensitiveDataScannerRule("myrule", {
- *     name: "My new rule",
- *     description: "Another description",
- *     groupId: mygroup.id,
- *     excludedNamespaces: ["username"],
- *     isEnabled: true,
- *     pattern: "myregex",
- *     tags: ["sensitive_data:true"],
- *     textReplacement: {
- *         numberOfChars: 0,
- *         replacementString: "",
- *         type: "hash",
- *     },
- *     includedKeywordConfiguration: {
- *         keywords: [
- *             "cc",
- *             "credit card",
- *         ],
- *         characterCount: 30,
- *     },
- * });
- * const awsSp = datadog.getSensitiveDataScannerStandardPattern({
- *     filter: "AWS Access Key ID Scanner",
- * });
- * const mylibraryrule = new datadog.SensitiveDataScannerRule("mylibraryrule", {
- *     name: "My library rule",
- *     description: "A description",
- *     groupId: mygroup.id,
- *     standardPatternId: awsSp.then(awsSp => awsSp.id),
- *     excludedNamespaces: ["username"],
- *     isEnabled: true,
- *     tags: ["sensitive_data:true"],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * ```sh

@@ -16,9 +16,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const privateLocation = new datadog.SyntheticsPrivateLocation("privateLocation", {
- *     description: "Description of the private location",
+ * const privateLocation = new datadog.SyntheticsPrivateLocation("private_location", {
  *     name: "First private location",
+ *     description: "Description of the private location",
  *     tags: [
  *         "foo:bar",
  *         "env:test",

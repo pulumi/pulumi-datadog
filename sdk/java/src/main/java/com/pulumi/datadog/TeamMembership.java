@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;, TeamArgs.builder()        
+ *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
  *             .description(&#34;Example team&#34;)
  *             .handle(&#34;example-team-updated&#34;)
  *             .name(&#34;Example Team-updated&#34;)
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create new team_membership resource
  *         var fooTeamMembership = new TeamMembership(&#34;fooTeamMembership&#34;, TeamMembershipArgs.builder()        
- *             .teamId(fooTeam.id())
+ *             .teamId(foo.id())
  *             .userId(fooUser.id())
  *             .role(&#34;admin&#34;)
  *             .build());

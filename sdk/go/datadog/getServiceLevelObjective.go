@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.LookupServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
-//				Id: pulumi.StringRef(data.Terraform_remote_state.Api.Outputs.Slo),
+//				Id: pulumi.StringRef(api.Outputs.Slo),
 //			}, nil)
 //			if err != nil {
 //				return err

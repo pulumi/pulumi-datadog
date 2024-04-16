@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Source the permissions
 //			bar, err := datadog.GetPermissions(ctx, nil, nil)
 //			if err != nil {
 //				return err

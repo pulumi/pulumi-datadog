@@ -140,14 +140,14 @@ class TeamMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
-        foo_user = datadog.User("fooUser", email="new@example.com")
+        foo_user = datadog.User("foo", email="new@example.com")
         # Create new team_membership resource
-        foo_team_membership = datadog.TeamMembership("fooTeamMembership",
-            team_id=foo_team.id,
+        foo_team_membership = datadog.TeamMembership("foo",
+            team_id=foo.id,
             user_id=foo_user.id,
             role="admin")
         ```
@@ -183,14 +183,14 @@ class TeamMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
-        foo_user = datadog.User("fooUser", email="new@example.com")
+        foo_user = datadog.User("foo", email="new@example.com")
         # Create new team_membership resource
-        foo_team_membership = datadog.TeamMembership("fooTeamMembership",
-            team_id=foo_team.id,
+        foo_team_membership = datadog.TeamMembership("foo",
+            team_id=foo.id,
             user_id=foo_user.id,
             role="admin")
         ```

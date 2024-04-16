@@ -16,7 +16,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new restriction_policy resource
  * const foo = new datadog.RestrictionPolicy("foo", {
+ *     resourceId: "security-rule:abc-def-ghi",
  *     bindings: [
  *         {
  *             principals: ["role:00000000-0000-1111-0000-000000000000"],
@@ -27,7 +29,6 @@ import * as utilities from "./utilities";
  *             relation: "viewer",
  *         },
  *     ],
- *     resourceId: "security-rule:abc-def-ghi",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

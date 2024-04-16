@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.GetTeamMemberships(ctx, &datadog.GetTeamMembershipsArgs{
-//				FilterKeyword: pulumi.StringRef("foo@example.com"),
 //				TeamId:        "e6723c40-edb1-11ed-b816-da7ad0900002",
+//				FilterKeyword: pulumi.StringRef("foo@example.com"),
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -30,36 +30,36 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Manage a tag configuration for a Datadog distribution metric with/without percentiles
-//			_, err := datadog.NewMetricTagConfiguration(ctx, "exampleDistMetric", &datadog.MetricTagConfigurationArgs{
-//				IncludePercentiles: pulumi.Bool(false),
-//				MetricName:         pulumi.String("example.terraform.dist.metric"),
-//				MetricType:         pulumi.String("distribution"),
+//			_, err := datadog.NewMetricTagConfiguration(ctx, "example_dist_metric", &datadog.MetricTagConfigurationArgs{
+//				MetricName: pulumi.String("example.terraform.dist.metric"),
+//				MetricType: pulumi.String("distribution"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("sport"),
 //					pulumi.String("datacenter"),
 //				},
+//				IncludePercentiles: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Manage tag configurations for a Datadog count or gauge metric
-//			_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
-//				Aggregations: datadog.MetricTagConfigurationAggregationArray{
-//					&datadog.MetricTagConfigurationAggregationArgs{
-//						Space: pulumi.String("min"),
-//						Time:  pulumi.String("avg"),
-//					},
-//					&datadog.MetricTagConfigurationAggregationArgs{
-//						Space: pulumi.String("max"),
-//						Time:  pulumi.String("avg"),
-//					},
-//				},
-//				ExcludeTagsMode: pulumi.Bool(false),
-//				MetricName:      pulumi.String("example.terraform.count.metric"),
-//				MetricType:      pulumi.String("count"),
+//			_, err = datadog.NewMetricTagConfiguration(ctx, "example_count_metric", &datadog.MetricTagConfigurationArgs{
+//				MetricName: pulumi.String("example.terraform.count.metric"),
+//				MetricType: pulumi.String("count"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("sport"),
 //					pulumi.String("datacenter"),
+//				},
+//				ExcludeTagsMode: pulumi.Bool(false),
+//				Aggregations: datadog.MetricTagConfigurationAggregationArray{
+//					&datadog.MetricTagConfigurationAggregationArgs{
+//						Time:  pulumi.String("avg"),
+//						Space: pulumi.String("min"),
+//					},
+//					&datadog.MetricTagConfigurationAggregationArgs{
+//						Time:  pulumi.String("avg"),
+//						Space: pulumi.String("max"),
+//					},
 //				},
 //			})
 //			if err != nil {

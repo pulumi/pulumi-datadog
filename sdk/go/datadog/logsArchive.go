@@ -29,13 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
+//			_, err := datadog.NewLogsArchive(ctx, "my_s3_archive", &datadog.LogsArchiveArgs{
 //				Name:  pulumi.String("my s3 archive"),
 //				Query: pulumi.String("service:myservice"),
 //				S3Archive: &datadog.LogsArchiveS3ArchiveArgs{
-//					AccountId: pulumi.String("001234567888"),
 //					Bucket:    pulumi.String("my-bucket"),
 //					Path:      pulumi.String("/path/foo"),
+//					AccountId: pulumi.String("001234567888"),
 //					RoleName:  pulumi.String("my-role-name"),
 //				},
 //			})

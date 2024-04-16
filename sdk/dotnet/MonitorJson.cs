@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var monitorJson = new Datadog.MonitorJson("monitorJson", new()
+    ///     var monitorJson = new Datadog.MonitorJson("monitor_json", new()
     ///     {
     ///         Monitor = @"{
     ///     ""name"": ""Example monitor - service check"",

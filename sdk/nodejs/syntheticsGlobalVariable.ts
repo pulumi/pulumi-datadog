@@ -16,9 +16,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testVariable = new datadog.SyntheticsGlobalVariable("testVariable", {
- *     description: "Description of the variable",
+ * const testVariable = new datadog.SyntheticsGlobalVariable("test_variable", {
  *     name: "EXAMPLE_VARIABLE",
+ *     description: "Description of the variable",
  *     tags: [
  *         "foo:bar",
  *         "env:test",

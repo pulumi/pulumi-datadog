@@ -141,12 +141,12 @@ class IntegrationService(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
+        foo = datadog.fastly.IntegrationAccount("foo",
             api_key="ABCDEFG123",
             name="test-name")
         # Create new integration_fastly_service resource
-        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
-            account_id=foo_integration_account.id,
+        foo_integration_service = datadog.fastly.IntegrationService("foo",
+            account_id=foo.id,
             tags=[
                 "mytag",
                 "mytag2:myvalue",
@@ -183,12 +183,12 @@ class IntegrationService(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_integration_account = datadog.fastly.IntegrationAccount("fooIntegrationAccount",
+        foo = datadog.fastly.IntegrationAccount("foo",
             api_key="ABCDEFG123",
             name="test-name")
         # Create new integration_fastly_service resource
-        foo_integration_service = datadog.fastly.IntegrationService("fooIntegrationService",
-            account_id=foo_integration_account.id,
+        foo_integration_service = datadog.fastly.IntegrationService("foo",
+            account_id=foo.id,
             tags=[
                 "mytag",
                 "mytag2:myvalue",

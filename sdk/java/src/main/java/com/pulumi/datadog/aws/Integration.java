@@ -47,6 +47,11 @@ import javax.annotation.Nullable;
  *         // Create a new Datadog - Amazon Web Services integration
  *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
  *             .accountId(&#34;1234567890&#34;)
+ *             .roleName(&#34;DatadogAWSIntegrationRole&#34;)
+ *             .filterTags(&#34;key:value&#34;)
+ *             .hostTags(            
+ *                 &#34;key:value&#34;,
+ *                 &#34;key2:value2&#34;)
  *             .accountSpecificNamespaceRules(Map.ofEntries(
  *                 Map.entry(&#34;auto_scaling&#34;, false),
  *                 Map.entry(&#34;opsworks&#34;, false)
@@ -54,11 +59,6 @@ import javax.annotation.Nullable;
  *             .excludedRegions(            
  *                 &#34;us-east-1&#34;,
  *                 &#34;us-west-2&#34;)
- *             .filterTags(&#34;key:value&#34;)
- *             .hostTags(            
- *                 &#34;key:value&#34;,
- *                 &#34;key2:value2&#34;)
- *             .roleName(&#34;DatadogAWSIntegrationRole&#34;)
  *             .build());
  * 
  *     }

@@ -14,13 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const mySuppression = new datadog.SecurityMonitoringSuppression("mySuppression", {
+ * const mySuppression = new datadog.SecurityMonitoringSuppression("my_suppression", {
+ *     name: "My suppression",
  *     description: "Suppression for low severity CloudTrail signals from test environments limited to 2024",
  *     enabled: true,
- *     expirationDate: "2024-12-31T12:00:00Z",
- *     name: "My suppression",
  *     ruleQuery: "severity:low source:cloudtrail",
  *     suppressionQuery: "env:test",
+ *     expirationDate: "2024-12-31T12:00:00Z",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

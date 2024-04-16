@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fooIntegrationAccount = new datadog.fastly.IntegrationAccount("fooIntegrationAccount", {
+ * const foo = new datadog.fastly.IntegrationAccount("foo", {
  *     apiKey: "ABCDEFG123",
  *     name: "test-name",
  * });
  * // Create new integration_fastly_service resource
- * const fooIntegrationService = new datadog.fastly.IntegrationService("fooIntegrationService", {
- *     accountId: fooIntegrationAccount.id,
+ * const fooIntegrationService = new datadog.fastly.IntegrationService("foo", {
+ *     accountId: foo.id,
  *     tags: [
  *         "mytag",
  *         "mytag2:myvalue",

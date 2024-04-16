@@ -23,16 +23,16 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooTeam = new Datadog.Team("fooTeam", new()
+    ///     var foo = new Datadog.Team("foo", new()
     ///     {
     ///         Description = "Example team",
     ///         Handle = "example-team-updated",
     ///         Name = "Example Team-updated",
     ///     });
     /// 
-    ///     var fooTeamPermissionSetting = new Datadog.TeamPermissionSetting("fooTeamPermissionSetting", new()
+    ///     var fooTeamPermissionSetting = new Datadog.TeamPermissionSetting("foo", new()
     ///     {
-    ///         TeamId = fooTeam.Id,
+    ///         TeamId = foo.Id,
     ///         Action = "manage_membership",
     ///         Value = "organization",
     ///     });

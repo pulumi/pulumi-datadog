@@ -107,11 +107,11 @@ class LogsPipelineOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
+        sample_pipeline_order = datadog.LogsPipelineOrder("sample_pipeline_order",
             name="sample_pipeline_order",
             pipelines=[
-                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
-                datadog_logs_integration_pipeline["python"]["id"],
+                sample_pipeline["id"],
+                python["id"],
             ])
         ```
         <!--End PulumiCodeChooser -->
@@ -145,11 +145,11 @@ class LogsPipelineOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
+        sample_pipeline_order = datadog.LogsPipelineOrder("sample_pipeline_order",
             name="sample_pipeline_order",
             pipelines=[
-                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
-                datadog_logs_integration_pipeline["python"]["id"],
+                sample_pipeline["id"],
+                python["id"],
             ])
         ```
         <!--End PulumiCodeChooser -->

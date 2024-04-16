@@ -23,8 +23,11 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFilter = new Datadog.SecurityMonitoringFilter("myFilter", new()
+    ///     var myFilter = new Datadog.SecurityMonitoringFilter("my_filter", new()
     ///     {
+    ///         Name = "My filter",
+    ///         Query = "The filter is filtering.",
+    ///         IsEnabled = true,
     ///         ExclusionFilters = new[]
     ///         {
     ///             new Datadog.Inputs.SecurityMonitoringFilterExclusionFilterArgs
@@ -38,9 +41,6 @@ namespace Pulumi.Datadog
     ///                 Query = "exclude some other logs",
     ///             },
     ///         },
-    ///         IsEnabled = true,
-    ///         Name = "My filter",
-    ///         Query = "The filter is filtering.",
     ///     });
     /// 
     /// });

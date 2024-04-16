@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Source a role
  * const roRole = datadog.getRole({
  *     filter: "Datadog Read Only Role",
  * });

@@ -9,26 +9,6 @@ import * as utilities from "./utilities";
 /**
  * The object describing the configuration of the retention filter to create/update.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create APM retention filter
- * const foo = new datadog.ApmRetentionFilter("foo", {
- *     enabled: false,
- *     filter: {
- *         query: "*",
- *     },
- *     filterType: "spans-sampling-processor",
- *     name: "Sample order",
- *     rate: "1.0",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Import existing APM retention filter

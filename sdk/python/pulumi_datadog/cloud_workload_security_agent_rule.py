@@ -173,11 +173,11 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("myAgentRule",
+        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("my_agent_rule",
+            name="my_agent_rule",
             description="My agent rule",
             enabled=True,
-            expression="exec.file.name == \\"java\\"",
-            name="my_agent_rule")
+            expression="exec.file.name == \\"java\\"")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -212,11 +212,11 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("myAgentRule",
+        my_agent_rule = datadog.CloudWorkloadSecurityAgentRule("my_agent_rule",
+            name="my_agent_rule",
             description="My agent rule",
             enabled=True,
-            expression="exec.file.name == \\"java\\"",
-            name="my_agent_rule")
+            expression="exec.file.name == \\"java\\"")
         ```
         <!--End PulumiCodeChooser -->
 

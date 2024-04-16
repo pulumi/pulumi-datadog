@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new integration_fastly_account resource
     ///     var foo = new Datadog.Fastly.IntegrationAccount("foo", new()
     ///     {
     ///         ApiKey = "ABCDEFG123",

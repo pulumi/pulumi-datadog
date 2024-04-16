@@ -305,36 +305,37 @@ class LogsIndex(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_index = datadog.LogsIndex("sampleIndex",
+        # A sample Datadog logs index resource definition.
+        sample_index = datadog.LogsIndex("sample_index",
+            name="your index",
             daily_limit=200000,
             daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
                 reset_time="14:00",
                 reset_utc_offset="+02:00",
             ),
             daily_limit_warning_threshold_percentage=50,
+            retention_days=7,
+            filters=[datadog.LogsIndexFilterArgs(
+                query="*",
+            )],
             exclusion_filters=[
                 datadog.LogsIndexExclusionFilterArgs(
+                    name="Filter coredns logs",
+                    is_enabled=True,
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
                         query="app:coredns",
                         sample_rate=0.97,
                     )],
-                    is_enabled=True,
-                    name="Filter coredns logs",
                 ),
                 datadog.LogsIndexExclusionFilterArgs(
+                    name="Kubernetes apiserver",
+                    is_enabled=True,
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
                         query="service:kube_apiserver",
                         sample_rate=1,
                     )],
-                    is_enabled=True,
-                    name="Kubernetes apiserver",
                 ),
-            ],
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
-            name="your index",
-            retention_days=7)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -369,36 +370,37 @@ class LogsIndex(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        sample_index = datadog.LogsIndex("sampleIndex",
+        # A sample Datadog logs index resource definition.
+        sample_index = datadog.LogsIndex("sample_index",
+            name="your index",
             daily_limit=200000,
             daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
                 reset_time="14:00",
                 reset_utc_offset="+02:00",
             ),
             daily_limit_warning_threshold_percentage=50,
+            retention_days=7,
+            filters=[datadog.LogsIndexFilterArgs(
+                query="*",
+            )],
             exclusion_filters=[
                 datadog.LogsIndexExclusionFilterArgs(
+                    name="Filter coredns logs",
+                    is_enabled=True,
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
                         query="app:coredns",
                         sample_rate=0.97,
                     )],
-                    is_enabled=True,
-                    name="Filter coredns logs",
                 ),
                 datadog.LogsIndexExclusionFilterArgs(
+                    name="Kubernetes apiserver",
+                    is_enabled=True,
                     filters=[datadog.LogsIndexExclusionFilterFilterArgs(
                         query="service:kube_apiserver",
                         sample_rate=1,
                     )],
-                    is_enabled=True,
-                    name="Kubernetes apiserver",
                 ),
-            ],
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
-            name="your index",
-            retention_days=7)
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

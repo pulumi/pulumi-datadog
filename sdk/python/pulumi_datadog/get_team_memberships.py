@@ -107,8 +107,8 @@ def get_team_memberships(exact_match: Optional[bool] = None,
     import pulumi
     import pulumi_datadog as datadog
 
-    foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
-        team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    foo = datadog.get_team_memberships(team_id="e6723c40-edb1-11ed-b816-da7ad0900002",
+        filter_keyword="foo@example.com")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -146,8 +146,8 @@ def get_team_memberships_output(exact_match: Optional[pulumi.Input[Optional[bool
     import pulumi
     import pulumi_datadog as datadog
 
-    foo = datadog.get_team_memberships(filter_keyword="foo@example.com",
-        team_id="e6723c40-edb1-11ed-b816-da7ad0900002")
+    foo = datadog.get_team_memberships(team_id="e6723c40-edb1-11ed-b816-da7ad0900002",
+        filter_keyword="foo@example.com")
     ```
     <!--End PulumiCodeChooser -->
 

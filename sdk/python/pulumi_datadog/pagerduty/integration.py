@@ -141,22 +141,23 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
         # Services as Individual Resources
         pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
             schedules=[
                 "https://ddog.pagerduty.com/schedules/X123VF",
                 "https://ddog.pagerduty.com/schedules/X321XX",
             ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
+            subdomain="ddog",
+            api_token="38457822378273432587234242874")
+        testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
             service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
+            service_key="9876543210123456789",
+            opts=pulumi.ResourceOptions(depends_on=[pd]))
+        testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
             service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
+            service_key="54321098765432109876",
+            opts=pulumi.ResourceOptions(depends_on=[pd]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -182,22 +183,23 @@ class Integration(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
         # Services as Individual Resources
         pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
             schedules=[
                 "https://ddog.pagerduty.com/schedules/X123VF",
                 "https://ddog.pagerduty.com/schedules/X321XX",
             ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
+            subdomain="ddog",
+            api_token="38457822378273432587234242874")
+        testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
             service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
+            service_key="9876543210123456789",
+            opts=pulumi.ResourceOptions(depends_on=[pd]))
+        testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
             service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
+            service_key="54321098765432109876",
+            opts=pulumi.ResourceOptions(depends_on=[pd]))
         ```
         <!--End PulumiCodeChooser -->
 

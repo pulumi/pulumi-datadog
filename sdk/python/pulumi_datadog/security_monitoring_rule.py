@@ -440,33 +440,33 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         myrule = datadog.SecurityMonitoringRule("myrule",
+            name="My rule",
+            message="The rule has triggered.",
+            enabled=True,
+            queries=[
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    name="errors",
+                    query="status:error",
+                    aggregation="count",
+                    group_by_fields=["host"],
+                ),
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    name="warnings",
+                    query="status:warning",
+                    aggregation="count",
+                    group_by_fields=["host"],
+                ),
+            ],
             cases=[datadog.SecurityMonitoringRuleCaseArgs(
+                status="high",
                 condition="errors > 3 && warnings > 10",
                 notifications=["@user"],
-                status="high",
             )],
-            enabled=True,
-            message="The rule has triggered.",
-            name="My rule",
             options=datadog.SecurityMonitoringRuleOptionsArgs(
                 evaluation_window=300,
                 keep_alive=600,
                 max_signal_duration=900,
             ),
-            queries=[
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="errors",
-                    query="status:error",
-                ),
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="warnings",
-                    query="status:warning",
-                ),
-            ],
             tags=["type:dos"])
         ```
         <!--End PulumiCodeChooser -->
@@ -511,33 +511,33 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         myrule = datadog.SecurityMonitoringRule("myrule",
+            name="My rule",
+            message="The rule has triggered.",
+            enabled=True,
+            queries=[
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    name="errors",
+                    query="status:error",
+                    aggregation="count",
+                    group_by_fields=["host"],
+                ),
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    name="warnings",
+                    query="status:warning",
+                    aggregation="count",
+                    group_by_fields=["host"],
+                ),
+            ],
             cases=[datadog.SecurityMonitoringRuleCaseArgs(
+                status="high",
                 condition="errors > 3 && warnings > 10",
                 notifications=["@user"],
-                status="high",
             )],
-            enabled=True,
-            message="The rule has triggered.",
-            name="My rule",
             options=datadog.SecurityMonitoringRuleOptionsArgs(
                 evaluation_window=300,
                 keep_alive=600,
                 max_signal_duration=900,
             ),
-            queries=[
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="errors",
-                    query="status:error",
-                ),
-                datadog.SecurityMonitoringRuleQueryArgs(
-                    aggregation="count",
-                    group_by_fields=["host"],
-                    name="warnings",
-                    query="status:warning",
-                ),
-            ],
             tags=["type:dos"])
         ```
         <!--End PulumiCodeChooser -->

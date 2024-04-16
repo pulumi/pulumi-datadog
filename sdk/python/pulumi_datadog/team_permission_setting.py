@@ -139,12 +139,12 @@ class TeamPermissionSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
-        foo_team_permission_setting = datadog.TeamPermissionSetting("fooTeamPermissionSetting",
-            team_id=foo_team.id,
+        foo_team_permission_setting = datadog.TeamPermissionSetting("foo",
+            team_id=foo.id,
             action="manage_membership",
             value="organization")
         ```
@@ -172,12 +172,12 @@ class TeamPermissionSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
-        foo_team_permission_setting = datadog.TeamPermissionSetting("fooTeamPermissionSetting",
-            team_id=foo_team.id,
+        foo_team_permission_setting = datadog.TeamPermissionSetting("foo",
+            team_id=foo.id,
             action="manage_membership",
             value="organization")
         ```

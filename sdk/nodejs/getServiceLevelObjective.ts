@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *     tagsQuery: "foo:bar",
  * });
  * const apiSlo = datadog.getServiceLevelObjective({
- *     id: data.terraform_remote_state.api.outputs.slo,
+ *     id: api.outputs.slo,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -124,7 +124,7 @@ export interface GetServiceLevelObjectiveResult {
  *     tagsQuery: "foo:bar",
  * });
  * const apiSlo = datadog.getServiceLevelObjective({
- *     id: data.terraform_remote_state.api.outputs.slo,
+ *     id: api.outputs.slo,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

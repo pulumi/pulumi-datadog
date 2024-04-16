@@ -23,7 +23,7 @@ namespace Pulumi.Datadog.Slack
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testChannel = new Datadog.Slack.Channel("testChannel", new()
+    ///     var testChannel = new Datadog.Slack.Channel("test_channel", new()
     ///     {
     ///         AccountName = "foo",
     ///         ChannelName = "#test_channel",

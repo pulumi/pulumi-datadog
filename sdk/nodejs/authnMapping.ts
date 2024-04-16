@@ -14,11 +14,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Source the role
  * const roRole = datadog.getRole({
  *     filter: "Datadog Read Only Role",
  * });
  * // Create a new AuthN mapping
- * const devRoRoleMapping = new datadog.AuthnMapping("devRoRoleMapping", {
+ * const devRoRoleMapping = new datadog.AuthnMapping("dev_ro_role_mapping", {
  *     key: "Member-of",
  *     value: "Development",
  *     role: roRole.then(roRole => roRole.id),

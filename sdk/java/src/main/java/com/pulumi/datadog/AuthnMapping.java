@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Source the role
  *         final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()
  *             .filter(&#34;Datadog Read Only Role&#34;)
  *             .build());

@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *
  * // Example Usage (Synthetics API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testUptime = new datadog.SyntheticsTest("testUptime", {
+ * const testUptime = new datadog.SyntheticsTest("test_uptime", {
  *     name: "An Uptime test on example.org",
  *     type: "api",
  *     subtype: "http",
@@ -66,7 +66,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Authenticated API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testApi = new datadog.SyntheticsTest("testApi", {
+ * const testApi = new datadog.SyntheticsTest("test_api", {
  *     name: "An API test on example.org",
  *     type: "api",
  *     subtype: "http",
@@ -104,7 +104,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics SSL test)
  * // Create a new Datadog Synthetics API/SSL test on example.org
- * const testSsl = new datadog.SyntheticsTest("testSsl", {
+ * const testSsl = new datadog.SyntheticsTest("test_ssl", {
  *     name: "An API test on example.org",
  *     type: "api",
  *     subtype: "ssl",
@@ -132,7 +132,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics TCP test)
  * // Create a new Datadog Synthetics API/TCP test on example.org
- * const testTcp = new datadog.SyntheticsTest("testTcp", {
+ * const testTcp = new datadog.SyntheticsTest("test_tcp", {
  *     name: "An API test on example.org",
  *     type: "api",
  *     subtype: "tcp",
@@ -164,7 +164,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics DNS test)
  * // Create a new Datadog Synthetics API/DNS test on example.org
- * const testDns = new datadog.SyntheticsTest("testDns", {
+ * const testDns = new datadog.SyntheticsTest("test_dns", {
  *     name: "An API test on example.org",
  *     type: "api",
  *     subtype: "dns",
@@ -191,7 +191,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics Multistep API test)
  * // Create a new Datadog Synthetics Multistep API test
- * const testMultiStep = new datadog.SyntheticsTest("testMultiStep", {
+ * const testMultiStep = new datadog.SyntheticsTest("test_multi_step", {
  *     name: "Multistep API test",
  *     type: "api",
  *     subtype: "multi",
@@ -241,7 +241,7 @@ import * as utilities from "./utilities";
  * });
  * // Example Usage (Synthetics Browser test)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
- * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
+ * const testBrowser = new datadog.SyntheticsTest("test_browser", {
  *     name: "A Browser test on example.org",
  *     type: "browser",
  *     status: "paused",

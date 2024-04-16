@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := slack.NewChannel(ctx, "testChannel", &slack.ChannelArgs{
+//			_, err := slack.NewChannel(ctx, "test_channel", &slack.ChannelArgs{
 //				AccountName: pulumi.String("foo"),
 //				ChannelName: pulumi.String("#test_channel"),
 //				Display: &slack.ChannelDisplayArgs{

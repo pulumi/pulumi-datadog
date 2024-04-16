@@ -29,11 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.GetSecurityMonitoringRules(ctx, &datadog.GetSecurityMonitoringRulesArgs{
-//				DefaultOnlyFilter: pulumi.BoolRef(true),
-//				NameFilter:        pulumi.StringRef("attack"),
+//				NameFilter: pulumi.StringRef("attack"),
 //				TagsFilters: []string{
 //					"foo:bar",
 //				},
+//				DefaultOnlyFilter: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err

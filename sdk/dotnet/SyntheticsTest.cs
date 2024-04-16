@@ -37,7 +37,7 @@ namespace Pulumi.Datadog
     /// {
     ///     // Example Usage (Synthetics API test)
     ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    ///     var testUptime = new Datadog.SyntheticsTest("testUptime", new()
+    ///     var testUptime = new Datadog.SyntheticsTest("test_uptime", new()
     ///     {
     ///         Name = "An Uptime test on example.org",
     ///         Type = "api",
@@ -89,7 +89,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Authenticated API test)
     ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    ///     var testApi = new Datadog.SyntheticsTest("testApi", new()
+    ///     var testApi = new Datadog.SyntheticsTest("test_api", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -142,7 +142,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics SSL test)
     ///     // Create a new Datadog Synthetics API/SSL test on example.org
-    ///     var testSsl = new Datadog.SyntheticsTest("testSsl", new()
+    ///     var testSsl = new Datadog.SyntheticsTest("test_ssl", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -182,7 +182,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics TCP test)
     ///     // Create a new Datadog Synthetics API/TCP test on example.org
-    ///     var testTcp = new Datadog.SyntheticsTest("testTcp", new()
+    ///     var testTcp = new Datadog.SyntheticsTest("test_tcp", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -230,7 +230,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics DNS test)
     ///     // Create a new Datadog Synthetics API/DNS test on example.org
-    ///     var testDns = new Datadog.SyntheticsTest("testDns", new()
+    ///     var testDns = new Datadog.SyntheticsTest("test_dns", new()
     ///     {
     ///         Name = "An API test on example.org",
     ///         Type = "api",
@@ -269,7 +269,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Multistep API test)
     ///     // Create a new Datadog Synthetics Multistep API test
-    ///     var testMultiStep = new Datadog.SyntheticsTest("testMultiStep", new()
+    ///     var testMultiStep = new Datadog.SyntheticsTest("test_multi_step", new()
     ///     {
     ///         Name = "Multistep API test",
     ///         Type = "api",
@@ -340,7 +340,7 @@ namespace Pulumi.Datadog
     /// 
     ///     // Example Usage (Synthetics Browser test)
     ///     // Create a new Datadog Synthetics Browser test starting on https://www.example.org
-    ///     var testBrowser = new Datadog.SyntheticsTest("testBrowser", new()
+    ///     var testBrowser = new Datadog.SyntheticsTest("test_browser", new()
     ///     {
     ///         Name = "A Browser test on example.org",
     ///         Type = "browser",

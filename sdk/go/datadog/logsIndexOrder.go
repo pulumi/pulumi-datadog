@@ -29,10 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
+//			_, err := datadog.NewLogsIndexOrder(ctx, "sample_index_order", &datadog.LogsIndexOrderArgs{
 //				Name: pulumi.String("sample_index_order"),
 //				Indexes: pulumi.StringArray{
-//					datadog_logs_index.Sample_index.Id,
+//					sampleIndex.Id,
 //				},
 //			})
 //			if err != nil {

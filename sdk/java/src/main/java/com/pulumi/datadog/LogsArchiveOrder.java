@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sampleArchiveOrder = new LogsArchiveOrder(&#34;sampleArchiveOrder&#34;, LogsArchiveOrderArgs.builder()        
  *             .archiveIds(            
- *                 datadog_logs_archive.sample_archive_1().id(),
- *                 datadog_logs_archive.sample_archive_2().id())
+ *                 sampleArchive1.id(),
+ *                 sampleArchive2.id())
  *             .build());
  * 
  *     }

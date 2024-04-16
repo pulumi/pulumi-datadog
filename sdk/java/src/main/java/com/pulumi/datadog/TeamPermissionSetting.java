@@ -42,14 +42,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;, TeamArgs.builder()        
+ *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
  *             .description(&#34;Example team&#34;)
  *             .handle(&#34;example-team-updated&#34;)
  *             .name(&#34;Example Team-updated&#34;)
  *             .build());
  * 
  *         var fooTeamPermissionSetting = new TeamPermissionSetting(&#34;fooTeamPermissionSetting&#34;, TeamPermissionSettingArgs.builder()        
- *             .teamId(fooTeam.id())
+ *             .teamId(foo.id())
  *             .action(&#34;manage_membership&#34;)
  *             .value(&#34;organization&#34;)
  *             .build());

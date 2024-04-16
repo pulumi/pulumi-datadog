@@ -23,14 +23,14 @@ namespace Pulumi.Datadog.OpsGenie
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fakeServiceName = new Datadog.OpsGenie.ServiceObject("fakeServiceName", new()
+    ///     var fakeServiceName = new Datadog.OpsGenie.ServiceObject("fake_service_name", new()
     ///     {
     ///         Name = "fake_service_name",
     ///         OpsgenieApiKey = "00000000-0000-0000-0000-000000000000",
     ///         Region = "us",
     ///     });
     /// 
-    ///     var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject("fakeServiceName2", new()
+    ///     var fakeServiceName2 = new Datadog.OpsGenie.ServiceObject("fake_service_name_2", new()
     ///     {
     ///         Name = "fake_service_name_2",
     ///         OpsgenieApiKey = "11111111-1111-1111-1111-111111111111",

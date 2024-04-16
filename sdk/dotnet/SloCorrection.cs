@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-    ///     var exampleSlo = new Datadog.ServiceLevelObjective("exampleSlo", new()
+    ///     var exampleSlo = new Datadog.ServiceLevelObjective("example_slo", new()
     ///     {
     ///         Name = "example slo",
     ///         Type = "metric",
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
-    ///     var exampleSloCorrection = new Datadog.SloCorrection("exampleSloCorrection", new()
+    ///     var exampleSloCorrection = new Datadog.SloCorrection("example_slo_correction", new()
     ///     {
     ///         Category = "Scheduled Maintenance",
     ///         Description = "correction example",
@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
     ///         Timezone = "UTC",
     ///     });
     /// 
-    ///     var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new()
+    ///     var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("example_slo_correction_with_recurrence", new()
     ///     {
     ///         Category = "Scheduled Maintenance",
     ///         Description = "correction example with recurrence",

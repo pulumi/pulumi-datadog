@@ -23,10 +23,10 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var privateLocation = new Datadog.SyntheticsPrivateLocation("privateLocation", new()
+    ///     var privateLocation = new Datadog.SyntheticsPrivateLocation("private_location", new()
     ///     {
-    ///         Description = "Description of the private location",
     ///         Name = "First private location",
+    ///         Description = "Description of the private location",
     ///         Tags = new[]
     ///         {
     ///             "foo:bar",

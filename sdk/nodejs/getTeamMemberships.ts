@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const foo = datadog.getTeamMemberships({
- *     filterKeyword: "foo@example.com",
  *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
+ *     filterKeyword: "foo@example.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -84,8 +84,8 @@ export interface GetTeamMembershipsResult {
  * import * as datadog from "@pulumi/datadog";
  *
  * const foo = datadog.getTeamMemberships({
- *     filterKeyword: "foo@example.com",
  *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
+ *     filterKeyword: "foo@example.com",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

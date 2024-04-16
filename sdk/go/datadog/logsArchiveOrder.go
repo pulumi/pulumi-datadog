@@ -28,10 +28,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
+//			_, err := datadog.NewLogsArchiveOrder(ctx, "sample_archive_order", &datadog.LogsArchiveOrderArgs{
 //				ArchiveIds: pulumi.StringArray{
-//					datadog_logs_archive.Sample_archive_1.Id,
-//					datadog_logs_archive.Sample_archive_2.Id,
+//					sampleArchive1.Id,
+//					sampleArchive2.Id,
 //				},
 //			})
 //			if err != nil {

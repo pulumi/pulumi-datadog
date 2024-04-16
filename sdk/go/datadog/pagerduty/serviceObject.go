@@ -29,16 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("9876543210123456789"),
+//			_, err := pagerduty.NewServiceObject(ctx, "testing_foo", &pagerduty.ServiceObjectArgs{
 //				ServiceName: pulumi.String("testing_foo"),
+//				ServiceKey:  pulumi.String("9876543210123456789"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
-//				ServiceKey:  pulumi.String("54321098765432109876"),
+//			_, err = pagerduty.NewServiceObject(ctx, "testing_bar", &pagerduty.ServiceObjectArgs{
 //				ServiceName: pulumi.String("testing_bar"),
+//				ServiceKey:  pulumi.String("54321098765432109876"),
 //			})
 //			if err != nil {
 //				return err

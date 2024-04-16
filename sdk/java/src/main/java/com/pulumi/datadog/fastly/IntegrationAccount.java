@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new integration_fastly_account resource
  *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
  *             .apiKey(&#34;ABCDEFG123&#34;)
  *             .name(&#34;test-name&#34;)

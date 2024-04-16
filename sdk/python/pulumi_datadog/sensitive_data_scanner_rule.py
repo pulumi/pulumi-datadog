@@ -400,54 +400,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            name="My new scanning group",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            product_lists=["apm"])
-        myrule = datadog.SensitiveDataScannerRule("myrule",
-            name="My new rule",
-            description="Another description",
-            group_id=mygroup.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            pattern="myregex",
-            tags=["sensitive_data:true"],
-            text_replacement=datadog.SensitiveDataScannerRuleTextReplacementArgs(
-                number_of_chars=0,
-                replacement_string="",
-                type="hash",
-            ),
-            included_keyword_configuration=datadog.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs(
-                keywords=[
-                    "cc",
-                    "credit card",
-                ],
-                character_count=30,
-            ))
-        aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
-        mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
-            name="My library rule",
-            description="A description",
-            group_id=mygroup.id,
-            standard_pattern_id=aws_sp.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            tags=["sensitive_data:true"])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         ```sh
@@ -476,54 +428,6 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new sensitive_data_scanner_rule resource in a sensitive_data_scanner_group
-        mygroup = datadog.SensitiveDataScannerGroup("mygroup",
-            name="My new scanning group",
-            description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
-            is_enabled=True,
-            product_lists=["apm"])
-        myrule = datadog.SensitiveDataScannerRule("myrule",
-            name="My new rule",
-            description="Another description",
-            group_id=mygroup.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            pattern="myregex",
-            tags=["sensitive_data:true"],
-            text_replacement=datadog.SensitiveDataScannerRuleTextReplacementArgs(
-                number_of_chars=0,
-                replacement_string="",
-                type="hash",
-            ),
-            included_keyword_configuration=datadog.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs(
-                keywords=[
-                    "cc",
-                    "credit card",
-                ],
-                character_count=30,
-            ))
-        aws_sp = datadog.get_sensitive_data_scanner_standard_pattern(filter="AWS Access Key ID Scanner")
-        mylibraryrule = datadog.SensitiveDataScannerRule("mylibraryrule",
-            name="My library rule",
-            description="A description",
-            group_id=mygroup.id,
-            standard_pattern_id=aws_sp.id,
-            excluded_namespaces=["username"],
-            is_enabled=True,
-            tags=["sensitive_data:true"])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

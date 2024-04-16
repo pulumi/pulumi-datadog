@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mySuppression = new SecurityMonitoringSuppression(&#34;mySuppression&#34;, SecurityMonitoringSuppressionArgs.builder()        
+ *             .name(&#34;My suppression&#34;)
  *             .description(&#34;Suppression for low severity CloudTrail signals from test environments limited to 2024&#34;)
  *             .enabled(true)
- *             .expirationDate(&#34;2024-12-31T12:00:00Z&#34;)
- *             .name(&#34;My suppression&#34;)
  *             .ruleQuery(&#34;severity:low source:cloudtrail&#34;)
  *             .suppressionQuery(&#34;env:test&#34;)
+ *             .expirationDate(&#34;2024-12-31T12:00:00Z&#34;)
  *             .build());
  * 
  *     }

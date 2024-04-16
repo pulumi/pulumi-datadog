@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsgenie.NewServiceObject(ctx, "fakeServiceName", &opsgenie.ServiceObjectArgs{
+//			_, err := opsgenie.NewServiceObject(ctx, "fake_service_name", &opsgenie.ServiceObjectArgs{
 //				Name:           pulumi.String("fake_service_name"),
 //				OpsgenieApiKey: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Region:         pulumi.String("us"),
@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opsgenie.NewServiceObject(ctx, "fakeServiceName2", &opsgenie.ServiceObjectArgs{
+//			_, err = opsgenie.NewServiceObject(ctx, "fake_service_name_2", &opsgenie.ServiceObjectArgs{
 //				Name:           pulumi.String("fake_service_name_2"),
 //				OpsgenieApiKey: pulumi.String("11111111-1111-1111-1111-111111111111"),
 //				Region:         pulumi.String("eu"),

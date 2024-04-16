@@ -68,18 +68,6 @@ class OpenapiApi(pulumi.CustomResource):
         """
         Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new openapi_api resource
-        my_api = datadog.OpenapiApi("my-api", spec=(lambda path: open(path).read())("./path/my-api.yaml"))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         ```sh
@@ -98,18 +86,6 @@ class OpenapiApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create new openapi_api resource
-        my_api = datadog.OpenapiApi("my-api", spec=(lambda path: open(path).read())("./path/my-api.yaml"))
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

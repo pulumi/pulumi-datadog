@@ -29,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, "myAgentRule", &datadog.CloudWorkloadSecurityAgentRuleArgs{
+//			_, err := datadog.NewCloudWorkloadSecurityAgentRule(ctx, "my_agent_rule", &datadog.CloudWorkloadSecurityAgentRuleArgs{
+//				Name:        pulumi.String("my_agent_rule"),
 //				Description: pulumi.String("My agent rule"),
 //				Enabled:     pulumi.Bool(true),
 //				Expression:  pulumi.String("exec.file.name == \"java\""),
-//				Name:        pulumi.String("my_agent_rule"),
 //			})
 //			if err != nil {
 //				return err

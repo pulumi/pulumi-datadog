@@ -237,13 +237,13 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_suppression = datadog.SecurityMonitoringSuppression("mySuppression",
+        my_suppression = datadog.SecurityMonitoringSuppression("my_suppression",
+            name="My suppression",
             description="Suppression for low severity CloudTrail signals from test environments limited to 2024",
             enabled=True,
-            expiration_date="2024-12-31T12:00:00Z",
-            name="My suppression",
             rule_query="severity:low source:cloudtrail",
-            suppression_query="env:test")
+            suppression_query="env:test",
+            expiration_date="2024-12-31T12:00:00Z")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -280,13 +280,13 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_suppression = datadog.SecurityMonitoringSuppression("mySuppression",
+        my_suppression = datadog.SecurityMonitoringSuppression("my_suppression",
+            name="My suppression",
             description="Suppression for low severity CloudTrail signals from test environments limited to 2024",
             enabled=True,
-            expiration_date="2024-12-31T12:00:00Z",
-            name="My suppression",
             rule_query="severity:low source:cloudtrail",
-            suppression_query="env:test")
+            suppression_query="env:test",
+            expiration_date="2024-12-31T12:00:00Z")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -30,45 +30,48 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewCloudConfigurationRule(ctx, "myrule", &datadog.CloudConfigurationRuleArgs{
-//				Enabled: pulumi.Bool(true),
-//				GroupBies: pulumi.StringArray{
-//					pulumi.String("@resource"),
-//				},
-//				Message: pulumi.String("Rule has triggered"),
 //				Name:    pulumi.String("My cloud configuration rule"),
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("@channel"),
-//				},
-//				Policy: pulumi.String(`        package datadog
+//				Message: pulumi.String("Rule has triggered"),
+//				Enabled: pulumi.Bool(true),
+//				Policy: pulumi.String(`package datadog
 //
-//	        import data.datadog.output as dd_output
+// import data.datadog.output as dd_output
 //
-//	        import future.keywords.contains
-//	        import future.keywords.if
-//	        import future.keywords.in
+// import future.keywords.contains
+// import future.keywords.if
+// import future.keywords.in
 //
-//	        eval(resource) = "skip" if {
-//	            # Logic that evaluates to true if the resource should be skipped
-//	            true
-//	        } else = "pass" {
-//	            # Logic that evaluates to true if the resource is compliant
-//	            true
-//	        } else = "fail" {
-//	            # Logic that evaluates to true if the resource is not compliant
-//	            true
-//	        }
+//	eval(resource) = "skip" if {
+//	    # Logic that evaluates to true if the resource should be skipped
+//	    true
+//	} else = "pass" {
 //
-//	        # This part remains unchanged for all rules
-//	        results contains result if {
-//	            some resource in input.resources[input.main_resource_type]
-//	            result := dd_output.format(resource, eval(resource))
-//	        }
+//	    # Logic that evaluates to true if the resource is compliant
+//	    true
+//	} else = "fail" {
+//
+//	    # Logic that evaluates to true if the resource is not compliant
+//	    true
+//	}
+//
+// # This part remains unchanged for all rules
+//
+//	results contains result if {
+//	    some resource in input.resources[input.main_resource_type]
+//	    result := dd_output.format(resource, eval(resource))
+//	}
 //
 // `),
 //
-//				RelatedResourceTypes: pulumi.StringArray{},
 //				ResourceType:         pulumi.String("aws_s3_bucket"),
+//				RelatedResourceTypes: pulumi.StringArray{},
 //				Severity:             pulumi.String("high"),
+//				GroupBies: pulumi.StringArray{
+//					pulumi.String("@resource"),
+//				},
+//				Notifications: pulumi.StringArray{
+//					pulumi.String("@channel"),
+//				},
 //				Tags: pulumi.StringArray{
 //					pulumi.String("some:tag"),
 //				},

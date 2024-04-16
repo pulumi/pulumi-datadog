@@ -19,17 +19,17 @@ import * as utilities from "./utilities";
  * });
  * // Create a dashboard and register it in the list above.
  * const time = new datadog.Dashboard("time", {
- *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Pulumi",
- *     isReadOnly: true,
- *     layoutType: "ordered",
  *     title: "TF Test Layout Dashboard",
+ *     description: "Created using the Datadog provider in Pulumi",
+ *     dashboardLists: [test.then(test => test.id)],
+ *     layoutType: "ordered",
+ *     isReadOnly: true,
  *     widgets: [{
  *         alertGraphDefinition: {
  *             alertId: "1234",
- *             liveSpan: "1h",
- *             title: "Widget Title",
  *             vizType: "timeseries",
+ *             title: "Widget Title",
+ *             liveSpan: "1h",
  *         },
  *     }],
  * });
@@ -82,17 +82,17 @@ export interface GetDashboardListResult {
  * });
  * // Create a dashboard and register it in the list above.
  * const time = new datadog.Dashboard("time", {
- *     dashboardLists: [test.then(test => test.id)],
- *     description: "Created using the Datadog provider in Pulumi",
- *     isReadOnly: true,
- *     layoutType: "ordered",
  *     title: "TF Test Layout Dashboard",
+ *     description: "Created using the Datadog provider in Pulumi",
+ *     dashboardLists: [test.then(test => test.id)],
+ *     layoutType: "ordered",
+ *     isReadOnly: true,
  *     widgets: [{
  *         alertGraphDefinition: {
  *             alertId: "1234",
- *             liveSpan: "1h",
- *             title: "Widget Title",
  *             vizType: "timeseries",
+ *             title: "Widget Title",
+ *             liveSpan: "1h",
  *         },
  *     }],
  * });

@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new team resource
  *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
  *             .description(&#34;Team description&#34;)
  *             .handle(&#34;example-team&#34;)

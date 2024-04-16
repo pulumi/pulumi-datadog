@@ -14,12 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fakeServiceName = new datadog.opsgenie.ServiceObject("fakeServiceName", {
+ * const fakeServiceName = new datadog.opsgenie.ServiceObject("fake_service_name", {
  *     name: "fake_service_name",
  *     opsgenieApiKey: "00000000-0000-0000-0000-000000000000",
  *     region: "us",
  * });
- * const fakeServiceName2 = new datadog.opsgenie.ServiceObject("fakeServiceName2", {
+ * const fakeServiceName2 = new datadog.opsgenie.ServiceObject("fake_service_name_2", {
  *     name: "fake_service_name_2",
  *     opsgenieApiKey: "11111111-1111-1111-1111-111111111111",
  *     region: "eu",

@@ -23,39 +23,40 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
     ///     // Services as Individual Resources
     ///     var pd = new Datadog.PagerDuty.Integration("pd", new()
     ///     {
-    ///         ApiToken = "38457822378273432587234242874",
     ///         Schedules = new[]
     ///         {
     ///             "https://ddog.pagerduty.com/schedules/X123VF",
     ///             "https://ddog.pagerduty.com/schedules/X321XX",
     ///         },
     ///         Subdomain = "ddog",
+    ///         ApiToken = "38457822378273432587234242874",
     ///     });
     /// 
-    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
+    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testing_foo", new()
     ///     {
-    ///         ServiceKey = "9876543210123456789",
     ///         ServiceName = "testing_foo",
+    ///         ServiceKey = "9876543210123456789",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             "datadog_integration_pagerduty.pd", 
+    ///             pd, 
     ///         },
     ///     });
     /// 
-    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
+    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testing_bar", new()
     ///     {
-    ///         ServiceKey = "54321098765432109876",
     ///         ServiceName = "testing_bar",
+    ///         ServiceKey = "54321098765432109876",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             "datadog_integration_pagerduty.pd", 
+    ///             pd, 
     ///         },
     ///     });
     /// 

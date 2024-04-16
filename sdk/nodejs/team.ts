@@ -14,6 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new team resource
  * const foo = new datadog.Team("foo", {
  *     description: "Team description",
  *     handle: "example-team",

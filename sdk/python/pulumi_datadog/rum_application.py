@@ -124,7 +124,7 @@ class RumApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        rum_application = datadog.RumApplication("rumApplication",
+        rum_application = datadog.RumApplication("rum_application",
             name="my-application",
             type="browser")
         ```
@@ -157,7 +157,7 @@ class RumApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        rum_application = datadog.RumApplication("rumApplication",
+        rum_application = datadog.RumApplication("rum_application",
             name="my-application",
             type="browser")
         ```
