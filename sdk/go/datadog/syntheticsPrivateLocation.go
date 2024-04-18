@@ -29,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSyntheticsPrivateLocation(ctx, "privateLocation", &datadog.SyntheticsPrivateLocationArgs{
-//				Description: pulumi.String("Description of the private location"),
+//			_, err := datadog.NewSyntheticsPrivateLocation(ctx, "private_location", &datadog.SyntheticsPrivateLocationArgs{
 //				Name:        pulumi.String("First private location"),
+//				Description: pulumi.String("Description of the private location"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("foo:bar"),
 //					pulumi.String("env:test"),

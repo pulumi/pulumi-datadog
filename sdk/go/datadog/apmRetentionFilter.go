@@ -14,41 +14,6 @@ import (
 
 // The object describing the configuration of the retention filter to create/update.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Create APM retention filter
-//			_, err := datadog.NewApmRetentionFilter(ctx, "foo", &datadog.ApmRetentionFilterArgs{
-//				Enabled: pulumi.Bool(false),
-//				Filter: &datadog.ApmRetentionFilterFilterArgs{
-//					Query: pulumi.String("*"),
-//				},
-//				FilterType: pulumi.String("spans-sampling-processor"),
-//				Name:       pulumi.String("Sample order"),
-//				Rate:       pulumi.String("1.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // # Import existing APM retention filter

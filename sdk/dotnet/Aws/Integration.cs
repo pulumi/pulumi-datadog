@@ -27,6 +27,16 @@ namespace Pulumi.Datadog.Aws
     ///     var sandbox = new Datadog.Aws.Integration("sandbox", new()
     ///     {
     ///         AccountId = "1234567890",
+    ///         RoleName = "DatadogAWSIntegrationRole",
+    ///         FilterTags = new[]
+    ///         {
+    ///             "key:value",
+    ///         },
+    ///         HostTags = new[]
+    ///         {
+    ///             "key:value",
+    ///             "key2:value2",
+    ///         },
     ///         AccountSpecificNamespaceRules = 
     ///         {
     ///             { "auto_scaling", false },
@@ -37,16 +47,6 @@ namespace Pulumi.Datadog.Aws
     ///             "us-east-1",
     ///             "us-west-2",
     ///         },
-    ///         FilterTags = new[]
-    ///         {
-    ///             "key:value",
-    ///         },
-    ///         HostTags = new[]
-    ///         {
-    ///             "key:value",
-    ///             "key2:value2",
-    ///         },
-    ///         RoleName = "DatadogAWSIntegrationRole",
     ///     });
     /// 
     /// });

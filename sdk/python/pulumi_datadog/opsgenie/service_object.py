@@ -172,11 +172,11 @@ class ServiceObject(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
+        fake_service_name = datadog.opsgenie.ServiceObject("fake_service_name",
             name="fake_service_name",
             opsgenie_api_key="00000000-0000-0000-0000-000000000000",
             region="us")
-        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
+        fake_service_name2 = datadog.opsgenie.ServiceObject("fake_service_name_2",
             name="fake_service_name_2",
             opsgenie_api_key="11111111-1111-1111-1111-111111111111",
             region="eu")
@@ -206,11 +206,11 @@ class ServiceObject(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        fake_service_name = datadog.opsgenie.ServiceObject("fakeServiceName",
+        fake_service_name = datadog.opsgenie.ServiceObject("fake_service_name",
             name="fake_service_name",
             opsgenie_api_key="00000000-0000-0000-0000-000000000000",
             region="us")
-        fake_service_name2 = datadog.opsgenie.ServiceObject("fakeServiceName2",
+        fake_service_name2 = datadog.opsgenie.ServiceObject("fake_service_name_2",
             name="fake_service_name_2",
             opsgenie_api_key="11111111-1111-1111-1111-111111111111",
             region="eu")

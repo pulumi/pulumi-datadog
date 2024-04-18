@@ -23,12 +23,12 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sampleArchiveOrder", new()
+    ///     var sampleArchiveOrder = new Datadog.LogsArchiveOrder("sample_archive_order", new()
     ///     {
     ///         ArchiveIds = new[]
     ///         {
-    ///             datadog_logs_archive.Sample_archive_1.Id,
-    ///             datadog_logs_archive.Sample_archive_2.Id,
+    ///             sampleArchive1.Id,
+    ///             sampleArchive2.Id,
     ///         },
     ///     });
     /// 

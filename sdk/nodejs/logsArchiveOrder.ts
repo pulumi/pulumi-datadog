@@ -14,9 +14,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const sampleArchiveOrder = new datadog.LogsArchiveOrder("sampleArchiveOrder", {archiveIds: [
- *     datadog_logs_archive.sample_archive_1.id,
- *     datadog_logs_archive.sample_archive_2.id,
+ * const sampleArchiveOrder = new datadog.LogsArchiveOrder("sample_archive_order", {archiveIds: [
+ *     sampleArchive1.id,
+ *     sampleArchive2.id,
  * ]});
  * ```
  * <!--End PulumiCodeChooser -->

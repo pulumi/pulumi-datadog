@@ -36,9 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.SecurityMonitoringRule;
  * import com.pulumi.datadog.SecurityMonitoringRuleArgs;
+ * import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
  * import com.pulumi.datadog.inputs.SecurityMonitoringRuleCaseArgs;
  * import com.pulumi.datadog.inputs.SecurityMonitoringRuleOptionsArgs;
- * import com.pulumi.datadog.inputs.SecurityMonitoringRuleQueryArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,32 +53,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myrule = new SecurityMonitoringRule(&#34;myrule&#34;, SecurityMonitoringRuleArgs.builder()        
+ *             .name(&#34;My rule&#34;)
+ *             .message(&#34;The rule has triggered.&#34;)
+ *             .enabled(true)
+ *             .queries(            
+ *                 SecurityMonitoringRuleQueryArgs.builder()
+ *                     .name(&#34;errors&#34;)
+ *                     .query(&#34;status:error&#34;)
+ *                     .aggregation(&#34;count&#34;)
+ *                     .groupByFields(&#34;host&#34;)
+ *                     .build(),
+ *                 SecurityMonitoringRuleQueryArgs.builder()
+ *                     .name(&#34;warnings&#34;)
+ *                     .query(&#34;status:warning&#34;)
+ *                     .aggregation(&#34;count&#34;)
+ *                     .groupByFields(&#34;host&#34;)
+ *                     .build())
  *             .cases(SecurityMonitoringRuleCaseArgs.builder()
+ *                 .status(&#34;high&#34;)
  *                 .condition(&#34;errors &gt; 3 &amp;&amp; warnings &gt; 10&#34;)
  *                 .notifications(&#34;@user&#34;)
- *                 .status(&#34;high&#34;)
  *                 .build())
- *             .enabled(true)
- *             .message(&#34;The rule has triggered.&#34;)
- *             .name(&#34;My rule&#34;)
  *             .options(SecurityMonitoringRuleOptionsArgs.builder()
  *                 .evaluationWindow(300)
  *                 .keepAlive(600)
  *                 .maxSignalDuration(900)
  *                 .build())
- *             .queries(            
- *                 SecurityMonitoringRuleQueryArgs.builder()
- *                     .aggregation(&#34;count&#34;)
- *                     .groupByFields(&#34;host&#34;)
- *                     .name(&#34;errors&#34;)
- *                     .query(&#34;status:error&#34;)
- *                     .build(),
- *                 SecurityMonitoringRuleQueryArgs.builder()
- *                     .aggregation(&#34;count&#34;)
- *                     .groupByFields(&#34;host&#34;)
- *                     .name(&#34;warnings&#34;)
- *                     .query(&#34;status:warning&#34;)
- *                     .build())
  *             .tags(&#34;type:dos&#34;)
  *             .build());
  * 

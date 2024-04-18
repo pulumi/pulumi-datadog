@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringDefaultRule(ctx, "adefaultrule", &datadog.SecurityMonitoringDefaultRuleArgs{
+//				Enabled: pulumi.Bool(true),
 //				Cases: datadog.SecurityMonitoringDefaultRuleCaseArray{
 //					&datadog.SecurityMonitoringDefaultRuleCaseArgs{
+//						Status: pulumi.String("high"),
 //						Notifications: pulumi.StringArray{
 //							pulumi.String("@me"),
 //						},
-//						Status: pulumi.String("high"),
 //					},
 //				},
-//				Enabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

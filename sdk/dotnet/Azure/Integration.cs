@@ -26,15 +26,15 @@ namespace Pulumi.Datadog.Azure
     ///     // Create a new Datadog - Microsoft Azure integration
     ///     var sandbox = new Datadog.Azure.Integration("sandbox", new()
     ///     {
-    ///         AppServicePlanFilters = "examplefilter:true,example:another",
-    ///         Automute = true,
+    ///         TenantName = "&lt;azure_tenant_name&gt;",
     ///         ClientId = "&lt;azure_client_id&gt;",
     ///         ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///         HostFilters = "examplefilter:true,example:true",
+    ///         AppServicePlanFilters = "examplefilter:true,example:another",
     ///         ContainerAppFilters = "examplefilter:true,example:one_more",
+    ///         Automute = true,
     ///         CspmEnabled = true,
     ///         CustomMetricsEnabled = false,
-    ///         HostFilters = "examplefilter:true,example:true",
-    ///         TenantName = "&lt;azure_tenant_name&gt;",
     ///     });
     /// 
     /// });

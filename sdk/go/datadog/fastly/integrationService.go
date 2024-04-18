@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooIntegrationAccount, err := fastly.NewIntegrationAccount(ctx, "fooIntegrationAccount", &fastly.IntegrationAccountArgs{
+//			foo, err := fastly.NewIntegrationAccount(ctx, "foo", &fastly.IntegrationAccountArgs{
 //				ApiKey: pulumi.String("ABCDEFG123"),
 //				Name:   pulumi.String("test-name"),
 //			})
@@ -37,8 +37,8 @@ import (
 //				return err
 //			}
 //			// Create new integration_fastly_service resource
-//			_, err = fastly.NewIntegrationService(ctx, "fooIntegrationService", &fastly.IntegrationServiceArgs{
-//				AccountId: fooIntegrationAccount.ID(),
+//			_, err = fastly.NewIntegrationService(ctx, "foo", &fastly.IntegrationServiceArgs{
+//				AccountId: foo.ID(),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("mytag"),
 //					pulumi.String("mytag2:myvalue"),

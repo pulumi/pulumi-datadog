@@ -23,16 +23,16 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new()
+    ///     var testingFoo = new Datadog.PagerDuty.ServiceObject("testing_foo", new()
     ///     {
-    ///         ServiceKey = "9876543210123456789",
     ///         ServiceName = "testing_foo",
+    ///         ServiceKey = "9876543210123456789",
     ///     });
     /// 
-    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new()
+    ///     var testingBar = new Datadog.PagerDuty.ServiceObject("testing_bar", new()
     ///     {
-    ///         ServiceKey = "54321098765432109876",
     ///         ServiceName = "testing_bar",
+    ///         ServiceKey = "54321098765432109876",
     ///     });
     /// 
     /// });

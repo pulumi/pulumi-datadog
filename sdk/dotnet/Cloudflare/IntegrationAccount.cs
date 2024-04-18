@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Cloudflare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new integration_cloudflare_account resource
     ///     var foo = new Datadog.Cloudflare.IntegrationAccount("foo", new()
     ///     {
     ///         ApiKey = "12345678910abc",

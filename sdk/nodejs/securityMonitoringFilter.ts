@@ -16,7 +16,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myFilter = new datadog.SecurityMonitoringFilter("myFilter", {
+ * const myFilter = new datadog.SecurityMonitoringFilter("my_filter", {
+ *     name: "My filter",
+ *     query: "The filter is filtering.",
+ *     isEnabled: true,
  *     exclusionFilters: [
  *         {
  *             name: "first",
@@ -27,9 +30,6 @@ import * as utilities from "./utilities";
  *             query: "exclude some other logs",
  *         },
  *     ],
- *     isEnabled: true,
- *     name: "My filter",
- *     query: "The filter is filtering.",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

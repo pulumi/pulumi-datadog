@@ -14,10 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create a new Datadog webhook custom variable.
  * const foo = new datadog.WebhookCustomVariable("foo", {
- *     isSecret: true,
  *     name: "EXAMPLE_VARIABLE",
  *     value: "EXAMPLE-VALUE",
+ *     isSecret: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

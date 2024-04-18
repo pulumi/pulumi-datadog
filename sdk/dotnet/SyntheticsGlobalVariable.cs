@@ -23,10 +23,10 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("testVariable", new()
+    ///     var testVariable = new Datadog.SyntheticsGlobalVariable("test_variable", new()
     ///     {
-    ///         Description = "Description of the variable",
     ///         Name = "EXAMPLE_VARIABLE",
+    ///         Description = "Description of the variable",
     ///         Tags = new[]
     ///         {
     ///             "foo:bar",

@@ -140,6 +140,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_cloudflare_account resource
         foo = datadog.cloudflare.IntegrationAccount("foo",
             api_key="12345678910abc",
             email="test-email@example.com",
@@ -175,6 +176,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_cloudflare_account resource
         foo = datadog.cloudflare.IntegrationAccount("foo",
             api_key="12345678910abc",
             email="test-email@example.com",

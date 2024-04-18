@@ -12,6 +12,260 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `datadog.LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var samplePipeline = new Datadog.LogsCustomPipeline("sample_pipeline", new()
+    ///     {
+    ///         Filters = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsCustomPipelineFilterArgs
+    ///             {
+    ///                 Query = "source:foo",
+    ///             },
+    ///         },
+    ///         Name = "sample pipeline",
+    ///         IsEnabled = true,
+    ///         Processors = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 ArithmeticProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorArithmeticProcessorArgs
+    ///                 {
+    ///                     Expression = "(time1 - time2)*1000",
+    ///                     Target = "my_arithmetic",
+    ///                     IsReplaceMissing = true,
+    ///                     Name = "sample arithmetic processor",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 AttributeRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorAttributeRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "db.instance",
+    ///                     },
+    ///                     SourceType = "tag",
+    ///                     Target = "db",
+    ///                     TargetType = "attribute",
+    ///                     TargetFormat = "string",
+    ///                     PreserveSource = true,
+    ///                     OverrideOnConflict = false,
+    ///                     Name = "sample attribute processor",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 CategoryProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorArgs
+    ///                 {
+    ///                     Target = "foo.severity",
+    ///                     Categories = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryArgs
+    ///                         {
+    ///                             Name = "debug",
+    ///                             Filter = new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs
+    ///                             {
+    ///                                 Query = "@severity: \".\"",
+    ///                             },
+    ///                         },
+    ///                         new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryArgs
+    ///                         {
+    ///                             Name = "verbose",
+    ///                             Filter = new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs
+    ///                             {
+    ///                                 Query = "@severity: \"-\"",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "sample category processor",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 DateRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorDateRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "_timestamp",
+    ///                         "published_date",
+    ///                     },
+    ///                     Name = "sample date remapper",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 GeoIpParser = new Datadog.Inputs.LogsCustomPipelineProcessorGeoIpParserArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "network.client.ip",
+    ///                     },
+    ///                     Target = "network.client.geoip",
+    ///                     Name = "sample geo ip parser",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 GrokParser = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserArgs
+    ///                 {
+    ///                     Samples = new[]
+    ///                     {
+    ///                         "sample log 1",
+    ///                     },
+    ///                     Source = "message",
+    ///                     Grok = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserGrokArgs
+    ///                     {
+    ///                         SupportRules = "",
+    ///                         MatchRules = "Rule %{word:my_word2} %{number:my_float2}",
+    ///                     },
+    ///                     Name = "sample grok parser",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 LookupProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorLookupProcessorArgs
+    ///                 {
+    ///                     Source = "service_id",
+    ///                     Target = "service_name",
+    ///                     LookupTables = new[]
+    ///                     {
+    ///                         "1,my service",
+    ///                     },
+    ///                     DefaultLookup = "unknown service",
+    ///                     Name = "sample lookup processor",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 MessageRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorMessageRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "msg",
+    ///                     },
+    ///                     Name = "sample message remapper",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 Pipeline = new Datadog.Inputs.LogsCustomPipelineProcessorPipelineArgs
+    ///                 {
+    ///                     Filters = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.LogsCustomPipelineProcessorPipelineFilterArgs
+    ///                         {
+    ///                             Query = "source:foo",
+    ///                         },
+    ///                     },
+    ///                     Processors = new[]
+    ///                     {
+    ///                         new Datadog.Inputs.LogsCustomPipelineProcessorPipelineProcessorArgs
+    ///                         {
+    ///                             UrlParser = new Datadog.Inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs
+    ///                             {
+    ///                                 Name = "sample url parser",
+    ///                                 Sources = new[]
+    ///                                 {
+    ///                                     "url",
+    ///                                     "extra",
+    ///                                 },
+    ///                                 Target = "http_url",
+    ///                                 NormalizeEndingSlashes = true,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "nested pipeline",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 ServiceRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorServiceRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "service",
+    ///                     },
+    ///                     Name = "sample service remapper",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 StatusRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorStatusRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "info",
+    ///                         "trace",
+    ///                     },
+    ///                     Name = "sample status remapper",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 StringBuilderProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorStringBuilderProcessorArgs
+    ///                 {
+    ///                     Target = "user_activity",
+    ///                     Template = "%{user.name} logged in at %{timestamp}",
+    ///                     Name = "sample string builder processor",
+    ///                     IsEnabled = true,
+    ///                     IsReplaceMissing = false,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 TraceIdRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorTraceIdRemapperArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "dd.trace_id",
+    ///                     },
+    ///                     Name = "sample trace id remapper",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.LogsCustomPipelineProcessorArgs
+    ///             {
+    ///                 UserAgentParser = new Datadog.Inputs.LogsCustomPipelineProcessorUserAgentParserArgs
+    ///                 {
+    ///                     Sources = new[]
+    ///                     {
+    ///                         "user",
+    ///                         "agent",
+    ///                     },
+    ///                     Target = "http_agent",
+    ///                     IsEncoded = false,
+    ///                     Name = "sample user agent parser",
+    ///                     IsEnabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// To find the pipeline ID, click the "edit" button in the UI to open the pipeline details.

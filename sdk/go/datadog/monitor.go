@@ -30,20 +30,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
-//				EscalationMessage: pulumi.String("Escalation message @pagerduty"),
-//				IncludeTags:       pulumi.Bool(true),
+//				Name:              pulumi.String("Name for monitor foo"),
+//				Type:              pulumi.String("metric alert"),
 //				Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
+//				EscalationMessage: pulumi.String("Escalation message @pagerduty"),
+//				Query:             pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
 //				MonitorThresholds: &datadog.MonitorMonitorThresholdsArgs{
-//					Critical: pulumi.String("4"),
 //					Warning:  pulumi.String("2"),
+//					Critical: pulumi.String("4"),
 //				},
-//				Name:  pulumi.String("Name for monitor foo"),
-//				Query: pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+//				IncludeTags: pulumi.Bool(true),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("foo:bar"),
 //					pulumi.String("team:fooBar"),
 //				},
-//				Type: pulumi.String("metric alert"),
 //			})
 //			if err != nil {
 //				return err

@@ -89,7 +89,6 @@ import javax.annotation.Nullable;
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
@@ -135,7 +134,6 @@ import javax.annotation.Nullable;
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
@@ -175,7 +173,6 @@ import javax.annotation.Nullable;
  * extensions:
  *   datadoghq.com/shopping-cart:
  *     customField: customValue
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
@@ -205,7 +202,6 @@ import javax.annotation.Nullable;
  *   lifecycle: production
  *   owner: e-commerce
  *   system: retail
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 

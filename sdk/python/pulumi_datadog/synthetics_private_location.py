@@ -192,9 +192,9 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
-            description="Description of the private location",
+        private_location = datadog.SyntheticsPrivateLocation("private_location",
             name="First private location",
+            description="Description of the private location",
             tags=[
                 "foo:bar",
                 "env:test",
@@ -233,9 +233,9 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        private_location = datadog.SyntheticsPrivateLocation("privateLocation",
-            description="Description of the private location",
+        private_location = datadog.SyntheticsPrivateLocation("private_location",
             name="First private location",
+            description="Description of the private location",
             tags=[
                 "foo:bar",
                 "env:test",

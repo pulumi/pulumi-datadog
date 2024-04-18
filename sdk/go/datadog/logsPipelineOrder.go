@@ -29,11 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsPipelineOrder(ctx, "samplePipelineOrder", &datadog.LogsPipelineOrderArgs{
+//			_, err := datadog.NewLogsPipelineOrder(ctx, "sample_pipeline_order", &datadog.LogsPipelineOrderArgs{
 //				Name: pulumi.String("sample_pipeline_order"),
 //				Pipelines: pulumi.StringArray{
-//					datadog_logs_custom_pipeline.Sample_pipeline.Id,
-//					datadog_logs_integration_pipeline.Python.Id,
+//					samplePipeline.Id,
+//					python.Id,
 //				},
 //			})
 //			if err != nil {

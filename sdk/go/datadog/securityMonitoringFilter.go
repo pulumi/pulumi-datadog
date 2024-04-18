@@ -29,7 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewSecurityMonitoringFilter(ctx, "myFilter", &datadog.SecurityMonitoringFilterArgs{
+//			_, err := datadog.NewSecurityMonitoringFilter(ctx, "my_filter", &datadog.SecurityMonitoringFilterArgs{
+//				Name:      pulumi.String("My filter"),
+//				Query:     pulumi.String("The filter is filtering."),
+//				IsEnabled: pulumi.Bool(true),
 //				ExclusionFilters: datadog.SecurityMonitoringFilterExclusionFilterArray{
 //					&datadog.SecurityMonitoringFilterExclusionFilterArgs{
 //						Name:  pulumi.String("first"),
@@ -40,9 +43,6 @@ import (
 //						Query: pulumi.String("exclude some other logs"),
 //					},
 //				},
-//				IsEnabled: pulumi.Bool(true),
-//				Name:      pulumi.String("My filter"),
-//				Query:     pulumi.String("The filter is filtering."),
 //			})
 //			if err != nil {
 //				return err

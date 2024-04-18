@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new integration_confluent_account resource
  *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
  *             .apiKey(&#34;TESTAPIKEY123&#34;)
  *             .apiSecret(&#34;test-api-secret-123&#34;)

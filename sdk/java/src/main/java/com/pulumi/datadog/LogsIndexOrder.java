@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sampleIndexOrder = new LogsIndexOrder(&#34;sampleIndexOrder&#34;, LogsIndexOrderArgs.builder()        
  *             .name(&#34;sample_index_order&#34;)
- *             .indexes(datadog_logs_index.sample_index().id())
+ *             .indexes(sampleIndex.id())
  *             .build());
  * 
  *     }

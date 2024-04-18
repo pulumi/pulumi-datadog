@@ -25,46 +25,45 @@ namespace Pulumi.Datadog
     /// {
     ///     var myrule = new Datadog.CloudConfigurationRule("myrule", new()
     ///     {
+    ///         Name = "My cloud configuration rule",
+    ///         Message = "Rule has triggered",
     ///         Enabled = true,
+    ///         Policy = @"package datadog
+    /// 
+    /// import data.datadog.output as dd_output
+    /// 
+    /// import future.keywords.contains
+    /// import future.keywords.if
+    /// import future.keywords.in
+    /// 
+    /// eval(resource) = ""skip"" if {
+    ///     # Logic that evaluates to true if the resource should be skipped
+    ///     true
+    /// } else = ""pass"" {
+    ///     # Logic that evaluates to true if the resource is compliant
+    ///     true
+    /// } else = ""fail"" {
+    ///     # Logic that evaluates to true if the resource is not compliant
+    ///     true
+    /// }
+    /// 
+    /// # This part remains unchanged for all rules
+    /// results contains result if {
+    ///     some resource in input.resources[input.main_resource_type]
+    ///     result := dd_output.format(resource, eval(resource))
+    /// }
+    /// ",
+    ///         ResourceType = "aws_s3_bucket",
+    ///         RelatedResourceTypes = new[] {},
+    ///         Severity = "high",
     ///         GroupBies = new[]
     ///         {
     ///             "@resource",
     ///         },
-    ///         Message = "Rule has triggered",
-    ///         Name = "My cloud configuration rule",
     ///         Notifications = new[]
     ///         {
     ///             "@channel",
     ///         },
-    ///         Policy = @"        package datadog
-    /// 
-    ///         import data.datadog.output as dd_output
-    /// 
-    ///         import future.keywords.contains
-    ///         import future.keywords.if
-    ///         import future.keywords.in
-    /// 
-    ///         eval(resource) = ""skip"" if {
-    ///             # Logic that evaluates to true if the resource should be skipped
-    ///             true
-    ///         } else = ""pass"" {
-    ///             # Logic that evaluates to true if the resource is compliant
-    ///             true
-    ///         } else = ""fail"" {
-    ///             # Logic that evaluates to true if the resource is not compliant
-    ///             true
-    ///         }
-    /// 
-    ///         # This part remains unchanged for all rules
-    ///         results contains result if {
-    ///             some resource in input.resources[input.main_resource_type]
-    ///             result := dd_output.format(resource, eval(resource))
-    ///         }
-    /// 
-    /// ",
-    ///         RelatedResourceTypes = new[] {},
-    ///         ResourceType = "aws_s3_bucket",
-    ///         Severity = "high",
     ///         Tags = new[]
     ///         {
     ///             "some:tag",

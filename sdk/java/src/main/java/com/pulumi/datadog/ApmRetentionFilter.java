@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.ApmRetentionFilter;
  * import com.pulumi.datadog.ApmRetentionFilterArgs;
- * import com.pulumi.datadog.inputs.ApmRetentionFilterFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,13 +45,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create APM retention filter
  *         var foo = new ApmRetentionFilter(&#34;foo&#34;, ApmRetentionFilterArgs.builder()        
- *             .enabled(false)
+ *             .name(&#34;Sample order&#34;)
+ *             .rate(&#34;1.0&#34;)
  *             .filter(ApmRetentionFilterFilterArgs.builder()
  *                 .query(&#34;*&#34;)
  *                 .build())
  *             .filterType(&#34;spans-sampling-processor&#34;)
- *             .name(&#34;Sample order&#34;)
- *             .rate(&#34;1.0&#34;)
+ *             .enabled(false)
  *             .build());
  * 
  *     }

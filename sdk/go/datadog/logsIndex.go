@@ -27,42 +27,43 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
+//			// A sample Datadog logs index resource definition.
+//			_, err := datadog.NewLogsIndex(ctx, "sample_index", &datadog.LogsIndexArgs{
+//				Name:       pulumi.String("your index"),
 //				DailyLimit: pulumi.Int(200000),
 //				DailyLimitReset: &datadog.LogsIndexDailyLimitResetArgs{
 //					ResetTime:      pulumi.String("14:00"),
 //					ResetUtcOffset: pulumi.String("+02:00"),
 //				},
 //				DailyLimitWarningThresholdPercentage: pulumi.Float64(50),
+//				RetentionDays:                        pulumi.Int(7),
+//				Filters: datadog.LogsIndexFilterArray{
+//					&datadog.LogsIndexFilterArgs{
+//						Query: pulumi.String("*"),
+//					},
+//				},
 //				ExclusionFilters: datadog.LogsIndexExclusionFilterArray{
 //					&datadog.LogsIndexExclusionFilterArgs{
+//						Name:      pulumi.String("Filter coredns logs"),
+//						IsEnabled: pulumi.Bool(true),
 //						Filters: datadog.LogsIndexExclusionFilterFilterArray{
 //							&datadog.LogsIndexExclusionFilterFilterArgs{
 //								Query:      pulumi.String("app:coredns"),
 //								SampleRate: pulumi.Float64(0.97),
 //							},
 //						},
-//						IsEnabled: pulumi.Bool(true),
-//						Name:      pulumi.String("Filter coredns logs"),
 //					},
 //					&datadog.LogsIndexExclusionFilterArgs{
+//						Name:      pulumi.String("Kubernetes apiserver"),
+//						IsEnabled: pulumi.Bool(true),
 //						Filters: datadog.LogsIndexExclusionFilterFilterArray{
 //							&datadog.LogsIndexExclusionFilterFilterArgs{
 //								Query:      pulumi.String("service:kube_apiserver"),
 //								SampleRate: pulumi.Float64(1),
 //							},
 //						},
-//						IsEnabled: pulumi.Bool(true),
-//						Name:      pulumi.String("Kubernetes apiserver"),
 //					},
 //				},
-//				Filters: datadog.LogsIndexFilterArray{
-//					&datadog.LogsIndexFilterArgs{
-//						Query: pulumi.String("*"),
-//					},
-//				},
-//				Name:          pulumi.String("your index"),
-//				RetentionDays: pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err

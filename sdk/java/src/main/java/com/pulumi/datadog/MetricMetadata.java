@@ -44,9 +44,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Manage a Datadog metric&#39;s metadata
  *         var requestTime = new MetricMetadata(&#34;requestTime&#34;, MetricMetadataArgs.builder()        
- *             .description(&#34;99th percentile request time in milliseconds&#34;)
  *             .metric(&#34;request.time&#34;)
  *             .shortName(&#34;Request time&#34;)
+ *             .description(&#34;99th percentile request time in milliseconds&#34;)
  *             .type(&#34;gauge&#34;)
  *             .unit(&#34;millisecond&#34;)
  *             .build());

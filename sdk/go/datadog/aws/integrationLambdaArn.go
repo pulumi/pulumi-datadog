@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Datadog - Amazon Web Services integration Lambda ARN
-//			_, err := aws.NewIntegrationLambdaArn(ctx, "mainCollector", &aws.IntegrationLambdaArnArgs{
+//			_, err := aws.NewIntegrationLambdaArn(ctx, "main_collector", &aws.IntegrationLambdaArnArgs{
 //				AccountId: pulumi.String("1234567890"),
 //				LambdaArn: pulumi.String("arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"),
 //			})

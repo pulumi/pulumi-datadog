@@ -21,8 +21,10 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sampleIndex = new Datadog.LogsIndex("sampleIndex", new()
+    ///     // A sample Datadog logs index resource definition.
+    ///     var sampleIndex = new Datadog.LogsIndex("sample_index", new()
     ///     {
+    ///         Name = "your index",
     ///         DailyLimit = 200000,
     ///         DailyLimitReset = new Datadog.Inputs.LogsIndexDailyLimitResetArgs
     ///         {
@@ -30,10 +32,20 @@ namespace Pulumi.Datadog
     ///             ResetUtcOffset = "+02:00",
     ///         },
     ///         DailyLimitWarningThresholdPercentage = 50,
+    ///         RetentionDays = 7,
+    ///         Filters = new[]
+    ///         {
+    ///             new Datadog.Inputs.LogsIndexFilterArgs
+    ///             {
+    ///                 Query = "*",
+    ///             },
+    ///         },
     ///         ExclusionFilters = new[]
     ///         {
     ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///             {
+    ///                 Name = "Filter coredns logs",
+    ///                 IsEnabled = true,
     ///                 Filters = new[]
     ///                 {
     ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
@@ -42,11 +54,11 @@ namespace Pulumi.Datadog
     ///                         SampleRate = 0.97,
     ///                     },
     ///                 },
-    ///                 IsEnabled = true,
-    ///                 Name = "Filter coredns logs",
     ///             },
     ///             new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///             {
+    ///                 Name = "Kubernetes apiserver",
+    ///                 IsEnabled = true,
     ///                 Filters = new[]
     ///                 {
     ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
@@ -55,19 +67,8 @@ namespace Pulumi.Datadog
     ///                         SampleRate = 1,
     ///                     },
     ///                 },
-    ///                 IsEnabled = true,
-    ///                 Name = "Kubernetes apiserver",
     ///             },
     ///         },
-    ///         Filters = new[]
-    ///         {
-    ///             new Datadog.Inputs.LogsIndexFilterArgs
-    ///             {
-    ///                 Query = "*",
-    ///             },
-    ///         },
-    ///         Name = "your index",
-    ///         RetentionDays = 7,
     ///     });
     /// 
     /// });

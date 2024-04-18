@@ -53,7 +53,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * // Create a new Dashboard List with two Dashboards
- * const newList = new datadog.DashboardList("newList", {
+ * const newList = new datadog.DashboardList("new_list", {
  *     name: "Automated Created List",
  *     dashItems: [
  *         {

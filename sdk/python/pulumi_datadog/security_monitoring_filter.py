@@ -223,7 +223,10 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_filter = datadog.SecurityMonitoringFilter("myFilter",
+        my_filter = datadog.SecurityMonitoringFilter("my_filter",
+            name="My filter",
+            query="The filter is filtering.",
+            is_enabled=True,
             exclusion_filters=[
                 datadog.SecurityMonitoringFilterExclusionFilterArgs(
                     name="first",
@@ -233,10 +236,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
                     name="second",
                     query="exclude some other logs",
                 ),
-            ],
-            is_enabled=True,
-            name="My filter",
-            query="The filter is filtering.")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -272,7 +272,10 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        my_filter = datadog.SecurityMonitoringFilter("myFilter",
+        my_filter = datadog.SecurityMonitoringFilter("my_filter",
+            name="My filter",
+            query="The filter is filtering.",
+            is_enabled=True,
             exclusion_filters=[
                 datadog.SecurityMonitoringFilterExclusionFilterArgs(
                     name="first",
@@ -282,10 +285,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
                     name="second",
                     query="exclude some other logs",
                 ),
-            ],
-            is_enabled=True,
-            name="My filter",
-            query="The filter is filtering.")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

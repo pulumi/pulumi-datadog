@@ -44,7 +44,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new restriction_policy resource
  *         var foo = new RestrictionPolicy(&#34;foo&#34;, RestrictionPolicyArgs.builder()        
+ *             .resourceId(&#34;security-rule:abc-def-ghi&#34;)
  *             .bindings(            
  *                 RestrictionPolicyBindingArgs.builder()
  *                     .principals(&#34;role:00000000-0000-1111-0000-000000000000&#34;)
@@ -54,7 +56,6 @@ import javax.annotation.Nullable;
  *                     .principals(&#34;org:10000000-0000-1111-0000-000000000000&#34;)
  *                     .relation(&#34;viewer&#34;)
  *                     .build())
- *             .resourceId(&#34;security-rule:abc-def-ghi&#34;)
  *             .build());
  * 
  *     }

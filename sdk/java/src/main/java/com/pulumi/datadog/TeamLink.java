@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;, TeamArgs.builder()        
+ *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
  *             .description(&#34;Example team&#34;)
  *             .handle(&#34;example-team-updated&#34;)
  *             .name(&#34;Example Team-updated&#34;)
@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         // Create new team_link resource
  *         var fooTeamLink = new TeamLink(&#34;fooTeamLink&#34;, TeamLinkArgs.builder()        
- *             .teamId(fooTeam.id())
+ *             .teamId(foo.id())
  *             .label(&#34;Link label&#34;)
  *             .position(&#34;Example link&#34;)
  *             .url(&#34;https://example.com&#34;)

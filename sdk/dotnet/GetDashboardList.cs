@@ -33,14 +33,14 @@ namespace Pulumi.Datadog
         ///     // Create a dashboard and register it in the list above.
         ///     var time = new Datadog.Dashboard("time", new()
         ///     {
+        ///         Title = "TF Test Layout Dashboard",
+        ///         Description = "Created using the Datadog provider in Pulumi",
         ///         DashboardLists = new[]
         ///         {
         ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
         ///         },
-        ///         Description = "Created using the Datadog provider in Pulumi",
-        ///         IsReadOnly = true,
         ///         LayoutType = "ordered",
-        ///         Title = "TF Test Layout Dashboard",
+        ///         IsReadOnly = true,
         ///         Widgets = new[]
         ///         {
         ///             new Datadog.Inputs.DashboardWidgetArgs
@@ -48,9 +48,9 @@ namespace Pulumi.Datadog
         ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
         ///                 {
         ///                     AlertId = "1234",
-        ///                     LiveSpan = "1h",
-        ///                     Title = "Widget Title",
         ///                     VizType = "timeseries",
+        ///                     Title = "Widget Title",
+        ///                     LiveSpan = "1h",
         ///                 },
         ///             },
         ///         },
@@ -85,14 +85,14 @@ namespace Pulumi.Datadog
         ///     // Create a dashboard and register it in the list above.
         ///     var time = new Datadog.Dashboard("time", new()
         ///     {
+        ///         Title = "TF Test Layout Dashboard",
+        ///         Description = "Created using the Datadog provider in Pulumi",
         ///         DashboardLists = new[]
         ///         {
         ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
         ///         },
-        ///         Description = "Created using the Datadog provider in Pulumi",
-        ///         IsReadOnly = true,
         ///         LayoutType = "ordered",
-        ///         Title = "TF Test Layout Dashboard",
+        ///         IsReadOnly = true,
         ///         Widgets = new[]
         ///         {
         ///             new Datadog.Inputs.DashboardWidgetArgs
@@ -100,9 +100,9 @@ namespace Pulumi.Datadog
         ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
         ///                 {
         ///                     AlertId = "1234",
-        ///                     LiveSpan = "1h",
-        ///                     Title = "Widget Title",
         ///                     VizType = "timeseries",
+        ///                     Title = "Widget Title",
+        ///                     LiveSpan = "1h",
         ///                 },
         ///             },
         ///         },

@@ -24,7 +24,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Dashboard JSON
-    ///     var dashboardJson = new Datadog.DashboardJson("dashboardJson", new()
+    ///     var dashboardJson = new Datadog.DashboardJson("dashboard_json", new()
     ///     {
     ///         Dashboard = @"{
     ///    ""title"":""Ordered Layout Dashboard"",
@@ -511,7 +511,6 @@ namespace Pulumi.Datadog
     ///       }
     ///    ]
     /// }
-    /// 
     /// ",
     ///     });
     /// 

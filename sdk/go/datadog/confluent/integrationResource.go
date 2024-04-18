@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooIntegrationAccount, err := confluent.NewIntegrationAccount(ctx, "fooIntegrationAccount", &confluent.IntegrationAccountArgs{
+//			foo, err := confluent.NewIntegrationAccount(ctx, "foo", &confluent.IntegrationAccountArgs{
 //				ApiKey:    pulumi.String("TESTAPIKEY123"),
 //				ApiSecret: pulumi.String("test-api-secret-123"),
 //				Tags: pulumi.StringArray{
@@ -41,8 +41,8 @@ import (
 //				return err
 //			}
 //			// Create new integration_confluent_resource resource
-//			_, err = confluent.NewIntegrationResource(ctx, "fooIntegrationResource", &confluent.IntegrationResourceArgs{
-//				AccountId:    fooIntegrationAccount.ID(),
+//			_, err = confluent.NewIntegrationResource(ctx, "foo", &confluent.IntegrationResourceArgs{
+//				AccountId:    foo.ID(),
 //				ResourceId:   pulumi.String("123456"),
 //				ResourceType: pulumi.String("kafka"),
 //				Tags: pulumi.StringArray{

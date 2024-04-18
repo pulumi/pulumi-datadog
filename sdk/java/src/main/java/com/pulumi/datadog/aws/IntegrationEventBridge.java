@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new integration_aws_event_bridge resource
  *         var foo = new IntegrationEventBridge(&#34;foo&#34;, IntegrationEventBridgeArgs.builder()        
  *             .accountId(&#34;123456789012&#34;)
  *             .createEventBus(true)

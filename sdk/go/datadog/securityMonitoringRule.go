@@ -30,40 +30,40 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
+//				Name:    pulumi.String("My rule"),
+//				Message: pulumi.String("The rule has triggered."),
+//				Enabled: pulumi.Bool(true),
+//				Queries: datadog.SecurityMonitoringRuleQueryArray{
+//					&datadog.SecurityMonitoringRuleQueryArgs{
+//						Name:        pulumi.String("errors"),
+//						Query:       pulumi.String("status:error"),
+//						Aggregation: pulumi.String("count"),
+//						GroupByFields: pulumi.StringArray{
+//							pulumi.String("host"),
+//						},
+//					},
+//					&datadog.SecurityMonitoringRuleQueryArgs{
+//						Name:        pulumi.String("warnings"),
+//						Query:       pulumi.String("status:warning"),
+//						Aggregation: pulumi.String("count"),
+//						GroupByFields: pulumi.StringArray{
+//							pulumi.String("host"),
+//						},
+//					},
+//				},
 //				Cases: datadog.SecurityMonitoringRuleCaseArray{
 //					&datadog.SecurityMonitoringRuleCaseArgs{
+//						Status:    pulumi.String("high"),
 //						Condition: pulumi.String("errors > 3 && warnings > 10"),
 //						Notifications: pulumi.StringArray{
 //							pulumi.String("@user"),
 //						},
-//						Status: pulumi.String("high"),
 //					},
 //				},
-//				Enabled: pulumi.Bool(true),
-//				Message: pulumi.String("The rule has triggered."),
-//				Name:    pulumi.String("My rule"),
 //				Options: &datadog.SecurityMonitoringRuleOptionsArgs{
 //					EvaluationWindow:  pulumi.Int(300),
 //					KeepAlive:         pulumi.Int(600),
 //					MaxSignalDuration: pulumi.Int(900),
-//				},
-//				Queries: datadog.SecurityMonitoringRuleQueryArray{
-//					&datadog.SecurityMonitoringRuleQueryArgs{
-//						Aggregation: pulumi.String("count"),
-//						GroupByFields: pulumi.StringArray{
-//							pulumi.String("host"),
-//						},
-//						Name:  pulumi.String("errors"),
-//						Query: pulumi.String("status:error"),
-//					},
-//					&datadog.SecurityMonitoringRuleQueryArgs{
-//						Aggregation: pulumi.String("count"),
-//						GroupByFields: pulumi.StringArray{
-//							pulumi.String("host"),
-//						},
-//						Name:  pulumi.String("warnings"),
-//						Query: pulumi.String("status:warning"),
-//					},
 //				},
 //				Tags: pulumi.StringArray{
 //					pulumi.String("type:dos"),

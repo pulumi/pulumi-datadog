@@ -29,10 +29,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create a new Datadog webhook custom variable.
 //			_, err := datadog.NewWebhookCustomVariable(ctx, "foo", &datadog.WebhookCustomVariableArgs{
-//				IsSecret: pulumi.Bool(true),
 //				Name:     pulumi.String("EXAMPLE_VARIABLE"),
 //				Value:    pulumi.String("EXAMPLE-VALUE"),
+//				IsSecret: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

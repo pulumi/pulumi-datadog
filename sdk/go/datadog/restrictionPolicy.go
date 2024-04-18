@@ -29,7 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new restriction_policy resource
 //			_, err := datadog.NewRestrictionPolicy(ctx, "foo", &datadog.RestrictionPolicyArgs{
+//				ResourceId: pulumi.String("security-rule:abc-def-ghi"),
 //				Bindings: datadog.RestrictionPolicyBindingArray{
 //					&datadog.RestrictionPolicyBindingArgs{
 //						Principals: pulumi.StringArray{
@@ -44,7 +46,6 @@ import (
 //						Relation: pulumi.String("viewer"),
 //					},
 //				},
-//				ResourceId: pulumi.String("security-rule:abc-def-ghi"),
 //			})
 //			if err != nil {
 //				return err

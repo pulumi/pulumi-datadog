@@ -16,13 +16,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myS3Archive = new datadog.LogsArchive("myS3Archive", {
+ * const myS3Archive = new datadog.LogsArchive("my_s3_archive", {
  *     name: "my s3 archive",
  *     query: "service:myservice",
  *     s3Archive: {
- *         accountId: "001234567888",
  *         bucket: "my-bucket",
  *         path: "/path/foo",
+ *         accountId: "001234567888",
  *         roleName: "my-role-name",
  *     },
  * });

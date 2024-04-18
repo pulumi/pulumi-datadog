@@ -140,6 +140,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_confluent_account resource
         foo = datadog.confluent.IntegrationAccount("foo",
             api_key="TESTAPIKEY123",
             api_secret="test-api-secret-123",
@@ -182,6 +183,7 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new integration_confluent_account resource
         foo = datadog.confluent.IntegrationAccount("foo",
             api_key="TESTAPIKEY123",
             api_secret="test-api-secret-123",

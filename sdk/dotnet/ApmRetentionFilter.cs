@@ -12,34 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// The object describing the configuration of the retention filter to create/update.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create APM retention filter
-    ///     var foo = new Datadog.ApmRetentionFilter("foo", new()
-    ///     {
-    ///         Enabled = false,
-    ///         Filter = new Datadog.Inputs.ApmRetentionFilterFilterArgs
-    ///         {
-    ///             Query = "*",
-    ///         },
-    ///         FilterType = "spans-sampling-processor",
-    ///         Name = "Sample order",
-    ///         Rate = "1.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Import existing APM retention filter

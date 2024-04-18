@@ -36,20 +36,20 @@ import (
 //			}
 //			// Create a dashboard and register it in the list above.
 //			_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
+//				Title:       pulumi.String("TF Test Layout Dashboard"),
+//				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				DashboardLists: pulumi.IntArray{
 //					pulumi.String(test.Id),
 //				},
-//				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
-//				IsReadOnly:  pulumi.Bool(true),
-//				LayoutType:  pulumi.String("ordered"),
-//				Title:       pulumi.String("TF Test Layout Dashboard"),
+//				LayoutType: pulumi.String("ordered"),
+//				IsReadOnly: pulumi.Bool(true),
 //				Widgets: datadog.DashboardWidgetArray{
 //					&datadog.DashboardWidgetArgs{
 //						AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
 //							AlertId:  pulumi.String("1234"),
-//							LiveSpan: pulumi.String("1h"),
-//							Title:    pulumi.String("Widget Title"),
 //							VizType:  pulumi.String("timeseries"),
+//							Title:    pulumi.String("Widget Title"),
+//							LiveSpan: pulumi.String("1h"),
 //						},
 //					},
 //				},

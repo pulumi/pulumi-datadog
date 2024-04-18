@@ -45,41 +45,40 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myrule = new CloudConfigurationRule(&#34;myrule&#34;, CloudConfigurationRuleArgs.builder()        
- *             .enabled(true)
- *             .groupBies(&#34;@resource&#34;)
- *             .message(&#34;Rule has triggered&#34;)
  *             .name(&#34;My cloud configuration rule&#34;)
- *             .notifications(&#34;@channel&#34;)
+ *             .message(&#34;Rule has triggered&#34;)
+ *             .enabled(true)
  *             .policy(&#34;&#34;&#34;
- *         package datadog
+ * package datadog
  * 
- *         import data.datadog.output as dd_output
+ * import data.datadog.output as dd_output
  * 
- *         import future.keywords.contains
- *         import future.keywords.if
- *         import future.keywords.in
+ * import future.keywords.contains
+ * import future.keywords.if
+ * import future.keywords.in
  * 
- *         eval(resource) = &#34;skip&#34; if {
- *             # Logic that evaluates to true if the resource should be skipped
- *             true
- *         } else = &#34;pass&#34; {
- *             # Logic that evaluates to true if the resource is compliant
- *             true
- *         } else = &#34;fail&#34; {
- *             # Logic that evaluates to true if the resource is not compliant
- *             true
- *         }
+ * eval(resource) = &#34;skip&#34; if {
+ *     # Logic that evaluates to true if the resource should be skipped
+ *     true
+ * } else = &#34;pass&#34; {
+ *     # Logic that evaluates to true if the resource is compliant
+ *     true
+ * } else = &#34;fail&#34; {
+ *     # Logic that evaluates to true if the resource is not compliant
+ *     true
+ * }
  * 
- *         # This part remains unchanged for all rules
- *         results contains result if {
- *             some resource in input.resources[input.main_resource_type]
- *             result := dd_output.format(resource, eval(resource))
- *         }
- * 
+ * # This part remains unchanged for all rules
+ * results contains result if {
+ *     some resource in input.resources[input.main_resource_type]
+ *     result := dd_output.format(resource, eval(resource))
+ * }
  *             &#34;&#34;&#34;)
- *             .relatedResourceTypes()
  *             .resourceType(&#34;aws_s3_bucket&#34;)
+ *             .relatedResourceTypes()
  *             .severity(&#34;high&#34;)
+ *             .groupBies(&#34;@resource&#34;)
+ *             .notifications(&#34;@channel&#34;)
  *             .tags(&#34;some:tag&#34;)
  *             .build());
  * 

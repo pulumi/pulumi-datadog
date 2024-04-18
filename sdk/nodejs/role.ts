@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Source the permissions
  * const bar = datadog.getPermissions({});
  * // Create a new Datadog role
  * const foo = new datadog.Role("foo", {

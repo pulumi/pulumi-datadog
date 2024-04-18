@@ -206,7 +206,7 @@ class IntegrationResource(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
+        foo = datadog.confluent.IntegrationAccount("foo",
             api_key="TESTAPIKEY123",
             api_secret="test-api-secret-123",
             tags=[
@@ -214,8 +214,8 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         # Create new integration_confluent_resource resource
-        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
-            account_id=foo_integration_account.id,
+        foo_integration_resource = datadog.confluent.IntegrationResource("foo",
+            account_id=foo.id,
             resource_id="123456",
             resource_type="kafka",
             tags=[
@@ -255,7 +255,7 @@ class IntegrationResource(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_integration_account = datadog.confluent.IntegrationAccount("fooIntegrationAccount",
+        foo = datadog.confluent.IntegrationAccount("foo",
             api_key="TESTAPIKEY123",
             api_secret="test-api-secret-123",
             tags=[
@@ -263,8 +263,8 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         # Create new integration_confluent_resource resource
-        foo_integration_resource = datadog.confluent.IntegrationResource("fooIntegrationResource",
-            account_id=foo_integration_account.id,
+        foo_integration_resource = datadog.confluent.IntegrationResource("foo",
+            account_id=foo.id,
             resource_id="123456",
             resource_type="kafka",
             tags=[

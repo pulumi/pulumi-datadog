@@ -75,6 +75,7 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new sensitive_data_scanner_group_order resource
         mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
             "group-id-1",
             "group-id-2",
@@ -109,6 +110,7 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new sensitive_data_scanner_group_order resource
         mygrouporder = datadog.SensitiveDataScannerGroupOrder("mygrouporder", group_ids=[
             "group-id-1",
             "group-id-2",

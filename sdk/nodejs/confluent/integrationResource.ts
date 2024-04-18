@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fooIntegrationAccount = new datadog.confluent.IntegrationAccount("fooIntegrationAccount", {
+ * const foo = new datadog.confluent.IntegrationAccount("foo", {
  *     apiKey: "TESTAPIKEY123",
  *     apiSecret: "test-api-secret-123",
  *     tags: [
@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Create new integration_confluent_resource resource
- * const fooIntegrationResource = new datadog.confluent.IntegrationResource("fooIntegrationResource", {
- *     accountId: fooIntegrationAccount.id,
+ * const fooIntegrationResource = new datadog.confluent.IntegrationResource("foo", {
+ *     accountId: foo.id,
  *     resourceId: "123456",
  *     resourceType: "kafka",
  *     tags: [

@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  *
  * // Create new service_account_application_key resource
  * const foo = new datadog.ServiceAccountApplicationKey("foo", {
- *     name: "Application key for managing dashboards",
  *     serviceAccountId: "00000000-0000-1234-0000-000000000000",
+ *     name: "Application key for managing dashboards",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -340,9 +340,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
-            description="Description of the variable",
+        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
             name="EXAMPLE_VARIABLE",
+            description="Description of the variable",
             tags=[
                 "foo:bar",
                 "env:test",
@@ -387,9 +387,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
-            description="Description of the variable",
+        test_variable = datadog.SyntheticsGlobalVariable("test_variable",
             name="EXAMPLE_VARIABLE",
+            description="Description of the variable",
             tags=[
                 "foo:bar",
                 "env:test",

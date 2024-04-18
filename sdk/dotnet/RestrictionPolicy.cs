@@ -23,8 +23,10 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new restriction_policy resource
     ///     var foo = new Datadog.RestrictionPolicy("foo", new()
     ///     {
+    ///         ResourceId = "security-rule:abc-def-ghi",
     ///         Bindings = new[]
     ///         {
     ///             new Datadog.Inputs.RestrictionPolicyBindingArgs
@@ -44,7 +46,6 @@ namespace Pulumi.Datadog
     ///                 Relation = "viewer",
     ///             },
     ///         },
-    ///         ResourceId = "security-rule:abc-def-ghi",
     ///     });
     /// 
     /// });

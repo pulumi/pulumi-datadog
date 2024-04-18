@@ -24,9 +24,8 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage a tag configuration for a Datadog distribution metric with/without percentiles
-    ///     var exampleDistMetric = new Datadog.MetricTagConfiguration("exampleDistMetric", new()
+    ///     var exampleDistMetric = new Datadog.MetricTagConfiguration("example_dist_metric", new()
     ///     {
-    ///         IncludePercentiles = false,
     ///         MetricName = "example.terraform.dist.metric",
     ///         MetricType = "distribution",
     ///         Tags = new[]
@@ -34,31 +33,32 @@ namespace Pulumi.Datadog
     ///             "sport",
     ///             "datacenter",
     ///         },
+    ///         IncludePercentiles = false,
     ///     });
     /// 
     ///     // Manage tag configurations for a Datadog count or gauge metric
-    ///     var exampleCountMetric = new Datadog.MetricTagConfiguration("exampleCountMetric", new()
+    ///     var exampleCountMetric = new Datadog.MetricTagConfiguration("example_count_metric", new()
     ///     {
-    ///         Aggregations = new[]
-    ///         {
-    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///             {
-    ///                 Space = "min",
-    ///                 Time = "avg",
-    ///             },
-    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
-    ///             {
-    ///                 Space = "max",
-    ///                 Time = "avg",
-    ///             },
-    ///         },
-    ///         ExcludeTagsMode = false,
     ///         MetricName = "example.terraform.count.metric",
     ///         MetricType = "count",
     ///         Tags = new[]
     ///         {
     ///             "sport",
     ///             "datacenter",
+    ///         },
+    ///         ExcludeTagsMode = false,
+    ///         Aggregations = new[]
+    ///         {
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Time = "avg",
+    ///                 Space = "min",
+    ///             },
+    ///             new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///             {
+    ///                 Time = "avg",
+    ///                 Space = "max",
+    ///             },
     ///         },
     ///     });
     /// 

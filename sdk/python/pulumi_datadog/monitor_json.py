@@ -108,7 +108,7 @@ class MonitorJson(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        monitor_json = datadog.MonitorJson("monitorJson", monitor=\"\"\"{
+        monitor_json = datadog.MonitorJson("monitor_json", monitor=\"\"\"{
             "name": "Example monitor - service check",
             "type": "service check",
             "query": "\\"ntp.in_sync\\".by(\\"*\\").last(2).count_by_status()",
@@ -162,7 +162,7 @@ class MonitorJson(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        monitor_json = datadog.MonitorJson("monitorJson", monitor=\"\"\"{
+        monitor_json = datadog.MonitorJson("monitor_json", monitor=\"\"\"{
             "name": "Example monitor - service check",
             "type": "service check",
             "query": "\\"ntp.in_sync\\".by(\\"*\\").last(2).count_by_status()",

@@ -25,49 +25,49 @@ namespace Pulumi.Datadog
     /// {
     ///     var myrule = new Datadog.SecurityMonitoringRule("myrule", new()
     ///     {
+    ///         Name = "My rule",
+    ///         Message = "The rule has triggered.",
+    ///         Enabled = true,
+    ///         Queries = new[]
+    ///         {
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
+    ///             {
+    ///                 Name = "errors",
+    ///                 Query = "status:error",
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
+    ///                 {
+    ///                     "host",
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
+    ///             {
+    ///                 Name = "warnings",
+    ///                 Query = "status:warning",
+    ///                 Aggregation = "count",
+    ///                 GroupByFields = new[]
+    ///                 {
+    ///                     "host",
+    ///                 },
+    ///             },
+    ///         },
     ///         Cases = new[]
     ///         {
     ///             new Datadog.Inputs.SecurityMonitoringRuleCaseArgs
     ///             {
+    ///                 Status = "high",
     ///                 Condition = "errors &gt; 3 &amp;&amp; warnings &gt; 10",
     ///                 Notifications = new[]
     ///                 {
     ///                     "@user",
     ///                 },
-    ///                 Status = "high",
     ///             },
     ///         },
-    ///         Enabled = true,
-    ///         Message = "The rule has triggered.",
-    ///         Name = "My rule",
     ///         Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
     ///         {
     ///             EvaluationWindow = 300,
     ///             KeepAlive = 600,
     ///             MaxSignalDuration = 900,
-    ///         },
-    ///         Queries = new[]
-    ///         {
-    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
-    ///             {
-    ///                 Aggregation = "count",
-    ///                 GroupByFields = new[]
-    ///                 {
-    ///                     "host",
-    ///                 },
-    ///                 Name = "errors",
-    ///                 Query = "status:error",
-    ///             },
-    ///             new Datadog.Inputs.SecurityMonitoringRuleQueryArgs
-    ///             {
-    ///                 Aggregation = "count",
-    ///                 GroupByFields = new[]
-    ///                 {
-    ///                     "host",
-    ///                 },
-    ///                 Name = "warnings",
-    ///                 Query = "status:warning",
-    ///             },
     ///         },
     ///         Tags = new[]
     ///         {

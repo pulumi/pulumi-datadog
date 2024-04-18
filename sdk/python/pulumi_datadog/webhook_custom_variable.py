@@ -139,10 +139,11 @@ class WebhookCustomVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog webhook custom variable.
         foo = datadog.WebhookCustomVariable("foo",
-            is_secret=True,
             name="EXAMPLE_VARIABLE",
-            value="EXAMPLE-VALUE")
+            value="EXAMPLE-VALUE",
+            is_secret=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -174,10 +175,11 @@ class WebhookCustomVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog webhook custom variable.
         foo = datadog.WebhookCustomVariable("foo",
-            is_secret=True,
             name="EXAMPLE_VARIABLE",
-            value="EXAMPLE-VALUE")
+            value="EXAMPLE-VALUE",
+            is_secret=True)
         ```
         <!--End PulumiCodeChooser -->
 

@@ -17,33 +17,33 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const myrule = new datadog.SecurityMonitoringRule("myrule", {
+ *     name: "My rule",
+ *     message: "The rule has triggered.",
+ *     enabled: true,
+ *     queries: [
+ *         {
+ *             name: "errors",
+ *             query: "status:error",
+ *             aggregation: "count",
+ *             groupByFields: ["host"],
+ *         },
+ *         {
+ *             name: "warnings",
+ *             query: "status:warning",
+ *             aggregation: "count",
+ *             groupByFields: ["host"],
+ *         },
+ *     ],
  *     cases: [{
+ *         status: "high",
  *         condition: "errors > 3 && warnings > 10",
  *         notifications: ["@user"],
- *         status: "high",
  *     }],
- *     enabled: true,
- *     message: "The rule has triggered.",
- *     name: "My rule",
  *     options: {
  *         evaluationWindow: 300,
  *         keepAlive: 600,
  *         maxSignalDuration: 900,
  *     },
- *     queries: [
- *         {
- *             aggregation: "count",
- *             groupByFields: ["host"],
- *             name: "errors",
- *             query: "status:error",
- *         },
- *         {
- *             aggregation: "count",
- *             groupByFields: ["host"],
- *             name: "warnings",
- *             query: "status:warning",
- *         },
- *     ],
  *     tags: ["type:dos"],
  * });
  * ```

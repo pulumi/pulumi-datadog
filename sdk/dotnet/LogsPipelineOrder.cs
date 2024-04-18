@@ -23,13 +23,13 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var samplePipelineOrder = new Datadog.LogsPipelineOrder("samplePipelineOrder", new()
+    ///     var samplePipelineOrder = new Datadog.LogsPipelineOrder("sample_pipeline_order", new()
     ///     {
     ///         Name = "sample_pipeline_order",
     ///         Pipelines = new[]
     ///         {
-    ///             datadog_logs_custom_pipeline.Sample_pipeline.Id,
-    ///             datadog_logs_integration_pipeline.Python.Id,
+    ///             samplePipeline.Id,
+    ///             python.Id,
     ///         },
     ///     });
     /// 

@@ -23,11 +23,12 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create a new Datadog webhook custom variable.
     ///     var foo = new Datadog.WebhookCustomVariable("foo", new()
     ///     {
-    ///         IsSecret = true,
     ///         Name = "EXAMPLE_VARIABLE",
     ///         Value = "EXAMPLE-VALUE",
+    ///         IsSecret = true,
     ///     });
     /// 
     /// });

@@ -47,6 +47,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myFilter = new SecurityMonitoringFilter(&#34;myFilter&#34;, SecurityMonitoringFilterArgs.builder()        
+ *             .name(&#34;My filter&#34;)
+ *             .query(&#34;The filter is filtering.&#34;)
+ *             .isEnabled(true)
  *             .exclusionFilters(            
  *                 SecurityMonitoringFilterExclusionFilterArgs.builder()
  *                     .name(&#34;first&#34;)
@@ -56,9 +59,6 @@ import javax.annotation.Nullable;
  *                     .name(&#34;second&#34;)
  *                     .query(&#34;exclude some other logs&#34;)
  *                     .build())
- *             .isEnabled(true)
- *             .name(&#34;My filter&#34;)
- *             .query(&#34;The filter is filtering.&#34;)
  *             .build());
  * 
  *     }

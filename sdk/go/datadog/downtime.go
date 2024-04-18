@@ -14,44 +14,6 @@ import (
 
 // This resource is deprecated — use the `DowntimeSchedule resource` instead. Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example: downtime for all monitors
-//			// Create a new daily 1700-0900 Datadog downtime for all monitors
-//			_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
-//				End: pulumi.Int(1483365600),
-//				Recurrence: &datadog.DowntimeRecurrenceArgs{
-//					Period: pulumi.Int(1),
-//					Type:   pulumi.String("days"),
-//				},
-//				Scopes: pulumi.StringArray{
-//					pulumi.String("*"),
-//				},
-//				Start: pulumi.Int(1483308000),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // ```sh

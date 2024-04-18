@@ -497,6 +497,108 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Metric-Based SLO
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            name="Example Metric SLO",
+            type="metric",
+            description="My custom metric SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
+                denominator="sum:my.custom.count.metric{*}.as_count()",
+            ),
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="7d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="30d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "foo:bar",
+                "baz",
+            ])
+        # Monitor-Based SLO
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            name="Example Monitor SLO",
+            type="monitor",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="7d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="30d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "foo:bar",
+                "baz",
+            ])
+        time_slice_slo = datadog.ServiceLevelObjective("time_slice_slo",
+            name="Example Time Slice SLO",
+            type="time_slice",
+            description="My custom time slice SLO",
+            sli_specification=datadog.ServiceLevelObjectiveSliSpecificationArgs(
+                time_slice=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceArgs(
+                    query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs(
+                        formula=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs(
+                            formula_expression="query1",
+                        ),
+                        queries=[datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs(
+                            metric_query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs(
+                                name="query1",
+                                query="avg:my.custom.count.metric{*}.as_count()",
+                            ),
+                        )],
+                    ),
+                    comparator=">",
+                    threshold=0.9,
+                ),
+            ),
+            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
+                timeframe="7d",
+                target=99.9,
+                warning=99.99,
+            )],
+            timeframe="7d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "service:myservice",
+                "team:myteam",
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Service Level Objectives can be imported using their string ID, e.g.
@@ -530,6 +632,108 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Metric-Based SLO
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            name="Example Metric SLO",
+            type="metric",
+            description="My custom metric SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
+                denominator="sum:my.custom.count.metric{*}.as_count()",
+            ),
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="7d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="30d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "foo:bar",
+                "baz",
+            ])
+        # Monitor-Based SLO
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            name="Example Monitor SLO",
+            type="monitor",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="7d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    timeframe="30d",
+                    target=99.9,
+                    warning=99.99,
+                ),
+            ],
+            timeframe="30d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "foo:bar",
+                "baz",
+            ])
+        time_slice_slo = datadog.ServiceLevelObjective("time_slice_slo",
+            name="Example Time Slice SLO",
+            type="time_slice",
+            description="My custom time slice SLO",
+            sli_specification=datadog.ServiceLevelObjectiveSliSpecificationArgs(
+                time_slice=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceArgs(
+                    query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs(
+                        formula=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs(
+                            formula_expression="query1",
+                        ),
+                        queries=[datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs(
+                            metric_query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs(
+                                name="query1",
+                                query="avg:my.custom.count.metric{*}.as_count()",
+                            ),
+                        )],
+                    ),
+                    comparator=">",
+                    threshold=0.9,
+                ),
+            ),
+            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
+                timeframe="7d",
+                target=99.9,
+                warning=99.99,
+            )],
+            timeframe="7d",
+            target_threshold=99.9,
+            warning_threshold=99.99,
+            tags=[
+                "service:myservice",
+                "team:myteam",
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

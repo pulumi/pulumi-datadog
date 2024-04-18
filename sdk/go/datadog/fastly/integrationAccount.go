@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new integration_fastly_account resource
 //			_, err := fastly.NewIntegrationAccount(ctx, "foo", &fastly.IntegrationAccountArgs{
 //				ApiKey: pulumi.String("ABCDEFG123"),
 //				Name:   pulumi.String("test-name"),

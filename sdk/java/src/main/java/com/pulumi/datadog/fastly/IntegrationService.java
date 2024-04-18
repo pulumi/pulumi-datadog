@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooIntegrationAccount = new IntegrationAccount(&#34;fooIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
+ *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
  *             .apiKey(&#34;ABCDEFG123&#34;)
  *             .name(&#34;test-name&#34;)
  *             .build());
  * 
  *         // Create new integration_fastly_service resource
  *         var fooIntegrationService = new IntegrationService(&#34;fooIntegrationService&#34;, IntegrationServiceArgs.builder()        
- *             .accountId(fooIntegrationAccount.id())
+ *             .accountId(foo.id())
  *             .tags(            
  *                 &#34;mytag&#34;,
  *                 &#34;mytag2:myvalue&#34;)

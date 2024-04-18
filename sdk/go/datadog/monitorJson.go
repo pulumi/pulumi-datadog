@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewMonitorJson(ctx, "monitorJson", &datadog.MonitorJsonArgs{
+//			_, err := datadog.NewMonitorJson(ctx, "monitor_json", &datadog.MonitorJsonArgs{
 //				Monitor: pulumi.String(`{
 //	    "name": "Example monitor - service check",
 //	    "type": "service check",

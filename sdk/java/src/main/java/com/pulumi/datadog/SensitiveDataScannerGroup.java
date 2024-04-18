@@ -45,13 +45,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new sensitive_data_scanner_group resource
  *         var mygroup = new SensitiveDataScannerGroup(&#34;mygroup&#34;, SensitiveDataScannerGroupArgs.builder()        
+ *             .name(&#34;My new scanning group&#34;)
  *             .description(&#34;A relevant description&#34;)
  *             .filter(SensitiveDataScannerGroupFilterArgs.builder()
  *                 .query(&#34;service:my-service&#34;)
  *                 .build())
  *             .isEnabled(true)
- *             .name(&#34;My new scanning group&#34;)
  *             .productLists(&#34;apm&#34;)
  *             .build());
  * 

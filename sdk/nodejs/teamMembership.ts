@@ -14,15 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fooTeam = new datadog.Team("fooTeam", {
+ * const foo = new datadog.Team("foo", {
  *     description: "Example team",
  *     handle: "example-team-updated",
  *     name: "Example Team-updated",
  * });
- * const fooUser = new datadog.User("fooUser", {email: "new@example.com"});
+ * const fooUser = new datadog.User("foo", {email: "new@example.com"});
  * // Create new team_membership resource
- * const fooTeamMembership = new datadog.TeamMembership("fooTeamMembership", {
- *     teamId: fooTeam.id,
+ * const fooTeamMembership = new datadog.TeamMembership("foo", {
+ *     teamId: foo.id,
  *     userId: fooUser.id,
  *     role: "admin",
  * });

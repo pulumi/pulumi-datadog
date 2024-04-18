@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testChannel = new datadog.slack.Channel("testChannel", {
+ * const testChannel = new datadog.slack.Channel("test_channel", {
  *     accountName: "foo",
  *     channelName: "#test_channel",
  *     display: {

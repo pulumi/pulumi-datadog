@@ -23,14 +23,14 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mySuppression = new Datadog.SecurityMonitoringSuppression("mySuppression", new()
+    ///     var mySuppression = new Datadog.SecurityMonitoringSuppression("my_suppression", new()
     ///     {
+    ///         Name = "My suppression",
     ///         Description = "Suppression for low severity CloudTrail signals from test environments limited to 2024",
     ///         Enabled = true,
-    ///         ExpirationDate = "2024-12-31T12:00:00Z",
-    ///         Name = "My suppression",
     ///         RuleQuery = "severity:low source:cloudtrail",
     ///         SuppressionQuery = "env:test",
+    ///         ExpirationDate = "2024-12-31T12:00:00Z",
     ///     });
     /// 
     /// });

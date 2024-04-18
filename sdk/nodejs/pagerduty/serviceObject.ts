@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
- *     serviceKey: "9876543210123456789",
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
  *     serviceName: "testing_foo",
+ *     serviceKey: "9876543210123456789",
  * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
- *     serviceKey: "54321098765432109876",
+ * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
  *     serviceName: "testing_bar",
+ *     serviceKey: "54321098765432109876",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

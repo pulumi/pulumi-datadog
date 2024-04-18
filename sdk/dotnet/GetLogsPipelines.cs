@@ -25,6 +25,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Gets all pipelines
         ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
         ///     // Using data source to set pipeline order
@@ -58,6 +59,7 @@ namespace Pulumi.Datadog
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Gets all pipelines
         ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
         ///     // Using data source to set pipeline order

@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Confluent
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Create new integration_confluent_account resource
     ///     var foo = new Datadog.Confluent.IntegrationAccount("foo", new()
     ///     {
     ///         ApiKey = "TESTAPIKEY123",

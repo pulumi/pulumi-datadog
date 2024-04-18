@@ -23,16 +23,16 @@ namespace Pulumi.Datadog.Fastly
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooIntegrationAccount = new Datadog.Fastly.IntegrationAccount("fooIntegrationAccount", new()
+    ///     var foo = new Datadog.Fastly.IntegrationAccount("foo", new()
     ///     {
     ///         ApiKey = "ABCDEFG123",
     ///         Name = "test-name",
     ///     });
     /// 
     ///     // Create new integration_fastly_service resource
-    ///     var fooIntegrationService = new Datadog.Fastly.IntegrationService("fooIntegrationService", new()
+    ///     var fooIntegrationService = new Datadog.Fastly.IntegrationService("foo", new()
     ///     {
-    ///         AccountId = fooIntegrationAccount.Id,
+    ///         AccountId = foo.Id,
     ///         Tags = new[]
     ///         {
     ///             "mytag",

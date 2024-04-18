@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.LogsIndex;
  * import com.pulumi.datadog.LogsIndexArgs;
  * import com.pulumi.datadog.inputs.LogsIndexDailyLimitResetArgs;
- * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
  * import com.pulumi.datadog.inputs.LogsIndexFilterArgs;
+ * import com.pulumi.datadog.inputs.LogsIndexExclusionFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,35 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // A sample Datadog logs index resource definition.
  *         var sampleIndex = new LogsIndex(&#34;sampleIndex&#34;, LogsIndexArgs.builder()        
+ *             .name(&#34;your index&#34;)
  *             .dailyLimit(200000)
  *             .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()
  *                 .resetTime(&#34;14:00&#34;)
  *                 .resetUtcOffset(&#34;+02:00&#34;)
  *                 .build())
  *             .dailyLimitWarningThresholdPercentage(50)
+ *             .retentionDays(7)
+ *             .filters(LogsIndexFilterArgs.builder()
+ *                 .query(&#34;*&#34;)
+ *                 .build())
  *             .exclusionFilters(            
  *                 LogsIndexExclusionFilterArgs.builder()
+ *                     .name(&#34;Filter coredns logs&#34;)
+ *                     .isEnabled(true)
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
  *                         .query(&#34;app:coredns&#34;)
  *                         .sampleRate(0.97)
  *                         .build())
- *                     .isEnabled(true)
- *                     .name(&#34;Filter coredns logs&#34;)
  *                     .build(),
  *                 LogsIndexExclusionFilterArgs.builder()
+ *                     .name(&#34;Kubernetes apiserver&#34;)
+ *                     .isEnabled(true)
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
  *                         .query(&#34;service:kube_apiserver&#34;)
  *                         .sampleRate(1)
  *                         .build())
- *                     .isEnabled(true)
- *                     .name(&#34;Kubernetes apiserver&#34;)
  *                     .build())
- *             .filters(LogsIndexFilterArgs.builder()
- *                 .query(&#34;*&#34;)
- *                 .build())
- *             .name(&#34;your index&#34;)
- *             .retentionDays(7)
  *             .build());
  * 
  *     }

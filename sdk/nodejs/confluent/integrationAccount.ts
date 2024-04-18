@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new integration_confluent_account resource
  * const foo = new datadog.confluent.IntegrationAccount("foo", {
  *     apiKey: "TESTAPIKEY123",
  *     apiSecret: "test-api-secret-123",

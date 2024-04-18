@@ -16,13 +16,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new sensitive_data_scanner_group resource
  * const mygroup = new datadog.SensitiveDataScannerGroup("mygroup", {
+ *     name: "My new scanning group",
  *     description: "A relevant description",
  *     filter: {
  *         query: "service:my-service",
  *     },
  *     isEnabled: true,
- *     name: "My new scanning group",
  *     productLists: ["apm"],
  * });
  * ```

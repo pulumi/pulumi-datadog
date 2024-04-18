@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := datadog.NewTeam(ctx, "fooTeam", &datadog.TeamArgs{
+//			foo, err := datadog.NewTeam(ctx, "foo", &datadog.TeamArgs{
 //				Description: pulumi.String("Example team"),
 //				Handle:      pulumi.String("example-team-updated"),
 //				Name:        pulumi.String("Example Team-updated"),
@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewTeamPermissionSetting(ctx, "fooTeamPermissionSetting", &datadog.TeamPermissionSettingArgs{
-//				TeamId: fooTeam.ID(),
+//			_, err = datadog.NewTeamPermissionSetting(ctx, "foo", &datadog.TeamPermissionSettingArgs{
+//				TeamId: foo.ID(),
 //				Action: pulumi.String("manage_membership"),
 //				Value:  pulumi.String("organization"),
 //			})

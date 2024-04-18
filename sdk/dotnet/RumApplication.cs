@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var rumApplication = new Datadog.RumApplication("rumApplication", new()
+    ///     var rumApplication = new Datadog.RumApplication("rum_application", new()
     ///     {
     ///         Name = "my-application",
     ///         Type = "browser",

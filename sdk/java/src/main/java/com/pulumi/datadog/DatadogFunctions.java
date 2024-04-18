@@ -1213,17 +1213,17 @@ public final class DatadogFunctions {
      * 
      *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .isReadOnly(true)
-     *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .layoutType(&#34;ordered&#34;)
+     *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
      *                     .alertId(&#34;1234&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
-     *                     .title(&#34;Widget Title&#34;)
      *                     .vizType(&#34;timeseries&#34;)
+     *                     .title(&#34;Widget Title&#34;)
+     *                     .liveSpan(&#34;1h&#34;)
      *                     .build())
      *                 .build())
      *             .build());
@@ -1274,17 +1274,17 @@ public final class DatadogFunctions {
      * 
      *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .isReadOnly(true)
-     *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .layoutType(&#34;ordered&#34;)
+     *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
      *                     .alertId(&#34;1234&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
-     *                     .title(&#34;Widget Title&#34;)
      *                     .vizType(&#34;timeseries&#34;)
+     *                     .title(&#34;Widget Title&#34;)
+     *                     .liveSpan(&#34;1h&#34;)
      *                     .build())
      *                 .build())
      *             .build());
@@ -1335,17 +1335,17 @@ public final class DatadogFunctions {
      * 
      *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .isReadOnly(true)
-     *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .layoutType(&#34;ordered&#34;)
+     *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
      *                     .alertId(&#34;1234&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
-     *                     .title(&#34;Widget Title&#34;)
      *                     .vizType(&#34;timeseries&#34;)
+     *                     .title(&#34;Widget Title&#34;)
+     *                     .liveSpan(&#34;1h&#34;)
      *                     .build())
      *                 .build())
      *             .build());
@@ -1396,17 +1396,17 @@ public final class DatadogFunctions {
      * 
      *         // Create a dashboard and register it in the list above.
      *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .isReadOnly(true)
-     *             .layoutType(&#34;ordered&#34;)
      *             .title(&#34;TF Test Layout Dashboard&#34;)
+     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
+     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
+     *             .layoutType(&#34;ordered&#34;)
+     *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
      *                     .alertId(&#34;1234&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
-     *                     .title(&#34;Widget Title&#34;)
      *                     .vizType(&#34;timeseries&#34;)
+     *                     .title(&#34;Widget Title&#34;)
+     *                     .liveSpan(&#34;1h&#34;)
      *                     .build())
      *                 .build())
      *             .build());
@@ -1448,8 +1448,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -1489,8 +1489,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -1530,8 +1530,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -1571,8 +1571,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -1612,8 +1612,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -1653,8 +1653,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getHosts(GetHostsArgs.builder()
-     *             .includeHostsMetadata(true)
      *             .includeMutedHostsData(true)
+     *             .includeHostsMetadata(true)
      *             .build());
      * 
      *     }
@@ -2380,40 +2380,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2426,40 +2392,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2472,40 +2404,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2518,40 +2416,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2564,40 +2428,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2610,40 +2440,6 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.datadog.DatadogFunctions;
-     * import com.pulumi.datadog.inputs.GetLogsPipelinesArgs;
-     * import com.pulumi.datadog.LogsPipelineOrder;
-     * import com.pulumi.datadog.LogsPipelineOrderArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var pipelines = DatadogFunctions.getLogsPipelines();
-     * 
-     *         // Using data source to set pipeline order
-     *         var lpo = new LogsPipelineOrder(&#34;lpo&#34;, LogsPipelineOrderArgs.builder()        
-     *             .name(&#34;lpo&#34;)
-     *             .pipelines(&#34;TODO: ForExpression&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2678,8 +2474,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -2719,8 +2515,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -2760,8 +2556,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -2801,8 +2597,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -2842,8 +2638,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -2883,8 +2679,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .nameFilter(&#34;My awesome monitor&#34;)
+     *             .monitorTagsFilters(&#34;foo:bar&#34;)
      *             .build());
      * 
      *     }
@@ -4080,9 +3876,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4122,9 +3918,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4164,9 +3960,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4206,9 +4002,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4248,9 +4044,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4290,9 +4086,9 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .defaultOnlyFilter(true)
      *             .nameFilter(&#34;attack&#34;)
      *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
@@ -4707,7 +4503,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -4752,7 +4548,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -4797,7 +4593,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -4842,7 +4638,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -4887,7 +4683,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -4932,7 +4728,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(data.terraform_remote_state().api().outputs().slo())
+     *             .id(api.outputs().slo())
      *             .build());
      * 
      *     }
@@ -5550,8 +5346,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *     }
@@ -5591,8 +5387,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *     }
@@ -5632,8 +5428,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *     }
@@ -5673,8 +5469,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .filterKeyword(&#34;foo@example.com&#34;)
      *             .build());
      * 
      *     }

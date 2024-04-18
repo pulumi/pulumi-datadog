@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new integration_aws_event_bridge resource
  * const foo = new datadog.aws.IntegrationEventBridge("foo", {
  *     accountId: "123456789012",
  *     createEventBus: true,

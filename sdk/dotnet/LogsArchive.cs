@@ -23,15 +23,15 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myS3Archive = new Datadog.LogsArchive("myS3Archive", new()
+    ///     var myS3Archive = new Datadog.LogsArchive("my_s3_archive", new()
     ///     {
     ///         Name = "my s3 archive",
     ///         Query = "service:myservice",
     ///         S3Archive = new Datadog.Inputs.LogsArchiveS3ArchiveArgs
     ///         {
-    ///             AccountId = "001234567888",
     ///             Bucket = "my-bucket",
     ///             Path = "/path/foo",
+    ///             AccountId = "001234567888",
     ///             RoleName = "my-role-name",
     ///         },
     ///     });

@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
+//			_, err := datadog.NewLogsMetric(ctx, "testing_logs_metric", &datadog.LogsMetricArgs{
+//				Name: pulumi.String("testing.logs.metric"),
 //				Compute: &datadog.LogsMetricComputeArgs{
 //					AggregationType: pulumi.String("distribution"),
 //					Path:            pulumi.String("@duration"),
@@ -47,7 +48,6 @@ import (
 //						TagName: pulumi.String("version"),
 //					},
 //				},
-//				Name: pulumi.String("testing.logs.metric"),
 //			})
 //			if err != nil {
 //				return err

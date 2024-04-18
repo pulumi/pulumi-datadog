@@ -194,11 +194,11 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            enabled=True,
             cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
-                notifications=["@me"],
                 status="high",
-            )],
-            enabled=True)
+                notifications=["@me"],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -238,11 +238,11 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            enabled=True,
             cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
-                notifications=["@me"],
                 status="high",
-            )],
-            enabled=True)
+                notifications=["@me"],
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

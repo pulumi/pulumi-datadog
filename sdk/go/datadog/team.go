@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new team resource
 //			_, err := datadog.NewTeam(ctx, "foo", &datadog.TeamArgs{
 //				Description: pulumi.String("Team description"),
 //				Handle:      pulumi.String("example-team"),

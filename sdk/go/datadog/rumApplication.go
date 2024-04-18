@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewRumApplication(ctx, "rumApplication", &datadog.RumApplicationArgs{
+//			_, err := datadog.NewRumApplication(ctx, "rum_application", &datadog.RumApplicationArgs{
 //				Name: pulumi.String("my-application"),
 //				Type: pulumi.String("browser"),
 //			})

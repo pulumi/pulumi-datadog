@@ -110,7 +110,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a new Datadog - Amazon Web Services integration Lambda ARN
-        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
+        main_collector = datadog.aws.IntegrationLambdaArn("main_collector",
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
         ```
@@ -148,7 +148,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a new Datadog - Amazon Web Services integration Lambda ARN
-        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
+        main_collector = datadog.aws.IntegrationLambdaArn("main_collector",
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
         ```

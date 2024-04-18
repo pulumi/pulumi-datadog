@@ -14,6 +14,136 @@ import (
 
 // Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Metric-Based SLO
+//			// Create a new Datadog service level objective
+//			_, err := datadog.NewServiceLevelObjective(ctx, "foo", &datadog.ServiceLevelObjectiveArgs{
+//				Name:        pulumi.String("Example Metric SLO"),
+//				Type:        pulumi.String("metric"),
+//				Description: pulumi.String("My custom metric SLO"),
+//				Query: &datadog.ServiceLevelObjectiveQueryArgs{
+//					Numerator:   pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
+//					Denominator: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
+//				},
+//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("7d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("30d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//				},
+//				Timeframe:        pulumi.String("30d"),
+//				TargetThreshold:  pulumi.Float64(99.9),
+//				WarningThreshold: pulumi.Float64(99.99),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Monitor-Based SLO
+//			// Create a new Datadog service level objective
+//			_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
+//				Name:        pulumi.String("Example Monitor SLO"),
+//				Type:        pulumi.String("monitor"),
+//				Description: pulumi.String("My custom monitor SLO"),
+//				MonitorIds: pulumi.IntArray{
+//					pulumi.Int(1),
+//					pulumi.Int(2),
+//					pulumi.Int(3),
+//				},
+//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("7d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("30d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//				},
+//				Timeframe:        pulumi.String("30d"),
+//				TargetThreshold:  pulumi.Float64(99.9),
+//				WarningThreshold: pulumi.Float64(99.99),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("foo:bar"),
+//					pulumi.String("baz"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datadog.NewServiceLevelObjective(ctx, "time_slice_slo", &datadog.ServiceLevelObjectiveArgs{
+//				Name:        pulumi.String("Example Time Slice SLO"),
+//				Type:        pulumi.String("time_slice"),
+//				Description: pulumi.String("My custom time slice SLO"),
+//				SliSpecification: &datadog.ServiceLevelObjectiveSliSpecificationArgs{
+//					TimeSlice: &datadog.ServiceLevelObjectiveSliSpecificationTimeSliceArgs{
+//						Query: &datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{
+//							Formula: &datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{
+//								FormulaExpression: pulumi.String("query1"),
+//							},
+//							Queries: datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray{
+//								&datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{
+//									MetricQuery: &datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{
+//										Name:  pulumi.String("query1"),
+//										Query: pulumi.String("avg:my.custom.count.metric{*}.as_count()"),
+//									},
+//								},
+//							},
+//						},
+//						Comparator: pulumi.String(">"),
+//						Threshold:  pulumi.Float64(0.9),
+//					},
+//				},
+//				Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
+//					&datadog.ServiceLevelObjectiveThresholdArgs{
+//						Timeframe: pulumi.String("7d"),
+//						Target:    pulumi.Float64(99.9),
+//						Warning:   pulumi.Float64(99.99),
+//					},
+//				},
+//				Timeframe:        pulumi.String("7d"),
+//				TargetThreshold:  pulumi.Float64(99.9),
+//				WarningThreshold: pulumi.Float64(99.99),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("service:myservice"),
+//					pulumi.String("team:myteam"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Service Level Objectives can be imported using their string ID, e.g.

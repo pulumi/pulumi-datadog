@@ -427,6 +427,12 @@ class Integration(pulumi.CustomResource):
         # Create a new Datadog - Amazon Web Services integration
         sandbox = datadog.aws.Integration("sandbox",
             account_id="1234567890",
+            role_name="DatadogAWSIntegrationRole",
+            filter_tags=["key:value"],
+            host_tags=[
+                "key:value",
+                "key2:value2",
+            ],
             account_specific_namespace_rules={
                 "auto_scaling": False,
                 "opsworks": False,
@@ -434,13 +440,7 @@ class Integration(pulumi.CustomResource):
             excluded_regions=[
                 "us-east-1",
                 "us-west-2",
-            ],
-            filter_tags=["key:value"],
-            host_tags=[
-                "key:value",
-                "key2:value2",
-            ],
-            role_name="DatadogAWSIntegrationRole")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -485,6 +485,12 @@ class Integration(pulumi.CustomResource):
         # Create a new Datadog - Amazon Web Services integration
         sandbox = datadog.aws.Integration("sandbox",
             account_id="1234567890",
+            role_name="DatadogAWSIntegrationRole",
+            filter_tags=["key:value"],
+            host_tags=[
+                "key:value",
+                "key2:value2",
+            ],
             account_specific_namespace_rules={
                 "auto_scaling": False,
                 "opsworks": False,
@@ -492,13 +498,7 @@ class Integration(pulumi.CustomResource):
             excluded_regions=[
                 "us-east-1",
                 "us-west-2",
-            ],
-            filter_tags=["key:value"],
-            host_tags=[
-                "key:value",
-                "key2:value2",
-            ],
-            role_name="DatadogAWSIntegrationRole")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -16,40 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.datadog.OpenapiApi;
- * import com.pulumi.datadog.OpenapiApiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Create new openapi_api resource
- *         var my_api = new OpenapiApi(&#34;my-api&#34;, OpenapiApiArgs.builder()        
- *             .spec(Files.readString(Paths.get(&#34;./path/my-api.yaml&#34;)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * ```sh

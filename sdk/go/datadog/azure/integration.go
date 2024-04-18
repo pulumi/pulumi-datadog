@@ -31,15 +31,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Datadog - Microsoft Azure integration
 //			_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
-//				AppServicePlanFilters: pulumi.String("examplefilter:true,example:another"),
-//				Automute:              pulumi.Bool(true),
+//				TenantName:            pulumi.String("<azure_tenant_name>"),
 //				ClientId:              pulumi.String("<azure_client_id>"),
 //				ClientSecret:          pulumi.String("<azure_client_secret_key>"),
+//				HostFilters:           pulumi.String("examplefilter:true,example:true"),
+//				AppServicePlanFilters: pulumi.String("examplefilter:true,example:another"),
 //				ContainerAppFilters:   pulumi.String("examplefilter:true,example:one_more"),
+//				Automute:              pulumi.Bool(true),
 //				CspmEnabled:           pulumi.Bool(true),
 //				CustomMetricsEnabled:  pulumi.Bool(false),
-//				HostFilters:           pulumi.String("examplefilter:true,example:true"),
-//				TenantName:            pulumi.String("<azure_tenant_name>"),
 //			})
 //			if err != nil {
 //				return err

@@ -174,7 +174,8 @@ class LogsMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        testing_logs_metric = datadog.LogsMetric("testingLogsMetric",
+        testing_logs_metric = datadog.LogsMetric("testing_logs_metric",
+            name="testing.logs.metric",
             compute=datadog.LogsMetricComputeArgs(
                 aggregation_type="distribution",
                 path="@duration",
@@ -191,8 +192,7 @@ class LogsMetric(pulumi.CustomResource):
                     path="@version",
                     tag_name="version",
                 ),
-            ],
-            name="testing.logs.metric")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -225,7 +225,8 @@ class LogsMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        testing_logs_metric = datadog.LogsMetric("testingLogsMetric",
+        testing_logs_metric = datadog.LogsMetric("testing_logs_metric",
+            name="testing.logs.metric",
             compute=datadog.LogsMetricComputeArgs(
                 aggregation_type="distribution",
                 path="@duration",
@@ -242,8 +243,7 @@ class LogsMetric(pulumi.CustomResource):
                     path="@version",
                     tag_name="version",
                 ),
-            ],
-            name="testing.logs.metric")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

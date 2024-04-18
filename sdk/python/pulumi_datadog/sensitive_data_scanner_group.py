@@ -206,13 +206,14 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new sensitive_data_scanner_group resource
         mygroup = datadog.SensitiveDataScannerGroup("mygroup",
+            name="My new scanning group",
             description="A relevant description",
             filter=datadog.SensitiveDataScannerGroupFilterArgs(
                 query="service:my-service",
             ),
             is_enabled=True,
-            name="My new scanning group",
             product_lists=["apm"])
         ```
         <!--End PulumiCodeChooser -->
@@ -247,13 +248,14 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create new sensitive_data_scanner_group resource
         mygroup = datadog.SensitiveDataScannerGroup("mygroup",
+            name="My new scanning group",
             description="A relevant description",
             filter=datadog.SensitiveDataScannerGroupFilterArgs(
                 query="service:my-service",
             ),
             is_enabled=True,
-            name="My new scanning group",
             product_lists=["apm"])
         ```
         <!--End PulumiCodeChooser -->

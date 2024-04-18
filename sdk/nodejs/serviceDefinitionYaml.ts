@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Service Definition with v2.2 Schema Definition
- * const serviceDefinitionV22 = new datadog.ServiceDefinitionYaml("serviceDefinitionV22", {serviceDefinition: `schema-version: v2.2
+ * const serviceDefinitionV22 = new datadog.ServiceDefinitionYaml("service_definition_v2_2", {serviceDefinition: `schema-version: v2.2
  * dd-service: shopping-cart
  * team: e-commerce-team
  * contacts:
@@ -61,10 +61,9 @@ import * as utilities from "./utilities";
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- *
  * `});
  * // Service Definition with v2.1 Schema Definition
- * const serviceDefinitionV21 = new datadog.ServiceDefinitionYaml("serviceDefinitionV21", {serviceDefinition: `schema-version: v2.1
+ * const serviceDefinitionV21 = new datadog.ServiceDefinitionYaml("service_definition_v2_1", {serviceDefinition: `schema-version: v2.1
  * dd-service: shopping-cart
  * team: e-commerce-team
  * contacts:
@@ -103,10 +102,9 @@ import * as utilities from "./utilities";
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- *
  * `});
  * // Service Definition with v2 Schema Definition
- * const serviceDefinitionV2 = new datadog.ServiceDefinitionYaml("serviceDefinitionV2", {serviceDefinition: `schema-version: v2
+ * const serviceDefinitionV2 = new datadog.ServiceDefinitionYaml("service_definition_v2", {serviceDefinition: `schema-version: v2
  * dd-service: shopping-cart
  * team: E Commerce
  * contacts:
@@ -139,10 +137,9 @@ import * as utilities from "./utilities";
  * extensions:
  *   datadoghq.com/shopping-cart:
  *     customField: customValue
- *
  * `});
  * // Service Definition with backstage.io Schema
- * const serviceDefinitionBackstage = new datadog.ServiceDefinitionYaml("serviceDefinitionBackstage", {serviceDefinition: `apiVersion: backstage.io/v1alpha1
+ * const serviceDefinitionBackstage = new datadog.ServiceDefinitionYaml("service_definition_backstage", {serviceDefinition: `apiVersion: backstage.io/v1alpha1
  * kind: Component
  * metadata:
  *   annotations:
@@ -165,7 +162,6 @@ import * as utilities from "./utilities";
  *   lifecycle: production
  *   owner: e-commerce
  *   system: retail
- *
  * `});
  * ```
  * <!--End PulumiCodeChooser -->

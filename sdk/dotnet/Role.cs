@@ -23,6 +23,7 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Source the permissions
     ///     var bar = Datadog.GetPermissions.Invoke();
     /// 
     ///     // Create a new Datadog role

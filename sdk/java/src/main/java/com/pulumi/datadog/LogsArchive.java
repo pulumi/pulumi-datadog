@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;my s3 archive&#34;)
  *             .query(&#34;service:myservice&#34;)
  *             .s3Archive(LogsArchiveS3ArchiveArgs.builder()
- *                 .accountId(&#34;001234567888&#34;)
  *                 .bucket(&#34;my-bucket&#34;)
  *                 .path(&#34;/path/foo&#34;)
+ *                 .accountId(&#34;001234567888&#34;)
  *                 .roleName(&#34;my-role-name&#34;)
  *                 .build())
  *             .build());

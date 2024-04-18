@@ -57,88 +57,93 @@ import javax.annotation.Nullable;
  *         // Metric-Based SLO
  *         // Create a new Datadog service level objective
  *         var foo = new ServiceLevelObjective(&#34;foo&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .description(&#34;My custom metric SLO&#34;)
  *             .name(&#34;Example Metric SLO&#34;)
+ *             .type(&#34;metric&#34;)
+ *             .description(&#34;My custom metric SLO&#34;)
  *             .query(ServiceLevelObjectiveQueryArgs.builder()
- *                 .denominator(&#34;sum:my.custom.count.metric{*}.as_count()&#34;)
  *                 .numerator(&#34;sum:my.custom.count.metric{type:good_events}.as_count()&#34;)
+ *                 .denominator(&#34;sum:my.custom.count.metric{*}.as_count()&#34;)
  *                 .build())
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;baz&#34;)
- *             .targetThreshold(99.9)
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .target(99.9)
  *                     .timeframe(&#34;7d&#34;)
+ *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build(),
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .target(99.9)
  *                     .timeframe(&#34;30d&#34;)
+ *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build())
  *             .timeframe(&#34;30d&#34;)
- *             .type(&#34;metric&#34;)
+ *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;baz&#34;)
  *             .build());
  * 
  *         // Monitor-Based SLO
  *         // Create a new Datadog service level objective
  *         var bar = new ServiceLevelObjective(&#34;bar&#34;, ServiceLevelObjectiveArgs.builder()        
+ *             .name(&#34;Example Monitor SLO&#34;)
+ *             .type(&#34;monitor&#34;)
  *             .description(&#34;My custom monitor SLO&#34;)
  *             .monitorIds(            
  *                 1,
  *                 2,
  *                 3)
- *             .name(&#34;Example Monitor SLO&#34;)
- *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;baz&#34;)
- *             .targetThreshold(99.9)
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .target(99.9)
  *                     .timeframe(&#34;7d&#34;)
+ *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build(),
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .target(99.9)
  *                     .timeframe(&#34;30d&#34;)
+ *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build())
  *             .timeframe(&#34;30d&#34;)
- *             .type(&#34;monitor&#34;)
+ *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
+ *             .tags(            
+ *                 &#34;foo:bar&#34;,
+ *                 &#34;baz&#34;)
  *             .build());
  * 
  *         var timeSliceSlo = new ServiceLevelObjective(&#34;timeSliceSlo&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .description(&#34;My custom time slice SLO&#34;)
  *             .name(&#34;Example Time Slice SLO&#34;)
+ *             .type(&#34;time_slice&#34;)
+ *             .description(&#34;My custom time slice SLO&#34;)
  *             .sliSpecification(ServiceLevelObjectiveSliSpecificationArgs.builder()
  *                 .timeSlice(ServiceLevelObjectiveSliSpecificationTimeSliceArgs.builder()
- *                     .comparator(&#34;&gt;&#34;)
  *                     .query(ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs.builder()
  *                         .formula(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs.builder()
  *                             .formulaExpression(&#34;query1&#34;)
  *                             .build())
- *                         .query(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                         .queries(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs.builder()
+ *                             .metricQuery(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs.builder()
+ *                                 .name(&#34;query1&#34;)
+ *                                 .query(&#34;avg:my.custom.count.metric{*}.as_count()&#34;)
+ *                                 .build())
+ *                             .build())
  *                         .build())
+ *                     .comparator(&#34;&gt;&#34;)
  *                     .threshold(0.9)
  *                     .build())
  *                 .build())
- *             .tags(            
- *                 &#34;service:myservice&#34;,
- *                 &#34;team:myteam&#34;)
- *             .targetThreshold(99.9)
  *             .thresholds(ServiceLevelObjectiveThresholdArgs.builder()
- *                 .target(99.9)
  *                 .timeframe(&#34;7d&#34;)
+ *                 .target(99.9)
  *                 .warning(99.99)
  *                 .build())
  *             .timeframe(&#34;7d&#34;)
- *             .type(&#34;time_slice&#34;)
+ *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
+ *             .tags(            
+ *                 &#34;service:myservice&#34;,
+ *                 &#34;team:myteam&#34;)
  *             .build());
  * 
  *     }

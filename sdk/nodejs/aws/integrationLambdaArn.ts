@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog - Amazon Web Services integration Lambda ARN
- * const mainCollector = new datadog.aws.IntegrationLambdaArn("mainCollector", {
+ * const mainCollector = new datadog.aws.IntegrationLambdaArn("main_collector", {
  *     accountId: "1234567890",
  *     lambdaArn: "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
  * });

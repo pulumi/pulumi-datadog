@@ -789,7 +789,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
         # Example Usage (Synthetics API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-        test_uptime = datadog.SyntheticsTest("testUptime",
+        test_uptime = datadog.SyntheticsTest("test_uptime",
             name="An Uptime test on example.org",
             type="api",
             subtype="http",
@@ -825,7 +825,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Authenticated API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-        test_api = datadog.SyntheticsTest("testApi",
+        test_api = datadog.SyntheticsTest("test_api",
             name="An API test on example.org",
             type="api",
             subtype="http",
@@ -862,7 +862,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics SSL test)
         # Create a new Datadog Synthetics API/SSL test on example.org
-        test_ssl = datadog.SyntheticsTest("testSsl",
+        test_ssl = datadog.SyntheticsTest("test_ssl",
             name="An API test on example.org",
             type="api",
             subtype="ssl",
@@ -889,7 +889,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics TCP test)
         # Create a new Datadog Synthetics API/TCP test on example.org
-        test_tcp = datadog.SyntheticsTest("testTcp",
+        test_tcp = datadog.SyntheticsTest("test_tcp",
             name="An API test on example.org",
             type="api",
             subtype="tcp",
@@ -920,7 +920,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics DNS test)
         # Create a new Datadog Synthetics API/DNS test on example.org
-        test_dns = datadog.SyntheticsTest("testDns",
+        test_dns = datadog.SyntheticsTest("test_dns",
             name="An API test on example.org",
             type="api",
             subtype="dns",
@@ -946,7 +946,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
-        test_multi_step = datadog.SyntheticsTest("testMultiStep",
+        test_multi_step = datadog.SyntheticsTest("test_multi_step",
             name="Multistep API test",
             type="api",
             subtype="multi",
@@ -995,7 +995,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
-        test_browser = datadog.SyntheticsTest("testBrowser",
+        test_browser = datadog.SyntheticsTest("test_browser",
             name="A Browser test on example.org",
             type="browser",
             status="paused",
@@ -1189,7 +1189,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
         # Example Usage (Synthetics API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-        test_uptime = datadog.SyntheticsTest("testUptime",
+        test_uptime = datadog.SyntheticsTest("test_uptime",
             name="An Uptime test on example.org",
             type="api",
             subtype="http",
@@ -1225,7 +1225,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Authenticated API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-        test_api = datadog.SyntheticsTest("testApi",
+        test_api = datadog.SyntheticsTest("test_api",
             name="An API test on example.org",
             type="api",
             subtype="http",
@@ -1262,7 +1262,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics SSL test)
         # Create a new Datadog Synthetics API/SSL test on example.org
-        test_ssl = datadog.SyntheticsTest("testSsl",
+        test_ssl = datadog.SyntheticsTest("test_ssl",
             name="An API test on example.org",
             type="api",
             subtype="ssl",
@@ -1289,7 +1289,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics TCP test)
         # Create a new Datadog Synthetics API/TCP test on example.org
-        test_tcp = datadog.SyntheticsTest("testTcp",
+        test_tcp = datadog.SyntheticsTest("test_tcp",
             name="An API test on example.org",
             type="api",
             subtype="tcp",
@@ -1320,7 +1320,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics DNS test)
         # Create a new Datadog Synthetics API/DNS test on example.org
-        test_dns = datadog.SyntheticsTest("testDns",
+        test_dns = datadog.SyntheticsTest("test_dns",
             name="An API test on example.org",
             type="api",
             subtype="dns",
@@ -1346,7 +1346,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
-        test_multi_step = datadog.SyntheticsTest("testMultiStep",
+        test_multi_step = datadog.SyntheticsTest("test_multi_step",
             name="Multistep API test",
             type="api",
             subtype="multi",
@@ -1395,7 +1395,7 @@ class SyntheticsTest(pulumi.CustomResource):
             ))
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
-        test_browser = datadog.SyntheticsTest("testBrowser",
+        test_browser = datadog.SyntheticsTest("test_browser",
             name="A Browser test on example.org",
             type="browser",
             status="paused",

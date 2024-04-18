@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var adefaultrule = new SecurityMonitoringDefaultRule(&#34;adefaultrule&#34;, SecurityMonitoringDefaultRuleArgs.builder()        
- *             .cases(SecurityMonitoringDefaultRuleCaseArgs.builder()
- *                 .notifications(&#34;@me&#34;)
- *                 .status(&#34;high&#34;)
- *                 .build())
  *             .enabled(true)
+ *             .cases(SecurityMonitoringDefaultRuleCaseArgs.builder()
+ *                 .status(&#34;high&#34;)
+ *                 .notifications(&#34;@me&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }

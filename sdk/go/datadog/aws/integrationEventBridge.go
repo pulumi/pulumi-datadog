@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new integration_aws_event_bridge resource
 //			_, err := aws.NewIntegrationEventBridge(ctx, "foo", &aws.IntegrationEventBridgeArgs{
 //				AccountId:          pulumi.String("123456789012"),
 //				CreateEventBus:     pulumi.Bool(true),

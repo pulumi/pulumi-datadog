@@ -14,13 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const fooTeam = new datadog.Team("fooTeam", {
+ * const foo = new datadog.Team("foo", {
  *     description: "Example team",
  *     handle: "example-team-updated",
  *     name: "Example Team-updated",
  * });
- * const fooTeamPermissionSetting = new datadog.TeamPermissionSetting("fooTeamPermissionSetting", {
- *     teamId: fooTeam.id,
+ * const fooTeamPermissionSetting = new datadog.TeamPermissionSetting("foo", {
+ *     teamId: foo.id,
  *     action: "manage_membership",
  *     value: "organization",
  * });

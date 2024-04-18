@@ -75,7 +75,7 @@ namespace Pulumi.Datadog
     ///     });
     /// 
     ///     // Create a new Dashboard List with two Dashboards
-    ///     var newList = new Datadog.DashboardList("newList", new()
+    ///     var newList = new Datadog.DashboardList("new_list", new()
     ///     {
     ///         Name = "Automated Created List",
     ///         DashItems = new[]

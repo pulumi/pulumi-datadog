@@ -71,17 +71,17 @@ def get_dashboard_list(name: Optional[str] = None,
     test = datadog.get_dashboard_list(name="My super list")
     # Create a dashboard and register it in the list above.
     time = datadog.Dashboard("time",
-        dashboard_lists=[test.id],
-        description="Created using the Datadog provider in Pulumi",
-        is_read_only=True,
-        layout_type="ordered",
         title="TF Test Layout Dashboard",
+        description="Created using the Datadog provider in Pulumi",
+        dashboard_lists=[test.id],
+        layout_type="ordered",
+        is_read_only=True,
         widgets=[datadog.DashboardWidgetArgs(
             alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                 alert_id="1234",
-                live_span="1h",
-                title="Widget Title",
                 viz_type="timeseries",
+                title="Widget Title",
+                live_span="1h",
             ),
         )])
     ```
@@ -116,17 +116,17 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[str]] = None,
     test = datadog.get_dashboard_list(name="My super list")
     # Create a dashboard and register it in the list above.
     time = datadog.Dashboard("time",
-        dashboard_lists=[test.id],
-        description="Created using the Datadog provider in Pulumi",
-        is_read_only=True,
-        layout_type="ordered",
         title="TF Test Layout Dashboard",
+        description="Created using the Datadog provider in Pulumi",
+        dashboard_lists=[test.id],
+        layout_type="ordered",
+        is_read_only=True,
         widgets=[datadog.DashboardWidgetArgs(
             alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                 alert_id="1234",
-                live_span="1h",
-                title="Widget Title",
                 viz_type="timeseries",
+                title="Widget Title",
+                live_span="1h",
             ),
         )])
     ```

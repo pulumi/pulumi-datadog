@@ -47,31 +47,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Manage a tag configuration for a Datadog distribution metric with/without percentiles
  *         var exampleDistMetric = new MetricTagConfiguration(&#34;exampleDistMetric&#34;, MetricTagConfigurationArgs.builder()        
- *             .includePercentiles(false)
  *             .metricName(&#34;example.terraform.dist.metric&#34;)
  *             .metricType(&#34;distribution&#34;)
  *             .tags(            
  *                 &#34;sport&#34;,
  *                 &#34;datacenter&#34;)
+ *             .includePercentiles(false)
  *             .build());
  * 
  *         // Manage tag configurations for a Datadog count or gauge metric
  *         var exampleCountMetric = new MetricTagConfiguration(&#34;exampleCountMetric&#34;, MetricTagConfigurationArgs.builder()        
- *             .aggregations(            
- *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .space(&#34;min&#34;)
- *                     .time(&#34;avg&#34;)
- *                     .build(),
- *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .space(&#34;max&#34;)
- *                     .time(&#34;avg&#34;)
- *                     .build())
- *             .excludeTagsMode(false)
  *             .metricName(&#34;example.terraform.count.metric&#34;)
  *             .metricType(&#34;count&#34;)
  *             .tags(            
  *                 &#34;sport&#34;,
  *                 &#34;datacenter&#34;)
+ *             .excludeTagsMode(false)
+ *             .aggregations(            
+ *                 MetricTagConfigurationAggregationArgs.builder()
+ *                     .time(&#34;avg&#34;)
+ *                     .space(&#34;min&#34;)
+ *                     .build(),
+ *                 MetricTagConfigurationAggregationArgs.builder()
+ *                     .time(&#34;avg&#34;)
+ *                     .space(&#34;max&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }

@@ -31,6 +31,14 @@ import (
 //			// Create a new Datadog - Amazon Web Services integration
 //			_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
 //				AccountId: pulumi.String("1234567890"),
+//				RoleName:  pulumi.String("DatadogAWSIntegrationRole"),
+//				FilterTags: pulumi.StringArray{
+//					pulumi.String("key:value"),
+//				},
+//				HostTags: pulumi.StringArray{
+//					pulumi.String("key:value"),
+//					pulumi.String("key2:value2"),
+//				},
 //				AccountSpecificNamespaceRules: pulumi.Map{
 //					"auto_scaling": pulumi.Any(false),
 //					"opsworks":     pulumi.Any(false),
@@ -39,14 +47,6 @@ import (
 //					pulumi.String("us-east-1"),
 //					pulumi.String("us-west-2"),
 //				},
-//				FilterTags: pulumi.StringArray{
-//					pulumi.String("key:value"),
-//				},
-//				HostTags: pulumi.StringArray{
-//					pulumi.String("key:value"),
-//					pulumi.String("key2:value2"),
-//				},
-//				RoleName: pulumi.String("DatadogAWSIntegrationRole"),
 //			})
 //			if err != nil {
 //				return err

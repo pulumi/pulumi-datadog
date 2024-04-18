@@ -17,11 +17,11 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const adefaultrule = new datadog.SecurityMonitoringDefaultRule("adefaultrule", {
- *     cases: [{
- *         notifications: ["@me"],
- *         status: "high",
- *     }],
  *     enabled: true,
+ *     cases: [{
+ *         status: "high",
+ *         notifications: ["@me"],
+ *     }],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

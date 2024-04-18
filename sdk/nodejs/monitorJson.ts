@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const monitorJson = new datadog.MonitorJson("monitorJson", {monitor: `{
+ * const monitorJson = new datadog.MonitorJson("monitor_json", {monitor: `{
  *     "name": "Example monitor - service check",
  *     "type": "service check",
  *     "query": "\\"ntp.in_sync\\".by(\\"*\\").last(2).count_by_status()",

@@ -32,6 +32,7 @@ namespace Pulumi.Datadog
     ///     var foo = new Datadog.Powerpack("foo", new()
     ///     {
     ///         Description = "Created using the Datadog provider in terraform",
+    ///         LiveSpan = "4h",
     ///         Layout = new Datadog.Inputs.PowerpackLayoutArgs
     ///         {
     ///             Height = 10,
@@ -39,7 +40,6 @@ namespace Pulumi.Datadog
     ///             X = 1,
     ///             Y = 0,
     ///         },
-    ///         LiveSpan = "4h",
     ///         TemplateVariables = new[]
     ///         {
     ///             new Datadog.Inputs.PowerpackTemplateVariableArgs
@@ -57,11 +57,11 @@ namespace Pulumi.Datadog
     ///             {
     ///                 EventStreamDefinition = new Datadog.Inputs.PowerpackWidgetEventStreamDefinitionArgs
     ///                 {
-    ///                     EventSize = "l",
     ///                     Query = "*",
+    ///                     EventSize = "l",
     ///                     Title = "Widget Title",
-    ///                     TitleAlign = "right",
     ///                     TitleSize = "16",
+    ///                     TitleAlign = "right",
     ///                 },
     ///             },
     ///         },

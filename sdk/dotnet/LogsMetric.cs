@@ -23,8 +23,9 @@ namespace Pulumi.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testingLogsMetric = new Datadog.LogsMetric("testingLogsMetric", new()
+    ///     var testingLogsMetric = new Datadog.LogsMetric("testing_logs_metric", new()
     ///     {
+    ///         Name = "testing.logs.metric",
     ///         Compute = new Datadog.Inputs.LogsMetricComputeArgs
     ///         {
     ///             AggregationType = "distribution",
@@ -47,7 +48,6 @@ namespace Pulumi.Datadog
     ///                 TagName = "version",
     ///             },
     ///         },
-    ///         Name = "testing.logs.metric",
     ///     });
     /// 
     /// });

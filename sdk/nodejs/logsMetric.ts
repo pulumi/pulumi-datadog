@@ -16,7 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testingLogsMetric = new datadog.LogsMetric("testingLogsMetric", {
+ * const testingLogsMetric = new datadog.LogsMetric("testing_logs_metric", {
+ *     name: "testing.logs.metric",
  *     compute: {
  *         aggregationType: "distribution",
  *         path: "@duration",
@@ -34,7 +35,6 @@ import * as utilities from "./utilities";
  *             tagName: "version",
  *         },
  *     ],
- *     name: "testing.logs.metric",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

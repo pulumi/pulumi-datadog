@@ -37,13 +37,13 @@ import (
 //			}
 //			_, err = datadog.NewPowerpack(ctx, "foo", &datadog.PowerpackArgs{
 //				Description: pulumi.String("Created using the Datadog provider in terraform"),
+//				LiveSpan:    pulumi.String("4h"),
 //				Layout: &datadog.PowerpackLayoutArgs{
 //					Height: pulumi.Int(10),
 //					Width:  pulumi.Int(3),
 //					X:      pulumi.Int(1),
 //					Y:      pulumi.Int(0),
 //				},
-//				LiveSpan: pulumi.String("4h"),
 //				TemplateVariables: datadog.PowerpackTemplateVariableArray{
 //					&datadog.PowerpackTemplateVariableArgs{
 //						Defaults: pulumi.StringArray{
@@ -55,11 +55,11 @@ import (
 //				Widgets: datadog.PowerpackWidgetArray{
 //					&datadog.PowerpackWidgetArgs{
 //						EventStreamDefinition: &datadog.PowerpackWidgetEventStreamDefinitionArgs{
-//							EventSize:  pulumi.String("l"),
 //							Query:      pulumi.String("*"),
+//							EventSize:  pulumi.String("l"),
 //							Title:      pulumi.String("Widget Title"),
-//							TitleAlign: pulumi.String("right"),
 //							TitleSize:  pulumi.String("16"),
+//							TitleAlign: pulumi.String("right"),
 //						},
 //					},
 //				},

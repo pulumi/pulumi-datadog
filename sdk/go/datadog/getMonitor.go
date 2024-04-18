@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.LookupMonitor(ctx, &datadog.LookupMonitorArgs{
+//				NameFilter: pulumi.StringRef("My awesome monitor"),
 //				MonitorTagsFilters: []string{
 //					"foo:bar",
 //				},
-//				NameFilter: pulumi.StringRef("My awesome monitor"),
 //			}, nil)
 //			if err != nil {
 //				return err

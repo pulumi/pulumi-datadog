@@ -33,8 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.DowntimeSchedule;
  * import com.pulumi.datadog.DowntimeScheduleArgs;
- * import com.pulumi.datadog.inputs.DowntimeScheduleMonitorIdentifierArgs;
- * import com.pulumi.datadog.inputs.DowntimeScheduleRecurringScheduleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,14 +46,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new downtime_schedule resource
  *         var downtimeScheduleExample = new DowntimeSchedule(&#34;downtimeScheduleExample&#34;, DowntimeScheduleArgs.builder()        
- *             .displayTimezone(&#34;America/New_York&#34;)
- *             .message(&#34;Message about the downtime&#34;)
+ *             .scope(&#34;env:us9-prod7 AND team:test123&#34;)
  *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
- *                 .monitor_tags(                
+ *                 .monitorTags(                
  *                     &#34;test:123&#34;,
  *                     &#34;data:test&#34;)
  *                 .build())
+ *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
+ *                 .recurrences(DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
+ *                     .duration(&#34;1h&#34;)
+ *                     .rrule(&#34;FREQ=DAILY;INTERVAL=1&#34;)
+ *                     .start(&#34;2050-01-02T03:04:05&#34;)
+ *                     .build())
+ *                 .timezone(&#34;America/New_York&#34;)
+ *                 .build())
+ *             .displayTimezone(&#34;America/New_York&#34;)
+ *             .message(&#34;Message about the downtime&#34;)
  *             .muteFirstRecoveryNotification(true)
  *             .notifyEndStates(            
  *                 &#34;alert&#34;,
@@ -63,11 +71,6 @@ import javax.annotation.Nullable;
  *             .notifyEndTypes(            
  *                 &#34;canceled&#34;,
  *                 &#34;expired&#34;)
- *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
- *                 .recurrence(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .timezone(&#34;America/New_York&#34;)
- *                 .build())
- *             .scope(&#34;env:us9-prod7 AND team:test123&#34;)
  *             .build());
  * 
  *     }

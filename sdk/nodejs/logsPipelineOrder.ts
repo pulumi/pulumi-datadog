@@ -14,11 +14,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const samplePipelineOrder = new datadog.LogsPipelineOrder("samplePipelineOrder", {
+ * const samplePipelineOrder = new datadog.LogsPipelineOrder("sample_pipeline_order", {
  *     name: "sample_pipeline_order",
  *     pipelines: [
- *         datadog_logs_custom_pipeline.sample_pipeline.id,
- *         datadog_logs_integration_pipeline.python.id,
+ *         samplePipeline.id,
+ *         python.id,
  *     ],
  * });
  * ```

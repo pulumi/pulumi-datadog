@@ -27,12 +27,12 @@ namespace Pulumi.Datadog
         /// {
         ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
-        ///         DefaultOnlyFilter = true,
         ///         NameFilter = "attack",
         ///         TagsFilters = new[]
         ///         {
         ///             "foo:bar",
         ///         },
+        ///         DefaultOnlyFilter = true,
         ///     });
         /// 
         /// });
@@ -58,12 +58,12 @@ namespace Pulumi.Datadog
         /// {
         ///     var test = Datadog.GetSecurityMonitoringRules.Invoke(new()
         ///     {
-        ///         DefaultOnlyFilter = true,
         ///         NameFilter = "attack",
         ///         TagsFilters = new[]
         ///         {
         ///             "foo:bar",
         ///         },
+        ///         DefaultOnlyFilter = true,
         ///     });
         /// 
         /// });

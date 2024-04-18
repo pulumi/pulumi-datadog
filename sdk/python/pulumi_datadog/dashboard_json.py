@@ -162,7 +162,7 @@ class DashboardJson(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Example Dashboard JSON
-        dashboard_json = datadog.DashboardJson("dashboardJson", dashboard=\"\"\"{
+        dashboard_json = datadog.DashboardJson("dashboard_json", dashboard=\"\"\"{
            "title":"Ordered Layout Dashboard",
            "description":"Created using the Datadog provider in Pulumi",
            "widgets":[
@@ -647,7 +647,6 @@ class DashboardJson(pulumi.CustomResource):
               }
            ]
         }
-
         \"\"\")
         ```
         <!--End PulumiCodeChooser -->
@@ -682,7 +681,7 @@ class DashboardJson(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Example Dashboard JSON
-        dashboard_json = datadog.DashboardJson("dashboardJson", dashboard=\"\"\"{
+        dashboard_json = datadog.DashboardJson("dashboard_json", dashboard=\"\"\"{
            "title":"Ordered Layout Dashboard",
            "description":"Created using the Datadog provider in Pulumi",
            "widgets":[
@@ -1167,7 +1166,6 @@ class DashboardJson(pulumi.CustomResource):
               }
            ]
         }
-
         \"\"\")
         ```
         <!--End PulumiCodeChooser -->

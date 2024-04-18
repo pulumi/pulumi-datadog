@@ -172,13 +172,13 @@ class TeamLink(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
         # Create new team_link resource
-        foo_team_link = datadog.TeamLink("fooTeamLink",
-            team_id=foo_team.id,
+        foo_team_link = datadog.TeamLink("foo",
+            team_id=foo.id,
             label="Link label",
             position="Example link",
             url="https://example.com")
@@ -214,13 +214,13 @@ class TeamLink(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        foo_team = datadog.Team("fooTeam",
+        foo = datadog.Team("foo",
             description="Example team",
             handle="example-team-updated",
             name="Example Team-updated")
         # Create new team_link resource
-        foo_team_link = datadog.TeamLink("fooTeamLink",
-            team_id=foo_team.id,
+        foo_team_link = datadog.TeamLink("foo",
+            team_id=foo.id,
             label="Link label",
             position="Example link",
             url="https://example.com")

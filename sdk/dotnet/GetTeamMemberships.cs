@@ -27,8 +27,8 @@ namespace Pulumi.Datadog
         /// {
         ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
         ///     {
-        ///         FilterKeyword = "foo@example.com",
         ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
+        ///         FilterKeyword = "foo@example.com",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Datadog
         /// {
         ///     var foo = Datadog.GetTeamMemberships.Invoke(new()
         ///     {
-        ///         FilterKeyword = "foo@example.com",
         ///         TeamId = "e6723c40-edb1-11ed-b816-da7ad0900002",
+        ///         FilterKeyword = "foo@example.com",
         ///     });
         /// 
         /// });

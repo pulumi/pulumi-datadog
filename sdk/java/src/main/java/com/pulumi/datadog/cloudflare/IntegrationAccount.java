@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create new integration_cloudflare_account resource
  *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
  *             .apiKey(&#34;12345678910abc&#34;)
  *             .email(&#34;test-email@example.com&#34;)

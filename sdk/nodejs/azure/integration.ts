@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  *
  * // Create a new Datadog - Microsoft Azure integration
  * const sandbox = new datadog.azure.Integration("sandbox", {
- *     appServicePlanFilters: "examplefilter:true,example:another",
- *     automute: true,
+ *     tenantName: "<azure_tenant_name>",
  *     clientId: "<azure_client_id>",
  *     clientSecret: "<azure_client_secret_key>",
+ *     hostFilters: "examplefilter:true,example:true",
+ *     appServicePlanFilters: "examplefilter:true,example:another",
  *     containerAppFilters: "examplefilter:true,example:one_more",
+ *     automute: true,
  *     cspmEnabled: true,
  *     customMetricsEnabled: false,
- *     hostFilters: "examplefilter:true,example:true",
- *     tenantName: "<azure_tenant_name>",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -305,7 +305,7 @@ class SloCorrection(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-        example_slo = datadog.ServiceLevelObjective("exampleSlo",
+        example_slo = datadog.ServiceLevelObjective("example_slo",
             name="example slo",
             type="metric",
             description="some updated description about example_slo SLO",
@@ -319,14 +319,14 @@ class SloCorrection(pulumi.CustomResource):
                 warning=99.8,
             )],
             tags=["foo:bar"])
-        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
+        example_slo_correction = datadog.SloCorrection("example_slo_correction",
             category="Scheduled Maintenance",
             description="correction example",
             start=1735707000,
             end=1735718600,
             slo_id=example_slo.id,
             timezone="UTC")
-        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+        example_slo_correction_with_recurrence = datadog.SloCorrection("example_slo_correction_with_recurrence",
             category="Scheduled Maintenance",
             description="correction example with recurrence",
             start=1735707000,
@@ -371,7 +371,7 @@ class SloCorrection(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-        example_slo = datadog.ServiceLevelObjective("exampleSlo",
+        example_slo = datadog.ServiceLevelObjective("example_slo",
             name="example slo",
             type="metric",
             description="some updated description about example_slo SLO",
@@ -385,14 +385,14 @@ class SloCorrection(pulumi.CustomResource):
                 warning=99.8,
             )],
             tags=["foo:bar"])
-        example_slo_correction = datadog.SloCorrection("exampleSloCorrection",
+        example_slo_correction = datadog.SloCorrection("example_slo_correction",
             category="Scheduled Maintenance",
             description="correction example",
             start=1735707000,
             end=1735718600,
             slo_id=example_slo.id,
             timezone="UTC")
-        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+        example_slo_correction_with_recurrence = datadog.SloCorrection("example_slo_correction_with_recurrence",
             category="Scheduled Maintenance",
             description="correction example with recurrence",
             start=1735707000,

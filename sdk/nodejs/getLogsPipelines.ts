@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Gets all pipelines
  * const pipelines = datadog.getLogsPipelines({});
  * // Using data source to set pipeline order
  * const lpo = new datadog.LogsPipelineOrder("lpo", {
@@ -68,6 +69,7 @@ export interface GetLogsPipelinesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Gets all pipelines
  * const pipelines = datadog.getLogsPipelines({});
  * // Using data source to set pipeline order
  * const lpo = new datadog.LogsPipelineOrder("lpo", {

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := datadog.NewTeam(ctx, "fooTeam", &datadog.TeamArgs{
+//			foo, err := datadog.NewTeam(ctx, "foo", &datadog.TeamArgs{
 //				Description: pulumi.String("Example team"),
 //				Handle:      pulumi.String("example-team-updated"),
 //				Name:        pulumi.String("Example Team-updated"),
@@ -37,8 +37,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewTeamLink(ctx, "fooTeamLink", &datadog.TeamLinkArgs{
-//				TeamId:   fooTeam.ID(),
+//			// Create new team_link resource
+//			_, err = datadog.NewTeamLink(ctx, "foo", &datadog.TeamLinkArgs{
+//				TeamId:   foo.ID(),
 //				Label:    pulumi.String("Link label"),
 //				Position: pulumi.Int("Example link"),
 //				Url:      pulumi.String("https://example.com"),

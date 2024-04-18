@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  *         var samplePipelineOrder = new LogsPipelineOrder(&#34;samplePipelineOrder&#34;, LogsPipelineOrderArgs.builder()        
  *             .name(&#34;sample_pipeline_order&#34;)
  *             .pipelines(            
- *                 datadog_logs_custom_pipeline.sample_pipeline().id(),
- *                 datadog_logs_integration_pipeline.python().id())
+ *                 samplePipeline.id(),
+ *                 python.id())
  *             .build());
  * 
  *     }

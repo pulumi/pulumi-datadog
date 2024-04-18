@@ -182,7 +182,7 @@ def get_service_level_objective(id: Optional[str] = None,
 
     test = datadog.get_service_level_objective(name_query="My test SLO",
         tags_query="foo:bar")
-    api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
+    api_slo = datadog.get_service_level_objective(id=api["outputs"]["slo"])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -232,7 +232,7 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
 
     test = datadog.get_service_level_objective(name_query="My test SLO",
         tags_query="foo:bar")
-    api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
+    api_slo = datadog.get_service_level_objective(id=api["outputs"]["slo"])
     ```
     <!--End PulumiCodeChooser -->
 

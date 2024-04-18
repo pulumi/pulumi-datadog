@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
-//			exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
+//			exampleSlo, err := datadog.NewServiceLevelObjective(ctx, "example_slo", &datadog.ServiceLevelObjectiveArgs{
 //				Name:        pulumi.String("example slo"),
 //				Type:        pulumi.String("metric"),
 //				Description: pulumi.String("some updated description about example_slo SLO"),
@@ -52,7 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrection", &datadog.SloCorrectionArgs{
+//			_, err = datadog.NewSloCorrection(ctx, "example_slo_correction", &datadog.SloCorrectionArgs{
 //				Category:    pulumi.String("Scheduled Maintenance"),
 //				Description: pulumi.String("correction example"),
 //				Start:       pulumi.Int(1735707000),
@@ -63,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrectionWithRecurrence", &datadog.SloCorrectionArgs{
+//			_, err = datadog.NewSloCorrection(ctx, "example_slo_correction_with_recurrence", &datadog.SloCorrectionArgs{
 //				Category:    pulumi.String("Scheduled Maintenance"),
 //				Description: pulumi.String("correction example with recurrence"),
 //				Start:       pulumi.Int(1735707000),

@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getSecurityMonitoringRules({
- *     defaultOnlyFilter: true,
  *     nameFilter: "attack",
  *     tagsFilters: ["foo:bar"],
+ *     defaultOnlyFilter: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -102,9 +102,9 @@ export interface GetSecurityMonitoringRulesResult {
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getSecurityMonitoringRules({
- *     defaultOnlyFilter: true,
  *     nameFilter: "attack",
  *     tagsFilters: ["foo:bar"],
+ *     defaultOnlyFilter: true,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

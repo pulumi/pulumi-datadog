@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Service Definition with v2.2 Schema Definition
-//			_, err := datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV22", &datadog.ServiceDefinitionYamlArgs{
+//			_, err := datadog.NewServiceDefinitionYaml(ctx, "service_definition_v2_2", &datadog.ServiceDefinitionYamlArgs{
 //				ServiceDefinition: pulumi.String(`schema-version: v2.2
 //
 // dd-service: shopping-cart
@@ -94,7 +94,7 @@ import (
 //		return err
 //	}
 //	// Service Definition with v2.1 Schema Definition
-//	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV21", &datadog.ServiceDefinitionYamlArgs{
+//	_, err = datadog.NewServiceDefinitionYaml(ctx, "service_definition_v2_1", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`schema-version: v2.1
 //
 // dd-service: shopping-cart
@@ -149,7 +149,7 @@ import (
 //		return err
 //	}
 //	// Service Definition with v2 Schema Definition
-//	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionV2", &datadog.ServiceDefinitionYamlArgs{
+//	_, err = datadog.NewServiceDefinitionYaml(ctx, "service_definition_v2", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`schema-version: v2
 //
 // dd-service: shopping-cart
@@ -200,7 +200,7 @@ import (
 //		return err
 //	}
 //	// Service Definition with backstage.io Schema
-//	_, err = datadog.NewServiceDefinitionYaml(ctx, "serviceDefinitionBackstage", &datadog.ServiceDefinitionYamlArgs{
+//	_, err = datadog.NewServiceDefinitionYaml(ctx, "service_definition_backstage", &datadog.ServiceDefinitionYamlArgs{
 //		ServiceDefinition: pulumi.String(`apiVersion: backstage.io/v1alpha1
 //
 // kind: Component

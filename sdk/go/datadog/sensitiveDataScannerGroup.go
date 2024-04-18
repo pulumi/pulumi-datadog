@@ -29,13 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create new sensitive_data_scanner_group resource
 //			_, err := datadog.NewSensitiveDataScannerGroup(ctx, "mygroup", &datadog.SensitiveDataScannerGroupArgs{
+//				Name:        pulumi.String("My new scanning group"),
 //				Description: pulumi.String("A relevant description"),
 //				Filter: &datadog.SensitiveDataScannerGroupFilterArgs{
 //					Query: pulumi.String("service:my-service"),
 //				},
 //				IsEnabled: pulumi.Bool(true),
-//				Name:      pulumi.String("My new scanning group"),
 //				ProductLists: pulumi.StringArray{
 //					pulumi.String("apm"),
 //				},

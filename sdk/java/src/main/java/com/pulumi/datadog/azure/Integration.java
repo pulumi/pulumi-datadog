@@ -44,15 +44,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Microsoft Azure integration
  *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
- *             .appServicePlanFilters(&#34;examplefilter:true,example:another&#34;)
- *             .automute(true)
+ *             .tenantName(&#34;&lt;azure_tenant_name&gt;&#34;)
  *             .clientId(&#34;&lt;azure_client_id&gt;&#34;)
  *             .clientSecret(&#34;&lt;azure_client_secret_key&gt;&#34;)
+ *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
+ *             .appServicePlanFilters(&#34;examplefilter:true,example:another&#34;)
  *             .containerAppFilters(&#34;examplefilter:true,example:one_more&#34;)
+ *             .automute(true)
  *             .cspmEnabled(true)
  *             .customMetricsEnabled(false)
- *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
- *             .tenantName(&#34;&lt;azure_tenant_name&gt;&#34;)
  *             .build());
  * 
  *     }

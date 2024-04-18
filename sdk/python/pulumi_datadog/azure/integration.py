@@ -376,15 +376,15 @@ class Integration(pulumi.CustomResource):
 
         # Create a new Datadog - Microsoft Azure integration
         sandbox = datadog.azure.Integration("sandbox",
-            app_service_plan_filters="examplefilter:true,example:another",
-            automute=True,
+            tenant_name="<azure_tenant_name>",
             client_id="<azure_client_id>",
             client_secret="<azure_client_secret_key>",
-            container_app_filters="examplefilter:true,example:one_more",
-            cspm_enabled=True,
-            custom_metrics_enabled=False,
             host_filters="examplefilter:true,example:true",
-            tenant_name="<azure_tenant_name>")
+            app_service_plan_filters="examplefilter:true,example:another",
+            container_app_filters="examplefilter:true,example:one_more",
+            automute=True,
+            cspm_enabled=True,
+            custom_metrics_enabled=False)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -428,15 +428,15 @@ class Integration(pulumi.CustomResource):
 
         # Create a new Datadog - Microsoft Azure integration
         sandbox = datadog.azure.Integration("sandbox",
-            app_service_plan_filters="examplefilter:true,example:another",
-            automute=True,
+            tenant_name="<azure_tenant_name>",
             client_id="<azure_client_id>",
             client_secret="<azure_client_secret_key>",
-            container_app_filters="examplefilter:true,example:one_more",
-            cspm_enabled=True,
-            custom_metrics_enabled=False,
             host_filters="examplefilter:true,example:true",
-            tenant_name="<azure_tenant_name>")
+            app_service_plan_filters="examplefilter:true,example:another",
+            container_app_filters="examplefilter:true,example:one_more",
+            automute=True,
+            cspm_enabled=True,
+            custom_metrics_enabled=False)
         ```
         <!--End PulumiCodeChooser -->
 

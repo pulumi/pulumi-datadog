@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create new integration_cloudflare_account resource
  * const foo = new datadog.cloudflare.IntegrationAccount("foo", {
  *     apiKey: "12345678910abc",
  *     email: "test-email@example.com",

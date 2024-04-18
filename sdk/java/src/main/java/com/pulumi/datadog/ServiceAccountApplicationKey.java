@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create new service_account_application_key resource
  *         var foo = new ServiceAccountApplicationKey(&#34;foo&#34;, ServiceAccountApplicationKeyArgs.builder()        
- *             .name(&#34;Application key for managing dashboards&#34;)
  *             .serviceAccountId(&#34;00000000-0000-1234-0000-000000000000&#34;)
+ *             .name(&#34;Application key for managing dashboards&#34;)
  *             .build());
  * 
  *     }
