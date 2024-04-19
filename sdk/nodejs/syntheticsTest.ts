@@ -321,16 +321,16 @@ import * as utilities from "./utilities";
  * package helloworld;
  * // The greeting service definition.
  * service Greeter {
- * 	// Sends a greeting
- * 	rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * \x09// Sends a greeting
+ * \x09rpc SayHello (HelloRequest) returns (HelloReply) {}
  * }
  * // The request message containing the user's name.
  * message HelloRequest {
- * 	string name = 1;
+ * \x09string name = 1;
  * }
  * // The response message containing the greetings
  * message HelloReply {
- * 	string message = 1;
+ * \x09string message = 1;
  * }
  * `,
  *     },

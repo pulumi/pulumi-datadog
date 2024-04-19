@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.PagerDuty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             pd, 
+    ///             pd,
     ///         },
     ///     });
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Datadog.PagerDuty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             pd, 
+    ///             pd,
     ///         },
     ///     });
     /// 

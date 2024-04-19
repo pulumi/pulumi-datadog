@@ -95,8 +95,8 @@ namespace Pulumi.Datadog
     ///     {
     ///         DependsOn =
     ///         {
-    ///             screen, 
-    ///             time, 
+    ///             screen,
+    ///             time,
     ///         },
     ///     });
     /// 
