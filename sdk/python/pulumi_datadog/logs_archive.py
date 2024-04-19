@@ -302,7 +302,6 @@ class LogsArchive(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -317,7 +316,6 @@ class LogsArchive(pulumi.CustomResource):
                 role_name="my-role-name",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,7 +345,6 @@ class LogsArchive(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -362,7 +359,6 @@ class LogsArchive(pulumi.CustomResource):
                 role_name="my-role-name",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

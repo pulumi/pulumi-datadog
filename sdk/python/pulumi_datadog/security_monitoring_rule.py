@@ -434,7 +434,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -469,7 +468,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             ),
             tags=["type:dos"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -505,7 +503,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -540,7 +537,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             ),
             tags=["type:dos"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

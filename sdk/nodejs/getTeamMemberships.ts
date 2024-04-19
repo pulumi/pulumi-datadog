@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     filterKeyword: "foo@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeamMemberships(args: GetTeamMembershipsArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamMembershipsResult> {
 
@@ -78,7 +76,6 @@ export interface GetTeamMembershipsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -88,7 +85,6 @@ export interface GetTeamMembershipsResult {
  *     filterKeyword: "foo@example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeamMembershipsOutput(args: GetTeamMembershipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembershipsResult> {
     return pulumi.output(args).apply((a: any) => getTeamMemberships(a, opts))

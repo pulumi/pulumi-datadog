@@ -104,7 +104,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -114,7 +113,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -142,7 +140,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -152,7 +149,6 @@ class IntegrationLambdaArn(pulumi.CustomResource):
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

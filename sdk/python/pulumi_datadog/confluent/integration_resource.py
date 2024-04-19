@@ -201,7 +201,6 @@ class IntegrationResource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -223,7 +222,6 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -250,7 +248,6 @@ class IntegrationResource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -272,7 +269,6 @@ class IntegrationResource(pulumi.CustomResource):
                 "mytag2:myvalue",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

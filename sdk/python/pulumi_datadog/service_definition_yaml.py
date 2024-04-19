@@ -70,7 +70,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -225,7 +224,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
           system: retail
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -403,7 +400,6 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
           system: retail
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

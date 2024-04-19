@@ -127,7 +127,6 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -136,7 +135,6 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
         tags_filters=["foo:bar"],
         default_only_filter=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only_filter: Limit the search to default rules
@@ -173,7 +171,6 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -182,7 +179,6 @@ def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.In
         tags_filters=["foo:bar"],
         default_only_filter=True)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only_filter: Limit the search to default rules

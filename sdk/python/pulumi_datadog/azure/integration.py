@@ -369,7 +369,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -386,7 +385,6 @@ class Integration(pulumi.CustomResource):
             cspm_enabled=True,
             custom_metrics_enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -421,7 +419,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -438,7 +435,6 @@ class Integration(pulumi.CustomResource):
             cspm_enabled=True,
             custom_metrics_enabled=False)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

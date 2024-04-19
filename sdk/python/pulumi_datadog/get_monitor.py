@@ -447,7 +447,6 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -455,7 +454,6 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     test = datadog.get_monitor(name_filter="My awesome monitor",
         monitor_tags_filters=["foo:bar"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
@@ -516,7 +514,6 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -524,7 +521,6 @@ def get_monitor_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequ
     test = datadog.get_monitor(name_filter="My awesome monitor",
         monitor_tags_filters=["foo:bar"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.

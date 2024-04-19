@@ -76,14 +76,12 @@ def get_roles(filter: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_roles(filter="Datadog")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter all roles by the given string.
@@ -107,14 +105,12 @@ def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     foo = datadog.get_roles(filter="Datadog")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str filter: Filter all roles by the given string.

@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const foo = datadog.getApmRetentionFiltersOrder({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApmRetentionFiltersOrder(opts?: pulumi.InvokeOptions): Promise<GetApmRetentionFiltersOrderResult> {
 
@@ -43,14 +41,12 @@ export interface GetApmRetentionFiltersOrderResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const foo = datadog.getApmRetentionFiltersOrder({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApmRetentionFiltersOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetApmRetentionFiltersOrderResult> {
     return pulumi.output(getApmRetentionFiltersOrder(opts))

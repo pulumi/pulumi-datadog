@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "foo-application",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationKey(args?: GetApplicationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationKeyResult> {
     args = args || {};
@@ -75,7 +73,6 @@ export interface GetApplicationKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -84,7 +81,6 @@ export interface GetApplicationKeyResult {
  *     name: "foo-application",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
     return pulumi.output(args).apply((a: any) => getApplicationKey(a, opts))

@@ -135,7 +135,6 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -151,7 +150,6 @@ class TeamMembership(pulumi.CustomResource):
             user_id=foo_user.id,
             role="admin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class TeamMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -194,7 +191,6 @@ class TeamMembership(pulumi.CustomResource):
             user_id=foo_user.id,
             role="admin")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

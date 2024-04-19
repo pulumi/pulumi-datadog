@@ -335,7 +335,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -349,7 +348,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             ],
             value="variable-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -382,7 +380,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -396,7 +393,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             ],
             value="variable-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     value: "variable-value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

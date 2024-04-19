@@ -119,7 +119,6 @@ class RumApplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -128,7 +127,6 @@ class RumApplication(pulumi.CustomResource):
             name="my-application",
             type="browser")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -152,7 +150,6 @@ class RumApplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -161,7 +158,6 @@ class RumApplication(pulumi.CustomResource):
             name="my-application",
             type="browser")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
