@@ -48,14 +48,14 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
-     * The size of the text in the widget.
+     * The size of the text.
      * 
      */
     @Import(name="fontSize")
     private @Nullable Output<String> fontSize;
 
     /**
-     * @return The size of the text in the widget.
+     * @return The size of the text.
      * 
      */
     public Optional<Output<String>> fontSize() {
@@ -93,14 +93,14 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
-     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     @Import(name="textAlign")
     private @Nullable Output<String> textAlign;
 
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<Output<String>> textAlign() {
@@ -227,7 +227,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param fontSize The size of the text in the widget.
+         * @param fontSize The size of the text.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param fontSize The size of the text in the widget.
+         * @param fontSize The size of the text.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * @param textAlign The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class PowerpackWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * @param textAlign The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -77,13 +75,13 @@ namespace Pulumi.Datadog
         public Output<bool> IsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Exclusion filter name.
+        /// The name of the security filter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
+        /// The query of the security filter.
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
@@ -165,13 +163,13 @@ namespace Pulumi.Datadog
         public Input<bool> IsEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Exclusion filter name.
+        /// The name of the security filter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
+        /// The query of the security filter.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -209,13 +207,13 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Exclusion filter name.
+        /// The name of the security filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Exclusion filter query. Logs that match this query are excluded from the security filter.
+        /// The query of the security filter.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }

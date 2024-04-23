@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetToplistDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.PowerpackWidgetToplistDefinitionRequestFormula> Formulas;
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackWidgetToplistDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
-        /// Styling options for widget formulas.
+        /// Define request for the widget's style.
         /// </summary>
         public readonly Outputs.PowerpackWidgetToplistDefinitionRequestStyle? Style;
 

@@ -18,14 +18,14 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
     public static final DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestArgs();
 
     /**
-     * Column properties used by the front end for display.
+     * Widget columns.
      * 
      */
     @Import(name="columns", required=true)
     private Output<List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>> columns;
 
     /**
-     * @return Column properties used by the front end for display.
+     * @return Widget columns.
      * 
      */
     public Output<List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>> columns() {
@@ -89,7 +89,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionReque
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 

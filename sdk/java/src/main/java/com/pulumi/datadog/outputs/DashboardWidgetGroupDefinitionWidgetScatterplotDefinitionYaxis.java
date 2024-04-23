@@ -18,7 +18,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxi
      */
     private @Nullable Boolean includeZero;
     /**
-     * @return The label for the custom link URL.
+     * @return The label of the axis to display on the graph.
      * 
      */
     private @Nullable String label;
@@ -47,7 +47,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxi
         return Optional.ofNullable(this.includeZero);
     }
     /**
-     * @return The label for the custom link URL.
+     * @return The label of the axis to display on the graph.
      * 
      */
     public Optional<String> label() {

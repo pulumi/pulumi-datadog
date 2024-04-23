@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,7 +76,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -99,11 +97,11 @@ type SecurityMonitoringRule struct {
 	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message pulumi.StringOutput `pulumi:"message"`
-	// Name of the case.
+	// The name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Options on rules.
 	Options SecurityMonitoringRuleOptionsPtrOutput `pulumi:"options"`
-	// Query for selecting logs to apply the filtering action.
+	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayOutput `pulumi:"signalQueries"`
@@ -161,11 +159,11 @@ type securityMonitoringRuleState struct {
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message *string `pulumi:"message"`
-	// Name of the case.
+	// The name of the rule.
 	Name *string `pulumi:"name"`
 	// Options on rules.
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
-	// Query for selecting logs to apply the filtering action.
+	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
@@ -188,11 +186,11 @@ type SecurityMonitoringRuleState struct {
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringPtrInput
-	// Name of the case.
+	// The name of the rule.
 	Name pulumi.StringPtrInput
 	// Options on rules.
 	Options SecurityMonitoringRuleOptionsPtrInput
-	// Query for selecting logs to apply the filtering action.
+	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
@@ -219,11 +217,11 @@ type securityMonitoringRuleArgs struct {
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message string `pulumi:"message"`
-	// Name of the case.
+	// The name of the rule.
 	Name string `pulumi:"name"`
 	// Options on rules.
 	Options *SecurityMonitoringRuleOptions `pulumi:"options"`
-	// Query for selecting logs to apply the filtering action.
+	// Queries for selecting logs which are part of the rule.
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries []SecurityMonitoringRuleSignalQuery `pulumi:"signalQueries"`
@@ -247,11 +245,11 @@ type SecurityMonitoringRuleArgs struct {
 	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringInput
-	// Name of the case.
+	// The name of the rule.
 	Name pulumi.StringInput
 	// Options on rules.
 	Options SecurityMonitoringRuleOptionsPtrInput
-	// Query for selecting logs to apply the filtering action.
+	// Queries for selecting logs which are part of the rule.
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Queries for selecting logs which are part of the rule.
 	SignalQueries SecurityMonitoringRuleSignalQueryArrayInput
@@ -375,7 +373,7 @@ func (o SecurityMonitoringRuleOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }
 
-// Name of the case.
+// The name of the rule.
 func (o SecurityMonitoringRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -385,7 +383,7 @@ func (o SecurityMonitoringRuleOutput) Options() SecurityMonitoringRuleOptionsPtr
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleOptionsPtrOutput { return v.Options }).(SecurityMonitoringRuleOptionsPtrOutput)
 }
 
-// Query for selecting logs to apply the filtering action.
+// Queries for selecting logs which are part of the rule.
 func (o SecurityMonitoringRuleOutput) Queries() SecurityMonitoringRuleQueryArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleQueryArrayOutput { return v.Queries }).(SecurityMonitoringRuleQueryArrayOutput)
 }

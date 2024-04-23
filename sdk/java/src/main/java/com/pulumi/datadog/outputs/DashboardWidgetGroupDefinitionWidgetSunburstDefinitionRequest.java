@@ -65,7 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle style;
@@ -134,7 +134,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequest
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle> style() {

@@ -134,7 +134,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -145,7 +144,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
             namespace="sqs",
             tag_filter_str="key:value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,7 +170,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -183,7 +180,6 @@ class IntegrationTagFilter(pulumi.CustomResource):
             namespace="sqs",
             tag_filter_str="key:value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

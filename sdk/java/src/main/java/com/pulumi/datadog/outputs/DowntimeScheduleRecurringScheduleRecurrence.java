@@ -23,7 +23,7 @@ public final class DowntimeScheduleRecurringScheduleRecurrence {
      */
     private String rrule;
     /**
-     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * @return ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      * 
      */
     private @Nullable String start;
@@ -44,7 +44,7 @@ public final class DowntimeScheduleRecurringScheduleRecurrence {
         return this.rrule;
     }
     /**
-     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * @return ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      * 
      */
     public Optional<String> start() {

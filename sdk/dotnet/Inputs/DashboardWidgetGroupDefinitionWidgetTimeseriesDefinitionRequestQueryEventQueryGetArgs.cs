@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByGetArgs>? _groupBies;
 
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Group by options.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByGetArgs> GroupBies
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

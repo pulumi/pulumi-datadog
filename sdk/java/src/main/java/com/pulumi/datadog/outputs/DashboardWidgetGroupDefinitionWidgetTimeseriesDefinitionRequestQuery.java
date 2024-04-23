@@ -43,7 +43,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery metricQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery processQuery;
@@ -90,7 +90,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionReque
         return Optional.ofNullable(this.metricQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery> processQuery() {

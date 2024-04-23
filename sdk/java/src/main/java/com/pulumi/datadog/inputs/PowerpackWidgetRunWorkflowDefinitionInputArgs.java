@@ -15,14 +15,14 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
     public static final PowerpackWidgetRunWorkflowDefinitionInputArgs Empty = new PowerpackWidgetRunWorkflowDefinitionInputArgs();
 
     /**
-     * The name of the powerpack template variable.
+     * Name of the workflow input.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return Name of the workflow input.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
     }
 
     /**
-     * A value for the comparator.
+     * Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return A value for the comparator.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name Name of the workflow input.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name Name of the workflow input.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
         }
 
         /**
-         * @param value A value for the comparator.
+         * @param value Dashboard template variable. Can be suffixed with `.value` or `.key`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PowerpackWidgetRunWorkflowDefinitionInputArgs extends com.pul
         }
 
         /**
-         * @param value A value for the comparator.
+         * @param value Dashboard template variable. Can be suffixed with `.value` or `.key`.
          * 
          * @return builder
          * 

@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation method.
+        /// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
         /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
 
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The metric used for sorting group by results.
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// Direction of sort. Valid values are `asc`, `desc`.
         /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }

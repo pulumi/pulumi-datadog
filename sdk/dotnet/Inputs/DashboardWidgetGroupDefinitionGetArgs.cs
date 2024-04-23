@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowTitle { get; set; }
 
         /// <summary>
-        /// The title of the widget.
+        /// The title of the group.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

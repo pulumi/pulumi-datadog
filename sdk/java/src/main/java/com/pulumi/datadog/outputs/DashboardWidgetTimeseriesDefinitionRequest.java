@@ -35,7 +35,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     private @Nullable String displayType;
@@ -82,7 +82,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestStyle style;
@@ -103,7 +103,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         return Optional.ofNullable(this.auditQuery);
     }
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     public Optional<String> displayType() {
@@ -172,7 +172,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestStyle> style() {

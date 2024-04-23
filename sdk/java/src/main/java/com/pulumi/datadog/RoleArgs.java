@@ -20,14 +20,14 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     public static final RoleArgs Empty = new RoleArgs();
 
     /**
-     * Name of the permission.
+     * Name of the role.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the permission.
+     * @return Name of the role.
      * 
      */
     public Output<String> name() {
@@ -91,7 +91,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the permission.
+         * @param name Name of the role.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the permission.
+         * @param name Name of the role.
          * 
          * @return builder
          * 

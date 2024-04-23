@@ -34,14 +34,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
     }
 
     /**
-     * APM environment.
+     * The environment name.
      * 
      */
     @Import(name="env", required=true)
     private Output<String> env;
 
     /**
-     * @return APM environment.
+     * @return The environment name.
      * 
      */
     public Output<String> env() {
@@ -49,14 +49,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
     }
 
     /**
-     * The name of the variable.
+     * The operation name associated with the service.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The operation name associated with the service.
      * 
      */
     public Output<String> name() {
@@ -109,14 +109,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
     }
 
     /**
-     * APM service.
+     * The service name.
      * 
      */
     @Import(name="service", required=true)
     private Output<String> service;
 
     /**
-     * @return APM service.
+     * @return The service name.
      * 
      */
     public Output<String> service() {
@@ -185,7 +185,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param env APM environment.
+         * @param env The environment name.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param env APM environment.
+         * @param env The environment name.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The operation name associated with the service.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The operation name associated with the service.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param service APM service.
+         * @param service The service name.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
         }
 
         /**
-         * @param service APM service.
+         * @param service The service name.
          * 
          * @return builder
          * 

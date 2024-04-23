@@ -19,14 +19,14 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
     public static final LogsCustomPipelineProcessorAttributeRemapperArgs Empty = new LogsCustomPipelineProcessorAttributeRemapperArgs();
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -34,14 +34,14 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
     }
 
     /**
-     * Your pipeline name.
+     * Name of the processor
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +109,14 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
     }
 
     /**
-     * Name of the attribute that contains the result of the arithmetic operation.
+     * Final attribute or tag name to remap the sources.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Final attribute or tag name to remap the sources.
      * 
      */
     public Output<String> target() {
@@ -186,7 +186,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Final attribute or tag name to remap the sources.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class LogsCustomPipelineProcessorAttributeRemapperArgs extends com.
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Final attribute or tag name to remap the sources.
          * 
          * @return builder
          * 

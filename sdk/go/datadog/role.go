@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -66,7 +64,7 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
-	// Name of the permission.
+	// Name of the role.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayOutput `pulumi:"permissions"`
@@ -109,7 +107,7 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
-	// Name of the permission.
+	// Name of the role.
 	Name *string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
@@ -120,7 +118,7 @@ type roleState struct {
 }
 
 type RoleState struct {
-	// Name of the permission.
+	// Name of the role.
 	Name pulumi.StringPtrInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
@@ -135,7 +133,7 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
-	// Name of the permission.
+	// Name of the role.
 	Name string `pulumi:"name"`
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions []RolePermission `pulumi:"permissions"`
@@ -145,7 +143,7 @@ type roleArgs struct {
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
-	// Name of the permission.
+	// Name of the role.
 	Name pulumi.StringInput
 	// Set of objects containing the permission ID and the name of the permissions granted to this role.
 	Permissions RolePermissionArrayInput
@@ -240,7 +238,7 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
-// Name of the permission.
+// Name of the role.
 func (o RoleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +76,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -121,7 +119,7 @@ namespace Pulumi.Datadog
         public Output<string> Message { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the case.
+        /// The name of the rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -133,7 +131,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.SecurityMonitoringRuleOptions?> Options { get; private set; } = null!;
 
         /// <summary>
-        /// Query for selecting logs to apply the filtering action.
+        /// Queries for selecting logs which are part of the rule.
         /// </summary>
         [Output("queries")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleQuery>> Queries { get; private set; } = null!;
@@ -251,7 +249,7 @@ namespace Pulumi.Datadog
         public Input<string> Message { get; set; } = null!;
 
         /// <summary>
-        /// Name of the case.
+        /// The name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -266,7 +264,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleQueryArgs>? _queries;
 
         /// <summary>
-        /// Query for selecting logs to apply the filtering action.
+        /// Queries for selecting logs which are part of the rule.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleQueryArgs> Queries
         {
@@ -367,7 +365,7 @@ namespace Pulumi.Datadog
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Name of the case.
+        /// The name of the rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,7 +380,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleQueryGetArgs>? _queries;
 
         /// <summary>
-        /// Query for selecting logs to apply the filtering action.
+        /// Queries for selecting logs which are part of the rule.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleQueryGetArgs> Queries
         {

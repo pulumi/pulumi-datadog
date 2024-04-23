@@ -20,12 +20,12 @@ public final class PowerpackWidgetDistributionDefinitionRequestApmStatsQuery {
      */
     private @Nullable List<PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn> columns;
     /**
-     * @return APM environment.
+     * @return The environment name.
      * 
      */
     private String env;
     /**
-     * @return The name of the powerpack template variable.
+     * @return The operation name associated with the service.
      * 
      */
     private String name;
@@ -45,7 +45,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestApmStatsQuery {
      */
     private String rowType;
     /**
-     * @return APM service.
+     * @return The service name.
      * 
      */
     private String service;
@@ -59,14 +59,14 @@ public final class PowerpackWidgetDistributionDefinitionRequestApmStatsQuery {
         return this.columns == null ? List.of() : this.columns;
     }
     /**
-     * @return APM environment.
+     * @return The environment name.
      * 
      */
     public String env() {
         return this.env;
     }
     /**
-     * @return The name of the powerpack template variable.
+     * @return The operation name associated with the service.
      * 
      */
     public String name() {
@@ -94,7 +94,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestApmStatsQuery {
         return this.rowType;
     }
     /**
-     * @return APM service.
+     * @return The service name.
      * 
      */
     public String service() {

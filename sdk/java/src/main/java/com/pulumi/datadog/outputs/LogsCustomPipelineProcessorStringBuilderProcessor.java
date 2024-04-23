@@ -14,22 +14,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorStringBuilderProcessor {
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * @return If it replaces all missing attributes of template by an empty string.
      * 
      */
     private @Nullable Boolean isReplaceMissing;
     /**
-     * @return Your pipeline name.
+     * @return The name of the processor.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return The name of the attribute that contains the result of the template.
      * 
      */
     private String target;
@@ -41,28 +41,28 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessor {
 
     private LogsCustomPipelineProcessorStringBuilderProcessor() {}
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * @return If it replaces all missing attributes of template by an empty string.
      * 
      */
     public Optional<Boolean> isReplaceMissing() {
         return Optional.ofNullable(this.isReplaceMissing);
     }
     /**
-     * @return Your pipeline name.
+     * @return The name of the processor.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return The name of the attribute that contains the result of the template.
      * 
      */
     public String target() {

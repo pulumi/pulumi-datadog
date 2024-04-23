@@ -18,14 +18,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     public static final DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryComputeArgs Empty = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestQueryEventQueryComputeArgs();
 
     /**
-     * The aggregation method.
+     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
     /**
-     * @return The aggregation method.
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public Output<String> aggregation() {
@@ -33,14 +33,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * Define the time interval in seconds.
+     * A time interval in milliseconds.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return Define the time interval in seconds.
+     * @return A time interval in milliseconds.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -48,14 +48,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * The metric from the request to correlate with this conditional format.
+     * The measurable attribute to compute.
      * 
      */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The measurable attribute to compute.
      * 
      */
     public Optional<Output<String>> metric() {
@@ -89,7 +89,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param interval Define the time interval in seconds.
+         * @param interval A time interval in milliseconds.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param interval Define the time interval in seconds.
+         * @param interval A time interval in milliseconds.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The measurable attribute to compute.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The measurable attribute to compute.
          * 
          * @return builder
          * 

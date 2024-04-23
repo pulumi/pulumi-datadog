@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetListStreamDefinitionRequest {
     /**
-     * @return Column properties used by the front end for display.
+     * @return Widget columns.
      * 
      */
     private List<DashboardWidgetListStreamDefinitionRequestColumn> columns;
@@ -31,7 +31,7 @@ public final class DashboardWidgetListStreamDefinitionRequest {
 
     private DashboardWidgetListStreamDefinitionRequest() {}
     /**
-     * @return Column properties used by the front end for display.
+     * @return Widget columns.
      * 
      */
     public List<DashboardWidgetListStreamDefinitionRequestColumn> columns() {

@@ -22,7 +22,7 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable List<DashboardWidgetHostmapDefinitionCustomLink> customLinks;
     /**
-     * @return The check group to use in the widget.
+     * @return The list of tags to group nodes by.
      * 
      */
     private @Nullable List<String> groups;
@@ -42,7 +42,7 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable String nodeType;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetHostmapDefinitionRequest request;
@@ -52,7 +52,7 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable List<String> scopes;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetHostmapDefinitionStyle style;
@@ -81,7 +81,7 @@ public final class DashboardWidgetHostmapDefinition {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
     /**
-     * @return The check group to use in the widget.
+     * @return The list of tags to group nodes by.
      * 
      */
     public List<String> groups() {
@@ -109,7 +109,7 @@ public final class DashboardWidgetHostmapDefinition {
         return Optional.ofNullable(this.nodeType);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetHostmapDefinitionRequest> request() {
@@ -123,7 +123,7 @@ public final class DashboardWidgetHostmapDefinition {
         return this.scopes == null ? List.of() : this.scopes;
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetHostmapDefinitionStyle> style() {

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "My super dashboard",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
 
@@ -64,7 +62,6 @@ export interface GetDashboardResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -73,7 +70,6 @@ export interface GetDashboardResult {
  *     name: "My super dashboard",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
     return pulumi.output(args).apply((a: any) => getDashboard(a, opts))

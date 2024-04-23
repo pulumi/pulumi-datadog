@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Timeframe { get; set; }
 
         /// <summary>
-        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// A value for the comparator.
         /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;

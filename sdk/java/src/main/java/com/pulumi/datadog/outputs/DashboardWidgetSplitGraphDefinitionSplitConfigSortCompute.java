@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute {
     /**
-     * @return The aggregation method.
+     * @return How to aggregate the sort metric for the purposes of ordering.
      * 
      */
     private @Nullable String aggregation;
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The metric to use for sorting graphs.
      * 
      */
     private String metric;
 
     private DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute() {}
     /**
-     * @return The aggregation method.
+     * @return How to aggregate the sort metric for the purposes of ordering.
      * 
      */
     public Optional<String> aggregation() {
         return Optional.ofNullable(this.aggregation);
     }
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The metric to use for sorting graphs.
      * 
      */
     public String metric() {

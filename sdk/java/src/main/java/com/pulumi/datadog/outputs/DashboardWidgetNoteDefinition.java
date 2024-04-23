@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetNoteDefinition {
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the note.
      * 
      */
     private @Nullable String backgroundColor;
@@ -24,7 +24,7 @@ public final class DashboardWidgetNoteDefinition {
      */
     private String content;
     /**
-     * @return The size of the text in the widget.
+     * @return The size of the text.
      * 
      */
     private @Nullable String fontSize;
@@ -39,7 +39,7 @@ public final class DashboardWidgetNoteDefinition {
      */
     private @Nullable Boolean showTick;
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String textAlign;
@@ -61,7 +61,7 @@ public final class DashboardWidgetNoteDefinition {
 
     private DashboardWidgetNoteDefinition() {}
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the note.
      * 
      */
     public Optional<String> backgroundColor() {
@@ -75,7 +75,7 @@ public final class DashboardWidgetNoteDefinition {
         return this.content;
     }
     /**
-     * @return The size of the text in the widget.
+     * @return The size of the text.
      * 
      */
     public Optional<String> fontSize() {
@@ -96,7 +96,7 @@ public final class DashboardWidgetNoteDefinition {
         return Optional.ofNullable(this.showTick);
     }
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> textAlign() {

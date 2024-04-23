@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetHeatmapDefinitionEvent {
     /**
-     * @return The metric query to use for this widget.
+     * @return The event query to use in the widget.
      * 
      */
     private String q;
     /**
-     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * @return The execution method for multi-value filters.
      * 
      */
     private @Nullable String tagsExecution;
 
     private DashboardWidgetHeatmapDefinitionEvent() {}
     /**
-     * @return The metric query to use for this widget.
+     * @return The event query to use in the widget.
      * 
      */
     public String q() {
         return this.q;
     }
     /**
-     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * @return The execution method for multi-value filters.
      * 
      */
     public Optional<String> tagsExecution() {

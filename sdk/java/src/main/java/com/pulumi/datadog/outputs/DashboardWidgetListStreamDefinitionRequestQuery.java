@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetListStreamDefinitionRequestQuery {
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
      * 
      */
     private String dataSource;
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
      * 
      */
     private @Nullable String eventSize;
     /**
-     * @return An array of index names to query in the stream.
+     * @return List of indexes.
      * 
      */
     private @Nullable List<String> indexes;
@@ -35,7 +35,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
      */
     private @Nullable String queryString;
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     private @Nullable DashboardWidgetListStreamDefinitionRequestQuerySort sort;
@@ -47,21 +47,21 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
 
     private DashboardWidgetListStreamDefinitionRequestQuery() {}
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
      * 
      */
     public String dataSource() {
         return this.dataSource;
     }
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
      * 
      */
     public Optional<String> eventSize() {
         return Optional.ofNullable(this.eventSize);
     }
     /**
-     * @return An array of index names to query in the stream.
+     * @return List of indexes.
      * 
      */
     public List<String> indexes() {
@@ -75,7 +75,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQuery {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<DashboardWidgetListStreamDefinitionRequestQuerySort> sort() {

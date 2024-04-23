@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTable> ScatterplotTables;
         /// <summary>
-        /// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetScatterplotDefinitionRequestX> Xes;
         /// <summary>
-        /// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetScatterplotDefinitionRequestY> Ys;
 

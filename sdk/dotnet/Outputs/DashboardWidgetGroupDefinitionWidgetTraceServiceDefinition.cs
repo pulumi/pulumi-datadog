@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition
     {
         /// <summary>
-        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
         /// </summary>
         public readonly string? DisplayFormat;
         /// <summary>

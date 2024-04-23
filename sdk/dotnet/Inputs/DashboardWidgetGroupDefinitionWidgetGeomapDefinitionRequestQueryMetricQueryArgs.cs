@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for metrics queries. Defaults to `"metrics"`.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
 
         /// <summary>
-        /// The name of the variable.
+        /// The name of the query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

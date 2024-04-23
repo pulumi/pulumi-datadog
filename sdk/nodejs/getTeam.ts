@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeam(args?: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
     args = args || {};
@@ -90,7 +88,6 @@ export interface GetTeamResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -99,7 +96,6 @@ export interface GetTeamResult {
  *     teamId: "e6723c40-edb1-11ed-b816-da7ad0900002",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeamOutput(args?: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
     return pulumi.output(args).apply((a: any) => getTeam(a, opts))

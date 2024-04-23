@@ -19,13 +19,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? DisplayType { get; set; }
 
         /// <summary>
-        /// The label for the custom link URL.
+        /// A label for the line or range.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

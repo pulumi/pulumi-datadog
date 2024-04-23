@@ -34,14 +34,14 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
     }
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -64,14 +64,14 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
     }
 
     /**
-     * Your pipeline name.
+     * Name of the processor
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
     }
 
     /**
-     * Name of the log attribute to parse.
+     * Name of the source attribute used to do the lookup.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return Name of the log attribute to parse.
+     * @return Name of the source attribute used to do the lookup.
      * 
      */
     public Output<String> source() {
@@ -94,14 +94,14 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
     }
 
     /**
-     * Name of the attribute that contains the result of the arithmetic operation.
+     * Name of the attribute that contains the result of the lookup.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the attribute that contains the result of the lookup.
      * 
      */
     public Output<String> target() {
@@ -159,7 +159,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param source Name of the log attribute to parse.
+         * @param source Name of the source attribute used to do the lookup.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param source Name of the log attribute to parse.
+         * @param source Name of the source attribute used to do the lookup.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the attribute that contains the result of the lookup.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class LogsCustomPipelineProcessorLookupProcessorArgs extends com.pu
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the attribute that contains the result of the lookup.
          * 
          * @return builder
          * 

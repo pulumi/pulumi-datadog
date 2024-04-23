@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestAssertionTargetxpathGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// The specific operator to use on the path.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

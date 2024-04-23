@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// APM service.
+        /// The ID of the service to map.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

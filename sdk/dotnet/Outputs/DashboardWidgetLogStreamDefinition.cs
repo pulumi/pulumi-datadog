@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetLogStreamDefinition
     {
         /// <summary>
-        /// Column properties used by the front end for display.
+        /// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
         /// </summary>
         public readonly ImmutableArray<string> Columns;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShowMessageColumn;
         /// <summary>
-        /// The options for sorting group by results.
+        /// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogStreamDefinitionSort? Sort;
         /// <summary>

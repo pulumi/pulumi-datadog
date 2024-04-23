@@ -84,14 +84,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the query for use in formulas.
+     * Name of Datadog service level objective
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the query for use in formulas.
+     * @return Name of Datadog service level objective
      * 
      */
     public Output<String> name() {
@@ -99,14 +99,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * The metric query of good / total events
      * 
      */
     @Import(name="query")
     private @Nullable Output<ServiceLevelObjectiveQueryArgs> query;
 
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return The metric query of good / total events
      * 
      */
     public Optional<Output<ServiceLevelObjectiveQueryArgs>> query() {
@@ -174,14 +174,14 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     @Import(name="timeframe")
     private @Nullable Output<String> timeframe;
 
     /**
-     * @return The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * @return The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      * 
      */
     public Optional<Output<String>> timeframe() {
@@ -375,7 +375,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the query for use in formulas.
+         * @param name Name of Datadog service level objective
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the query for use in formulas.
+         * @param name Name of Datadog service level objective
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param query The metric query of good / total events
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param query The metric query of good / total events
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class ServiceLevelObjectiveArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param timeframe The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+         * @param timeframe The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
          * 
          * @return builder
          * 

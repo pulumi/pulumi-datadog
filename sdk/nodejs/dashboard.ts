@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -758,7 +757,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -814,7 +812,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * The layout type of the group. Valid values are `ordered`.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
@@ -830,7 +828,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of tags to use in the widget.
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
@@ -838,19 +836,19 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
     /**
-     * The template variable names and assumed values under the given preset
+     * The list of template variables for this dashboard.
      */
     public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
     /**
-     * The title of the widget.
+     * The title of the dashboard.
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * The URL to use as a data source for the widget.
+     * The URL of the dashboard.
      */
     public readonly url!: pulumi.Output<string>;
     /**
-     * The list of widgets in this group.
+     * The list of widgets to display on the dashboard.
      */
     public readonly widgets!: pulumi.Output<outputs.DashboardWidget[] | undefined>;
 
@@ -933,7 +931,7 @@ export interface DashboardState {
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the group. Valid values are `ordered`.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType?: pulumi.Input<string>;
     /**
@@ -949,7 +947,7 @@ export interface DashboardState {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tags to use in the widget.
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -957,19 +955,19 @@ export interface DashboardState {
      */
     templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
     /**
-     * The template variable names and assumed values under the given preset
+     * The list of template variables for this dashboard.
      */
     templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
-     * The title of the widget.
+     * The title of the dashboard.
      */
     title?: pulumi.Input<string>;
     /**
-     * The URL to use as a data source for the widget.
+     * The URL of the dashboard.
      */
     url?: pulumi.Input<string>;
     /**
-     * The list of widgets in this group.
+     * The list of widgets to display on the dashboard.
      */
     widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
@@ -994,7 +992,7 @@ export interface DashboardArgs {
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the group. Valid values are `ordered`.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType: pulumi.Input<string>;
     /**
@@ -1010,7 +1008,7 @@ export interface DashboardArgs {
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of tags to use in the widget.
+     * A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1018,19 +1016,19 @@ export interface DashboardArgs {
      */
     templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
     /**
-     * The template variable names and assumed values under the given preset
+     * The list of template variables for this dashboard.
      */
     templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
-     * The title of the widget.
+     * The title of the dashboard.
      */
     title: pulumi.Input<string>;
     /**
-     * The URL to use as a data source for the widget.
+     * The URL of the dashboard.
      */
     url?: pulumi.Input<string>;
     /**
-     * The list of widgets in this group.
+     * The list of widgets to display on the dashboard.
      */
     widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }

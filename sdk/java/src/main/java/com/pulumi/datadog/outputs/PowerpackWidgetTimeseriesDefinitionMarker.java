@@ -18,12 +18,12 @@ public final class PowerpackWidgetTimeseriesDefinitionMarker {
      */
     private @Nullable String displayType;
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     private @Nullable String label;
     /**
-     * @return A value for the comparator.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     private String value;
@@ -37,14 +37,14 @@ public final class PowerpackWidgetTimeseriesDefinitionMarker {
         return Optional.ofNullable(this.displayType);
     }
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return A value for the comparator.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     public String value() {

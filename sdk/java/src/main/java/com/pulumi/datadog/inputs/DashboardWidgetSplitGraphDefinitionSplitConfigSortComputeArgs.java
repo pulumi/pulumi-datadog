@@ -17,14 +17,14 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
     public static final DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs Empty = new DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs();
 
     /**
-     * The aggregation method.
+     * How to aggregate the sort metric for the purposes of ordering.
      * 
      */
     @Import(name="aggregation")
     private @Nullable Output<String> aggregation;
 
     /**
-     * @return The aggregation method.
+     * @return How to aggregate the sort metric for the purposes of ordering.
      * 
      */
     public Optional<Output<String>> aggregation() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
     }
 
     /**
-     * The metric from the request to correlate with this conditional format.
+     * The metric to use for sorting graphs.
      * 
      */
     @Import(name="metric", required=true)
     private Output<String> metric;
 
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The metric to use for sorting graphs.
      * 
      */
     public Output<String> metric() {
@@ -72,7 +72,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation How to aggregate the sort metric for the purposes of ordering.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation How to aggregate the sort metric for the purposes of ordering.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The metric to use for sorting graphs.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSortComputeArgs
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The metric to use for sorting graphs.
          * 
          * @return builder
          * 

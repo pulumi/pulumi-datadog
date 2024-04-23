@@ -70,7 +70,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? SubtestPublicId;
         /// <summary>
-        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// Value of the step.
         /// </summary>
         public readonly string? Value;
         /// <summary>

@@ -23,12 +23,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
     /**
-     * @return An expression alias.
+     * @return The alias for the column name (defaults to metric name).
      * 
      */
     private @Nullable String alias;
@@ -39,18 +39,18 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery apmQuery;
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
      * 
      */
     private @Nullable List<String> cellDisplayModes;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula> formulas;
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of lines to show in the table.
      * 
      */
     private @Nullable Integer limit;
@@ -60,7 +60,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery logQuery;
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
      */
     private @Nullable String order;
@@ -88,14 +88,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return An expression alias.
+     * @return The alias for the column name (defaults to metric name).
      * 
      */
     public Optional<String> alias() {
@@ -112,14 +112,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return Optional.ofNullable(this.apmStatsQuery);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
      * 
      */
     public List<String> cellDisplayModes() {
         return this.cellDisplayModes == null ? List.of() : this.cellDisplayModes;
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat> conditionalFormats() {
@@ -129,7 +129,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of lines to show in the table.
      * 
      */
     public Optional<Integer> limit() {
@@ -143,7 +143,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
      */
     public Optional<String> order() {

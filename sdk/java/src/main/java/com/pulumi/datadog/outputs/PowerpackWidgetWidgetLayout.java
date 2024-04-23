@@ -29,12 +29,12 @@ public final class PowerpackWidgetWidgetLayout {
      */
     private Integer width;
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     private Integer x;
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     private Integer y;
@@ -62,14 +62,14 @@ public final class PowerpackWidgetWidgetLayout {
         return this.width;
     }
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     public Integer x() {
         return this.x;
     }
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     public Integer y() {

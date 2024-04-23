@@ -232,7 +232,6 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -245,7 +244,6 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             suppression_query="env:test",
             expiration_date="2024-12-31T12:00:00Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -288,7 +285,6 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             suppression_query="env:test",
             expiration_date="2024-12-31T12:00:00Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

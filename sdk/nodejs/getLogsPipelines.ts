@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.InvokeOptions): Promise<GetLogsPipelinesResult> {
     args = args || {};
@@ -39,6 +37,9 @@ export function getLogsPipelines(args?: GetLogsPipelinesArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesArgs {
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     isReadOnly?: string;
 }
 
@@ -64,7 +65,6 @@ export interface GetLogsPipelinesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -77,7 +77,6 @@ export interface GetLogsPipelinesResult {
  *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsPipelinesResult> {
     return pulumi.output(args).apply((a: any) => getLogsPipelines(a, opts))
@@ -87,5 +86,8 @@ export function getLogsPipelinesOutput(args?: GetLogsPipelinesOutputArgs, opts?:
  * A collection of arguments for invoking getLogsPipelines.
  */
 export interface GetLogsPipelinesOutputArgs {
+    /**
+     * Filter parameter for retrieved pipelines
+     */
     isReadOnly?: pulumi.Input<string>;
 }

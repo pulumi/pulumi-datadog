@@ -64,14 +64,14 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
     }
 
     /**
-     * ID of an SLO to query.
+     * The ID of the service level objective used by the widget.
      * 
      */
     @Import(name="sloId", required=true)
     private Output<String> sloId;
 
     /**
-     * @return ID of an SLO to query.
+     * @return The ID of the service level objective used by the widget.
      * 
      */
     public Output<String> sloId() {
@@ -265,7 +265,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         /**
-         * @param sloId ID of an SLO to query.
+         * @param sloId The ID of the service level objective used by the widget.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinitionArgs extends co
         }
 
         /**
-         * @param sloId ID of an SLO to query.
+         * @param sloId The ID of the service level objective used by the widget.
          * 
          * @return builder
          * 

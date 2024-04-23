@@ -108,14 +108,14 @@ public final class DashboardWidgetManageStatusDefinitionArgs extends com.pulumi.
     }
 
     /**
-     * The options for sorting group by results.
+     * The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
      * 
      */
     @Import(name="sort")
     private @Nullable Output<String> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
      * 
      */
     public Optional<Output<String>> sort() {
@@ -343,7 +343,7 @@ public final class DashboardWidgetManageStatusDefinitionArgs extends com.pulumi.
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class DashboardWidgetManageStatusDefinitionArgs extends com.pulumi.
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
          * 
          * @return builder
          * 

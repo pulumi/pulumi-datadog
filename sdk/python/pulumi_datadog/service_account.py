@@ -169,7 +169,6 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -182,7 +181,6 @@ class ServiceAccount(pulumi.CustomResource):
             name="Service Account Bar",
             roles=[ro_role.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class ServiceAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -221,7 +218,6 @@ class ServiceAccount(pulumi.CustomResource):
             name="Service Account Bar",
             roles=[ro_role.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

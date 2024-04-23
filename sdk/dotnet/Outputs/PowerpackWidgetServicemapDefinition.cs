@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Filters;
         /// <summary>
-        /// APM service.
+        /// The ID of the service to map.
         /// </summary>
         public readonly string Service;
         /// <summary>

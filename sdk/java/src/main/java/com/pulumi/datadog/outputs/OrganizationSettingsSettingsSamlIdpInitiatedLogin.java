@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationSettingsSettingsSamlIdpInitiatedLogin {
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
 
     private OrganizationSettingsSettingsSamlIdpInitiatedLogin() {}
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

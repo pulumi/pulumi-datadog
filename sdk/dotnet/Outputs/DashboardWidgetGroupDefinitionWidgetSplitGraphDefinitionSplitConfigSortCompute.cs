@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortCompute
     {
         /// <summary>
-        /// The aggregation method.
+        /// How to aggregate the sort metric for the purposes of ordering.
         /// </summary>
         public readonly string? Aggregation;
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The metric to use for sorting graphs.
         /// </summary>
         public readonly string Metric;
 

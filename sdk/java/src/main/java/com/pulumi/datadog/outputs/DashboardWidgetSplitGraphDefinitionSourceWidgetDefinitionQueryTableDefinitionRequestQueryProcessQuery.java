@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for process queries. Valid values are `process`, `container`.
      * 
      */
     private String dataSource;
@@ -31,22 +31,22 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private @Nullable Boolean isNormalizedCpu;
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of hits to return.
      * 
      */
     private @Nullable Integer limit;
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The process metric name.
      * 
      */
     private String metric;
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     private String name;
     /**
-     * @return The options for sorting group by results.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     private @Nullable String sort;
@@ -63,14 +63,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQuery() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for process queries. Valid values are `process`, `container`.
      * 
      */
     public String dataSource() {
@@ -84,28 +84,28 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return Optional.ofNullable(this.isNormalizedCpu);
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of hits to return.
      * 
      */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The process metric name.
      * 
      */
     public String metric() {
         return this.metric;
     }
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The options for sorting group by results.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     public Optional<String> sort() {

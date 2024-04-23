@@ -18,14 +18,14 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
     public static final DashboardWidgetTraceServiceDefinitionArgs Empty = new DashboardWidgetTraceServiceDefinitionArgs();
 
     /**
-     * The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
      * 
      */
     @Import(name="displayFormat")
     private @Nullable Output<String> displayFormat;
 
     /**
-     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * @return The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
      * 
      */
     public Optional<Output<String>> displayFormat() {
@@ -281,7 +281,7 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
         }
 
         /**
-         * @param displayFormat The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+         * @param displayFormat The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
         }
 
         /**
-         * @param displayFormat The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+         * @param displayFormat The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
          * 
          * @return builder
          * 

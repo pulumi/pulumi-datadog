@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _columns;
 
         /// <summary>
-        /// Column properties used by the front end for display.
+        /// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
         /// </summary>
         public InputList<string> Columns
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowMessageColumn { get; set; }
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs>? Sort { get; set; }

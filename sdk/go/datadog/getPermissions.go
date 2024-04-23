@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPermissions(ctx *pulumi.Context, args *GetPermissionsArgs, opts ...pulumi.InvokeOption) (*GetPermissionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPermissionsResult

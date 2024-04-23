@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 public final class LogsCustomPipelineProcessorGrokParser {
     private LogsCustomPipelineProcessorGrokParserGrok grok;
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     private @Nullable String name;
@@ -42,14 +42,14 @@ public final class LogsCustomPipelineProcessorGrokParser {
         return this.grok;
     }
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<String> name() {

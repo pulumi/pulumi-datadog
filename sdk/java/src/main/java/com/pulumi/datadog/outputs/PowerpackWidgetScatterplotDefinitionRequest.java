@@ -19,12 +19,12 @@ public final class PowerpackWidgetScatterplotDefinitionRequest {
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionRequestScatterplotTable> scatterplotTables;
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionRequestX> xes;
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     private @Nullable List<PowerpackWidgetScatterplotDefinitionRequestY> ys;
@@ -38,14 +38,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequest {
         return this.scatterplotTables == null ? List.of() : this.scatterplotTables;
     }
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     public List<PowerpackWidgetScatterplotDefinitionRequestX> xes() {
         return this.xes == null ? List.of() : this.xes;
     }
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     public List<PowerpackWidgetScatterplotDefinitionRequestY> ys() {

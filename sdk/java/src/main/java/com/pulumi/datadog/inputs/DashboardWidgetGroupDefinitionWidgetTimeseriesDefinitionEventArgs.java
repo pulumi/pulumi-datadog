@@ -17,14 +17,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
     public static final DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs Empty = new DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs();
 
     /**
-     * The metric query to use for this widget.
+     * The event query to use in the widget.
      * 
      */
     @Import(name="q", required=true)
     private Output<String> q;
 
     /**
-     * @return The metric query to use for this widget.
+     * @return The event query to use in the widget.
      * 
      */
     public Output<String> q() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
     }
 
     /**
-     * The execution method for multi-value filters, options: `and` or `or`.
+     * The execution method for multi-value filters.
      * 
      */
     @Import(name="tagsExecution")
     private @Nullable Output<String> tagsExecution;
 
     /**
-     * @return The execution method for multi-value filters, options: `and` or `or`.
+     * @return The execution method for multi-value filters.
      * 
      */
     public Optional<Output<String>> tagsExecution() {
@@ -72,7 +72,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The event query to use in the widget.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The event query to use in the widget.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
         }
 
         /**
-         * @param tagsExecution The execution method for multi-value filters, options: `and` or `or`.
+         * @param tagsExecution The execution method for multi-value filters.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
         }
 
         /**
-         * @param tagsExecution The execution method for multi-value filters, options: `and` or `or`.
+         * @param tagsExecution The execution method for multi-value filters.
          * 
          * @return builder
          * 

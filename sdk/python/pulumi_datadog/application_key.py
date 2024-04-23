@@ -86,7 +86,6 @@ class ApplicationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -94,7 +93,6 @@ class ApplicationKey(pulumi.CustomResource):
         # Create a new Datadog Application Key
         foo = datadog.ApplicationKey("foo", name="foo-application")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -117,7 +115,6 @@ class ApplicationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -125,7 +122,6 @@ class ApplicationKey(pulumi.CustomResource):
         # Create a new Datadog Application Key
         foo = datadog.ApplicationKey("foo", name="foo-application")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

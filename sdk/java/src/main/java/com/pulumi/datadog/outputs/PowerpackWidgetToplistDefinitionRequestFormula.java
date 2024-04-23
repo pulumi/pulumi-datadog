@@ -37,7 +37,7 @@ public final class PowerpackWidgetToplistDefinitionRequestFormula {
      */
     private String formulaExpression;
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     private @Nullable PowerpackWidgetToplistDefinitionRequestFormulaLimit limit;
@@ -77,7 +77,7 @@ public final class PowerpackWidgetToplistDefinitionRequestFormula {
         return this.formulaExpression;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<PowerpackWidgetToplistDefinitionRequestFormulaLimit> limit() {

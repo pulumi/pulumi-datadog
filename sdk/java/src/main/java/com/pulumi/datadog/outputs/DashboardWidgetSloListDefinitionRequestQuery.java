@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequestQuery {
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     private @Nullable Integer limit;
@@ -25,14 +25,14 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
      */
     private String queryString;
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     private @Nullable DashboardWidgetSloListDefinitionRequestQuerySort sort;
 
     private DashboardWidgetSloListDefinitionRequestQuery() {}
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     public Optional<Integer> limit() {
@@ -46,7 +46,7 @@ public final class DashboardWidgetSloListDefinitionRequestQuery {
         return this.queryString;
     }
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<DashboardWidgetSloListDefinitionRequestQuerySort> sort() {

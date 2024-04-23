@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const rules = datadog.aws.getIntegrationNamespaceRules({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIntegrationNamespaceRules(opts?: pulumi.InvokeOptions): Promise<GetIntegrationNamespaceRulesResult> {
 
@@ -43,14 +41,12 @@ export interface GetIntegrationNamespaceRulesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const rules = datadog.aws.getIntegrationNamespaceRules({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIntegrationNamespaceRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationNamespaceRulesResult> {
     return pulumi.output(getIntegrationNamespaceRules(opts))

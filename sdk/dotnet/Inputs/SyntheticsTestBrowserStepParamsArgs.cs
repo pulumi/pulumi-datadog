@@ -103,7 +103,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? SubtestPublicId { get; set; }
 
         /// <summary>
-        /// Regex or JSON path used for the parser. Not used with type `raw`.
+        /// Value of the step.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

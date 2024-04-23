@@ -97,14 +97,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeom
     }
 
     /**
-     * The process query to use in the widget. The structure of this block is described below.
+     * The process query using formulas and functions.
      * 
      */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQueryArgs> processQuery;
 
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryProcessQueryArgs>> processQuery() {
@@ -262,7 +262,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeom
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query using formulas and functions.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeom
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query using formulas and functions.
          * 
          * @return builder
          * 

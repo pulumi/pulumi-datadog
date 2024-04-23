@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for cloud cost queries. Valid values are `cloud_cost`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// The name of the variable.
+        /// The name of the query for use in formulas.
         /// </summary>
         public readonly string Name;
         /// <summary>

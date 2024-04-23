@@ -18,7 +18,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
      */
     private @Nullable Integer count;
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     private @Nullable String order;
@@ -32,7 +32,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     public Optional<String> order() {

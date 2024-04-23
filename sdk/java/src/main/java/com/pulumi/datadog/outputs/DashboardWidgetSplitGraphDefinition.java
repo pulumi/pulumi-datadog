@@ -26,7 +26,7 @@ public final class DashboardWidgetSplitGraphDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Size of the individual graphs in the split.
      * 
      */
     private String size;
@@ -62,7 +62,7 @@ public final class DashboardWidgetSplitGraphDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Size of the individual graphs in the split.
      * 
      */
     public String size() {

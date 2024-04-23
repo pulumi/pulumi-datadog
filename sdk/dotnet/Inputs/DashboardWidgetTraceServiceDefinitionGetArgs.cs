@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTraceServiceDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+        /// The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
         /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }

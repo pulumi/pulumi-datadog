@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsIndexExclusionFilterFilter {
     /**
-     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * @return Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
      * 
      */
     private @Nullable String query;
@@ -25,7 +25,7 @@ public final class LogsIndexExclusionFilterFilter {
 
     private LogsIndexExclusionFilterFilter() {}
     /**
-     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * @return Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
      * 
      */
     public Optional<String> query() {

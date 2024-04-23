@@ -419,7 +419,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -442,7 +441,6 @@ class Integration(pulumi.CustomResource):
                 "us-west-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -477,7 +475,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -500,7 +497,6 @@ class Integration(pulumi.CustomResource):
                 "us-west-2",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

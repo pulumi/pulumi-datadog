@@ -17,14 +17,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     public static final DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumnArgs Empty = new DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumnArgs();
 
     /**
-     * An expression alias.
+     * A user-assigned alias for the column.
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return An expression alias.
+     * @return A user-assigned alias for the column.
      * 
      */
     public Optional<Output<String>> alias() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The name of the variable.
+     * The column name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The column name.
      * 
      */
     public Output<String> name() {
@@ -104,7 +104,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param alias An expression alias.
+         * @param alias A user-assigned alias for the column.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param alias An expression alias.
+         * @param alias A user-assigned alias for the column.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The column name.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The column name.
          * 
          * @return builder
          * 

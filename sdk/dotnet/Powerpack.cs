@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,7 +68,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -99,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<string?> LiveSpan { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name for the powerpack.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -111,7 +109,7 @@ namespace Pulumi.Datadog
         public Output<bool?> ShowTitle { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to use in the widget.
+        /// List of tags to identify this powerpack.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -193,7 +191,7 @@ namespace Pulumi.Datadog
         public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name for the powerpack.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -208,7 +206,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to use in the widget.
+        /// List of tags to identify this powerpack.
         /// </summary>
         public InputList<string> Tags
         {
@@ -267,7 +265,7 @@ namespace Pulumi.Datadog
         public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name for the powerpack.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -282,7 +280,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to use in the widget.
+        /// List of tags to identify this powerpack.
         /// </summary>
         public InputList<string> Tags
         {

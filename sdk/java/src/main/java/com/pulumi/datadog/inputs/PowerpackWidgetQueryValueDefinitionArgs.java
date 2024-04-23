@@ -82,14 +82,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The precision to use when displaying the value. Use `*` for maximum precision.
+     * The precision to use when displaying the tile.
      * 
      */
     @Import(name="precision")
     private @Nullable Output<Integer> precision;
 
     /**
-     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * @return The precision to use when displaying the tile.
      * 
      */
     public Optional<Output<Integer>> precision() {
@@ -97,14 +97,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<PowerpackWidgetQueryValueDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetQueryValueDefinitionRequestArgs>>> requests() {
@@ -112,14 +112,14 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     @Import(name="textAlign")
     private @Nullable Output<String> textAlign;
 
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<Output<String>> textAlign() {
@@ -315,7 +315,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * @param precision The precision to use when displaying the tile.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param precision The precision to use when displaying the value. Use `*` for maximum precision.
+         * @param precision The precision to use when displaying the tile.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * @param textAlign The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class PowerpackWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param textAlign The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+         * @param textAlign The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 

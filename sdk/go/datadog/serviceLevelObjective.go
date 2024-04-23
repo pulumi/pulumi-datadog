@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,7 +141,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -162,9 +160,9 @@ type ServiceLevelObjective struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayOutput `pulumi:"monitorIds"`
-	// The name of the query for use in formulas.
+	// Name of Datadog service level objective
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrOutput `pulumi:"sliSpecification"`
@@ -174,7 +172,7 @@ type ServiceLevelObjective struct {
 	TargetThreshold pulumi.Float64Output `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringOutput `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -231,9 +229,9 @@ type serviceLevelObjectiveState struct {
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds []int `pulumi:"monitorIds"`
-	// The name of the query for use in formulas.
+	// Name of Datadog service level objective
 	Name *string `pulumi:"name"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
@@ -243,7 +241,7 @@ type serviceLevelObjectiveState struct {
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type *string `pulumi:"type"`
@@ -262,9 +260,9 @@ type ServiceLevelObjectiveState struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// The name of the query for use in formulas.
+	// Name of Datadog service level objective
 	Name pulumi.StringPtrInput
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
@@ -274,7 +272,7 @@ type ServiceLevelObjectiveState struct {
 	TargetThreshold pulumi.Float64PtrInput
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringPtrInput
@@ -297,9 +295,9 @@ type serviceLevelObjectiveArgs struct {
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds []int `pulumi:"monitorIds"`
-	// The name of the query for use in formulas.
+	// Name of Datadog service level objective
 	Name string `pulumi:"name"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification *ServiceLevelObjectiveSliSpecification `pulumi:"sliSpecification"`
@@ -309,7 +307,7 @@ type serviceLevelObjectiveArgs struct {
 	TargetThreshold *float64 `pulumi:"targetThreshold"`
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe *string `pulumi:"timeframe"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type string `pulumi:"type"`
@@ -329,9 +327,9 @@ type ServiceLevelObjectiveArgs struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// The name of the query for use in formulas.
+	// Name of Datadog service level objective
 	Name pulumi.StringInput
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A map of SLI specifications to use as part of the SLO.
 	SliSpecification ServiceLevelObjectiveSliSpecificationPtrInput
@@ -341,7 +339,7 @@ type ServiceLevelObjectiveArgs struct {
 	TargetThreshold pulumi.Float64PtrInput
 	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 	Timeframe pulumi.StringPtrInput
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `timeSlice`.
 	Type pulumi.StringInput
@@ -458,12 +456,12 @@ func (o ServiceLevelObjectiveOutput) MonitorIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.IntArrayOutput { return v.MonitorIds }).(pulumi.IntArrayOutput)
 }
 
-// The name of the query for use in formulas.
+// Name of Datadog service level objective
 func (o ServiceLevelObjectiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+// The metric query of good / total events
 func (o ServiceLevelObjectiveOutput) Query() ServiceLevelObjectiveQueryPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveQueryPtrOutput { return v.Query }).(ServiceLevelObjectiveQueryPtrOutput)
 }
@@ -490,7 +488,7 @@ func (o ServiceLevelObjectiveOutput) Thresholds() ServiceLevelObjectiveThreshold
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveThresholdArrayOutput { return v.Thresholds }).(ServiceLevelObjectiveThresholdArrayOutput)
 }
 
-// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
 func (o ServiceLevelObjectiveOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Timeframe }).(pulumi.StringOutput)
 }

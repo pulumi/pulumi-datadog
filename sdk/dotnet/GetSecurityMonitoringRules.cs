@@ -16,7 +16,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityMonitoringRulesResult> InvokeAsync(GetSecurityMonitoringRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityMonitoringRulesResult> Invoke(GetSecurityMonitoringRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityMonitoringRulesResult>("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args ?? new GetSecurityMonitoringRulesInvokeArgs(), options.WithDefaults());

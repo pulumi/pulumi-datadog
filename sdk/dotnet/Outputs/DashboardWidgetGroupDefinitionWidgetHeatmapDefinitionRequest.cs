@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
-        /// Styling options for widget formulas.
+        /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle? Style;
 

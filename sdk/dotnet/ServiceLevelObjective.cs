@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -150,7 +149,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -188,13 +186,13 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<int>> MonitorIds { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the query for use in formulas.
+        /// Name of Datadog service level objective
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// The metric query of good / total events
         /// </summary>
         [Output("query")]
         public Output<Outputs.ServiceLevelObjectiveQuery?> Query { get; private set; } = null!;
@@ -224,7 +222,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Output("timeframe")]
         public Output<string> Timeframe { get; private set; } = null!;
@@ -330,13 +328,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the query for use in formulas.
+        /// Name of Datadog service level objective
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// The metric query of good / total events
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryArgs>? Query { get; set; }
@@ -378,7 +376,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }
@@ -446,13 +444,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the query for use in formulas.
+        /// Name of Datadog service level objective
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// The metric query of good / total events
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryGetArgs>? Query { get; set; }
@@ -494,7 +492,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+        /// The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         /// </summary>
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }

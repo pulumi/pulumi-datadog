@@ -43,7 +43,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
@@ -90,7 +90,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQu
         return Optional.ofNullable(this.metricQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery> processQuery() {

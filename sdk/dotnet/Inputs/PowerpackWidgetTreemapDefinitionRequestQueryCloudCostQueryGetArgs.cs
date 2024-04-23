@@ -19,13 +19,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for cloud cost queries. Valid values are `cloud_cost`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name of the query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

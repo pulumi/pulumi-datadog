@@ -47,14 +47,14 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
     }
 
     /**
-     * ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      * 
      */
     @Import(name="start")
     private @Nullable Output<String> start;
 
     /**
-     * @return ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+     * @return ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
      * 
      */
     public Optional<Output<String>> start() {
@@ -130,7 +130,7 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
         }
 
         /**
-         * @param start ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+         * @param start ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DowntimeScheduleRecurringScheduleRecurrenceArgs extends com.p
         }
 
         /**
-         * @param start ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+         * @param start ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
          * 
          * @return builder
          * 

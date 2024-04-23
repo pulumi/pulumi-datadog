@@ -25,19 +25,19 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the category
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Name of the target attribute whose value is defined by the matching category.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetPowerpackDefinition {
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the powerpack title.
      * 
      */
     private @Nullable String backgroundColor;
     /**
-     * @return The image URL to display as a banner for the group.
+     * @return URL of image to display as a banner for the powerpack.
      * 
      */
     private @Nullable String bannerImg;
@@ -30,7 +30,7 @@ public final class DashboardWidgetPowerpackDefinition {
      */
     private String powerpackId;
     /**
-     * @return Whether to show the title or not. Defaults to `true`.
+     * @return Whether to show the title of the powerpack.
      * 
      */
     private @Nullable Boolean showTitle;
@@ -40,21 +40,21 @@ public final class DashboardWidgetPowerpackDefinition {
      */
     private @Nullable DashboardWidgetPowerpackDefinitionTemplateVariables templateVariables;
     /**
-     * @return The title of the widget.
+     * @return Title of the powerpack.
      * 
      */
     private @Nullable String title;
 
     private DashboardWidgetPowerpackDefinition() {}
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the powerpack title.
      * 
      */
     public Optional<String> backgroundColor() {
         return Optional.ofNullable(this.backgroundColor);
     }
     /**
-     * @return The image URL to display as a banner for the group.
+     * @return URL of image to display as a banner for the powerpack.
      * 
      */
     public Optional<String> bannerImg() {
@@ -68,7 +68,7 @@ public final class DashboardWidgetPowerpackDefinition {
         return this.powerpackId;
     }
     /**
-     * @return Whether to show the title or not. Defaults to `true`.
+     * @return Whether to show the title of the powerpack.
      * 
      */
     public Optional<Boolean> showTitle() {
@@ -82,7 +82,7 @@ public final class DashboardWidgetPowerpackDefinition {
         return Optional.ofNullable(this.templateVariables);
     }
     /**
-     * @return The title of the widget.
+     * @return Title of the powerpack.
      * 
      */
     public Optional<String> title() {

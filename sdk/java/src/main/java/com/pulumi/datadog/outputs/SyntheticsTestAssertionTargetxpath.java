@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestAssertionTargetxpath {
     /**
-     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * @return The specific operator to use on the path.
      * 
      */
     private String operator;
@@ -30,7 +30,7 @@ public final class SyntheticsTestAssertionTargetxpath {
 
     private SyntheticsTestAssertionTargetxpath() {}
     /**
-     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * @return The specific operator to use on the path.
      * 
      */
     public String operator() {

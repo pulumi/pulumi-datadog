@@ -231,14 +231,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of query for use in formulas.
+     * Name of Datadog monitor.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of query for use in formulas.
+     * @return Name of Datadog monitor.
      * 
      */
     public Optional<Output<String>> name() {
@@ -417,14 +417,26 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The events search string.
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The events search string.
+     * @return The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      * 
      */
     public Optional<Output<String>> query() {
@@ -946,7 +958,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of query for use in formulas.
+         * @param name Name of Datadog monitor.
          * 
          * @return builder
          * 
@@ -957,7 +969,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of query for use in formulas.
+         * @param name Name of Datadog monitor.
          * 
          * @return builder
          * 
@@ -1206,7 +1218,13 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param query The events search string.
+         * @param query The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+         * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+         * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+         * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+         * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+         * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+         * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
          * 
          * @return builder
          * 
@@ -1217,7 +1235,13 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param query The events search string.
+         * @param query The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+         * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+         * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+         * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+         * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+         * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+         * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
          * 
          * @return builder
          * 

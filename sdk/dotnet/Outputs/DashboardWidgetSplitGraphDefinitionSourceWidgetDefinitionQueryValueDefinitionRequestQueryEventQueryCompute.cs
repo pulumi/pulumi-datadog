@@ -14,15 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryEventQueryCompute
     {
         /// <summary>
-        /// The aggregation method.
+        /// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
         /// </summary>
         public readonly string Aggregation;
         /// <summary>
-        /// Define the time interval in seconds.
+        /// A time interval in milliseconds.
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The measurable attribute to compute.
         /// </summary>
         public readonly string? Metric;
 

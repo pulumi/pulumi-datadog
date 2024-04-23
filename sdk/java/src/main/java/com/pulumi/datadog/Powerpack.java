@@ -138,14 +138,14 @@ public class Powerpack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.liveSpan);
     }
     /**
-     * The name of the powerpack template variable.
+     * The name for the powerpack.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return The name for the powerpack.
      * 
      */
     public Output<Optional<String>> name() {
@@ -166,14 +166,14 @@ public class Powerpack extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.showTitle);
     }
     /**
-     * A list of tags to use in the widget.
+     * List of tags to identify this powerpack.
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
-     * @return A list of tags to use in the widget.
+     * @return List of tags to identify this powerpack.
      * 
      */
     public Output<Optional<List<String>>> tags() {

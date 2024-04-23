@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// The metrics query definition.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;

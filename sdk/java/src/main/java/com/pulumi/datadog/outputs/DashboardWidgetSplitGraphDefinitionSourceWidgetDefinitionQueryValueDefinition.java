@@ -38,17 +38,17 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private @Nullable String liveSpan;
     /**
-     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * @return The precision to use when displaying the tile.
      * 
      */
     private @Nullable Integer precision;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest> requests;
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String textAlign;
@@ -103,21 +103,21 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The precision to use when displaying the value. Use `*` for maximum precision.
+     * @return The precision to use when displaying the tile.
      * 
      */
     public Optional<Integer> precision() {
         return Optional.ofNullable(this.precision);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     public List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> textAlign() {

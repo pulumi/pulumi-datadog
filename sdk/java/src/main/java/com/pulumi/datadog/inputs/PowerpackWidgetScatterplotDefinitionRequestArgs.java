@@ -34,14 +34,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
     }
 
     /**
-     * The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     @Import(name="xes")
     private @Nullable Output<List<PowerpackWidgetScatterplotDefinitionRequestXArgs>> xes;
 
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetScatterplotDefinitionRequestXArgs>>> xes() {
@@ -49,14 +49,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
     }
 
     /**
-     * The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     @Import(name="ys")
     private @Nullable Output<List<PowerpackWidgetScatterplotDefinitionRequestYArgs>> ys;
 
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
      * 
      */
     public Optional<Output<List<PowerpackWidgetScatterplotDefinitionRequestYArgs>>> ys() {
@@ -121,7 +121,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param xes The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param xes The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param xes The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+         * @param xes The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param ys The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param ys The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param ys The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+         * @param ys The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
          * 
          * @return builder
          * 

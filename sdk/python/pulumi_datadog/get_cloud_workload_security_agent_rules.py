@@ -63,14 +63,12 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_cloud_workload_security_agent_rules()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -88,13 +86,11 @@ def get_cloud_workload_security_agent_rules_output(opts: Optional[pulumi.InvokeO
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     test = datadog.get_cloud_workload_security_agent_rules()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

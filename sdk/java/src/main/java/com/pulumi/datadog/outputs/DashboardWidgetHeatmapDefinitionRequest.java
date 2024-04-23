@@ -53,7 +53,7 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
      */
     private @Nullable DashboardWidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetHeatmapDefinitionRequestStyle style;
@@ -108,7 +108,7 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetHeatmapDefinitionRequestStyle> style() {

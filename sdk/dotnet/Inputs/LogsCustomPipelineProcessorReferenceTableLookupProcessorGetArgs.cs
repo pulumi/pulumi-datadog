@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsCustomPipelineProcessorReferenceTableLookupProcessorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -25,19 +25,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> LookupEnrichmentTable { get; set; } = null!;
 
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the log attribute to parse.
+        /// Name of the source attribute used to do the lookup.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Name of the attribute that contains the result of the lookup.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

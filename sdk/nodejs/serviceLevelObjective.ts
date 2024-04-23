@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -112,7 +111,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -167,11 +165,11 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly monitorIds!: pulumi.Output<number[] | undefined>;
     /**
-     * The name of the query for use in formulas.
+     * Name of Datadog service level objective
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * The metric query of good / total events
      */
     public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
@@ -191,7 +189,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     public readonly timeframe!: pulumi.Output<string>;
     /**
@@ -286,11 +284,11 @@ export interface ServiceLevelObjectiveState {
      */
     monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The name of the query for use in formulas.
+     * Name of Datadog service level objective
      */
     name?: pulumi.Input<string>;
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * The metric query of good / total events
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
@@ -310,7 +308,7 @@ export interface ServiceLevelObjectiveState {
      */
     thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**
@@ -348,11 +346,11 @@ export interface ServiceLevelObjectiveArgs {
      */
     monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The name of the query for use in formulas.
+     * Name of Datadog service level objective
      */
     name: pulumi.Input<string>;
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * The metric query of good / total events
      */
     query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
@@ -372,7 +370,7 @@ export interface ServiceLevelObjectiveArgs {
      */
     thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+     * The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe?: pulumi.Input<string>;
     /**

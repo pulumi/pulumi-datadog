@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetRunWorkflowDefinitionInput
     {
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// Name of the workflow input.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A value for the comparator.
+        /// Dashboard template variable. Can be suffixed with `.value` or `.key`.
         /// </summary>
         public readonly string Value;
 

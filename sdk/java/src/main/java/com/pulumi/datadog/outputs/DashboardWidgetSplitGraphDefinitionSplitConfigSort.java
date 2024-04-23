@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSplitConfigSort {
     /**
-     * @return The compute options.
+     * @return Defines the metric and aggregation used as the sort value
      * 
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute compute;
@@ -26,7 +26,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigSort {
 
     private DashboardWidgetSplitGraphDefinitionSplitConfigSort() {}
     /**
-     * @return The compute options.
+     * @return Defines the metric and aggregation used as the sort value
      * 
      */
     public Optional<DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute> compute() {

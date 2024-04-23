@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSplitGraphDefinitionSplitConfigSort
     {
         /// <summary>
-        /// The compute options.
+        /// Defines the metric and aggregation used as the sort value
         /// </summary>
         public readonly Outputs.DashboardWidgetSplitGraphDefinitionSplitConfigSortCompute? Compute;
         /// <summary>

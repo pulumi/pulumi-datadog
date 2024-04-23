@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,7 +71,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -88,11 +86,11 @@ type Powerpack struct {
 	Layout PowerpackLayoutOutput `pulumi:"layout"`
 	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrOutput `pulumi:"liveSpan"`
-	// The name of the powerpack template variable.
+	// The name for the powerpack.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Whether or not title should be displayed in the powerpack.
 	ShowTitle pulumi.BoolPtrOutput `pulumi:"showTitle"`
-	// A list of tags to use in the widget.
+	// List of tags to identify this powerpack.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The list of template variables for this powerpack.
 	TemplateVariables PowerpackTemplateVariableArrayOutput `pulumi:"templateVariables"`
@@ -136,11 +134,11 @@ type powerpackState struct {
 	Layout *PowerpackLayout `pulumi:"layout"`
 	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan *string `pulumi:"liveSpan"`
-	// The name of the powerpack template variable.
+	// The name for the powerpack.
 	Name *string `pulumi:"name"`
 	// Whether or not title should be displayed in the powerpack.
 	ShowTitle *bool `pulumi:"showTitle"`
-	// A list of tags to use in the widget.
+	// List of tags to identify this powerpack.
 	Tags []string `pulumi:"tags"`
 	// The list of template variables for this powerpack.
 	TemplateVariables []PowerpackTemplateVariable `pulumi:"templateVariables"`
@@ -155,11 +153,11 @@ type PowerpackState struct {
 	Layout PowerpackLayoutPtrInput
 	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrInput
-	// The name of the powerpack template variable.
+	// The name for the powerpack.
 	Name pulumi.StringPtrInput
 	// Whether or not title should be displayed in the powerpack.
 	ShowTitle pulumi.BoolPtrInput
-	// A list of tags to use in the widget.
+	// List of tags to identify this powerpack.
 	Tags pulumi.StringArrayInput
 	// The list of template variables for this powerpack.
 	TemplateVariables PowerpackTemplateVariableArrayInput
@@ -178,11 +176,11 @@ type powerpackArgs struct {
 	Layout *PowerpackLayout `pulumi:"layout"`
 	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan *string `pulumi:"liveSpan"`
-	// The name of the powerpack template variable.
+	// The name for the powerpack.
 	Name *string `pulumi:"name"`
 	// Whether or not title should be displayed in the powerpack.
 	ShowTitle *bool `pulumi:"showTitle"`
-	// A list of tags to use in the widget.
+	// List of tags to identify this powerpack.
 	Tags []string `pulumi:"tags"`
 	// The list of template variables for this powerpack.
 	TemplateVariables []PowerpackTemplateVariable `pulumi:"templateVariables"`
@@ -198,11 +196,11 @@ type PowerpackArgs struct {
 	Layout PowerpackLayoutPtrInput
 	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
 	LiveSpan pulumi.StringPtrInput
-	// The name of the powerpack template variable.
+	// The name for the powerpack.
 	Name pulumi.StringPtrInput
 	// Whether or not title should be displayed in the powerpack.
 	ShowTitle pulumi.BoolPtrInput
-	// A list of tags to use in the widget.
+	// List of tags to identify this powerpack.
 	Tags pulumi.StringArrayInput
 	// The list of template variables for this powerpack.
 	TemplateVariables PowerpackTemplateVariableArrayInput
@@ -312,7 +310,7 @@ func (o PowerpackOutput) LiveSpan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Powerpack) pulumi.StringPtrOutput { return v.LiveSpan }).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name for the powerpack.
 func (o PowerpackOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Powerpack) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -322,7 +320,7 @@ func (o PowerpackOutput) ShowTitle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Powerpack) pulumi.BoolPtrOutput { return v.ShowTitle }).(pulumi.BoolPtrOutput)
 }
 
-// A list of tags to use in the widget.
+// List of tags to identify this powerpack.
 func (o PowerpackOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Powerpack) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
@@ -71,7 +71,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
 
     private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {

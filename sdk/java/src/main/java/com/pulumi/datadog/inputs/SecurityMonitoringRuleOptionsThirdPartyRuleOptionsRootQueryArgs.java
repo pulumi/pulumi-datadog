@@ -33,14 +33,14 @@ public final class SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryAr
     }
 
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Query to filter logs.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return Query for selecting logs to apply the filtering action.
+     * @return Query to filter logs.
      * 
      */
     public Output<String> query() {
@@ -104,7 +104,7 @@ public final class SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryAr
         }
 
         /**
-         * @param query Query for selecting logs to apply the filtering action.
+         * @param query Query to filter logs.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryAr
         }
 
         /**
-         * @param query Query for selecting logs to apply the filtering action.
+         * @param query Query to filter logs.
          * 
          * @return builder
          * 

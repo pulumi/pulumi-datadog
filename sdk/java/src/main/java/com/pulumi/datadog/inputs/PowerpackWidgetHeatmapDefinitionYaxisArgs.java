@@ -32,14 +32,14 @@ public final class PowerpackWidgetHeatmapDefinitionYaxisArgs extends com.pulumi.
     }
 
     /**
-     * The label for the custom link URL.
+     * The label of the axis to display on the graph.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label for the custom link URL.
+     * @return The label of the axis to display on the graph.
      * 
      */
     public Optional<Output<String>> label() {
@@ -141,7 +141,7 @@ public final class PowerpackWidgetHeatmapDefinitionYaxisArgs extends com.pulumi.
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label The label of the axis to display on the graph.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PowerpackWidgetHeatmapDefinitionYaxisArgs extends com.pulumi.
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label The label of the axis to display on the graph.
          * 
          * @return builder
          * 

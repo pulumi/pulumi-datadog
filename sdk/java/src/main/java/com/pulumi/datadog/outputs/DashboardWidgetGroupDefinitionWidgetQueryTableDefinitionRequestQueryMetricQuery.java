@@ -13,17 +13,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
     private @Nullable String dataSource;
     /**
-     * @return The name of the variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     private String name;
@@ -35,21 +35,21 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionReque
 
     private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
     public Optional<String> dataSource() {
         return Optional.ofNullable(this.dataSource);
     }
     /**
-     * @return The name of the variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     public String name() {

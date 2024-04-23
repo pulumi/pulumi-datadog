@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetPowerpackDefinition
     {
         /// <summary>
-        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// The background color of the powerpack title.
         /// </summary>
         public readonly string? BackgroundColor;
         /// <summary>
-        /// The image URL to display as a banner for the group.
+        /// URL of image to display as a banner for the powerpack.
         /// </summary>
         public readonly string? BannerImg;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string PowerpackId;
         /// <summary>
-        /// Whether to show the title or not. Defaults to `true`.
+        /// Whether to show the title of the powerpack.
         /// </summary>
         public readonly bool? ShowTitle;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionTemplateVariables? TemplateVariables;
         /// <summary>
-        /// The title of the widget.
+        /// Title of the powerpack.
         /// </summary>
         public readonly string? Title;
 

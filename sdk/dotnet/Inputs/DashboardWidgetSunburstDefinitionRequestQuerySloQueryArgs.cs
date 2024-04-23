@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AdditionalQueryFilters { get; set; }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for SLO queries. Valid values are `slo`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Measure { get; set; } = null!;
 
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

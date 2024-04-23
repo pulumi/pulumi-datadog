@@ -31,8 +31,8 @@ class DashboardArgs:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] layout_type: The layout type of the group. Valid values are `ordered`.
-        :param pulumi.Input[str] title: The title of the widget.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
+        :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
                dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[str] description: The description of the dashboard.
@@ -40,11 +40,11 @@ class DashboardArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The template variable names and assumed values under the given preset
-        :param pulumi.Input[str] url: The URL to use as a data source for the widget.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets in this group.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         """
         pulumi.set(__self__, "layout_type", layout_type)
         pulumi.set(__self__, "title", title)
@@ -78,7 +78,7 @@ class DashboardArgs:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Input[str]:
         """
-        The layout type of the group. Valid values are `ordered`.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -90,7 +90,7 @@ class DashboardArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        The title of the widget.
+        The title of the dashboard.
         """
         return pulumi.get(self, "title")
 
@@ -178,7 +178,7 @@ class DashboardArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to use in the widget.
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         """
         return pulumi.get(self, "tags")
 
@@ -202,7 +202,7 @@ class DashboardArgs:
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]:
         """
-        The template variable names and assumed values under the given preset
+        The list of template variables for this dashboard.
         """
         return pulumi.get(self, "template_variables")
 
@@ -214,7 +214,7 @@ class DashboardArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to use as a data source for the widget.
+        The URL of the dashboard.
         """
         return pulumi.get(self, "url")
 
@@ -226,7 +226,7 @@ class DashboardArgs:
     @pulumi.getter
     def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
         """
-        The list of widgets in this group.
+        The list of widgets to display on the dashboard.
         """
         return pulumi.get(self, "widgets")
 
@@ -259,16 +259,16 @@ class _DashboardState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
-        :param pulumi.Input[str] layout_type: The layout type of the group. Valid values are `ordered`.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The template variable names and assumed values under the given preset
-        :param pulumi.Input[str] title: The title of the widget.
-        :param pulumi.Input[str] url: The URL to use as a data source for the widget.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets in this group.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         """
         if dashboard_lists is not None:
             pulumi.set(__self__, "dashboard_lists", dashboard_lists)
@@ -358,7 +358,7 @@ class _DashboardState:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The layout type of the group. Valid values are `ordered`.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -406,7 +406,7 @@ class _DashboardState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to use in the widget.
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         """
         return pulumi.get(self, "tags")
 
@@ -430,7 +430,7 @@ class _DashboardState:
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]:
         """
-        The template variable names and assumed values under the given preset
+        The list of template variables for this dashboard.
         """
         return pulumi.get(self, "template_variables")
 
@@ -442,7 +442,7 @@ class _DashboardState:
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
         """
-        The title of the widget.
+        The title of the dashboard.
         """
         return pulumi.get(self, "title")
 
@@ -454,7 +454,7 @@ class _DashboardState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to use as a data source for the widget.
+        The URL of the dashboard.
         """
         return pulumi.get(self, "url")
 
@@ -466,7 +466,7 @@ class _DashboardState:
     @pulumi.getter
     def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
         """
-        The list of widgets in this group.
+        The list of widgets to display on the dashboard.
         """
         return pulumi.get(self, "widgets")
 
@@ -499,7 +499,6 @@ class Dashboard(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -1244,7 +1243,6 @@ class Dashboard(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1258,16 +1256,16 @@ class Dashboard(pulumi.CustomResource):
                dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
-        :param pulumi.Input[str] layout_type: The layout type of the group. Valid values are `ordered`.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The template variable names and assumed values under the given preset
-        :param pulumi.Input[str] title: The title of the widget.
-        :param pulumi.Input[str] url: The URL to use as a data source for the widget.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets in this group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         ...
     @overload
@@ -1280,7 +1278,6 @@ class Dashboard(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -2025,7 +2022,6 @@ class Dashboard(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -2124,16 +2120,16 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
-        :param pulumi.Input[str] layout_type: The layout type of the group. Valid values are `ordered`.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The template variable names and assumed values under the given preset
-        :param pulumi.Input[str] title: The title of the widget.
-        :param pulumi.Input[str] url: The URL to use as a data source for the widget.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets in this group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2195,7 +2191,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Output[str]:
         """
-        The layout type of the group. Valid values are `ordered`.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -2227,7 +2223,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of tags to use in the widget.
+        A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
         """
         return pulumi.get(self, "tags")
 
@@ -2243,7 +2239,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTemplateVariable']]]:
         """
-        The template variable names and assumed values under the given preset
+        The list of template variables for this dashboard.
         """
         return pulumi.get(self, "template_variables")
 
@@ -2251,7 +2247,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        The title of the widget.
+        The title of the dashboard.
         """
         return pulumi.get(self, "title")
 
@@ -2259,7 +2255,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL to use as a data source for the widget.
+        The URL of the dashboard.
         """
         return pulumi.get(self, "url")
 
@@ -2267,7 +2263,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def widgets(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardWidget']]]:
         """
-        The list of widgets in this group.
+        The list of widgets to display on the dashboard.
         """
         return pulumi.get(self, "widgets")
 

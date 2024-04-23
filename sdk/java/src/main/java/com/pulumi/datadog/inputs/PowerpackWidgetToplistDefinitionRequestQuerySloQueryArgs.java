@@ -32,14 +32,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for SLO queries. Valid values are `slo`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for SLO queries. Valid values are `slo`.
      * 
      */
     public Output<String> dataSource() {
@@ -77,14 +77,14 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
     }
 
     /**
-     * The name of the powerpack template variable.
+     * The name of query for use in formulas.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Optional<Output<String>> name() {
@@ -173,7 +173,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for SLO queries. Valid values are `slo`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for SLO queries. Valid values are `slo`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs exte
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 

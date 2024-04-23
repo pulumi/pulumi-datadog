@@ -50,14 +50,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs 
     }
 
     /**
-     * The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * Size of the individual graphs in the split.
      * 
      */
     @Import(name="size", required=true)
     private Output<String> size;
 
     /**
-     * @return The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Size of the individual graphs in the split.
      * 
      */
     public Output<String> size() {
@@ -181,7 +181,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs 
         }
 
         /**
-         * @param size The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param size Size of the individual graphs in the split.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs 
         }
 
         /**
-         * @param size The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param size Size of the individual graphs in the split.
          * 
          * @return builder
          * 

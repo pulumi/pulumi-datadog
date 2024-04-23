@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetRunWorkflowDefinitionInputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// Name of the workflow input.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A value for the comparator.
+        /// Dashboard template variable. Can be suffixed with `.value` or `.key`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

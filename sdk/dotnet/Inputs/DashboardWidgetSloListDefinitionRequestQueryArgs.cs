@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSloListDefinitionRequestQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of items in the group.
+        /// Maximum number of results to display in the table. Defaults to `100`.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> QueryString { get; set; } = null!;
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// The facet and order to sort the data, for example: `{"column": "status.sli", "order": "desc"}`.
         /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetSloListDefinitionRequestQuerySortArgs>? Sort { get; set; }

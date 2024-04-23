@@ -33,14 +33,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * Setting this to True hides values.
+     * Whether to hide the values of the groups.
      * 
      */
     @Import(name="hideValue")
     private @Nullable Output<Boolean> hideValue;
 
     /**
-     * @return Setting this to True hides values.
+     * @return Whether to hide the values of the groups.
      * 
      */
     public Optional<Output<Boolean>> hideValue() {
@@ -48,14 +48,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
      * 
      */
     public Output<String> type() {
@@ -110,7 +110,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param hideValue Setting this to True hides values.
+         * @param hideValue Whether to hide the values of the groups.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param hideValue Setting this to True hides values.
+         * @param hideValue Whether to hide the values of the groups.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
          * 
          * @return builder
          * 

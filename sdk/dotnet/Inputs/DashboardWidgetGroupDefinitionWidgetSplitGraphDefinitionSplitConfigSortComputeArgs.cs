@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortComputeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation method.
+        /// How to aggregate the sort metric for the purposes of ordering.
         /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
 
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The metric to use for sorting graphs.
         /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;

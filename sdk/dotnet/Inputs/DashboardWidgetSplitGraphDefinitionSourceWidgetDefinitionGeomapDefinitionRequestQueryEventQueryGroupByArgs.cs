@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupByArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The facet name.
+        /// The event facet.
         /// </summary>
         [Input("facet", required: true)]
         public Input<string> Facet { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of groups to return.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }

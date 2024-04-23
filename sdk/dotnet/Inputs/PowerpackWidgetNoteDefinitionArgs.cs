@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The size of the text in the widget.
+        /// The size of the text.
         /// </summary>
         [Input("fontSize")]
         public Input<string>? FontSize { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowTick { get; set; }
 
         /// <summary>
-        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
         /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
