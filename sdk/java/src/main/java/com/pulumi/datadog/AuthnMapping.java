@@ -11,6 +11,7 @@ import com.pulumi.datadog.AuthnMappingArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.AuthnMappingState;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -89,14 +90,28 @@ public class AuthnMapping extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
-    private Output<String> role;
+    private Output</* @Nullable */ String> role;
 
     /**
      * @return The ID of a role to attach to all users with the corresponding key and value.
      * 
      */
-    public Output<String> role() {
-        return this.role;
+    public Output<Optional<String>> role() {
+        return Codegen.optional(this.role);
+    }
+    /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    @Export(name="team", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> team;
+
+    /**
+     * @return The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    public Output<Optional<String>> team() {
+        return Codegen.optional(this.team);
     }
     /**
      * Identity provider value.

@@ -101,7 +101,7 @@ namespace Pulumi.Datadog
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Additional queries to filter matched events before they are processed.
+        /// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.SecurityMonitoringRuleFilter>> Filters { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleFilterArgs>? _filters;
 
         /// <summary>
-        /// Additional queries to filter matched events before they are processed.
+        /// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleFilterArgs> Filters
         {
@@ -344,7 +344,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.SecurityMonitoringRuleFilterGetArgs>? _filters;
 
         /// <summary>
-        /// Additional queries to filter matched events before they are processed.
+        /// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         /// </summary>
         public InputList<Inputs.SecurityMonitoringRuleFilterGetArgs> Filters
         {

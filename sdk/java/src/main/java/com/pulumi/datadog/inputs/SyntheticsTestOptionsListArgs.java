@@ -130,14 +130,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      * 
      */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      * 
      */
     public Optional<Output<String>> httpVersion() {
@@ -507,7 +507,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpVersion HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpVersion HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
          * 
          * @return builder
          * 

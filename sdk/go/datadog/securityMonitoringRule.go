@@ -91,7 +91,7 @@ type SecurityMonitoringRule struct {
 	Cases SecurityMonitoringRuleCaseArrayOutput `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayOutput `pulumi:"filters"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
@@ -153,7 +153,7 @@ type securityMonitoringRuleState struct {
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
@@ -180,7 +180,7 @@ type SecurityMonitoringRuleState struct {
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayInput
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
@@ -211,7 +211,7 @@ type securityMonitoringRuleArgs struct {
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
@@ -239,7 +239,7 @@ type SecurityMonitoringRuleArgs struct {
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters SecurityMonitoringRuleFilterArrayInput
 	// Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
 	HasExtendedTitle pulumi.BoolPtrInput
@@ -358,7 +358,7 @@ func (o SecurityMonitoringRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Additional queries to filter matched events before they are processed.
+// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 func (o SecurityMonitoringRuleOutput) Filters() SecurityMonitoringRuleFilterArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRuleFilterArrayOutput { return v.Filters }).(SecurityMonitoringRuleFilterArrayOutput)
 }

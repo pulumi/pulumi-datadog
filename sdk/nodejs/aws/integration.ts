@@ -90,6 +90,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly excludedRegions!: pulumi.Output<string[] | undefined>;
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
+     */
+    public readonly extendedResourceCollectionEnabled!: pulumi.Output<string>;
+    /**
      * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
      * Terraform.
      */
@@ -107,7 +111,9 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly metricsCollectionEnabled!: pulumi.Output<string>;
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
+     *
+     * @deprecated Deprecated in favor of `extendedResourceCollectionEnabled`.
      */
     public readonly resourceCollectionEnabled!: pulumi.Output<string>;
     /**
@@ -137,6 +143,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
             resourceInputs["cspmResourceCollectionEnabled"] = state ? state.cspmResourceCollectionEnabled : undefined;
             resourceInputs["excludedRegions"] = state ? state.excludedRegions : undefined;
+            resourceInputs["extendedResourceCollectionEnabled"] = state ? state.extendedResourceCollectionEnabled : undefined;
             resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["filterTags"] = state ? state.filterTags : undefined;
             resourceInputs["hostTags"] = state ? state.hostTags : undefined;
@@ -151,6 +158,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
             resourceInputs["cspmResourceCollectionEnabled"] = args ? args.cspmResourceCollectionEnabled : undefined;
             resourceInputs["excludedRegions"] = args ? args.excludedRegions : undefined;
+            resourceInputs["extendedResourceCollectionEnabled"] = args ? args.extendedResourceCollectionEnabled : undefined;
             resourceInputs["filterTags"] = args ? args.filterTags : undefined;
             resourceInputs["hostTags"] = args ? args.hostTags : undefined;
             resourceInputs["metricsCollectionEnabled"] = args ? args.metricsCollectionEnabled : undefined;
@@ -191,6 +199,10 @@ export interface IntegrationState {
      */
     excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
+     */
+    extendedResourceCollectionEnabled?: pulumi.Input<string>;
+    /**
      * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
      * Terraform.
      */
@@ -208,7 +220,9 @@ export interface IntegrationState {
      */
     metricsCollectionEnabled?: pulumi.Input<string>;
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
+     *
+     * @deprecated Deprecated in favor of `extendedResourceCollectionEnabled`.
      */
     resourceCollectionEnabled?: pulumi.Input<string>;
     /**
@@ -246,6 +260,10 @@ export interface IntegrationArgs {
      */
     excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
+     */
+    extendedResourceCollectionEnabled?: pulumi.Input<string>;
+    /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      */
     filterTags?: pulumi.Input<pulumi.Input<string>[]>;
@@ -258,7 +276,9 @@ export interface IntegrationArgs {
      */
     metricsCollectionEnabled?: pulumi.Input<string>;
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extendedResourceCollectionEnabled`.
+     *
+     * @deprecated Deprecated in favor of `extendedResourceCollectionEnabled`.
      */
     resourceCollectionEnabled?: pulumi.Input<string>;
     /**

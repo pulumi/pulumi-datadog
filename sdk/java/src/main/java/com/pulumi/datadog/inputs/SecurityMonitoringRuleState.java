@@ -54,14 +54,14 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<SecurityMonitoringRuleFilterArgs>> filters;
 
     /**
-     * @return Additional queries to filter matched events before they are processed.
+     * @return Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     public Optional<Output<List<SecurityMonitoringRuleFilterArgs>>> filters() {
@@ -291,7 +291,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param filters Additional queries to filter matched events before they are processed.
+         * @param filters Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param filters Additional queries to filter matched events before they are processed.
+         * @param filters Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param filters Additional queries to filter matched events before they are processed.
+         * @param filters Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
          * 
          * @return builder
          * 

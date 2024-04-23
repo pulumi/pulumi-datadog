@@ -55,6 +55,8 @@ import (
 type SecurityMonitoringSuppression struct {
 	pulumi.CustomResourceState
 
+	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+	DataExclusionQuery pulumi.StringPtrOutput `pulumi:"dataExclusionQuery"`
 	// A description for the suppression rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether the suppression rule is enabled.
@@ -65,8 +67,8 @@ type SecurityMonitoringSuppression struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringOutput `pulumi:"ruleQuery"`
-	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
-	SuppressionQuery pulumi.StringOutput `pulumi:"suppressionQuery"`
+	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+	SuppressionQuery pulumi.StringPtrOutput `pulumi:"suppressionQuery"`
 }
 
 // NewSecurityMonitoringSuppression registers a new resource with the given unique name, arguments, and options.
@@ -84,9 +86,6 @@ func NewSecurityMonitoringSuppression(ctx *pulumi.Context,
 	}
 	if args.RuleQuery == nil {
 		return nil, errors.New("invalid value for required argument 'RuleQuery'")
-	}
-	if args.SuppressionQuery == nil {
-		return nil, errors.New("invalid value for required argument 'SuppressionQuery'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityMonitoringSuppression
@@ -111,6 +110,8 @@ func GetSecurityMonitoringSuppression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
 type securityMonitoringSuppressionState struct {
+	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+	DataExclusionQuery *string `pulumi:"dataExclusionQuery"`
 	// A description for the suppression rule.
 	Description *string `pulumi:"description"`
 	// Whether the suppression rule is enabled.
@@ -121,11 +122,13 @@ type securityMonitoringSuppressionState struct {
 	Name *string `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery *string `pulumi:"ruleQuery"`
-	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery *string `pulumi:"suppressionQuery"`
 }
 
 type SecurityMonitoringSuppressionState struct {
+	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+	DataExclusionQuery pulumi.StringPtrInput
 	// A description for the suppression rule.
 	Description pulumi.StringPtrInput
 	// Whether the suppression rule is enabled.
@@ -136,7 +139,7 @@ type SecurityMonitoringSuppressionState struct {
 	Name pulumi.StringPtrInput
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringPtrInput
-	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
 	SuppressionQuery pulumi.StringPtrInput
 }
 
@@ -145,6 +148,8 @@ func (SecurityMonitoringSuppressionState) ElementType() reflect.Type {
 }
 
 type securityMonitoringSuppressionArgs struct {
+	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+	DataExclusionQuery *string `pulumi:"dataExclusionQuery"`
 	// A description for the suppression rule.
 	Description *string `pulumi:"description"`
 	// Whether the suppression rule is enabled.
@@ -155,12 +160,14 @@ type securityMonitoringSuppressionArgs struct {
 	Name string `pulumi:"name"`
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery string `pulumi:"ruleQuery"`
-	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
-	SuppressionQuery string `pulumi:"suppressionQuery"`
+	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+	SuppressionQuery *string `pulumi:"suppressionQuery"`
 }
 
 // The set of arguments for constructing a SecurityMonitoringSuppression resource.
 type SecurityMonitoringSuppressionArgs struct {
+	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+	DataExclusionQuery pulumi.StringPtrInput
 	// A description for the suppression rule.
 	Description pulumi.StringPtrInput
 	// Whether the suppression rule is enabled.
@@ -171,8 +178,8 @@ type SecurityMonitoringSuppressionArgs struct {
 	Name pulumi.StringInput
 	// The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
 	RuleQuery pulumi.StringInput
-	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
-	SuppressionQuery pulumi.StringInput
+	// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+	SuppressionQuery pulumi.StringPtrInput
 }
 
 func (SecurityMonitoringSuppressionArgs) ElementType() reflect.Type {
@@ -262,6 +269,11 @@ func (o SecurityMonitoringSuppressionOutput) ToSecurityMonitoringSuppressionOutp
 	return o
 }
 
+// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+func (o SecurityMonitoringSuppressionOutput) DataExclusionQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringPtrOutput { return v.DataExclusionQuery }).(pulumi.StringPtrOutput)
+}
+
 // A description for the suppression rule.
 func (o SecurityMonitoringSuppressionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -287,9 +299,9 @@ func (o SecurityMonitoringSuppressionOutput) RuleQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringOutput { return v.RuleQuery }).(pulumi.StringOutput)
 }
 
-// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
-func (o SecurityMonitoringSuppressionOutput) SuppressionQuery() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringOutput { return v.SuppressionQuery }).(pulumi.StringOutput)
+// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+func (o SecurityMonitoringSuppressionOutput) SuppressionQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringSuppression) pulumi.StringPtrOutput { return v.SuppressionQuery }).(pulumi.StringPtrOutput)
 }
 
 type SecurityMonitoringSuppressionArrayOutput struct{ *pulumi.OutputState }

@@ -73,7 +73,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A list a role IDs to assign to the user.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<string[]>;
     /**
      * Whether an invitation email should be sent when the user is created. Defaults to `true`.
      */

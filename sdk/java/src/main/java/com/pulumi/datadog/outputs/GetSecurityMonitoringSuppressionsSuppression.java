@@ -11,6 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecurityMonitoringSuppressionsSuppression {
+    private String dataExclusionQuery;
     private String description;
     private Boolean enabled;
     private String expirationDate;
@@ -20,6 +21,9 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     private String suppressionQuery;
 
     private GetSecurityMonitoringSuppressionsSuppression() {}
+    public String dataExclusionQuery() {
+        return this.dataExclusionQuery;
+    }
     public String description() {
         return this.description;
     }
@@ -51,6 +55,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String dataExclusionQuery;
         private String description;
         private Boolean enabled;
         private String expirationDate;
@@ -61,6 +66,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
         public Builder() {}
         public Builder(GetSecurityMonitoringSuppressionsSuppression defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataExclusionQuery = defaults.dataExclusionQuery;
     	      this.description = defaults.description;
     	      this.enabled = defaults.enabled;
     	      this.expirationDate = defaults.expirationDate;
@@ -70,6 +76,14 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
     	      this.suppressionQuery = defaults.suppressionQuery;
         }
 
+        @CustomType.Setter
+        public Builder dataExclusionQuery(String dataExclusionQuery) {
+            if (dataExclusionQuery == null) {
+              throw new MissingRequiredPropertyException("GetSecurityMonitoringSuppressionsSuppression", "dataExclusionQuery");
+            }
+            this.dataExclusionQuery = dataExclusionQuery;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -128,6 +142,7 @@ public final class GetSecurityMonitoringSuppressionsSuppression {
         }
         public GetSecurityMonitoringSuppressionsSuppression build() {
             final var _resultValue = new GetSecurityMonitoringSuppressionsSuppression();
+            _resultValue.dataExclusionQuery = dataExclusionQuery;
             _resultValue.description = description;
             _resultValue.enabled = enabled;
             _resultValue.expirationDate = expirationDate;

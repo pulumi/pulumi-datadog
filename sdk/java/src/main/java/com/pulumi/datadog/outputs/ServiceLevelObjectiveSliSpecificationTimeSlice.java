@@ -7,8 +7,11 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
@@ -22,6 +25,11 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
      * 
      */
     private ServiceLevelObjectiveSliSpecificationTimeSliceQuery query;
+    /**
+     * @return The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     * 
+     */
+    private @Nullable Integer queryIntervalSeconds;
     /**
      * @return The threshold value to which each SLI value will be compared.
      * 
@@ -44,6 +52,13 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
         return this.query;
     }
     /**
+     * @return The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     * 
+     */
+    public Optional<Integer> queryIntervalSeconds() {
+        return Optional.ofNullable(this.queryIntervalSeconds);
+    }
+    /**
      * @return The threshold value to which each SLI value will be compared.
      * 
      */
@@ -62,12 +77,14 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
     public static final class Builder {
         private String comparator;
         private ServiceLevelObjectiveSliSpecificationTimeSliceQuery query;
+        private @Nullable Integer queryIntervalSeconds;
         private Double threshold;
         public Builder() {}
         public Builder(ServiceLevelObjectiveSliSpecificationTimeSlice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comparator = defaults.comparator;
     	      this.query = defaults.query;
+    	      this.queryIntervalSeconds = defaults.queryIntervalSeconds;
     	      this.threshold = defaults.threshold;
         }
 
@@ -88,6 +105,12 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
             return this;
         }
         @CustomType.Setter
+        public Builder queryIntervalSeconds(@Nullable Integer queryIntervalSeconds) {
+
+            this.queryIntervalSeconds = queryIntervalSeconds;
+            return this;
+        }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             if (threshold == null) {
               throw new MissingRequiredPropertyException("ServiceLevelObjectiveSliSpecificationTimeSlice", "threshold");
@@ -99,6 +122,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSlice {
             final var _resultValue = new ServiceLevelObjectiveSliSpecificationTimeSlice();
             _resultValue.comparator = comparator;
             _resultValue.query = query;
+            _resultValue.queryIntervalSeconds = queryIntervalSeconds;
             _resultValue.threshold = threshold;
             return _resultValue;
         }

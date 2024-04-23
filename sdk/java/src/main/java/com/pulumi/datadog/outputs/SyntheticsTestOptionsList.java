@@ -56,7 +56,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean followRedirects;
     /**
-     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      * 
      */
     private @Nullable String httpVersion;
@@ -165,7 +165,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.followRedirects);
     }
     /**
-     * @return HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      * 
      */
     public Optional<String> httpVersion() {

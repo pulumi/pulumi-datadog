@@ -45,6 +45,11 @@ export type CloudWorkloadSecurityAgentRule = import("./cloudWorkloadSecurityAgen
 export const CloudWorkloadSecurityAgentRule: typeof import("./cloudWorkloadSecurityAgentRule").CloudWorkloadSecurityAgentRule = null as any;
 utilities.lazyLoad(exports, ["CloudWorkloadSecurityAgentRule"], () => require("./cloudWorkloadSecurityAgentRule"));
 
+export { CsmThreatsAgentRuleArgs, CsmThreatsAgentRuleState } from "./csmThreatsAgentRule";
+export type CsmThreatsAgentRule = import("./csmThreatsAgentRule").CsmThreatsAgentRule;
+export const CsmThreatsAgentRule: typeof import("./csmThreatsAgentRule").CsmThreatsAgentRule = null as any;
+utilities.lazyLoad(exports, ["CsmThreatsAgentRule"], () => require("./csmThreatsAgentRule"));
+
 export { DashboardArgs, DashboardState } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
@@ -89,6 +94,11 @@ export { GetCloudWorkloadSecurityAgentRulesResult } from "./getCloudWorkloadSecu
 export const getCloudWorkloadSecurityAgentRules: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRules = null as any;
 export const getCloudWorkloadSecurityAgentRulesOutput: typeof import("./getCloudWorkloadSecurityAgentRules").getCloudWorkloadSecurityAgentRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudWorkloadSecurityAgentRules","getCloudWorkloadSecurityAgentRulesOutput"], () => require("./getCloudWorkloadSecurityAgentRules"));
+
+export { GetCsmThreatsAgentRulesResult } from "./getCsmThreatsAgentRules";
+export const getCsmThreatsAgentRules: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRules = null as any;
+export const getCsmThreatsAgentRulesOutput: typeof import("./getCsmThreatsAgentRules").getCsmThreatsAgentRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getCsmThreatsAgentRules","getCsmThreatsAgentRulesOutput"], () => require("./getCsmThreatsAgentRules"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
@@ -154,6 +164,11 @@ export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+
+export { GetRoleUsersArgs, GetRoleUsersResult, GetRoleUsersOutputArgs } from "./getRoleUsers";
+export const getRoleUsers: typeof import("./getRoleUsers").getRoleUsers = null as any;
+export const getRoleUsersOutput: typeof import("./getRoleUsers").getRoleUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleUsers","getRoleUsersOutput"], () => require("./getRoleUsers"));
 
 export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
 export const getRoles: typeof import("./getRoles").getRoles = null as any;
@@ -455,6 +470,11 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
+export { UserRoleArgs, UserRoleState } from "./userRole";
+export type UserRole = import("./userRole").UserRole;
+export const UserRole: typeof import("./userRole").UserRole = null as any;
+utilities.lazyLoad(exports, ["UserRole"], () => require("./userRole"));
+
 export { WebhookArgs, WebhookState } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
@@ -513,6 +533,8 @@ const _module = {
                 return new CloudConfigurationRule(name, <any>undefined, { urn })
             case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
                 return new CloudWorkloadSecurityAgentRule(name, <any>undefined, { urn })
+            case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
+                return new CsmThreatsAgentRule(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "datadog:index/dashboardJson:DashboardJson":
@@ -607,6 +629,8 @@ const _module = {
                 return new TeamPermissionSetting(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "datadog:index/userRole:UserRole":
+                return new UserRole(name, <any>undefined, { urn })
             case "datadog:index/webhook:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
@@ -624,6 +648,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudWorkloadSecurityAgentRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/csmThreatsAgentRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
@@ -671,6 +696,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/teamLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
 pulumi.runtime.registerResourcePackage("datadog", {

@@ -20,7 +20,6 @@ import * as utilities from "./utilities";
  *     title: "Ordered Layout Dashboard",
  *     description: "Created using the Datadog provider in Pulumi",
  *     layoutType: "ordered",
- *     isReadOnly: true,
  *     widgets: [
  *         {
  *             alertGraphDefinition: {
@@ -436,7 +435,6 @@ import * as utilities from "./utilities";
  *     title: "Free Layout Dashboard",
  *     description: "Created using the Datadog provider in Pulumi",
  *     layoutType: "free",
- *     isReadOnly: false,
  *     widgets: [
  *         {
  *             eventStreamDefinition: {

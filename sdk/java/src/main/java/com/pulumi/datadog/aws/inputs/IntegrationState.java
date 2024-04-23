@@ -94,6 +94,21 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    @Import(name="extendedResourceCollectionEnabled")
+    private @Nullable Output<String> extendedResourceCollectionEnabled;
+
+    /**
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    public Optional<Output<String>> extendedResourceCollectionEnabled() {
+        return Optional.ofNullable(this.extendedResourceCollectionEnabled);
+    }
+
+    /**
      * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
      * Terraform.
      * 
@@ -156,16 +171,24 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * 
+     * @deprecated
+     * Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
+    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
     @Import(name="resourceCollectionEnabled")
     private @Nullable Output<String> resourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects a standard set of resources from your AWS account.
+     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * 
+     * @deprecated
+     * Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
+    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
     public Optional<Output<String>> resourceCollectionEnabled() {
         return Optional.ofNullable(this.resourceCollectionEnabled);
     }
@@ -208,6 +231,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         this.accountSpecificNamespaceRules = $.accountSpecificNamespaceRules;
         this.cspmResourceCollectionEnabled = $.cspmResourceCollectionEnabled;
         this.excludedRegions = $.excludedRegions;
+        this.extendedResourceCollectionEnabled = $.extendedResourceCollectionEnabled;
         this.externalId = $.externalId;
         this.filterTags = $.filterTags;
         this.hostTags = $.hostTags;
@@ -351,6 +375,27 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendedResourceCollectionEnabled(@Nullable Output<String> extendedResourceCollectionEnabled) {
+            $.extendedResourceCollectionEnabled = extendedResourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendedResourceCollectionEnabled(String extendedResourceCollectionEnabled) {
+            return extendedResourceCollectionEnabled(Output.of(extendedResourceCollectionEnabled));
+        }
+
+        /**
          * @param externalId AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
          * Terraform.
          * 
@@ -457,22 +502,30 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * 
          */
+        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
         public Builder resourceCollectionEnabled(@Nullable Output<String> resourceCollectionEnabled) {
             $.resourceCollectionEnabled = resourceCollectionEnabled;
             return this;
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * 
          */
+        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
         public Builder resourceCollectionEnabled(String resourceCollectionEnabled) {
             return resourceCollectionEnabled(Output.of(resourceCollectionEnabled));
         }

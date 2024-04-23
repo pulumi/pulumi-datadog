@@ -34,14 +34,14 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      * 
      */
     @Import(name="bodyType")
     private @Nullable Output<String> bodyType;
 
     /**
-     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      * 
      */
     public Optional<Output<String>> bodyType() {
@@ -121,6 +121,21 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
      */
     public Optional<Output<String>> host() {
         return Optional.ofNullable(this.host);
+    }
+
+    /**
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    @Import(name="httpVersion")
+    private @Nullable Output<String> httpVersion;
+
+    /**
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    public Optional<Output<String>> httpVersion() {
+        return Optional.ofNullable(this.httpVersion);
     }
 
     /**
@@ -336,6 +351,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         this.dnsServer = $.dnsServer;
         this.dnsServerPort = $.dnsServerPort;
         this.host = $.host;
+        this.httpVersion = $.httpVersion;
         this.message = $.message;
         this.method = $.method;
         this.noSavingResponseBody = $.noSavingResponseBody;
@@ -391,7 +407,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bodyType Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+         * @param bodyType Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -402,7 +418,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bodyType Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+         * @param bodyType Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -524,6 +540,27 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          */
         public Builder host(String host) {
             return host(Output.of(host));
+        }
+
+        /**
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpVersion(@Nullable Output<String> httpVersion) {
+            $.httpVersion = httpVersion;
+            return this;
+        }
+
+        /**
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpVersion(String httpVersion) {
+            return httpVersion(Output.of(httpVersion));
         }
 
         /**

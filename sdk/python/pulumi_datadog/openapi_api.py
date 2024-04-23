@@ -17,7 +17,7 @@ class OpenapiApiArgs:
                  spec: pulumi.Input[str]):
         """
         The set of arguments for constructing a OpenapiApi resource.
-        :param pulumi.Input[str] spec: The OpenAPI spec.
+        :param pulumi.Input[str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         pulumi.set(__self__, "spec", spec)
 
@@ -25,7 +25,7 @@ class OpenapiApiArgs:
     @pulumi.getter
     def spec(self) -> pulumi.Input[str]:
         """
-        The OpenAPI spec.
+        The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         return pulumi.get(self, "spec")
 
@@ -40,7 +40,7 @@ class _OpenapiApiState:
                  spec: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OpenapiApi resources.
-        :param pulumi.Input[str] spec: The OpenAPI spec.
+        :param pulumi.Input[str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         if spec is not None:
             pulumi.set(__self__, "spec", spec)
@@ -49,7 +49,7 @@ class _OpenapiApiState:
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input[str]]:
         """
-        The OpenAPI spec.
+        The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         return pulumi.get(self, "spec")
 
@@ -66,7 +66,7 @@ class OpenapiApi(pulumi.CustomResource):
                  spec: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+        Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 
         ## Import
 
@@ -76,7 +76,7 @@ class OpenapiApi(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] spec: The OpenAPI spec.
+        :param pulumi.Input[str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         ...
     @overload
@@ -85,7 +85,7 @@ class OpenapiApi(pulumi.CustomResource):
                  args: OpenapiApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+        Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 
         ## Import
 
@@ -139,7 +139,7 @@ class OpenapiApi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] spec: The OpenAPI spec.
+        :param pulumi.Input[str] spec: The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -152,7 +152,7 @@ class OpenapiApi(pulumi.CustomResource):
     @pulumi.getter
     def spec(self) -> pulumi.Output[str]:
         """
-        The OpenAPI spec.
+        The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         """
         return pulumi.get(self, "spec")
 

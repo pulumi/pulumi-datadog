@@ -127,14 +127,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.enabled);
     }
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     @Export(name="filters", refs={List.class,SecurityMonitoringRuleFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleFilter>> filters;
 
     /**
-     * @return Additional queries to filter matched events before they are processed.
+     * @return Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     public Output<Optional<List<SecurityMonitoringRuleFilter>>> filters() {

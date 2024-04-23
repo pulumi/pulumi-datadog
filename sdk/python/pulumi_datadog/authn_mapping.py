@@ -15,17 +15,22 @@ __all__ = ['AuthnMappingArgs', 'AuthnMapping']
 class AuthnMappingArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 role: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 value: pulumi.Input[str],
+                 role: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AuthnMapping resource.
         :param pulumi.Input[str] key: Identity provider key.
-        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
         :param pulumi.Input[str] value: Identity provider value.
+        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "value", value)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if team is not None:
+            pulumi.set(__self__, "team", team)
 
     @property
     @pulumi.getter
@@ -41,18 +46,6 @@ class AuthnMappingArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> pulumi.Input[str]:
-        """
-        The ID of a role to attach to all users with the corresponding key and value.
-        """
-        return pulumi.get(self, "role")
-
-    @role.setter
-    def role(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role", value)
-
-    @property
-    @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
         Identity provider value.
@@ -63,23 +56,51 @@ class AuthnMappingArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a role to attach to all users with the corresponding key and value.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def team(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a team to add all users with the corresponding key and value to.
+        """
+        return pulumi.get(self, "team")
+
+    @team.setter
+    def team(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team", value)
+
 
 @pulumi.input_type
 class _AuthnMappingState:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AuthnMapping resources.
         :param pulumi.Input[str] key: Identity provider key.
         :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
         :param pulumi.Input[str] value: Identity provider value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if team is not None:
+            pulumi.set(__self__, "team", team)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -109,6 +130,18 @@ class _AuthnMappingState:
 
     @property
     @pulumi.getter
+    def team(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a team to add all users with the corresponding key and value to.
+        """
+        return pulumi.get(self, "team")
+
+    @team.setter
+    def team(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team", value)
+
+    @property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Identity provider value.
@@ -127,6 +160,7 @@ class AuthnMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -159,6 +193,7 @@ class AuthnMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Identity provider key.
         :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
         :param pulumi.Input[str] value: Identity provider value.
         """
         ...
@@ -210,6 +245,7 @@ class AuthnMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -223,9 +259,8 @@ class AuthnMapping(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
-            if role is None and not opts.urn:
-                raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
+            __props__.__dict__["team"] = team
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
@@ -241,6 +276,7 @@ class AuthnMapping(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             key: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
+            team: Optional[pulumi.Input[str]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'AuthnMapping':
         """
         Get an existing AuthnMapping resource's state with the given name, id, and optional extra
@@ -251,6 +287,7 @@ class AuthnMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Identity provider key.
         :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
         :param pulumi.Input[str] value: Identity provider value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -259,6 +296,7 @@ class AuthnMapping(pulumi.CustomResource):
 
         __props__.__dict__["key"] = key
         __props__.__dict__["role"] = role
+        __props__.__dict__["team"] = team
         __props__.__dict__["value"] = value
         return AuthnMapping(resource_name, opts=opts, __props__=__props__)
 
@@ -272,11 +310,19 @@ class AuthnMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> pulumi.Output[str]:
+    def role(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a role to attach to all users with the corresponding key and value.
         """
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def team(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a team to add all users with the corresponding key and value to.
+        """
+        return pulumi.get(self, "team")
 
     @property
     @pulumi.getter

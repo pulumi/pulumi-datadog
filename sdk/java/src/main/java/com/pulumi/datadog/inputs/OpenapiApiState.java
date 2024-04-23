@@ -16,14 +16,14 @@ public final class OpenapiApiState extends com.pulumi.resources.ResourceArgs {
     public static final OpenapiApiState Empty = new OpenapiApiState();
 
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     @Import(name="spec")
     private @Nullable Output<String> spec;
 
     /**
-     * @return The OpenAPI spec.
+     * @return The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     public Optional<Output<String>> spec() {
@@ -55,7 +55,7 @@ public final class OpenapiApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The OpenAPI spec.
+         * @param spec The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OpenapiApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The OpenAPI spec.
+         * @param spec The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
          * 
          * @return builder
          * 

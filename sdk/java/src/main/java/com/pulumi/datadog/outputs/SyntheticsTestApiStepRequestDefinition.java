@@ -25,7 +25,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable String body;
     /**
-     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      * 
      */
     private @Nullable String bodyType;
@@ -59,6 +59,11 @@ public final class SyntheticsTestApiStepRequestDefinition {
      * 
      */
     private @Nullable String host;
+    /**
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    private @Nullable String httpVersion;
     /**
      * @return For UDP and websocket tests, message to send with the request.
      * 
@@ -145,7 +150,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.body);
     }
     /**
-     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * @return Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      * 
      */
     public Optional<String> bodyType() {
@@ -192,6 +197,13 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     public Optional<String> host() {
         return Optional.ofNullable(this.host);
+    }
+    /**
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * 
+     */
+    public Optional<String> httpVersion() {
+        return Optional.ofNullable(this.httpVersion);
     }
     /**
      * @return For UDP and websocket tests, message to send with the request.
@@ -307,6 +319,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         private @Nullable Integer dnsServerPort;
         private @Nullable Boolean followRedirects;
         private @Nullable String host;
+        private @Nullable String httpVersion;
         private @Nullable String message;
         private @Nullable String method;
         private @Nullable Boolean noSavingResponseBody;
@@ -332,6 +345,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
     	      this.dnsServerPort = defaults.dnsServerPort;
     	      this.followRedirects = defaults.followRedirects;
     	      this.host = defaults.host;
+    	      this.httpVersion = defaults.httpVersion;
     	      this.message = defaults.message;
     	      this.method = defaults.method;
     	      this.noSavingResponseBody = defaults.noSavingResponseBody;
@@ -402,6 +416,12 @@ public final class SyntheticsTestApiStepRequestDefinition {
         public Builder host(@Nullable String host) {
 
             this.host = host;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpVersion(@Nullable String httpVersion) {
+
+            this.httpVersion = httpVersion;
             return this;
         }
         @CustomType.Setter
@@ -493,6 +513,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
             _resultValue.dnsServerPort = dnsServerPort;
             _resultValue.followRedirects = followRedirects;
             _resultValue.host = host;
+            _resultValue.httpVersion = httpVersion;
             _resultValue.message = message;
             _resultValue.method = method;
             _resultValue.noSavingResponseBody = noSavingResponseBody;

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ServiceLevelObjectiveSliSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+        /// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
         /// </summary>
         [Input("timeSlice", required: true)]
         public Input<Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceArgs> TimeSlice { get; set; } = null!;

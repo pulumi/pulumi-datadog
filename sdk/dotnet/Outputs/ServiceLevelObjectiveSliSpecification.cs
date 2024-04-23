@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ServiceLevelObjectiveSliSpecification
     {
         /// <summary>
-        /// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+        /// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSliSpecificationTimeSlice TimeSlice;
 

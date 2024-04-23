@@ -15,14 +15,14 @@ public final class OpenapiApiArgs extends com.pulumi.resources.ResourceArgs {
     public static final OpenapiApiArgs Empty = new OpenapiApiArgs();
 
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     @Import(name="spec", required=true)
     private Output<String> spec;
 
     /**
-     * @return The OpenAPI spec.
+     * @return The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     public Output<String> spec() {
@@ -54,7 +54,7 @@ public final class OpenapiApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The OpenAPI spec.
+         * @param spec The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class OpenapiApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec The OpenAPI spec.
+         * @param spec The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
          * 
          * @return builder
          * 

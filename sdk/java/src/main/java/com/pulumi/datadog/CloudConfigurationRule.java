@@ -127,14 +127,14 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.filters);
     }
     /**
-     * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      * 
      */
     @Export(name="groupBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupBies;
 
     /**
-     * @return Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      * 
      */
     public Output<Optional<List<String>>> groupBies() {
@@ -169,14 +169,14 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * Notification targets for signals. Defaults to empty list.
+     * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      * 
      */
     @Export(name="notifications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifications;
 
     /**
-     * @return Notification targets for signals. Defaults to empty list.
+     * @return This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      * 
      */
     public Output<Optional<List<String>>> notifications() {

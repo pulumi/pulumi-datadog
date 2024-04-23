@@ -63,7 +63,9 @@ type AuthnMapping struct {
 	// Identity provider key.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The ID of a role to attach to all users with the corresponding key and value.
-	Role pulumi.StringOutput `pulumi:"role"`
+	Role pulumi.StringPtrOutput `pulumi:"role"`
+	// The ID of a team to add all users with the corresponding key and value to.
+	Team pulumi.StringPtrOutput `pulumi:"team"`
 	// Identity provider value.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -77,9 +79,6 @@ func NewAuthnMapping(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
-	}
-	if args.Role == nil {
-		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
@@ -111,6 +110,8 @@ type authnMappingState struct {
 	Key *string `pulumi:"key"`
 	// The ID of a role to attach to all users with the corresponding key and value.
 	Role *string `pulumi:"role"`
+	// The ID of a team to add all users with the corresponding key and value to.
+	Team *string `pulumi:"team"`
 	// Identity provider value.
 	Value *string `pulumi:"value"`
 }
@@ -120,6 +121,8 @@ type AuthnMappingState struct {
 	Key pulumi.StringPtrInput
 	// The ID of a role to attach to all users with the corresponding key and value.
 	Role pulumi.StringPtrInput
+	// The ID of a team to add all users with the corresponding key and value to.
+	Team pulumi.StringPtrInput
 	// Identity provider value.
 	Value pulumi.StringPtrInput
 }
@@ -132,7 +135,9 @@ type authnMappingArgs struct {
 	// Identity provider key.
 	Key string `pulumi:"key"`
 	// The ID of a role to attach to all users with the corresponding key and value.
-	Role string `pulumi:"role"`
+	Role *string `pulumi:"role"`
+	// The ID of a team to add all users with the corresponding key and value to.
+	Team *string `pulumi:"team"`
 	// Identity provider value.
 	Value string `pulumi:"value"`
 }
@@ -142,7 +147,9 @@ type AuthnMappingArgs struct {
 	// Identity provider key.
 	Key pulumi.StringInput
 	// The ID of a role to attach to all users with the corresponding key and value.
-	Role pulumi.StringInput
+	Role pulumi.StringPtrInput
+	// The ID of a team to add all users with the corresponding key and value to.
+	Team pulumi.StringPtrInput
 	// Identity provider value.
 	Value pulumi.StringInput
 }
@@ -240,8 +247,13 @@ func (o AuthnMappingOutput) Key() pulumi.StringOutput {
 }
 
 // The ID of a role to attach to all users with the corresponding key and value.
-func (o AuthnMappingOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v *AuthnMapping) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+func (o AuthnMappingOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthnMapping) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The ID of a team to add all users with the corresponding key and value to.
+func (o AuthnMappingOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthnMapping) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
 }
 
 // Identity provider value.

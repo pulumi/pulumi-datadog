@@ -94,6 +94,21 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    @Import(name="extendedResourceCollectionEnabled")
+    private @Nullable Output<String> extendedResourceCollectionEnabled;
+
+    /**
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    public Optional<Output<String>> extendedResourceCollectionEnabled() {
+        return Optional.ofNullable(this.extendedResourceCollectionEnabled);
+    }
+
+    /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
      * 
      */
@@ -139,16 +154,24 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * 
+     * @deprecated
+     * Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
+    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
     @Import(name="resourceCollectionEnabled")
     private @Nullable Output<String> resourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects a standard set of resources from your AWS account.
+     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * 
+     * @deprecated
+     * Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
+    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
     public Optional<Output<String>> resourceCollectionEnabled() {
         return Optional.ofNullable(this.resourceCollectionEnabled);
     }
@@ -191,6 +214,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         this.accountSpecificNamespaceRules = $.accountSpecificNamespaceRules;
         this.cspmResourceCollectionEnabled = $.cspmResourceCollectionEnabled;
         this.excludedRegions = $.excludedRegions;
+        this.extendedResourceCollectionEnabled = $.extendedResourceCollectionEnabled;
         this.filterTags = $.filterTags;
         this.hostTags = $.hostTags;
         this.metricsCollectionEnabled = $.metricsCollectionEnabled;
@@ -333,6 +357,27 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendedResourceCollectionEnabled(@Nullable Output<String> extendedResourceCollectionEnabled) {
+            $.extendedResourceCollectionEnabled = extendedResourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param extendedResourceCollectionEnabled Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extendedResourceCollectionEnabled(String extendedResourceCollectionEnabled) {
+            return extendedResourceCollectionEnabled(Output.of(extendedResourceCollectionEnabled));
+        }
+
+        /**
          * @param filterTags Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
          * 
          * @return builder
@@ -416,22 +461,30 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * 
          */
+        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
         public Builder resourceCollectionEnabled(@Nullable Output<String> resourceCollectionEnabled) {
             $.resourceCollectionEnabled = resourceCollectionEnabled;
             return this;
         }
 
         /**
-         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account.
+         * @param resourceCollectionEnabled Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated in favor of `extended_resource_collection_enabled`.
+         * 
          */
+        @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
         public Builder resourceCollectionEnabled(String resourceCollectionEnabled) {
             return resourceCollectionEnabled(Output.of(resourceCollectionEnabled));
         }

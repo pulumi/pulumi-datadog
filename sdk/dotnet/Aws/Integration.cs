@@ -93,6 +93,12 @@ namespace Pulumi.Datadog.Aws
         public Output<ImmutableArray<string>> ExcludedRegions { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+        /// </summary>
+        [Output("extendedResourceCollectionEnabled")]
+        public Output<string> ExtendedResourceCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
         /// Terraform.
         /// </summary>
@@ -118,7 +124,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> MetricsCollectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         /// </summary>
         [Output("resourceCollectionEnabled")]
         public Output<string> ResourceCollectionEnabled { get; private set; } = null!;
@@ -227,6 +233,12 @@ namespace Pulumi.Datadog.Aws
             set => _excludedRegions = value;
         }
 
+        /// <summary>
+        /// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+        /// </summary>
+        [Input("extendedResourceCollectionEnabled")]
+        public Input<string>? ExtendedResourceCollectionEnabled { get; set; }
+
         [Input("filterTags")]
         private InputList<string>? _filterTags;
 
@@ -258,7 +270,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? MetricsCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<string>? ResourceCollectionEnabled { get; set; }
@@ -336,6 +348,12 @@ namespace Pulumi.Datadog.Aws
         }
 
         /// <summary>
+        /// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+        /// </summary>
+        [Input("extendedResourceCollectionEnabled")]
+        public Input<string>? ExtendedResourceCollectionEnabled { get; set; }
+
+        /// <summary>
         /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
         /// Terraform.
         /// </summary>
@@ -373,7 +391,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? MetricsCollectionEnabled { get; set; }
 
         /// <summary>
-        /// Whether Datadog collects a standard set of resources from your AWS account.
+        /// Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<string>? ResourceCollectionEnabled { get; set; }

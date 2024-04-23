@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
@@ -33,15 +35,30 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
      * The ID of a role to attach to all users with the corresponding key and value.
      * 
      */
-    @Import(name="role", required=true)
-    private Output<String> role;
+    @Import(name="role")
+    private @Nullable Output<String> role;
 
     /**
      * @return The ID of a role to attach to all users with the corresponding key and value.
      * 
      */
-    public Output<String> role() {
-        return this.role;
+    public Optional<Output<String>> role() {
+        return Optional.ofNullable(this.role);
+    }
+
+    /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    @Import(name="team")
+    private @Nullable Output<String> team;
+
+    /**
+     * @return The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    public Optional<Output<String>> team() {
+        return Optional.ofNullable(this.team);
     }
 
     /**
@@ -64,6 +81,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
     private AuthnMappingArgs(AuthnMappingArgs $) {
         this.key = $.key;
         this.role = $.role;
+        this.team = $.team;
         this.value = $.value;
     }
 
@@ -112,7 +130,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder role(Output<String> role) {
+        public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
@@ -125,6 +143,27 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder role(String role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder team(@Nullable Output<String> team) {
+            $.team = team;
+            return this;
+        }
+
+        /**
+         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder team(String team) {
+            return team(Output.of(team));
         }
 
         /**
@@ -151,9 +190,6 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
         public AuthnMappingArgs build() {
             if ($.key == null) {
                 throw new MissingRequiredPropertyException("AuthnMappingArgs", "key");
-            }
-            if ($.role == null) {
-                throw new MissingRequiredPropertyException("AuthnMappingArgs", "role");
             }
             if ($.value == null) {
                 throw new MissingRequiredPropertyException("AuthnMappingArgs", "value");

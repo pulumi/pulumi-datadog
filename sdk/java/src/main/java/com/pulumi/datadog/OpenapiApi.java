@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+ * Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog&#39;s [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
  * 
  * ## Import
  * 
@@ -26,14 +26,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/openapiApi:OpenapiApi")
 public class OpenapiApi extends com.pulumi.resources.CustomResource {
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     @Export(name="spec", refs={String.class}, tree="[0]")
     private Output<String> spec;
 
     /**
-     * @return The OpenAPI spec.
+     * @return The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      * 
      */
     public Output<String> spec() {

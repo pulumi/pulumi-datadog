@@ -92,7 +92,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     public readonly filters!: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface SecurityMonitoringRuleState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
     /**
@@ -250,7 +250,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
     /**

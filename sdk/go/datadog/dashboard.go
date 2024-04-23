@@ -33,7 +33,6 @@ import (
 //				Title:       pulumi.String("Ordered Layout Dashboard"),
 //				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				LayoutType:  pulumi.String("ordered"),
-//				IsReadOnly:  pulumi.Bool(true),
 //				Widgets: datadog.DashboardWidgetArray{
 //					&datadog.DashboardWidgetArgs{
 //						AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
@@ -482,7 +481,6 @@ import (
 //				Title:       pulumi.String("Free Layout Dashboard"),
 //				Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 //				LayoutType:  pulumi.String("free"),
-//				IsReadOnly:  pulumi.Bool(false),
 //				Widgets: datadog.DashboardWidgetArray{
 //					&datadog.DashboardWidgetArgs{
 //						EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{

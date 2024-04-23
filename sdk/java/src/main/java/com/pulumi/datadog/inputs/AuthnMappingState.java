@@ -46,6 +46,21 @@ public final class AuthnMappingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    @Import(name="team")
+    private @Nullable Output<String> team;
+
+    /**
+     * @return The ID of a team to add all users with the corresponding key and value to.
+     * 
+     */
+    public Optional<Output<String>> team() {
+        return Optional.ofNullable(this.team);
+    }
+
+    /**
      * Identity provider value.
      * 
      */
@@ -65,6 +80,7 @@ public final class AuthnMappingState extends com.pulumi.resources.ResourceArgs {
     private AuthnMappingState(AuthnMappingState $) {
         this.key = $.key;
         this.role = $.role;
+        this.team = $.team;
         this.value = $.value;
     }
 
@@ -126,6 +142,27 @@ public final class AuthnMappingState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder role(String role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder team(@Nullable Output<String> team) {
+            $.team = team;
+            return this;
+        }
+
+        /**
+         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder team(String team) {
+            return team(Output.of(team));
         }
 
         /**

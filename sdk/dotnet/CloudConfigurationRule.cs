@@ -96,7 +96,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.CloudConfigurationRuleFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        /// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         /// </summary>
         [Output("groupBies")]
         public Output<ImmutableArray<string>> GroupBies { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Notification targets for signals. Defaults to empty list.
+        /// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<string>> Notifications { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _groupBies;
 
         /// <summary>
-        /// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        /// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         /// </summary>
         public InputList<string> GroupBies
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifications;
 
         /// <summary>
-        /// Notification targets for signals. Defaults to empty list.
+        /// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         /// </summary>
         public InputList<string> Notifications
         {
@@ -321,7 +321,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _groupBies;
 
         /// <summary>
-        /// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        /// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         /// </summary>
         public InputList<string> GroupBies
         {
@@ -345,7 +345,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifications;
 
         /// <summary>
-        /// Notification targets for signals. Defaults to empty list.
+        /// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         /// </summary>
         public InputList<string> Notifications
         {

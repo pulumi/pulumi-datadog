@@ -8,8 +8,11 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceLevelObjectiveSliSpecificationTimeSliceArgs extends com.pulumi.resources.ResourceArgs {
@@ -47,6 +50,21 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceArgs extends co
     }
 
     /**
+     * The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     * 
+     */
+    @Import(name="queryIntervalSeconds")
+    private @Nullable Output<Integer> queryIntervalSeconds;
+
+    /**
+     * @return The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     * 
+     */
+    public Optional<Output<Integer>> queryIntervalSeconds() {
+        return Optional.ofNullable(this.queryIntervalSeconds);
+    }
+
+    /**
      * The threshold value to which each SLI value will be compared.
      * 
      */
@@ -66,6 +84,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceArgs extends co
     private ServiceLevelObjectiveSliSpecificationTimeSliceArgs(ServiceLevelObjectiveSliSpecificationTimeSliceArgs $) {
         this.comparator = $.comparator;
         this.query = $.query;
+        this.queryIntervalSeconds = $.queryIntervalSeconds;
         this.threshold = $.threshold;
     }
 
@@ -127,6 +146,27 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceArgs extends co
          */
         public Builder query(ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param queryIntervalSeconds The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryIntervalSeconds(@Nullable Output<Integer> queryIntervalSeconds) {
+            $.queryIntervalSeconds = queryIntervalSeconds;
+            return this;
+        }
+
+        /**
+         * @param queryIntervalSeconds The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryIntervalSeconds(Integer queryIntervalSeconds) {
+            return queryIntervalSeconds(Output.of(queryIntervalSeconds));
         }
 
         /**

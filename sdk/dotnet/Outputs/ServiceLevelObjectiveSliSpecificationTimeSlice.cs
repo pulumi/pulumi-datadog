@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery Query;
         /// <summary>
+        /// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+        /// </summary>
+        public readonly int? QueryIntervalSeconds;
+        /// <summary>
         /// The threshold value to which each SLI value will be compared.
         /// </summary>
         public readonly double Threshold;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery query,
 
+            int? queryIntervalSeconds,
+
             double threshold)
         {
             Comparator = comparator;
             Query = query;
+            QueryIntervalSeconds = queryIntervalSeconds;
             Threshold = threshold;
         }
     }

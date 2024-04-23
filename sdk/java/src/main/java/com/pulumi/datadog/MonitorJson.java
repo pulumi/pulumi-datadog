@@ -52,7 +52,6 @@ import javax.annotation.Nullable;
  * 	&#34;restricted_roles&#34;: null,
  *     &#34;options&#34;: {
  *         &#34;include_tags&#34;: true,
- *         &#34;locked&#34;: false,
  *         &#34;new_host_delay&#34;: 150,
  *         &#34;notify_audit&#34;: false,
  *         &#34;notify_no_data&#34;: false,

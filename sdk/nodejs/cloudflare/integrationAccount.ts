@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+ * $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
  * ```
  */
 export class IntegrationAccount extends pulumi.CustomResource {

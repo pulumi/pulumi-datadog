@@ -49,14 +49,14 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
     /**
-     * @return Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      * 
      */
     public Optional<Output<List<String>>> groupBies() {
@@ -94,14 +94,14 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Notification targets for signals. Defaults to empty list.
+     * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      * 
      */
     @Import(name="notifications")
     private @Nullable Output<List<String>> notifications;
 
     /**
-     * @return Notification targets for signals. Defaults to empty list.
+     * @return This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      * 
      */
     public Optional<Output<List<String>>> notifications() {
@@ -270,7 +270,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param notifications Notification targets for signals. Defaults to empty list.
+         * @param notifications This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param notifications Notification targets for signals. Defaults to empty list.
+         * @param notifications This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param notifications Notification targets for signals. Defaults to empty list.
+         * @param notifications This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
          * 
          * @return builder
          * 

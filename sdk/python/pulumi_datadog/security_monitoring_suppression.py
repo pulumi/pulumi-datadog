@@ -17,26 +17,31 @@ class SecurityMonitoringSuppressionArgs:
                  enabled: pulumi.Input[bool],
                  name: pulumi.Input[str],
                  rule_query: pulumi.Input[str],
-                 suppression_query: pulumi.Input[str],
+                 data_exclusion_query: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 expiration_date: Optional[pulumi.Input[str]] = None):
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 suppression_query: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringSuppression resource.
         :param pulumi.Input[bool] enabled: Whether the suppression rule is enabled.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
-        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        :param pulumi.Input[str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[str] description: A description for the suppression rule.
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
+        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_query", rule_query)
-        pulumi.set(__self__, "suppression_query", suppression_query)
+        if data_exclusion_query is not None:
+            pulumi.set(__self__, "data_exclusion_query", data_exclusion_query)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
+        if suppression_query is not None:
+            pulumi.set(__self__, "suppression_query", suppression_query)
 
     @property
     @pulumi.getter
@@ -75,16 +80,16 @@ class SecurityMonitoringSuppressionArgs:
         pulumi.set(self, "rule_query", value)
 
     @property
-    @pulumi.getter(name="suppressionQuery")
-    def suppression_query(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataExclusionQuery")
+    def data_exclusion_query(self) -> Optional[pulumi.Input[str]]:
         """
-        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         """
-        return pulumi.get(self, "suppression_query")
+        return pulumi.get(self, "data_exclusion_query")
 
-    @suppression_query.setter
-    def suppression_query(self, value: pulumi.Input[str]):
-        pulumi.set(self, "suppression_query", value)
+    @data_exclusion_query.setter
+    def data_exclusion_query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_exclusion_query", value)
 
     @property
     @pulumi.getter
@@ -110,10 +115,23 @@ class SecurityMonitoringSuppressionArgs:
     def expiration_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration_date", value)
 
+    @property
+    @pulumi.getter(name="suppressionQuery")
+    def suppression_query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
+        """
+        return pulumi.get(self, "suppression_query")
+
+    @suppression_query.setter
+    def suppression_query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suppression_query", value)
+
 
 @pulumi.input_type
 class _SecurityMonitoringSuppressionState:
     def __init__(__self__, *,
+                 data_exclusion_query: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -122,13 +140,16 @@ class _SecurityMonitoringSuppressionState:
                  suppression_query: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
+        :param pulumi.Input[str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[str] description: A description for the suppression rule.
         :param pulumi.Input[bool] enabled: Whether the suppression rule is enabled.
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
-        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
+        if data_exclusion_query is not None:
+            pulumi.set(__self__, "data_exclusion_query", data_exclusion_query)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
@@ -141,6 +162,18 @@ class _SecurityMonitoringSuppressionState:
             pulumi.set(__self__, "rule_query", rule_query)
         if suppression_query is not None:
             pulumi.set(__self__, "suppression_query", suppression_query)
+
+    @property
+    @pulumi.getter(name="dataExclusionQuery")
+    def data_exclusion_query(self) -> Optional[pulumi.Input[str]]:
+        """
+        An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+        """
+        return pulumi.get(self, "data_exclusion_query")
+
+    @data_exclusion_query.setter
+    def data_exclusion_query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_exclusion_query", value)
 
     @property
     @pulumi.getter
@@ -206,7 +239,7 @@ class _SecurityMonitoringSuppressionState:
     @pulumi.getter(name="suppressionQuery")
     def suppression_query(self) -> Optional[pulumi.Input[str]]:
         """
-        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         return pulumi.get(self, "suppression_query")
 
@@ -220,6 +253,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_exclusion_query: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -255,12 +289,13 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[str] description: A description for the suppression rule.
         :param pulumi.Input[bool] enabled: Whether the suppression rule is enabled.
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
-        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         ...
     @overload
@@ -309,6 +344,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_exclusion_query: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -324,6 +360,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityMonitoringSuppressionArgs.__new__(SecurityMonitoringSuppressionArgs)
 
+            __props__.__dict__["data_exclusion_query"] = data_exclusion_query
             __props__.__dict__["description"] = description
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
@@ -335,8 +372,6 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
             if rule_query is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_query'")
             __props__.__dict__["rule_query"] = rule_query
-            if suppression_query is None and not opts.urn:
-                raise TypeError("Missing required property 'suppression_query'")
             __props__.__dict__["suppression_query"] = suppression_query
         super(SecurityMonitoringSuppression, __self__).__init__(
             'datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression',
@@ -348,6 +383,7 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            data_exclusion_query: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
@@ -361,17 +397,19 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_exclusion_query: An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
         :param pulumi.Input[str] description: A description for the suppression rule.
         :param pulumi.Input[bool] enabled: Whether the suppression rule is enabled.
         :param pulumi.Input[str] expiration_date: A RFC3339 timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
         :param pulumi.Input[str] name: The name of the suppression rule.
         :param pulumi.Input[str] rule_query: The rule query of the suppression rule, with the same syntax as the search bar for detection rules.
-        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        :param pulumi.Input[str] suppression_query: The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _SecurityMonitoringSuppressionState.__new__(_SecurityMonitoringSuppressionState)
 
+        __props__.__dict__["data_exclusion_query"] = data_exclusion_query
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["expiration_date"] = expiration_date
@@ -379,6 +417,14 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
         __props__.__dict__["rule_query"] = rule_query
         __props__.__dict__["suppression_query"] = suppression_query
         return SecurityMonitoringSuppression(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataExclusionQuery")
+    def data_exclusion_query(self) -> pulumi.Output[Optional[str]]:
+        """
+        An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+        """
+        return pulumi.get(self, "data_exclusion_query")
 
     @property
     @pulumi.getter
@@ -422,9 +468,9 @@ class SecurityMonitoringSuppression(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suppressionQuery")
-    def suppression_query(self) -> pulumi.Output[str]:
+    def suppression_query(self) -> pulumi.Output[Optional[str]]:
         """
-        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         """
         return pulumi.get(self, "suppression_query")
 
