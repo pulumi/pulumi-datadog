@@ -17,14 +17,14 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
     public static final DashboardTemplateVariablePresetTemplateVariableArgs Empty = new DashboardTemplateVariablePresetTemplateVariableArgs();
 
     /**
-     * The name of the variable.
+     * The name of the template variable
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The name of the template variable
      * 
      */
     public Optional<Output<String>> name() {
@@ -96,7 +96,7 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of the template variable
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DashboardTemplateVariablePresetTemplateVariableArgs extends c
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of the template variable
          * 
          * @return builder
          * 

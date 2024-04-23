@@ -18,7 +18,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
      */
     private @Nullable String additionalQueryFilters;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for SLO queries. Valid values are `slo`.
      * 
      */
     private String dataSource;
@@ -33,7 +33,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
      */
     private String measure;
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     private @Nullable String name;
@@ -57,7 +57,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         return Optional.ofNullable(this.additionalQueryFilters);
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for SLO queries. Valid values are `slo`.
      * 
      */
     public String dataSource() {
@@ -78,7 +78,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         return this.measure;
     }
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Optional<String> name() {

@@ -47,14 +47,14 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetri
     }
 
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * The metrics query definition.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return The metrics query definition.
      * 
      */
     public Output<String> query() {
@@ -130,7 +130,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetri
         }
 
         /**
-         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param query The metrics query definition.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetri
         }
 
         /**
-         * @param query A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param query The metrics query definition.
          * 
          * @return builder
          * 

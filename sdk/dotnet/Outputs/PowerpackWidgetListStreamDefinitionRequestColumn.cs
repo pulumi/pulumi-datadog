@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Field;
         /// <summary>
-        /// The width of the widget.
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
         /// </summary>
         public readonly string Width;
 

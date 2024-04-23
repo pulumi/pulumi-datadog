@@ -16,14 +16,14 @@ public final class OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs extends
     public static final OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs Empty = new OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs();
 
     /**
-     * Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -55,7 +55,7 @@ public final class OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs extends
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
+         * @param enabled Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs extends
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
+         * @param enabled Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
          * 
          * @return builder
          * 

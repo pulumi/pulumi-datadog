@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorReferenceTableLookupProcessor
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string LookupEnrichmentTable;
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Name of the log attribute to parse.
+        /// Name of the source attribute used to do the lookup.
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Name of the attribute that contains the result of the lookup.
         /// </summary>
         public readonly string Target;
 

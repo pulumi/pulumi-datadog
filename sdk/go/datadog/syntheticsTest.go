@@ -27,7 +27,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -463,7 +462,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -489,7 +487,7 @@ type SyntheticsTest struct {
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
-	// For UDP and websocket tests, message to send with the request.
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId pulumi.IntOutput `pulumi:"monitorId"`
@@ -500,7 +498,7 @@ type SyntheticsTest struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrOutput `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrOutput `pulumi:"requestClientCertificate"`
-	// The request for the api step.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrOutput `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
@@ -514,11 +512,11 @@ type SyntheticsTest struct {
 	SetCookie pulumi.StringPtrOutput `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Synthetics test type. Valid values are `api`, `browser`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -578,7 +576,7 @@ type syntheticsTestState struct {
 	DeviceIds []string `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
-	// For UDP and websocket tests, message to send with the request.
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message *string `pulumi:"message"`
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId *int `pulumi:"monitorId"`
@@ -589,7 +587,7 @@ type syntheticsTestState struct {
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	// The request for the api step.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
@@ -603,11 +601,11 @@ type syntheticsTestState struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status *string `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Synthetics test type. Valid values are `api`, `browser`.
 	Type *string `pulumi:"type"`
 }
 
@@ -626,7 +624,7 @@ type SyntheticsTestState struct {
 	DeviceIds pulumi.StringArrayInput
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
-	// For UDP and websocket tests, message to send with the request.
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message pulumi.StringPtrInput
 	// ID of the monitor associated with the Datadog synthetics test.
 	MonitorId pulumi.IntPtrInput
@@ -637,7 +635,7 @@ type SyntheticsTestState struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	// The request for the api step.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
@@ -651,11 +649,11 @@ type SyntheticsTestState struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringPtrInput
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Synthetics test type. Valid values are `api`, `browser`.
 	Type pulumi.StringPtrInput
 }
 
@@ -678,7 +676,7 @@ type syntheticsTestArgs struct {
 	DeviceIds []string `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations []string `pulumi:"locations"`
-	// For UDP and websocket tests, message to send with the request.
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message *string `pulumi:"message"`
 	// Name of Datadog synthetics test.
 	Name        string                     `pulumi:"name"`
@@ -687,7 +685,7 @@ type syntheticsTestArgs struct {
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	// The request for the api step.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
@@ -701,11 +699,11 @@ type syntheticsTestArgs struct {
 	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status string `pulumi:"status"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Synthetics test type. Valid values are `api`, `browser`.
 	Type string `pulumi:"type"`
 }
 
@@ -725,7 +723,7 @@ type SyntheticsTestArgs struct {
 	DeviceIds pulumi.StringArrayInput
 	// Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
 	Locations pulumi.StringArrayInput
-	// For UDP and websocket tests, message to send with the request.
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 	Message pulumi.StringPtrInput
 	// Name of Datadog synthetics test.
 	Name        pulumi.StringInput
@@ -734,7 +732,7 @@ type SyntheticsTestArgs struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	// The request for the api step.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
@@ -748,11 +746,11 @@ type SyntheticsTestArgs struct {
 	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
 	Status pulumi.StringInput
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Synthetics test type. Valid values are `api`, `browser`.
 	Type pulumi.StringInput
 }
 
@@ -878,7 +876,7 @@ func (o SyntheticsTestOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// For UDP and websocket tests, message to send with the request.
+// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
 func (o SyntheticsTestOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -909,7 +907,7 @@ func (o SyntheticsTestOutput) RequestClientCertificate() SyntheticsTestRequestCl
 	}).(SyntheticsTestRequestClientCertificatePtrOutput)
 }
 
-// The request for the api step.
+// Required if `type = "api"`. The synthetics test request.
 func (o SyntheticsTestOutput) RequestDefinition() SyntheticsTestRequestDefinitionPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTestRequestDefinitionPtrOutput { return v.RequestDefinition }).(SyntheticsTestRequestDefinitionPtrOutput)
 }
@@ -944,7 +942,7 @@ func (o SyntheticsTestOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
 func (o SyntheticsTestOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }
@@ -954,7 +952,7 @@ func (o SyntheticsTestOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Synthetics test type. Valid values are `api`, `browser`.
 func (o SyntheticsTestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyntheticsTest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

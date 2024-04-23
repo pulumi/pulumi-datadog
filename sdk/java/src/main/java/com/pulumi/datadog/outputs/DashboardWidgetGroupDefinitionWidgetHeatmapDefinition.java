@@ -38,7 +38,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
      * 
      */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest> requests;
@@ -98,7 +98,7 @@ public final class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
      * 
      */
     public List<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest> requests() {

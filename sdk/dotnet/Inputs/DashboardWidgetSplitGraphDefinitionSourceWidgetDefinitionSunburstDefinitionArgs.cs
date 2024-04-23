@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLinkArgs>? _customLinks;
 
         /// <summary>
-        /// A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        /// Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLinkArgs> CustomLinks
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestArgs>? _requests;
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
         /// </summary>
         public InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestArgs> Requests
         {
@@ -67,13 +67,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
         /// <summary>
-        /// The size of the widget's title (defaults to 16).
+        /// The size of the widget's title. Default is 16.
         /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }

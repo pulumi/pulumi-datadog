@@ -135,14 +135,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * For UDP and websocket tests, message to send with the request.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return For UDP and websocket tests, message to send with the request.
+     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> message() {
@@ -217,14 +217,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The request for the api step.
+     * Required if `type = &#34;api&#34;`. The synthetics test request.
      * 
      */
     @Import(name="requestDefinition")
     private @Nullable Output<SyntheticsTestRequestDefinitionArgs> requestDefinition;
 
     /**
-     * @return The request for the api step.
+     * @return Required if `type = &#34;api&#34;`. The synthetics test request.
      * 
      */
     public Optional<Output<SyntheticsTestRequestDefinitionArgs>> requestDefinition() {
@@ -322,14 +322,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
      * 
      */
     public Optional<Output<String>> subtype() {
@@ -352,14 +352,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * @return Synthetics test type. Valid values are `api`, `browser`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -630,7 +630,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message For UDP and websocket tests, message to send with the request.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestDefinition The request for the api step.
+         * @param requestDefinition Required if `type = &#34;api&#34;`. The synthetics test request.
          * 
          * @return builder
          * 
@@ -755,7 +755,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestDefinition The request for the api step.
+         * @param requestDefinition Required if `type = &#34;api&#34;`. The synthetics test request.
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`, `udp`, `websocket`, `grpc`.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+         * @param type Synthetics test type. Valid values are `api`, `browser`.
          * 
          * @return builder
          * 

@@ -32,14 +32,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
     }
 
     /**
-     * The label for the custom link URL.
+     * A label for the line or range.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
     }
 
     /**
-     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     public Output<String> value() {
@@ -109,7 +109,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label A label for the line or range.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label A label for the line or range.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
          * 
          * @return builder
          * 

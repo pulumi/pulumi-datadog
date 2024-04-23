@@ -22,12 +22,12 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
      */
     private List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryCompute> computes;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
     private String dataSource;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Group by options.
      * 
      */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy> groupBies;
@@ -37,7 +37,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
      */
     private @Nullable List<String> indexes;
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     private String name;
@@ -61,14 +61,14 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
         return this.computes;
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
     public String dataSource() {
         return this.dataSource;
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Group by options.
      * 
      */
     public List<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQueryEventQueryGroupBy> groupBies() {
@@ -82,7 +82,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestQu
         return this.indexes == null ? List.of() : this.indexes;
     }
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public String name() {

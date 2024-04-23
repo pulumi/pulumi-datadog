@@ -16,14 +16,14 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
     public static final PowerpackWidgetTopologyMapDefinitionRequestQueryArgs Empty = new PowerpackWidgetTopologyMapDefinitionRequestQueryArgs();
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
      * 
      */
     public Output<String> dataSource() {
@@ -46,14 +46,14 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
     }
 
     /**
-     * APM service.
+     * The ID of the service to map.
      * 
      */
     @Import(name="service", required=true)
     private Output<String> service;
 
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     public Output<String> service() {
@@ -87,7 +87,7 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param service APM service.
+         * @param service The ID of the service to map.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class PowerpackWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param service APM service.
+         * @param service The ID of the service to map.
          * 
          * @return builder
          * 

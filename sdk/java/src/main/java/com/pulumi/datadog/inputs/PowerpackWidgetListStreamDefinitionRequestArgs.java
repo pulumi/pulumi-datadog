@@ -18,14 +18,14 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
     public static final PowerpackWidgetListStreamDefinitionRequestArgs Empty = new PowerpackWidgetListStreamDefinitionRequestArgs();
 
     /**
-     * Column properties used by the front end for display.
+     * Widget columns.
      * 
      */
     @Import(name="columns", required=true)
     private Output<List<PowerpackWidgetListStreamDefinitionRequestColumnArgs>> columns;
 
     /**
-     * @return Column properties used by the front end for display.
+     * @return Widget columns.
      * 
      */
     public Output<List<PowerpackWidgetListStreamDefinitionRequestColumnArgs>> columns() {
@@ -89,7 +89,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Widget columns.
          * 
          * @return builder
          * 

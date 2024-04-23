@@ -27,14 +27,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     public static final PowerpackWidgetQueryTableDefinitionRequestArgs Empty = new PowerpackWidgetQueryTableDefinitionRequestArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -42,14 +42,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * An expression alias.
+     * The alias for the column name (defaults to metric name).
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return An expression alias.
+     * @return The alias for the column name (defaults to metric name).
      * 
      */
     public Optional<Output<String>> alias() {
@@ -79,14 +79,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
      * 
      */
     @Import(name="cellDisplayModes")
     private @Nullable Output<List<String>> cellDisplayModes;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
+     * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
      * 
      */
     public Optional<Output<List<String>>> cellDisplayModes() {
@@ -94,14 +94,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<PowerpackWidgetQueryTableDefinitionRequestConditionalFormatArgs>> conditionalFormats;
 
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetQueryTableDefinitionRequestConditionalFormatArgs>>> conditionalFormats() {
@@ -116,14 +116,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * The maximum number of items in the group.
+     * The number of lines to show in the table.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of lines to show in the table.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -146,14 +146,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * The sort order for the rows. Valid values are `asc`, `desc`.
      * 
      */
     @Import(name="order")
     private @Nullable Output<String> order;
 
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
      */
     public Optional<Output<String>> order() {
@@ -266,7 +266,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param alias An expression alias.
+         * @param alias The alias for the column name (defaults to metric name).
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param alias An expression alias.
+         * @param alias The alias for the column name (defaults to metric name).
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param cellDisplayModes A list of display modes for each table cell. Valid values are `number`, `bar`.
+         * @param cellDisplayModes A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of lines to show in the table.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of lines to show in the table.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order The sort order for the rows. Valid values are `asc`, `desc`.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order The sort order for the rows. Valid values are `asc`, `desc`.
          * 
          * @return builder
          * 

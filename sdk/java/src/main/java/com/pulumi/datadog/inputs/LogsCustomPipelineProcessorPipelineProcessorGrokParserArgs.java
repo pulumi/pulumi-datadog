@@ -27,14 +27,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
     }
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -42,14 +42,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
     }
 
     /**
-     * Your pipeline name.
+     * Name of the processor
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,7 +124,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs ex
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 

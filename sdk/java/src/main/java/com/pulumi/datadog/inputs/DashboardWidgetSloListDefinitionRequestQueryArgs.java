@@ -19,14 +19,14 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
     public static final DashboardWidgetSloListDefinitionRequestQueryArgs Empty = new DashboardWidgetSloListDefinitionRequestQueryArgs();
 
     /**
-     * The maximum number of items in the group.
+     * Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -49,14 +49,14 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
     }
 
     /**
-     * The options for sorting group by results.
+     * The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetSloListDefinitionRequestQuerySortArgs> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<Output<DashboardWidgetSloListDefinitionRequestQuerySortArgs>> sort() {
@@ -90,7 +90,7 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit Maximum number of results to display in the table. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit Maximum number of results to display in the table. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class DashboardWidgetSloListDefinitionRequestQueryArgs extends com.
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;status.sli&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 

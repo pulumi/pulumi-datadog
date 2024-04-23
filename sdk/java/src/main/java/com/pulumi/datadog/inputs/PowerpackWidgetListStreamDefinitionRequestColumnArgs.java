@@ -30,14 +30,14 @@ public final class PowerpackWidgetListStreamDefinitionRequestColumnArgs extends 
     }
 
     /**
-     * The width of the widget.
+     * Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
     @Import(name="width", required=true)
     private Output<String> width;
 
     /**
-     * @return The width of the widget.
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
     public Output<String> width() {
@@ -91,7 +91,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestColumnArgs extends 
         }
 
         /**
-         * @param width The width of the widget.
+         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestColumnArgs extends 
         }
 
         /**
-         * @param width The width of the widget.
+         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
          * 
          * @return builder
          * 

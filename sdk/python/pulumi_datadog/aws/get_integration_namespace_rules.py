@@ -62,14 +62,12 @@ def get_integration_namespace_rules(opts: Optional[pulumi.InvokeOptions] = None)
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     rules = datadog.aws.get_integration_namespace_rules()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -87,13 +85,11 @@ def get_integration_namespace_rules_output(opts: Optional[pulumi.InvokeOptions] 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
 
     rules = datadog.aws.get_integration_namespace_rules()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

@@ -18,14 +18,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplit
     public static final DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortArgs Empty = new DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortArgs();
 
     /**
-     * The compute options.
+     * Defines the metric and aggregation used as the sort value
      * 
      */
     @Import(name="compute")
     private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortComputeArgs> compute;
 
     /**
-     * @return The compute options.
+     * @return Defines the metric and aggregation used as the sort value
      * 
      */
     public Optional<Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortComputeArgs>> compute() {
@@ -73,7 +73,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplit
         }
 
         /**
-         * @param compute The compute options.
+         * @param compute Defines the metric and aggregation used as the sort value
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplit
         }
 
         /**
-         * @param compute The compute options.
+         * @param compute Defines the metric and aggregation used as the sort value
          * 
          * @return builder
          * 

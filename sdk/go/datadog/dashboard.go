@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -845,7 +844,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -866,7 +864,7 @@ type Dashboard struct {
 	//
 	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
-	// The layout type of the group. Valid values are `ordered`.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
@@ -874,17 +872,17 @@ type Dashboard struct {
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
-	// A list of tags to use in the widget.
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
-	// The template variable names and assumed values under the given preset
+	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayOutput `pulumi:"templateVariables"`
-	// The title of the widget.
+	// The title of the dashboard.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// The URL to use as a data source for the widget.
+	// The URL of the dashboard.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// The list of widgets in this group.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayOutput `pulumi:"widgets"`
 }
 
@@ -935,7 +933,7 @@ type dashboardState struct {
 	//
 	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the group. Valid values are `ordered`.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
@@ -943,17 +941,17 @@ type dashboardState struct {
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// A list of tags to use in the widget.
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 	Tags []string `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
-	// The template variable names and assumed values under the given preset
+	// The list of template variables for this dashboard.
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
-	// The title of the widget.
+	// The title of the dashboard.
 	Title *string `pulumi:"title"`
-	// The URL to use as a data source for the widget.
+	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
-	// The list of widgets in this group.
+	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
@@ -969,7 +967,7 @@ type DashboardState struct {
 	//
 	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the group. Valid values are `ordered`.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringPtrInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
@@ -977,17 +975,17 @@ type DashboardState struct {
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
-	// A list of tags to use in the widget.
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 	Tags pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
-	// The template variable names and assumed values under the given preset
+	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayInput
-	// The title of the widget.
+	// The title of the dashboard.
 	Title pulumi.StringPtrInput
-	// The URL to use as a data source for the widget.
+	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
-	// The list of widgets in this group.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }
 
@@ -1005,7 +1003,7 @@ type dashboardArgs struct {
 	//
 	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the group. Valid values are `ordered`.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
@@ -1013,17 +1011,17 @@ type dashboardArgs struct {
 	ReflowType *string `pulumi:"reflowType"`
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// A list of tags to use in the widget.
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 	Tags []string `pulumi:"tags"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
-	// The template variable names and assumed values under the given preset
+	// The list of template variables for this dashboard.
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
-	// The title of the widget.
+	// The title of the dashboard.
 	Title string `pulumi:"title"`
-	// The URL to use as a data source for the widget.
+	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
-	// The list of widgets in this group.
+	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
@@ -1038,7 +1036,7 @@ type DashboardArgs struct {
 	//
 	// Deprecated: Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the group. Valid values are `ordered`.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringInput
 	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
@@ -1046,17 +1044,17 @@ type DashboardArgs struct {
 	ReflowType pulumi.StringPtrInput
 	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
-	// A list of tags to use in the widget.
+	// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 	Tags pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
-	// The template variable names and assumed values under the given preset
+	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayInput
-	// The title of the widget.
+	// The title of the dashboard.
 	Title pulumi.StringInput
-	// The URL to use as a data source for the widget.
+	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
-	// The list of widgets in this group.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }
 
@@ -1170,7 +1168,7 @@ func (o DashboardOutput) IsReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.BoolPtrOutput { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The layout type of the group. Valid values are `ordered`.
+// The layout type of the dashboard. Valid values are `ordered`, `free`.
 func (o DashboardOutput) LayoutType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LayoutType }).(pulumi.StringOutput)
 }
@@ -1190,7 +1188,7 @@ func (o DashboardOutput) RestrictedRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
 }
 
-// A list of tags to use in the widget.
+// A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
 func (o DashboardOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
@@ -1200,22 +1198,22 @@ func (o DashboardOutput) TemplateVariablePresets() DashboardTemplateVariablePres
 	return o.ApplyT(func(v *Dashboard) DashboardTemplateVariablePresetArrayOutput { return v.TemplateVariablePresets }).(DashboardTemplateVariablePresetArrayOutput)
 }
 
-// The template variable names and assumed values under the given preset
+// The list of template variables for this dashboard.
 func (o DashboardOutput) TemplateVariables() DashboardTemplateVariableArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardTemplateVariableArrayOutput { return v.TemplateVariables }).(DashboardTemplateVariableArrayOutput)
 }
 
-// The title of the widget.
+// The title of the dashboard.
 func (o DashboardOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }
 
-// The URL to use as a data source for the widget.
+// The URL of the dashboard.
 func (o DashboardOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-// The list of widgets in this group.
+// The list of widgets to display on the dashboard.
 func (o DashboardOutput) Widgets() DashboardWidgetArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardWidgetArrayOutput { return v.Widgets }).(DashboardWidgetArrayOutput)
 }

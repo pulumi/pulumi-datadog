@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery? MetricQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>

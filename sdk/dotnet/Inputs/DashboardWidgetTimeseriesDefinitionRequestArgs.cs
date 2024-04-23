@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
 
         /// <summary>
-        /// How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+        /// How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
         /// </summary>
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
@@ -101,7 +101,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// Styling options for widget formulas.
+        /// The style of the widget graph. Exactly one `style` block is allowed using the structure below.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestStyleArgs>? Style { get; set; }

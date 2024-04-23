@@ -19,14 +19,14 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
     public static final LogsCustomPipelineProcessorMessageRemapperArgs Empty = new LogsCustomPipelineProcessorMessageRemapperArgs();
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -34,14 +34,14 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
     }
 
     /**
-     * Your pipeline name.
+     * Name of the processor.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor.
      * 
      */
     public Optional<Output<String>> name() {
@@ -49,14 +49,14 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
     }
 
     /**
-     * List of source attributes or tags.
+     * List of source attributes.
      * 
      */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     public Output<List<String>> sources() {
@@ -90,7 +90,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class LogsCustomPipelineProcessorMessageRemapperArgs extends com.pu
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 

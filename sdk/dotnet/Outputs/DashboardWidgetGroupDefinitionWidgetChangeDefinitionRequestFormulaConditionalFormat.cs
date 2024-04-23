@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Timeframe;
         /// <summary>
-        /// The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+        /// A value for the comparator.
         /// </summary>
         public readonly double Value;
 

@@ -87,7 +87,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String subtestPublicId;
     /**
-     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * @return Value of the step.
      * 
      */
     private @Nullable String value;
@@ -212,7 +212,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.subtestPublicId);
     }
     /**
-     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * @return Value of the step.
      * 
      */
     public Optional<String> value() {

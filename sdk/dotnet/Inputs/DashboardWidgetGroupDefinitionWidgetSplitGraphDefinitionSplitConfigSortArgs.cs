@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compute options.
+        /// Defines the metric and aggregation used as the sort value
         /// </summary>
         [Input("compute")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSortComputeArgs>? Compute { get; set; }

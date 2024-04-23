@@ -14,19 +14,19 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorStringBuilderProcessor
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of template by an empty string.
         /// </summary>
         public readonly bool? IsReplaceMissing;
         /// <summary>
-        /// Your pipeline name.
+        /// The name of the processor.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// The name of the attribute that contains the result of the template.
         /// </summary>
         public readonly string Target;
         /// <summary>

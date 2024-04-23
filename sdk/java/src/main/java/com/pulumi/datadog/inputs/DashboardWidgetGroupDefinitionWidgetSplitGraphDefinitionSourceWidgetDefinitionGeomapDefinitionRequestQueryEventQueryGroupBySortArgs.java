@@ -17,14 +17,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     public static final DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySortArgs Empty = new DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestQueryEventQueryGroupBySortArgs();
 
     /**
-     * The aggregation method.
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
     /**
-     * @return The aggregation method.
+     * @return The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public Output<String> aggregation() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The metric from the request to correlate with this conditional format.
+     * The metric used for sorting group by results.
      * 
      */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The metric used for sorting group by results.
      * 
      */
     public Optional<Output<String>> metric() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     @Import(name="order")
     private @Nullable Output<String> order;
 
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return Direction of sort. Valid values are `asc`, `desc`.
      * 
      */
     public Optional<Output<String>> order() {
@@ -88,7 +88,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param aggregation The aggregation method.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The metric used for sorting group by results.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The metric used for sorting group by results.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order Direction of sort. Valid values are `asc`, `desc`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order Direction of sort. Valid values are `asc`, `desc`.
          * 
          * @return builder
          * 

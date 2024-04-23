@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn
     {
         /// <summary>
-        /// An expression alias.
+        /// A user-assigned alias for the column.
         /// </summary>
         public readonly string? Alias;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CellDisplayMode;
         /// <summary>
-        /// The name of the variable.
+        /// The column name.
         /// </summary>
         public readonly string Name;
         /// <summary>

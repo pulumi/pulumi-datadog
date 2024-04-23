@@ -71,14 +71,12 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -105,14 +103,12 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

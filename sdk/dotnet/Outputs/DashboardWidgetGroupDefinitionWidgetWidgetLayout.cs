@@ -22,15 +22,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsColumnBreak;
         /// <summary>
-        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// The width of the widget.
         /// </summary>
         public readonly int Width;
         /// <summary>
-        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
         /// </summary>
         public readonly int X;
         /// <summary>
-        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
         /// </summary>
         public readonly int Y;
 

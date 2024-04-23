@@ -65,7 +65,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// Styling options for widget formulas.
+        /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestStyleArgs>? Style { get; set; }

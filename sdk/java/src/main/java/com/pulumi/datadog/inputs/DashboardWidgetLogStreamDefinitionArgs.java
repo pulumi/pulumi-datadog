@@ -19,14 +19,14 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
     public static final DashboardWidgetLogStreamDefinitionArgs Empty = new DashboardWidgetLogStreamDefinitionArgs();
 
     /**
-     * Column properties used by the front end for display.
+     * Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
     /**
-     * @return Column properties used by the front end for display.
+     * @return Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
      * 
      */
     public Optional<Output<List<String>>> columns() {
@@ -124,14 +124,14 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
     }
 
     /**
-     * The options for sorting group by results.
+     * The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetLogStreamDefinitionSortArgs> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<Output<DashboardWidgetLogStreamDefinitionSortArgs>> sort() {
@@ -218,7 +218,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param columns Column properties used by the front end for display.
+         * @param columns Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 

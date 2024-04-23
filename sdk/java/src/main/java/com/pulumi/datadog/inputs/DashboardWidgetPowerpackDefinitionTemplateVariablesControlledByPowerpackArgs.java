@@ -48,14 +48,14 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
     }
 
     /**
-     * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
      * 
      */
     public Output<List<String>> values() {
@@ -131,7 +131,7 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
         }
 
         /**
-         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
         }
 
         /**
-         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
         }
 
         /**
-         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+         * @param values One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
          * 
          * @return builder
          * 

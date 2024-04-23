@@ -14,13 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorPipeline
     {
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineFilter> Filters;
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// Your pipeline name.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessor> Processors;
 

@@ -59,14 +59,14 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     @Import(name="displayType")
     private @Nullable Output<String> displayType;
 
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     public Optional<Output<String>> displayType() {
@@ -208,14 +208,14 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * Styling options for widget formulas.
+     * The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     @Import(name="style")
     private @Nullable Output<PowerpackWidgetTimeseriesDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     public Optional<Output<PowerpackWidgetTimeseriesDefinitionRequestStyleArgs>> style() {
@@ -302,7 +302,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. Exactly one `style` block is allowed using the structure below.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. Exactly one `style` block is allowed using the structure below.
          * 
          * @return builder
          * 

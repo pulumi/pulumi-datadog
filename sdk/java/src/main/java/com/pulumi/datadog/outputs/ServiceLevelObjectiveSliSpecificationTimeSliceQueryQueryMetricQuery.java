@@ -23,7 +23,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetri
      */
     private String name;
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return The metrics query definition.
      * 
      */
     private String query;
@@ -44,7 +44,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetri
         return this.name;
     }
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return The metrics query definition.
      * 
      */
     public String query() {

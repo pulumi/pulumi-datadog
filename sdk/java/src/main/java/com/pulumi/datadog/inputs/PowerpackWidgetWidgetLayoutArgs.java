@@ -63,14 +63,14 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
     }
 
     /**
-     * The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     @Import(name="x", required=true)
     private Output<Integer> x;
 
     /**
-     * @return The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     public Output<Integer> x() {
@@ -78,14 +78,14 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
     }
 
     /**
-     * The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     @Import(name="y", required=true)
     private Output<Integer> y;
 
     /**
-     * @return The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     public Output<Integer> y() {
@@ -184,7 +184,7 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param x The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+         * @param x The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param x The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+         * @param x The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param y The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+         * @param y The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PowerpackWidgetWidgetLayoutArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param y The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+         * @param y The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 

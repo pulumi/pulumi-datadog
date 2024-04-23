@@ -120,28 +120,28 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
         return this.isEnabled;
     }
     /**
-     * Exclusion filter name.
+     * The name of the security filter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Exclusion filter name.
+     * @return The name of the security filter.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * The query of the security filter.
      * 
      */
     @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
-     * @return Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * @return The query of the security filter.
      * 
      */
     public Output<String> query() {

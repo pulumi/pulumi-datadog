@@ -19,14 +19,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
     public static final LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs Empty = new LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs();
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -49,14 +49,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
     }
 
     /**
-     * Your pipeline name.
+     * Name of the processor
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
     }
 
     /**
-     * List of source attributes or tags.
+     * List of source attributes.
      * 
      */
     @Import(name="sources", required=true)
     private Output<List<String>> sources;
 
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     public Output<List<String>> sources() {
@@ -79,14 +79,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
     }
 
     /**
-     * Name of the attribute that contains the result of the arithmetic operation.
+     * Name of the parent attribute that contains all the extracted details from the sources.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the parent attribute that contains all the extracted details from the sources.
      * 
      */
     public Output<String> target() {
@@ -122,7 +122,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the processor
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param sources List of source attributes or tags.
+         * @param sources List of source attributes.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the parent attribute that contains all the extracted details from the sources.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUserAgentParserAr
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the parent attribute that contains all the extracted details from the sources.
          * 
          * @return builder
          * 

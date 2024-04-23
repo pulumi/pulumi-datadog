@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowErrorBudget { get; set; }
 
         /// <summary>
-        /// ID of an SLO to query.
+        /// The ID of the service level objective used by the widget.
         /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;

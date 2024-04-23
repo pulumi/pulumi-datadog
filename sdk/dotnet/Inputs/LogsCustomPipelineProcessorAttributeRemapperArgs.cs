@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsCustomPipelineProcessorAttributeRemapperArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Final attribute or tag name to remap the sources.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

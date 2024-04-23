@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTopologyMapDefinitionRequestQuery
     {
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `data_streams`, `service_map`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Filters;
         /// <summary>
-        /// APM service.
+        /// The ID of the service to map.
         /// </summary>
         public readonly string Service;
 

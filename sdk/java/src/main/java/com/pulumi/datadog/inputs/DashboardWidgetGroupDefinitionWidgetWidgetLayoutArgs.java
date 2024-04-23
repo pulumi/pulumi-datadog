@@ -48,14 +48,14 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
     }
 
     /**
-     * Widget column width. Valid values are `auto`, `compact`, `full`.
+     * The width of the widget.
      * 
      */
     @Import(name="width", required=true)
     private Output<Integer> width;
 
     /**
-     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * @return The width of the widget.
      * 
      */
     public Output<Integer> width() {
@@ -63,14 +63,14 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
     }
 
     /**
-     * The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     @Import(name="x", required=true)
     private Output<Integer> x;
 
     /**
-     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     public Output<Integer> x() {
@@ -78,14 +78,14 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
     }
 
     /**
-     * The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     @Import(name="y", required=true)
     private Output<Integer> y;
 
     /**
-     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     public Output<Integer> y() {
@@ -163,7 +163,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
+         * @param width The width of the widget.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param width Widget column width. Valid values are `auto`, `compact`, `full`.
+         * @param width The width of the widget.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param x The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * @param x The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param x The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * @param x The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param y The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * @param y The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs extends 
         }
 
         /**
-         * @param y The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+         * @param y The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
          * 
          * @return builder
          * 

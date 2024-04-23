@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTeamMemberships(ctx *pulumi.Context, args *GetTeamMembershipsArgs, opts ...pulumi.InvokeOption) (*GetTeamMembershipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTeamMembershipsResult
@@ -57,7 +55,8 @@ type GetTeamMembershipsArgs struct {
 	ExactMatch *bool `pulumi:"exactMatch"`
 	// Search query, can be user email or name.
 	FilterKeyword *string `pulumi:"filterKeyword"`
-	TeamId        string  `pulumi:"teamId"`
+	// The team's identifier.
+	TeamId string `pulumi:"teamId"`
 }
 
 // A collection of values returned by getTeamMemberships.
@@ -93,7 +92,8 @@ type GetTeamMembershipsOutputArgs struct {
 	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Search query, can be user email or name.
 	FilterKeyword pulumi.StringPtrInput `pulumi:"filterKeyword"`
-	TeamId        pulumi.StringInput    `pulumi:"teamId"`
+	// The team's identifier.
+	TeamId pulumi.StringInput `pulumi:"teamId"`
 }
 
 func (GetTeamMembershipsOutputArgs) ElementType() reflect.Type {

@@ -20,7 +20,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
      */
     private @Nullable String defaultLookup;
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
@@ -30,17 +30,17 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
      */
     private List<String> lookupTables;
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     private @Nullable String name;
     /**
-     * @return Name of the log attribute to parse.
+     * @return Name of the source attribute used to do the lookup.
      * 
      */
     private String source;
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the attribute that contains the result of the lookup.
      * 
      */
     private String target;
@@ -54,7 +54,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
         return Optional.ofNullable(this.defaultLookup);
     }
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
@@ -68,21 +68,21 @@ public final class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
         return this.lookupTables;
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Name of the log attribute to parse.
+     * @return Name of the source attribute used to do the lookup.
      * 
      */
     public String source() {
         return this.source;
     }
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the attribute that contains the result of the lookup.
      * 
      */
     public String target() {

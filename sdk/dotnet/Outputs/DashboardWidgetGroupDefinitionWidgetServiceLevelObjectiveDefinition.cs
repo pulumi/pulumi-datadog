@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShowErrorBudget;
         /// <summary>
-        /// ID of an SLO to query.
+        /// The ID of the service level objective used by the widget.
         /// </summary>
         public readonly string SloId;
         /// <summary>

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery {
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
      * 
      */
     private String dataSource;
@@ -22,14 +22,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
      */
     private List<String> filters;
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     private String service;
 
     private DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery() {}
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `data_streams`, `service_map`.
      * 
      */
     public String dataSource() {
@@ -43,7 +43,7 @@ public final class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequ
         return this.filters;
     }
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     public String service() {

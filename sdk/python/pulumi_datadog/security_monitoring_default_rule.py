@@ -188,7 +188,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -200,7 +199,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                 notifications=["@me"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -244,7 +241,6 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                 notifications=["@me"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

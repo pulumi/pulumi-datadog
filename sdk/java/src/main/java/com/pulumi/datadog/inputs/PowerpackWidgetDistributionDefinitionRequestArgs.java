@@ -120,14 +120,14 @@ public final class PowerpackWidgetDistributionDefinitionRequestArgs extends com.
     }
 
     /**
-     * Styling options for widget formulas.
+     * The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     @Import(name="style")
     private @Nullable Output<PowerpackWidgetDistributionDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<Output<PowerpackWidgetDistributionDefinitionRequestStyleArgs>> style() {
@@ -301,7 +301,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestArgs extends com.
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PowerpackWidgetDistributionDefinitionRequestArgs extends com.
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 

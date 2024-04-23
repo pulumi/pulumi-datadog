@@ -13,19 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation method.
+        /// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
         /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;
 
         /// <summary>
-        /// Define the time interval in seconds.
+        /// A time interval in milliseconds.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The measurable attribute to compute.
         /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }

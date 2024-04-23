@@ -63,14 +63,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyS
     }
 
     /**
-     * The name of the variable.
+     * The name of query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -264,7 +264,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyS
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     serviceKey: "54321098765432109876",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

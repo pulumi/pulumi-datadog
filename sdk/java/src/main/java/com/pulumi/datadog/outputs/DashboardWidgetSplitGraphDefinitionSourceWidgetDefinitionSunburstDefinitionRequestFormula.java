@@ -37,7 +37,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
      */
     private String formulaExpression;
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit limit;
@@ -77,7 +77,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         return this.formulaExpression;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestFormulaLimit> limit() {

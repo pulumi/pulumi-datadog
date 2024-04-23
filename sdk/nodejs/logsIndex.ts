@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -108,7 +106,7 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
     /**
-     * The name of the exclusion filter.
+     * The name of the index.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -188,7 +186,7 @@ export interface LogsIndexState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the exclusion filter.
+     * The name of the index.
      */
     name?: pulumi.Input<string>;
     /**
@@ -226,7 +224,7 @@ export interface LogsIndexArgs {
      */
     filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the exclusion filter.
+     * The name of the index.
      */
     name: pulumi.Input<string>;
     /**

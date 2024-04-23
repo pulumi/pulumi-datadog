@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _groups;
 
         /// <summary>
-        /// The check group to use in the widget.
+        /// The list of tags to group nodes by.
         /// </summary>
         public InputList<string> Groups
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+        /// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
         /// </summary>
         [Input("request")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestArgs>? Request { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Styling options for widget formulas.
+        /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionStyleArgs>? Style { get; set; }

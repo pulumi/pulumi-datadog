@@ -20,12 +20,12 @@ public final class PowerpackWidgetChangeDefinitionRequestProcessQuery {
      */
     private @Nullable List<String> filterBies;
     /**
-     * @return The maximum number of items in the group.
+     * @return The max number of items in the filter list.
      * 
      */
     private @Nullable Integer limit;
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return Your chosen metric.
      * 
      */
     private String metric;
@@ -44,14 +44,14 @@ public final class PowerpackWidgetChangeDefinitionRequestProcessQuery {
         return this.filterBies == null ? List.of() : this.filterBies;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The max number of items in the filter list.
      * 
      */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return Your chosen metric.
      * 
      */
     public String metric() {

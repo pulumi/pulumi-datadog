@@ -268,7 +268,6 @@ class MetricMetadata(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -281,7 +280,6 @@ class MetricMetadata(pulumi.CustomResource):
             type="gauge",
             unit="millisecond")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -310,7 +308,6 @@ class MetricMetadata(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -323,7 +320,6 @@ class MetricMetadata(pulumi.CustomResource):
             type="gauge",
             unit="millisecond")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,12 +18,12 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
      */
     private @Nullable String displayType;
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     private @Nullable String label;
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     private String value;
@@ -37,14 +37,14 @@ public final class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarke
         return Optional.ofNullable(this.displayType);
     }
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     public String value() {

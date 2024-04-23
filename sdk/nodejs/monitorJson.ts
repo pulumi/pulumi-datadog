@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -21,7 +20,7 @@ import * as utilities from "./utilities";
  *     "message": "Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.\\n\\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.",
  *     "tags": [],
  *     "multi": true,
- * 	"restricted_roles": null,
+ * \x09"restricted_roles": null,
  *     "options": {
  *         "include_tags": true,
  *         "locked": false,
@@ -39,7 +38,6 @@ import * as utilities from "./utilities";
  * }
  * `});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

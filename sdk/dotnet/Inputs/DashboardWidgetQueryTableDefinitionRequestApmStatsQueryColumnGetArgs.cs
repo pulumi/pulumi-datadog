@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An expression alias.
+        /// A user-assigned alias for the column.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CellDisplayMode { get; set; }
 
         /// <summary>
-        /// The name of the variable.
+        /// The column name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

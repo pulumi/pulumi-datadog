@@ -15,14 +15,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendT
     public static final DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs Empty = new DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendTableArgs();
 
     /**
-     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * The type of legend (table or none). Valid values are `table`, `none`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (table or none). Valid values are `table`, `none`.
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendT
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type The type of legend (table or none). Valid values are `table`, `none`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSunburstDefinitionLegendT
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type The type of legend (table or none). Valid values are `table`, `none`.
          * 
          * @return builder
          * 

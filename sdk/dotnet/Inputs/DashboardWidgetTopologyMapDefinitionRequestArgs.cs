@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// The request type for the Topology request ('topology'). Valid values are `topology`.
         /// </summary>
         [Input("requestType", required: true)]
         public Input<string> RequestType { get; set; } = null!;

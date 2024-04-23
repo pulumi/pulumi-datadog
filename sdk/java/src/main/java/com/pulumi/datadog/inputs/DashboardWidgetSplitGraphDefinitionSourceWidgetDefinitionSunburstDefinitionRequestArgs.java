@@ -161,14 +161,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * Styling options for widget formulas.
+     * Define style for the widget&#39;s request.
      * 
      */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     public Optional<Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyleArgs>> style() {
@@ -404,7 +404,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style Define style for the widget&#39;s request.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style Define style for the widget&#39;s request.
          * 
          * @return builder
          * 

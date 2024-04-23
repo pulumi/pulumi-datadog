@@ -76,7 +76,6 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -88,7 +87,9 @@ def get_logs_pipelines(is_read_only: Optional[str] = None,
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str is_read_only: Filter parameter for retrieved pipelines
     """
     __args__ = dict()
     __args__['isReadOnly'] = is_read_only
@@ -109,7 +110,6 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -121,6 +121,8 @@ def get_logs_pipelines_output(is_read_only: Optional[pulumi.Input[Optional[str]]
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
     ```
-    <!--End PulumiCodeChooser -->
+
+
+    :param str is_read_only: Filter parameter for retrieved pipelines
     """
     ...

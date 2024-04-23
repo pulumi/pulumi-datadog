@@ -139,14 +139,14 @@ public final class DashboardWidgetToplistDefinitionRequestConditionalFormatArgs 
     }
 
     /**
-     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * A value for the comparator.
      * 
      */
     @Import(name="value", required=true)
     private Output<Double> value;
 
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A value for the comparator.
      * 
      */
     public Output<Double> value() {
@@ -354,7 +354,7 @@ public final class DashboardWidgetToplistDefinitionRequestConditionalFormatArgs 
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value A value for the comparator.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class DashboardWidgetToplistDefinitionRequestConditionalFormatArgs 
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value A value for the comparator.
          * 
          * @return builder
          * 

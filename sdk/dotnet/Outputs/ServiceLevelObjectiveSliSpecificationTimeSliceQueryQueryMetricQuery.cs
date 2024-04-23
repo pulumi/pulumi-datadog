@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// The metrics query definition.
         /// </summary>
         public readonly string Query;
 

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// A nested block describing the Y-Axis Controls. The structure of this block is described below.
+        /// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
         /// </summary>
         public readonly Outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis? Yaxis;
 

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -31,7 +30,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -70,7 +68,7 @@ export class Role extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the permission.
+     * Name of the role.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -123,7 +121,7 @@ export class Role extends pulumi.CustomResource {
  */
 export interface RoleState {
     /**
-     * Name of the permission.
+     * Name of the role.
      */
     name?: pulumi.Input<string>;
     /**
@@ -145,7 +143,7 @@ export interface RoleState {
  */
 export interface RoleArgs {
     /**
-     * Name of the permission.
+     * Name of the role.
      */
     name: pulumi.Input<string>;
     /**

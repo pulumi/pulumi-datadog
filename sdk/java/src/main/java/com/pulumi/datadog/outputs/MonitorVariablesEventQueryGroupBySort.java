@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorVariablesEventQueryGroupBySort {
     /**
-     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * @return The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     private String aggregation;
     /**
-     * @return The measurable attribute to compute.
+     * @return The metric used for sorting group by results.
      * 
      */
     private @Nullable String metric;
@@ -30,14 +30,14 @@ public final class MonitorVariablesEventQueryGroupBySort {
 
     private MonitorVariablesEventQueryGroupBySort() {}
     /**
-     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * @return The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public String aggregation() {
         return this.aggregation;
     }
     /**
-     * @return The measurable attribute to compute.
+     * @return The metric used for sorting group by results.
      * 
      */
     public Optional<String> metric() {

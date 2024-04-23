@@ -32,14 +32,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
     public Output<String> dataSource() {
@@ -47,14 +47,14 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
     }
 
     /**
-     * The name of the powerpack template variable.
+     * The name of the query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -125,7 +125,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `cloud_cost`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for cloud cost queries. Valid values are `cloud_cost`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 

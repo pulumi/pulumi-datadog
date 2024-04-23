@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTreemapDefinitionRequestQueryProcessQuery
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for process queries. Valid values are `process`, `container`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -26,19 +26,19 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsNormalizedCpu;
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of hits to return.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The process metric name.
         /// </summary>
         public readonly string Metric;
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The options for sorting group by results.
+        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         /// </summary>
         public readonly string? Sort;
         /// <summary>

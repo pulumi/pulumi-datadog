@@ -30,7 +30,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinition {
      */
     private @Nullable Boolean showErrorBudget;
     /**
-     * @return ID of an SLO to query.
+     * @return The ID of the service level objective used by the widget.
      * 
      */
     private String sloId;
@@ -88,7 +88,7 @@ public final class PowerpackWidgetServiceLevelObjectiveDefinition {
         return Optional.ofNullable(this.showErrorBudget);
     }
     /**
-     * @return ID of an SLO to query.
+     * @return The ID of the service level objective used by the widget.
      * 
      */
     public String sloId() {

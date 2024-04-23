@@ -32,7 +32,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest request;
@@ -57,7 +57,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis xaxis;
     /**
-     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis yaxis;
@@ -85,7 +85,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest> request() {
@@ -120,7 +120,7 @@ public final class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
         return Optional.ofNullable(this.xaxis);
     }
     /**
-     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis> yaxis() {

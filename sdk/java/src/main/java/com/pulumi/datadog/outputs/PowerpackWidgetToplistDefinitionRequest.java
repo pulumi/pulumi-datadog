@@ -33,7 +33,7 @@ public final class PowerpackWidgetToplistDefinitionRequest {
      */
     private @Nullable PowerpackWidgetToplistDefinitionRequestAuditQuery auditQuery;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats;
@@ -65,7 +65,7 @@ public final class PowerpackWidgetToplistDefinitionRequest {
      */
     private @Nullable PowerpackWidgetToplistDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return Define request for the widget&#39;s style.
      * 
      */
     private @Nullable PowerpackWidgetToplistDefinitionRequestStyle style;
@@ -86,7 +86,7 @@ public final class PowerpackWidgetToplistDefinitionRequest {
         return Optional.ofNullable(this.auditQuery);
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats() {
@@ -134,7 +134,7 @@ public final class PowerpackWidgetToplistDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return Define request for the widget&#39;s style.
      * 
      */
     public Optional<PowerpackWidgetToplistDefinitionRequestStyle> style() {

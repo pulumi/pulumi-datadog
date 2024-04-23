@@ -134,7 +134,6 @@ class TeamPermissionSetting(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -148,7 +147,6 @@ class TeamPermissionSetting(pulumi.CustomResource):
             action="manage_membership",
             value="organization")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +165,6 @@ class TeamPermissionSetting(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -181,7 +178,6 @@ class TeamPermissionSetting(pulumi.CustomResource):
             action="manage_membership",
             value="organization")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param TeamPermissionSettingArgs args: The arguments to use to populate this resource's properties.

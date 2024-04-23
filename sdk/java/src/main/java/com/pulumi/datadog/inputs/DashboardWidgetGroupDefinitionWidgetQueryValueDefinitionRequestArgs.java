@@ -26,14 +26,14 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
     public static final DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestArgs Empty = new DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -209,7 +209,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionReque
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 

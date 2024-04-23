@@ -20,14 +20,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     public static final DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestQueryProcessQueryArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -35,14 +35,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for process queries. Valid values are `process`, `container`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for process queries. Valid values are `process`, `container`.
      * 
      */
     public Output<String> dataSource() {
@@ -65,14 +65,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The maximum number of items in the group.
+     * The number of hits to return.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of hits to return.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -80,14 +80,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The metric from the request to correlate with this conditional format.
+     * The process metric name.
      * 
      */
     @Import(name="metric", required=true)
     private Output<String> metric;
 
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The process metric name.
      * 
      */
     public Output<String> metric() {
@@ -95,14 +95,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The name of the variable.
+     * The name of query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -110,14 +110,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     }
 
     /**
-     * The options for sorting group by results.
+     * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     @Import(name="sort")
     private @Nullable Output<String> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     public Optional<Output<String>> sort() {
@@ -187,7 +187,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for process queries. Valid values are `process`, `container`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for process queries. Valid values are `process`, `container`.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of hits to return.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of hits to return.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The process metric name.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric The process metric name.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
          * 
          * @return builder
          * 

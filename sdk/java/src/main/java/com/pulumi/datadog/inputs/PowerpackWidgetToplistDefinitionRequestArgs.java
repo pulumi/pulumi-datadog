@@ -57,14 +57,14 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
     }
 
     /**
-     * Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     @Import(name="conditionalFormats")
     private @Nullable Output<List<PowerpackWidgetToplistDefinitionRequestConditionalFormatArgs>> conditionalFormats;
 
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<PowerpackWidgetToplistDefinitionRequestConditionalFormatArgs>>> conditionalFormats() {
@@ -161,14 +161,14 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
     }
 
     /**
-     * Styling options for widget formulas.
+     * Define request for the widget&#39;s style.
      * 
      */
     @Import(name="style")
     private @Nullable Output<PowerpackWidgetToplistDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return Define request for the widget&#39;s style.
      * 
      */
     public Optional<Output<PowerpackWidgetToplistDefinitionRequestStyleArgs>> style() {
@@ -252,7 +252,7 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+         * @param conditionalFormats Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style Define request for the widget&#39;s style.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class PowerpackWidgetToplistDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style Define request for the widget&#39;s style.
          * 
          * @return builder
          * 

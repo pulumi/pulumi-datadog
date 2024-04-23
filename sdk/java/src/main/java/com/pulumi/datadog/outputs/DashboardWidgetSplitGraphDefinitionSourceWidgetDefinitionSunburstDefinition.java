@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition {
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink> customLinks;
@@ -43,7 +43,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest> requests;
@@ -53,19 +53,19 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
      */
     private @Nullable String title;
     /**
-     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String titleAlign;
     /**
-     * @return The size of the widget&#39;s title (defaults to 16).
+     * @return The size of the widget&#39;s title. Default is 16.
      * 
      */
     private @Nullable String titleSize;
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition() {}
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
      * 
      */
     public List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLink> customLinks() {
@@ -100,7 +100,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     public List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequest> requests() {
@@ -114,14 +114,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         return Optional.ofNullable(this.title);
     }
     /**
-     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
     /**
-     * @return The size of the widget&#39;s title (defaults to 16).
+     * @return The size of the widget&#39;s title. Default is 16.
      * 
      */
     public Optional<String> titleSize() {

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IncludeZero;
         /// <summary>
-        /// The label for the custom link URL.
+        /// The label of the axis to display on the graph.
         /// </summary>
         public readonly string? Label;
         /// <summary>

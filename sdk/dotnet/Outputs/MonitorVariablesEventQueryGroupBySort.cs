@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariablesEventQueryGroupBySort
     {
         /// <summary>
-        /// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+        /// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
         /// </summary>
         public readonly string Aggregation;
         /// <summary>
-        /// The measurable attribute to compute.
+        /// The metric used for sorting group by results.
         /// </summary>
         public readonly string? Metric;
         /// <summary>

@@ -70,7 +70,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -82,7 +81,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
             "group-id-3",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -105,7 +103,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -117,7 +114,6 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
             "group-id-3",
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

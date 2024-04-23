@@ -138,7 +138,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -146,7 +145,6 @@ class OrganizationSettings(pulumi.CustomResource):
         # Manage Datadog Organization
         organization = datadog.OrganizationSettings("organization", name="foo-organization")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -170,7 +168,6 @@ class OrganizationSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -178,7 +175,6 @@ class OrganizationSettings(pulumi.CustomResource):
         # Manage Datadog Organization
         organization = datadog.OrganizationSettings("organization", name="foo-organization")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

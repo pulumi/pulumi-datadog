@@ -49,14 +49,14 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetToplistDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
      * 
      */
     public Optional<Output<List<DashboardWidgetToplistDefinitionRequestArgs>>> requests() {
@@ -190,7 +190,7 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the `request` block).
          * 
          * @return builder
          * 

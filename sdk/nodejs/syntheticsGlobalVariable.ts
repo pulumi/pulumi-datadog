@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     value: "variable-value",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -97,7 +95,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * Value for the parser to use, required for type `jsonPath` or `regex`.
+     * The value of the global variable.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -185,7 +183,7 @@ export interface SyntheticsGlobalVariableState {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Value for the parser to use, required for type `jsonPath` or `regex`.
+     * The value of the global variable.
      */
     value?: pulumi.Input<string>;
 }
@@ -227,7 +225,7 @@ export interface SyntheticsGlobalVariableArgs {
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Value for the parser to use, required for type `jsonPath` or `regex`.
+     * The value of the global variable.
      */
     value: pulumi.Input<string>;
 }

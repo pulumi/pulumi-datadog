@@ -50,7 +50,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      */
     private @Nullable DashboardWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetDistributionDefinitionRequestStyle style;
@@ -102,7 +102,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetDistributionDefinitionRequestStyle> style() {

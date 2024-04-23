@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OrganizationSettingsSettingsSamlStrictMode
     {
         /// <summary>
-        /// Whether or not SAML is enabled for this organization. Defaults to `false`.
+        /// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
 

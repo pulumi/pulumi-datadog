@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
 
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs> ConditionalFormats
         {
@@ -83,7 +83,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// Styling options for widget formulas.
+        /// Define request for the widget's style.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestStyleArgs>? Style { get; set; }

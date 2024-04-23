@@ -183,14 +183,14 @@ public class SyntheticsGlobalVariable extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * Value for the parser to use, required for type `json_path` or `regex`.
+     * The value of the global variable.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return Value for the parser to use, required for type `json_path` or `regex`.
+     * @return The value of the global variable.
      * 
      */
     public Output<String> value() {

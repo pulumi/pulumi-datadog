@@ -105,7 +105,6 @@ class DashboardList(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -162,7 +161,6 @@ class DashboardList(pulumi.CustomResource):
                     time,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,7 +184,6 @@ class DashboardList(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -243,7 +240,6 @@ class DashboardList(pulumi.CustomResource):
                     time,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

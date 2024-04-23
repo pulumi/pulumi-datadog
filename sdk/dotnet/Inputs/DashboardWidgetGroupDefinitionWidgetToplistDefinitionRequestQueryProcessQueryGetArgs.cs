@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for process queries. Valid values are `process`, `container`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -31,25 +31,25 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsNormalizedCpu { get; set; }
 
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of hits to return.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// The process metric name.
         /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
         /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }

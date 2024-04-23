@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationSettingsSettingsSamlStrictMode {
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
 
     private OrganizationSettingsSettingsSamlStrictMode() {}
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

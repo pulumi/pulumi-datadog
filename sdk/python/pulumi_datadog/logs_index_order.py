@@ -103,7 +103,6 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -112,7 +111,6 @@ class LogsIndexOrder(pulumi.CustomResource):
             name="sample_index_order",
             indexes=[sample_index["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -140,7 +138,6 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -149,7 +146,6 @@ class LogsIndexOrder(pulumi.CustomResource):
             name="sample_index_order",
             indexes=[sample_index["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

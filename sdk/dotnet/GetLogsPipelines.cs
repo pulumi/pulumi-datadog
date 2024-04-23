@@ -16,7 +16,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogsPipelinesResult> InvokeAsync(GetLogsPipelinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogsPipelinesResult> Invoke(GetLogsPipelinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsPipelinesResult>("datadog:index/getLogsPipelines:getLogsPipelines", args ?? new GetLogsPipelinesInvokeArgs(), options.WithDefaults());
@@ -83,6 +79,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetLogsPipelinesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter parameter for retrieved pipelines
+        /// </summary>
         [Input("isReadOnly")]
         public string? IsReadOnly { get; set; }
 
@@ -94,6 +93,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetLogsPipelinesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter parameter for retrieved pipelines
+        /// </summary>
         [Input("isReadOnly")]
         public Input<string>? IsReadOnly { get; set; }
 

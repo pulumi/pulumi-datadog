@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Jsonpath;
         /// <summary>
-        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        /// The specific operator to use on the path.
         /// </summary>
         public readonly string Operator;
         /// <summary>

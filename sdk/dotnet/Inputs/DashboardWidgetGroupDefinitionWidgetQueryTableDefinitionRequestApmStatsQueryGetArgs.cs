@@ -25,13 +25,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// APM environment.
+        /// The environment name.
         /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
         /// <summary>
-        /// The name of the variable.
+        /// The operation name associated with the service.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> RowType { get; set; } = null!;
 
         /// <summary>
-        /// APM service.
+        /// The service name.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

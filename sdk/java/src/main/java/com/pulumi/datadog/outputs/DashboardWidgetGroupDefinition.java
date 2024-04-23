@@ -36,7 +36,7 @@ public final class DashboardWidgetGroupDefinition {
      */
     private @Nullable Boolean showTitle;
     /**
-     * @return The title of the widget.
+     * @return The title of the group.
      * 
      */
     private @Nullable String title;
@@ -76,7 +76,7 @@ public final class DashboardWidgetGroupDefinition {
         return Optional.ofNullable(this.showTitle);
     }
     /**
-     * @return The title of the widget.
+     * @return The title of the group.
      * 
      */
     public Optional<String> title() {

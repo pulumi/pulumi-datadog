@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -21,7 +20,6 @@ import * as utilities from "./utilities";
  *     filterStatus: "Active,Pending",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -73,7 +71,6 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -83,7 +80,6 @@ export interface GetUsersResult {
  *     filterStatus: "Active,Pending",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

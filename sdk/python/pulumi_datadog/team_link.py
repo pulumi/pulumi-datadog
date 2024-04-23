@@ -167,7 +167,6 @@ class TeamLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -183,7 +182,6 @@ class TeamLink(pulumi.CustomResource):
             position="Example link",
             url="https://example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class TeamLink(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -225,7 +222,6 @@ class TeamLink(pulumi.CustomResource):
             position="Example link",
             url="https://example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

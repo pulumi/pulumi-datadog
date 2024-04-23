@@ -65,14 +65,14 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Exclusion filter name.
+     * The name of the security filter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Exclusion filter name.
+     * @return The name of the security filter.
      * 
      */
     public Output<String> name() {
@@ -80,14 +80,14 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * The query of the security filter.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * @return The query of the security filter.
      * 
      */
     public Output<String> query() {
@@ -196,7 +196,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Exclusion filter name.
+         * @param name The name of the security filter.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Exclusion filter name.
+         * @param name The name of the security filter.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param query Exclusion filter query. Logs that match this query are excluded from the security filter.
+         * @param query The query of the security filter.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class SecurityMonitoringFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param query Exclusion filter query. Logs that match this query are excluded from the security filter.
+         * @param query The query of the security filter.
          * 
          * @return builder
          * 

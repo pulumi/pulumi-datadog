@@ -44,7 +44,7 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
      */
     private @Nullable Boolean showPriority;
     /**
-     * @return The options for sorting group by results.
+     * @return The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
      * 
      */
     private @Nullable String sort;
@@ -113,7 +113,7 @@ public final class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
         return Optional.ofNullable(this.showPriority);
     }
     /**
-     * @return The options for sorting group by results.
+     * @return The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
      * 
      */
     public Optional<String> sort() {

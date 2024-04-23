@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetTopologyMapDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The request type for the SLO List request. Valid values are `slo_list`.
+        /// The request type for the Topology request ('topology'). Valid values are `topology`.
         /// </summary>
         public readonly string RequestType;
 

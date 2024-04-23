@@ -43,7 +43,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryMetricQuery metricQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery processQuery;
@@ -90,7 +90,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         return Optional.ofNullable(this.metricQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryProcessQuery> processQuery() {

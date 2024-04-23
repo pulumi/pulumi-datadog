@@ -32,17 +32,9 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorArgs extends
         return Optional.ofNullable(this.failTestOnCannotLocate);
     }
 
-    /**
-     * Regex or JSON path used for the parser. Not used with type `raw`.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs> value;
 
-    /**
-     * @return Regex or JSON path used for the parser. Not used with type `raw`.
-     * 
-     */
     public Output<SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs> value() {
         return this.value;
     }
@@ -93,23 +85,11 @@ public final class SyntheticsTestBrowserStepParamsElementUserLocatorArgs extends
             return failTestOnCannotLocate(Output.of(failTestOnCannotLocate));
         }
 
-        /**
-         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs value) {
             return value(Output.of(value));
         }

@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// A nested block describing the Y-Axis Controls. The structure of this block is described below.
+        /// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
         /// </summary>
         [Input("yaxis")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxisArgs>? Yaxis { get; set; }

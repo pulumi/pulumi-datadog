@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula Formula;
         /// <summary>
-        /// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+        /// A list of data-source-specific queries that are in the formula.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery> Queries;
 

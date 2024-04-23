@@ -27,7 +27,7 @@ public final class SyntheticsTestApiStepExtractedValue {
      */
     private @Nullable Boolean secure;
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
      * 
      */
     private String type;
@@ -54,7 +54,7 @@ public final class SyntheticsTestApiStepExtractedValue {
         return Optional.ofNullable(this.secure);
     }
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * @return Property of the Synthetics Test Response to use for the variable. Valid values are `http_body`, `http_header`, `local_variable`.
      * 
      */
     public String type() {

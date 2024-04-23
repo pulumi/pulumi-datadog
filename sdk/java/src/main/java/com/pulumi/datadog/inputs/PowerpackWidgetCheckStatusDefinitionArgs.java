@@ -48,14 +48,14 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * Multiple `group_by` blocks are allowed using the structure below.
+     * When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
      * 
      */
     public Optional<Output<List<String>>> groupBies() {
@@ -227,7 +227,7 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class PowerpackWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
          * 
          * @return builder
          * 

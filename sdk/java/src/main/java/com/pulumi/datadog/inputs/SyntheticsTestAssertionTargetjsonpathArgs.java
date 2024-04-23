@@ -32,14 +32,14 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
     }
 
     /**
-     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * The specific operator to use on the path.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+     * @return The specific operator to use on the path.
      * 
      */
     public Output<String> operator() {
@@ -109,7 +109,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         }
 
         /**
-         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * @param operator The specific operator to use on the path.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
         }
 
         /**
-         * @param operator Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+         * @param operator The specific operator to use on the path.
          * 
          * @return builder
          * 

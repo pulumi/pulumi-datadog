@@ -37,7 +37,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFo
      */
     private String formulaExpression;
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit limit;
@@ -77,7 +77,7 @@ public final class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFo
         return this.formulaExpression;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestFormulaLimit> limit() {

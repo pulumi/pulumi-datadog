@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
-        /// Styling options for widget formulas.
+        /// Define style for the widget's request.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyle? Style;
 

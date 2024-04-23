@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -32,7 +31,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -83,11 +81,11 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
      */
     public readonly isEnabled!: pulumi.Output<boolean>;
     /**
-     * Exclusion filter name.
+     * The name of the security filter.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * The query of the security filter.
      */
     public readonly query!: pulumi.Output<string>;
     /**
@@ -154,11 +152,11 @@ export interface SecurityMonitoringFilterState {
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * Exclusion filter name.
+     * The name of the security filter.
      */
     name?: pulumi.Input<string>;
     /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * The query of the security filter.
      */
     query?: pulumi.Input<string>;
     /**
@@ -184,11 +182,11 @@ export interface SecurityMonitoringFilterArgs {
      */
     isEnabled: pulumi.Input<boolean>;
     /**
-     * Exclusion filter name.
+     * The name of the security filter.
      */
     name: pulumi.Input<string>;
     /**
-     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     * The query of the security filter.
      */
     query: pulumi.Input<string>;
 }

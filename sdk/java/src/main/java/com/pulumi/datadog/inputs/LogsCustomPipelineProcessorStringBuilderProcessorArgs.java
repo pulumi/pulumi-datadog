@@ -18,14 +18,14 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
     public static final LogsCustomPipelineProcessorStringBuilderProcessorArgs Empty = new LogsCustomPipelineProcessorStringBuilderProcessorArgs();
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -33,14 +33,14 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
     }
 
     /**
-     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * If it replaces all missing attributes of template by an empty string.
      * 
      */
     @Import(name="isReplaceMissing")
     private @Nullable Output<Boolean> isReplaceMissing;
 
     /**
-     * @return If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * @return If it replaces all missing attributes of template by an empty string.
      * 
      */
     public Optional<Output<Boolean>> isReplaceMissing() {
@@ -48,14 +48,14 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
     }
 
     /**
-     * Your pipeline name.
+     * The name of the processor.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return The name of the processor.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
     }
 
     /**
-     * Name of the attribute that contains the result of the arithmetic operation.
+     * The name of the attribute that contains the result of the template.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return The name of the attribute that contains the result of the template.
      * 
      */
     public Output<String> target() {
@@ -121,7 +121,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param isReplaceMissing If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+         * @param isReplaceMissing If it replaces all missing attributes of template by an empty string.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param isReplaceMissing If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+         * @param isReplaceMissing If it replaces all missing attributes of template by an empty string.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name The name of the processor.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name The name of the processor.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target The name of the attribute that contains the result of the template.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class LogsCustomPipelineProcessorStringBuilderProcessorArgs extends
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target The name of the attribute that contains the result of the template.
          * 
          * @return builder
          * 

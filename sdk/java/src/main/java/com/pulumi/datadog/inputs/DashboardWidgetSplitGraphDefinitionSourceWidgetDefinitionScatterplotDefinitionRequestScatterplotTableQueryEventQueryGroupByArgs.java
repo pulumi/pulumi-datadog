@@ -19,14 +19,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
     public static final DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs Empty = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs();
 
     /**
-     * The facet name.
+     * The event facet.
      * 
      */
     @Import(name="facet", required=true)
     private Output<String> facet;
 
     /**
-     * @return The facet name.
+     * @return The event facet.
      * 
      */
     public Output<String> facet() {
@@ -34,14 +34,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
     }
 
     /**
-     * The maximum number of items in the group.
+     * The number of groups to return.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of groups to return.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -90,7 +90,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param facet The facet name.
+         * @param facet The event facet.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param facet The facet name.
+         * @param facet The event facet.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of groups to return.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The number of groups to return.
          * 
          * @return builder
          * 

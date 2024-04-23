@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,14 +94,13 @@ namespace Pulumi.Datadog
     ///     {
     ///         DependsOn =
     ///         {
-    ///             screen, 
-    ///             time, 
+    ///             screen,
+    ///             time,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

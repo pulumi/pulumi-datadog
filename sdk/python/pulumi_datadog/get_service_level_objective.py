@@ -175,7 +175,6 @@ def get_service_level_objective(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -184,7 +183,6 @@ def get_service_level_objective(id: Optional[str] = None,
         tags_query="foo:bar")
     api_slo = datadog.get_service_level_objective(id=api["outputs"]["slo"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: A SLO ID to limit the search.
@@ -225,7 +223,6 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -234,7 +231,6 @@ def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]]
         tags_query="foo:bar")
     api_slo = datadog.get_service_level_objective(id=api["outputs"]["slo"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: A SLO ID to limit the search.

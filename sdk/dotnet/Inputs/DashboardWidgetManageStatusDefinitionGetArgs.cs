@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowPriority { get; set; }
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
         /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }

@@ -35,14 +35,14 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
     }
 
     /**
-     * Boolean value to enable your pipeline.
+     * If the processor is enabled or not.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -50,14 +50,14 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
     }
 
     /**
-     * Your pipeline name.
+     * Name of the category
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Your pipeline name.
+     * @return Name of the category
      * 
      */
     public Optional<Output<String>> name() {
@@ -65,14 +65,14 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
     }
 
     /**
-     * Name of the attribute that contains the result of the arithmetic operation.
+     * Name of the target attribute whose value is defined by the matching category.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the target attribute whose value is defined by the matching category.
      * 
      */
     public Output<String> target() {
@@ -138,7 +138,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param isEnabled Boolean value to enable your pipeline.
+         * @param isEnabled If the processor is enabled or not.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the category
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param name Your pipeline name.
+         * @param name Name of the category
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the target attribute whose value is defined by the matching category.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class LogsCustomPipelineProcessorCategoryProcessorArgs extends com.
         }
 
         /**
-         * @param target Name of the attribute that contains the result of the arithmetic operation.
+         * @param target Name of the target attribute whose value is defined by the matching category.
          * 
          * @return builder
          * 

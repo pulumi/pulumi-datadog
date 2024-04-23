@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequest
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// An expression alias.
+        /// The alias for the column name (defaults to metric name).
         /// </summary>
         public readonly string? Alias;
         /// <summary>
@@ -27,16 +27,16 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
         /// </summary>
         public readonly ImmutableArray<string> CellDisplayModes;
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of lines to show in the table.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQuery? LogQuery;
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// The sort order for the rows. Valid values are `asc`, `desc`.
         /// </summary>
         public readonly string? Order;
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AdditionalQueryFilters;
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for SLO queries. Valid values are `slo`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Measure;
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name of query for use in formulas.
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -43,7 +43,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuery {
      */
     private @Nullable PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery metricQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     private @Nullable PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery processQuery;
@@ -90,7 +90,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuery {
         return Optional.ofNullable(this.metricQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery> processQuery() {

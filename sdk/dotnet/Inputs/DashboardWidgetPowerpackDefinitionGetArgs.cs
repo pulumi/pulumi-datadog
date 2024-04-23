@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetPowerpackDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+        /// The background color of the powerpack title.
         /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
         /// <summary>
-        /// The image URL to display as a banner for the group.
+        /// URL of image to display as a banner for the powerpack.
         /// </summary>
         [Input("bannerImg")]
         public Input<string>? BannerImg { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> PowerpackId { get; set; } = null!;
 
         /// <summary>
-        /// Whether to show the title or not. Defaults to `true`.
+        /// Whether to show the title of the powerpack.
         /// </summary>
         [Input("showTitle")]
         public Input<bool>? ShowTitle { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetPowerpackDefinitionTemplateVariablesGetArgs>? TemplateVariables { get; set; }
 
         /// <summary>
-        /// The title of the widget.
+        /// Title of the powerpack.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }

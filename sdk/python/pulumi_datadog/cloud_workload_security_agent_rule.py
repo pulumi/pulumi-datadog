@@ -168,7 +168,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -179,7 +178,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
             enabled=True,
             expression="exec.file.name == \\"java\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,7 +205,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -218,7 +215,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
             enabled=True,
             expression="exec.file.name == \\"java\\"")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

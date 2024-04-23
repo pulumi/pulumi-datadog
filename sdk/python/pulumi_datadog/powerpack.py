@@ -29,9 +29,9 @@ class PowerpackArgs:
         :param pulumi.Input[str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
-        :param pulumi.Input[str] name: The name of the powerpack template variable.
+        :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]] template_variables: The list of template variables for this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]] widgets: The list of widgets to display in the powerpack.
         """
@@ -92,7 +92,7 @@ class PowerpackArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the powerpack template variable.
+        The name for the powerpack.
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +116,7 @@ class PowerpackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to use in the widget.
+        List of tags to identify this powerpack.
         """
         return pulumi.get(self, "tags")
 
@@ -165,9 +165,9 @@ class _PowerpackState:
         :param pulumi.Input[str] description: The description of the powerpack.
         :param pulumi.Input['PowerpackLayoutArgs'] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
-        :param pulumi.Input[str] name: The name of the powerpack template variable.
+        :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackTemplateVariableArgs']]] template_variables: The list of template variables for this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetArgs']]] widgets: The list of widgets to display in the powerpack.
         """
@@ -228,7 +228,7 @@ class _PowerpackState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the powerpack template variable.
+        The name for the powerpack.
         """
         return pulumi.get(self, "name")
 
@@ -252,7 +252,7 @@ class _PowerpackState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of tags to use in the widget.
+        List of tags to identify this powerpack.
         """
         return pulumi.get(self, "tags")
 
@@ -304,7 +304,6 @@ class Powerpack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -334,7 +333,6 @@ class Powerpack(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,9 +345,9 @@ class Powerpack(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the powerpack.
         :param pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
-        :param pulumi.Input[str] name: The name of the powerpack template variable.
+        :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]] template_variables: The list of template variables for this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]] widgets: The list of widgets to display in the powerpack.
         """
@@ -364,7 +362,6 @@ class Powerpack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -394,7 +391,6 @@ class Powerpack(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -470,9 +466,9 @@ class Powerpack(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the powerpack.
         :param pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
-        :param pulumi.Input[str] name: The name of the powerpack template variable.
+        :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to use in the widget.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]] template_variables: The list of template variables for this powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]] widgets: The list of widgets to display in the powerpack.
         """
@@ -518,7 +514,7 @@ class Powerpack(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the powerpack template variable.
+        The name for the powerpack.
         """
         return pulumi.get(self, "name")
 
@@ -534,7 +530,7 @@ class Powerpack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of tags to use in the widget.
+        List of tags to identify this powerpack.
         """
         return pulumi.get(self, "tags")
 

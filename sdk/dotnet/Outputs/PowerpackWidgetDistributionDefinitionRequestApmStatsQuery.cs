@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackWidgetDistributionDefinitionRequestApmStatsQueryColumn> Columns;
         /// <summary>
-        /// APM environment.
+        /// The environment name.
         /// </summary>
         public readonly string Env;
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The operation name associated with the service.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string RowType;
         /// <summary>
-        /// APM service.
+        /// The service name.
         /// </summary>
         public readonly string Service;
 

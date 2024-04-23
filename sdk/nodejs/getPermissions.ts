@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const permissions = datadog.getPermissions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPermissions(args?: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
     args = args || {};
@@ -59,14 +57,12 @@ export interface GetPermissionsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const permissions = datadog.getPermissions({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPermissionsOutput(args?: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
     return pulumi.output(args).apply((a: any) => getPermissions(a, opts))

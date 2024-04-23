@@ -234,7 +234,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -246,7 +245,6 @@ class User(pulumi.CustomResource):
             email="new@example.com",
             roles=[ro_role.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -285,7 +282,6 @@ class User(pulumi.CustomResource):
             email="new@example.com",
             roles=[ro_role.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

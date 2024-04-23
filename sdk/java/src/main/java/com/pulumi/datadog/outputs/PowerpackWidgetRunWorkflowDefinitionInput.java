@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class PowerpackWidgetRunWorkflowDefinitionInput {
     /**
-     * @return The name of the powerpack template variable.
+     * @return Name of the workflow input.
      * 
      */
     private String name;
     /**
-     * @return A value for the comparator.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     private String value;
 
     private PowerpackWidgetRunWorkflowDefinitionInput() {}
     /**
-     * @return The name of the powerpack template variable.
+     * @return Name of the workflow input.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A value for the comparator.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     public String value() {

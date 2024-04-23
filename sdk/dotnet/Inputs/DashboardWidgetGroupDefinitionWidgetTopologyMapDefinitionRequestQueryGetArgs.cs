@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `data_streams`, `service_map`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// APM service.
+        /// The ID of the service to map.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

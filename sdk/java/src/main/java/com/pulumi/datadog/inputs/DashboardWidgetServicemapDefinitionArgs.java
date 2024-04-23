@@ -49,14 +49,14 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * APM service.
+     * The ID of the service to map.
      * 
      */
     @Import(name="service", required=true)
     private Output<String> service;
 
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     public Output<String> service() {
@@ -200,7 +200,7 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param service APM service.
+         * @param service The ID of the service to map.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param service APM service.
+         * @param service The ID of the service to map.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
     public static final LogsIndexExclusionFilterFilterArgs Empty = new LogsIndexExclusionFilterFilterArgs();
 
     /**
-     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     * @return Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
      * 
      */
     public Optional<Output<String>> query() {
@@ -72,7 +72,7 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * @param query Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LogsIndexExclusionFilterFilterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param query Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+         * @param query Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
          * 
          * @return builder
          * 

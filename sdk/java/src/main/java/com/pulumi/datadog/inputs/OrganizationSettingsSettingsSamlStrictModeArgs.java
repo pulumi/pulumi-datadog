@@ -16,14 +16,14 @@ public final class OrganizationSettingsSettingsSamlStrictModeArgs extends com.pu
     public static final OrganizationSettingsSettingsSamlStrictModeArgs Empty = new OrganizationSettingsSettingsSamlStrictModeArgs();
 
     /**
-     * Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -55,7 +55,7 @@ public final class OrganizationSettingsSettingsSamlStrictModeArgs extends com.pu
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
+         * @param enabled Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrganizationSettingsSettingsSamlStrictModeArgs extends com.pu
         }
 
         /**
-         * @param enabled Whether or not SAML is enabled for this organization. Defaults to `false`.
+         * @param enabled Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
          * 
          * @return builder
          * 

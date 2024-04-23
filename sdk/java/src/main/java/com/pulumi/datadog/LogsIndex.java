@@ -180,14 +180,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return this.filters;
     }
     /**
-     * The name of the exclusion filter.
+     * The name of the index.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the exclusion filter.
+     * @return The name of the index.
      * 
      */
     public Output<String> name() {

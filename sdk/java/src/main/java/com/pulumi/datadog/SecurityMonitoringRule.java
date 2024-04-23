@@ -169,14 +169,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return this.message;
     }
     /**
-     * Name of the case.
+     * The name of the rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the case.
+     * @return The name of the rule.
      * 
      */
     public Output<String> name() {
@@ -197,14 +197,14 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.options);
     }
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Queries for selecting logs which are part of the rule.
      * 
      */
     @Export(name="queries", refs={List.class,SecurityMonitoringRuleQuery.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityMonitoringRuleQuery>> queries;
 
     /**
-     * @return Query for selecting logs to apply the filtering action.
+     * @return Queries for selecting logs which are part of the rule.
      * 
      */
     public Output<Optional<List<SecurityMonitoringRuleQuery>>> queries() {
