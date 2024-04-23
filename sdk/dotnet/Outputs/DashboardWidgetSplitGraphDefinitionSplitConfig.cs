@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSplitGraphDefinitionSplitConfig
     {
         /// <summary>
-        /// The maximum number of items in the group.
+        /// Maximum number of graphs to display in the widget.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
-        /// The options for sorting group by results.
+        /// Controls the order in which graphs appear in the split.
         /// </summary>
         public readonly Outputs.DashboardWidgetSplitGraphDefinitionSplitConfigSort Sort;
         /// <summary>

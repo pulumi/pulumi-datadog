@@ -32,14 +32,14 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs exten
     }
 
     /**
-     * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * A list of data-source-specific queries that are in the formula.
      * 
      */
     @Import(name="queries", required=true)
     private Output<List<ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs>> queries;
 
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return A list of data-source-specific queries that are in the formula.
      * 
      */
     public Output<List<ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs>> queries() {
@@ -93,7 +93,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs exten
         }
 
         /**
-         * @param queries A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param queries A list of data-source-specific queries that are in the formula.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs exten
         }
 
         /**
-         * @param queries A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param queries A list of data-source-specific queries that are in the formula.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs exten
         }
 
         /**
-         * @param queries A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+         * @param queries A list of data-source-specific queries that are in the formula.
          * 
          * @return builder
          * 

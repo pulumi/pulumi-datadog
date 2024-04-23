@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getLogsIndexesOrder({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsIndexesOrder(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesOrderResult> {
 
@@ -43,14 +41,12 @@ export interface GetLogsIndexesOrderResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getLogsIndexesOrder({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsIndexesOrderOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesOrderResult> {
     return pulumi.output(getLogsIndexesOrder(opts))

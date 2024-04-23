@@ -21,14 +21,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
     public static final DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYArgs Empty = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestYArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -156,7 +156,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScat
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
          * 
          * @return builder
          * 

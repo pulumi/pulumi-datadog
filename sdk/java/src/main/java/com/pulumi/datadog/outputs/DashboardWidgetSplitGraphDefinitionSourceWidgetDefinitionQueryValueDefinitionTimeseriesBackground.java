@@ -19,7 +19,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private String type;
     /**
-     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis yaxis;
@@ -33,7 +33,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return this.type;
     }
     /**
-     * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
+     * @return A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionTimeseriesBackgroundYaxis> yaxis() {

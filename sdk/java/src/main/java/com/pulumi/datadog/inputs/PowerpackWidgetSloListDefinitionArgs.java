@@ -18,14 +18,14 @@ public final class PowerpackWidgetSloListDefinitionArgs extends com.pulumi.resou
     public static final PowerpackWidgetSloListDefinitionArgs Empty = new PowerpackWidgetSloListDefinitionArgs();
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
      * 
      */
     @Import(name="request", required=true)
     private Output<PowerpackWidgetSloListDefinitionRequestArgs> request;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
      * 
      */
     public Output<PowerpackWidgetSloListDefinitionRequestArgs> request() {
@@ -105,7 +105,7 @@ public final class PowerpackWidgetSloListDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param request A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PowerpackWidgetSloListDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param request A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
          * 
          * @return builder
          * 

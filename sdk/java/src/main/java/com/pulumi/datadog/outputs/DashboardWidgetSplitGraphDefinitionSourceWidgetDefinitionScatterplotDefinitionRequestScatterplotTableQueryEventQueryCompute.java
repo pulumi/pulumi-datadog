@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute {
     /**
-     * @return The aggregation method.
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     private String aggregation;
     /**
-     * @return Define the time interval in seconds.
+     * @return A time interval in milliseconds.
      * 
      */
     private @Nullable Integer interval;
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The measurable attribute to compute.
      * 
      */
     private @Nullable String metric;
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute() {}
     /**
-     * @return The aggregation method.
+     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public String aggregation() {
         return this.aggregation;
     }
     /**
-     * @return Define the time interval in seconds.
+     * @return A time interval in milliseconds.
      * 
      */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return The measurable attribute to compute.
      * 
      */
     public Optional<String> metric() {

@@ -25,19 +25,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsColumnBreak { get; set; }
 
         /// <summary>
-        /// Widget column width. Valid values are `auto`, `compact`, `full`.
+        /// The width of the widget.
         /// </summary>
         [Input("width", required: true)]
         public Input<int> Width { get; set; } = null!;
 
         /// <summary>
-        /// The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
         /// </summary>
         [Input("x", required: true)]
         public Input<int> X { get; set; } = null!;
 
         /// <summary>
-        /// The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+        /// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
         /// </summary>
         [Input("y", required: true)]
         public Input<int> Y { get; set; } = null!;

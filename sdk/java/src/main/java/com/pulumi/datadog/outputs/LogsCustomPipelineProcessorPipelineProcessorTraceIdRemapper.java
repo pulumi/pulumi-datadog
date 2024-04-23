@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor.
      * 
      */
     private @Nullable String name;
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     private List<String> sources;
 
     private LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper() {}
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     public List<String> sources() {

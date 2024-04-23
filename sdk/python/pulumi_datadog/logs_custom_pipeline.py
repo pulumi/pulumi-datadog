@@ -22,8 +22,6 @@ class LogsCustomPipelineArgs:
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None):
         """
         The set of arguments for constructing a LogsCustomPipeline resource.
-        :param pulumi.Input[str] name: Your pipeline name.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
@@ -44,9 +42,6 @@ class LogsCustomPipelineArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Your pipeline name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -56,9 +51,6 @@ class LogsCustomPipelineArgs:
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value to enable your pipeline.
-        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -84,8 +76,6 @@ class _LogsCustomPipelineState:
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None):
         """
         Input properties used for looking up and filtering LogsCustomPipeline resources.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
-        :param pulumi.Input[str] name: Your pipeline name.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -108,9 +98,6 @@ class _LogsCustomPipelineState:
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value to enable your pipeline.
-        """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -120,9 +107,6 @@ class _LogsCustomPipelineState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Your pipeline name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -154,7 +138,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -323,7 +306,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -337,8 +319,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
-        :param pulumi.Input[str] name: Your pipeline name.
         """
         ...
     @overload
@@ -351,7 +331,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -520,7 +499,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -589,8 +567,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
-        :param pulumi.Input[str] name: Your pipeline name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -610,17 +586,11 @@ class LogsCustomPipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean value to enable your pipeline.
-        """
         return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Your pipeline name.
-        """
         return pulumi.get(self, "name")
 
     @property

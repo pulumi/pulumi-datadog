@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string FormulaExpression;
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The options for limiting results returned.
         /// </summary>
         public readonly Outputs.PowerpackWidgetTreemapDefinitionRequestFormulaLimit? Limit;
         /// <summary>

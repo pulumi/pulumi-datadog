@@ -24,7 +24,7 @@ public final class PowerpackWidgetNoteDefinition {
      */
     private String content;
     /**
-     * @return The size of the text in the widget.
+     * @return The size of the text.
      * 
      */
     private @Nullable String fontSize;
@@ -39,7 +39,7 @@ public final class PowerpackWidgetNoteDefinition {
      */
     private @Nullable Boolean showTick;
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String textAlign;
@@ -75,7 +75,7 @@ public final class PowerpackWidgetNoteDefinition {
         return this.content;
     }
     /**
-     * @return The size of the text in the widget.
+     * @return The size of the text.
      * 
      */
     public Optional<String> fontSize() {
@@ -96,7 +96,7 @@ public final class PowerpackWidgetNoteDefinition {
         return Optional.ofNullable(this.showTick);
     }
     /**
-     * @return The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s text. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> textAlign() {

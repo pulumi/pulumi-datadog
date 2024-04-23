@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     /**
-     * @return Column properties used by the front end for display.
+     * @return Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
      * 
      */
     private @Nullable List<String> columns;
@@ -50,7 +50,7 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      */
     private @Nullable Boolean showMessageColumn;
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort sort;
@@ -72,7 +72,7 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
 
     private DashboardWidgetGroupDefinitionWidgetLogStreamDefinition() {}
     /**
-     * @return Column properties used by the front end for display.
+     * @return Stringified list of columns to use, for example: `[&#34;column1&#34;,&#34;column2&#34;,&#34;column3&#34;]`.
      * 
      */
     public List<String> columns() {
@@ -121,7 +121,7 @@ public final class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
         return Optional.ofNullable(this.showMessageColumn);
     }
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort> sort() {

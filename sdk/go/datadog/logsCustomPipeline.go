@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -221,7 +220,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -235,10 +233,8 @@ import (
 type LogsCustomPipeline struct {
 	pulumi.CustomResourceState
 
-	Filters LogsCustomPipelineFilterArrayOutput `pulumi:"filters"`
-	// Boolean value to enable your pipeline.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Your pipeline name.
+	Filters    LogsCustomPipelineFilterArrayOutput    `pulumi:"filters"`
+	IsEnabled  pulumi.BoolPtrOutput                   `pulumi:"isEnabled"`
 	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Processors LogsCustomPipelineProcessorArrayOutput `pulumi:"processors"`
 }
@@ -279,19 +275,15 @@ func GetLogsCustomPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsCustomPipeline resources.
 type logsCustomPipelineState struct {
-	Filters []LogsCustomPipelineFilter `pulumi:"filters"`
-	// Boolean value to enable your pipeline.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Your pipeline name.
+	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled  *bool                         `pulumi:"isEnabled"`
 	Name       *string                       `pulumi:"name"`
 	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
 }
 
 type LogsCustomPipelineState struct {
-	Filters LogsCustomPipelineFilterArrayInput
-	// Boolean value to enable your pipeline.
-	IsEnabled pulumi.BoolPtrInput
-	// Your pipeline name.
+	Filters    LogsCustomPipelineFilterArrayInput
+	IsEnabled  pulumi.BoolPtrInput
 	Name       pulumi.StringPtrInput
 	Processors LogsCustomPipelineProcessorArrayInput
 }
@@ -301,20 +293,16 @@ func (LogsCustomPipelineState) ElementType() reflect.Type {
 }
 
 type logsCustomPipelineArgs struct {
-	Filters []LogsCustomPipelineFilter `pulumi:"filters"`
-	// Boolean value to enable your pipeline.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Your pipeline name.
+	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled  *bool                         `pulumi:"isEnabled"`
 	Name       string                        `pulumi:"name"`
 	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
 }
 
 // The set of arguments for constructing a LogsCustomPipeline resource.
 type LogsCustomPipelineArgs struct {
-	Filters LogsCustomPipelineFilterArrayInput
-	// Boolean value to enable your pipeline.
-	IsEnabled pulumi.BoolPtrInput
-	// Your pipeline name.
+	Filters    LogsCustomPipelineFilterArrayInput
+	IsEnabled  pulumi.BoolPtrInput
 	Name       pulumi.StringInput
 	Processors LogsCustomPipelineProcessorArrayInput
 }
@@ -410,12 +398,10 @@ func (o LogsCustomPipelineOutput) Filters() LogsCustomPipelineFilterArrayOutput 
 	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipelineFilterArrayOutput { return v.Filters }).(LogsCustomPipelineFilterArrayOutput)
 }
 
-// Boolean value to enable your pipeline.
 func (o LogsCustomPipelineOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Your pipeline name.
 func (o LogsCustomPipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogsCustomPipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -24,7 +24,7 @@ public final class DashboardWidgetCheckStatusDefinition {
      */
     private @Nullable String group;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
      * 
      */
     private @Nullable List<String> groupBies;
@@ -75,7 +75,7 @@ public final class DashboardWidgetCheckStatusDefinition {
         return Optional.ofNullable(this.group);
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return When `grouping = &#34;cluster&#34;`, indicates a list of tags to use for grouping.
      * 
      */
     public List<String> groupBies() {

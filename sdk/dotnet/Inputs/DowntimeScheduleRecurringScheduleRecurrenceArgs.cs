@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Rrule { get; set; } = null!;
 
         /// <summary>
-        /// ISO-8601 Datetime to start the downtime. Must include a UTC offset of zero. If not provided, the downtime starts the moment it is created.
+        /// ISO-8601 Datetime to start the downtime. Must not include a UTC offset. If not provided, the downtime starts the moment it is created.
         /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }

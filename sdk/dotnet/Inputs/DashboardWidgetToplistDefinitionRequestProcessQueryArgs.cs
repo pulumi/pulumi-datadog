@@ -25,13 +25,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The max number of items in the filter list.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// Your chosen metric.
         /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;

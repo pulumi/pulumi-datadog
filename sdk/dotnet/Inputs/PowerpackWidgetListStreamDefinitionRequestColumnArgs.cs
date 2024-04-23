@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Field { get; set; } = null!;
 
         /// <summary>
-        /// The width of the widget.
+        /// Widget column width. Valid values are `auto`, `compact`, `full`.
         /// </summary>
         [Input("width", required: true)]
         public Input<string> Width { get; set; } = null!;

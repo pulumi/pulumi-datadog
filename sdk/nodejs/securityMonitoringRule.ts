@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -47,7 +46,6 @@ import * as utilities from "./utilities";
  *     tags: ["type:dos"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -106,7 +104,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string>;
     /**
-     * Name of the case.
+     * The name of the rule.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -114,7 +112,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.SecurityMonitoringRuleOptions | undefined>;
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Queries for selecting logs which are part of the rule.
      */
     public readonly queries!: pulumi.Output<outputs.SecurityMonitoringRuleQuery[] | undefined>;
     /**
@@ -210,7 +208,7 @@ export interface SecurityMonitoringRuleState {
      */
     message?: pulumi.Input<string>;
     /**
-     * Name of the case.
+     * The name of the rule.
      */
     name?: pulumi.Input<string>;
     /**
@@ -218,7 +216,7 @@ export interface SecurityMonitoringRuleState {
      */
     options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Queries for selecting logs which are part of the rule.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**
@@ -264,7 +262,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     message: pulumi.Input<string>;
     /**
-     * Name of the case.
+     * The name of the rule.
      */
     name: pulumi.Input<string>;
     /**
@@ -272,7 +270,7 @@ export interface SecurityMonitoringRuleArgs {
      */
     options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Queries for selecting logs which are part of the rule.
      */
     queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**

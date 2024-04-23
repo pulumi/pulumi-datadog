@@ -32,14 +32,14 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     }
 
     /**
-     * The label for the custom link URL.
+     * A label for the line or range.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label for the custom link URL.
+     * @return A label for the line or range.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,14 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     }
 
     /**
-     * A value for the comparator.
+     * A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return A value for the comparator.
+     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
      * 
      */
     public Output<String> value() {
@@ -109,7 +109,7 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label A label for the line or range.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label A label for the line or range.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param value A value for the comparator.
+         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PowerpackWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param value A value for the comparator.
+         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
          * 
          * @return builder
          * 

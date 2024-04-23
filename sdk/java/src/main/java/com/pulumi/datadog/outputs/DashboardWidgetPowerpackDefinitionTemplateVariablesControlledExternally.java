@@ -24,7 +24,7 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
      */
     private @Nullable String prefix;
     /**
-     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
      * 
      */
     private List<String> values;
@@ -45,7 +45,7 @@ public final class DashboardWidgetPowerpackDefinitionTemplateVariablesControlled
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+     * @return One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
      * 
      */
     public List<String> values() {

@@ -17,14 +17,14 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
     public static final MonitorVariablesEventQueryGroupBySortArgs Empty = new MonitorVariablesEventQueryGroupBySortArgs();
 
     /**
-     * The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
     /**
-     * @return The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * @return The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public Output<String> aggregation() {
@@ -32,14 +32,14 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
     }
 
     /**
-     * The measurable attribute to compute.
+     * The metric used for sorting group by results.
      * 
      */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
-     * @return The measurable attribute to compute.
+     * @return The metric used for sorting group by results.
      * 
      */
     public Optional<Output<String>> metric() {
@@ -88,7 +88,7 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
         }
 
         /**
-         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
         }
 
         /**
-         * @param aggregation The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
         }
 
         /**
-         * @param metric The measurable attribute to compute.
+         * @param metric The metric used for sorting group by results.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class MonitorVariablesEventQueryGroupBySortArgs extends com.pulumi.
         }
 
         /**
-         * @param metric The measurable attribute to compute.
+         * @param metric The metric used for sorting group by results.
          * 
          * @return builder
          * 

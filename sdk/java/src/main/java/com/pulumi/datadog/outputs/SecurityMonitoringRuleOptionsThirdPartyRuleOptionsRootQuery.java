@@ -18,7 +18,7 @@ public final class SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
      */
     private @Nullable List<String> groupByFields;
     /**
-     * @return Query for selecting logs to apply the filtering action.
+     * @return Query to filter logs.
      * 
      */
     private String query;
@@ -32,7 +32,7 @@ public final class SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery {
         return this.groupByFields == null ? List.of() : this.groupByFields;
     }
     /**
-     * @return Query for selecting logs to apply the filtering action.
+     * @return Query to filter logs.
      * 
      */
     public String query() {

@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShowTitle;
         /// <summary>
-        /// The title of the widget.
+        /// The title of the group.
         /// </summary>
         public readonly string? Title;
         /// <summary>

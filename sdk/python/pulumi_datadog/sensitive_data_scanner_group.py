@@ -201,7 +201,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -216,7 +215,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             is_enabled=True,
             product_lists=["apm"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,7 +241,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -258,7 +255,6 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             is_enabled=True,
             product_lists=["apm"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

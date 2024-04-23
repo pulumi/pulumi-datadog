@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfig {
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of graphs to display in the widget.
      * 
      */
     private @Nullable Integer limit;
     /**
-     * @return The options for sorting group by results.
+     * @return Controls the order in which graphs appear in the split.
      * 
      */
     private DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSort sort;
@@ -39,14 +39,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplit
 
     private DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfig() {}
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of graphs to display in the widget.
      * 
      */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
     /**
-     * @return The options for sorting group by results.
+     * @return Controls the order in which graphs appear in the split.
      * 
      */
     public DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSplitConfigSort sort() {

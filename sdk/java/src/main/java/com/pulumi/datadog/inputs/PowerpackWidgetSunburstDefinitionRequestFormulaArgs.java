@@ -81,14 +81,14 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormulaArgs extends c
     }
 
     /**
-     * The maximum number of items in the group.
+     * The options for limiting results returned.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<PowerpackWidgetSunburstDefinitionRequestFormulaLimitArgs> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<Output<PowerpackWidgetSunburstDefinitionRequestFormulaLimitArgs>> limit() {
@@ -234,7 +234,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormulaArgs extends c
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The options for limiting results returned.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormulaArgs extends c
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The options for limiting results returned.
          * 
          * @return builder
          * 

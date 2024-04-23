@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupByFields;
         /// <summary>
-        /// Query for selecting logs to apply the filtering action.
+        /// Query to filter logs.
         /// </summary>
         public readonly string Query;
 

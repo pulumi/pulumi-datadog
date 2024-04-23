@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
      * 
      */
     private List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest> requests;
@@ -30,14 +30,14 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
      */
     private @Nullable String titleAlign;
     /**
-     * @return The size of the widget&#39;s title (defaults to 16).
+     * @return The size of the widget&#39;s title. Default is 16.
      * 
      */
     private @Nullable String titleSize;
 
     private DashboardWidgetGroupDefinitionWidgetListStreamDefinition() {}
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
      * 
      */
     public List<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest> requests() {
@@ -58,7 +58,7 @@ public final class DashboardWidgetGroupDefinitionWidgetListStreamDefinition {
         return Optional.ofNullable(this.titleAlign);
     }
     /**
-     * @return The size of the widget&#39;s title (defaults to 16).
+     * @return The size of the widget&#39;s title. Default is 16.
      * 
      */
     public Optional<String> titleSize() {

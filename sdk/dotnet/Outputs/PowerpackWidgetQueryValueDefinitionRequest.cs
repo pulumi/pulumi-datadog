@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetQueryValueDefinitionRequest
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>

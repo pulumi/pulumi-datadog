@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// The size of the text in the widget.
+        /// The size of the text.
         /// </summary>
         public readonly string? FontSize;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShowTick;
         /// <summary>
-        /// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+        /// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
         /// </summary>
         public readonly string? TextAlign;
         /// <summary>

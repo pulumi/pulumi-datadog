@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestY {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
@@ -54,7 +54,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
 
     private DashboardWidgetScatterplotDefinitionRequestY() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {

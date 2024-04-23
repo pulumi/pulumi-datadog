@@ -65,7 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle style;
@@ -134,7 +134,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestStyle> style() {

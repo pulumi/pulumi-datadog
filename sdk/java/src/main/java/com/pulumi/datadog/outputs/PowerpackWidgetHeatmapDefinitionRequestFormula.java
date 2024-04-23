@@ -37,7 +37,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestFormula {
      */
     private String formulaExpression;
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     private @Nullable PowerpackWidgetHeatmapDefinitionRequestFormulaLimit limit;
@@ -77,7 +77,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestFormula {
         return this.formulaExpression;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<PowerpackWidgetHeatmapDefinitionRequestFormulaLimit> limit() {

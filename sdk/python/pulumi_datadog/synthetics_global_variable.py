@@ -28,7 +28,7 @@ class SyntheticsGlobalVariableArgs:
         """
         The set of arguments for constructing a SyntheticsGlobalVariable resource.
         :param pulumi.Input[str] name: Synthetics global variable name.
-        :param pulumi.Input[str] value: Value for the parser to use, required for type `json_path` or `regex`.
+        :param pulumi.Input[str] value: The value of the global variable.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input['SyntheticsGlobalVariableOptionsArgs'] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
@@ -70,7 +70,7 @@ class SyntheticsGlobalVariableArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value for the parser to use, required for type `json_path` or `regex`.
+        The value of the global variable.
         """
         return pulumi.get(self, "value")
 
@@ -185,7 +185,7 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: Value for the parser to use, required for type `json_path` or `regex`.
+        :param pulumi.Input[str] value: The value of the global variable.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -306,7 +306,7 @@ class _SyntheticsGlobalVariableState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Value for the parser to use, required for type `json_path` or `regex`.
+        The value of the global variable.
         """
         return pulumi.get(self, "value")
 
@@ -335,7 +335,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -349,7 +348,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             ],
             value="variable-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,7 +367,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: Value for the parser to use, required for type `json_path` or `regex`.
+        :param pulumi.Input[str] value: The value of the global variable.
         """
         ...
     @overload
@@ -382,7 +380,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -396,7 +393,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             ],
             value="variable-value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -488,7 +484,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
         :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
-        :param pulumi.Input[str] value: Value for the parser to use, required for type `json_path` or `regex`.
+        :param pulumi.Input[str] value: The value of the global variable.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -573,7 +569,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        Value for the parser to use, required for type `json_path` or `regex`.
+        The value of the global variable.
         """
         return pulumi.get(self, "value")
 

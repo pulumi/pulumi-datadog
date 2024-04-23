@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -42,7 +41,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -91,7 +89,7 @@ export class Powerpack extends pulumi.CustomResource {
      */
     public readonly liveSpan!: pulumi.Output<string | undefined>;
     /**
-     * The name of the powerpack template variable.
+     * The name for the powerpack.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +97,7 @@ export class Powerpack extends pulumi.CustomResource {
      */
     public readonly showTitle!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of tags to use in the widget.
+     * List of tags to identify this powerpack.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
@@ -165,7 +163,7 @@ export interface PowerpackState {
      */
     liveSpan?: pulumi.Input<string>;
     /**
-     * The name of the powerpack template variable.
+     * The name for the powerpack.
      */
     name?: pulumi.Input<string>;
     /**
@@ -173,7 +171,7 @@ export interface PowerpackState {
      */
     showTitle?: pulumi.Input<boolean>;
     /**
-     * A list of tags to use in the widget.
+     * List of tags to identify this powerpack.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -203,7 +201,7 @@ export interface PowerpackArgs {
      */
     liveSpan?: pulumi.Input<string>;
     /**
-     * The name of the powerpack template variable.
+     * The name for the powerpack.
      */
     name?: pulumi.Input<string>;
     /**
@@ -211,7 +209,7 @@ export interface PowerpackArgs {
      */
     showTitle?: pulumi.Input<boolean>;
     /**
-     * A list of tags to use in the widget.
+     * List of tags to identify this powerpack.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

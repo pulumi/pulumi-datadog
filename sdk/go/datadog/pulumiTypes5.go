@@ -1282,7 +1282,7 @@ type PowerpackWidgetToplistDefinitionRequestFormula struct {
 	ConditionalFormats []PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
 	// A string expression built from queries, formulas, and functions.
 	FormulaExpression string `pulumi:"formulaExpression"`
-	// The maximum number of items in the group.
+	// The options for limiting results returned.
 	Limit *PowerpackWidgetToplistDefinitionRequestFormulaLimit `pulumi:"limit"`
 	// Styling options for widget formulas.
 	Style *PowerpackWidgetToplistDefinitionRequestFormulaStyle `pulumi:"style"`
@@ -1308,7 +1308,7 @@ type PowerpackWidgetToplistDefinitionRequestFormulaArgs struct {
 	ConditionalFormats PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
 	// A string expression built from queries, formulas, and functions.
 	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
-	// The maximum number of items in the group.
+	// The options for limiting results returned.
 	Limit PowerpackWidgetToplistDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
 	// Styling options for widget formulas.
 	Style PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
@@ -1387,7 +1387,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaOutput) FormulaExpression(
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
 }
 
-// The maximum number of items in the group.
+// The options for limiting results returned.
 func (o PowerpackWidgetToplistDefinitionRequestFormulaOutput) Limit() PowerpackWidgetToplistDefinitionRequestFormulaLimitPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormula) *PowerpackWidgetToplistDefinitionRequestFormulaLimit {
 		return v.Limit
@@ -1597,7 +1597,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaConditionalFormatArrayOutp
 type PowerpackWidgetToplistDefinitionRequestFormulaLimit struct {
 	// The number of results to return.
 	Count *int `pulumi:"count"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Order *string `pulumi:"order"`
 }
 
@@ -1615,7 +1615,7 @@ type PowerpackWidgetToplistDefinitionRequestFormulaLimitInput interface {
 type PowerpackWidgetToplistDefinitionRequestFormulaLimitArgs struct {
 	// The number of results to return.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -1701,7 +1701,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaLimitOutput) Count() pulum
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetToplistDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -1740,7 +1740,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaLimit) *string {
 		if v == nil {
@@ -1751,7 +1751,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaLimitPtrOutput) Order() pu
 }
 
 type PowerpackWidgetToplistDefinitionRequestFormulaStyle struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 	Palette *string `pulumi:"palette"`
 	// Index specifying which color to use within the palette.
 	PaletteIndex *int `pulumi:"paletteIndex"`
@@ -1769,7 +1769,7 @@ type PowerpackWidgetToplistDefinitionRequestFormulaStyleInput interface {
 }
 
 type PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 	Palette pulumi.StringPtrInput `pulumi:"palette"`
 	// Index specifying which color to use within the palette.
 	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
@@ -1852,7 +1852,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ToPowerpackWi
 	}).(PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
@@ -1886,7 +1886,7 @@ func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) Elem() Pow
 	}).(PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaStyle) *string {
 		if v == nil {
@@ -2710,9 +2710,9 @@ func (o PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput) 
 type PowerpackWidgetToplistDefinitionRequestProcessQuery struct {
 	// A list of processes.
 	FilterBies []string `pulumi:"filterBies"`
-	// The maximum number of items in the group.
+	// The max number of items in the filter list.
 	Limit *int `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// Your chosen metric.
 	Metric string `pulumi:"metric"`
 	// Your chosen search term.
 	SearchBy *string `pulumi:"searchBy"`
@@ -2732,9 +2732,9 @@ type PowerpackWidgetToplistDefinitionRequestProcessQueryInput interface {
 type PowerpackWidgetToplistDefinitionRequestProcessQueryArgs struct {
 	// A list of processes.
 	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
-	// The maximum number of items in the group.
+	// The max number of items in the filter list.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// Your chosen metric.
 	Metric pulumi.StringInput `pulumi:"metric"`
 	// Your chosen search term.
 	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
@@ -2822,12 +2822,12 @@ func (o PowerpackWidgetToplistDefinitionRequestProcessQueryOutput) FilterBies() 
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of items in the group.
+// The max number of items in the filter list.
 func (o PowerpackWidgetToplistDefinitionRequestProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// Your chosen metric.
 func (o PowerpackWidgetToplistDefinitionRequestProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
@@ -2871,7 +2871,7 @@ func (o PowerpackWidgetToplistDefinitionRequestProcessQueryPtrOutput) FilterBies
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of items in the group.
+// The max number of items in the filter list.
 func (o PowerpackWidgetToplistDefinitionRequestProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestProcessQuery) *int {
 		if v == nil {
@@ -2881,7 +2881,7 @@ func (o PowerpackWidgetToplistDefinitionRequestProcessQueryPtrOutput) Limit() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// Your chosen metric.
 func (o PowerpackWidgetToplistDefinitionRequestProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestProcessQuery) *string {
 		if v == nil {
@@ -2912,7 +2912,7 @@ type PowerpackWidgetToplistDefinitionRequestQuery struct {
 	EventQuery *PowerpackWidgetToplistDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
 	// A timeseries formula and functions metrics query.
 	MetricQuery *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
-	// The process query to use in the widget. The structure of this block is described below.
+	// The process query using formulas and functions.
 	ProcessQuery *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
 	// The SLO query using formulas and functions.
 	SloQuery *PowerpackWidgetToplistDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
@@ -2940,7 +2940,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryArgs struct {
 	EventQuery PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
 	// A timeseries formula and functions metrics query.
 	MetricQuery PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
-	// The process query to use in the widget. The structure of this block is described below.
+	// The process query using formulas and functions.
 	ProcessQuery PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
 	// The SLO query using formulas and functions.
 	SloQuery PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
@@ -3032,7 +3032,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryOutput) MetricQuery() Powerp
 	}).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
-// The process query to use in the widget. The structure of this block is described below.
+// The process query using formulas and functions.
 func (o PowerpackWidgetToplistDefinitionRequestQueryOutput) ProcessQuery() PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuery) *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery {
 		return v.ProcessQuery
@@ -3073,7 +3073,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery struct 
 	Env string `pulumi:"env"`
 	// Determines whether stats for upstream or downstream dependencies should be queried.
 	IsUpstream *bool `pulumi:"isUpstream"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// Name of operation on service.
 	OperationName string `pulumi:"operationName"`
@@ -3107,7 +3107,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs str
 	Env pulumi.StringInput `pulumi:"env"`
 	// Determines whether stats for upstream or downstream dependencies should be queried.
 	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of operation on service.
 	OperationName pulumi.StringInput `pulumi:"operationName"`
@@ -3217,7 +3217,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutpu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3314,7 +3314,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -3385,13 +3385,13 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 	DataSource string `pulumi:"dataSource"`
 	// APM environment.
 	Env string `pulumi:"env"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Array of fields to group results by.
 	GroupBies []string `pulumi:"groupBies"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// Name of operation on service.
 	OperationName *string `pulumi:"operationName"`
@@ -3403,7 +3403,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery struct {
 	ResourceName *string `pulumi:"resourceName"`
 	// APM service.
 	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 	Stat string `pulumi:"stat"`
 }
 
@@ -3419,13 +3419,13 @@ type PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryInput inte
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// APM environment.
 	Env pulumi.StringInput `pulumi:"env"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Array of fields to group results by.
 	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of operation on service.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
@@ -3437,7 +3437,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryArgs struc
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
 	// APM service.
 	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
@@ -3518,7 +3518,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 	}).(PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -3528,12 +3528,12 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Array of fields to group results by.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3571,7 +3571,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -3600,7 +3600,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3620,7 +3620,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Array of fields to group results by.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) []string {
 		if v == nil {
@@ -3630,7 +3630,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3690,7 +3690,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -3703,9 +3703,9 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 type PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
 	DataSource string `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
 	// The cloud cost query definition.
 	Query string `pulumi:"query"`
@@ -3725,9 +3725,9 @@ type PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryInput interface {
 type PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryArgs struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The cloud cost query definition.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -3815,12 +3815,12 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryOutput) Aggreg
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for cloud cost queries. Valid values are `cloudCost`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3864,7 +3864,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Agg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for cloud cost queries. Valid values are `cloudCost`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -3874,7 +3874,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Dat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -3897,13 +3897,13 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryCloudCostQueryPtrOutput) Que
 type PowerpackWidgetToplistDefinitionRequestQueryEventQuery struct {
 	// The compute options.
 	Computes []PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 	DataSource string `pulumi:"dataSource"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Group by options.
 	GroupBies []PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
 	// An array of index names to query in the stream.
 	Indexes []string `pulumi:"indexes"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// The search options.
 	Search *PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
@@ -3925,13 +3925,13 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQueryInput interface {
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryArgs struct {
 	// The compute options.
 	Computes PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Group by options.
 	GroupBies PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
 	// An array of index names to query in the stream.
 	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The search options.
 	Search PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
@@ -4023,12 +4023,12 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) Computes()
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Group by options.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) []PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
 		return v.GroupBies
@@ -4040,7 +4040,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) Indexes() 
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4091,7 +4091,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Compute
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -4101,7 +4101,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Group by options.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuery) []PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
 		if v == nil {
@@ -4121,7 +4121,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Indexes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -4152,11 +4152,11 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Storage
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute struct {
-	// The aggregation method.
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation string `pulumi:"aggregation"`
-	// Define the time interval in seconds.
+	// A time interval in milliseconds.
 	Interval *int `pulumi:"interval"`
-	// The metric from the request to correlate with this conditional format.
+	// The measurable attribute to compute.
 	Metric *string `pulumi:"metric"`
 }
 
@@ -4172,11 +4172,11 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeInput interfac
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs struct {
-	// The aggregation method.
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// Define the time interval in seconds.
+	// A time interval in milliseconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The metric from the request to correlate with this conditional format.
+	// The measurable attribute to compute.
 	Metric pulumi.StringPtrInput `pulumi:"metric"`
 }
 
@@ -4231,17 +4231,17 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) ToP
 	return o
 }
 
-// The aggregation method.
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
-// Define the time interval in seconds.
+// A time interval in milliseconds.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The measurable attribute to compute.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
@@ -4267,9 +4267,9 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayOutput
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy struct {
-	// The facet name.
+	// The event facet.
 	Facet string `pulumi:"facet"`
-	// The maximum number of items in the group.
+	// The number of groups to return.
 	Limit *int `pulumi:"limit"`
 	// The options for sorting group by results.
 	Sort *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
@@ -4287,9 +4287,9 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByInput interfac
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs struct {
-	// The facet name.
+	// The event facet.
 	Facet pulumi.StringInput `pulumi:"facet"`
-	// The maximum number of items in the group.
+	// The number of groups to return.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
 	// The options for sorting group by results.
 	Sort PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
@@ -4346,12 +4346,12 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) ToP
 	return o
 }
 
-// The facet name.
+// The event facet.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
 }
 
-// The maximum number of items in the group.
+// The number of groups to return.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
@@ -4384,11 +4384,11 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayOutput
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort struct {
-	// The aggregation method.
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation string `pulumi:"aggregation"`
-	// The metric from the request to correlate with this conditional format.
+	// The metric used for sorting group by results.
 	Metric *string `pulumi:"metric"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	Order *string `pulumi:"order"`
 }
 
@@ -4404,11 +4404,11 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortInput inte
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs struct {
-	// The aggregation method.
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric from the request to correlate with this conditional format.
+	// The metric used for sorting group by results.
 	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -4489,17 +4489,17 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
 }
 
-// The aggregation method.
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The metric used for sorting group by results.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -4528,7 +4528,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortOutput)
 }
 
-// The aggregation method.
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4538,7 +4538,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The metric used for sorting group by results.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4548,7 +4548,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -4696,11 +4696,11 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchPtrOutput) Q
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryMetricQuery struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for metrics queries. Defaults to `"metrics"`.
 	DataSource *string `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
 	// The metrics query definition.
 	Query string `pulumi:"query"`
@@ -4718,11 +4718,11 @@ type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryInput interface {
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryMetricQueryArgs struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for metrics queries. Defaults to `"metrics"`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The metrics query definition.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -4805,17 +4805,17 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) ToPowerpa
 	}).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for metrics queries. Defaults to `"metrics"`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4849,7 +4849,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Elem()
 	}).(PowerpackWidgetToplistDefinitionRequestQueryMetricQueryOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -4859,7 +4859,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Aggreg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for metrics queries. Defaults to `"metrics"`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -4869,7 +4869,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) DataSo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -4890,19 +4890,19 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryMetricQueryPtrOutput) Query(
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryProcessQuery struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for process queries. Valid values are `process`, `container`.
 	DataSource string `pulumi:"dataSource"`
 	// Whether to normalize the CPU percentages.
 	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
-	// The maximum number of items in the group.
+	// The number of hits to return.
 	Limit *int `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// The process metric name.
 	Metric string `pulumi:"metric"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
-	// The options for sorting group by results.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Sort *string `pulumi:"sort"`
 	// An array of tags to filter by.
 	TagFilters []string `pulumi:"tagFilters"`
@@ -4922,19 +4922,19 @@ type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryInput interface {
 }
 
 type PowerpackWidgetToplistDefinitionRequestQueryProcessQueryArgs struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for process queries. Valid values are `process`, `container`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Whether to normalize the CPU percentages.
 	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
-	// The maximum number of items in the group.
+	// The number of hits to return.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// The process metric name.
 	Metric pulumi.StringInput `pulumi:"metric"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The options for sorting group by results.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Sort pulumi.StringPtrInput `pulumi:"sort"`
 	// An array of tags to filter by.
 	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
@@ -5019,12 +5019,12 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) ToPowerp
 	}).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for process queries. Valid values are `process`, `container`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -5034,22 +5034,22 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) IsNormal
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of items in the group.
+// The number of hits to return.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The process metric name.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The options for sorting group by results.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
 }
@@ -5088,7 +5088,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Elem(
 	}).(PowerpackWidgetToplistDefinitionRequestQueryProcessQueryOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5098,7 +5098,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Aggre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for process queries. Valid values are `process`, `container`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5118,7 +5118,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) IsNor
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of items in the group.
+// The number of hits to return.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *int {
 		if v == nil {
@@ -5128,7 +5128,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Limit
 	}).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The process metric name.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5138,7 +5138,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Metri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5148,7 +5148,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The options for sorting group by results.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -5181,13 +5181,13 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryProcessQueryPtrOutput) TextF
 type PowerpackWidgetToplistDefinitionRequestQuerySloQuery struct {
 	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for SLO queries. Valid values are `slo`.
 	DataSource string `pulumi:"dataSource"`
 	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
 	GroupMode *string `pulumi:"groupMode"`
 	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 	Measure string `pulumi:"measure"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name *string `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId string `pulumi:"sloId"`
@@ -5209,13 +5209,13 @@ type PowerpackWidgetToplistDefinitionRequestQuerySloQueryInput interface {
 type PowerpackWidgetToplistDefinitionRequestQuerySloQueryArgs struct {
 	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for SLO queries. Valid values are `slo`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
 	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
 	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 	Measure pulumi.StringInput `pulumi:"measure"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId pulumi.StringInput `pulumi:"sloId"`
@@ -5305,7 +5305,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) AdditionalQu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for SLO queries. Valid values are `slo`.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -5320,7 +5320,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) Measure() pu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5369,7 +5369,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Additiona
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for SLO queries. Valid values are `slo`.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -5399,7 +5399,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Measure()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetToplistDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -7034,7 +7034,7 @@ func (o PowerpackWidgetToplistDefinitionRequestSecurityQueryMultiComputeArrayOut
 }
 
 type PowerpackWidgetToplistDefinitionRequestStyle struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
 	Palette *string `pulumi:"palette"`
 }
 
@@ -7050,7 +7050,7 @@ type PowerpackWidgetToplistDefinitionRequestStyleInput interface {
 }
 
 type PowerpackWidgetToplistDefinitionRequestStyleArgs struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
 	Palette pulumi.StringPtrInput `pulumi:"palette"`
 }
 
@@ -7131,7 +7131,7 @@ func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) ToPowerpackWidgetTop
 	}).(PowerpackWidgetToplistDefinitionRequestStylePtrOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
 func (o PowerpackWidgetToplistDefinitionRequestStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
@@ -7160,7 +7160,7 @@ func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) Elem() PowerpackW
 	}).(PowerpackWidgetToplistDefinitionRequestStyleOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
 func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestStyle) *string {
 		if v == nil {
@@ -7173,7 +7173,7 @@ func (o PowerpackWidgetToplistDefinitionRequestStylePtrOutput) Palette() pulumi.
 type PowerpackWidgetTopologyMapDefinition struct {
 	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks []PowerpackWidgetTopologyMapDefinitionCustomLink `pulumi:"customLinks"`
-	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
 	Requests []PowerpackWidgetTopologyMapDefinitionRequest `pulumi:"requests"`
 	// The title of the widget.
 	Title *string `pulumi:"title"`
@@ -7197,7 +7197,7 @@ type PowerpackWidgetTopologyMapDefinitionInput interface {
 type PowerpackWidgetTopologyMapDefinitionArgs struct {
 	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks PowerpackWidgetTopologyMapDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
-	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
 	Requests PowerpackWidgetTopologyMapDefinitionRequestArrayInput `pulumi:"requests"`
 	// The title of the widget.
 	Title pulumi.StringPtrInput `pulumi:"title"`
@@ -7291,7 +7291,7 @@ func (o PowerpackWidgetTopologyMapDefinitionOutput) CustomLinks() PowerpackWidge
 	}).(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput)
 }
 
-// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
 func (o PowerpackWidgetTopologyMapDefinitionOutput) Requests() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionRequest {
 		return v.Requests
@@ -7347,7 +7347,7 @@ func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) CustomLinks() PowerpackWi
 	}).(PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput)
 }
 
-// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
 func (o PowerpackWidgetTopologyMapDefinitionPtrOutput) Requests() PowerpackWidgetTopologyMapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTopologyMapDefinition) []PowerpackWidgetTopologyMapDefinitionRequest {
 		if v == nil {
@@ -7514,7 +7514,7 @@ func (o PowerpackWidgetTopologyMapDefinitionCustomLinkArrayOutput) Index(i pulum
 type PowerpackWidgetTopologyMapDefinitionRequest struct {
 	// The query for a Topology request.
 	Queries []PowerpackWidgetTopologyMapDefinitionRequestQuery `pulumi:"queries"`
-	// The request type for the SLO List request. Valid values are `sloList`.
+	// The request type for the Topology request ('topology'). Valid values are `topology`.
 	RequestType string `pulumi:"requestType"`
 }
 
@@ -7532,7 +7532,7 @@ type PowerpackWidgetTopologyMapDefinitionRequestInput interface {
 type PowerpackWidgetTopologyMapDefinitionRequestArgs struct {
 	// The query for a Topology request.
 	Queries PowerpackWidgetTopologyMapDefinitionRequestQueryArrayInput `pulumi:"queries"`
-	// The request type for the SLO List request. Valid values are `sloList`.
+	// The request type for the Topology request ('topology'). Valid values are `topology`.
 	RequestType pulumi.StringInput `pulumi:"requestType"`
 }
 
@@ -7594,7 +7594,7 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) Queries() PowerpackWi
 	}).(PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput)
 }
 
-// The request type for the SLO List request. Valid values are `sloList`.
+// The request type for the Topology request ('topology'). Valid values are `topology`.
 func (o PowerpackWidgetTopologyMapDefinitionRequestOutput) RequestType() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
 }
@@ -7620,11 +7620,11 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestArrayOutput) Index(i pulumi.I
 }
 
 type PowerpackWidgetTopologyMapDefinitionRequestQuery struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
 	DataSource string `pulumi:"dataSource"`
 	// Your environment and primary tag (or `*` if enabled for your account).
 	Filters []string `pulumi:"filters"`
-	// APM service.
+	// The ID of the service to map.
 	Service string `pulumi:"service"`
 }
 
@@ -7640,11 +7640,11 @@ type PowerpackWidgetTopologyMapDefinitionRequestQueryInput interface {
 }
 
 type PowerpackWidgetTopologyMapDefinitionRequestQueryArgs struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Your environment and primary tag (or `*` if enabled for your account).
 	Filters pulumi.StringArrayInput `pulumi:"filters"`
-	// APM service.
+	// The ID of the service to map.
 	Service pulumi.StringInput `pulumi:"service"`
 }
 
@@ -7699,7 +7699,7 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) ToPowerpackWidge
 	return o
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for the Topology request ('service*map' or 'data*streams'). Valid values are `dataStreams`, `serviceMap`.
 func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -7709,7 +7709,7 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) Filters() pulumi
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) []string { return v.Filters }).(pulumi.StringArrayOutput)
 }
 
-// APM service.
+// The ID of the service to map.
 func (o PowerpackWidgetTopologyMapDefinitionRequestQueryOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTopologyMapDefinitionRequestQuery) string { return v.Service }).(pulumi.StringOutput)
 }
@@ -7735,7 +7735,7 @@ func (o PowerpackWidgetTopologyMapDefinitionRequestQueryArrayOutput) Index(i pul
 }
 
 type PowerpackWidgetTraceServiceDefinition struct {
-	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+	// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
 	DisplayFormat *string `pulumi:"displayFormat"`
 	// APM environment.
 	Env string `pulumi:"env"`
@@ -7779,7 +7779,7 @@ type PowerpackWidgetTraceServiceDefinitionInput interface {
 }
 
 type PowerpackWidgetTraceServiceDefinitionArgs struct {
-	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+	// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
 	DisplayFormat pulumi.StringPtrInput `pulumi:"displayFormat"`
 	// APM environment.
 	Env pulumi.StringInput `pulumi:"env"`
@@ -7888,7 +7888,7 @@ func (o PowerpackWidgetTraceServiceDefinitionOutput) ToPowerpackWidgetTraceServi
 	}).(PowerpackWidgetTraceServiceDefinitionPtrOutput)
 }
 
-// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
 func (o PowerpackWidgetTraceServiceDefinitionOutput) DisplayFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTraceServiceDefinition) *string { return v.DisplayFormat }).(pulumi.StringPtrOutput)
 }
@@ -7987,7 +7987,7 @@ func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) Elem() PowerpackWidgetTr
 	}).(PowerpackWidgetTraceServiceDefinitionOutput)
 }
 
-// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+// The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
 func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) DisplayFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTraceServiceDefinition) *string {
 		if v == nil {
@@ -8138,7 +8138,7 @@ func (o PowerpackWidgetTraceServiceDefinitionPtrOutput) TitleSize() pulumi.Strin
 }
 
 type PowerpackWidgetTreemapDefinition struct {
-	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	// Nested block describing the request to use when displaying the widget.
 	Requests []PowerpackWidgetTreemapDefinitionRequest `pulumi:"requests"`
 	// The title of the widget.
 	Title *string `pulumi:"title"`
@@ -8156,7 +8156,7 @@ type PowerpackWidgetTreemapDefinitionInput interface {
 }
 
 type PowerpackWidgetTreemapDefinitionArgs struct {
-	// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+	// Nested block describing the request to use when displaying the widget.
 	Requests PowerpackWidgetTreemapDefinitionRequestArrayInput `pulumi:"requests"`
 	// The title of the widget.
 	Title pulumi.StringPtrInput `pulumi:"title"`
@@ -8239,7 +8239,7 @@ func (o PowerpackWidgetTreemapDefinitionOutput) ToPowerpackWidgetTreemapDefiniti
 	}).(PowerpackWidgetTreemapDefinitionPtrOutput)
 }
 
-// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+// Nested block describing the request to use when displaying the widget.
 func (o PowerpackWidgetTreemapDefinitionOutput) Requests() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionRequest { return v.Requests }).(PowerpackWidgetTreemapDefinitionRequestArrayOutput)
 }
@@ -8273,7 +8273,7 @@ func (o PowerpackWidgetTreemapDefinitionPtrOutput) Elem() PowerpackWidgetTreemap
 	}).(PowerpackWidgetTreemapDefinitionOutput)
 }
 
-// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+// Nested block describing the request to use when displaying the widget.
 func (o PowerpackWidgetTreemapDefinitionPtrOutput) Requests() PowerpackWidgetTreemapDefinitionRequestArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinition) []PowerpackWidgetTreemapDefinitionRequest {
 		if v == nil {
@@ -8406,7 +8406,7 @@ type PowerpackWidgetTreemapDefinitionRequestFormula struct {
 	ConditionalFormats []PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
 	// A string expression built from queries, formulas, and functions.
 	FormulaExpression string `pulumi:"formulaExpression"`
-	// The maximum number of items in the group.
+	// The options for limiting results returned.
 	Limit *PowerpackWidgetTreemapDefinitionRequestFormulaLimit `pulumi:"limit"`
 	// Styling options for widget formulas.
 	Style *PowerpackWidgetTreemapDefinitionRequestFormulaStyle `pulumi:"style"`
@@ -8432,7 +8432,7 @@ type PowerpackWidgetTreemapDefinitionRequestFormulaArgs struct {
 	ConditionalFormats PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
 	// A string expression built from queries, formulas, and functions.
 	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
-	// The maximum number of items in the group.
+	// The options for limiting results returned.
 	Limit PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
 	// Styling options for widget formulas.
 	Style PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
@@ -8511,7 +8511,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) FormulaExpression(
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
 }
 
-// The maximum number of items in the group.
+// The options for limiting results returned.
 func (o PowerpackWidgetTreemapDefinitionRequestFormulaOutput) Limit() PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormula) *PowerpackWidgetTreemapDefinitionRequestFormulaLimit {
 		return v.Limit
@@ -8721,7 +8721,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaConditionalFormatArrayOutp
 type PowerpackWidgetTreemapDefinitionRequestFormulaLimit struct {
 	// The number of results to return.
 	Count *int `pulumi:"count"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Order *string `pulumi:"order"`
 }
 
@@ -8739,7 +8739,7 @@ type PowerpackWidgetTreemapDefinitionRequestFormulaLimitInput interface {
 type PowerpackWidgetTreemapDefinitionRequestFormulaLimitArgs struct {
 	// The number of results to return.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -8825,7 +8825,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) Count() pulum
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -8864,7 +8864,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaLimit) *string {
 		if v == nil {
@@ -8875,7 +8875,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaLimitPtrOutput) Order() pu
 }
 
 type PowerpackWidgetTreemapDefinitionRequestFormulaStyle struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 	Palette *string `pulumi:"palette"`
 	// Index specifying which color to use within the palette.
 	PaletteIndex *int `pulumi:"paletteIndex"`
@@ -8893,7 +8893,7 @@ type PowerpackWidgetTreemapDefinitionRequestFormulaStyleInput interface {
 }
 
 type PowerpackWidgetTreemapDefinitionRequestFormulaStyleArgs struct {
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 	Palette pulumi.StringPtrInput `pulumi:"palette"`
 	// Index specifying which color to use within the palette.
 	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
@@ -8976,7 +8976,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) ToPowerpackWi
 	}).(PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 func (o PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
 }
@@ -9010,7 +9010,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Elem() Pow
 	}).(PowerpackWidgetTreemapDefinitionRequestFormulaStyleOutput)
 }
 
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
 func (o PowerpackWidgetTreemapDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestFormulaStyle) *string {
 		if v == nil {
@@ -9041,7 +9041,7 @@ type PowerpackWidgetTreemapDefinitionRequestQuery struct {
 	EventQuery *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
 	// A timeseries formula and functions metrics query.
 	MetricQuery *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
-	// The process query to use in the widget. The structure of this block is described below.
+	// The process query using formulas and functions.
 	ProcessQuery *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
 	// The SLO query using formulas and functions.
 	SloQuery *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
@@ -9069,7 +9069,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryArgs struct {
 	EventQuery PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
 	// A timeseries formula and functions metrics query.
 	MetricQuery PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
-	// The process query to use in the widget. The structure of this block is described below.
+	// The process query using formulas and functions.
 	ProcessQuery PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
 	// The SLO query using formulas and functions.
 	SloQuery PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
@@ -9161,7 +9161,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) MetricQuery() Powerp
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
-// The process query to use in the widget. The structure of this block is described below.
+// The process query using formulas and functions.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryOutput) ProcessQuery() PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuery) *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
 		return v.ProcessQuery
@@ -9202,7 +9202,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery struct 
 	Env string `pulumi:"env"`
 	// Determines whether stats for upstream or downstream dependencies should be queried.
 	IsUpstream *bool `pulumi:"isUpstream"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// Name of operation on service.
 	OperationName string `pulumi:"operationName"`
@@ -9236,7 +9236,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs str
 	Env pulumi.StringInput `pulumi:"env"`
 	// Determines whether stats for upstream or downstream dependencies should be queried.
 	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of operation on service.
 	OperationName pulumi.StringInput `pulumi:"operationName"`
@@ -9346,7 +9346,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutpu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9443,7 +9443,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery) *string {
 		if v == nil {
@@ -9514,13 +9514,13 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryPtrOu
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 	DataSource string `pulumi:"dataSource"`
 	// APM environment.
 	Env string `pulumi:"env"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Array of fields to group results by.
 	GroupBies []string `pulumi:"groupBies"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// Name of operation on service.
 	OperationName *string `pulumi:"operationName"`
@@ -9532,7 +9532,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery struct {
 	ResourceName *string `pulumi:"resourceName"`
 	// APM service.
 	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 	Stat string `pulumi:"stat"`
 }
 
@@ -9548,13 +9548,13 @@ type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryInput inte
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs struct {
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// APM environment.
 	Env pulumi.StringInput `pulumi:"env"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Array of fields to group results by.
 	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Name of operation on service.
 	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
@@ -9566,7 +9566,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryArgs struc
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
 	// APM service.
 	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 	Stat pulumi.StringInput `pulumi:"stat"`
 }
 
@@ -9647,7 +9647,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -9657,12 +9657,12 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Array of fields to group results by.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9700,7 +9700,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
 }
 
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -9729,7 +9729,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -9749,7 +9749,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Array of fields to group results by.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) []string {
 		if v == nil {
@@ -9759,7 +9759,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -9819,7 +9819,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery) *string {
 		if v == nil {
@@ -9832,9 +9832,9 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQueryPtrOutp
 type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
 	DataSource string `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
 	// The cloud cost query definition.
 	Query string `pulumi:"query"`
@@ -9854,9 +9854,9 @@ type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryInput interface {
 type PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The cloud cost query definition.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -9944,12 +9944,12 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Aggreg
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for cloud cost queries. Valid values are `cloudCost`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9993,7 +9993,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Agg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for cloud cost queries. Valid values are `cloudCost`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -10003,7 +10003,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Dat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery) *string {
 		if v == nil {
@@ -10026,13 +10026,13 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQueryPtrOutput) Que
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQuery struct {
 	// The compute options.
 	Computes []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 	DataSource string `pulumi:"dataSource"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Group by options.
 	GroupBies []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
 	// An array of index names to query in the stream.
 	Indexes []string `pulumi:"indexes"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
 	// The search options.
 	Search *PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
@@ -10054,13 +10054,13 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryInput interface {
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs struct {
 	// The compute options.
 	Computes PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
+	// Group by options.
 	GroupBies PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
 	// An array of index names to query in the stream.
 	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The search options.
 	Search PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
@@ -10152,12 +10152,12 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Computes()
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Group by options.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) GroupBies() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
 		return v.GroupBies
@@ -10169,7 +10169,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Indexes() 
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10220,7 +10220,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Compute
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10230,7 +10230,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Multiple `groupBy` blocks are allowed using the structure below.
+// Group by options.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) GroupBies() PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
 		if v == nil {
@@ -10250,7 +10250,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Indexes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10281,11 +10281,11 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Storage
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute struct {
-	// The aggregation method.
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation string `pulumi:"aggregation"`
-	// Define the time interval in seconds.
+	// A time interval in milliseconds.
 	Interval *int `pulumi:"interval"`
-	// The metric from the request to correlate with this conditional format.
+	// The measurable attribute to compute.
 	Metric *string `pulumi:"metric"`
 }
 
@@ -10301,11 +10301,11 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeInput interfac
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs struct {
-	// The aggregation method.
+	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// Define the time interval in seconds.
+	// A time interval in milliseconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The metric from the request to correlate with this conditional format.
+	// The measurable attribute to compute.
 	Metric pulumi.StringPtrInput `pulumi:"metric"`
 }
 
@@ -10360,17 +10360,17 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) ToP
 	return o
 }
 
-// The aggregation method.
+// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
-// Define the time interval in seconds.
+// A time interval in milliseconds.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The measurable attribute to compute.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
@@ -10396,9 +10396,9 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayOutput
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy struct {
-	// The facet name.
+	// The event facet.
 	Facet string `pulumi:"facet"`
-	// The maximum number of items in the group.
+	// The number of groups to return.
 	Limit *int `pulumi:"limit"`
 	// The options for sorting group by results.
 	Sort *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
@@ -10416,9 +10416,9 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByInput interfac
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs struct {
-	// The facet name.
+	// The event facet.
 	Facet pulumi.StringInput `pulumi:"facet"`
-	// The maximum number of items in the group.
+	// The number of groups to return.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
 	// The options for sorting group by results.
 	Sort PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
@@ -10475,12 +10475,12 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) ToP
 	return o
 }
 
-// The facet name.
+// The event facet.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
 }
 
-// The maximum number of items in the group.
+// The number of groups to return.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
@@ -10513,11 +10513,11 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayOutput
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort struct {
-	// The aggregation method.
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation string `pulumi:"aggregation"`
-	// The metric from the request to correlate with this conditional format.
+	// The metric used for sorting group by results.
 	Metric *string `pulumi:"metric"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	Order *string `pulumi:"order"`
 }
 
@@ -10533,11 +10533,11 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortInput inte
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs struct {
-	// The aggregation method.
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric from the request to correlate with this conditional format.
+	// The metric used for sorting group by results.
 	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
+	// Direction of sort. Valid values are `asc`, `desc`.
 	Order pulumi.StringPtrInput `pulumi:"order"`
 }
 
@@ -10618,17 +10618,17 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
 }
 
-// The aggregation method.
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) string { return v.Aggregation }).(pulumi.StringOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The metric used for sorting group by results.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
@@ -10657,7 +10657,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortOutput)
 }
 
-// The aggregation method.
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -10667,7 +10667,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The metric used for sorting group by results.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -10677,7 +10677,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Widget sorting methods. Valid values are `asc`, `desc`.
+// Direction of sort. Valid values are `asc`, `desc`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort) *string {
 		if v == nil {
@@ -10825,11 +10825,11 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchPtrOutput) Q
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for metrics queries. Defaults to `"metrics"`.
 	DataSource *string `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
 	// The metrics query definition.
 	Query string `pulumi:"query"`
@@ -10847,11 +10847,11 @@ type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryInput interface {
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryArgs struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for metrics queries. Defaults to `"metrics"`.
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// The name of the powerpack template variable.
+	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The metrics query definition.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -10934,17 +10934,17 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) ToPowerpa
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for metrics queries. Defaults to `"metrics"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10978,7 +10978,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Elem()
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -10988,7 +10988,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Aggreg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for metrics queries. Defaults to `"metrics"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -10998,7 +10998,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) DataSo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of the query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery) *string {
 		if v == nil {
@@ -11019,19 +11019,19 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryMetricQueryPtrOutput) Query(
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator *string `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for process queries. Valid values are `process`, `container`.
 	DataSource string `pulumi:"dataSource"`
 	// Whether to normalize the CPU percentages.
 	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
-	// The maximum number of items in the group.
+	// The number of hits to return.
 	Limit *int `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// The process metric name.
 	Metric string `pulumi:"metric"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name string `pulumi:"name"`
-	// The options for sorting group by results.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Sort *string `pulumi:"sort"`
 	// An array of tags to filter by.
 	TagFilters []string `pulumi:"tagFilters"`
@@ -11051,19 +11051,19 @@ type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryInput interface {
 }
 
 type PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for process queries. Valid values are `process`, `container`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Whether to normalize the CPU percentages.
 	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
-	// The maximum number of items in the group.
+	// The number of hits to return.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The metric from the request to correlate with this conditional format.
+	// The process metric name.
 	Metric pulumi.StringInput `pulumi:"metric"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The options for sorting group by results.
+	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 	Sort pulumi.StringPtrInput `pulumi:"sort"`
 	// An array of tags to filter by.
 	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
@@ -11148,12 +11148,12 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) ToPowerp
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for process queries. Valid values are `process`, `container`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -11163,22 +11163,22 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) IsNormal
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of items in the group.
+// The number of hits to return.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The process metric name.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The options for sorting group by results.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
 }
@@ -11217,7 +11217,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Elem(
 	}).(PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryOutput)
 }
 
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11227,7 +11227,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Aggre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for process queries. Valid values are `process`, `container`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11247,7 +11247,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) IsNor
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum number of items in the group.
+// The number of hits to return.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *int {
 		if v == nil {
@@ -11257,7 +11257,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Limit
 	}).(pulumi.IntPtrOutput)
 }
 
-// The metric from the request to correlate with this conditional format.
+// The process metric name.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11267,7 +11267,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Metri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11277,7 +11277,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Name(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The options for sorting group by results.
+// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery) *string {
 		if v == nil {
@@ -11310,13 +11310,13 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryPtrOutput) TextF
 type PowerpackWidgetTreemapDefinitionRequestQuerySloQuery struct {
 	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for SLO queries. Valid values are `slo`.
 	DataSource string `pulumi:"dataSource"`
 	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
 	GroupMode *string `pulumi:"groupMode"`
 	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 	Measure string `pulumi:"measure"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name *string `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId string `pulumi:"sloId"`
@@ -11338,13 +11338,13 @@ type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryInput interface {
 type PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs struct {
 	// Additional filters applied to the SLO query.
 	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	// The data source for SLO queries. Valid values are `slo`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
 	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
 	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
 	Measure pulumi.StringInput `pulumi:"measure"`
-	// The name of the powerpack template variable.
+	// The name of query for use in formulas.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of an SLO to query.
 	SloId pulumi.StringInput `pulumi:"sloId"`
@@ -11434,7 +11434,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) AdditionalQu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.AdditionalQueryFilters }).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for SLO queries. Valid values are `slo`.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -11449,7 +11449,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) Measure() pu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -11498,7 +11498,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Additiona
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+// The data source for SLO queries. Valid values are `slo`.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11528,7 +11528,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Measure()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the powerpack template variable.
+// The name of query for use in formulas.
 func (o PowerpackWidgetTreemapDefinitionRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQuerySloQuery) *string {
 		if v == nil {
@@ -11565,9 +11565,9 @@ type PowerpackWidgetWidgetLayout struct {
 	IsColumnBreak *bool `pulumi:"isColumnBreak"`
 	// The width of the widget.
 	Width int `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+	// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
 	X int `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+	// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
 	Y int `pulumi:"y"`
 }
 
@@ -11589,9 +11589,9 @@ type PowerpackWidgetWidgetLayoutArgs struct {
 	IsColumnBreak pulumi.BoolPtrInput `pulumi:"isColumnBreak"`
 	// The width of the widget.
 	Width pulumi.IntInput `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+	// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
 	X pulumi.IntInput `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+	// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
 	Y pulumi.IntInput `pulumi:"y"`
 }
 
@@ -11687,12 +11687,12 @@ func (o PowerpackWidgetWidgetLayoutOutput) Width() pulumi.IntOutput {
 	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.Width }).(pulumi.IntOutput)
 }
 
-// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
 func (o PowerpackWidgetWidgetLayoutOutput) X() pulumi.IntOutput {
 	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.X }).(pulumi.IntOutput)
 }
 
-// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
 func (o PowerpackWidgetWidgetLayoutOutput) Y() pulumi.IntOutput {
 	return o.ApplyT(func(v PowerpackWidgetWidgetLayout) int { return v.Y }).(pulumi.IntOutput)
 }
@@ -11751,7 +11751,7 @@ func (o PowerpackWidgetWidgetLayoutPtrOutput) Width() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
 func (o PowerpackWidgetWidgetLayoutPtrOutput) X() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
 		if v == nil {
@@ -11761,7 +11761,7 @@ func (o PowerpackWidgetWidgetLayoutPtrOutput) X() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
 func (o PowerpackWidgetWidgetLayoutPtrOutput) Y() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetWidgetLayout) *int {
 		if v == nil {
@@ -13474,7 +13474,7 @@ func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsPtrOutput) SignalTitle
 type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery struct {
 	// Fields to group by. If empty, each log triggers a signal.
 	GroupByFields []string `pulumi:"groupByFields"`
-	// Query for selecting logs to apply the filtering action.
+	// Query to filter logs.
 	Query string `pulumi:"query"`
 }
 
@@ -13492,7 +13492,7 @@ type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryInput interface 
 type SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryArgs struct {
 	// Fields to group by. If empty, each log triggers a signal.
 	GroupByFields pulumi.StringArrayInput `pulumi:"groupByFields"`
-	// Query for selecting logs to apply the filtering action.
+	// Query to filter logs.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -13552,7 +13552,7 @@ func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) Group
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) []string { return v.GroupByFields }).(pulumi.StringArrayOutput)
 }
 
-// Query for selecting logs to apply the filtering action.
+// Query to filter logs.
 func (o SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityMonitoringRuleOptionsThirdPartyRuleOptionsRootQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -15064,7 +15064,7 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Threshold() pul
 type ServiceLevelObjectiveSliSpecificationTimeSliceQuery struct {
 	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
 	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula `pulumi:"formula"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// A list of data-source-specific queries that are in the formula.
 	Queries []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery `pulumi:"queries"`
 }
 
@@ -15082,7 +15082,7 @@ type ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput interface {
 type ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs struct {
 	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
 	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput `pulumi:"formula"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// A list of data-source-specific queries that are in the formula.
 	Queries ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput `pulumi:"queries"`
 }
 
@@ -15170,7 +15170,7 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Formula() Ser
 	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
 }
 
-// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+// A list of data-source-specific queries that are in the formula.
 func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
 		return v.Queries
@@ -15211,7 +15211,7 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Formula() 
 	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
 }
 
-// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+// A list of data-source-specific queries that are in the formula.
 func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
 		if v == nil {
@@ -15462,7 +15462,7 @@ type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery struct 
 	DataSource *string `pulumi:"dataSource"`
 	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metrics query definition.
 	Query string `pulumi:"query"`
 }
 
@@ -15482,7 +15482,7 @@ type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs str
 	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
 	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	// The metrics query definition.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -15575,7 +15575,7 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutpu
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+// The metrics query definition.
 func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -15624,7 +15624,7 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+// The metrics query definition.
 func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
 		if v == nil {
@@ -17327,7 +17327,7 @@ func (o SyntheticsTestApiStepAssertionArrayOutput) Index(i pulumi.IntInput) Synt
 type SyntheticsTestApiStepAssertionTargetjsonpath struct {
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator string `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
@@ -17347,7 +17347,7 @@ type SyntheticsTestApiStepAssertionTargetjsonpathInput interface {
 type SyntheticsTestApiStepAssertionTargetjsonpathArgs struct {
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
@@ -17435,7 +17435,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Jsonpath() pulumi.St
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -17479,7 +17479,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -17500,7 +17500,7 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Targetvalue() pul
 }
 
 type SyntheticsTestApiStepAssertionTargetxpath struct {
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator string `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
@@ -17520,7 +17520,7 @@ type SyntheticsTestApiStepAssertionTargetxpathInput interface {
 }
 
 type SyntheticsTestApiStepAssertionTargetxpathArgs struct {
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
@@ -17605,7 +17605,7 @@ func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToSyntheticsTestApiStep
 	}).(SyntheticsTestApiStepAssertionTargetxpathPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -17644,7 +17644,7 @@ func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Elem() SyntheticsTes
 	}).(SyntheticsTestApiStepAssertionTargetxpathOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
 		if v == nil {
@@ -17681,7 +17681,7 @@ type SyntheticsTestApiStepExtractedValue struct {
 	Parser SyntheticsTestApiStepExtractedValueParser `pulumi:"parser"`
 	// Determines whether or not the extracted value will be obfuscated.
 	Secure *bool `pulumi:"secure"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
 	Type string `pulumi:"type"`
 }
 
@@ -17703,7 +17703,7 @@ type SyntheticsTestApiStepExtractedValueArgs struct {
 	Parser SyntheticsTestApiStepExtractedValueParserInput `pulumi:"parser"`
 	// Determines whether or not the extracted value will be obfuscated.
 	Secure pulumi.BoolPtrInput `pulumi:"secure"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -17776,7 +17776,7 @@ func (o SyntheticsTestApiStepExtractedValueOutput) Secure() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
 func (o SyntheticsTestApiStepExtractedValueOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17802,7 +17802,7 @@ func (o SyntheticsTestApiStepExtractedValueArrayOutput) Index(i pulumi.IntInput)
 }
 
 type SyntheticsTestApiStepExtractedValueParser struct {
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 	Type string `pulumi:"type"`
 	// Regex or JSON path used for the parser. Not used with type `raw`.
 	Value *string `pulumi:"value"`
@@ -17820,7 +17820,7 @@ type SyntheticsTestApiStepExtractedValueParserInput interface {
 }
 
 type SyntheticsTestApiStepExtractedValueParserArgs struct {
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Regex or JSON path used for the parser. Not used with type `raw`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -17852,7 +17852,7 @@ func (o SyntheticsTestApiStepExtractedValueParserOutput) ToSyntheticsTestApiStep
 	return o
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
 func (o SyntheticsTestApiStepExtractedValueParserOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValueParser) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -19777,7 +19777,7 @@ func (o SyntheticsTestAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsT
 type SyntheticsTestAssertionTargetjsonpath struct {
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator string `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
@@ -19797,7 +19797,7 @@ type SyntheticsTestAssertionTargetjsonpathInput interface {
 type SyntheticsTestAssertionTargetjsonpathArgs struct {
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
@@ -19885,7 +19885,7 @@ func (o SyntheticsTestAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOut
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -19929,7 +19929,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
 		if v == nil {
@@ -19950,7 +19950,7 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.Str
 }
 
 type SyntheticsTestAssertionTargetxpath struct {
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator string `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue *string `pulumi:"targetvalue"`
@@ -19970,7 +19970,7 @@ type SyntheticsTestAssertionTargetxpathInput interface {
 }
 
 type SyntheticsTestAssertionTargetxpathArgs struct {
-	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	// The specific operator to use on the path.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Expected matching value.
 	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
@@ -20055,7 +20055,7 @@ func (o SyntheticsTestAssertionTargetxpathOutput) ToSyntheticsTestAssertionTarge
 	}).(SyntheticsTestAssertionTargetxpathPtrOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -20094,7 +20094,7 @@ func (o SyntheticsTestAssertionTargetxpathPtrOutput) Elem() SyntheticsTestAssert
 	}).(SyntheticsTestAssertionTargetxpathOutput)
 }
 
-// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+// The specific operator to use on the path.
 func (o SyntheticsTestAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
 		if v == nil {
@@ -20313,7 +20313,7 @@ type SyntheticsTestBrowserStepParams struct {
 	Request *string `pulumi:"request"`
 	// ID of the Synthetics test to use as subtest.
 	SubtestPublicId *string `pulumi:"subtestPublicId"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
+	// Value of the step.
 	Value *string `pulumi:"value"`
 	// Details of the variable to extract.
 	Variable *SyntheticsTestBrowserStepParamsVariable `pulumi:"variable"`
@@ -20365,7 +20365,7 @@ type SyntheticsTestBrowserStepParamsArgs struct {
 	Request pulumi.StringPtrInput `pulumi:"request"`
 	// ID of the Synthetics test to use as subtest.
 	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
+	// Value of the step.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 	// Details of the variable to extract.
 	Variable SyntheticsTestBrowserStepParamsVariablePtrInput `pulumi:"variable"`
@@ -20475,7 +20475,7 @@ func (o SyntheticsTestBrowserStepParamsOutput) SubtestPublicId() pulumi.StringPt
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.SubtestPublicId }).(pulumi.StringPtrOutput)
 }
 
-// Regex or JSON path used for the parser. Not used with type `raw`.
+// Value of the step.
 func (o SyntheticsTestBrowserStepParamsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -20502,9 +20502,8 @@ func (o SyntheticsTestBrowserStepParamsOutput) Y() pulumi.IntPtrOutput {
 
 type SyntheticsTestBrowserStepParamsElementUserLocator struct {
 	// Defaults to `false`.
-	FailTestOnCannotLocate *bool `pulumi:"failTestOnCannotLocate"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
-	Value SyntheticsTestBrowserStepParamsElementUserLocatorValue `pulumi:"value"`
+	FailTestOnCannotLocate *bool                                                  `pulumi:"failTestOnCannotLocate"`
+	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValue `pulumi:"value"`
 }
 
 // SyntheticsTestBrowserStepParamsElementUserLocatorInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorArgs and SyntheticsTestBrowserStepParamsElementUserLocatorOutput values.
@@ -20520,9 +20519,8 @@ type SyntheticsTestBrowserStepParamsElementUserLocatorInput interface {
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorArgs struct {
 	// Defaults to `false`.
-	FailTestOnCannotLocate pulumi.BoolPtrInput `pulumi:"failTestOnCannotLocate"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
-	Value SyntheticsTestBrowserStepParamsElementUserLocatorValueInput `pulumi:"value"`
+	FailTestOnCannotLocate pulumi.BoolPtrInput                                         `pulumi:"failTestOnCannotLocate"`
+	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValueInput `pulumi:"value"`
 }
 
 func (SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ElementType() reflect.Type {
@@ -20607,7 +20605,6 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) FailTestOnCanno
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) *bool { return v.FailTestOnCannotLocate }).(pulumi.BoolPtrOutput)
 }
 
-// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) SyntheticsTestBrowserStepParamsElementUserLocatorValue {
 		return v.Value
@@ -20648,7 +20645,6 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) FailTestOnCa
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocator) *SyntheticsTestBrowserStepParamsElementUserLocatorValue {
 		if v == nil {
@@ -20659,10 +20655,9 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Value() Synt
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorValue struct {
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
-	Type *string `pulumi:"type"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
-	Value string `pulumi:"value"`
+	// Defaults to `"css"`.
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
 }
 
 // SyntheticsTestBrowserStepParamsElementUserLocatorValueInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs and SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput values.
@@ -20677,10 +20672,9 @@ type SyntheticsTestBrowserStepParamsElementUserLocatorValueInput interface {
 }
 
 type SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs struct {
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Regex or JSON path used for the parser. Not used with type `raw`.
-	Value pulumi.StringInput `pulumi:"value"`
+	// Defaults to `"css"`.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
 }
 
 func (SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ElementType() reflect.Type {
@@ -20760,12 +20754,11 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToSyntheti
 	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Defaults to `"css"`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -20794,7 +20787,7 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Elem() 
 	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Defaults to `"css"`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
 		if v == nil {
@@ -20804,7 +20797,6 @@ func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Type() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Regex or JSON path used for the parser. Not used with type `raw`.
 func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
 		if v == nil {

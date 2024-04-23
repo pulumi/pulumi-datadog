@@ -187,7 +187,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -200,7 +199,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                 "env:test",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,7 +226,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -241,7 +238,6 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                 "env:test",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

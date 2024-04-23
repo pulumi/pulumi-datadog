@@ -21,17 +21,17 @@ public final class LogsCustomPipelineProcessorCategoryProcessor {
      */
     private List<LogsCustomPipelineProcessorCategoryProcessorCategory> categories;
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return Your pipeline name.
+     * @return Name of the category
      * 
      */
     private @Nullable String name;
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the target attribute whose value is defined by the matching category.
      * 
      */
     private String target;
@@ -45,21 +45,21 @@ public final class LogsCustomPipelineProcessorCategoryProcessor {
         return this.categories;
     }
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the category
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the target attribute whose value is defined by the matching category.
      * 
      */
     public String target() {

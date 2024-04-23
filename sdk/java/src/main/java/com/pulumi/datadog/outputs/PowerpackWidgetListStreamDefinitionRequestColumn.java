@@ -16,7 +16,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestColumn {
      */
     private String field;
     /**
-     * @return The width of the widget.
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
     private String width;
@@ -30,7 +30,7 @@ public final class PowerpackWidgetListStreamDefinitionRequestColumn {
         return this.field;
     }
     /**
-     * @return The width of the widget.
+     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
      * 
      */
     public String width() {

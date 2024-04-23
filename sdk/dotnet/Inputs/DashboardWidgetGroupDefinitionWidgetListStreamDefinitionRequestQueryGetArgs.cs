@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// The size to use to display an event. Valid values are `s`, `l`.
+        /// Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         /// </summary>
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// An array of index names to query in the stream.
+        /// List of indexes.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? QueryString { get; set; }
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestQuerySortGetArgs>? Sort { get; set; }

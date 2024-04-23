@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }

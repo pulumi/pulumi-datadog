@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
-        /// An expression alias.
+        /// The alias for the column name (defaults to metric name).
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _cellDisplayModes;
 
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `number`, `bar`.
+        /// A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
         /// </summary>
         public InputList<string> CellDisplayModes
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormatGetArgs>? _conditionalFormats;
 
         /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+        /// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestConditionalFormatGetArgs> ConditionalFormats
         {
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of lines to show in the table.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// Widget sorting methods. Valid values are `asc`, `desc`.
+        /// The sort order for the rows. Valid values are `asc`, `desc`.
         /// </summary>
         [Input("order")]
         public Input<string>? Order { get; set; }

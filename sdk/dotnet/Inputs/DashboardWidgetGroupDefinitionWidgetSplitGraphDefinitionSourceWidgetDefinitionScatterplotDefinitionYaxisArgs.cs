@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IncludeZero { get; set; }
 
         /// <summary>
-        /// The label for the custom link URL.
+        /// The label of the axis to display on the graph.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }

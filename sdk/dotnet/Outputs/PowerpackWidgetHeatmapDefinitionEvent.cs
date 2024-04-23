@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetHeatmapDefinitionEvent
     {
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The event query to use in the widget.
         /// </summary>
         public readonly string Q;
         /// <summary>
-        /// The execution method for multi-value filters, options: `and` or `or`.
+        /// The execution method for multi-value filters.
         /// </summary>
         public readonly string? TagsExecution;
 

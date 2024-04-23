@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorUrlParser {
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     private @Nullable String name;
@@ -30,26 +30,26 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUrlParser {
      */
     private @Nullable Boolean normalizeEndingSlashes;
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     private List<String> sources;
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the parent attribute that contains all the extracted details from the sources.
      * 
      */
     private String target;
 
     private LogsCustomPipelineProcessorPipelineProcessorUrlParser() {}
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<String> name() {
@@ -63,14 +63,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorUrlParser {
         return Optional.ofNullable(this.normalizeEndingSlashes);
     }
     /**
-     * @return List of source attributes or tags.
+     * @return List of source attributes.
      * 
      */
     public List<String> sources() {
         return this.sources;
     }
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Name of the parent attribute that contains all the extracted details from the sources.
      * 
      */
     public String target() {

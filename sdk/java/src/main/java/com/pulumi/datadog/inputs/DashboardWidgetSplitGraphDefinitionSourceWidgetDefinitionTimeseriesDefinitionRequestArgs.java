@@ -59,14 +59,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
     }
 
     /**
-     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     @Import(name="displayType")
     private @Nullable Output<String> displayType;
 
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     public Optional<Output<String>> displayType() {
@@ -208,14 +208,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
     }
 
     /**
-     * Styling options for widget formulas.
+     * The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
      */
     public Optional<Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionRequestStyleArgs>> style() {
@@ -302,7 +302,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. Exactly one `style` block is allowed using the structure below.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTime
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. Exactly one `style` block is allowed using the structure below.
          * 
          * @return builder
          * 

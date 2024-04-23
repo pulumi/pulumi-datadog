@@ -167,7 +167,6 @@ class IntegrationEventBridge(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -179,7 +178,6 @@ class IntegrationEventBridge(pulumi.CustomResource):
             event_generator_name="app-alerts",
             region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,7 +205,6 @@ class IntegrationEventBridge(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -219,7 +216,6 @@ class IntegrationEventBridge(pulumi.CustomResource):
             event_generator_name="app-alerts",
             region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

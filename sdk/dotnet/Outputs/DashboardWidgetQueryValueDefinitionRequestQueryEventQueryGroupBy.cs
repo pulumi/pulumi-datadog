@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy
     {
         /// <summary>
-        /// The facet name.
+        /// The event facet.
         /// </summary>
         public readonly string Facet;
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The number of groups to return.
         /// </summary>
         public readonly int? Limit;
         /// <summary>

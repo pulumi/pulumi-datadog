@@ -150,7 +150,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -160,7 +159,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
             service_account_id="00000000-0000-1234-0000-000000000000",
             name="Application key for managing dashboards")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,7 +184,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -196,7 +193,6 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
             service_account_id="00000000-0000-1234-0000-000000000000",
             name="Application key for managing dashboards")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

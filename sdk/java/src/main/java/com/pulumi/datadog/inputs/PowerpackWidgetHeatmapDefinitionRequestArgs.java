@@ -129,14 +129,14 @@ public final class PowerpackWidgetHeatmapDefinitionRequestArgs extends com.pulum
     }
 
     /**
-     * Styling options for widget formulas.
+     * The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     @Import(name="style")
     private @Nullable Output<PowerpackWidgetHeatmapDefinitionRequestStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<Output<PowerpackWidgetHeatmapDefinitionRequestStyleArgs>> style() {
@@ -328,7 +328,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestArgs extends com.pulum
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 

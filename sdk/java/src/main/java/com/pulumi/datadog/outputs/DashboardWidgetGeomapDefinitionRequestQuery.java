@@ -43,7 +43,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryMetricQuery metricQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     private @Nullable DashboardWidgetGeomapDefinitionRequestQueryProcessQuery processQuery;
@@ -90,7 +90,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQuery {
         return Optional.ofNullable(this.metricQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query using formulas and functions.
      * 
      */
     public Optional<DashboardWidgetGeomapDefinitionRequestQueryProcessQuery> processQuery() {

@@ -99,14 +99,14 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Name of the case.
+     * The name of the rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the case.
+     * @return The name of the rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -129,14 +129,14 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Query for selecting logs to apply the filtering action.
+     * Queries for selecting logs which are part of the rule.
      * 
      */
     @Import(name="queries")
     private @Nullable Output<List<SecurityMonitoringRuleQueryArgs>> queries;
 
     /**
-     * @return Query for selecting logs to apply the filtering action.
+     * @return Queries for selecting logs which are part of the rule.
      * 
      */
     public Optional<Output<List<SecurityMonitoringRuleQueryArgs>>> queries() {
@@ -364,7 +364,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Name of the case.
+         * @param name The name of the rule.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Name of the case.
+         * @param name The name of the rule.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queries Query for selecting logs to apply the filtering action.
+         * @param queries Queries for selecting logs which are part of the rule.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queries Query for selecting logs to apply the filtering action.
+         * @param queries Queries for selecting logs which are part of the rule.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class SecurityMonitoringRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param queries Query for selecting logs to apply the filtering action.
+         * @param queries Queries for selecting logs which are part of the rule.
          * 
          * @return builder
          * 

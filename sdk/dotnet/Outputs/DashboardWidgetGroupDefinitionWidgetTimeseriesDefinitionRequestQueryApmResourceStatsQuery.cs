@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery
     {
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Env;
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Array of fields to group results by.
         /// </summary>
         public readonly ImmutableArray<string> GroupBies;
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Service;
         /// <summary>
-        /// APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        /// APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
         /// </summary>
         public readonly string Stat;
 

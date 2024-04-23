@@ -18,12 +18,12 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      */
     private @Nullable String aggregator;
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
     private String dataSource;
     /**
-     * @return The name of the variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     private String name;
@@ -42,14 +42,14 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
     public String dataSource() {
         return this.dataSource;
     }
     /**
-     * @return The name of the variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     public String name() {

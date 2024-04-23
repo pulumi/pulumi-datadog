@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequest
     {
         /// <summary>
-        /// Column properties used by the front end for display.
+        /// Widget columns.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumn> Columns;
         /// <summary>

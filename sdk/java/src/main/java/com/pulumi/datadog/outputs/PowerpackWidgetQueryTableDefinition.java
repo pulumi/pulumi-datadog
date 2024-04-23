@@ -30,7 +30,7 @@ public final class PowerpackWidgetQueryTableDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the `request` block).
      * 
      */
     private @Nullable List<PowerpackWidgetQueryTableDefinitionRequest> requests;
@@ -73,7 +73,7 @@ public final class PowerpackWidgetQueryTableDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the `request` block).
      * 
      */
     public List<PowerpackWidgetQueryTableDefinitionRequest> requests() {

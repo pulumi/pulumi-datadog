@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
     /**
-     * @return The facet name.
+     * @return The event facet.
      * 
      */
     private String facet;
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of groups to return.
      * 
      */
     private @Nullable Integer limit;
@@ -32,14 +32,14 @@ public final class PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGrou
 
     private PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy() {}
     /**
-     * @return The facet name.
+     * @return The event facet.
      * 
      */
     public String facet() {
         return this.facet;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The number of groups to return.
      * 
      */
     public Optional<Integer> limit() {

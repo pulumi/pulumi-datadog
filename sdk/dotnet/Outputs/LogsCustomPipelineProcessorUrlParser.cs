@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorUrlParser
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? NormalizeEndingSlashes;
         /// <summary>
-        /// List of source attributes or tags.
+        /// List of source attributes.
         /// </summary>
         public readonly ImmutableArray<string> Sources;
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Name of the parent attribute that contains all the extracted details from the sources.
         /// </summary>
         public readonly string Target;
 

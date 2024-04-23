@@ -102,7 +102,6 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -112,7 +111,6 @@ class IntegrationAccount(pulumi.CustomResource):
             api_key="ABCDEFG123",
             name="test-name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -136,7 +134,6 @@ class IntegrationAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -146,7 +143,6 @@ class IntegrationAccount(pulumi.CustomResource):
             api_key="ABCDEFG123",
             name="test-name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

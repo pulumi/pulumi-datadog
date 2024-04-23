@@ -63,7 +63,6 @@ def get_dashboard_list(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -85,7 +84,6 @@ def get_dashboard_list(name: Optional[str] = None,
             ),
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: A dashboard list name to limit the search.
@@ -108,7 +106,6 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_datadog as datadog
@@ -130,7 +127,6 @@ def get_dashboard_list_output(name: Optional[pulumi.Input[str]] = None,
             ),
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: A dashboard list name to limit the search.

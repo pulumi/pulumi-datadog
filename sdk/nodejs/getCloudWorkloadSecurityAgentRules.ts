@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getCloudWorkloadSecurityAgentRules({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCloudWorkloadSecurityAgentRules(opts?: pulumi.InvokeOptions): Promise<GetCloudWorkloadSecurityAgentRulesResult> {
 
@@ -45,14 +43,12 @@ export interface GetCloudWorkloadSecurityAgentRulesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getCloudWorkloadSecurityAgentRules({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCloudWorkloadSecurityAgentRulesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWorkloadSecurityAgentRulesResult> {
     return pulumi.output(getCloudWorkloadSecurityAgentRules(opts))

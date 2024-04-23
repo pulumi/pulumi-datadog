@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetSunburstDefinitionLegendTable {
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (table or none). Valid values are `table`, `none`.
      * 
      */
     private String type;
 
     private DashboardWidgetSunburstDefinitionLegendTable() {}
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (table or none). Valid values are `table`, `none`.
      * 
      */
     public String type() {

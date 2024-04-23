@@ -31,13 +31,13 @@ class SecurityMonitoringRuleArgs:
         """
         The set of arguments for constructing a SecurityMonitoringRule resource.
         :param pulumi.Input[str] message: Message for generated signals.
-        :param pulumi.Input[str] name: Name of the case.
+        :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -82,7 +82,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the case.
+        The name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -154,7 +154,7 @@ class SecurityMonitoringRuleArgs:
     @pulumi.getter
     def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]]:
         """
-        Query for selecting logs to apply the filtering action.
+        Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "queries")
 
@@ -233,9 +233,9 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
-        :param pulumi.Input[str] name: Name of the case.
+        :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Query for selecting logs to apply the filtering action.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -330,7 +330,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the case.
+        The name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -354,7 +354,7 @@ class _SecurityMonitoringRuleState:
     @pulumi.getter
     def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]]:
         """
-        Query for selecting logs to apply the filtering action.
+        Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "queries")
 
@@ -434,7 +434,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -469,7 +468,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             ),
             tags=["type:dos"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -486,9 +484,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
-        :param pulumi.Input[str] name: Name of the case.
+        :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -505,7 +503,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -540,7 +537,6 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             ),
             tags=["type:dos"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -636,9 +632,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
         :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title. Defaults to `false`.
         :param pulumi.Input[str] message: Message for generated signals.
-        :param pulumi.Input[str] name: Name of the case.
+        :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Query for selecting logs to apply the filtering action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]] signal_queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
@@ -706,7 +702,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the case.
+        The name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -722,7 +718,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
     @pulumi.getter
     def queries(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleQuery']]]:
         """
-        Query for selecting logs to apply the filtering action.
+        Queries for selecting logs which are part of the rule.
         """
         return pulumi.get(self, "queries")
 

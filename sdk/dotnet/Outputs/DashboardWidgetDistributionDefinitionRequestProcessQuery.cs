@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FilterBies;
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The max number of items in the filter list.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
-        /// The metric from the request to correlate with this conditional format.
+        /// Your chosen metric.
         /// </summary>
         public readonly string Metric;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetSunburstDefinitionLegendTable
     {
         /// <summary>
-        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// The type of legend (table or none). Valid values are `table`, `none`.
         /// </summary>
         public readonly string Type;
 

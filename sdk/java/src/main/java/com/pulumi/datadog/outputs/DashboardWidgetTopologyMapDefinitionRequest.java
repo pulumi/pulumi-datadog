@@ -18,7 +18,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
      */
     private List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries;
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
      * 
      */
     private String requestType;
@@ -32,7 +32,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
         return this.queries;
     }
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
      * 
      */
     public String requestType() {

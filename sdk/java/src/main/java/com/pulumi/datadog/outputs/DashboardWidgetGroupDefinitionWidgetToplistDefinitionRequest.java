@@ -33,7 +33,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery auditQuery;
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats;
@@ -65,7 +65,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return Define request for the widget&#39;s style.
      * 
      */
     private @Nullable DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle style;
@@ -86,7 +86,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest 
         return Optional.ofNullable(this.auditQuery);
     }
     /**
-     * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
+     * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats() {
@@ -134,7 +134,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest 
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return Define request for the widget&#39;s style.
      * 
      */
     public Optional<DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle> style() {

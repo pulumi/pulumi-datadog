@@ -34,14 +34,14 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
     }
 
     /**
-     * The maximum number of items in the group.
+     * The max number of items in the filter list.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return The max number of items in the filter list.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -49,14 +49,14 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
     }
 
     /**
-     * The metric from the request to correlate with this conditional format.
+     * Your chosen metric.
      * 
      */
     @Import(name="metric", required=true)
     private Output<String> metric;
 
     /**
-     * @return The metric from the request to correlate with this conditional format.
+     * @return Your chosen metric.
      * 
      */
     public Output<String> metric() {
@@ -137,7 +137,7 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The max number of items in the filter list.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit The max number of items in the filter list.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric Your chosen metric.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DashboardWidgetDistributionDefinitionRequestProcessQueryArgs 
         }
 
         /**
-         * @param metric The metric from the request to correlate with this conditional format.
+         * @param metric Your chosen metric.
          * 
          * @return builder
          * 

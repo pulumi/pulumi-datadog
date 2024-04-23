@@ -32,14 +32,14 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
     }
 
     /**
-     * The request type for the SLO List request. Valid values are `slo_list`.
+     * The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
      * 
      */
     @Import(name="requestType", required=true)
     private Output<String> requestType;
 
     /**
-     * @return The request type for the SLO List request. Valid values are `slo_list`.
+     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
      * 
      */
     public Output<String> requestType() {
@@ -103,7 +103,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * @param requestType The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param requestType The request type for the SLO List request. Valid values are `slo_list`.
+         * @param requestType The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
          * 
          * @return builder
          * 

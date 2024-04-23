@@ -11,14 +11,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getLogsIndexes({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsIndexes(opts?: pulumi.InvokeOptions): Promise<GetLogsIndexesResult> {
 
@@ -45,14 +43,12 @@ export interface GetLogsIndexesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getLogsIndexes({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogsIndexesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsIndexesResult> {
     return pulumi.output(getLogsIndexes(opts))

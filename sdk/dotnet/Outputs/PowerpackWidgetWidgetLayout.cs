@@ -26,11 +26,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int Width;
         /// <summary>
-        /// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+        /// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
         /// </summary>
         public readonly int X;
         /// <summary>
-        /// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+        /// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
         /// </summary>
         public readonly int Y;
 

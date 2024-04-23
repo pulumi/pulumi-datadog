@@ -22,14 +22,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     public static final DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs Empty = new DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs();
 
     /**
-     * A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+     * @return Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionCustomLinkArgs>>> customLinks() {
@@ -97,14 +97,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     public Optional<Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionRequestArgs>>> requests() {
@@ -127,14 +127,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
      * 
      */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
     /**
-     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<Output<String>> titleAlign() {
@@ -142,14 +142,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
     }
 
     /**
-     * The size of the widget&#39;s title (defaults to 16).
+     * The size of the widget&#39;s title. Default is 16.
      * 
      */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
     /**
-     * @return The size of the widget&#39;s title (defaults to 16).
+     * @return The size of the widget&#39;s title. Default is 16.
      * 
      */
     public Optional<Output<String>> titleSize() {
@@ -189,7 +189,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param customLinks A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+         * @param customLinks Nested block describing a custom link. Multiple `custom_link` blocks are allowed with the structure below.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed with the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * @param titleAlign The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * @param titleAlign The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * @param titleSize The size of the widget&#39;s title. Default is 16.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunb
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * @param titleSize The size of the widget&#39;s title. Default is 16.
          * 
          * @return builder
          * 

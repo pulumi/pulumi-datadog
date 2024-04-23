@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSplitGraphDefinitionSplitConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of items in the group.
+        /// Maximum number of graphs to display in the widget.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
         /// <summary>
-        /// The options for sorting group by results.
+        /// Controls the order in which graphs appear in the split.
         /// </summary>
         [Input("sort", required: true)]
         public Input<Inputs.DashboardWidgetSplitGraphDefinitionSplitConfigSortGetArgs> Sort { get; set; } = null!;

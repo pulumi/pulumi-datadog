@@ -18,7 +18,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
      */
     private ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula formula;
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return A list of data-source-specific queries that are in the formula.
      * 
      */
     private List<ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery> queries;
@@ -32,7 +32,7 @@ public final class ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
         return this.formula;
     }
     /**
-     * @return A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+     * @return A list of data-source-specific queries that are in the formula.
      * 
      */
     public List<ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery> queries() {

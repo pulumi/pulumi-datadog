@@ -80,14 +80,14 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The title of the widget.
+     * The title of the group.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the widget.
+     * @return The title of the group.
      * 
      */
     public Optional<Output<String>> title() {
@@ -223,7 +223,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param title The title of the widget.
+         * @param title The title of the group.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class DashboardWidgetGroupDefinitionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param title The title of the widget.
+         * @param title The title of the group.
          * 
          * @return builder
          * 

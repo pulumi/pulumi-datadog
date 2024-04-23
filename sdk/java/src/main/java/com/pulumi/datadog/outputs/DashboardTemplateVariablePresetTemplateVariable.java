@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardTemplateVariablePresetTemplateVariable {
     /**
-     * @return The name of the variable.
+     * @return The name of the template variable
      * 
      */
     private @Nullable String name;
@@ -34,7 +34,7 @@ public final class DashboardTemplateVariablePresetTemplateVariable {
 
     private DashboardTemplateVariablePresetTemplateVariable() {}
     /**
-     * @return The name of the variable.
+     * @return The name of the template variable
      * 
      */
     public Optional<String> name() {

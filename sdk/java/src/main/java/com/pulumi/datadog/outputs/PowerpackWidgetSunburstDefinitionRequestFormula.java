@@ -37,7 +37,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
      */
     private String formulaExpression;
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     private @Nullable PowerpackWidgetSunburstDefinitionRequestFormulaLimit limit;
@@ -77,7 +77,7 @@ public final class PowerpackWidgetSunburstDefinitionRequestFormula {
         return this.formulaExpression;
     }
     /**
-     * @return The maximum number of items in the group.
+     * @return The options for limiting results returned.
      * 
      */
     public Optional<PowerpackWidgetSunburstDefinitionRequestFormulaLimit> limit() {

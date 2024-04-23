@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _groupBies;
 
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// Array of fields to group results by.
         /// </summary>
         public InputList<string> GroupBies
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The name of the variable.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        /// APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
         /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;

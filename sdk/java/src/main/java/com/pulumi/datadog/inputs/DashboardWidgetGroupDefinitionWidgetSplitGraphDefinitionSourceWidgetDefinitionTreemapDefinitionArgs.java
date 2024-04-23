@@ -18,14 +18,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
     public static final DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs Empty = new DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs();
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * Nested block describing the request to use when displaying the widget.
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return Nested block describing the request to use when displaying the widget.
      * 
      */
     public Optional<Output<List<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionRequestArgs>>> requests() {
@@ -73,7 +73,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param requests Nested block describing the request to use when displaying the widget.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+        /// One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

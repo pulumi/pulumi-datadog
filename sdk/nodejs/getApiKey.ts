@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -18,7 +17,6 @@ import * as utilities from "./utilities";
  *     name: "foo-application",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApiKey(args?: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
     args = args || {};
@@ -75,7 +73,6 @@ export interface GetApiKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -84,7 +81,6 @@ export interface GetApiKeyResult {
  *     name: "foo-application",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
     return pulumi.output(args).apply((a: any) => getApiKey(a, opts))

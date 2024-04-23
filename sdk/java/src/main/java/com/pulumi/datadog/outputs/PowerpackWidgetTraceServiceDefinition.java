@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetTraceServiceDefinition {
     /**
-     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * @return The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
      * 
      */
     private @Nullable String displayFormat;
@@ -91,7 +91,7 @@ public final class PowerpackWidgetTraceServiceDefinition {
 
     private PowerpackWidgetTraceServiceDefinition() {}
     /**
-     * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
+     * @return The number of columns to display. Valid values are `one_column`, `two_column`, `three_column`.
      * 
      */
     public Optional<String> displayFormat() {

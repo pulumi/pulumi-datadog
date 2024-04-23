@@ -36,14 +36,14 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * The check group to use in the widget.
+     * The list of tags to group nodes by.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return The check group to use in the widget.
+     * @return The list of tags to group nodes by.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -96,14 +96,14 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     @Import(name="request")
     private @Nullable Output<DashboardWidgetHostmapDefinitionRequestArgs> request;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<DashboardWidgetHostmapDefinitionRequestArgs>> request() {
@@ -126,14 +126,14 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * Styling options for widget formulas.
+     * The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     @Import(name="style")
     private @Nullable Output<DashboardWidgetHostmapDefinitionStyleArgs> style;
 
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<Output<DashboardWidgetHostmapDefinitionStyleArgs>> style() {
@@ -251,7 +251,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The check group to use in the widget.
+         * @param groups The list of tags to group nodes by.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The check group to use in the widget.
+         * @param groups The list of tags to group nodes by.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The check group to use in the widget.
+         * @param groups The list of tags to group nodes by.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param style Styling options for widget formulas.
+         * @param style The style of the widget graph. One nested block is allowed using the structure below.
          * 
          * @return builder
          * 

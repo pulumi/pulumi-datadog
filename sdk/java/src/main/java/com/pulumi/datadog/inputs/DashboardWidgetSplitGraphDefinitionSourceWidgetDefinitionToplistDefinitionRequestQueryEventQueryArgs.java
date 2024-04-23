@@ -36,14 +36,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
     public Output<String> dataSource() {
@@ -51,14 +51,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
     }
 
     /**
-     * Multiple `group_by` blocks are allowed using the structure below.
+     * Group by options.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupByArgs>> groupBies;
 
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Group by options.
      * 
      */
     public Optional<Output<List<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionRequestQueryEventQueryGroupByArgs>>> groupBies() {
@@ -81,14 +81,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
     }
 
     /**
-     * The name of the variable.
+     * The name of query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -187,7 +187,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Group by options.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Group by options.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Group by options.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 

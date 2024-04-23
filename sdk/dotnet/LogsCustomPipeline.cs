@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -264,7 +263,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -282,15 +280,9 @@ namespace Pulumi.Datadog
         [Output("filters")]
         public Output<ImmutableArray<Outputs.LogsCustomPipelineFilter>> Filters { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Your pipeline name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -351,15 +343,9 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Your pipeline name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -387,15 +373,9 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Your pipeline name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

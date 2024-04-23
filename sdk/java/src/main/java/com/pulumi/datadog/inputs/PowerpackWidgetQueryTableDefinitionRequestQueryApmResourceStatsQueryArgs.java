@@ -18,14 +18,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
     public static final PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs Empty = new PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs();
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
     public Output<String> dataSource() {
@@ -48,14 +48,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
     }
 
     /**
-     * Multiple `group_by` blocks are allowed using the structure below.
+     * Array of fields to group results by.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Array of fields to group results by.
      * 
      */
     public Optional<Output<List<String>>> groupBies() {
@@ -63,14 +63,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
     }
 
     /**
-     * The name of the powerpack template variable.
+     * The name of query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -153,14 +153,14 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
     }
 
     /**
-     * APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
      * 
      */
     @Import(name="stat", required=true)
     private Output<String> stat;
 
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
      * 
      */
     public Output<String> stat() {
@@ -201,7 +201,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Array of fields to group results by.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Array of fields to group results by.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param groupBies Multiple `group_by` blocks are allowed using the structure below.
+         * @param groupBies Array of fields to group results by.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name of query for use in formulas.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * @param stat APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceSta
         }
 
         /**
-         * @param stat APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+         * @param stat APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
     public static final DashboardWidgetListStreamDefinitionRequestQueryArgs Empty = new DashboardWidgetListStreamDefinitionRequestQueryArgs();
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
      * 
      */
     public Output<String> dataSource() {
@@ -34,14 +34,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
     }
 
     /**
-     * The size to use to display an event. Valid values are `s`, `l`.
+     * Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
      * 
      */
     @Import(name="eventSize")
     private @Nullable Output<String> eventSize;
 
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
      * 
      */
     public Optional<Output<String>> eventSize() {
@@ -49,14 +49,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
     }
 
     /**
-     * An array of index names to query in the stream.
+     * List of indexes.
      * 
      */
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
     /**
-     * @return An array of index names to query in the stream.
+     * @return List of indexes.
      * 
      */
     public Optional<Output<List<String>>> indexes() {
@@ -79,14 +79,14 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
     }
 
     /**
-     * The options for sorting group by results.
+     * The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     @Import(name="sort")
     private @Nullable Output<DashboardWidgetListStreamDefinitionRequestQuerySortArgs> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
      * 
      */
     public Optional<Output<DashboardWidgetListStreamDefinitionRequestQuerySortArgs>> sort() {
@@ -138,7 +138,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * @param eventSize Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * @param eventSize Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes List of indexes.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes List of indexes.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes List of indexes.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DashboardWidgetListStreamDefinitionRequestQueryArgs extends c
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort The facet and order to sort the data, for example: `{&#34;column&#34;: &#34;time&#34;, &#34;order&#34;: &#34;desc&#34;}`.
          * 
          * @return builder
          * 

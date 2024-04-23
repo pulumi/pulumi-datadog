@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput {
     /**
-     * @return The name of the variable.
+     * @return Name of the workflow input.
      * 
      */
     private String name;
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     private String value;
 
     private DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInput() {}
     /**
-     * @return The name of the variable.
+     * @return Name of the workflow input.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     public String value() {

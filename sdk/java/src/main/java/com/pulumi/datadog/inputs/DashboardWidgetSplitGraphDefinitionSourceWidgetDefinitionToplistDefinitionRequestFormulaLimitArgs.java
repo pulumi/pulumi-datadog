@@ -32,14 +32,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
     }
 
     /**
-     * Widget sorting methods. Valid values are `asc`, `desc`.
+     * The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     @Import(name="order")
     private @Nullable Output<String> order;
 
     /**
-     * @return Widget sorting methods. Valid values are `asc`, `desc`.
+     * @return The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
      * 
      */
     public Optional<Output<String>> order() {
@@ -93,7 +93,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         }
 
         /**
-         * @param order Widget sorting methods. Valid values are `asc`, `desc`.
+         * @param order The direction of the sort. Valid values are `asc`, `desc`. Defaults to `&#34;desc&#34;`.
          * 
          * @return builder
          * 

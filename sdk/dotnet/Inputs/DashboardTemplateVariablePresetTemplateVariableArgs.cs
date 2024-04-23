@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardTemplateVariablePresetTemplateVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the variable.
+        /// The name of the template variable
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

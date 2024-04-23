@@ -17,15 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorPipeline {
     private List<LogsCustomPipelineProcessorPipelineFilter> filters;
-    /**
-     * @return Boolean value to enable your pipeline.
-     * 
-     */
     private @Nullable Boolean isEnabled;
-    /**
-     * @return Your pipeline name.
-     * 
-     */
     private String name;
     private @Nullable List<LogsCustomPipelineProcessorPipelineProcessor> processors;
 
@@ -33,17 +25,9 @@ public final class LogsCustomPipelineProcessorPipeline {
     public List<LogsCustomPipelineProcessorPipelineFilter> filters() {
         return this.filters;
     }
-    /**
-     * @return Boolean value to enable your pipeline.
-     * 
-     */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
-    /**
-     * @return Your pipeline name.
-     * 
-     */
     public String name() {
         return this.name;
     }

@@ -17,14 +17,14 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     public static final DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs Empty = new DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQueryArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     }
 
     /**
-     * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
     }
 
     /**
-     * The name of the variable.
+     * The name of the query for use in formulas.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return The name of the query for use in formulas.
      * 
      */
     public Output<String> name() {
@@ -104,7 +104,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param dataSource The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+         * @param dataSource The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQ
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name The name of the query for use in formulas.
          * 
          * @return builder
          * 

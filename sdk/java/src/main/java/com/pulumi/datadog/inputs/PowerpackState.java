@@ -66,14 +66,14 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the powerpack template variable.
+     * The name for the powerpack.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the powerpack template variable.
+     * @return The name for the powerpack.
      * 
      */
     public Optional<Output<String>> name() {
@@ -96,14 +96,14 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of tags to use in the widget.
+     * List of tags to identify this powerpack.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags to use in the widget.
+     * @return List of tags to identify this powerpack.
      * 
      */
     public Optional<Output<List<String>>> tags() {
@@ -235,7 +235,7 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name for the powerpack.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the powerpack template variable.
+         * @param name The name for the powerpack.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags List of tags to identify this powerpack.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags List of tags to identify this powerpack.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class PowerpackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags List of tags to identify this powerpack.
          * 
          * @return builder
          * 

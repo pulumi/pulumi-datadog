@@ -19,12 +19,12 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
      */
     private @Nullable Boolean hidePercent;
     /**
-     * @return Setting this to True hides values.
+     * @return Whether to hide the values of the groups.
      * 
      */
     private @Nullable Boolean hideValue;
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
      * 
      */
     private String type;
@@ -38,14 +38,14 @@ public final class DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionSourc
         return Optional.ofNullable(this.hidePercent);
     }
     /**
-     * @return Setting this to True hides values.
+     * @return Whether to hide the values of the groups.
      * 
      */
     public Optional<Boolean> hideValue() {
         return Optional.ofNullable(this.hideValue);
     }
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
      * 
      */
     public String type() {

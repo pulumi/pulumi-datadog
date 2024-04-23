@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _groupBies;
 
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// When `grouping = "cluster"`, indicates a list of tags to use for grouping.
         /// </summary>
         public InputList<string> GroupBies
         {

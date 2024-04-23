@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     private @Nullable Boolean isEnabled;
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     private @Nullable String name;
@@ -45,7 +45,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
      */
     private List<String> sources;
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Final attribute or tag name to remap the sources.
      * 
      */
     private String target;
@@ -62,14 +62,14 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
 
     private LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper() {}
     /**
-     * @return Boolean value to enable your pipeline.
+     * @return If the processor is enabled or not.
      * 
      */
     public Optional<Boolean> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
     /**
-     * @return Your pipeline name.
+     * @return Name of the processor
      * 
      */
     public Optional<String> name() {
@@ -104,7 +104,7 @@ public final class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
         return this.sources;
     }
     /**
-     * @return Name of the attribute that contains the result of the arithmetic operation.
+     * @return Final attribute or tag name to remap the sources.
      * 
      */
     public String target() {

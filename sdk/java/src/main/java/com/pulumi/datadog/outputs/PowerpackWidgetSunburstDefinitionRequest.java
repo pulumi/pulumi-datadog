@@ -65,7 +65,7 @@ public final class PowerpackWidgetSunburstDefinitionRequest {
      */
     private @Nullable PowerpackWidgetSunburstDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     private @Nullable PowerpackWidgetSunburstDefinitionRequestStyle style;
@@ -134,7 +134,7 @@ public final class PowerpackWidgetSunburstDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return Define style for the widget&#39;s request.
      * 
      */
     public Optional<PowerpackWidgetSunburstDefinitionRequestStyle> style() {

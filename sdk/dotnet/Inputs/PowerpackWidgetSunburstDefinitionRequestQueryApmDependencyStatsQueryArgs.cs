@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsUpstream { get; set; }
 
         /// <summary>
-        /// The name of the powerpack template variable.
+        /// The name of query for use in formulas.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

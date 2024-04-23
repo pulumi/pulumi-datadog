@@ -19,7 +19,7 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomains {
      */
     private @Nullable List<String> domains;
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -33,7 +33,7 @@ public final class OrganizationSettingsSettingsSamlAutocreateUsersDomains {
         return this.domains == null ? List.of() : this.domains;
     }
     /**
-     * @return Whether or not SAML is enabled for this organization. Defaults to `false`.
+     * @return Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle {
     /**
-     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * @return The color palette to apply to the widget.
      * 
      */
     private String palette;
@@ -24,7 +24,7 @@ public final class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle {
 
     private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle() {}
     /**
-     * @return The color palette to apply. Valid values are `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `grey`, `green`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `green_on_white`, `white_on_red`, `white_on_yellow`, `yellow_on_white`, `black_on_light_yellow`, `black_on_light_green`, `black_on_light_red`.
+     * @return The color palette to apply to the widget.
      * 
      */
     public String palette() {

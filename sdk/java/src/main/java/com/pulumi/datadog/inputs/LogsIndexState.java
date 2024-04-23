@@ -113,14 +113,14 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the exclusion filter.
+     * The name of the index.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the exclusion filter.
+     * @return The name of the index.
      * 
      */
     public Optional<Output<String>> name() {
@@ -320,7 +320,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the exclusion filter.
+         * @param name The name of the index.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class LogsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the exclusion filter.
+         * @param name The name of the index.
          * 
          * @return builder
          * 

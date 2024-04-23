@@ -231,14 +231,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Regex or JSON path used for the parser. Not used with type `raw`.
+     * Value of the step.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Regex or JSON path used for the parser. Not used with type `raw`.
+     * @return Value of the step.
      * 
      */
     public Optional<Output<String>> value() {
@@ -652,7 +652,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * @param value Value of the step.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param value Regex or JSON path used for the parser. Not used with type `raw`.
+         * @param value Value of the step.
          * 
          * @return builder
          * 

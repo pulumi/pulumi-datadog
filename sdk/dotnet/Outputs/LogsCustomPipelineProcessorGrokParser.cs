@@ -15,11 +15,11 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.LogsCustomPipelineProcessorGrokParserGrok Grok;
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -50,7 +50,7 @@ public final class PowerpackWidgetDistributionDefinitionRequest {
      */
     private @Nullable PowerpackWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     private @Nullable PowerpackWidgetDistributionDefinitionRequestStyle style;
@@ -102,7 +102,7 @@ public final class PowerpackWidgetDistributionDefinitionRequest {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<PowerpackWidgetDistributionDefinitionRequestStyle> style() {

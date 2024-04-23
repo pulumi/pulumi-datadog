@@ -19,14 +19,14 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     public static final DashboardWidgetPowerpackDefinitionArgs Empty = new DashboardWidgetPowerpackDefinitionArgs();
 
     /**
-     * The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * The background color of the powerpack title.
      * 
      */
     @Import(name="backgroundColor")
     private @Nullable Output<String> backgroundColor;
 
     /**
-     * @return The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+     * @return The background color of the powerpack title.
      * 
      */
     public Optional<Output<String>> backgroundColor() {
@@ -34,14 +34,14 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     }
 
     /**
-     * The image URL to display as a banner for the group.
+     * URL of image to display as a banner for the powerpack.
      * 
      */
     @Import(name="bannerImg")
     private @Nullable Output<String> bannerImg;
 
     /**
-     * @return The image URL to display as a banner for the group.
+     * @return URL of image to display as a banner for the powerpack.
      * 
      */
     public Optional<Output<String>> bannerImg() {
@@ -64,14 +64,14 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     }
 
     /**
-     * Whether to show the title or not. Defaults to `true`.
+     * Whether to show the title of the powerpack.
      * 
      */
     @Import(name="showTitle")
     private @Nullable Output<Boolean> showTitle;
 
     /**
-     * @return Whether to show the title or not. Defaults to `true`.
+     * @return Whether to show the title of the powerpack.
      * 
      */
     public Optional<Output<Boolean>> showTitle() {
@@ -94,14 +94,14 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
     }
 
     /**
-     * The title of the widget.
+     * Title of the powerpack.
      * 
      */
     @Import(name="title")
     private @Nullable Output<String> title;
 
     /**
-     * @return The title of the widget.
+     * @return Title of the powerpack.
      * 
      */
     public Optional<Output<String>> title() {
@@ -138,7 +138,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * @param backgroundColor The background color of the powerpack title.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param backgroundColor The background color of the group title, options: `vivid_blue`, `vivid_purple`, `vivid_pink`, `vivid_orange`, `vivid_yellow`, `vivid_green`, `blue`, `purple`, `pink`, `orange`, `yellow`, `green`, `gray` or `white`
+         * @param backgroundColor The background color of the powerpack title.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param bannerImg The image URL to display as a banner for the group.
+         * @param bannerImg URL of image to display as a banner for the powerpack.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param bannerImg The image URL to display as a banner for the group.
+         * @param bannerImg URL of image to display as a banner for the powerpack.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param showTitle Whether to show the title or not. Defaults to `true`.
+         * @param showTitle Whether to show the title of the powerpack.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param showTitle Whether to show the title or not. Defaults to `true`.
+         * @param showTitle Whether to show the title of the powerpack.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param title The title of the widget.
+         * @param title Title of the powerpack.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class DashboardWidgetPowerpackDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param title The title of the widget.
+         * @param title Title of the powerpack.
          * 
          * @return builder
          * 

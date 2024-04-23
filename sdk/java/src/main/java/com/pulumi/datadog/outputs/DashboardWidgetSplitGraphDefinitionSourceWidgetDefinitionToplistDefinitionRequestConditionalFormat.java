@@ -55,7 +55,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
      */
     private @Nullable String timeframe;
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A value for the comparator.
      * 
      */
     private Double value;
@@ -118,7 +118,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTopl
         return Optional.ofNullable(this.timeframe);
     }
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return A value for the comparator.
      * 
      */
     public Double value() {

@@ -15,14 +15,14 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
     public static final DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs Empty = new DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInputArgs();
 
     /**
-     * The name of the variable.
+     * Name of the workflow input.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the variable.
+     * @return Name of the workflow input.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
     }
 
     /**
-     * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+     * @return Dashboard template variable. Can be suffixed with `.value` or `.key`.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name of the workflow input.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
         }
 
         /**
-         * @param name The name of the variable.
+         * @param name Name of the workflow input.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value Dashboard template variable. Can be suffixed with `.value` or `.key`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionInpu
         }
 
         /**
-         * @param value The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
+         * @param value Dashboard template variable. Can be suffixed with `.value` or `.key`.
          * 
          * @return builder
          * 

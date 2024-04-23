@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getIpRanges({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
 
@@ -119,14 +117,12 @@ export interface GetIpRangesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const test = datadog.getIpRanges({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpRangesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
     return pulumi.output(getIpRanges(opts))

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Group;
         /// <summary>
-        /// Multiple `group_by` blocks are allowed using the structure below.
+        /// When `grouping = "cluster"`, indicates a list of tags to use for grouping.
         /// </summary>
         public readonly ImmutableArray<string> GroupBies;
         /// <summary>

@@ -13,25 +13,25 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsCustomPipelineProcessorStringBuilderProcessorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of template by an empty string.
         /// </summary>
         [Input("isReplaceMissing")]
         public Input<bool>? IsReplaceMissing { get; set; }
 
         /// <summary>
-        /// Your pipeline name.
+        /// The name of the processor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// The name of the attribute that contains the result of the template.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

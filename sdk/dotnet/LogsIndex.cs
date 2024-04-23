@@ -12,7 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +72,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -121,7 +119,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the exclusion filter.
+        /// The name of the index.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -227,7 +225,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the exclusion filter.
+        /// The name of the index.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -295,7 +293,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the exclusion filter.
+        /// The name of the index.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

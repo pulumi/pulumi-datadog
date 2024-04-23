@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn {
     /**
-     * @return An expression alias.
+     * @return A user-assigned alias for the column.
      * 
      */
     private @Nullable String alias;
@@ -23,7 +23,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private @Nullable String cellDisplayMode;
     /**
-     * @return The name of the variable.
+     * @return The column name.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionRequestApmStatsQueryColumn() {}
     /**
-     * @return An expression alias.
+     * @return A user-assigned alias for the column.
      * 
      */
     public Optional<String> alias() {
@@ -49,7 +49,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return Optional.ofNullable(this.cellDisplayMode);
     }
     /**
-     * @return The name of the variable.
+     * @return The column name.
      * 
      */
     public String name() {

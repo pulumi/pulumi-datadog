@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> FormulaExpression { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of items in the group.
+        /// The options for limiting results returned.
         /// </summary>
         [Input("limit")]
         public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionRequestFormulaLimitGetArgs>? Limit { get; set; }

@@ -77,7 +77,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         /// <summary>
-        /// Styling options for widget formulas.
+        /// Define style for the widget's request.
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionRequestStyleGetArgs>? Style { get; set; }

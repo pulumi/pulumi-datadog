@@ -16,7 +16,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTeamMembershipsResult> InvokeAsync(GetTeamMembershipsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Datadog
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Datadog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTeamMembershipsResult> Invoke(GetTeamMembershipsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembershipsResult>("datadog:index/getTeamMemberships:getTeamMemberships", args ?? new GetTeamMembershipsInvokeArgs(), options.WithDefaults());
@@ -81,6 +77,9 @@ namespace Pulumi.Datadog
         [Input("filterKeyword")]
         public string? FilterKeyword { get; set; }
 
+        /// <summary>
+        /// The team's identifier.
+        /// </summary>
         [Input("teamId", required: true)]
         public string TeamId { get; set; } = null!;
 
@@ -104,6 +103,9 @@ namespace Pulumi.Datadog
         [Input("filterKeyword")]
         public Input<string>? FilterKeyword { get; set; }
 
+        /// <summary>
+        /// The team's identifier.
+        /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 

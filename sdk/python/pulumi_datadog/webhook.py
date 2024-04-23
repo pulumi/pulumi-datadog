@@ -201,7 +201,6 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -219,7 +218,6 @@ class Webhook(pulumi.CustomResource):
                 "custom": "payload",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -246,7 +244,6 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -264,7 +261,6 @@ class Webhook(pulumi.CustomResource):
                 "custom": "payload",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

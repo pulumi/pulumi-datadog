@@ -24,17 +24,17 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
      */
     private @Nullable Boolean isColumnBreak;
     /**
-     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * @return The width of the widget.
      * 
      */
     private Integer width;
     /**
-     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     private Integer x;
     /**
-     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     private Integer y;
@@ -55,21 +55,21 @@ public final class DashboardWidgetGroupDefinitionWidgetWidgetLayout {
         return Optional.ofNullable(this.isColumnBreak);
     }
     /**
-     * @return Widget column width. Valid values are `auto`, `compact`, `full`.
+     * @return The width of the widget.
      * 
      */
     public Integer width() {
         return this.width;
     }
     /**
-     * @return The query used for the X-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
      * 
      */
     public Integer x() {
         return this.x;
     }
     /**
-     * @return The query used for the Y-Axis. Exactly one nested block is allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query`, `apm_stats_query` or `process_query` is required within the block).
+     * @return The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      * 
      */
     public Integer y() {

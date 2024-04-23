@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery {
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
     private String dataSource;
@@ -24,12 +24,12 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private String env;
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Array of fields to group results by.
      * 
      */
     private @Nullable List<String> groupBies;
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     private String name;
@@ -59,14 +59,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
      */
     private String service;
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
      * 
      */
     private String stat;
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestQueryApmResourceStatsQuery() {}
     /**
-     * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+     * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
     public String dataSource() {
@@ -80,14 +80,14 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return this.env;
     }
     /**
-     * @return Multiple `group_by` blocks are allowed using the structure below.
+     * @return Array of fields to group results by.
      * 
      */
     public List<String> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public String name() {
@@ -129,7 +129,7 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQuer
         return this.service;
     }
     /**
-     * @return APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+     * @return APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
      * 
      */
     public String stat() {

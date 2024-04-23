@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -99,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Value for the parser to use, required for type `json_path` or `regex`.
+        /// The value of the global variable.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -218,7 +216,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// Value for the parser to use, required for type `json_path` or `regex`.
+        /// The value of the global variable.
         /// </summary>
         public Input<string>? Value
         {
@@ -302,7 +300,7 @@ namespace Pulumi.Datadog
         private Input<string>? _value;
 
         /// <summary>
-        /// Value for the parser to use, required for type `json_path` or `regex`.
+        /// The value of the global variable.
         /// </summary>
         public Input<string>? Value
         {

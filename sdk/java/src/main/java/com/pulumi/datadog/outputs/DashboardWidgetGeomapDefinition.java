@@ -28,12 +28,12 @@ public final class DashboardWidgetGeomapDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     private @Nullable List<DashboardWidgetGeomapDefinitionRequest> requests;
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     private @Nullable DashboardWidgetGeomapDefinitionStyle style;
@@ -74,14 +74,14 @@ public final class DashboardWidgetGeomapDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apm_query`, `log_query`, `rum_query`, `security_query` or `process_query` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `log_query` or `rum_query` is required within the `request` block).
      * 
      */
     public List<DashboardWidgetGeomapDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
-     * @return Styling options for widget formulas.
+     * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
      */
     public Optional<DashboardWidgetGeomapDefinitionStyle> style() {

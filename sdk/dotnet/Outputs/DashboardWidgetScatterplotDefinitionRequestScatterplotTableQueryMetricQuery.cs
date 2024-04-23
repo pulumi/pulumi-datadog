@@ -14,15 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuery
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        /// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
+        /// The data source for metrics queries. Defaults to `"metrics"`.
         /// </summary>
         public readonly string? DataSource;
         /// <summary>
-        /// The name of the variable.
+        /// The name of the query for use in formulas.
         /// </summary>
         public readonly string Name;
         /// <summary>

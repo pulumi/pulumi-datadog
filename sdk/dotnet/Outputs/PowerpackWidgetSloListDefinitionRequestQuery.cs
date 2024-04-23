@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetSloListDefinitionRequestQuery
     {
         /// <summary>
-        /// The maximum number of items in the group.
+        /// Maximum number of results to display in the table. Defaults to `100`.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string QueryString;
         /// <summary>
-        /// The options for sorting group by results.
+        /// The facet and order to sort the data, for example: `{"column": "status.sli", "order": "desc"}`.
         /// </summary>
         public readonly Outputs.PowerpackWidgetSloListDefinitionRequestQuerySort? Sort;
 

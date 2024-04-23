@@ -14,7 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Datadog
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -59,7 +57,7 @@ namespace Pulumi.Datadog
     public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the permission.
+        /// Name of the role.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -129,7 +127,7 @@ namespace Pulumi.Datadog
     public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the permission.
+        /// Name of the role.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -161,7 +159,7 @@ namespace Pulumi.Datadog
     public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the permission.
+        /// Name of the role.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

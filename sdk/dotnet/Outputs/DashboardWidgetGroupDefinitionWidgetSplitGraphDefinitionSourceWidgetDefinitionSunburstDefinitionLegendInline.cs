@@ -18,11 +18,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? HidePercent;
         /// <summary>
-        /// Setting this to True hides values.
+        /// Whether to hide the values of the groups.
         /// </summary>
         public readonly bool? HideValue;
         /// <summary>
-        /// Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+        /// The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
         /// </summary>
         public readonly string Type;
 

@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean value to enable your pipeline.
+        /// If the processor is enabled or not.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// Your pipeline name.
+        /// Name of the processor
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _sources;
 
         /// <summary>
-        /// List of source attributes or tags.
+        /// List of source attributes.
         /// </summary>
         public InputList<string> Sources
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Name of the attribute that contains the result of the arithmetic operation.
+        /// Name of the parent attribute that contains all the extracted details from the sources.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

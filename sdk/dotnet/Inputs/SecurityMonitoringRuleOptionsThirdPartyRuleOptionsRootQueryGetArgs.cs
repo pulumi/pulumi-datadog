@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// Query for selecting logs to apply the filtering action.
+        /// Query to filter logs.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;

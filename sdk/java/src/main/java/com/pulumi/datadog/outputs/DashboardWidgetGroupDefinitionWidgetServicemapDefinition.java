@@ -25,7 +25,7 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
      */
     private List<String> filters;
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     private String service;
@@ -61,7 +61,7 @@ public final class DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
         return this.filters;
     }
     /**
-     * @return APM service.
+     * @return The ID of the service to map.
      * 
      */
     public String service() {

@@ -29,7 +29,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyS
      */
     private @Nullable Boolean isUpstream;
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     private String name;
@@ -87,7 +87,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyS
         return Optional.ofNullable(this.isUpstream);
     }
     /**
-     * @return The name of the variable.
+     * @return The name of query for use in formulas.
      * 
      */
     public String name() {

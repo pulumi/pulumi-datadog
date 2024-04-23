@@ -31,13 +31,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<int> Width { get; set; } = null!;
 
         /// <summary>
-        /// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+        /// The position of the widget on the x (horizontal) axis. Must be greater than or equal to 0.
         /// </summary>
         [Input("x", required: true)]
         public Input<int> X { get; set; } = null!;
 
         /// <summary>
-        /// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+        /// The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
         /// </summary>
         [Input("y", required: true)]
         public Input<int> Y { get; set; } = null!;

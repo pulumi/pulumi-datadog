@@ -52,8 +52,14 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[str] query: The events search string.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
                cannot be changed after a monitor is created.
@@ -202,7 +208,7 @@ class MonitorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of query for use in formulas.
+        Name of Datadog monitor.
         """
         return pulumi.get(self, "name")
 
@@ -214,7 +220,13 @@ class MonitorArgs:
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
         """
-        The events search string.
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         """
         return pulumi.get(self, "query")
 
@@ -680,7 +692,7 @@ class _MonitorState:
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: The name of query for use in formulas.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -704,7 +716,13 @@ class _MonitorState:
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The events search string.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -962,7 +980,7 @@ class _MonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of query for use in formulas.
+        Name of Datadog monitor.
         """
         return pulumi.get(self, "name")
 
@@ -1099,7 +1117,13 @@ class _MonitorState:
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
-        The events search string.
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         """
         return pulumi.get(self, "query")
 
@@ -1291,7 +1315,6 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -1312,7 +1335,6 @@ class Monitor(pulumi.CustomResource):
                 "team:fooBar",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1342,7 +1364,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: The name of query for use in formulas.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -1366,7 +1388,13 @@ class Monitor(pulumi.CustomResource):
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The events search string.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1399,7 +1427,6 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -1420,7 +1447,6 @@ class Monitor(pulumi.CustomResource):
                 "team:fooBar",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1600,7 +1626,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdsArgs']] monitor_thresholds: Alert thresholds of the monitor.
-        :param pulumi.Input[str] name: The name of query for use in formulas.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[int] new_group_delay: The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
                nonzero value.
         :param pulumi.Input[int] new_host_delay: **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -1624,7 +1650,13 @@ class Monitor(pulumi.CustomResource):
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
-        :param pulumi.Input[str] query: The events search string.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+               is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+               monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+               metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+               metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1799,7 +1831,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of query for use in formulas.
+        Name of Datadog monitor.
         """
         return pulumi.get(self, "name")
 
@@ -1896,7 +1928,13 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
         """
-        The events search string.
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         """
         return pulumi.get(self, "query")
 

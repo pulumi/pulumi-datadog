@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs>? _columns;
 
         /// <summary>
-        /// Column properties used by the front end for display.
+        /// Widget columns.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionRequestColumnArgs> Columns
         {

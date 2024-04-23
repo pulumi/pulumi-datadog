@@ -21,14 +21,14 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
     public static final DashboardWidgetSplitGraphDefinitionSplitConfigArgs Empty = new DashboardWidgetSplitGraphDefinitionSplitConfigArgs();
 
     /**
-     * The maximum number of items in the group.
+     * Maximum number of graphs to display in the widget.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return The maximum number of items in the group.
+     * @return Maximum number of graphs to display in the widget.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -36,14 +36,14 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
     }
 
     /**
-     * The options for sorting group by results.
+     * Controls the order in which graphs appear in the split.
      * 
      */
     @Import(name="sort", required=true)
     private Output<DashboardWidgetSplitGraphDefinitionSplitConfigSortArgs> sort;
 
     /**
-     * @return The options for sorting group by results.
+     * @return Controls the order in which graphs appear in the split.
      * 
      */
     public Output<DashboardWidgetSplitGraphDefinitionSplitConfigSortArgs> sort() {
@@ -108,7 +108,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit Maximum number of graphs to display in the widget.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param limit The maximum number of items in the group.
+         * @param limit Maximum number of graphs to display in the widget.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort Controls the order in which graphs appear in the split.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param sort The options for sorting group by results.
+         * @param sort Controls the order in which graphs appear in the split.
          * 
          * @return builder
          * 
