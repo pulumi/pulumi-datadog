@@ -68,6 +68,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression")
 public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomResource {
     /**
+     * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     * 
+     */
+    @Export(name="dataExclusionQuery", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dataExclusionQuery;
+
+    /**
+     * @return An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     * 
+     */
+    public Output<Optional<String>> dataExclusionQuery() {
+        return Codegen.optional(this.dataExclusionQuery);
+    }
+    /**
      * A description for the suppression rule.
      * 
      */
@@ -138,18 +152,18 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
         return this.ruleQuery;
     }
     /**
-     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      * 
      */
     @Export(name="suppressionQuery", refs={String.class}, tree="[0]")
-    private Output<String> suppressionQuery;
+    private Output</* @Nullable */ String> suppressionQuery;
 
     /**
-     * @return The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * @return The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      * 
      */
-    public Output<String> suppressionQuery() {
-        return this.suppressionQuery;
+    public Output<Optional<String>> suppressionQuery() {
+        return Codegen.optional(this.suppressionQuery);
     }
 
     /**

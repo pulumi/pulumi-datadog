@@ -398,7 +398,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def roles(self) -> pulumi.Output[Sequence[str]]:
         """
         A list a role IDs to assign to the user.
         """

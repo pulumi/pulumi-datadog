@@ -39877,6 +39877,14 @@ export interface GetCloudWorkloadSecurityAgentRulesAgentRule {
     name: string;
 }
 
+export interface GetCsmThreatsAgentRulesAgentRule {
+    description: string;
+    enabled: boolean;
+    expression: string;
+    id: string;
+    name: string;
+}
+
 export interface GetHostsHostList {
     aliases: string[];
     apps: string[];
@@ -40124,6 +40132,11 @@ export interface GetMonitorsMonitor {
     type: string;
 }
 
+export interface GetRoleUsersRoleUser {
+    roleId: string;
+    userId: string;
+}
+
 export interface GetRolesRole {
     /**
      * ID of the Datadog role
@@ -40187,7 +40200,7 @@ export interface GetSecurityMonitoringRulesRule {
      */
     enabled?: boolean;
     /**
-     * Additional queries to filter matched events before they are processed.
+     * Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      */
     filters?: outputs.GetSecurityMonitoringRulesRuleFilter[];
     /**
@@ -40446,6 +40459,7 @@ export interface GetSecurityMonitoringRulesRuleThirdPartyCase {
 }
 
 export interface GetSecurityMonitoringSuppressionsSuppression {
+    dataExclusionQuery: string;
     description: string;
     enabled: boolean;
     expirationDate: string;
@@ -53446,7 +53460,7 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveSliSpecification {
     /**
-     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      */
     timeSlice: outputs.ServiceLevelObjectiveSliSpecificationTimeSlice;
 }
@@ -53460,6 +53474,10 @@ export interface ServiceLevelObjectiveSliSpecificationTimeSlice {
      * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      */
     query: outputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery;
+    /**
+     * The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     */
+    queryIntervalSeconds?: number;
     /**
      * The threshold value to which each SLI value will be compared.
      */
@@ -53863,7 +53881,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     body?: string;
     /**
-     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      */
     bodyType?: string;
     /**
@@ -53890,6 +53908,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * Host name to perform the test with.
      */
     host?: string;
+    /**
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: string;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -54248,7 +54270,7 @@ export interface SyntheticsTestOptionsList {
      */
     followRedirects?: boolean;
     /**
-     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      */
     httpVersion?: string;
     /**
@@ -54466,7 +54488,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     body?: string;
     /**
-     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      */
     bodyType?: string;
     /**
@@ -54489,6 +54511,10 @@ export interface SyntheticsTestRequestDefinition {
      * Host name to perform the test with.
      */
     host?: string;
+    /**
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: string;
     /**
      * For UDP and websocket tests, message to send with the request.
      */

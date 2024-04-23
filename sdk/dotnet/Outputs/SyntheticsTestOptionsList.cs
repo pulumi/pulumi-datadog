@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
-        /// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>

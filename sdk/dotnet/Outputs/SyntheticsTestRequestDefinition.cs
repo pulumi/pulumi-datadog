@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
         /// </summary>
         public readonly string? BodyType;
         /// <summary>
@@ -41,6 +41,10 @@ namespace Pulumi.Datadog.Outputs
         /// Host name to perform the test with.
         /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// </summary>
+        public readonly string? HttpVersion;
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.
         /// </summary>
@@ -110,6 +114,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? host,
 
+            string? httpVersion,
+
             string? message,
 
             string? method,
@@ -143,6 +149,7 @@ namespace Pulumi.Datadog.Outputs
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
             Host = host;
+            HttpVersion = httpVersion;
             Message = message;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;

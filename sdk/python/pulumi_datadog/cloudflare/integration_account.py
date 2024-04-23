@@ -149,7 +149,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -183,7 +183,7 @@ class IntegrationAccount(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list ""
+        $ pulumi import datadog:cloudflare/integrationAccount:IntegrationAccount new_list "<ID>"
         ```
 
         :param str resource_name: The name of the resource.

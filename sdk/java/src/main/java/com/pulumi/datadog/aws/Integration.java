@@ -148,6 +148,20 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludedRegions);
     }
     /**
+     * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    @Export(name="extendedResourceCollectionEnabled", refs={String.class}, tree="[0]")
+    private Output<String> extendedResourceCollectionEnabled;
+
+    /**
+     * @return Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection_enabled`.
+     * 
+     */
+    public Output<String> extendedResourceCollectionEnabled() {
+        return this.extendedResourceCollectionEnabled;
+    }
+    /**
      * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
      * Terraform.
      * 
@@ -206,14 +220,18 @@ public class Integration extends com.pulumi.resources.CustomResource {
         return this.metricsCollectionEnabled;
     }
     /**
-     * Whether Datadog collects a standard set of resources from your AWS account.
+     * Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
+     * 
+     * @deprecated
+     * Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
+    @Deprecated /* Deprecated in favor of `extended_resource_collection_enabled`. */
     @Export(name="resourceCollectionEnabled", refs={String.class}, tree="[0]")
     private Output<String> resourceCollectionEnabled;
 
     /**
-     * @return Whether Datadog collects a standard set of resources from your AWS account.
+     * @return Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
      * 
      */
     public Output<String> resourceCollectionEnabled() {

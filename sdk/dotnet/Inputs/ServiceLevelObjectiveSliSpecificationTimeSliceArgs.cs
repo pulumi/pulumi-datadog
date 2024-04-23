@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs> Query { get; set; } = null!;
 
         /// <summary>
+        /// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+        /// </summary>
+        [Input("queryIntervalSeconds")]
+        public Input<int>? QueryIntervalSeconds { get; set; }
+
+        /// <summary>
         /// The threshold value to which each SLI value will be compared.
         /// </summary>
         [Input("threshold", required: true)]

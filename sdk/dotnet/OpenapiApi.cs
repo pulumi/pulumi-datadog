@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+    /// Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
     /// 
     /// ## Import
     /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     public partial class OpenapiApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The OpenAPI spec.
+        /// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         /// </summary>
         [Output("spec")]
         public Output<string> Spec { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
     public sealed class OpenapiApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OpenAPI spec.
+        /// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         /// </summary>
         [Input("spec", required: true)]
         public Input<string> Spec { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Datadog
     public sealed class OpenapiApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OpenAPI spec.
+        /// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
         /// </summary>
         [Input("spec")]
         public Input<string>? Spec { get; set; }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+// Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
 //
 // ## Import
 //
@@ -22,7 +22,7 @@ import (
 type OpenapiApi struct {
 	pulumi.CustomResourceState
 
-	// The OpenAPI spec.
+	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec pulumi.StringOutput `pulumi:"spec"`
 }
 
@@ -59,12 +59,12 @@ func GetOpenapiApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenapiApi resources.
 type openapiApiState struct {
-	// The OpenAPI spec.
+	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec *string `pulumi:"spec"`
 }
 
 type OpenapiApiState struct {
-	// The OpenAPI spec.
+	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec pulumi.StringPtrInput
 }
 
@@ -73,13 +73,13 @@ func (OpenapiApiState) ElementType() reflect.Type {
 }
 
 type openapiApiArgs struct {
-	// The OpenAPI spec.
+	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec string `pulumi:"spec"`
 }
 
 // The set of arguments for constructing a OpenapiApi resource.
 type OpenapiApiArgs struct {
-	// The OpenAPI spec.
+	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec pulumi.StringInput
 }
 
@@ -170,7 +170,7 @@ func (o OpenapiApiOutput) ToOpenapiApiOutputWithContext(ctx context.Context) Ope
 	return o
 }
 
-// The OpenAPI spec.
+// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 func (o OpenapiApiOutput) Spec() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenapiApi) pulumi.StringOutput { return v.Spec }).(pulumi.StringOutput)
 }

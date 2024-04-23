@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudConfigurationRule{}
 	case "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule":
 		r = &CloudWorkloadSecurityAgentRule{}
+	case "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule":
+		r = &CsmThreatsAgentRule{}
 	case "datadog:index/dashboard:Dashboard":
 		r = &Dashboard{}
 	case "datadog:index/dashboardJson:DashboardJson":
@@ -131,6 +133,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamPermissionSetting{}
 	case "datadog:index/user:User":
 		r = &User{}
+	case "datadog:index/userRole:UserRole":
+		r = &UserRole{}
 	case "datadog:index/webhook:Webhook":
 		r = &Webhook{}
 	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
@@ -204,6 +208,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/cloudWorkloadSecurityAgentRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/csmThreatsAgentRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -439,6 +448,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/userRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

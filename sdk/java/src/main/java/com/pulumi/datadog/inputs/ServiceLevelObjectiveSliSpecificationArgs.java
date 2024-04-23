@@ -15,14 +15,14 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
     public static final ServiceLevelObjectiveSliSpecificationArgs Empty = new ServiceLevelObjectiveSliSpecificationArgs();
 
     /**
-     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
     @Import(name="timeSlice", required=true)
     private Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice;
 
     /**
-     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
     public Output<ServiceLevelObjectiveSliSpecificationTimeSliceArgs> timeSlice() {
@@ -54,7 +54,7 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param timeSlice The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+         * @param timeSlice The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ServiceLevelObjectiveSliSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param timeSlice The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+         * @param timeSlice The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
          * 
          * @return builder
          * 

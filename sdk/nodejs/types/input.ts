@@ -52806,7 +52806,7 @@ export interface ServiceLevelObjectiveQuery {
 
 export interface ServiceLevelObjectiveSliSpecification {
     /**
-     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      */
     timeSlice: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSlice>;
 }
@@ -52820,6 +52820,10 @@ export interface ServiceLevelObjectiveSliSpecificationTimeSlice {
      * A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
      */
     query: pulumi.Input<inputs.ServiceLevelObjectiveSliSpecificationTimeSliceQuery>;
+    /**
+     * The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+     */
+    queryIntervalSeconds?: pulumi.Input<number>;
     /**
      * The threshold value to which each SLI value will be compared.
      */
@@ -53223,7 +53227,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     body?: pulumi.Input<string>;
     /**
-     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      */
     bodyType?: pulumi.Input<string>;
     /**
@@ -53250,6 +53254,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * Host name to perform the test with.
      */
     host?: pulumi.Input<string>;
+    /**
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: pulumi.Input<string>;
     /**
      * For UDP and websocket tests, message to send with the request.
      */
@@ -53608,7 +53616,7 @@ export interface SyntheticsTestOptionsList {
      */
     followRedirects?: pulumi.Input<boolean>;
     /**
-     * HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
      */
     httpVersion?: pulumi.Input<string>;
     /**
@@ -53826,7 +53834,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     body?: pulumi.Input<string>;
     /**
-     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+     * Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
      */
     bodyType?: pulumi.Input<string>;
     /**
@@ -53849,6 +53857,10 @@ export interface SyntheticsTestRequestDefinition {
      * Host name to perform the test with.
      */
     host?: pulumi.Input<string>;
+    /**
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     */
+    httpVersion?: pulumi.Input<string>;
     /**
      * For UDP and websocket tests, message to send with the request.
      */

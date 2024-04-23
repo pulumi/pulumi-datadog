@@ -117,7 +117,6 @@ class MonitorJson(pulumi.CustomResource):
         \\x09"restricted_roles": null,
             "options": {
                 "include_tags": true,
-                "locked": false,
                 "new_host_delay": 150,
                 "notify_audit": false,
                 "notify_no_data": false,
@@ -169,7 +168,6 @@ class MonitorJson(pulumi.CustomResource):
         \\x09"restricted_roles": null,
             "options": {
                 "include_tags": true,
-                "locked": false,
                 "new_host_delay": 150,
                 "notify_audit": false,
                 "notify_no_data": false,

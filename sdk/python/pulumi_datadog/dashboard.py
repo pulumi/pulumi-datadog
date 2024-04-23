@@ -508,7 +508,6 @@ class Dashboard(pulumi.CustomResource):
             title="Ordered Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
-            is_read_only=True,
             widgets=[
                 datadog.DashboardWidgetArgs(
                     alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
@@ -923,7 +922,6 @@ class Dashboard(pulumi.CustomResource):
             title="Free Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="free",
-            is_read_only=False,
             widgets=[
                 datadog.DashboardWidgetArgs(
                     event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
@@ -1287,7 +1285,6 @@ class Dashboard(pulumi.CustomResource):
             title="Ordered Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
-            is_read_only=True,
             widgets=[
                 datadog.DashboardWidgetArgs(
                     alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
@@ -1702,7 +1699,6 @@ class Dashboard(pulumi.CustomResource):
             title="Free Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="free",
-            is_read_only=False,
             widgets=[
                 datadog.DashboardWidgetArgs(
                     event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(

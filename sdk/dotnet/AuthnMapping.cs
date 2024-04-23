@@ -60,7 +60,13 @@ namespace Pulumi.Datadog
         /// The ID of a role to attach to all users with the corresponding key and value.
         /// </summary>
         [Output("role")]
-        public Output<string> Role { get; private set; } = null!;
+        public Output<string?> Role { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of a team to add all users with the corresponding key and value to.
+        /// </summary>
+        [Output("team")]
+        public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
         /// Identity provider value.
@@ -123,8 +129,14 @@ namespace Pulumi.Datadog
         /// <summary>
         /// The ID of a role to attach to all users with the corresponding key and value.
         /// </summary>
-        [Input("role", required: true)]
-        public Input<string> Role { get; set; } = null!;
+        [Input("role")]
+        public Input<string>? Role { get; set; }
+
+        /// <summary>
+        /// The ID of a team to add all users with the corresponding key and value to.
+        /// </summary>
+        [Input("team")]
+        public Input<string>? Team { get; set; }
 
         /// <summary>
         /// Identity provider value.
@@ -151,6 +163,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
+
+        /// <summary>
+        /// The ID of a team to add all users with the corresponding key and value to.
+        /// </summary>
+        [Input("team")]
+        public Input<string>? Team { get; set; }
 
         /// <summary>
         /// Identity provider value.

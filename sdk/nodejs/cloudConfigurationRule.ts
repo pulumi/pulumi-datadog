@@ -98,7 +98,7 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.CloudConfigurationRuleFilter[] | undefined>;
     /**
-     * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
     public readonly groupBies!: pulumi.Output<string[] | undefined>;
     /**
@@ -110,7 +110,7 @@ export class CloudConfigurationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Notification targets for signals. Defaults to empty list.
+     * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
     public readonly notifications!: pulumi.Output<string[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface CloudConfigurationRuleState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
     /**
-     * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -220,7 +220,7 @@ export interface CloudConfigurationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Notification targets for signals. Defaults to empty list.
+     * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
     notifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -258,7 +258,7 @@ export interface CloudConfigurationRuleArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.CloudConfigurationRuleFilter>[]>;
     /**
-     * Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
      */
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -270,7 +270,7 @@ export interface CloudConfigurationRuleArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Notification targets for signals. Defaults to empty list.
+     * This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
      */
     notifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**

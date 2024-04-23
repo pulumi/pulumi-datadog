@@ -47,6 +47,12 @@ namespace Pulumi.Datadog
     public partial class SecurityMonitoringSuppression : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+        /// </summary>
+        [Output("dataExclusionQuery")]
+        public Output<string?> DataExclusionQuery { get; private set; } = null!;
+
+        /// <summary>
         /// A description for the suppression rule.
         /// </summary>
         [Output("description")]
@@ -77,10 +83,10 @@ namespace Pulumi.Datadog
         public Output<string> RuleQuery { get; private set; } = null!;
 
         /// <summary>
-        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         /// </summary>
         [Output("suppressionQuery")]
-        public Output<string> SuppressionQuery { get; private set; } = null!;
+        public Output<string?> SuppressionQuery { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,6 +135,12 @@ namespace Pulumi.Datadog
     public sealed class SecurityMonitoringSuppressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+        /// </summary>
+        [Input("dataExclusionQuery")]
+        public Input<string>? DataExclusionQuery { get; set; }
+
+        /// <summary>
         /// A description for the suppression rule.
         /// </summary>
         [Input("description")]
@@ -159,10 +171,10 @@ namespace Pulumi.Datadog
         public Input<string> RuleQuery { get; set; } = null!;
 
         /// <summary>
-        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         /// </summary>
-        [Input("suppressionQuery", required: true)]
-        public Input<string> SuppressionQuery { get; set; } = null!;
+        [Input("suppressionQuery")]
+        public Input<string>? SuppressionQuery { get; set; }
 
         public SecurityMonitoringSuppressionArgs()
         {
@@ -172,6 +184,12 @@ namespace Pulumi.Datadog
 
     public sealed class SecurityMonitoringSuppressionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+        /// </summary>
+        [Input("dataExclusionQuery")]
+        public Input<string>? DataExclusionQuery { get; set; }
+
         /// <summary>
         /// A description for the suppression rule.
         /// </summary>
@@ -203,7 +221,7 @@ namespace Pulumi.Datadog
         public Input<string>? RuleQuery { get; set; }
 
         /// <summary>
-        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+        /// The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
         /// </summary>
         [Input("suppressionQuery")]
         public Input<string>? SuppressionQuery { get; set; }

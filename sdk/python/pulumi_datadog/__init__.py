@@ -13,6 +13,7 @@ from .authn_mapping import *
 from .child_organization import *
 from .cloud_configuration_rule import *
 from .cloud_workload_security_agent_rule import *
+from .csm_threats_agent_rule import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
@@ -22,6 +23,7 @@ from .get_api_key import *
 from .get_apm_retention_filters_order import *
 from .get_application_key import *
 from .get_cloud_workload_security_agent_rules import *
+from .get_csm_threats_agent_rules import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_hosts import *
@@ -35,6 +37,7 @@ from .get_monitor_config_policies import *
 from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
+from .get_role_users import *
 from .get_roles import *
 from .get_rum_application import *
 from .get_security_monitoring_filters import *
@@ -95,6 +98,7 @@ from .team_link import *
 from .team_membership import *
 from .team_permission_setting import *
 from .user import *
+from .user_role import *
 from .webhook import *
 from .webhook_custom_variable import *
 from ._inputs import *
@@ -303,6 +307,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": "CloudWorkloadSecurityAgentRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/csmThreatsAgentRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": "CsmThreatsAgentRule"
   }
  },
  {
@@ -679,6 +691,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/userRole",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/userRole:UserRole": "UserRole"
   }
  },
  {

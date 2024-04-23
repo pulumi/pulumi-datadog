@@ -31,7 +31,7 @@ public final class GetSecurityMonitoringRulesRule {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Additional queries to filter matched events before they are processed.
+     * @return Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     private @Nullable List<GetSecurityMonitoringRulesRuleFilter> filters;
@@ -97,7 +97,7 @@ public final class GetSecurityMonitoringRulesRule {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Additional queries to filter matched events before they are processed.
+     * @return Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
      * 
      */
     public List<GetSecurityMonitoringRulesRuleFilter> filters() {

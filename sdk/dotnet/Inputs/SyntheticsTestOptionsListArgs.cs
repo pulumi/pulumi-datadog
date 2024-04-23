@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? FollowRedirects { get; set; }
 
         /// <summary>
-        /// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }

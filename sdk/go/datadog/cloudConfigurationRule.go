@@ -98,13 +98,13 @@ type CloudConfigurationRule struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. Defaults to empty list
 	Filters CloudConfigurationRuleFilterArrayOutput `pulumi:"filters"`
-	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayOutput `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Notification targets for signals. Defaults to empty list.
+	// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
 	// Policy written in Rego format.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -170,13 +170,13 @@ type cloudConfigurationRuleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. Defaults to empty list
 	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
-	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies []string `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
 	Message *string `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name *string `pulumi:"name"`
-	// Notification targets for signals. Defaults to empty list.
+	// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 	Notifications []string `pulumi:"notifications"`
 	// Policy written in Rego format.
 	Policy *string `pulumi:"policy"`
@@ -195,13 +195,13 @@ type CloudConfigurationRuleState struct {
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed. Defaults to empty list
 	Filters CloudConfigurationRuleFilterArrayInput
-	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayInput
 	// The message associated to the rule that will be shown in findings and signals.
 	Message pulumi.StringPtrInput
 	// The name of the cloud configuration rule.
 	Name pulumi.StringPtrInput
-	// Notification targets for signals. Defaults to empty list.
+	// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 	Notifications pulumi.StringArrayInput
 	// Policy written in Rego format.
 	Policy pulumi.StringPtrInput
@@ -224,13 +224,13 @@ type cloudConfigurationRuleArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed. Defaults to empty list
 	Filters []CloudConfigurationRuleFilter `pulumi:"filters"`
-	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies []string `pulumi:"groupBies"`
 	// The message associated to the rule that will be shown in findings and signals.
 	Message string `pulumi:"message"`
 	// The name of the cloud configuration rule.
 	Name string `pulumi:"name"`
-	// Notification targets for signals. Defaults to empty list.
+	// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 	Notifications []string `pulumi:"notifications"`
 	// Policy written in Rego format.
 	Policy string `pulumi:"policy"`
@@ -250,13 +250,13 @@ type CloudConfigurationRuleArgs struct {
 	Enabled pulumi.BoolInput
 	// Additional queries to filter matched events before they are processed. Defaults to empty list
 	Filters CloudConfigurationRuleFilterArrayInput
-	// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+	// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 	GroupBies pulumi.StringArrayInput
 	// The message associated to the rule that will be shown in findings and signals.
 	Message pulumi.StringInput
 	// The name of the cloud configuration rule.
 	Name pulumi.StringInput
-	// Notification targets for signals. Defaults to empty list.
+	// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 	Notifications pulumi.StringArrayInput
 	// Policy written in Rego format.
 	Policy pulumi.StringInput
@@ -367,7 +367,7 @@ func (o CloudConfigurationRuleOutput) Filters() CloudConfigurationRuleFilterArra
 	return o.ApplyT(func(v *CloudConfigurationRule) CloudConfigurationRuleFilterArrayOutput { return v.Filters }).(CloudConfigurationRuleFilterArrayOutput)
 }
 
-// Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+// Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
 func (o CloudConfigurationRuleOutput) GroupBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.StringArrayOutput { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
@@ -382,7 +382,7 @@ func (o CloudConfigurationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Notification targets for signals. Defaults to empty list.
+// This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
 func (o CloudConfigurationRuleOutput) Notifications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudConfigurationRule) pulumi.StringArrayOutput { return v.Notifications }).(pulumi.StringArrayOutput)
 }

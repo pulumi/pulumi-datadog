@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringSuppressionsSuppressionResult
     {
+        public readonly string DataExclusionQuery;
         public readonly string Description;
         public readonly bool Enabled;
         public readonly string ExpirationDate;
@@ -23,6 +24,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private GetSecurityMonitoringSuppressionsSuppressionResult(
+            string dataExclusionQuery,
+
             string description,
 
             bool enabled,
@@ -37,6 +40,7 @@ namespace Pulumi.Datadog.Outputs
 
             string suppressionQuery)
         {
+            DataExclusionQuery = dataExclusionQuery;
             Description = description;
             Enabled = enabled;
             ExpirationDate = expirationDate;

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServiceLevelObjectiveSliSpecification {
     /**
-     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
     private ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice;
 
     private ServiceLevelObjectiveSliSpecification() {}
     /**
-     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+     * @return The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
      * 
      */
     public ServiceLevelObjectiveSliSpecificationTimeSlice timeSlice() {

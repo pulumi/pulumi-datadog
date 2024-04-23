@@ -60,6 +60,10 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
     }
 
     /**
+     * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     */
+    public readonly dataExclusionQuery!: pulumi.Output<string | undefined>;
+    /**
      * A description for the suppression rule.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -80,9 +84,9 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
      */
     public readonly ruleQuery!: pulumi.Output<string>;
     /**
-     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
-    public readonly suppressionQuery!: pulumi.Output<string>;
+    public readonly suppressionQuery!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityMonitoringSuppression resource with the given unique name, arguments, and options.
@@ -97,6 +101,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringSuppressionState | undefined;
+            resourceInputs["dataExclusionQuery"] = state ? state.dataExclusionQuery : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
@@ -114,9 +119,7 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
             if ((!args || args.ruleQuery === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleQuery'");
             }
-            if ((!args || args.suppressionQuery === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'suppressionQuery'");
-            }
+            resourceInputs["dataExclusionQuery"] = args ? args.dataExclusionQuery : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
@@ -133,6 +136,10 @@ export class SecurityMonitoringSuppression extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityMonitoringSuppression resources.
  */
 export interface SecurityMonitoringSuppressionState {
+    /**
+     * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     */
+    dataExclusionQuery?: pulumi.Input<string>;
     /**
      * A description for the suppression rule.
      */
@@ -154,7 +161,7 @@ export interface SecurityMonitoringSuppressionState {
      */
     ruleQuery?: pulumi.Input<string>;
     /**
-     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
     suppressionQuery?: pulumi.Input<string>;
 }
@@ -163,6 +170,10 @@ export interface SecurityMonitoringSuppressionState {
  * The set of arguments for constructing a SecurityMonitoringSuppression resource.
  */
 export interface SecurityMonitoringSuppressionArgs {
+    /**
+     * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     */
+    dataExclusionQuery?: pulumi.Input<string>;
     /**
      * A description for the suppression rule.
      */
@@ -184,7 +195,7 @@ export interface SecurityMonitoringSuppressionArgs {
      */
     ruleQuery: pulumi.Input<string>;
     /**
-     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      */
-    suppressionQuery: pulumi.Input<string>;
+    suppressionQuery?: pulumi.Input<string>;
 }

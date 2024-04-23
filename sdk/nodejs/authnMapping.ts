@@ -68,7 +68,11 @@ export class AuthnMapping extends pulumi.CustomResource {
     /**
      * The ID of a role to attach to all users with the corresponding key and value.
      */
-    public readonly role!: pulumi.Output<string>;
+    public readonly role!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     */
+    public readonly team!: pulumi.Output<string | undefined>;
     /**
      * Identity provider value.
      */
@@ -89,20 +93,19 @@ export class AuthnMapping extends pulumi.CustomResource {
             const state = argsOrState as AuthnMappingState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["team"] = state ? state.team : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as AuthnMappingArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'role'");
-            }
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["team"] = args ? args.team : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +126,10 @@ export interface AuthnMappingState {
      */
     role?: pulumi.Input<string>;
     /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     */
+    team?: pulumi.Input<string>;
+    /**
      * Identity provider value.
      */
     value?: pulumi.Input<string>;
@@ -139,7 +146,11 @@ export interface AuthnMappingArgs {
     /**
      * The ID of a role to attach to all users with the corresponding key and value.
      */
-    role: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
+    /**
+     * The ID of a team to add all users with the corresponding key and value to.
+     */
+    team?: pulumi.Input<string>;
     /**
      * Identity provider value.
      */

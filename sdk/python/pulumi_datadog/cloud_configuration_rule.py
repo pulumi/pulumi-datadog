@@ -36,8 +36,8 @@ class CloudConfigurationRuleArgs:
         :param pulumi.Input[str] resource_type: Main resource type to be checked by the rule.
         :param pulumi.Input[str] severity: Severity of the rule and associated signals. Valid values are `info`, `low`, `medium`, `high`, `critical`.
         :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for signals. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags of the rule, propagated to findings and signals. Defaults to empty list.
         """
@@ -146,7 +146,7 @@ class CloudConfigurationRuleArgs:
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         """
         return pulumi.get(self, "group_bies")
 
@@ -158,7 +158,7 @@ class CloudConfigurationRuleArgs:
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Notification targets for signals. Defaults to empty list.
+        This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         """
         return pulumi.get(self, "notifications")
 
@@ -209,10 +209,10 @@ class _CloudConfigurationRuleState:
         Input properties used for looking up and filtering CloudConfigurationRule resources.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['CloudConfigurationRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for signals. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[str] policy: Policy written in Rego format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
         :param pulumi.Input[str] resource_type: Main resource type to be checked by the rule.
@@ -270,7 +270,7 @@ class _CloudConfigurationRuleState:
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         """
         return pulumi.get(self, "group_bies")
 
@@ -306,7 +306,7 @@ class _CloudConfigurationRuleState:
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Notification targets for signals. Defaults to empty list.
+        This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         """
         return pulumi.get(self, "notifications")
 
@@ -450,10 +450,10 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for signals. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[str] policy: Policy written in Rego format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
         :param pulumi.Input[str] resource_type: Main resource type to be checked by the rule.
@@ -608,10 +608,10 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for signals. Defaults to empty list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         :param pulumi.Input[str] policy: Policy written in Rego format.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_resource_types: Related resource types to be checked by the rule. Defaults to empty list.
         :param pulumi.Input[str] resource_type: Main resource type to be checked by the rule.
@@ -655,7 +655,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Fields to group by when generating signals, e.g. @resource. Defaults to empty list.
+        Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         """
         return pulumi.get(self, "group_bies")
 
@@ -679,7 +679,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Notification targets for signals. Defaults to empty list.
+        This function will be deprecated soon. Use the notification rules function instead. Notification targets for signals. Defaults to empty list.
         """
         return pulumi.get(self, "notifications")
 

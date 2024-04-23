@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Additional queries to filter matched events before they are processed.
+        /// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleFilterResult> Filters;
         /// <summary>

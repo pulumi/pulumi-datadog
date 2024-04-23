@@ -14746,7 +14746,7 @@ func (o ServiceLevelObjectiveQueryPtrOutput) Numerator() pulumi.StringPtrOutput 
 }
 
 type ServiceLevelObjectiveSliSpecification struct {
-	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSlice `pulumi:"timeSlice"`
 }
 
@@ -14762,7 +14762,7 @@ type ServiceLevelObjectiveSliSpecificationInput interface {
 }
 
 type ServiceLevelObjectiveSliSpecificationArgs struct {
-	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+	// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 	TimeSlice ServiceLevelObjectiveSliSpecificationTimeSliceInput `pulumi:"timeSlice"`
 }
 
@@ -14843,7 +14843,7 @@ func (o ServiceLevelObjectiveSliSpecificationOutput) ToServiceLevelObjectiveSliS
 	}).(ServiceLevelObjectiveSliSpecificationPtrOutput)
 }
 
-// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 func (o ServiceLevelObjectiveSliSpecificationOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecification) ServiceLevelObjectiveSliSpecificationTimeSlice {
 		return v.TimeSlice
@@ -14874,7 +14874,7 @@ func (o ServiceLevelObjectiveSliSpecificationPtrOutput) Elem() ServiceLevelObjec
 	}).(ServiceLevelObjectiveSliSpecificationOutput)
 }
 
-// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold.
+// The time slice condition, composed of 3 parts: 1. The timeseries query, 2. The comparator, and 3. The threshold. Optionally, a fourth part, the query interval, can be provided.
 func (o ServiceLevelObjectiveSliSpecificationPtrOutput) TimeSlice() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
 	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecification) *ServiceLevelObjectiveSliSpecificationTimeSlice {
 		if v == nil {
@@ -14889,6 +14889,8 @@ type ServiceLevelObjectiveSliSpecificationTimeSlice struct {
 	Comparator string `pulumi:"comparator"`
 	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query ServiceLevelObjectiveSliSpecificationTimeSliceQuery `pulumi:"query"`
+	// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+	QueryIntervalSeconds *int `pulumi:"queryIntervalSeconds"`
 	// The threshold value to which each SLI value will be compared.
 	Threshold float64 `pulumi:"threshold"`
 }
@@ -14909,6 +14911,8 @@ type ServiceLevelObjectiveSliSpecificationTimeSliceArgs struct {
 	Comparator pulumi.StringInput `pulumi:"comparator"`
 	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
 	Query ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput `pulumi:"query"`
+	// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+	QueryIntervalSeconds pulumi.IntPtrInput `pulumi:"queryIntervalSeconds"`
 	// The threshold value to which each SLI value will be compared.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 }
@@ -15002,6 +15006,11 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Query() ServiceLev
 	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
 }
 
+// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) QueryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) *int { return v.QueryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
 // The threshold value to which each SLI value will be compared.
 func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) float64 { return v.Threshold }).(pulumi.Float64Output)
@@ -15049,6 +15058,16 @@ func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Query() Service
 		}
 		return &v.Query
 	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) QueryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueryIntervalSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The threshold value to which each SLI value will be compared.
@@ -18772,7 +18791,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// The request body.
 	Body *string `pulumi:"body"`
-	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 	BodyType *string `pulumi:"bodyType"`
 	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
 	CallType *string `pulumi:"callType"`
@@ -18786,6 +18805,8 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	FollowRedirects *bool `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion *string `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -18832,7 +18853,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// The request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 	BodyType pulumi.StringPtrInput `pulumi:"bodyType"`
 	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
 	CallType pulumi.StringPtrInput `pulumi:"callType"`
@@ -18846,6 +18867,8 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -18963,7 +18986,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) Body() pulumi.StringPtrOut
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) BodyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.BodyType }).(pulumi.StringPtrOutput)
 }
@@ -18996,6 +19019,11 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) FollowRedirects() pulumi.B
 // Host name to perform the test with.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -19109,7 +19137,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Body() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) BodyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
@@ -19176,6 +19204,16 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Host() pulumi.StringPtr
 			return nil
 		}
 		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21255,7 +21293,7 @@ type SyntheticsTestOptionsList struct {
 	DisableCsp *bool `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
-	// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// Ignore server certificate error for browser tests.
 	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
@@ -21308,7 +21346,7 @@ type SyntheticsTestOptionsListArgs struct {
 	DisableCsp pulumi.BoolPtrInput `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
-	// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// Ignore server certificate error for browser tests.
 	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
@@ -21447,7 +21485,7 @@ func (o SyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
 func (o SyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
@@ -21608,7 +21646,7 @@ func (o SyntheticsTestOptionsListPtrOutput) FollowRedirects() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// HTTP version to use for a Synthetics API test. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
 func (o SyntheticsTestOptionsListPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
 		if v == nil {
@@ -23529,7 +23567,7 @@ func (o SyntheticsTestRequestClientCertificateKeyPtrOutput) Filename() pulumi.St
 type SyntheticsTestRequestDefinition struct {
 	// The request body.
 	Body *string `pulumi:"body"`
-	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 	BodyType *string `pulumi:"bodyType"`
 	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
 	CallType *string `pulumi:"callType"`
@@ -23541,6 +23579,8 @@ type SyntheticsTestRequestDefinition struct {
 	DnsServerPort *int `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion *string `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -23585,7 +23625,7 @@ type SyntheticsTestRequestDefinitionInput interface {
 type SyntheticsTestRequestDefinitionArgs struct {
 	// The request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
-	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 	BodyType pulumi.StringPtrInput `pulumi:"bodyType"`
 	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
 	CallType pulumi.StringPtrInput `pulumi:"callType"`
@@ -23597,6 +23637,8 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
@@ -23709,7 +23751,7 @@ func (o SyntheticsTestRequestDefinitionOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 func (o SyntheticsTestRequestDefinitionOutput) BodyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.BodyType }).(pulumi.StringPtrOutput)
 }
@@ -23737,6 +23779,11 @@ func (o SyntheticsTestRequestDefinitionOutput) DnsServerPort() pulumi.IntPtrOutp
 // Host name to perform the test with.
 func (o SyntheticsTestRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
 // For UDP and websocket tests, message to send with the request.
@@ -23840,7 +23887,7 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Body() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
 func (o SyntheticsTestRequestDefinitionPtrOutput) BodyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
@@ -23897,6 +23944,16 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24319,6 +24376,124 @@ func (o GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudWorkloadSecurityAgentRulesAgentRule {
 		return vs[0].([]GetCloudWorkloadSecurityAgentRulesAgentRule)[vs[1].(int)]
 	}).(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRule struct {
+	Description string `pulumi:"description"`
+	Enabled     bool   `pulumi:"enabled"`
+	Expression  string `pulumi:"expression"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+}
+
+// GetCsmThreatsAgentRulesAgentRuleInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleArgs and GetCsmThreatsAgentRulesAgentRuleOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleArgs{...}
+type GetCsmThreatsAgentRulesAgentRuleInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput
+	ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArgs struct {
+	Description pulumi.StringInput `pulumi:"description"`
+	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
+	Expression  pulumi.StringInput `pulumi:"expression"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	Name        pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetCsmThreatsAgentRulesAgentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArgs) ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArgs) ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleOutput)
+}
+
+// GetCsmThreatsAgentRulesAgentRuleArrayInput is an input type that accepts GetCsmThreatsAgentRulesAgentRuleArray and GetCsmThreatsAgentRulesAgentRuleArrayOutput values.
+// You can construct a concrete instance of `GetCsmThreatsAgentRulesAgentRuleArrayInput` via:
+//
+//	GetCsmThreatsAgentRulesAgentRuleArray{ GetCsmThreatsAgentRulesAgentRuleArgs{...} }
+type GetCsmThreatsAgentRulesAgentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput
+	ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArray []GetCsmThreatsAgentRulesAgentRuleInput
+
+func (GetCsmThreatsAgentRulesAgentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArray) ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return i.ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCsmThreatsAgentRulesAgentRuleArray) ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCsmThreatsAgentRulesAgentRuleArrayOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ToGetCsmThreatsAgentRulesAgentRuleOutput() GetCsmThreatsAgentRulesAgentRuleOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) ToGetCsmThreatsAgentRulesAgentRuleOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCsmThreatsAgentRulesAgentRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetCsmThreatsAgentRulesAgentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCsmThreatsAgentRulesAgentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCsmThreatsAgentRulesAgentRule)(nil)).Elem()
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleArrayOutput() GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) ToGetCsmThreatsAgentRulesAgentRuleArrayOutputWithContext(ctx context.Context) GetCsmThreatsAgentRulesAgentRuleArrayOutput {
+	return o
+}
+
+func (o GetCsmThreatsAgentRulesAgentRuleArrayOutput) Index(i pulumi.IntInput) GetCsmThreatsAgentRulesAgentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCsmThreatsAgentRulesAgentRule {
+		return vs[0].([]GetCsmThreatsAgentRulesAgentRule)[vs[1].(int)]
+	}).(GetCsmThreatsAgentRulesAgentRuleOutput)
 }
 
 type GetHostsHostList struct {
@@ -26423,6 +26598,106 @@ func (o GetMonitorsMonitorArrayOutput) Index(i pulumi.IntInput) GetMonitorsMonit
 	}).(GetMonitorsMonitorOutput)
 }
 
+type GetRoleUsersRoleUser struct {
+	RoleId string `pulumi:"roleId"`
+	UserId string `pulumi:"userId"`
+}
+
+// GetRoleUsersRoleUserInput is an input type that accepts GetRoleUsersRoleUserArgs and GetRoleUsersRoleUserOutput values.
+// You can construct a concrete instance of `GetRoleUsersRoleUserInput` via:
+//
+//	GetRoleUsersRoleUserArgs{...}
+type GetRoleUsersRoleUserInput interface {
+	pulumi.Input
+
+	ToGetRoleUsersRoleUserOutput() GetRoleUsersRoleUserOutput
+	ToGetRoleUsersRoleUserOutputWithContext(context.Context) GetRoleUsersRoleUserOutput
+}
+
+type GetRoleUsersRoleUserArgs struct {
+	RoleId pulumi.StringInput `pulumi:"roleId"`
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (GetRoleUsersRoleUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleUsersRoleUser)(nil)).Elem()
+}
+
+func (i GetRoleUsersRoleUserArgs) ToGetRoleUsersRoleUserOutput() GetRoleUsersRoleUserOutput {
+	return i.ToGetRoleUsersRoleUserOutputWithContext(context.Background())
+}
+
+func (i GetRoleUsersRoleUserArgs) ToGetRoleUsersRoleUserOutputWithContext(ctx context.Context) GetRoleUsersRoleUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleUsersRoleUserOutput)
+}
+
+// GetRoleUsersRoleUserArrayInput is an input type that accepts GetRoleUsersRoleUserArray and GetRoleUsersRoleUserArrayOutput values.
+// You can construct a concrete instance of `GetRoleUsersRoleUserArrayInput` via:
+//
+//	GetRoleUsersRoleUserArray{ GetRoleUsersRoleUserArgs{...} }
+type GetRoleUsersRoleUserArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleUsersRoleUserArrayOutput() GetRoleUsersRoleUserArrayOutput
+	ToGetRoleUsersRoleUserArrayOutputWithContext(context.Context) GetRoleUsersRoleUserArrayOutput
+}
+
+type GetRoleUsersRoleUserArray []GetRoleUsersRoleUserInput
+
+func (GetRoleUsersRoleUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleUsersRoleUser)(nil)).Elem()
+}
+
+func (i GetRoleUsersRoleUserArray) ToGetRoleUsersRoleUserArrayOutput() GetRoleUsersRoleUserArrayOutput {
+	return i.ToGetRoleUsersRoleUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleUsersRoleUserArray) ToGetRoleUsersRoleUserArrayOutputWithContext(ctx context.Context) GetRoleUsersRoleUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleUsersRoleUserArrayOutput)
+}
+
+type GetRoleUsersRoleUserOutput struct{ *pulumi.OutputState }
+
+func (GetRoleUsersRoleUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleUsersRoleUser)(nil)).Elem()
+}
+
+func (o GetRoleUsersRoleUserOutput) ToGetRoleUsersRoleUserOutput() GetRoleUsersRoleUserOutput {
+	return o
+}
+
+func (o GetRoleUsersRoleUserOutput) ToGetRoleUsersRoleUserOutputWithContext(ctx context.Context) GetRoleUsersRoleUserOutput {
+	return o
+}
+
+func (o GetRoleUsersRoleUserOutput) RoleId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleUsersRoleUser) string { return v.RoleId }).(pulumi.StringOutput)
+}
+
+func (o GetRoleUsersRoleUserOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleUsersRoleUser) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type GetRoleUsersRoleUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleUsersRoleUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleUsersRoleUser)(nil)).Elem()
+}
+
+func (o GetRoleUsersRoleUserArrayOutput) ToGetRoleUsersRoleUserArrayOutput() GetRoleUsersRoleUserArrayOutput {
+	return o
+}
+
+func (o GetRoleUsersRoleUserArrayOutput) ToGetRoleUsersRoleUserArrayOutputWithContext(ctx context.Context) GetRoleUsersRoleUserArrayOutput {
+	return o
+}
+
+func (o GetRoleUsersRoleUserArrayOutput) Index(i pulumi.IntInput) GetRoleUsersRoleUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleUsersRoleUser {
+		return vs[0].([]GetRoleUsersRoleUser)[vs[1].(int)]
+	}).(GetRoleUsersRoleUserOutput)
+}
+
 type GetRolesRole struct {
 	// ID of the Datadog role
 	Id string `pulumi:"id"`
@@ -26793,7 +27068,7 @@ type GetSecurityMonitoringRulesRule struct {
 	Cases []GetSecurityMonitoringRulesRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters []GetSecurityMonitoringRulesRuleFilter `pulumi:"filters"`
 	// Whether the notifications include the triggering group-by values in their title.
 	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
@@ -26831,7 +27106,7 @@ type GetSecurityMonitoringRulesRuleArgs struct {
 	Cases GetSecurityMonitoringRulesRuleCaseArrayInput `pulumi:"cases"`
 	// Whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Additional queries to filter matched events before they are processed.
+	// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 	Filters GetSecurityMonitoringRulesRuleFilterArrayInput `pulumi:"filters"`
 	// Whether the notifications include the triggering group-by values in their title.
 	HasExtendedTitle pulumi.BoolPtrInput `pulumi:"hasExtendedTitle"`
@@ -26914,7 +27189,7 @@ func (o GetSecurityMonitoringRulesRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Additional queries to filter matched events before they are processed.
+// Additional queries to filter matched events before they are processed. **Note**: This field is deprecated for log detection, signal correlation, and workload security rules.
 func (o GetSecurityMonitoringRulesRuleOutput) Filters() GetSecurityMonitoringRulesRuleFilterArrayOutput {
 	return o.ApplyT(func(v GetSecurityMonitoringRulesRule) []GetSecurityMonitoringRulesRuleFilter { return v.Filters }).(GetSecurityMonitoringRulesRuleFilterArrayOutput)
 }
@@ -28682,13 +28957,14 @@ func (o GetSecurityMonitoringRulesRuleThirdPartyCaseArrayOutput) Index(i pulumi.
 }
 
 type GetSecurityMonitoringSuppressionsSuppression struct {
-	Description      string `pulumi:"description"`
-	Enabled          bool   `pulumi:"enabled"`
-	ExpirationDate   string `pulumi:"expirationDate"`
-	Id               string `pulumi:"id"`
-	Name             string `pulumi:"name"`
-	RuleQuery        string `pulumi:"ruleQuery"`
-	SuppressionQuery string `pulumi:"suppressionQuery"`
+	DataExclusionQuery string `pulumi:"dataExclusionQuery"`
+	Description        string `pulumi:"description"`
+	Enabled            bool   `pulumi:"enabled"`
+	ExpirationDate     string `pulumi:"expirationDate"`
+	Id                 string `pulumi:"id"`
+	Name               string `pulumi:"name"`
+	RuleQuery          string `pulumi:"ruleQuery"`
+	SuppressionQuery   string `pulumi:"suppressionQuery"`
 }
 
 // GetSecurityMonitoringSuppressionsSuppressionInput is an input type that accepts GetSecurityMonitoringSuppressionsSuppressionArgs and GetSecurityMonitoringSuppressionsSuppressionOutput values.
@@ -28703,13 +28979,14 @@ type GetSecurityMonitoringSuppressionsSuppressionInput interface {
 }
 
 type GetSecurityMonitoringSuppressionsSuppressionArgs struct {
-	Description      pulumi.StringInput `pulumi:"description"`
-	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
-	ExpirationDate   pulumi.StringInput `pulumi:"expirationDate"`
-	Id               pulumi.StringInput `pulumi:"id"`
-	Name             pulumi.StringInput `pulumi:"name"`
-	RuleQuery        pulumi.StringInput `pulumi:"ruleQuery"`
-	SuppressionQuery pulumi.StringInput `pulumi:"suppressionQuery"`
+	DataExclusionQuery pulumi.StringInput `pulumi:"dataExclusionQuery"`
+	Description        pulumi.StringInput `pulumi:"description"`
+	Enabled            pulumi.BoolInput   `pulumi:"enabled"`
+	ExpirationDate     pulumi.StringInput `pulumi:"expirationDate"`
+	Id                 pulumi.StringInput `pulumi:"id"`
+	Name               pulumi.StringInput `pulumi:"name"`
+	RuleQuery          pulumi.StringInput `pulumi:"ruleQuery"`
+	SuppressionQuery   pulumi.StringInput `pulumi:"suppressionQuery"`
 }
 
 func (GetSecurityMonitoringSuppressionsSuppressionArgs) ElementType() reflect.Type {
@@ -28761,6 +29038,10 @@ func (o GetSecurityMonitoringSuppressionsSuppressionOutput) ToGetSecurityMonitor
 
 func (o GetSecurityMonitoringSuppressionsSuppressionOutput) ToGetSecurityMonitoringSuppressionsSuppressionOutputWithContext(ctx context.Context) GetSecurityMonitoringSuppressionsSuppressionOutput {
 	return o
+}
+
+func (o GetSecurityMonitoringSuppressionsSuppressionOutput) DataExclusionQuery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringSuppressionsSuppression) string { return v.DataExclusionQuery }).(pulumi.StringOutput)
 }
 
 func (o GetSecurityMonitoringSuppressionsSuppressionOutput) Description() pulumi.StringOutput {
@@ -29525,6 +29806,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCsmThreatsAgentRulesAgentRuleArrayInput)(nil)).Elem(), GetCsmThreatsAgentRulesAgentRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListInput)(nil)).Elem(), GetHostsHostListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListArrayInput)(nil)).Elem(), GetHostsHostListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHostsHostListMetaInput)(nil)).Elem(), GetHostsHostListMetaArgs{})
@@ -29560,6 +29843,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorSchedulingOptionEvaluationWindowArrayInput)(nil)).Elem(), GetMonitorSchedulingOptionEvaluationWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorsMonitorInput)(nil)).Elem(), GetMonitorsMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorsMonitorArrayInput)(nil)).Elem(), GetMonitorsMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleUsersRoleUserInput)(nil)).Elem(), GetRoleUsersRoleUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleUsersRoleUserArrayInput)(nil)).Elem(), GetRoleUsersRoleUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleInput)(nil)).Elem(), GetRolesRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRolesRoleArrayInput)(nil)).Elem(), GetRolesRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityMonitoringFiltersFilterInput)(nil)).Elem(), GetSecurityMonitoringFiltersFilterArgs{})
@@ -29874,6 +30159,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestRequestProxyPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput{})
 	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleOutput{})
+	pulumi.RegisterOutputType(GetCsmThreatsAgentRulesAgentRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListArrayOutput{})
 	pulumi.RegisterOutputType(GetHostsHostListMetaOutput{})
@@ -29909,6 +30196,8 @@ func init() {
 	pulumi.RegisterOutputType(GetMonitorSchedulingOptionEvaluationWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetMonitorsMonitorOutput{})
 	pulumi.RegisterOutputType(GetMonitorsMonitorArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleUsersRoleUserOutput{})
+	pulumi.RegisterOutputType(GetRoleUsersRoleUserArrayOutput{})
 	pulumi.RegisterOutputType(GetRolesRoleOutput{})
 	pulumi.RegisterOutputType(GetRolesRoleArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityMonitoringFiltersFilterOutput{})

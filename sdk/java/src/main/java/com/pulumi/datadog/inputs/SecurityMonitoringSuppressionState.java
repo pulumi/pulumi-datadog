@@ -17,6 +17,21 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
     public static final SecurityMonitoringSuppressionState Empty = new SecurityMonitoringSuppressionState();
 
     /**
+     * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     * 
+     */
+    @Import(name="dataExclusionQuery")
+    private @Nullable Output<String> dataExclusionQuery;
+
+    /**
+     * @return An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+     * 
+     */
+    public Optional<Output<String>> dataExclusionQuery() {
+        return Optional.ofNullable(this.dataExclusionQuery);
+    }
+
+    /**
      * A description for the suppression rule.
      * 
      */
@@ -92,14 +107,14 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
     }
 
     /**
-     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      * 
      */
     @Import(name="suppressionQuery")
     private @Nullable Output<String> suppressionQuery;
 
     /**
-     * @return The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+     * @return The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
      * 
      */
     public Optional<Output<String>> suppressionQuery() {
@@ -109,6 +124,7 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
     private SecurityMonitoringSuppressionState() {}
 
     private SecurityMonitoringSuppressionState(SecurityMonitoringSuppressionState $) {
+        this.dataExclusionQuery = $.dataExclusionQuery;
         this.description = $.description;
         this.enabled = $.enabled;
         this.expirationDate = $.expirationDate;
@@ -133,6 +149,27 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
 
         public Builder(SecurityMonitoringSuppressionState defaults) {
             $ = new SecurityMonitoringSuppressionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataExclusionQuery An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataExclusionQuery(@Nullable Output<String> dataExclusionQuery) {
+            $.dataExclusionQuery = dataExclusionQuery;
+            return this;
+        }
+
+        /**
+         * @param dataExclusionQuery An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataExclusionQuery(String dataExclusionQuery) {
+            return dataExclusionQuery(Output.of(dataExclusionQuery));
         }
 
         /**
@@ -241,7 +278,7 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
         }
 
         /**
-         * @param suppressionQuery The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+         * @param suppressionQuery The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
          * 
          * @return builder
          * 
@@ -252,7 +289,7 @@ public final class SecurityMonitoringSuppressionState extends com.pulumi.resourc
         }
 
         /**
-         * @param suppressionQuery The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. Same syntax as the queries to search signals in the signal explorer.
+         * @param suppressionQuery The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
          * 
          * @return builder
          * 

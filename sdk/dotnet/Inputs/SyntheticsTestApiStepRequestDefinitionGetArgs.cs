@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`.
+        /// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
         /// </summary>
         [Input("bodyType")]
         public Input<string>? BodyType { get; set; }
@@ -71,6 +71,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
+
+        /// <summary>
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// </summary>
+        [Input("httpVersion")]
+        public Input<string>? HttpVersion { get; set; }
 
         /// <summary>
         /// For UDP and websocket tests, message to send with the request.

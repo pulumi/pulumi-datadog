@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog OpenapiApi resource. This can be used to create and manage Datadog openapi_api.
+ * Provides a Datadog OpenAPI resource. This can be used to synchronize Datadog's [API catalog](https://docs.datadoghq.com/api_catalog/) with an [OpenAPI](https://www.openapis.org/) specifications file.
  *
  * ## Import
  *
@@ -42,7 +42,7 @@ export class OpenapiApi extends pulumi.CustomResource {
     }
 
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      */
     public readonly spec!: pulumi.Output<string>;
 
@@ -77,7 +77,7 @@ export class OpenapiApi extends pulumi.CustomResource {
  */
 export interface OpenapiApiState {
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      */
     spec?: pulumi.Input<string>;
 }
@@ -87,7 +87,7 @@ export interface OpenapiApiState {
  */
 export interface OpenapiApiArgs {
     /**
-     * The OpenAPI spec.
+     * The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
      */
     spec: pulumi.Input<string>;
 }

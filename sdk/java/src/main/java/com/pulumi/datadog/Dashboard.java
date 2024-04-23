@@ -90,7 +90,6 @@ import javax.annotation.Nullable;
  *             .title(&#34;Ordered Layout Dashboard&#34;)
  *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .layoutType(&#34;ordered&#34;)
- *             .isReadOnly(true)
  *             .widgets(            
  *                 DashboardWidgetArgs.builder()
  *                     .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
@@ -490,7 +489,6 @@ import javax.annotation.Nullable;
  *             .title(&#34;Free Layout Dashboard&#34;)
  *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
  *             .layoutType(&#34;free&#34;)
- *             .isReadOnly(false)
  *             .widgets(            
  *                 DashboardWidgetArgs.builder()
  *                     .eventStreamDefinition(DashboardWidgetEventStreamDefinitionArgs.builder()

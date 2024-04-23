@@ -26,6 +26,8 @@ import com.pulumi.datadog.inputs.GetPermissionsArgs;
 import com.pulumi.datadog.inputs.GetPermissionsPlainArgs;
 import com.pulumi.datadog.inputs.GetRoleArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
+import com.pulumi.datadog.inputs.GetRoleUsersArgs;
+import com.pulumi.datadog.inputs.GetRoleUsersPlainArgs;
 import com.pulumi.datadog.inputs.GetRolesArgs;
 import com.pulumi.datadog.inputs.GetRolesPlainArgs;
 import com.pulumi.datadog.inputs.GetRumApplicationArgs;
@@ -56,6 +58,7 @@ import com.pulumi.datadog.outputs.GetApiKeyResult;
 import com.pulumi.datadog.outputs.GetApmRetentionFiltersOrderResult;
 import com.pulumi.datadog.outputs.GetApplicationKeyResult;
 import com.pulumi.datadog.outputs.GetCloudWorkloadSecurityAgentRulesResult;
+import com.pulumi.datadog.outputs.GetCsmThreatsAgentRulesResult;
 import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
@@ -69,6 +72,7 @@ import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
 import com.pulumi.datadog.outputs.GetRoleResult;
+import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
 import com.pulumi.datadog.outputs.GetRumApplicationResult;
 import com.pulumi.datadog.outputs.GetSecurityMonitoringFiltersResult;
@@ -1015,6 +1019,48 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetCloudWorkloadSecurityAgentRulesResult> getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules() {
+        return getCsmThreatsAgentRules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain() {
+        return getCsmThreatsAgentRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args) {
+        return getCsmThreatsAgentRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(InvokeArgs args) {
+        return getCsmThreatsAgentRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static Output<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Agent rules.
+     * 
+     */
+    public static CompletableFuture<GetCsmThreatsAgentRulesResult> getCsmThreatsAgentRulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules", TypeShape.of(GetCsmThreatsAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
@@ -3343,6 +3389,34 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetRoleResult> getRolePlain(GetRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getRole:getRole", TypeShape.of(GetRoleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     */
+    public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args) {
+        return getRoleUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     */
+    public static CompletableFuture<GetRoleUsersResult> getRoleUsersPlain(GetRoleUsersPlainArgs args) {
+        return getRoleUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     */
+    public static Output<GetRoleUsersResult> getRoleUsers(GetRoleUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about existing Datadog role users assignments. This data source is in beta and is subject to change.
+     * 
+     */
+    public static CompletableFuture<GetRoleUsersResult> getRoleUsersPlain(GetRoleUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getRoleUsers:getRoleUsers", TypeShape.of(GetRoleUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about multiple roles for use in other resources.

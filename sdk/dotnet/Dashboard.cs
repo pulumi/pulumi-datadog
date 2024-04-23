@@ -28,7 +28,6 @@ namespace Pulumi.Datadog
     ///         Title = "Ordered Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",
     ///         LayoutType = "ordered",
-    ///         IsReadOnly = true,
     ///         Widgets = new[]
     ///         {
     ///             new Datadog.Inputs.DashboardWidgetArgs
@@ -595,7 +594,6 @@ namespace Pulumi.Datadog
     ///         Title = "Free Layout Dashboard",
     ///         Description = "Created using the Datadog provider in Pulumi",
     ///         LayoutType = "free",
-    ///         IsReadOnly = false,
     ///         Widgets = new[]
     ///         {
     ///             new Datadog.Inputs.DashboardWidgetArgs
