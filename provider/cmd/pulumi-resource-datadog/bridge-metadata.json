@@ -92,6 +92,10 @@
                 "current": "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule",
                 "majorVersion": 4
             },
+            "datadog_csm_threats_agent_rule": {
+                "current": "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule",
+                "majorVersion": 4
+            },
             "datadog_dashboard": {
                 "current": "datadog:index/dashboard:Dashboard",
                 "majorVersion": 4,
@@ -13781,6 +13785,10 @@
                     }
                 }
             },
+            "datadog_user_role": {
+                "current": "datadog:index/userRole:UserRole",
+                "majorVersion": 4
+            },
             "datadog_webhook": {
                 "current": "datadog:index/webhook:Webhook",
                 "majorVersion": 4
@@ -13813,6 +13821,18 @@
                 "majorVersion": 4,
                 "fields": {
                     "agent_rules": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_csm_threats_agent_rules": {
+                "current": "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules",
+                "majorVersion": 4,
+                "fields": {
+                    "agent_rules": {
+                        "maxItemsOne": false
+                    },
+                    "agent_rules_ids": {
                         "maxItemsOne": false
                     }
                 }
@@ -14083,6 +14103,15 @@
             "datadog_role": {
                 "current": "datadog:index/getRole:getRole",
                 "majorVersion": 4
+            },
+            "datadog_role_users": {
+                "current": "datadog:index/getRoleUsers:getRoleUsers",
+                "majorVersion": 4,
+                "fields": {
+                    "role_users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "datadog_roles": {
                 "current": "datadog:index/getRoles:getRoles",
@@ -14370,6 +14399,7 @@
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
             "datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule": 0,
+            "datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule": 1,
             "datadog:index/dashboard:Dashboard": 0,
             "datadog:index/dashboardJson:DashboardJson": 0,
             "datadog:index/dashboardList:DashboardList": 1,
@@ -14417,6 +14447,7 @@
             "datadog:index/teamMembership:TeamMembership": 1,
             "datadog:index/teamPermissionSetting:TeamPermissionSetting": 1,
             "datadog:index/user:User": 0,
+            "datadog:index/userRole:UserRole": 1,
             "datadog:index/webhook:Webhook": 0,
             "datadog:index/webhookCustomVariable:WebhookCustomVariable": 0,
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
@@ -14431,6 +14462,7 @@
             "datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder": 1,
             "datadog:index/getApplicationKey:getApplicationKey": 1,
             "datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules": 0,
+            "datadog:index/getCsmThreatsAgentRules:getCsmThreatsAgentRules": 1,
             "datadog:index/getDashboard:getDashboard": 0,
             "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getHosts:getHosts": 1,
@@ -14444,6 +14476,7 @@
             "datadog:index/getMonitors:getMonitors": 0,
             "datadog:index/getPermissions:getPermissions": 0,
             "datadog:index/getRole:getRole": 0,
+            "datadog:index/getRoleUsers:getRoleUsers": 1,
             "datadog:index/getRoles:getRoles": 0,
             "datadog:index/getRumApplication:getRumApplication": 1,
             "datadog:index/getSecurityMonitoringFilters:getSecurityMonitoringFilters": 0,
