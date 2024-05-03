@@ -31,7 +31,7 @@ type Provider struct {
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.StringPtrOutput `pulumi:"httpClientRetryEnabled"`
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, api_key won't be checked.
+	// is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrOutput `pulumi:"validate"`
 }
 
@@ -84,7 +84,7 @@ type providerArgs struct {
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, api_key won't be checked.
+	// is true. When false, apiKey won't be checked.
 	Validate *string `pulumi:"validate"`
 }
 
@@ -111,7 +111,7 @@ type ProviderArgs struct {
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
 	HttpClientRetryTimeout pulumi.IntPtrInput
 	// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-	// is true. When false, api_key won't be checked.
+	// is true. When false, apiKey won't be checked.
 	Validate pulumi.StringPtrInput
 }
 
@@ -177,7 +177,7 @@ func (o ProviderOutput) HttpClientRetryEnabled() pulumi.StringPtrOutput {
 }
 
 // Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-// is true. When false, api_key won't be checked.
+// is true. When false, apiKey won't be checked.
 func (o ProviderOutput) Validate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Validate }).(pulumi.StringPtrOutput)
 }
