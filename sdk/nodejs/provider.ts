@@ -47,7 +47,7 @@ export class Provider extends pulumi.ProviderResource {
     public readonly httpClientRetryEnabled!: pulumi.Output<string | undefined>;
     /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-     * is true. When false, api_key won't be checked.
+     * is true. When false, apiKey won't be checked.
      */
     public readonly validate!: pulumi.Output<string | undefined>;
 
@@ -121,7 +121,7 @@ export interface ProviderArgs {
     httpClientRetryTimeout?: pulumi.Input<number>;
     /**
      * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default
-     * is true. When false, api_key won't be checked.
+     * is true. When false, apiKey won't be checked.
      */
     validate?: pulumi.Input<string>;
 }
