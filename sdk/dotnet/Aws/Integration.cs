@@ -98,10 +98,6 @@ namespace Pulumi.Datadog.Aws
         [Output("extendedResourceCollectionEnabled")]
         public Output<string> ExtendedResourceCollectionEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-        /// Terraform.
-        /// </summary>
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
 
@@ -353,10 +349,6 @@ namespace Pulumi.Datadog.Aws
         [Input("extendedResourceCollectionEnabled")]
         public Input<string>? ExtendedResourceCollectionEnabled { get; set; }
 
-        /// <summary>
-        /// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-        /// Terraform.
-        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
