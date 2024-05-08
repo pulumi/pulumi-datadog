@@ -78,9 +78,7 @@ type Integration struct {
 	ExcludedRegions pulumi.StringArrayOutput `pulumi:"excludedRegions"`
 	// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
 	ExtendedResourceCollectionEnabled pulumi.StringOutput `pulumi:"extendedResourceCollectionEnabled"`
-	// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-	// Terraform.
-	ExternalId pulumi.StringOutput `pulumi:"externalId"`
+	ExternalId                        pulumi.StringOutput `pulumi:"externalId"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
 	FilterTags pulumi.StringArrayOutput `pulumi:"filterTags"`
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
@@ -146,9 +144,7 @@ type integrationState struct {
 	ExcludedRegions []string `pulumi:"excludedRegions"`
 	// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
 	ExtendedResourceCollectionEnabled *string `pulumi:"extendedResourceCollectionEnabled"`
-	// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-	// Terraform.
-	ExternalId *string `pulumi:"externalId"`
+	ExternalId                        *string `pulumi:"externalId"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
 	FilterTags []string `pulumi:"filterTags"`
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
@@ -178,9 +174,7 @@ type IntegrationState struct {
 	ExcludedRegions pulumi.StringArrayInput
 	// Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspmResourceCollectionEnabled`.
 	ExtendedResourceCollectionEnabled pulumi.StringPtrInput
-	// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-	// Terraform.
-	ExternalId pulumi.StringPtrInput
+	ExternalId                        pulumi.StringPtrInput
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
 	FilterTags pulumi.StringArrayInput
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
@@ -377,8 +371,6 @@ func (o IntegrationOutput) ExtendedResourceCollectionEnabled() pulumi.StringOutp
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ExtendedResourceCollectionEnabled }).(pulumi.StringOutput)
 }
 
-// AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-// Terraform.
 func (o IntegrationOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
 }
