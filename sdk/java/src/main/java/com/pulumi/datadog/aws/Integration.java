@@ -161,19 +161,9 @@ public class Integration extends com.pulumi.resources.CustomResource {
     public Output<String> extendedResourceCollectionEnabled() {
         return this.extendedResourceCollectionEnabled;
     }
-    /**
-     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-     * Terraform.
-     * 
-     */
     @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
-    /**
-     * @return AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-     * Terraform.
-     * 
-     */
     public Output<String> externalId() {
         return this.externalId;
     }

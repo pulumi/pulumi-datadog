@@ -70,7 +70,7 @@ type Monitor struct {
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-	// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+	// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 	// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 	// data during evaluation.
 	EvaluationDelay pulumi.IntOutput `pulumi:"evaluationDelay"`
@@ -92,20 +92,20 @@ type Monitor struct {
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringOutput `pulumi:"message"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 	// required for, anomaly monitors.
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrOutput `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrOutput `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 	// nonzero value.
 	NewGroupDelay pulumi.IntPtrOutput `pulumi:"newGroupDelay"`
-	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+	// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
-	// `new_host_delay` to zero for monitors grouped by host.
+	// `newHostDelay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
@@ -118,9 +118,9 @@ type Monitor struct {
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert.
+	// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+	// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+	// `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayOutput `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
@@ -129,18 +129,11 @@ type Monitor struct {
 	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrOutput `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-	Query pulumi.StringOutput `pulumi:"query"`
+	Query    pulumi.StringOutput `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
@@ -149,8 +142,8 @@ type Monitor struct {
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayOutput `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-	// `require_full_window` must be false and will be ignored.
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -225,7 +218,7 @@ type monitorState struct {
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-	// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+	// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 	// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 	// data during evaluation.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
@@ -247,20 +240,20 @@ type monitorState struct {
 	Locked *bool `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message *string `pulumi:"message"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 	// required for, anomaly monitors.
 	MonitorThresholdWindows *MonitorMonitorThresholdWindows `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name *string `pulumi:"name"`
-	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 	// nonzero value.
 	NewGroupDelay *int `pulumi:"newGroupDelay"`
-	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+	// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
-	// `new_host_delay` to zero for monitors grouped by host.
+	// `newHostDelay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
@@ -273,9 +266,9 @@ type monitorState struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert.
+	// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+	// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+	// `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
@@ -284,18 +277,11 @@ type monitorState struct {
 	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority *int `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-	Query *string `pulumi:"query"`
+	Priority *int    `pulumi:"priority"`
+	Query    *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -304,8 +290,8 @@ type monitorState struct {
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-	// `require_full_window` must be false and will be ignored.
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -339,7 +325,7 @@ type MonitorState struct {
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-	// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+	// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 	// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 	// data during evaluation.
 	EvaluationDelay pulumi.IntPtrInput
@@ -361,20 +347,20 @@ type MonitorState struct {
 	Locked pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringPtrInput
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 	// required for, anomaly monitors.
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrInput
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
 	// Name of Datadog monitor.
 	Name pulumi.StringPtrInput
-	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 	// nonzero value.
 	NewGroupDelay pulumi.IntPtrInput
-	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+	// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
-	// `new_host_delay` to zero for monitors grouped by host.
+	// `newHostDelay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrInput
@@ -387,9 +373,9 @@ type MonitorState struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert.
+	// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+	// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+	// `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrInput
@@ -398,18 +384,11 @@ type MonitorState struct {
 	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-	Query pulumi.StringPtrInput
+	Query    pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -418,8 +397,8 @@ type MonitorState struct {
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-	// `require_full_window` must be false and will be ignored.
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -454,7 +433,7 @@ type monitorArgs struct {
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-	// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+	// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 	// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 	// data during evaluation.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
@@ -476,20 +455,20 @@ type monitorArgs struct {
 	Locked *bool `pulumi:"locked"`
 	// A message to include with notifications for this monitor.
 	Message string `pulumi:"message"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 	// required for, anomaly monitors.
 	MonitorThresholdWindows *MonitorMonitorThresholdWindows `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name string `pulumi:"name"`
-	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 	// nonzero value.
 	NewGroupDelay *int `pulumi:"newGroupDelay"`
-	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+	// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
-	// `new_host_delay` to zero for monitors grouped by host.
+	// `newHostDelay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay *int `pulumi:"newHostDelay"`
@@ -502,9 +481,9 @@ type monitorArgs struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert.
+	// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+	// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+	// `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
 	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
@@ -513,18 +492,11 @@ type monitorArgs struct {
 	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority *int `pulumi:"priority"`
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-	Query string `pulumi:"query"`
+	Priority *int   `pulumi:"priority"`
+	Query    string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -533,8 +505,8 @@ type monitorArgs struct {
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-	// `require_full_window` must be false and will be ignored.
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -566,7 +538,7 @@ type MonitorArgs struct {
 	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-	// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+	// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 	// from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 	// data during evaluation.
 	EvaluationDelay pulumi.IntPtrInput
@@ -588,20 +560,20 @@ type MonitorArgs struct {
 	Locked pulumi.BoolPtrInput
 	// A message to include with notifications for this monitor.
 	Message pulumi.StringInput
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 	// required for, anomaly monitors.
 	MonitorThresholdWindows MonitorMonitorThresholdWindowsPtrInput
 	// Alert thresholds of the monitor.
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
 	// Name of Datadog monitor.
 	Name pulumi.StringInput
-	// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 	// nonzero value.
 	NewGroupDelay pulumi.IntPtrInput
-	// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+	// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 	// starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 	// and monitors not grouped by host. The only case when this should be used is to override the default and set
-	// `new_host_delay` to zero for monitors grouped by host.
+	// `newHostDelay` to zero for monitors grouped by host.
 	//
 	// Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 	NewHostDelay pulumi.IntPtrInput
@@ -614,9 +586,9 @@ type MonitorArgs struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 	// grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-	// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-	// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-	// to `[*]` configures the monitor to notify as a simple-alert.
+	// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+	// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+	// `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies pulumi.StringArrayInput
 	// A boolean indicating whether this monitor will notify when data stops reporting.
 	NotifyNoData pulumi.BoolPtrInput
@@ -625,18 +597,11 @@ type MonitorArgs struct {
 	// evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 	// `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 	// available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-	// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
 	Priority pulumi.IntPtrInput
-	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-	Query pulumi.StringInput
+	Query    pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -645,8 +610,8 @@ type MonitorArgs struct {
 	// The types of statuses for which re-notification messages should be sent.
 	RenotifyStatuses pulumi.StringArrayInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-	// `require_full_window` must be false and will be ignored.
+	// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+	// `requireFullWindow` must be false and will be ignored.
 	RequireFullWindow pulumi.BoolPtrInput
 	// A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any
 	// updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique
@@ -775,7 +740,7 @@ func (o MonitorOutput) EscalationMessage() pulumi.StringPtrOutput {
 }
 
 // (Only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the
-// value is set to `300` (5min), the `timeframe` is set to `last_5m` and the time is 7:00, the monitor will evaluate data
+// value is set to `300` (5min), the `timeframe` is set to `last5m` and the time is 7:00, the monitor will evaluate data
 // from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor will always have
 // data during evaluation.
 func (o MonitorOutput) EvaluationDelay() pulumi.IntOutput {
@@ -818,7 +783,7 @@ func (o MonitorOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
 }
 
-// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
+// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m` . Can only be used for, and are
 // required for, anomaly monitors.
 func (o MonitorOutput) MonitorThresholdWindows() MonitorMonitorThresholdWindowsPtrOutput {
 	return o.ApplyT(func(v *Monitor) MonitorMonitorThresholdWindowsPtrOutput { return v.MonitorThresholdWindows }).(MonitorMonitorThresholdWindowsPtrOutput)
@@ -834,16 +799,16 @@ func (o MonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+// The time (in seconds) to skip evaluations for new groups. `newGroupDelay` overrides `newHostDelay` if it is set to a
 // nonzero value.
 func (o MonitorOutput) NewGroupDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.NewGroupDelay }).(pulumi.IntPtrOutput)
 }
 
-// **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
+// **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before
 // starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors
 // and monitors not grouped by host. The only case when this should be used is to override the default and set
-// `new_host_delay` to zero for monitors grouped by host.
+// `newHostDelay` to zero for monitors grouped by host.
 //
 // Deprecated: Use `newGroupDelay` except when setting `newHostDelay` to zero.
 func (o MonitorOutput) NewHostDelay() pulumi.IntPtrOutput {
@@ -868,9 +833,9 @@ func (o MonitorOutput) NotifyAudit() pulumi.BoolPtrOutput {
 
 // Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor
 // grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert
-// conditions by setting `notify_by` to `['cluster']`. Tags mentioned in `notify_by` must be a subset of the grouping tags
-// in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notify_by`
-// to `[*]` configures the monitor to notify as a simple-alert.
+// conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in
+// the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to
+// `[*]` configures the monitor to notify as a simple-alert.
 func (o MonitorOutput) NotifyBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringArrayOutput { return v.NotifyBies }).(pulumi.StringArrayOutput)
 }
@@ -885,7 +850,7 @@ func (o MonitorOutput) NotifyNoData() pulumi.BoolPtrOutput {
 // evaluation is treated as 0 and is compared to the threshold conditions. For monitors using any query type other than
 // `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
 // available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
-// `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
+// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 func (o MonitorOutput) OnMissingData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.OnMissingData }).(pulumi.StringPtrOutput)
 }
@@ -895,13 +860,6 @@ func (o MonitorOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 func (o MonitorOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
@@ -923,8 +881,8 @@ func (o MonitorOutput) RenotifyStatuses() pulumi.StringArrayOutput {
 }
 
 // A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends
-// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set,
-// `require_full_window` must be false and will be ignored.
+// you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a customSchedule set,
+// `requireFullWindow` must be false and will be ignored.
 func (o MonitorOutput) RequireFullWindow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.RequireFullWindow }).(pulumi.BoolPtrOutput)
 }
