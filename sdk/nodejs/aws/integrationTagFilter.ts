@@ -115,7 +115,7 @@ export interface IntegrationTagFilterState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
      */
     namespace?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface IntegrationTagFilterArgs {
      */
     accountId: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
      */
     namespace: pulumi.Input<string>;
     /**
