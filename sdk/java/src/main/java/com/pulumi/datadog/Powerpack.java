@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -53,13 +54,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage Datadog Powerpacks
- *         var organization = new OrganizationSettings(&#34;organization&#34;, OrganizationSettingsArgs.builder()        
- *             .name(&#34;foo-organization&#34;)
+ *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()        
+ *             .name("foo-organization")
  *             .build());
  * 
- *         var foo = new Powerpack(&#34;foo&#34;, PowerpackArgs.builder()        
- *             .description(&#34;Created using the Datadog provider in terraform&#34;)
- *             .liveSpan(&#34;4h&#34;)
+ *         var foo = new Powerpack("foo", PowerpackArgs.builder()        
+ *             .description("Created using the Datadog provider in terraform")
+ *             .liveSpan("4h")
  *             .layout(PowerpackLayoutArgs.builder()
  *                 .height(10)
  *                 .width(3)
@@ -67,23 +68,24 @@ import javax.annotation.Nullable;
  *                 .y(0)
  *                 .build())
  *             .templateVariables(PowerpackTemplateVariableArgs.builder()
- *                 .defaults(&#34;defaults&#34;)
- *                 .name(&#34;datacenter&#34;)
+ *                 .defaults("defaults")
+ *                 .name("datacenter")
  *                 .build())
  *             .widgets(PowerpackWidgetArgs.builder()
  *                 .eventStreamDefinition(PowerpackWidgetEventStreamDefinitionArgs.builder()
- *                     .query(&#34;*&#34;)
- *                     .eventSize(&#34;l&#34;)
- *                     .title(&#34;Widget Title&#34;)
+ *                     .query("*")
+ *                     .eventSize("l")
+ *                     .title("Widget Title")
  *                     .titleSize(16)
- *                     .titleAlign(&#34;right&#34;)
+ *                     .titleAlign("right")
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

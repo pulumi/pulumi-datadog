@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -51,34 +52,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
- *             .title(&#34;TF Test Layout Dashboard&#34;)
- *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
- *             .layoutType(&#34;ordered&#34;)
+ *         var time = new Dashboard("time", DashboardArgs.builder()        
+ *             .title("TF Test Layout Dashboard")
+ *             .description("Created using the Datadog provider in Pulumi")
+ *             .layoutType("ordered")
  *             .isReadOnly(true)
  *             .widgets(DashboardWidgetArgs.builder()
  *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
- *                     .alertId(&#34;1234&#34;)
- *                     .vizType(&#34;timeseries&#34;)
- *                     .title(&#34;Widget Title&#34;)
- *                     .liveSpan(&#34;1h&#34;)
+ *                     .alertId("1234")
+ *                     .vizType("timeseries")
+ *                     .title("Widget Title")
+ *                     .liveSpan("1h")
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *         var screen = new Dashboard(&#34;screen&#34;, DashboardArgs.builder()        
- *             .title(&#34;TF Test Free Layout Dashboard&#34;)
- *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
- *             .layoutType(&#34;free&#34;)
+ *         var screen = new Dashboard("screen", DashboardArgs.builder()        
+ *             .title("TF Test Free Layout Dashboard")
+ *             .description("Created using the Datadog provider in Pulumi")
+ *             .layoutType("free")
  *             .isReadOnly(false)
  *             .widgets(DashboardWidgetArgs.builder()
  *                 .eventStreamDefinition(DashboardWidgetEventStreamDefinitionArgs.builder()
- *                     .query(&#34;*&#34;)
- *                     .eventSize(&#34;l&#34;)
- *                     .title(&#34;Widget Title&#34;)
+ *                     .query("*")
+ *                     .eventSize("l")
+ *                     .title("Widget Title")
  *                     .titleSize(16)
- *                     .titleAlign(&#34;left&#34;)
- *                     .liveSpan(&#34;1h&#34;)
+ *                     .titleAlign("left")
+ *                     .liveSpan("1h")
  *                     .build())
  *                 .widgetLayout(DashboardWidgetWidgetLayoutArgs.builder()
  *                     .height(43)
@@ -90,15 +91,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a new Dashboard List with two Dashboards
- *         var newList = new DashboardList(&#34;newList&#34;, DashboardListArgs.builder()        
- *             .name(&#34;Automated Created List&#34;)
+ *         var newList = new DashboardList("newList", DashboardListArgs.builder()        
+ *             .name("Automated Created List")
  *             .dashItems(            
  *                 DashboardListDashItemArgs.builder()
- *                     .type(&#34;custom_timeboard&#34;)
+ *                     .type("custom_timeboard")
  *                     .dashId(time.id())
  *                     .build(),
  *                 DashboardListDashItemArgs.builder()
- *                     .type(&#34;custom_screenboard&#34;)
+ *                     .type("custom_screenboard")
  *                     .dashId(screen.id())
  *                     .build())
  *             .build(), CustomResourceOptions.builder()
@@ -109,7 +110,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

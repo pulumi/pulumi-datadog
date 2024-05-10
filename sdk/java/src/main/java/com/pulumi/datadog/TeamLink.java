@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,23 +44,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
- *             .description(&#34;Example team&#34;)
- *             .handle(&#34;example-team-updated&#34;)
- *             .name(&#34;Example Team-updated&#34;)
+ *         var foo = new Team("foo", TeamArgs.builder()        
+ *             .description("Example team")
+ *             .handle("example-team-updated")
+ *             .name("Example Team-updated")
  *             .build());
  * 
  *         // Create new team_link resource
- *         var fooTeamLink = new TeamLink(&#34;fooTeamLink&#34;, TeamLinkArgs.builder()        
+ *         var fooTeamLink = new TeamLink("fooTeamLink", TeamLinkArgs.builder()        
  *             .teamId(foo.id())
- *             .label(&#34;Link label&#34;)
- *             .position(&#34;Example link&#34;)
- *             .url(&#34;https://example.com&#34;)
+ *             .label("Link label")
+ *             .position("Example link")
+ *             .url("https://example.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAgentRule = new CloudWorkloadSecurityAgentRule(&#34;myAgentRule&#34;, CloudWorkloadSecurityAgentRuleArgs.builder()        
- *             .name(&#34;my_agent_rule&#34;)
- *             .description(&#34;My agent rule&#34;)
+ *         var myAgentRule = new CloudWorkloadSecurityAgentRule("myAgentRule", CloudWorkloadSecurityAgentRuleArgs.builder()        
+ *             .name("my_agent_rule")
+ *             .description("My agent rule")
  *             .enabled(true)
- *             .expression(&#34;exec.file.name == \&#34;java\&#34;&#34;)
+ *             .expression("exec.file.name == \"java\"")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

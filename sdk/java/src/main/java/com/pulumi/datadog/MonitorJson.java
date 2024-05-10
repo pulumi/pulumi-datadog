@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -40,36 +41,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitorJson = new MonitorJson(&#34;monitorJson&#34;, MonitorJsonArgs.builder()        
- *             .monitor(&#34;&#34;&#34;
+ *         var monitorJson = new MonitorJson("monitorJson", MonitorJsonArgs.builder()        
+ *             .monitor("""
  * {
- *     &#34;name&#34;: &#34;Example monitor - service check&#34;,
- *     &#34;type&#34;: &#34;service check&#34;,
- *     &#34;query&#34;: &#34;\&#34;ntp.in_sync\&#34;.by(\&#34;*\&#34;).last(2).count_by_status()&#34;,
- *     &#34;message&#34;: &#34;Change the message triggers if any host&#39;s clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent&#39;s &#39;ntp.yaml&#39; file.\n\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.&#34;,
- *     &#34;tags&#34;: [],
- *     &#34;multi&#34;: true,
- * 	&#34;restricted_roles&#34;: null,
- *     &#34;options&#34;: {
- *         &#34;include_tags&#34;: true,
- *         &#34;new_host_delay&#34;: 150,
- *         &#34;notify_audit&#34;: false,
- *         &#34;notify_no_data&#34;: false,
- *         &#34;thresholds&#34;: {
- *             &#34;warning&#34;: 1,
- *             &#34;ok&#34;: 1,
- *             &#34;critical&#34;: 1
+ *     "name": "Example monitor - service check",
+ *     "type": "service check",
+ *     "query": "\"ntp.in_sync\".by(\"*\").last(2).count_by_status()",
+ *     "message": "Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.\n\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.",
+ *     "tags": [],
+ *     "multi": true,
+ * 	"restricted_roles": null,
+ *     "options": {
+ *         "include_tags": true,
+ *         "new_host_delay": 150,
+ *         "notify_audit": false,
+ *         "notify_no_data": false,
+ *         "thresholds": {
+ *             "warning": 1,
+ *             "ok": 1,
+ *             "critical": 1
  *         }
  *     },
- *     &#34;priority&#34;: null,
- *     &#34;classification&#34;: &#34;custom&#34;
+ *     "priority": null,
+ *     "classification": "custom"
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

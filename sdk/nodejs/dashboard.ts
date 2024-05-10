@@ -790,10 +790,6 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
-    /**
-     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-     * dashboard lists using Terraform as it causes inconsistent behavior.
-     */
     public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
     /**
      * A list of dashboard lists this dashboard should be removed from. Internal only.
@@ -909,10 +905,6 @@ export class Dashboard extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dashboard resources.
  */
 export interface DashboardState {
-    /**
-     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-     * dashboard lists using Terraform as it causes inconsistent behavior.
-     */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * A list of dashboard lists this dashboard should be removed from. Internal only.
@@ -974,10 +966,6 @@ export interface DashboardState {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
-    /**
-     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-     * dashboard lists using Terraform as it causes inconsistent behavior.
-     */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The description of the dashboard.

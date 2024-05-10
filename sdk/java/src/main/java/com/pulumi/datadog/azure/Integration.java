@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,13 +44,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Microsoft Azure integration
- *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
- *             .tenantName(&#34;&lt;azure_tenant_name&gt;&#34;)
- *             .clientId(&#34;&lt;azure_client_id&gt;&#34;)
- *             .clientSecret(&#34;&lt;azure_client_secret_key&gt;&#34;)
- *             .hostFilters(&#34;examplefilter:true,example:true&#34;)
- *             .appServicePlanFilters(&#34;examplefilter:true,example:another&#34;)
- *             .containerAppFilters(&#34;examplefilter:true,example:one_more&#34;)
+ *         var sandbox = new Integration("sandbox", IntegrationArgs.builder()        
+ *             .tenantName("<azure_tenant_name>")
+ *             .clientId("<azure_client_id>")
+ *             .clientSecret("<azure_client_secret_key>")
+ *             .hostFilters("examplefilter:true,example:true")
+ *             .appServicePlanFilters("examplefilter:true,example:another")
+ *             .containerAppFilters("examplefilter:true,example:one_more")
  *             .automute(true)
  *             .cspmEnabled(true)
  *             .customMetricsEnabled(false)
@@ -57,7 +58,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

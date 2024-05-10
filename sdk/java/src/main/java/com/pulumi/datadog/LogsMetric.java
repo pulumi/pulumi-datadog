@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,29 +49,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testingLogsMetric = new LogsMetric(&#34;testingLogsMetric&#34;, LogsMetricArgs.builder()        
- *             .name(&#34;testing.logs.metric&#34;)
+ *         var testingLogsMetric = new LogsMetric("testingLogsMetric", LogsMetricArgs.builder()        
+ *             .name("testing.logs.metric")
  *             .compute(LogsMetricComputeArgs.builder()
- *                 .aggregationType(&#34;distribution&#34;)
- *                 .path(&#34;@duration&#34;)
+ *                 .aggregationType("distribution")
+ *                 .path("{@literal @}duration")
  *                 .build())
  *             .filter(LogsMetricFilterArgs.builder()
- *                 .query(&#34;service:test&#34;)
+ *                 .query("service:test")
  *                 .build())
  *             .groupBies(            
  *                 LogsMetricGroupByArgs.builder()
- *                     .path(&#34;@status&#34;)
- *                     .tagName(&#34;status&#34;)
+ *                     .path("{@literal @}status")
+ *                     .tagName("status")
  *                     .build(),
  *                 LogsMetricGroupByArgs.builder()
- *                     .path(&#34;@version&#34;)
- *                     .tagName(&#34;version&#34;)
+ *                     .path("{@literal @}version")
+ *                     .tagName("version")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

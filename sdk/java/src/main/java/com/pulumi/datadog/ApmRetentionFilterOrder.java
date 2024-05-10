@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,24 +45,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create APM retention filter
- *         var foo = new ApmRetentionFilter(&#34;foo&#34;, ApmRetentionFilterArgs.builder()        
- *             .name(&#34;Sample order&#34;)
- *             .rate(&#34;1.0&#34;)
+ *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()        
+ *             .name("Sample order")
+ *             .rate("1.0")
  *             .filter(ApmRetentionFilterFilterArgs.builder()
- *                 .query(&#34;*&#34;)
+ *                 .query("*")
  *                 .build())
- *             .filterType(&#34;spans-sampling-processor&#34;)
+ *             .filterType("spans-sampling-processor")
  *             .enabled(false)
  *             .build());
  * 
  *         // Create APM reention filter order
- *         var bar = new ApmRetentionFilterOrder(&#34;bar&#34;, ApmRetentionFilterOrderArgs.builder()        
+ *         var bar = new ApmRetentionFilterOrder("bar", ApmRetentionFilterOrderArgs.builder()        
  *             .filterIds(foo.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

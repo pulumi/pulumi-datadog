@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new integration_aws_event_bridge resource
- *         var foo = new IntegrationEventBridge(&#34;foo&#34;, IntegrationEventBridgeArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
+ *         var foo = new IntegrationEventBridge("foo", IntegrationEventBridgeArgs.builder()        
+ *             .accountId("123456789012")
  *             .createEventBus(true)
- *             .eventGeneratorName(&#34;app-alerts&#34;)
- *             .region(&#34;us-east-1&#34;)
+ *             .eventGeneratorName("app-alerts")
+ *             .region("us-east-1")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

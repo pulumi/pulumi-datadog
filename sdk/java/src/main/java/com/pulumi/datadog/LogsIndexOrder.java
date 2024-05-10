@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,14 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleIndexOrder = new LogsIndexOrder(&#34;sampleIndexOrder&#34;, LogsIndexOrderArgs.builder()        
- *             .name(&#34;sample_index_order&#34;)
+ *         var sampleIndexOrder = new LogsIndexOrder("sampleIndexOrder", LogsIndexOrderArgs.builder()        
+ *             .name("sample_index_order")
  *             .indexes(sampleIndex.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

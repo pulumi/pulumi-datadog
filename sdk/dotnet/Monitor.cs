@@ -210,15 +210,6 @@ namespace Pulumi.Datadog
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
-        /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
@@ -496,15 +487,6 @@ namespace Pulumi.Datadog
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -775,15 +757,6 @@ namespace Pulumi.Datadog
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
-        /// <summary>
-        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 

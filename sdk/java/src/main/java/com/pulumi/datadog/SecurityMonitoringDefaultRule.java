@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,17 +48,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var adefaultrule = new SecurityMonitoringDefaultRule(&#34;adefaultrule&#34;, SecurityMonitoringDefaultRuleArgs.builder()        
+ *         var adefaultrule = new SecurityMonitoringDefaultRule("adefaultrule", SecurityMonitoringDefaultRuleArgs.builder()        
  *             .enabled(true)
  *             .cases(SecurityMonitoringDefaultRuleCaseArgs.builder()
- *                 .status(&#34;high&#34;)
- *                 .notifications(&#34;@me&#34;)
+ *                 .status("high")
+ *                 .notifications("{@literal @}me")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

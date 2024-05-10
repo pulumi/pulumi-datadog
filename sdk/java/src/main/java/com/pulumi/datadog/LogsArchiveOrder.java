@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sampleArchiveOrder = new LogsArchiveOrder(&#34;sampleArchiveOrder&#34;, LogsArchiveOrderArgs.builder()        
+ *         var sampleArchiveOrder = new LogsArchiveOrder("sampleArchiveOrder", LogsArchiveOrderArgs.builder()        
  *             .archiveIds(            
  *                 sampleArchive1.id(),
  *                 sampleArchive2.id())
@@ -49,7 +50,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

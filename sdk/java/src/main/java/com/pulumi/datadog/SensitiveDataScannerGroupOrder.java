@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new sensitive_data_scanner_group_order resource
- *         var mygrouporder = new SensitiveDataScannerGroupOrder(&#34;mygrouporder&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
+ *         var mygrouporder = new SensitiveDataScannerGroupOrder("mygrouporder", SensitiveDataScannerGroupOrderArgs.builder()        
  *             .groupIds(            
- *                 &#34;group-id-1&#34;,
- *                 &#34;group-id-2&#34;,
- *                 &#34;group-id-3&#34;)
+ *                 "group-id-1",
+ *                 "group-id-2",
+ *                 "group-id-3")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

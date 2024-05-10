@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Amazon Web Services integration tag filter
- *         var foo = new IntegrationTagFilter(&#34;foo&#34;, IntegrationTagFilterArgs.builder()        
- *             .accountId(&#34;123456789010&#34;)
- *             .namespace(&#34;sqs&#34;)
- *             .tagFilterStr(&#34;key:value&#34;)
+ *         var foo = new IntegrationTagFilter("foo", IntegrationTagFilterArgs.builder()        
+ *             .accountId("123456789010")
+ *             .namespace("sqs")
+ *             .tagFilterStr("key:value")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

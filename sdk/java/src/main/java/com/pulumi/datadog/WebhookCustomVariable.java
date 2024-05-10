@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog webhook custom variable.
- *         var foo = new WebhookCustomVariable(&#34;foo&#34;, WebhookCustomVariableArgs.builder()        
- *             .name(&#34;EXAMPLE_VARIABLE&#34;)
- *             .value(&#34;EXAMPLE-VALUE&#34;)
+ *         var foo = new WebhookCustomVariable("foo", WebhookCustomVariableArgs.builder()        
+ *             .name("EXAMPLE_VARIABLE")
+ *             .value("EXAMPLE-VALUE")
  *             .isSecret(true)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySuppression = new SecurityMonitoringSuppression(&#34;mySuppression&#34;, SecurityMonitoringSuppressionArgs.builder()        
- *             .name(&#34;My suppression&#34;)
- *             .description(&#34;Suppression for low severity CloudTrail signals from test environments limited to 2024&#34;)
+ *         var mySuppression = new SecurityMonitoringSuppression("mySuppression", SecurityMonitoringSuppressionArgs.builder()        
+ *             .name("My suppression")
+ *             .description("Suppression for low severity CloudTrail signals from test environments limited to 2024")
  *             .enabled(true)
- *             .ruleQuery(&#34;severity:low source:cloudtrail&#34;)
- *             .suppressionQuery(&#34;env:test&#34;)
- *             .expirationDate(&#34;2024-12-31T12:00:00Z&#34;)
+ *             .ruleQuery("severity:low source:cloudtrail")
+ *             .suppressionQuery("env:test")
+ *             .expirationDate("2024-12-31T12:00:00Z")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

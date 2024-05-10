@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,23 +45,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
- *             .apiKey(&#34;ABCDEFG123&#34;)
- *             .name(&#34;test-name&#34;)
+ *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()        
+ *             .apiKey("ABCDEFG123")
+ *             .name("test-name")
  *             .build());
  * 
  *         // Create new integration_fastly_service resource
- *         var fooIntegrationService = new IntegrationService(&#34;fooIntegrationService&#34;, IntegrationServiceArgs.builder()        
+ *         var fooIntegrationService = new IntegrationService("fooIntegrationService", IntegrationServiceArgs.builder()        
  *             .accountId(foo.id())
  *             .tags(            
- *                 &#34;mytag&#34;,
- *                 &#34;mytag2:myvalue&#34;)
- *             .serviceId(&#34;my-service-id&#34;)
+ *                 "mytag",
+ *                 "mytag2:myvalue")
+ *             .serviceId("my-service-id")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,31 +48,32 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object.
  *         // Services as Individual Resources
- *         var pd = new Integration(&#34;pd&#34;, IntegrationArgs.builder()        
+ *         var pd = new Integration("pd", IntegrationArgs.builder()        
  *             .schedules(            
- *                 &#34;https://ddog.pagerduty.com/schedules/X123VF&#34;,
- *                 &#34;https://ddog.pagerduty.com/schedules/X321XX&#34;)
- *             .subdomain(&#34;ddog&#34;)
- *             .apiToken(&#34;38457822378273432587234242874&#34;)
+ *                 "https://ddog.pagerduty.com/schedules/X123VF",
+ *                 "https://ddog.pagerduty.com/schedules/X321XX")
+ *             .subdomain("ddog")
+ *             .apiToken("38457822378273432587234242874")
  *             .build());
  * 
- *         var testingFoo = new ServiceObject(&#34;testingFoo&#34;, ServiceObjectArgs.builder()        
- *             .serviceName(&#34;testing_foo&#34;)
- *             .serviceKey(&#34;9876543210123456789&#34;)
+ *         var testingFoo = new ServiceObject("testingFoo", ServiceObjectArgs.builder()        
+ *             .serviceName("testing_foo")
+ *             .serviceKey("9876543210123456789")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(pd)
  *                 .build());
  * 
- *         var testingBar = new ServiceObject(&#34;testingBar&#34;, ServiceObjectArgs.builder()        
- *             .serviceName(&#34;testing_bar&#34;)
- *             .serviceKey(&#34;54321098765432109876&#34;)
+ *         var testingBar = new ServiceObject("testingBar", ServiceObjectArgs.builder()        
+ *             .serviceName("testing_bar")
+ *             .serviceKey("54321098765432109876")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(pd)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

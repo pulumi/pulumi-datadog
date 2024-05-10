@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,37 +47,38 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage a tag configuration for a Datadog distribution metric with/without percentiles
- *         var exampleDistMetric = new MetricTagConfiguration(&#34;exampleDistMetric&#34;, MetricTagConfigurationArgs.builder()        
- *             .metricName(&#34;example.terraform.dist.metric&#34;)
- *             .metricType(&#34;distribution&#34;)
+ *         var exampleDistMetric = new MetricTagConfiguration("exampleDistMetric", MetricTagConfigurationArgs.builder()        
+ *             .metricName("example.terraform.dist.metric")
+ *             .metricType("distribution")
  *             .tags(            
- *                 &#34;sport&#34;,
- *                 &#34;datacenter&#34;)
+ *                 "sport",
+ *                 "datacenter")
  *             .includePercentiles(false)
  *             .build());
  * 
  *         // Manage tag configurations for a Datadog count or gauge metric
- *         var exampleCountMetric = new MetricTagConfiguration(&#34;exampleCountMetric&#34;, MetricTagConfigurationArgs.builder()        
- *             .metricName(&#34;example.terraform.count.metric&#34;)
- *             .metricType(&#34;count&#34;)
+ *         var exampleCountMetric = new MetricTagConfiguration("exampleCountMetric", MetricTagConfigurationArgs.builder()        
+ *             .metricName("example.terraform.count.metric")
+ *             .metricType("count")
  *             .tags(            
- *                 &#34;sport&#34;,
- *                 &#34;datacenter&#34;)
+ *                 "sport",
+ *                 "datacenter")
  *             .excludeTagsMode(false)
  *             .aggregations(            
  *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .time(&#34;avg&#34;)
- *                     .space(&#34;min&#34;)
+ *                     .time("avg")
+ *                     .space("min")
  *                     .build(),
  *                 MetricTagConfigurationAggregationArgs.builder()
- *                     .time(&#34;avg&#34;)
- *                     .space(&#34;max&#34;)
+ *                     .time("avg")
+ *                     .space("max")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

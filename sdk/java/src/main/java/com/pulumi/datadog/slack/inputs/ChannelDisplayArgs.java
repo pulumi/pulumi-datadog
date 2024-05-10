@@ -31,14 +31,14 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Show the list of @-handles in the alert event. Defaults to `true`.
+     * Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
     @Import(name="notified")
     private @Nullable Output<Boolean> notified;
 
     /**
-     * @return Show the list of @-handles in the alert event. Defaults to `true`.
+     * @return Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> notified() {
@@ -124,7 +124,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param notified Show the list of @-handles in the alert event. Defaults to `true`.
+         * @param notified Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ChannelDisplayArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param notified Show the list of @-handles in the alert event. Defaults to `true`.
+         * @param notified Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
          * 
          * @return builder
          * 

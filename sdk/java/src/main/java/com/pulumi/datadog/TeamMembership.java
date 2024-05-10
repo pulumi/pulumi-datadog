@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
- *             .description(&#34;Example team&#34;)
- *             .handle(&#34;example-team-updated&#34;)
- *             .name(&#34;Example Team-updated&#34;)
+ *         var foo = new Team("foo", TeamArgs.builder()        
+ *             .description("Example team")
+ *             .handle("example-team-updated")
+ *             .name("Example Team-updated")
  *             .build());
  * 
- *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
- *             .email(&#34;new@example.com&#34;)
+ *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *             .email("new{@literal @}example.com")
  *             .build());
  * 
  *         // Create new team_membership resource
- *         var fooTeamMembership = new TeamMembership(&#34;fooTeamMembership&#34;, TeamMembershipArgs.builder()        
+ *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()        
  *             .teamId(foo.id())
  *             .userId(fooUser.id())
- *             .role(&#34;admin&#34;)
+ *             .role("admin")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

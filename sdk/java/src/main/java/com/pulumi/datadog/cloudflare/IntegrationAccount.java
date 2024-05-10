@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new integration_cloudflare_account resource
- *         var foo = new IntegrationAccount(&#34;foo&#34;, IntegrationAccountArgs.builder()        
- *             .apiKey(&#34;12345678910abc&#34;)
- *             .email(&#34;test-email@example.com&#34;)
- *             .name(&#34;test-name&#34;)
+ *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()        
+ *             .apiKey("12345678910abc")
+ *             .email("test-email{@literal @}example.com")
+ *             .name("test-name")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

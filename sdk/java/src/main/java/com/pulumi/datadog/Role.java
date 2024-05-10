@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,20 +53,21 @@ import javax.annotation.Nullable;
  *         final var bar = DatadogFunctions.getPermissions();
  * 
  *         // Create a new Datadog role
- *         var foo = new Role(&#34;foo&#34;, RoleArgs.builder()        
- *             .name(&#34;foo&#34;)
+ *         var foo = new Role("foo", RoleArgs.builder()        
+ *             .name("foo")
  *             .permissions(            
  *                 RolePermissionArgs.builder()
- *                     .id(bar.applyValue(getPermissionsResult -&gt; getPermissionsResult.permissions().monitorsDowntime()))
+ *                     .id(bar.applyValue(getPermissionsResult -> getPermissionsResult.permissions().monitorsDowntime()))
  *                     .build(),
  *                 RolePermissionArgs.builder()
- *                     .id(bar.applyValue(getPermissionsResult -&gt; getPermissionsResult.permissions().monitorsWrite()))
+ *                     .id(bar.applyValue(getPermissionsResult -> getPermissionsResult.permissions().monitorsWrite()))
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

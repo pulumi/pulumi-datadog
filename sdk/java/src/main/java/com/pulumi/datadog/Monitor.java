@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,25 +50,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Monitor(&#34;foo&#34;, MonitorArgs.builder()        
- *             .name(&#34;Name for monitor foo&#34;)
- *             .type(&#34;metric alert&#34;)
- *             .message(&#34;Monitor triggered. Notify: @hipchat-channel&#34;)
- *             .escalationMessage(&#34;Escalation message @pagerduty&#34;)
- *             .query(&#34;avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4&#34;)
+ *         var foo = new Monitor("foo", MonitorArgs.builder()        
+ *             .name("Name for monitor foo")
+ *             .type("metric alert")
+ *             .message("Monitor triggered. Notify:{@literal @}hipchat-channel")
+ *             .escalationMessage("Escalation message{@literal @}pagerduty")
+ *             .query("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4")
  *             .monitorThresholds(MonitorMonitorThresholdsArgs.builder()
  *                 .warning(2)
  *                 .critical(4)
  *                 .build())
  *             .includeTags(true)
  *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;team:fooBar&#34;)
+ *                 "foo:bar",
+ *                 "team:fooBar")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -112,14 +114,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.enableSamples;
     }
     /**
-     * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+     * A message to include with a re-notification. Supports the `{@literal @}username` notification allowed elsewhere.
      * 
      */
     @Export(name="escalationMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> escalationMessage;
 
     /**
-     * @return A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+     * @return A message to include with a re-notification. Supports the `{@literal @}username` notification allowed elsewhere.
      * 
      */
     public Output<Optional<String>> escalationMessage() {
@@ -443,29 +445,9 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
     }
-    /**
-     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-     * 
-     */
     @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
-    /**
-     * @return The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
-     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
-     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
-     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
-     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
-     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }

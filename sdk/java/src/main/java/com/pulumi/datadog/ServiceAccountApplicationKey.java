@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,14 +43,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new service_account_application_key resource
- *         var foo = new ServiceAccountApplicationKey(&#34;foo&#34;, ServiceAccountApplicationKeyArgs.builder()        
- *             .serviceAccountId(&#34;00000000-0000-1234-0000-000000000000&#34;)
- *             .name(&#34;Application key for managing dashboards&#34;)
+ *         var foo = new ServiceAccountApplicationKey("foo", ServiceAccountApplicationKeyArgs.builder()        
+ *             .serviceAccountId("00000000-0000-1234-0000-000000000000")
+ *             .name("Application key for managing dashboards")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -135,14 +135,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
+     * @return A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> message() {
@@ -630,7 +630,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `&#34;&#34;`.
+         * @param message A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

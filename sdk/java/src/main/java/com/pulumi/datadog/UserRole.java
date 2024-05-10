@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,26 +46,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitorWriterRole = new Role(&#34;monitorWriterRole&#34;, RoleArgs.builder()        
- *             .name(&#34;Monitor Writer Role&#34;)
+ *         var monitorWriterRole = new Role("monitorWriterRole", RoleArgs.builder()        
+ *             .name("Monitor Writer Role")
  *             .permissions(RolePermissionArgs.builder()
  *                 .id(bar.permissions().monitorsWrite())
  *                 .build())
  *             .build());
  * 
- *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
- *             .email(&#34;new@example.com&#34;)
+ *         var newUser = new User("newUser", UserArgs.builder()        
+ *             .email("new{@literal @}example.com")
  *             .build());
  * 
  *         // Create new user_role resource
- *         var newUserWithMonitorWriterRole = new UserRole(&#34;newUserWithMonitorWriterRole&#34;, UserRoleArgs.builder()        
+ *         var newUserWithMonitorWriterRole = new UserRole("newUserWithMonitorWriterRole", UserRoleArgs.builder()        
  *             .roleId(monitorWriterRole.id())
  *             .userId(newUser.id())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

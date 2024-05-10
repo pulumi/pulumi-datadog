@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new team resource
- *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
- *             .description(&#34;Team description&#34;)
- *             .handle(&#34;example-team&#34;)
- *             .name(&#34;Example Team&#34;)
+ *         var foo = new Team("foo", TeamArgs.builder()        
+ *             .description("Team description")
+ *             .handle("example-team")
+ *             .name("Example Team")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

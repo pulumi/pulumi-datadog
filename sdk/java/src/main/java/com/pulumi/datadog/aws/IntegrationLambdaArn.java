@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,14 +44,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Amazon Web Services integration Lambda ARN
- *         var mainCollector = new IntegrationLambdaArn(&#34;mainCollector&#34;, IntegrationLambdaArnArgs.builder()        
- *             .accountId(&#34;1234567890&#34;)
- *             .lambdaArn(&#34;arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder&#34;)
+ *         var mainCollector = new IntegrationLambdaArn("mainCollector", IntegrationLambdaArnArgs.builder()        
+ *             .accountId("1234567890")
+ *             .lambdaArn("arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
