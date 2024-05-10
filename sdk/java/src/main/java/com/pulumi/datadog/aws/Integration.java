@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,25 +46,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Amazon Web Services integration
- *         var sandbox = new Integration(&#34;sandbox&#34;, IntegrationArgs.builder()        
- *             .accountId(&#34;1234567890&#34;)
- *             .roleName(&#34;DatadogAWSIntegrationRole&#34;)
- *             .filterTags(&#34;key:value&#34;)
+ *         var sandbox = new Integration("sandbox", IntegrationArgs.builder()        
+ *             .accountId("1234567890")
+ *             .roleName("DatadogAWSIntegrationRole")
+ *             .filterTags("key:value")
  *             .hostTags(            
- *                 &#34;key:value&#34;,
- *                 &#34;key2:value2&#34;)
+ *                 "key:value",
+ *                 "key2:value2")
  *             .accountSpecificNamespaceRules(Map.ofEntries(
- *                 Map.entry(&#34;auto_scaling&#34;, false),
- *                 Map.entry(&#34;opsworks&#34;, false)
+ *                 Map.entry("auto_scaling", false),
+ *                 Map.entry("opsworks", false)
  *             ))
  *             .excludedRegions(            
- *                 &#34;us-east-1&#34;,
- *                 &#34;us-west-2&#34;)
+ *                 "us-east-1",
+ *                 "us-west-2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -161,19 +163,9 @@ public class Integration extends com.pulumi.resources.CustomResource {
     public Output<String> extendedResourceCollectionEnabled() {
         return this.extendedResourceCollectionEnabled;
     }
-    /**
-     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-     * Terraform.
-     * 
-     */
     @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
-    /**
-     * @return AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
-     * Terraform.
-     * 
-     */
     public Output<String> externalId() {
         return this.externalId;
     }

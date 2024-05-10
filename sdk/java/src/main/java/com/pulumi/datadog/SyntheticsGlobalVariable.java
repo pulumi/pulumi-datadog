@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,18 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVariable = new SyntheticsGlobalVariable(&#34;testVariable&#34;, SyntheticsGlobalVariableArgs.builder()        
- *             .name(&#34;EXAMPLE_VARIABLE&#34;)
- *             .description(&#34;Description of the variable&#34;)
+ *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()        
+ *             .name("EXAMPLE_VARIABLE")
+ *             .description("Description of the variable")
  *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;env:test&#34;)
- *             .value(&#34;variable-value&#34;)
+ *                 "foo:bar",
+ *                 "env:test")
+ *             .value("variable-value")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,23 +44,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog webhook
- *         var foo = new Webhook(&#34;foo&#34;, WebhookArgs.builder()        
- *             .name(&#34;test-webhook&#34;)
- *             .url(&#34;example.com&#34;)
- *             .encodeAs(&#34;json&#34;)
+ *         var foo = new Webhook("foo", WebhookArgs.builder()        
+ *             .name("test-webhook")
+ *             .url("example.com")
+ *             .encodeAs("json")
  *             .customHeaders(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;custom&#34;, &#34;header&#34;)
+ *                     jsonProperty("custom", "header")
  *                 )))
  *             .payload(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;custom&#34;, &#34;payload&#34;)
+ *                     jsonProperty("custom", "payload")
  *                 )))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

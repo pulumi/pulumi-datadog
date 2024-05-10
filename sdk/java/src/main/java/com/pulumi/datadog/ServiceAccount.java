@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,19 +48,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Source a role
  *         final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()
- *             .filter(&#34;Datadog Read Only Role&#34;)
+ *             .filter("Datadog Read Only Role")
  *             .build());
  * 
  *         // Create a new Datadog service account
- *         var bar = new ServiceAccount(&#34;bar&#34;, ServiceAccountArgs.builder()        
- *             .email(&#34;new@example.com&#34;)
- *             .name(&#34;Service Account Bar&#34;)
- *             .roles(roRole.applyValue(getRoleResult -&gt; getRoleResult.id()))
+ *         var bar = new ServiceAccount("bar", ServiceAccountArgs.builder()        
+ *             .email("new{@literal @}example.com")
+ *             .name("Service Account Bar")
+ *             .roles(roRole.applyValue(getRoleResult -> getRoleResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

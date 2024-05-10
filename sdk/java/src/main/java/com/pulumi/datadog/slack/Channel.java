@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,9 +43,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testChannel = new Channel(&#34;testChannel&#34;, ChannelArgs.builder()        
- *             .accountName(&#34;foo&#34;)
- *             .channelName(&#34;#test_channel&#34;)
+ *         var testChannel = new Channel("testChannel", ChannelArgs.builder()        
+ *             .accountName("foo")
+ *             .channelName("#test_channel")
  *             .display(ChannelDisplayArgs.builder()
  *                 .message(true)
  *                 .notified(false)
@@ -55,7 +56,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

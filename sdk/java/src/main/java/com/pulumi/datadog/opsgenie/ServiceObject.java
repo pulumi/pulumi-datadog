@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,21 +43,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fakeServiceName = new ServiceObject(&#34;fakeServiceName&#34;, ServiceObjectArgs.builder()        
- *             .name(&#34;fake_service_name&#34;)
- *             .opsgenieApiKey(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .region(&#34;us&#34;)
+ *         var fakeServiceName = new ServiceObject("fakeServiceName", ServiceObjectArgs.builder()        
+ *             .name("fake_service_name")
+ *             .opsgenieApiKey("00000000-0000-0000-0000-000000000000")
+ *             .region("us")
  *             .build());
  * 
- *         var fakeServiceName2 = new ServiceObject(&#34;fakeServiceName2&#34;, ServiceObjectArgs.builder()        
- *             .name(&#34;fake_service_name_2&#34;)
- *             .opsgenieApiKey(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .region(&#34;eu&#34;)
+ *         var fakeServiceName2 = new ServiceObject("fakeServiceName2", ServiceObjectArgs.builder()        
+ *             .name("fake_service_name_2")
+ *             .opsgenieApiKey("11111111-1111-1111-1111-111111111111")
+ *             .region("eu")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

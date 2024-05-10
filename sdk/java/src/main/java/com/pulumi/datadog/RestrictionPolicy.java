@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,22 +46,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new restriction_policy resource
- *         var foo = new RestrictionPolicy(&#34;foo&#34;, RestrictionPolicyArgs.builder()        
- *             .resourceId(&#34;security-rule:abc-def-ghi&#34;)
+ *         var foo = new RestrictionPolicy("foo", RestrictionPolicyArgs.builder()        
+ *             .resourceId("security-rule:abc-def-ghi")
  *             .bindings(            
  *                 RestrictionPolicyBindingArgs.builder()
- *                     .principals(&#34;role:00000000-0000-1111-0000-000000000000&#34;)
- *                     .relation(&#34;editor&#34;)
+ *                     .principals("role:00000000-0000-1111-0000-000000000000")
+ *                     .relation("editor")
  *                     .build(),
  *                 RestrictionPolicyBindingArgs.builder()
- *                     .principals(&#34;org:10000000-0000-1111-0000-000000000000&#34;)
- *                     .relation(&#34;viewer&#34;)
+ *                     .principals("org:10000000-0000-1111-0000-000000000000")
+ *                     .relation("viewer")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

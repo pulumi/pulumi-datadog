@@ -28,7 +28,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,39 +53,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myrule = new SecurityMonitoringRule(&#34;myrule&#34;, SecurityMonitoringRuleArgs.builder()        
- *             .name(&#34;My rule&#34;)
- *             .message(&#34;The rule has triggered.&#34;)
+ *         var myrule = new SecurityMonitoringRule("myrule", SecurityMonitoringRuleArgs.builder()        
+ *             .name("My rule")
+ *             .message("The rule has triggered.")
  *             .enabled(true)
  *             .queries(            
  *                 SecurityMonitoringRuleQueryArgs.builder()
- *                     .name(&#34;errors&#34;)
- *                     .query(&#34;status:error&#34;)
- *                     .aggregation(&#34;count&#34;)
- *                     .groupByFields(&#34;host&#34;)
+ *                     .name("errors")
+ *                     .query("status:error")
+ *                     .aggregation("count")
+ *                     .groupByFields("host")
  *                     .build(),
  *                 SecurityMonitoringRuleQueryArgs.builder()
- *                     .name(&#34;warnings&#34;)
- *                     .query(&#34;status:warning&#34;)
- *                     .aggregation(&#34;count&#34;)
- *                     .groupByFields(&#34;host&#34;)
+ *                     .name("warnings")
+ *                     .query("status:warning")
+ *                     .aggregation("count")
+ *                     .groupByFields("host")
  *                     .build())
  *             .cases(SecurityMonitoringRuleCaseArgs.builder()
- *                 .status(&#34;high&#34;)
- *                 .condition(&#34;errors &gt; 3 &amp;&amp; warnings &gt; 10&#34;)
- *                 .notifications(&#34;@user&#34;)
+ *                 .status("high")
+ *                 .condition("errors > 3 && warnings > 10")
+ *                 .notifications("{@literal @}user")
  *                 .build())
  *             .options(SecurityMonitoringRuleOptionsArgs.builder()
  *                 .evaluationWindow(300)
  *                 .keepAlive(600)
  *                 .maxSignalDuration(900)
  *                 .build())
- *             .tags(&#34;type:dos&#34;)
+ *             .tags("type:dos")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

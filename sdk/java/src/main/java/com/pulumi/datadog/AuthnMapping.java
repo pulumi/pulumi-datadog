@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,19 +46,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Source the role
  *         final var roRole = DatadogFunctions.getRole(GetRoleArgs.builder()
- *             .filter(&#34;Datadog Read Only Role&#34;)
+ *             .filter("Datadog Read Only Role")
  *             .build());
  * 
  *         // Create a new AuthN mapping
- *         var devRoRoleMapping = new AuthnMapping(&#34;devRoRoleMapping&#34;, AuthnMappingArgs.builder()        
- *             .key(&#34;Member-of&#34;)
- *             .value(&#34;Development&#34;)
- *             .role(roRole.applyValue(getRoleResult -&gt; getRoleResult.id()))
+ *         var devRoRoleMapping = new AuthnMapping("devRoRoleMapping", AuthnMappingArgs.builder()        
+ *             .key("Member-of")
+ *             .value("Development")
+ *             .role(roRole.applyValue(getRoleResult -> getRoleResult.id()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

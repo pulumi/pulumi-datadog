@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,19 +42,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testingFoo = new ServiceObject(&#34;testingFoo&#34;, ServiceObjectArgs.builder()        
- *             .serviceName(&#34;testing_foo&#34;)
- *             .serviceKey(&#34;9876543210123456789&#34;)
+ *         var testingFoo = new ServiceObject("testingFoo", ServiceObjectArgs.builder()        
+ *             .serviceName("testing_foo")
+ *             .serviceKey("9876543210123456789")
  *             .build());
  * 
- *         var testingBar = new ServiceObject(&#34;testingBar&#34;, ServiceObjectArgs.builder()        
- *             .serviceName(&#34;testing_bar&#34;)
- *             .serviceKey(&#34;54321098765432109876&#34;)
+ *         var testingBar = new ServiceObject("testingBar", ServiceObjectArgs.builder()        
+ *             .serviceName("testing_bar")
+ *             .serviceKey("54321098765432109876")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

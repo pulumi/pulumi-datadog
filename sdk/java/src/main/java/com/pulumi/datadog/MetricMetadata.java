@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,18 +43,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         // Manage a Datadog metric&#39;s metadata
- *         var requestTime = new MetricMetadata(&#34;requestTime&#34;, MetricMetadataArgs.builder()        
- *             .metric(&#34;request.time&#34;)
- *             .shortName(&#34;Request time&#34;)
- *             .description(&#34;99th percentile request time in milliseconds&#34;)
- *             .type(&#34;gauge&#34;)
- *             .unit(&#34;millisecond&#34;)
+ *         // Manage a Datadog metric's metadata
+ *         var requestTime = new MetricMetadata("requestTime", MetricMetadataArgs.builder()        
+ *             .metric("request.time")
+ *             .shortName("Request time")
+ *             .description("99th percentile request time in milliseconds")
+ *             .type("gauge")
+ *             .unit("millisecond")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,20 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MonitorConfigPolicy(&#34;test&#34;, MonitorConfigPolicyArgs.builder()        
- *             .policyType(&#34;tag&#34;)
+ *         var test = new MonitorConfigPolicy("test", MonitorConfigPolicyArgs.builder()        
+ *             .policyType("tag")
  *             .tagPolicy(MonitorConfigPolicyTagPolicyArgs.builder()
- *                 .tagKey(&#34;env&#34;)
+ *                 .tagKey("env")
  *                 .tagKeyRequired(false)
  *                 .validTagValues(                
- *                     &#34;staging&#34;,
- *                     &#34;prod&#34;)
+ *                     "staging",
+ *                     "prod")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

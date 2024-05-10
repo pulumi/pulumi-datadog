@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,24 +47,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFilter = new SecurityMonitoringFilter(&#34;myFilter&#34;, SecurityMonitoringFilterArgs.builder()        
- *             .name(&#34;My filter&#34;)
- *             .query(&#34;The filter is filtering.&#34;)
+ *         var myFilter = new SecurityMonitoringFilter("myFilter", SecurityMonitoringFilterArgs.builder()        
+ *             .name("My filter")
+ *             .query("The filter is filtering.")
  *             .isEnabled(true)
  *             .exclusionFilters(            
  *                 SecurityMonitoringFilterExclusionFilterArgs.builder()
- *                     .name(&#34;first&#34;)
- *                     .query(&#34;exclude some logs&#34;)
+ *                     .name("first")
+ *                     .query("exclude some logs")
  *                     .build(),
  *                 SecurityMonitoringFilterExclusionFilterArgs.builder()
- *                     .name(&#34;second&#34;)
- *                     .query(&#34;exclude some other logs&#34;)
+ *                     .name("second")
+ *                     .query("exclude some other logs")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

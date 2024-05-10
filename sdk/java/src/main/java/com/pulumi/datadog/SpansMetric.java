@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,25 +48,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new spans_metric resource
- *         var testingSpansMetric = new SpansMetric(&#34;testingSpansMetric&#34;, SpansMetricArgs.builder()        
- *             .name(&#34;testing.span.metric&#34;)
+ *         var testingSpansMetric = new SpansMetric("testingSpansMetric", SpansMetricArgs.builder()        
+ *             .name("testing.span.metric")
  *             .compute(SpansMetricComputeArgs.builder()
- *                 .aggregationType(&#34;distribution&#34;)
+ *                 .aggregationType("distribution")
  *                 .includePercentiles(false)
- *                 .path(&#34;@duration&#34;)
+ *                 .path("{@literal @}duration")
  *                 .build())
  *             .filter(SpansMetricFilterArgs.builder()
- *                 .query(&#34;@http.status_code:200 service:my-service&#34;)
+ *                 .query("{@literal @}http.status_code:200 service:my-service")
  *                 .build())
  *             .groupBies(SpansMetricGroupByArgs.builder()
- *                 .path(&#34;resource_name&#34;)
- *                 .tagName(&#34;resource_name&#34;)
+ *                 .path("resource_name")
+ *                 .tagName("resource_name")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

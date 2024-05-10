@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,44 +48,45 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
- *         var exampleSlo = new ServiceLevelObjective(&#34;exampleSlo&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .name(&#34;example slo&#34;)
- *             .type(&#34;metric&#34;)
- *             .description(&#34;some updated description about example_slo SLO&#34;)
+ *         var exampleSlo = new ServiceLevelObjective("exampleSlo", ServiceLevelObjectiveArgs.builder()        
+ *             .name("example slo")
+ *             .type("metric")
+ *             .description("some updated description about example_slo SLO")
  *             .query(ServiceLevelObjectiveQueryArgs.builder()
- *                 .numerator(&#34;sum:my.metric{type:good}.as_count()&#34;)
- *                 .denominator(&#34;sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()&#34;)
+ *                 .numerator("sum:my.metric{type:good}.as_count()")
+ *                 .denominator("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()")
  *                 .build())
  *             .thresholds(ServiceLevelObjectiveThresholdArgs.builder()
- *                 .timeframe(&#34;7d&#34;)
+ *                 .timeframe("7d")
  *                 .target(99.5)
  *                 .warning(99.8)
  *                 .build())
- *             .tags(&#34;foo:bar&#34;)
+ *             .tags("foo:bar")
  *             .build());
  * 
- *         var exampleSloCorrection = new SloCorrection(&#34;exampleSloCorrection&#34;, SloCorrectionArgs.builder()        
- *             .category(&#34;Scheduled Maintenance&#34;)
- *             .description(&#34;correction example&#34;)
+ *         var exampleSloCorrection = new SloCorrection("exampleSloCorrection", SloCorrectionArgs.builder()        
+ *             .category("Scheduled Maintenance")
+ *             .description("correction example")
  *             .start(1735707000)
  *             .end(1735718600)
  *             .sloId(exampleSlo.id())
- *             .timezone(&#34;UTC&#34;)
+ *             .timezone("UTC")
  *             .build());
  * 
- *         var exampleSloCorrectionWithRecurrence = new SloCorrection(&#34;exampleSloCorrectionWithRecurrence&#34;, SloCorrectionArgs.builder()        
- *             .category(&#34;Scheduled Maintenance&#34;)
- *             .description(&#34;correction example with recurrence&#34;)
+ *         var exampleSloCorrectionWithRecurrence = new SloCorrection("exampleSloCorrectionWithRecurrence", SloCorrectionArgs.builder()        
+ *             .category("Scheduled Maintenance")
+ *             .description("correction example with recurrence")
  *             .start(1735707000)
- *             .rrule(&#34;FREQ=DAILY;INTERVAL=3;COUNT=3&#34;)
+ *             .rrule("FREQ=DAILY;INTERVAL=3;COUNT=3")
  *             .duration(3600)
  *             .sloId(exampleSlo.id())
- *             .timezone(&#34;UTC&#34;)
+ *             .timezone("UTC")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

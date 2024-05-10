@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var privateLocation = new SyntheticsPrivateLocation(&#34;privateLocation&#34;, SyntheticsPrivateLocationArgs.builder()        
- *             .name(&#34;First private location&#34;)
- *             .description(&#34;Description of the private location&#34;)
+ *         var privateLocation = new SyntheticsPrivateLocation("privateLocation", SyntheticsPrivateLocationArgs.builder()        
+ *             .name("First private location")
+ *             .description("Description of the private location")
  *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;env:test&#34;)
+ *                 "foo:bar",
+ *                 "env:test")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

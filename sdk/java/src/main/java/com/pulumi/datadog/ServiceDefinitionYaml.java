@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Service Definition with v2.2 Schema Definition
- *         var serviceDefinitionV22 = new ServiceDefinitionYaml(&#34;serviceDefinitionV22&#34;, ServiceDefinitionYamlArgs.builder()        
- *             .serviceDefinition(&#34;&#34;&#34;
+ *         var serviceDefinitionV22 = new ServiceDefinitionYaml("serviceDefinitionV22", ServiceDefinitionYamlArgs.builder()        
+ *             .serviceDefinition("""
  * schema-version: v2.2
  * dd-service: shopping-cart
  * team: e-commerce-team
  * contacts:
  *   - name: Support Email
  *     type: email
- *     contact: team@shopping.com
+ *     contact: team{@literal @}shopping.com
  *   - name: Support Slack
  *     type: slack
  *     contact: https://www.slack.com/archives/shopping-cart
@@ -89,19 +90,19 @@ import javax.annotation.Nullable;
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *         // Service Definition with v2.1 Schema Definition
- *         var serviceDefinitionV21 = new ServiceDefinitionYaml(&#34;serviceDefinitionV21&#34;, ServiceDefinitionYamlArgs.builder()        
- *             .serviceDefinition(&#34;&#34;&#34;
+ *         var serviceDefinitionV21 = new ServiceDefinitionYaml("serviceDefinitionV21", ServiceDefinitionYamlArgs.builder()        
+ *             .serviceDefinition("""
  * schema-version: v2.1
  * dd-service: shopping-cart
  * team: e-commerce-team
  * contacts:
  *   - name: Support Email
  *     type: email
- *     contact: team@shopping.com
+ *     contact: team{@literal @}shopping.com
  *   - name: Support Slack
  *     type: slack
  *     contact: https://www.slack.com/archives/shopping-cart
@@ -134,19 +135,19 @@ import javax.annotation.Nullable;
  * extensions:
  *   mycompany.com/shopping-cart:
  *     customField: customValue
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *         // Service Definition with v2 Schema Definition
- *         var serviceDefinitionV2 = new ServiceDefinitionYaml(&#34;serviceDefinitionV2&#34;, ServiceDefinitionYamlArgs.builder()        
- *             .serviceDefinition(&#34;&#34;&#34;
+ *         var serviceDefinitionV2 = new ServiceDefinitionYaml("serviceDefinitionV2", ServiceDefinitionYamlArgs.builder()        
+ *             .serviceDefinition("""
  * schema-version: v2
  * dd-service: shopping-cart
  * team: E Commerce
  * contacts:
  *   - name: Support Email
  *     type: email
- *     contact: team@shopping.com
+ *     contact: team{@literal @}shopping.com
  *   - name: Support Slack
  *     type: slack
  *     contact: https://www.slack.com/archives/shopping-cart
@@ -173,12 +174,12 @@ import javax.annotation.Nullable;
  * extensions:
  *   datadoghq.com/shopping-cart:
  *     customField: customValue
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *         // Service Definition with backstage.io Schema
- *         var serviceDefinitionBackstage = new ServiceDefinitionYaml(&#34;serviceDefinitionBackstage&#34;, ServiceDefinitionYamlArgs.builder()        
- *             .serviceDefinition(&#34;&#34;&#34;
+ *         var serviceDefinitionBackstage = new ServiceDefinitionYaml("serviceDefinitionBackstage", ServiceDefinitionYamlArgs.builder()        
+ *             .serviceDefinition("""
  * apiVersion: backstage.io/v1alpha1
  * kind: Component
  * metadata:
@@ -189,25 +190,26 @@ import javax.annotation.Nullable;
  *   name: shopping-cart
  *   title: Shopping Cart
  *   description: A shopping cart service
- *   tags: [&#34;taga:valuea&#34;, &#34;tagb:valueb&#34;]
+ *   tags: ["taga:valuea", "tagb:valueb"]
  *   links:
  *     - title: Wiki
  *       url: https://wiki/shopping-cart
  *       icon: help
  *   ignore-attribute:
  *     id: 1
- *     value: &#34;value&#34;
+ *     value: "value"
  * spec:
  *   type: service
  *   lifecycle: production
  *   owner: e-commerce
  *   system: retail
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

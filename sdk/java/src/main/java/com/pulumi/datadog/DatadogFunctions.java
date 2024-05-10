@@ -102,7 +102,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -124,12 +125,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -142,7 +144,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -164,12 +167,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -182,7 +186,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -204,12 +209,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -222,7 +228,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -244,12 +251,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -262,7 +270,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -284,12 +293,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -302,7 +312,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -324,12 +335,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApiKey(GetApiKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -342,7 +354,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -366,7 +379,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -379,7 +393,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -403,7 +418,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -416,7 +432,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -440,7 +457,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -453,7 +471,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -477,7 +496,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -490,7 +510,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -514,7 +535,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -527,7 +549,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -551,7 +574,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -564,7 +588,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -586,12 +611,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -604,7 +630,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -626,12 +653,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -644,7 +672,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -666,12 +695,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -684,7 +714,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -706,12 +737,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -724,7 +756,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -746,12 +779,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -764,7 +798,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -786,12 +821,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getApplicationKey(GetApplicationKeyArgs.builder()
-     *             .name(&#34;foo-application&#34;)
+     *             .name("foo-application")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -804,7 +840,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -828,7 +865,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -841,7 +879,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -865,7 +904,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -878,7 +918,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -902,7 +943,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -915,7 +957,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -939,7 +982,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -952,7 +996,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -976,7 +1021,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -989,7 +1035,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1013,7 +1060,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1068,7 +1116,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1090,12 +1139,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;My super dashboard&#34;)
+     *             .name("My super dashboard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1108,7 +1158,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1130,12 +1181,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;My super dashboard&#34;)
+     *             .name("My super dashboard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1148,7 +1200,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1170,12 +1223,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;My super dashboard&#34;)
+     *             .name("My super dashboard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1188,7 +1242,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1210,12 +1265,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboard(GetDashboardArgs.builder()
-     *             .name(&#34;My super dashboard&#34;)
+     *             .name("My super dashboard")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1228,7 +1284,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1254,29 +1311,30 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
-     *             .name(&#34;My super list&#34;)
+     *             .name("My super list")
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .title(&#34;TF Test Layout Dashboard&#34;)
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .layoutType(&#34;ordered&#34;)
+     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *             .title("TF Test Layout Dashboard")
+     *             .description("Created using the Datadog provider in Pulumi")
+     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
-     *                     .alertId(&#34;1234&#34;)
-     *                     .vizType(&#34;timeseries&#34;)
-     *                     .title(&#34;Widget Title&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
+     *                     .alertId("1234")
+     *                     .vizType("timeseries")
+     *                     .title("Widget Title")
+     *                     .liveSpan("1h")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1289,7 +1347,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1315,29 +1374,30 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
-     *             .name(&#34;My super list&#34;)
+     *             .name("My super list")
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .title(&#34;TF Test Layout Dashboard&#34;)
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .layoutType(&#34;ordered&#34;)
+     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *             .title("TF Test Layout Dashboard")
+     *             .description("Created using the Datadog provider in Pulumi")
+     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
-     *                     .alertId(&#34;1234&#34;)
-     *                     .vizType(&#34;timeseries&#34;)
-     *                     .title(&#34;Widget Title&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
+     *                     .alertId("1234")
+     *                     .vizType("timeseries")
+     *                     .title("Widget Title")
+     *                     .liveSpan("1h")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1350,7 +1410,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1376,29 +1437,30 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
-     *             .name(&#34;My super list&#34;)
+     *             .name("My super list")
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .title(&#34;TF Test Layout Dashboard&#34;)
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .layoutType(&#34;ordered&#34;)
+     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *             .title("TF Test Layout Dashboard")
+     *             .description("Created using the Datadog provider in Pulumi")
+     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
-     *                     .alertId(&#34;1234&#34;)
-     *                     .vizType(&#34;timeseries&#34;)
-     *                     .title(&#34;Widget Title&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
+     *                     .alertId("1234")
+     *                     .vizType("timeseries")
+     *                     .title("Widget Title")
+     *                     .liveSpan("1h")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1411,7 +1473,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1437,29 +1500,30 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getDashboardList(GetDashboardListArgs.builder()
-     *             .name(&#34;My super list&#34;)
+     *             .name("My super list")
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard(&#34;time&#34;, DashboardArgs.builder()        
-     *             .title(&#34;TF Test Layout Dashboard&#34;)
-     *             .description(&#34;Created using the Datadog provider in Pulumi&#34;)
-     *             .dashboardLists(test.applyValue(getDashboardListResult -&gt; getDashboardListResult.id()))
-     *             .layoutType(&#34;ordered&#34;)
+     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *             .title("TF Test Layout Dashboard")
+     *             .description("Created using the Datadog provider in Pulumi")
+     *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
+     *             .layoutType("ordered")
      *             .isReadOnly(true)
      *             .widgets(DashboardWidgetArgs.builder()
      *                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
-     *                     .alertId(&#34;1234&#34;)
-     *                     .vizType(&#34;timeseries&#34;)
-     *                     .title(&#34;Widget Title&#34;)
-     *                     .liveSpan(&#34;1h&#34;)
+     *                     .alertId("1234")
+     *                     .vizType("timeseries")
+     *                     .title("Widget Title")
+     *                     .liveSpan("1h")
      *                     .build())
      *                 .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1472,7 +1536,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1500,7 +1565,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1513,7 +1579,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1541,7 +1608,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1554,7 +1622,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1582,7 +1651,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1595,7 +1665,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1623,7 +1694,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1636,7 +1708,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1664,7 +1737,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1677,7 +1751,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1705,7 +1780,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1718,7 +1794,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1742,7 +1819,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1755,7 +1833,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1779,7 +1858,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1792,7 +1872,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1816,7 +1897,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1829,7 +1911,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1853,7 +1936,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1866,7 +1950,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1890,7 +1975,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1903,7 +1989,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1927,7 +2014,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1982,7 +2070,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2006,7 +2095,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2019,7 +2109,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2043,7 +2134,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2056,7 +2148,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2080,7 +2173,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2093,7 +2187,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2117,7 +2212,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2130,7 +2226,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2154,7 +2251,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2167,7 +2265,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2191,7 +2290,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2204,7 +2304,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2228,7 +2329,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2241,7 +2343,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2265,7 +2368,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2278,7 +2382,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2302,7 +2407,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2315,7 +2421,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2339,7 +2446,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2352,7 +2460,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2376,7 +2485,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2389,7 +2499,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2413,7 +2524,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2498,7 +2610,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2520,13 +2633,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2539,7 +2653,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2561,13 +2676,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2580,7 +2696,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2602,13 +2719,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2621,7 +2739,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2643,13 +2762,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2662,7 +2782,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2684,13 +2805,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2703,7 +2825,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2725,13 +2848,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .nameFilter(&#34;My awesome monitor&#34;)
-     *             .monitorTagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("My awesome monitor")
+     *             .monitorTagsFilters("foo:bar")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2744,7 +2868,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2768,7 +2893,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2781,7 +2907,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2805,7 +2932,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2818,7 +2946,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2842,7 +2971,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2855,7 +2985,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2879,7 +3010,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2892,7 +3024,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2916,7 +3049,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2929,7 +3063,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -2953,7 +3088,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3008,7 +3144,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3033,7 +3170,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3046,7 +3184,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3071,7 +3210,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3084,7 +3224,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3109,7 +3250,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3122,7 +3264,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3147,7 +3290,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3160,7 +3304,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3185,7 +3330,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3198,7 +3344,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3223,7 +3370,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3236,7 +3384,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3258,12 +3407,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter(&#34;Datadog Standard Role&#34;)
+     *             .filter("Datadog Standard Role")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3276,7 +3426,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3298,12 +3449,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter(&#34;Datadog Standard Role&#34;)
+     *             .filter("Datadog Standard Role")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3316,7 +3468,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3338,12 +3491,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter(&#34;Datadog Standard Role&#34;)
+     *             .filter("Datadog Standard Role")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3356,7 +3510,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3378,12 +3533,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getRole(GetRoleArgs.builder()
-     *             .filter(&#34;Datadog Standard Role&#34;)
+     *             .filter("Datadog Standard Role")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3424,7 +3580,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3446,12 +3603,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3464,7 +3622,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3486,12 +3645,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3504,7 +3664,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3526,12 +3687,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3544,7 +3706,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3566,12 +3729,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3584,7 +3748,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3606,12 +3771,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3624,7 +3790,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3646,12 +3813,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getRoles(GetRolesArgs.builder()
-     *             .filter(&#34;Datadog&#34;)
+     *             .filter("Datadog")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3706,7 +3874,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3730,7 +3899,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3743,7 +3913,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3767,7 +3938,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3780,7 +3952,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3804,7 +3977,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3817,7 +3991,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3841,7 +4016,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3854,7 +4030,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3878,7 +4055,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3891,7 +4069,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3915,7 +4094,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3928,7 +4108,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3950,14 +4131,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -3970,7 +4152,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -3992,14 +4175,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4012,7 +4196,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4034,14 +4219,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4054,7 +4240,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4076,14 +4263,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4096,7 +4284,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4118,14 +4307,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4138,7 +4328,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4160,14 +4351,15 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getSecurityMonitoringRules(GetSecurityMonitoringRulesArgs.builder()
-     *             .nameFilter(&#34;attack&#34;)
-     *             .tagsFilters(&#34;foo:bar&#34;)
+     *             .nameFilter("attack")
+     *             .tagsFilters("foo:bar")
      *             .defaultOnlyFilter(true)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4222,7 +4414,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4246,13 +4439,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4265,7 +4459,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4289,13 +4484,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4308,7 +4504,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4332,13 +4529,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4351,7 +4549,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4375,13 +4574,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4394,7 +4594,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4418,13 +4619,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4437,7 +4639,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4461,13 +4664,14 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder(&#34;foobar&#34;, SensitiveDataScannerGroupOrderArgs.builder()        
-     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -&gt; getSensitiveDataScannerGroupOrderResult.groupIds()))
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4550,7 +4754,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4572,8 +4777,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4582,7 +4787,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4595,7 +4801,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4617,8 +4824,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4627,7 +4834,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4640,7 +4848,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4662,8 +4871,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4672,7 +4881,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4685,7 +4895,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4707,8 +4918,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4717,7 +4928,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4730,7 +4942,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4752,8 +4965,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4762,7 +4975,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4775,7 +4989,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4797,8 +5012,8 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .nameQuery(&#34;My test SLO&#34;)
-     *             .tagsQuery(&#34;foo:bar&#34;)
+     *             .nameQuery("My test SLO")
+     *             .tagsQuery("foo:bar")
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
@@ -4807,7 +5022,8 @@ public final class DatadogFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4820,7 +5036,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4842,12 +5059,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4860,7 +5078,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4882,12 +5101,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4900,7 +5120,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4922,12 +5143,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4940,7 +5162,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -4962,12 +5185,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -4980,7 +5204,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5002,12 +5227,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5020,7 +5246,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5042,12 +5269,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var ftFooSlos = DatadogFunctions.getServiceLevelObjectives(GetServiceLevelObjectivesArgs.builder()
-     *             .tagsQuery(&#34;owner:ft-foo&#34;)
+     *             .tagsQuery("owner:ft-foo")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5158,7 +5386,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5180,12 +5409,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5198,7 +5428,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5220,12 +5451,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5238,7 +5470,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5260,12 +5493,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5278,7 +5512,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5300,12 +5535,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5318,7 +5554,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5340,12 +5577,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5358,7 +5596,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5380,12 +5619,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeam(GetTeamArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5398,7 +5638,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5420,13 +5661,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
-     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .filterKeyword("foo{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5439,7 +5681,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5461,13 +5704,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
-     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .filterKeyword("foo{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5480,7 +5724,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5502,13 +5747,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
-     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .filterKeyword("foo{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5521,7 +5767,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5543,13 +5790,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
-     *             .teamId(&#34;e6723c40-edb1-11ed-b816-da7ad0900002&#34;)
-     *             .filterKeyword(&#34;foo@example.com&#34;)
+     *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
+     *             .filterKeyword("foo{@literal @}example.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5562,7 +5810,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5584,12 +5833,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filter("user.name{@literal @}company.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5602,7 +5852,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5624,12 +5875,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filter("user.name{@literal @}company.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5642,7 +5894,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5664,12 +5917,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filter("user.name{@literal @}company.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5682,7 +5936,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5704,12 +5959,13 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
+     *             .filter("user.name{@literal @}company.com")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5722,7 +5978,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5744,13 +6001,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5763,7 +6021,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5785,13 +6044,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5804,7 +6064,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5826,13 +6087,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5845,7 +6107,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5867,13 +6130,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5886,7 +6150,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5908,13 +6173,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -5927,7 +6193,8 @@ public final class DatadogFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -5949,13 +6216,14 @@ public final class DatadogFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter(&#34;user.name@company.com&#34;)
-     *             .filterStatus(&#34;Active,Pending&#34;)
+     *             .filter("user.name{@literal @}company.com")
+     *             .filterStatus("Active,Pending")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

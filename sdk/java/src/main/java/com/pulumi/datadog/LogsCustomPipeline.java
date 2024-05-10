@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -62,160 +63,160 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var samplePipeline = new LogsCustomPipeline(&#34;samplePipeline&#34;, LogsCustomPipelineArgs.builder()        
+ *         var samplePipeline = new LogsCustomPipeline("samplePipeline", LogsCustomPipelineArgs.builder()        
  *             .filters(LogsCustomPipelineFilterArgs.builder()
- *                 .query(&#34;source:foo&#34;)
+ *                 .query("source:foo")
  *                 .build())
- *             .name(&#34;sample pipeline&#34;)
+ *             .name("sample pipeline")
  *             .isEnabled(true)
  *             .processors(            
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .arithmeticProcessor(LogsCustomPipelineProcessorArithmeticProcessorArgs.builder()
- *                         .expression(&#34;(time1 - time2)*1000&#34;)
- *                         .target(&#34;my_arithmetic&#34;)
+ *                         .expression("(time1 - time2)*1000")
+ *                         .target("my_arithmetic")
  *                         .isReplaceMissing(true)
- *                         .name(&#34;sample arithmetic processor&#34;)
+ *                         .name("sample arithmetic processor")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .attributeRemapper(LogsCustomPipelineProcessorAttributeRemapperArgs.builder()
- *                         .sources(&#34;db.instance&#34;)
- *                         .sourceType(&#34;tag&#34;)
- *                         .target(&#34;db&#34;)
- *                         .targetType(&#34;attribute&#34;)
- *                         .targetFormat(&#34;string&#34;)
+ *                         .sources("db.instance")
+ *                         .sourceType("tag")
+ *                         .target("db")
+ *                         .targetType("attribute")
+ *                         .targetFormat("string")
  *                         .preserveSource(true)
  *                         .overrideOnConflict(false)
- *                         .name(&#34;sample attribute processor&#34;)
+ *                         .name("sample attribute processor")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .categoryProcessor(LogsCustomPipelineProcessorCategoryProcessorArgs.builder()
- *                         .target(&#34;foo.severity&#34;)
+ *                         .target("foo.severity")
  *                         .categories(                        
  *                             LogsCustomPipelineProcessorCategoryProcessorCategoryArgs.builder()
- *                                 .name(&#34;debug&#34;)
+ *                                 .name("debug")
  *                                 .filter(LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs.builder()
- *                                     .query(&#34;@severity: \&#34;.\&#34;&#34;)
+ *                                     .query("{@literal @}severity: \".\"")
  *                                     .build())
  *                                 .build(),
  *                             LogsCustomPipelineProcessorCategoryProcessorCategoryArgs.builder()
- *                                 .name(&#34;verbose&#34;)
+ *                                 .name("verbose")
  *                                 .filter(LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs.builder()
- *                                     .query(&#34;@severity: \&#34;-\&#34;&#34;)
+ *                                     .query("{@literal @}severity: \"-\"")
  *                                     .build())
  *                                 .build())
- *                         .name(&#34;sample category processor&#34;)
+ *                         .name("sample category processor")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .dateRemapper(LogsCustomPipelineProcessorDateRemapperArgs.builder()
  *                         .sources(                        
- *                             &#34;_timestamp&#34;,
- *                             &#34;published_date&#34;)
- *                         .name(&#34;sample date remapper&#34;)
+ *                             "_timestamp",
+ *                             "published_date")
+ *                         .name("sample date remapper")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .geoIpParser(LogsCustomPipelineProcessorGeoIpParserArgs.builder()
- *                         .sources(&#34;network.client.ip&#34;)
- *                         .target(&#34;network.client.geoip&#34;)
- *                         .name(&#34;sample geo ip parser&#34;)
+ *                         .sources("network.client.ip")
+ *                         .target("network.client.geoip")
+ *                         .name("sample geo ip parser")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .grokParser(LogsCustomPipelineProcessorGrokParserArgs.builder()
- *                         .samples(&#34;sample log 1&#34;)
- *                         .source(&#34;message&#34;)
+ *                         .samples("sample log 1")
+ *                         .source("message")
  *                         .grok(LogsCustomPipelineProcessorGrokParserGrokArgs.builder()
- *                             .supportRules(&#34;&#34;)
- *                             .matchRules(&#34;Rule %{word:my_word2} %{number:my_float2}&#34;)
+ *                             .supportRules("")
+ *                             .matchRules("Rule %{word:my_word2} %{number:my_float2}")
  *                             .build())
- *                         .name(&#34;sample grok parser&#34;)
+ *                         .name("sample grok parser")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .lookupProcessor(LogsCustomPipelineProcessorLookupProcessorArgs.builder()
- *                         .source(&#34;service_id&#34;)
- *                         .target(&#34;service_name&#34;)
- *                         .lookupTables(&#34;1,my service&#34;)
- *                         .defaultLookup(&#34;unknown service&#34;)
- *                         .name(&#34;sample lookup processor&#34;)
+ *                         .source("service_id")
+ *                         .target("service_name")
+ *                         .lookupTables("1,my service")
+ *                         .defaultLookup("unknown service")
+ *                         .name("sample lookup processor")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .messageRemapper(LogsCustomPipelineProcessorMessageRemapperArgs.builder()
- *                         .sources(&#34;msg&#34;)
- *                         .name(&#34;sample message remapper&#34;)
+ *                         .sources("msg")
+ *                         .name("sample message remapper")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .pipeline(LogsCustomPipelineProcessorPipelineArgs.builder()
  *                         .filters(LogsCustomPipelineProcessorPipelineFilterArgs.builder()
- *                             .query(&#34;source:foo&#34;)
+ *                             .query("source:foo")
  *                             .build())
  *                         .processors(LogsCustomPipelineProcessorPipelineProcessorArgs.builder()
  *                             .urlParser(LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs.builder()
- *                                 .name(&#34;sample url parser&#34;)
+ *                                 .name("sample url parser")
  *                                 .sources(                                
- *                                     &#34;url&#34;,
- *                                     &#34;extra&#34;)
- *                                 .target(&#34;http_url&#34;)
+ *                                     "url",
+ *                                     "extra")
+ *                                 .target("http_url")
  *                                 .normalizeEndingSlashes(true)
  *                                 .build())
  *                             .build())
- *                         .name(&#34;nested pipeline&#34;)
+ *                         .name("nested pipeline")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .serviceRemapper(LogsCustomPipelineProcessorServiceRemapperArgs.builder()
- *                         .sources(&#34;service&#34;)
- *                         .name(&#34;sample service remapper&#34;)
+ *                         .sources("service")
+ *                         .name("sample service remapper")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .statusRemapper(LogsCustomPipelineProcessorStatusRemapperArgs.builder()
  *                         .sources(                        
- *                             &#34;info&#34;,
- *                             &#34;trace&#34;)
- *                         .name(&#34;sample status remapper&#34;)
+ *                             "info",
+ *                             "trace")
+ *                         .name("sample status remapper")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .stringBuilderProcessor(LogsCustomPipelineProcessorStringBuilderProcessorArgs.builder()
- *                         .target(&#34;user_activity&#34;)
- *                         .template(&#34;%{user.name} logged in at %{timestamp}&#34;)
- *                         .name(&#34;sample string builder processor&#34;)
+ *                         .target("user_activity")
+ *                         .template("%{user.name} logged in at %{timestamp}")
+ *                         .name("sample string builder processor")
  *                         .isEnabled(true)
  *                         .isReplaceMissing(false)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .traceIdRemapper(LogsCustomPipelineProcessorTraceIdRemapperArgs.builder()
- *                         .sources(&#34;dd.trace_id&#34;)
- *                         .name(&#34;sample trace id remapper&#34;)
+ *                         .sources("dd.trace_id")
+ *                         .name("sample trace id remapper")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build(),
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .userAgentParser(LogsCustomPipelineProcessorUserAgentParserArgs.builder()
  *                         .sources(                        
- *                             &#34;user&#34;,
- *                             &#34;agent&#34;)
- *                         .target(&#34;http_agent&#34;)
+ *                             "user",
+ *                             "agent")
+ *                         .target("http_agent")
  *                         .isEncoded(false)
- *                         .name(&#34;sample user agent parser&#34;)
+ *                         .name("sample user agent parser")
  *                         .isEnabled(true)
  *                         .build())
  *                     .build())
@@ -223,7 +224,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

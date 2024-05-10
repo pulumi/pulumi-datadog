@@ -37,14 +37,14 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * @return A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
      * 
      */
     public Optional<Output<String>> message() {
@@ -186,7 +186,7 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param message A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+         * @param message A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DowntimeScheduleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param message A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+         * @param message A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
          * 
          * @return builder
          * 

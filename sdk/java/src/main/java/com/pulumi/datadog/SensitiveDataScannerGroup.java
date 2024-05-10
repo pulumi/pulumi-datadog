@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,19 +47,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new sensitive_data_scanner_group resource
- *         var mygroup = new SensitiveDataScannerGroup(&#34;mygroup&#34;, SensitiveDataScannerGroupArgs.builder()        
- *             .name(&#34;My new scanning group&#34;)
- *             .description(&#34;A relevant description&#34;)
+ *         var mygroup = new SensitiveDataScannerGroup("mygroup", SensitiveDataScannerGroupArgs.builder()        
+ *             .name("My new scanning group")
+ *             .description("A relevant description")
  *             .filter(SensitiveDataScannerGroupFilterArgs.builder()
- *                 .query(&#34;service:my-service&#34;)
+ *                 .query("service:my-service")
  *                 .build())
  *             .isEnabled(true)
- *             .productLists(&#34;apm&#34;)
+ *             .productLists("apm")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

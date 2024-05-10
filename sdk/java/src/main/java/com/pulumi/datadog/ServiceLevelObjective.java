@@ -27,7 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -56,99 +57,100 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Metric-Based SLO
  *         // Create a new Datadog service level objective
- *         var foo = new ServiceLevelObjective(&#34;foo&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .name(&#34;Example Metric SLO&#34;)
- *             .type(&#34;metric&#34;)
- *             .description(&#34;My custom metric SLO&#34;)
+ *         var foo = new ServiceLevelObjective("foo", ServiceLevelObjectiveArgs.builder()        
+ *             .name("Example Metric SLO")
+ *             .type("metric")
+ *             .description("My custom metric SLO")
  *             .query(ServiceLevelObjectiveQueryArgs.builder()
- *                 .numerator(&#34;sum:my.custom.count.metric{type:good_events}.as_count()&#34;)
- *                 .denominator(&#34;sum:my.custom.count.metric{*}.as_count()&#34;)
+ *                 .numerator("sum:my.custom.count.metric{type:good_events}.as_count()")
+ *                 .denominator("sum:my.custom.count.metric{*}.as_count()")
  *                 .build())
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .timeframe(&#34;7d&#34;)
+ *                     .timeframe("7d")
  *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build(),
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .timeframe(&#34;30d&#34;)
+ *                     .timeframe("30d")
  *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build())
- *             .timeframe(&#34;30d&#34;)
+ *             .timeframe("30d")
  *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
  *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;baz&#34;)
+ *                 "foo:bar",
+ *                 "baz")
  *             .build());
  * 
  *         // Monitor-Based SLO
  *         // Create a new Datadog service level objective
- *         var bar = new ServiceLevelObjective(&#34;bar&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .name(&#34;Example Monitor SLO&#34;)
- *             .type(&#34;monitor&#34;)
- *             .description(&#34;My custom monitor SLO&#34;)
+ *         var bar = new ServiceLevelObjective("bar", ServiceLevelObjectiveArgs.builder()        
+ *             .name("Example Monitor SLO")
+ *             .type("monitor")
+ *             .description("My custom monitor SLO")
  *             .monitorIds(            
  *                 1,
  *                 2,
  *                 3)
  *             .thresholds(            
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .timeframe(&#34;7d&#34;)
+ *                     .timeframe("7d")
  *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build(),
  *                 ServiceLevelObjectiveThresholdArgs.builder()
- *                     .timeframe(&#34;30d&#34;)
+ *                     .timeframe("30d")
  *                     .target(99.9)
  *                     .warning(99.99)
  *                     .build())
- *             .timeframe(&#34;30d&#34;)
+ *             .timeframe("30d")
  *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
  *             .tags(            
- *                 &#34;foo:bar&#34;,
- *                 &#34;baz&#34;)
+ *                 "foo:bar",
+ *                 "baz")
  *             .build());
  * 
- *         var timeSliceSlo = new ServiceLevelObjective(&#34;timeSliceSlo&#34;, ServiceLevelObjectiveArgs.builder()        
- *             .name(&#34;Example Time Slice SLO&#34;)
- *             .type(&#34;time_slice&#34;)
- *             .description(&#34;My custom time slice SLO&#34;)
+ *         var timeSliceSlo = new ServiceLevelObjective("timeSliceSlo", ServiceLevelObjectiveArgs.builder()        
+ *             .name("Example Time Slice SLO")
+ *             .type("time_slice")
+ *             .description("My custom time slice SLO")
  *             .sliSpecification(ServiceLevelObjectiveSliSpecificationArgs.builder()
  *                 .timeSlice(ServiceLevelObjectiveSliSpecificationTimeSliceArgs.builder()
  *                     .query(ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs.builder()
  *                         .formula(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs.builder()
- *                             .formulaExpression(&#34;query1&#34;)
+ *                             .formulaExpression("query1")
  *                             .build())
  *                         .queries(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs.builder()
  *                             .metricQuery(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs.builder()
- *                                 .name(&#34;query1&#34;)
- *                                 .query(&#34;avg:my.custom.count.metric{*}.as_count()&#34;)
+ *                                 .name("query1")
+ *                                 .query("avg:my.custom.count.metric{*}.as_count()")
  *                                 .build())
  *                             .build())
  *                         .build())
- *                     .comparator(&#34;&gt;&#34;)
+ *                     .comparator(">")
  *                     .threshold(0.9)
  *                     .build())
  *                 .build())
  *             .thresholds(ServiceLevelObjectiveThresholdArgs.builder()
- *                 .timeframe(&#34;7d&#34;)
+ *                 .timeframe("7d")
  *                 .target(99.9)
  *                 .warning(99.99)
  *                 .build())
- *             .timeframe(&#34;7d&#34;)
+ *             .timeframe("7d")
  *             .targetThreshold(99.9)
  *             .warningThreshold(99.99)
  *             .tags(            
- *                 &#34;service:myservice&#34;,
- *                 &#34;team:myteam&#34;)
+ *                 "service:myservice",
+ *                 "team:myteam")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,20 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myS3Archive = new LogsArchive(&#34;myS3Archive&#34;, LogsArchiveArgs.builder()        
- *             .name(&#34;my s3 archive&#34;)
- *             .query(&#34;service:myservice&#34;)
+ *         var myS3Archive = new LogsArchive("myS3Archive", LogsArchiveArgs.builder()        
+ *             .name("my s3 archive")
+ *             .query("service:myservice")
  *             .s3Archive(LogsArchiveS3ArchiveArgs.builder()
- *                 .bucket(&#34;my-bucket&#34;)
- *                 .path(&#34;/path/foo&#34;)
- *                 .accountId(&#34;001234567888&#34;)
- *                 .roleName(&#34;my-role-name&#34;)
+ *                 .bucket("my-bucket")
+ *                 .path("/path/foo")
+ *                 .accountId("001234567888")
+ *                 .roleName("my-role-name")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,405 +45,405 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Dashboard JSON
- *         var dashboardJson = new DashboardJson(&#34;dashboardJson&#34;, DashboardJsonArgs.builder()        
- *             .dashboard(&#34;&#34;&#34;
+ *         var dashboardJson = new DashboardJson("dashboardJson", DashboardJsonArgs.builder()        
+ *             .dashboard("""
  * {
- *    &#34;title&#34;:&#34;Ordered Layout Dashboard&#34;,
- *    &#34;description&#34;:&#34;Created using the Datadog provider in Pulumi&#34;,
- *    &#34;widgets&#34;:[
+ *    "title":"Ordered Layout Dashboard",
+ *    "description":"Created using the Datadog provider in Pulumi",
+ *    "widgets":[
  *       {
- *          &#34;id&#34;:719369537777170,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;alert_graph&#34;,
- *             &#34;alert_id&#34;:&#34;895605&#34;,
- *             &#34;viz_type&#34;:&#34;timeseries&#34;
+ *          "id":719369537777170,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"alert_graph",
+ *             "alert_id":"895605",
+ *             "viz_type":"timeseries"
  *          }
  *       },
  *       {
- *          &#34;id&#34;:2306240030393868,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;alert_value&#34;,
- *             &#34;alert_id&#34;:&#34;895605&#34;,
- *             &#34;unit&#34;:&#34;b&#34;,
- *             &#34;text_align&#34;:&#34;center&#34;,
- *             &#34;precision&#34;:3
+ *          "id":2306240030393868,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"alert_value",
+ *             "alert_id":"895605",
+ *             "unit":"b",
+ *             "text_align":"center",
+ *             "precision":3
  *          }
  *       },
  *       {
- *          &#34;id&#34;:6990998850881326,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;alert_value&#34;,
- *             &#34;alert_id&#34;:&#34;895605&#34;,
- *             &#34;unit&#34;:&#34;b&#34;,
- *             &#34;text_align&#34;:&#34;center&#34;,
- *             &#34;precision&#34;:3
+ *          "id":6990998850881326,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"alert_value",
+ *             "alert_id":"895605",
+ *             "unit":"b",
+ *             "text_align":"center",
+ *             "precision":3
  *          }
  *       },
  *       {
- *          &#34;id&#34;:3351284044659007,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;change&#34;,
- *             &#34;requests&#34;:[
+ *          "id":3351284044659007,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"change",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.load.1{env:staging} by {account}&#34;,
- *                   &#34;compare_to&#34;:&#34;week_before&#34;,
- *                   &#34;change_type&#34;:&#34;absolute&#34;,
- *                   &#34;order_dir&#34;:&#34;desc&#34;,
- *                   &#34;increase_good&#34;:true,
- *                   &#34;order_by&#34;:&#34;name&#34;,
- *                   &#34;show_present&#34;:true
+ *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                   "compare_to":"week_before",
+ *                   "change_type":"absolute",
+ *                   "order_dir":"desc",
+ *                   "increase_good":true,
+ *                   "order_by":"name",
+ *                   "show_present":true
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:6450290622996182,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;show_legend&#34;:false,
- *             &#34;type&#34;:&#34;distribution&#34;,
- *             &#34;requests&#34;:[
+ *          "id":6450290622996182,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "show_legend":false,
+ *             "type":"distribution",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.load.1{env:staging} by {account}&#34;,
- *                   &#34;style&#34;:{
- *                      &#34;palette&#34;:&#34;warm&#34;
+ *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                   "style":{
+ *                      "palette":"warm"
  *                   }
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:4902842646291536,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;check_status&#34;,
- *             &#34;check&#34;:&#34;aws.ecs.agent_connected&#34;,
- *             &#34;grouping&#34;:&#34;cluster&#34;,
- *             &#34;group_by&#34;:[
- *                &#34;account&#34;,
- *                &#34;cluster&#34;
+ *          "id":4902842646291536,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"check_status",
+ *             "check":"aws.ecs.agent_connected",
+ *             "grouping":"cluster",
+ *             "group_by":[
+ *                "account",
+ *                "cluster"
  *             ],
- *             &#34;tags&#34;:[
- *                &#34;account:demo&#34;,
- *                &#34;cluster:awseb-ruthebdog-env-8-dn3m6u3gvk&#34;
+ *             "tags":[
+ *                "account:demo",
+ *                "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk"
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:6392349954822644,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;show_legend&#34;:false,
- *             &#34;type&#34;:&#34;heatmap&#34;,
- *             &#34;yaxis&#34;:{
- *                &#34;scale&#34;:&#34;sqrt&#34;,
- *                &#34;include_zero&#34;:true,
- *                &#34;min&#34;:&#34;1&#34;,
- *                &#34;max&#34;:&#34;2&#34;
+ *          "id":6392349954822644,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "show_legend":false,
+ *             "type":"heatmap",
+ *             "yaxis":{
+ *                "scale":"sqrt",
+ *                "include_zero":true,
+ *                "min":"1",
+ *                "max":"2"
  *             },
- *             &#34;requests&#34;:[
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.load.1{env:staging} by {account}&#34;,
- *                   &#34;style&#34;:{
- *                      &#34;palette&#34;:&#34;warm&#34;
+ *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                   "style":{
+ *                      "palette":"warm"
  *                   }
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:5222961478940988,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;hostmap&#34;,
- *             &#34;requests&#34;:{
- *                &#34;fill&#34;:{
- *                   &#34;q&#34;:&#34;avg:system.load.1{*} by {host}&#34;
+ *          "id":5222961478940988,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"hostmap",
+ *             "requests":{
+ *                "fill":{
+ *                   "q":"avg:system.load.1{*} by {host}"
  *                },
- *                &#34;size&#34;:{
- *                   &#34;q&#34;:&#34;avg:memcache.uptime{*} by {host}&#34;
+ *                "size":{
+ *                   "q":"avg:memcache.uptime{*} by {host}"
  *                }
  *             },
- *             &#34;node_type&#34;:&#34;container&#34;,
- *             &#34;no_metric_hosts&#34;:true,
- *             &#34;no_group_hosts&#34;:true,
- *             &#34;group&#34;:[
- *                &#34;host&#34;,
- *                &#34;region&#34;
+ *             "node_type":"container",
+ *             "no_metric_hosts":true,
+ *             "no_group_hosts":true,
+ *             "group":[
+ *                "host",
+ *                "region"
  *             ],
- *             &#34;scope&#34;:[
- *                &#34;region:us-east-1&#34;,
- *                &#34;aws_account:727006795293&#34;
+ *             "scope":[
+ *                "region:us-east-1",
+ *                "aws_account:727006795293"
  *             ],
- *             &#34;style&#34;:{
- *                &#34;palette&#34;:&#34;yellow_to_green&#34;,
- *                &#34;palette_flip&#34;:true,
- *                &#34;fill_min&#34;:&#34;10&#34;,
- *                &#34;fill_max&#34;:&#34;20&#34;
+ *             "style":{
+ *                "palette":"yellow_to_green",
+ *                "palette_flip":true,
+ *                "fill_min":"10",
+ *                "fill_max":"20"
  *             }
  *          }
  *       },
  *       {
- *          &#34;id&#34;:8121199734227072,
- *          &#34;definition&#34;:{
- *             &#34;type&#34;:&#34;note&#34;,
- *             &#34;content&#34;:&#34;note text&#34;,
- *             &#34;background_color&#34;:&#34;pink&#34;,
- *             &#34;font_size&#34;:&#34;14&#34;,
- *             &#34;text_align&#34;:&#34;center&#34;,
- *             &#34;show_tick&#34;:true,
- *             &#34;tick_pos&#34;:&#34;50%&#34;,
- *             &#34;tick_edge&#34;:&#34;left&#34;
+ *          "id":8121199734227072,
+ *          "definition":{
+ *             "type":"note",
+ *             "content":"note text",
+ *             "background_color":"pink",
+ *             "font_size":"14",
+ *             "text_align":"center",
+ *             "show_tick":true,
+ *             "tick_pos":"50%",
+ *             "tick_edge":"left"
  *          }
  *       },
  *       {
- *          &#34;id&#34;:1775856835833038,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;query_value&#34;,
- *             &#34;requests&#34;:[
+ *          "id":1775856835833038,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"query_value",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.load.1{env:staging} by {account}&#34;,
- *                   &#34;aggregator&#34;:&#34;sum&#34;,
- *                   &#34;conditional_formats&#34;:[
+ *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                   "aggregator":"sum",
+ *                   "conditional_formats":[
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&lt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_green&#34;,
- *                         &#34;value&#34;:2
+ *                         "hide_value":false,
+ *                         "comparator":"<",
+ *                         "palette":"white_on_green",
+ *                         "value":2
  *                      },
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&gt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_red&#34;,
- *                         &#34;value&#34;:2.2
+ *                         "hide_value":false,
+ *                         "comparator":">",
+ *                         "palette":"white_on_red",
+ *                         "value":2.2
  *                      }
  *                   ]
  *                }
  *             ],
- *             &#34;autoscale&#34;:true,
- *             &#34;custom_unit&#34;:&#34;xx&#34;,
- *             &#34;text_align&#34;:&#34;right&#34;,
- *             &#34;precision&#34;:4
+ *             "autoscale":true,
+ *             "custom_unit":"xx",
+ *             "text_align":"right",
+ *             "precision":4
  *          }
  *       },
  *       {
- *          &#34;id&#34;:8461455966625581,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;query_table&#34;,
- *             &#34;requests&#34;:[
+ *          "id":8461455966625581,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"query_table",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.load.1{env:staging} by {account}&#34;,
- *                   &#34;aggregator&#34;:&#34;sum&#34;,
- *                   &#34;conditional_formats&#34;:[
+ *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                   "aggregator":"sum",
+ *                   "conditional_formats":[
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&lt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_green&#34;,
- *                         &#34;value&#34;:2
+ *                         "hide_value":false,
+ *                         "comparator":"<",
+ *                         "palette":"white_on_green",
+ *                         "value":2
  *                      },
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&gt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_red&#34;,
- *                         &#34;value&#34;:2.2
+ *                         "hide_value":false,
+ *                         "comparator":">",
+ *                         "palette":"white_on_red",
+ *                         "value":2.2
  *                      }
  *                   ],
- *                   &#34;limit&#34;:10
+ *                   "limit":10
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:8660006349418736,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;scatterplot&#34;,
- *             &#34;requests&#34;:{
- *                &#34;x&#34;:{
- *                   &#34;q&#34;:&#34;avg:system.cpu.user{*} by {service, account}&#34;,
- *                   &#34;aggregator&#34;:&#34;max&#34;
+ *          "id":8660006349418736,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"scatterplot",
+ *             "requests":{
+ *                "x":{
+ *                   "q":"avg:system.cpu.user{*} by {service, account}",
+ *                   "aggregator":"max"
  *                },
- *                &#34;y&#34;:{
- *                   &#34;q&#34;:&#34;avg:system.mem.used{*} by {service, account}&#34;,
- *                   &#34;aggregator&#34;:&#34;min&#34;
+ *                "y":{
+ *                   "q":"avg:system.mem.used{*} by {service, account}",
+ *                   "aggregator":"min"
  *                }
  *             },
- *             &#34;xaxis&#34;:{
- *                &#34;scale&#34;:&#34;pow&#34;,
- *                &#34;label&#34;:&#34;x&#34;,
- *                &#34;include_zero&#34;:true,
- *                &#34;min&#34;:&#34;1&#34;,
- *                &#34;max&#34;:&#34;2000&#34;
+ *             "xaxis":{
+ *                "scale":"pow",
+ *                "label":"x",
+ *                "include_zero":true,
+ *                "min":"1",
+ *                "max":"2000"
  *             },
- *             &#34;yaxis&#34;:{
- *                &#34;scale&#34;:&#34;log&#34;,
- *                &#34;label&#34;:&#34;y&#34;,
- *                &#34;include_zero&#34;:false,
- *                &#34;min&#34;:&#34;5&#34;,
- *                &#34;max&#34;:&#34;2222&#34;
+ *             "yaxis":{
+ *                "scale":"log",
+ *                "label":"y",
+ *                "include_zero":false,
+ *                "min":"5",
+ *                "max":"2222"
  *             },
- *             &#34;color_by_groups&#34;:[
- *                &#34;account&#34;,
- *                &#34;apm-role-group&#34;
+ *             "color_by_groups":[
+ *                "account",
+ *                "apm-role-group"
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:1669590772917638,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;env: prod, datacenter:dc1, service: master-db&#34;,
- *             &#34;title_size&#34;:&#34;16&#34;,
- *             &#34;title_align&#34;:&#34;left&#34;,
- *             &#34;type&#34;:&#34;servicemap&#34;,
- *             &#34;service&#34;:&#34;master-db&#34;,
- *             &#34;filters&#34;:[
- *                &#34;env:prod&#34;,
- *                &#34;datacenter:dc1&#34;
+ *          "id":1669590772917638,
+ *          "definition":{
+ *             "title":"env: prod, datacenter:dc1, service: master-db",
+ *             "title_size":"16",
+ *             "title_align":"left",
+ *             "type":"servicemap",
+ *             "service":"master-db",
+ *             "filters":[
+ *                "env:prod",
+ *                "datacenter:dc1"
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:2138829058361817,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;show_legend&#34;:true,
- *             &#34;legend_size&#34;:&#34;2&#34;,
- *             &#34;type&#34;:&#34;timeseries&#34;,
- *             &#34;requests&#34;:[
+ *          "id":2138829058361817,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "show_legend":true,
+ *             "legend_size":"2",
+ *             "type":"timeseries",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.cpu.user{app:general} by {env}&#34;,
- *                   &#34;on_right_yaxis&#34;:false,
- *                   &#34;metadata&#34;:[
+ *                   "q":"avg:system.cpu.user{app:general} by {env}",
+ *                   "on_right_yaxis":false,
+ *                   "metadata":[
  *                      {
- *                         &#34;expression&#34;:&#34;avg:system.cpu.user{app:general} by {env}&#34;,
- *                         &#34;alias_name&#34;:&#34;Alpha&#34;
+ *                         "expression":"avg:system.cpu.user{app:general} by {env}",
+ *                         "alias_name":"Alpha"
  *                      }
  *                   ],
- *                   &#34;style&#34;:{
- *                      &#34;palette&#34;:&#34;warm&#34;,
- *                      &#34;line_type&#34;:&#34;dashed&#34;,
- *                      &#34;line_width&#34;:&#34;thin&#34;
+ *                   "style":{
+ *                      "palette":"warm",
+ *                      "line_type":"dashed",
+ *                      "line_width":"thin"
  *                   },
- *                   &#34;display_type&#34;:&#34;line&#34;
+ *                   "display_type":"line"
  *                },
  *                {
- *                   &#34;on_right_yaxis&#34;:false,
- *                   &#34;log_query&#34;:{
- *                      &#34;index&#34;:&#34;mcnulty&#34;,
- *                      &#34;search&#34;:{
- *                         &#34;query&#34;:&#34;status:info&#34;
+ *                   "on_right_yaxis":false,
+ *                   "log_query":{
+ *                      "index":"mcnulty",
+ *                      "search":{
+ *                         "query":"status:info"
  *                      },
- *                      &#34;group_by&#34;:[
+ *                      "group_by":[
  *                         {
- *                            &#34;facet&#34;:&#34;host&#34;,
- *                            &#34;sort&#34;:{
- *                               &#34;facet&#34;:&#34;@duration&#34;,
- *                               &#34;aggregation&#34;:&#34;avg&#34;,
- *                               &#34;order&#34;:&#34;desc&#34;
+ *                            "facet":"host",
+ *                            "sort":{
+ *                               "facet":"{@literal @}duration",
+ *                               "aggregation":"avg",
+ *                               "order":"desc"
  *                            },
- *                            &#34;limit&#34;:10
+ *                            "limit":10
  *                         }
  *                      ],
- *                      &#34;compute&#34;:{
- *                         &#34;facet&#34;:&#34;@duration&#34;,
- *                         &#34;interval&#34;:5000,
- *                         &#34;aggregation&#34;:&#34;avg&#34;
+ *                      "compute":{
+ *                         "facet":"{@literal @}duration",
+ *                         "interval":5000,
+ *                         "aggregation":"avg"
  *                      }
  *                   },
- *                   &#34;display_type&#34;:&#34;area&#34;
+ *                   "display_type":"area"
  *                },
  *                {
- *                   &#34;on_right_yaxis&#34;:false,
- *                   &#34;apm_query&#34;:{
- *                      &#34;index&#34;:&#34;apm-search&#34;,
- *                      &#34;search&#34;:{
- *                         &#34;query&#34;:&#34;type:web&#34;
+ *                   "on_right_yaxis":false,
+ *                   "apm_query":{
+ *                      "index":"apm-search",
+ *                      "search":{
+ *                         "query":"type:web"
  *                      },
- *                      &#34;group_by&#34;:[
+ *                      "group_by":[
  *                         {
- *                            &#34;facet&#34;:&#34;resource_name&#34;,
- *                            &#34;sort&#34;:{
- *                               &#34;facet&#34;:&#34;@string_query.interval&#34;,
- *                               &#34;aggregation&#34;:&#34;avg&#34;,
- *                               &#34;order&#34;:&#34;desc&#34;
+ *                            "facet":"resource_name",
+ *                            "sort":{
+ *                               "facet":"{@literal @}string_query.interval",
+ *                               "aggregation":"avg",
+ *                               "order":"desc"
  *                            },
- *                            &#34;limit&#34;:50
+ *                            "limit":50
  *                         }
  *                      ],
- *                      &#34;compute&#34;:{
- *                         &#34;facet&#34;:&#34;@duration&#34;,
- *                         &#34;interval&#34;:5000,
- *                         &#34;aggregation&#34;:&#34;avg&#34;
+ *                      "compute":{
+ *                         "facet":"{@literal @}duration",
+ *                         "interval":5000,
+ *                         "aggregation":"avg"
  *                      }
  *                   },
- *                   &#34;display_type&#34;:&#34;bars&#34;
+ *                   "display_type":"bars"
  *                },
  *                {
- *                   &#34;on_right_yaxis&#34;:false,
- *                   &#34;process_query&#34;:{
- *                      &#34;search_by&#34;:&#34;error&#34;,
- *                      &#34;metric&#34;:&#34;process.stat.cpu.total_pct&#34;,
- *                      &#34;limit&#34;:50,
- *                      &#34;filter_by&#34;:[
- *                         &#34;active&#34;
+ *                   "on_right_yaxis":false,
+ *                   "process_query":{
+ *                      "search_by":"error",
+ *                      "metric":"process.stat.cpu.total_pct",
+ *                      "limit":50,
+ *                      "filter_by":[
+ *                         "active"
  *                      ]
  *                   },
- *                   &#34;display_type&#34;:&#34;area&#34;
+ *                   "display_type":"area"
  *                }
  *             ],
- *             &#34;yaxis&#34;:{
- *                &#34;scale&#34;:&#34;log&#34;,
- *                &#34;include_zero&#34;:false,
- *                &#34;max&#34;:&#34;100&#34;
+ *             "yaxis":{
+ *                "scale":"log",
+ *                "include_zero":false,
+ *                "max":"100"
  *             },
- *             &#34;events&#34;:[
+ *             "events":[
  *                {
- *                   &#34;q&#34;:&#34;sources:test tags:1&#34;
+ *                   "q":"sources:test tags:1"
  *                },
  *                {
- *                   &#34;q&#34;:&#34;sources:test tags:2&#34;
+ *                   "q":"sources:test tags:2"
  *                }
  *             ],
- *             &#34;markers&#34;:[
+ *             "markers":[
  *                {
- *                   &#34;label&#34;:&#34; z=6 &#34;,
- *                   &#34;value&#34;:&#34;y = 4&#34;,
- *                   &#34;display_type&#34;:&#34;error dashed&#34;
+ *                   "label":" z=6 ",
+ *                   "value":"y = 4",
+ *                   "display_type":"error dashed"
  *                },
  *                {
- *                   &#34;label&#34;:&#34; x=8 &#34;,
- *                   &#34;value&#34;:&#34;10 &lt; y &lt; 999&#34;,
- *                   &#34;display_type&#34;:&#34;ok solid&#34;
+ *                   "label":" x=8 ",
+ *                   "value":"10 < y < 999",
+ *                   "display_type":"ok solid"
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:7307171374656551,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;toplist&#34;,
- *             &#34;requests&#34;:[
+ *          "id":7307171374656551,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"toplist",
+ *             "requests":[
  *                {
- *                   &#34;q&#34;:&#34;avg:system.cpu.user{app:general} by {env}&#34;,
- *                   &#34;conditional_formats&#34;:[
+ *                   "q":"avg:system.cpu.user{app:general} by {env}",
+ *                   "conditional_formats":[
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&lt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_green&#34;,
- *                         &#34;value&#34;:2
+ *                         "hide_value":false,
+ *                         "comparator":"<",
+ *                         "palette":"white_on_green",
+ *                         "value":2
  *                      },
  *                      {
- *                         &#34;hide_value&#34;:false,
- *                         &#34;comparator&#34;:&#34;&gt;&#34;,
- *                         &#34;palette&#34;:&#34;white_on_red&#34;,
- *                         &#34;value&#34;:2.2
+ *                         "hide_value":false,
+ *                         "comparator":">",
+ *                         "palette":"white_on_red",
+ *                         "value":2.2
  *                      }
  *                   ]
  *                }
@@ -450,93 +451,94 @@ import javax.annotation.Nullable;
  *          }
  *       },
  *       {
- *          &#34;id&#34;:7086674838553258,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Group Widget&#34;,
- *             &#34;type&#34;:&#34;group&#34;,
- *             &#34;layout_type&#34;:&#34;ordered&#34;,
- *             &#34;widgets&#34;:[
+ *          "id":7086674838553258,
+ *          "definition":{
+ *             "title":"Group Widget",
+ *             "type":"group",
+ *             "layout_type":"ordered",
+ *             "widgets":[
  *                {
- *                   &#34;id&#34;:3726092277657502,
- *                   &#34;definition&#34;:{
- *                      &#34;type&#34;:&#34;note&#34;,
- *                      &#34;content&#34;:&#34;cluster note widget&#34;,
- *                      &#34;background_color&#34;:&#34;pink&#34;,
- *                      &#34;font_size&#34;:&#34;14&#34;,
- *                      &#34;text_align&#34;:&#34;center&#34;,
- *                      &#34;show_tick&#34;:true,
- *                      &#34;tick_pos&#34;:&#34;50%&#34;,
- *                      &#34;tick_edge&#34;:&#34;left&#34;
+ *                   "id":3726092277657502,
+ *                   "definition":{
+ *                      "type":"note",
+ *                      "content":"cluster note widget",
+ *                      "background_color":"pink",
+ *                      "font_size":"14",
+ *                      "text_align":"center",
+ *                      "show_tick":true,
+ *                      "tick_pos":"50%",
+ *                      "tick_edge":"left"
  *                   }
  *                },
  *                {
- *                   &#34;id&#34;:6376384650558057,
- *                   &#34;definition&#34;:{
- *                      &#34;title&#34;:&#34;Alert Graph&#34;,
- *                      &#34;type&#34;:&#34;alert_graph&#34;,
- *                      &#34;alert_id&#34;:&#34;123&#34;,
- *                      &#34;viz_type&#34;:&#34;toplist&#34;
+ *                   "id":6376384650558057,
+ *                   "definition":{
+ *                      "title":"Alert Graph",
+ *                      "type":"alert_graph",
+ *                      "alert_id":"123",
+ *                      "viz_type":"toplist"
  *                   }
  *                }
  *             ]
  *          }
  *       },
  *       {
- *          &#34;id&#34;:4668903563678912,
- *          &#34;definition&#34;:{
- *             &#34;title&#34;:&#34;Widget Title&#34;,
- *             &#34;type&#34;:&#34;slo&#34;,
- *             &#34;view_type&#34;:&#34;detail&#34;,
- *             &#34;time_windows&#34;:[
- *                &#34;7d&#34;,
- *                &#34;previous_week&#34;
+ *          "id":4668903563678912,
+ *          "definition":{
+ *             "title":"Widget Title",
+ *             "type":"slo",
+ *             "view_type":"detail",
+ *             "time_windows":[
+ *                "7d",
+ *                "previous_week"
  *             ],
- *             &#34;slo_id&#34;:&#34;56789&#34;,
- *             &#34;show_error_budget&#34;:true,
- *             &#34;view_mode&#34;:&#34;overall&#34;,
- *             &#34;global_time_target&#34;:&#34;0&#34;
+ *             "slo_id":"56789",
+ *             "show_error_budget":true,
+ *             "view_mode":"overall",
+ *             "global_time_target":"0"
  *          }
  *       }
  *    ],
- *    &#34;template_variables&#34;:[
+ *    "template_variables":[
  *       {
- *          &#34;name&#34;:&#34;var_1&#34;,
- *          &#34;default&#34;:&#34;aws&#34;,
- *          &#34;prefix&#34;:&#34;host&#34;
+ *          "name":"var_1",
+ *          "default":"aws",
+ *          "prefix":"host"
  *       },
  *       {
- *          &#34;name&#34;:&#34;var_2&#34;,
- *          &#34;default&#34;:&#34;autoscaling&#34;,
- *          &#34;prefix&#34;:&#34;service_name&#34;
+ *          "name":"var_2",
+ *          "default":"autoscaling",
+ *          "prefix":"service_name"
  *       }
  *    ],
- *    &#34;layout_type&#34;:&#34;ordered&#34;,
- *    &#34;is_read_only&#34;:true,
- *    &#34;notify_list&#34;:[
+ *    "layout_type":"ordered",
+ *    "is_read_only":true,
+ *    "notify_list":[
  * 
  *    ],
- *    &#34;template_variable_presets&#34;:[
+ *    "template_variable_presets":[
  *       {
- *          &#34;name&#34;:&#34;preset_1&#34;,
- *          &#34;template_variables&#34;:[
+ *          "name":"preset_1",
+ *          "template_variables":[
  *             {
- *                &#34;name&#34;:&#34;var_1&#34;,
- *                &#34;value&#34;:&#34;host.dc&#34;
+ *                "name":"var_1",
+ *                "value":"host.dc"
  *             },
  *             {
- *                &#34;name&#34;:&#34;var_2&#34;,
- *                &#34;value&#34;:&#34;my_service&#34;
+ *                "name":"var_2",
+ *                "value":"my_service"
  *             }
  *          ]
  *       }
  *    ]
  * }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -562,19 +564,9 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
     public Output<String> dashboard() {
         return this.dashboard;
     }
-    /**
-     * A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-     * dashboard lists using Terraform as it causes inconsistent behavior.
-     * 
-     */
     @Export(name="dashboardLists", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> dashboardLists;
 
-    /**
-     * @return A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-     * dashboard lists using Terraform as it causes inconsistent behavior.
-     * 
-     */
     public Output<Optional<List<Integer>>> dashboardLists() {
         return Codegen.optional(this.dashboardLists);
     }

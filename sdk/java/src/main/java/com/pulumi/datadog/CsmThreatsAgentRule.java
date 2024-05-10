@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,16 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAgentRule = new CsmThreatsAgentRule(&#34;myAgentRule&#34;, CsmThreatsAgentRuleArgs.builder()        
- *             .name(&#34;my_agent_rule&#34;)
+ *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()        
+ *             .name("my_agent_rule")
  *             .enabled(true)
- *             .description(&#34;im a rule&#34;)
- *             .expression(&#34;open.file.name == \&#34;etc/shadow/password\&#34;&#34;)
+ *             .description("im a rule")
+ *             .expression("open.file.name == \"etc/shadow/password\"")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

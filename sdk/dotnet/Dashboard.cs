@@ -1055,10 +1055,6 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/dashboard:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-        /// dashboard lists using Terraform as it causes inconsistent behavior.
-        /// </summary>
         [Output("dashboardLists")]
         public Output<ImmutableArray<int>> DashboardLists { get; private set; } = null!;
 
@@ -1188,11 +1184,6 @@ namespace Pulumi.Datadog
     {
         [Input("dashboardLists")]
         private InputList<int>? _dashboardLists;
-
-        /// <summary>
-        /// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-        /// dashboard lists using Terraform as it causes inconsistent behavior.
-        /// </summary>
         public InputList<int> DashboardLists
         {
             get => _dashboardLists ?? (_dashboardLists = new InputList<int>());
@@ -1317,11 +1308,6 @@ namespace Pulumi.Datadog
     {
         [Input("dashboardLists")]
         private InputList<int>? _dashboardLists;
-
-        /// <summary>
-        /// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding
-        /// dashboard lists using Terraform as it causes inconsistent behavior.
-        /// </summary>
         public InputList<int> DashboardLists
         {
             get => _dashboardLists ?? (_dashboardLists = new InputList<int>());

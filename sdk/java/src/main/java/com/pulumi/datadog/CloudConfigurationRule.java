@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,11 +45,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myrule = new CloudConfigurationRule(&#34;myrule&#34;, CloudConfigurationRuleArgs.builder()        
- *             .name(&#34;My cloud configuration rule&#34;)
- *             .message(&#34;Rule has triggered&#34;)
+ *         var myrule = new CloudConfigurationRule("myrule", CloudConfigurationRuleArgs.builder()        
+ *             .name("My cloud configuration rule")
+ *             .message("Rule has triggered")
  *             .enabled(true)
- *             .policy(&#34;&#34;&#34;
+ *             .policy("""
  * package datadog
  * 
  * import data.datadog.output as dd_output
@@ -57,13 +58,13 @@ import javax.annotation.Nullable;
  * import future.keywords.if
  * import future.keywords.in
  * 
- * eval(resource) = &#34;skip&#34; if {
+ * eval(resource) = "skip" if {
  *     # Logic that evaluates to true if the resource should be skipped
  *     true
- * } else = &#34;pass&#34; {
+ * } else = "pass" {
  *     # Logic that evaluates to true if the resource is compliant
  *     true
- * } else = &#34;fail&#34; {
+ * } else = "fail" {
  *     # Logic that evaluates to true if the resource is not compliant
  *     true
  * }
@@ -73,18 +74,19 @@ import javax.annotation.Nullable;
  *     some resource in input.resources[input.main_resource_type]
  *     result := dd_output.format(resource, eval(resource))
  * }
- *             &#34;&#34;&#34;)
- *             .resourceType(&#34;aws_s3_bucket&#34;)
+ *             """)
+ *             .resourceType("aws_s3_bucket")
  *             .relatedResourceTypes()
- *             .severity(&#34;high&#34;)
- *             .groupBies(&#34;@resource&#34;)
- *             .notifications(&#34;@channel&#34;)
- *             .tags(&#34;some:tag&#34;)
+ *             .severity("high")
+ *             .groupBies("{@literal @}resource")
+ *             .notifications("{@literal @}channel")
+ *             .tags("some:tag")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -127,14 +129,14 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.filters);
     }
     /**
-     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
      * 
      */
     @Export(name="groupBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupBies;
 
     /**
-     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
+     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
      * 
      */
     public Output<Optional<List<String>>> groupBies() {

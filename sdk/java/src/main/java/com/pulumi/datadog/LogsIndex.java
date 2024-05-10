@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,32 +51,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // A sample Datadog logs index resource definition.
- *         var sampleIndex = new LogsIndex(&#34;sampleIndex&#34;, LogsIndexArgs.builder()        
- *             .name(&#34;your index&#34;)
+ *         var sampleIndex = new LogsIndex("sampleIndex", LogsIndexArgs.builder()        
+ *             .name("your index")
  *             .dailyLimit(200000)
  *             .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()
- *                 .resetTime(&#34;14:00&#34;)
- *                 .resetUtcOffset(&#34;+02:00&#34;)
+ *                 .resetTime("14:00")
+ *                 .resetUtcOffset("+02:00")
  *                 .build())
  *             .dailyLimitWarningThresholdPercentage(50)
  *             .retentionDays(7)
  *             .filters(LogsIndexFilterArgs.builder()
- *                 .query(&#34;*&#34;)
+ *                 .query("*")
  *                 .build())
  *             .exclusionFilters(            
  *                 LogsIndexExclusionFilterArgs.builder()
- *                     .name(&#34;Filter coredns logs&#34;)
+ *                     .name("Filter coredns logs")
  *                     .isEnabled(true)
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
- *                         .query(&#34;app:coredns&#34;)
+ *                         .query("app:coredns")
  *                         .sampleRate(0.97)
  *                         .build())
  *                     .build(),
  *                 LogsIndexExclusionFilterArgs.builder()
- *                     .name(&#34;Kubernetes apiserver&#34;)
+ *                     .name("Kubernetes apiserver")
  *                     .isEnabled(true)
  *                     .filters(LogsIndexExclusionFilterFilterArgs.builder()
- *                         .query(&#34;service:kube_apiserver&#34;)
+ *                         .query("service:kube_apiserver")
  *                         .sampleRate(1)
  *                         .build())
  *                     .build())
@@ -83,7 +84,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

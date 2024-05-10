@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +47,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog Child Organization
- *         var organization = new ChildOrganization(&#34;organization&#34;, ChildOrganizationArgs.builder()        
- *             .name(&#34;foo-organization&#34;)
+ *         var organization = new ChildOrganization("organization", ChildOrganizationArgs.builder()        
+ *             .name("foo-organization")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

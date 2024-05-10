@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,35 +48,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new downtime_schedule resource
- *         var downtimeScheduleExample = new DowntimeSchedule(&#34;downtimeScheduleExample&#34;, DowntimeScheduleArgs.builder()        
- *             .scope(&#34;env:us9-prod7 AND team:test123&#34;)
+ *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()        
+ *             .scope("env:us9-prod7 AND team:test123")
  *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
  *                 .monitorTags(                
- *                     &#34;test:123&#34;,
- *                     &#34;data:test&#34;)
+ *                     "test:123",
+ *                     "data:test")
  *                 .build())
  *             .recurringSchedule(DowntimeScheduleRecurringScheduleArgs.builder()
  *                 .recurrences(DowntimeScheduleRecurringScheduleRecurrenceArgs.builder()
- *                     .duration(&#34;1h&#34;)
- *                     .rrule(&#34;FREQ=DAILY;INTERVAL=1&#34;)
- *                     .start(&#34;2050-01-02T03:04:05&#34;)
+ *                     .duration("1h")
+ *                     .rrule("FREQ=DAILY;INTERVAL=1")
+ *                     .start("2050-01-02T03:04:05")
  *                     .build())
- *                 .timezone(&#34;America/New_York&#34;)
+ *                 .timezone("America/New_York")
  *                 .build())
- *             .displayTimezone(&#34;America/New_York&#34;)
- *             .message(&#34;Message about the downtime&#34;)
+ *             .displayTimezone("America/New_York")
+ *             .message("Message about the downtime")
  *             .muteFirstRecoveryNotification(true)
  *             .notifyEndStates(            
- *                 &#34;alert&#34;,
- *                 &#34;warn&#34;)
+ *                 "alert",
+ *                 "warn")
  *             .notifyEndTypes(            
- *                 &#34;canceled&#34;,
- *                 &#34;expired&#34;)
+ *                 "canceled",
+ *                 "expired")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -102,14 +104,14 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
         return this.displayTimezone;
     }
     /**
-     * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
      * 
      */
     @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
     /**
-     * @return A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+     * @return A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `{@literal @}username` notation as events.
      * 
      */
     public Output<Optional<String>> message() {

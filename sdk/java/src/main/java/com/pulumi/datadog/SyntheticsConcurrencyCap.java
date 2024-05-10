@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,13 +42,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Usage (Synthetics Concurrency Cap Configuration)
- *         var this_ = new SyntheticsConcurrencyCap(&#34;this&#34;, SyntheticsConcurrencyCapArgs.builder()        
+ *         var this_ = new SyntheticsConcurrencyCap("this", SyntheticsConcurrencyCapArgs.builder()        
  *             .onDemandConcurrencyCap(1)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

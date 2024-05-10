@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,8 +42,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var samplePipelineOrder = new LogsPipelineOrder(&#34;samplePipelineOrder&#34;, LogsPipelineOrderArgs.builder()        
- *             .name(&#34;sample_pipeline_order&#34;)
+ *         var samplePipelineOrder = new LogsPipelineOrder("samplePipelineOrder", LogsPipelineOrderArgs.builder()        
+ *             .name("sample_pipeline_order")
  *             .pipelines(            
  *                 samplePipeline.id(),
  *                 python.id())
@@ -50,7 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

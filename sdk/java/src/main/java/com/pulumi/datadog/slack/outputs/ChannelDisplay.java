@@ -17,7 +17,7 @@ public final class ChannelDisplay {
      */
     private @Nullable Boolean message;
     /**
-     * @return Show the list of @-handles in the alert event. Defaults to `true`.
+     * @return Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
     private @Nullable Boolean notified;
@@ -41,7 +41,7 @@ public final class ChannelDisplay {
         return Optional.ofNullable(this.message);
     }
     /**
-     * @return Show the list of @-handles in the alert event. Defaults to `true`.
+     * @return Show the list of{@literal @}-handles in the alert event. Defaults to `true`.
      * 
      */
     public Optional<Boolean> notified() {
