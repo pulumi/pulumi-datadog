@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()        
+ *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()
  *             .apiKey("TESTAPIKEY123")
  *             .apiSecret("test-api-secret-123")
  *             .tags(            
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create new integration_confluent_resource resource
- *         var fooIntegrationResource = new IntegrationResource("fooIntegrationResource", IntegrationResourceArgs.builder()        
+ *         var fooIntegrationResource = new IntegrationResource("fooIntegrationResource", IntegrationResourceArgs.builder()
  *             .accountId(foo.id())
  *             .resourceId("123456")
  *             .resourceType("kafka")

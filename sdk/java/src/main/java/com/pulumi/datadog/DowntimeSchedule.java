@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new downtime_schedule resource
- *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()        
+ *         var downtimeScheduleExample = new DowntimeSchedule("downtimeScheduleExample", DowntimeScheduleArgs.builder()
  *             .scope("env:us9-prod7 AND team:test123")
  *             .monitorIdentifier(DowntimeScheduleMonitorIdentifierArgs.builder()
  *                 .monitorTags(                

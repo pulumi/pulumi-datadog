@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Metric-Based SLO
  *         // Create a new Datadog service level objective
- *         var foo = new ServiceLevelObjective("foo", ServiceLevelObjectiveArgs.builder()        
+ *         var foo = new ServiceLevelObjective("foo", ServiceLevelObjectiveArgs.builder()
  *             .name("Example Metric SLO")
  *             .type("metric")
  *             .description("My custom metric SLO")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         // Monitor-Based SLO
  *         // Create a new Datadog service level objective
- *         var bar = new ServiceLevelObjective("bar", ServiceLevelObjectiveArgs.builder()        
+ *         var bar = new ServiceLevelObjective("bar", ServiceLevelObjectiveArgs.builder()
  *             .name("Example Monitor SLO")
  *             .type("monitor")
  *             .description("My custom monitor SLO")
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                 "baz")
  *             .build());
  * 
- *         var timeSliceSlo = new ServiceLevelObjective("timeSliceSlo", ServiceLevelObjectiveArgs.builder()        
+ *         var timeSliceSlo = new ServiceLevelObjective("timeSliceSlo", ServiceLevelObjectiveArgs.builder()
  *             .name("Example Time Slice SLO")
  *             .type("time_slice")
  *             .description("My custom time slice SLO")

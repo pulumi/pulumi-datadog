@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage Datadog Organization
- *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()        
+ *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()
  *             .name("foo-organization")
  *             .build());
  * 

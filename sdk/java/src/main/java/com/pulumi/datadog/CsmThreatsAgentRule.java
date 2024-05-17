@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()        
+ *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()
  *             .name("my_agent_rule")
  *             .enabled(true)
  *             .description("im a rule")

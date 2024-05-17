@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Monitor("foo", MonitorArgs.builder()        
+ *         var foo = new Monitor("foo", MonitorArgs.builder()
  *             .name("Name for monitor foo")
  *             .type("metric alert")
  *             .message("Monitor triggered. Notify:{@literal @}hipchat-channel")

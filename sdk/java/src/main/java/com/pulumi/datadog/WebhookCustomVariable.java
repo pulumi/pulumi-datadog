@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog webhook custom variable.
- *         var foo = new WebhookCustomVariable("foo", WebhookCustomVariableArgs.builder()        
+ *         var foo = new WebhookCustomVariable("foo", WebhookCustomVariableArgs.builder()
  *             .name("EXAMPLE_VARIABLE")
  *             .value("EXAMPLE-VALUE")
  *             .isSecret(true)

@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog SLO correction. slo_id can be derived from slo resource or specify an slo id of an existing SLO.
- *         var exampleSlo = new ServiceLevelObjective("exampleSlo", ServiceLevelObjectiveArgs.builder()        
+ *         var exampleSlo = new ServiceLevelObjective("exampleSlo", ServiceLevelObjectiveArgs.builder()
  *             .name("example slo")
  *             .type("metric")
  *             .description("some updated description about example_slo SLO")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .tags("foo:bar")
  *             .build());
  * 
- *         var exampleSloCorrection = new SloCorrection("exampleSloCorrection", SloCorrectionArgs.builder()        
+ *         var exampleSloCorrection = new SloCorrection("exampleSloCorrection", SloCorrectionArgs.builder()
  *             .category("Scheduled Maintenance")
  *             .description("correction example")
  *             .start(1735707000)
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .timezone("UTC")
  *             .build());
  * 
- *         var exampleSloCorrectionWithRecurrence = new SloCorrection("exampleSloCorrectionWithRecurrence", SloCorrectionArgs.builder()        
+ *         var exampleSloCorrectionWithRecurrence = new SloCorrection("exampleSloCorrectionWithRecurrence", SloCorrectionArgs.builder()
  *             .category("Scheduled Maintenance")
  *             .description("correction example with recurrence")
  *             .start(1735707000)
