@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new restriction_policy resource
- *         var foo = new RestrictionPolicy("foo", RestrictionPolicyArgs.builder()        
+ *         var foo = new RestrictionPolicy("foo", RestrictionPolicyArgs.builder()
  *             .resourceId("security-rule:abc-def-ghi")
  *             .bindings(            
  *                 RestrictionPolicyBindingArgs.builder()

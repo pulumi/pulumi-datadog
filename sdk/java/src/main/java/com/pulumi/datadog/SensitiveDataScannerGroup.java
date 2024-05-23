@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new sensitive_data_scanner_group resource
- *         var mygroup = new SensitiveDataScannerGroup("mygroup", SensitiveDataScannerGroupArgs.builder()        
+ *         var mygroup = new SensitiveDataScannerGroup("mygroup", SensitiveDataScannerGroupArgs.builder()
  *             .name("My new scanning group")
  *             .description("A relevant description")
  *             .filter(SensitiveDataScannerGroupFilterArgs.builder()

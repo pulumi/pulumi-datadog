@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myS3Archive = new LogsArchive("myS3Archive", LogsArchiveArgs.builder()        
+ *         var myS3Archive = new LogsArchive("myS3Archive", LogsArchiveArgs.builder()
  *             .name("my s3 archive")
  *             .query("service:myservice")
  *             .s3Archive(LogsArchiveS3ArchiveArgs.builder()

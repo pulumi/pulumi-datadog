@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create APM retention filter
- *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()        
+ *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
  *             .name("Sample order")
  *             .rate("1.0")
  *             .filter(ApmRetentionFilterFilterArgs.builder()

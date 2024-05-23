@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fakeServiceName = new ServiceObject("fakeServiceName", ServiceObjectArgs.builder()        
+ *         var fakeServiceName = new ServiceObject("fakeServiceName", ServiceObjectArgs.builder()
  *             .name("fake_service_name")
  *             .opsgenieApiKey("00000000-0000-0000-0000-000000000000")
  *             .region("us")
  *             .build());
  * 
- *         var fakeServiceName2 = new ServiceObject("fakeServiceName2", ServiceObjectArgs.builder()        
+ *         var fakeServiceName2 = new ServiceObject("fakeServiceName2", ServiceObjectArgs.builder()
  *             .name("fake_service_name_2")
  *             .opsgenieApiKey("11111111-1111-1111-1111-111111111111")
  *             .region("eu")

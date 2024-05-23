@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog API Key
- *         var foo = new ApiKey("foo", ApiKeyArgs.builder()        
+ *         var foo = new ApiKey("foo", ApiKeyArgs.builder()
  *             .name("foo-application")
  *             .build());
  * 

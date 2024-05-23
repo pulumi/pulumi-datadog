@@ -1315,7 +1315,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
      *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
@@ -1378,7 +1378,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
      *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
@@ -1441,7 +1441,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
      *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
@@ -1504,7 +1504,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         // Create a dashboard and register it in the list above.
-     *         var time = new Dashboard("time", DashboardArgs.builder()        
+     *         var time = new Dashboard("time", DashboardArgs.builder()
      *             .title("TF Test Layout Dashboard")
      *             .description("Created using the Datadog provider in Pulumi")
      *             .dashboardLists(test.applyValue(getDashboardListResult -> getDashboardListResult.id()))
@@ -4439,7 +4439,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
@@ -4484,7 +4484,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
@@ -4529,7 +4529,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
@@ -4574,7 +4574,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
@@ -4619,7 +4619,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 
@@ -4664,7 +4664,7 @@ public final class DatadogFunctions {
      *     public static void stack(Context ctx) {
      *         final var foo = DatadogFunctions.getSensitiveDataScannerGroupOrder();
      * 
-     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()        
+     *         var foobar = new SensitiveDataScannerGroupOrder("foobar", SensitiveDataScannerGroupOrderArgs.builder()
      *             .groupIds(foo.applyValue(getSensitiveDataScannerGroupOrderResult -> getSensitiveDataScannerGroupOrderResult.groupIds()))
      *             .build());
      * 

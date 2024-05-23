@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage Datadog Powerpacks
- *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()        
+ *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()
  *             .name("foo-organization")
  *             .build());
  * 
- *         var foo = new Powerpack("foo", PowerpackArgs.builder()        
+ *         var foo = new Powerpack("foo", PowerpackArgs.builder()
  *             .description("Created using the Datadog provider in terraform")
  *             .liveSpan("4h")
  *             .layout(PowerpackLayoutArgs.builder()

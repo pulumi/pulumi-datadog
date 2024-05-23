@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Microsoft Azure integration
- *         var sandbox = new Integration("sandbox", IntegrationArgs.builder()        
+ *         var sandbox = new Integration("sandbox", IntegrationArgs.builder()
  *             .tenantName("<azure_tenant_name>")
  *             .clientId("<azure_client_id>")
  *             .clientSecret("<azure_client_secret_key>")

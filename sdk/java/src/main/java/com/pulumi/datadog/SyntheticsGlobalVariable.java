@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()        
+ *         var testVariable = new SyntheticsGlobalVariable("testVariable", SyntheticsGlobalVariableArgs.builder()
  *             .name("EXAMPLE_VARIABLE")
  *             .description("Description of the variable")
  *             .tags(            

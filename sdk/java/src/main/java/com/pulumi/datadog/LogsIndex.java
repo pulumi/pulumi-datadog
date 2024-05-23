@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // A sample Datadog logs index resource definition.
- *         var sampleIndex = new LogsIndex("sampleIndex", LogsIndexArgs.builder()        
+ *         var sampleIndex = new LogsIndex("sampleIndex", LogsIndexArgs.builder()
  *             .name("your index")
  *             .dailyLimit(200000)
  *             .dailyLimitReset(LogsIndexDailyLimitResetArgs.builder()
