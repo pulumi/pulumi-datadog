@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new team resource
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .description("Team description")
  *             .handle("example-team")
  *             .name("Example Team")

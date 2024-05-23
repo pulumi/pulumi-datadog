@@ -46,18 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .description("Example team")
  *             .handle("example-team-updated")
  *             .name("Example Team-updated")
  *             .build());
  * 
- *         var fooUser = new User("fooUser", UserArgs.builder()        
+ *         var fooUser = new User("fooUser", UserArgs.builder()
  *             .email("new{@literal @}example.com")
  *             .build());
  * 
  *         // Create new team_membership resource
- *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()        
+ *         var fooTeamMembership = new TeamMembership("fooTeamMembership", TeamMembershipArgs.builder()
  *             .teamId(foo.id())
  *             .userId(fooUser.id())
  *             .role("admin")

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Dashboard JSON
- *         var dashboardJson = new DashboardJson("dashboardJson", DashboardJsonArgs.builder()        
+ *         var dashboardJson = new DashboardJson("dashboardJson", DashboardJsonArgs.builder()
  *             .dashboard("""
  * {
  *    "title":"Ordered Layout Dashboard",

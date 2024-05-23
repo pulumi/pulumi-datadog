@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog webhook
- *         var foo = new Webhook("foo", WebhookArgs.builder()        
+ *         var foo = new Webhook("foo", WebhookArgs.builder()
  *             .name("test-webhook")
  *             .url("example.com")
  *             .encodeAs("json")

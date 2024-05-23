@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new integration_aws_event_bridge resource
- *         var foo = new IntegrationEventBridge("foo", IntegrationEventBridgeArgs.builder()        
+ *         var foo = new IntegrationEventBridge("foo", IntegrationEventBridgeArgs.builder()
  *             .accountId("123456789012")
  *             .createEventBus(true)
  *             .eventGeneratorName("app-alerts")

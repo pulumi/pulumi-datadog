@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a new Datadog service account
- *         var bar = new ServiceAccount("bar", ServiceAccountArgs.builder()        
+ *         var bar = new ServiceAccount("bar", ServiceAccountArgs.builder()
  *             .email("new{@literal @}example.com")
  *             .name("Service Account Bar")
  *             .roles(roRole.applyValue(getRoleResult -> getRoleResult.id()))

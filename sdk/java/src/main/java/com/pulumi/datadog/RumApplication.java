@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var rumApplication = new RumApplication("rumApplication", RumApplicationArgs.builder()        
+ *         var rumApplication = new RumApplication("rumApplication", RumApplicationArgs.builder()
  *             .name("my-application")
  *             .type("browser")
  *             .build());

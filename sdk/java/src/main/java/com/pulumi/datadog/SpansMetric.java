@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new spans_metric resource
- *         var testingSpansMetric = new SpansMetric("testingSpansMetric", SpansMetricArgs.builder()        
+ *         var testingSpansMetric = new SpansMetric("testingSpansMetric", SpansMetricArgs.builder()
  *             .name("testing.span.metric")
  *             .compute(SpansMetricComputeArgs.builder()
  *                 .aggregationType("distribution")

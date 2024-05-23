@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create new sensitive_data_scanner_group_order resource
- *         var mygrouporder = new SensitiveDataScannerGroupOrder("mygrouporder", SensitiveDataScannerGroupOrderArgs.builder()        
+ *         var mygrouporder = new SensitiveDataScannerGroupOrder("mygrouporder", SensitiveDataScannerGroupOrderArgs.builder()
  *             .groupIds(            
  *                 "group-id-1",
  *                 "group-id-2",

@@ -46,19 +46,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitorWriterRole = new Role("monitorWriterRole", RoleArgs.builder()        
+ *         var monitorWriterRole = new Role("monitorWriterRole", RoleArgs.builder()
  *             .name("Monitor Writer Role")
  *             .permissions(RolePermissionArgs.builder()
  *                 .id(bar.permissions().monitorsWrite())
  *                 .build())
  *             .build());
  * 
- *         var newUser = new User("newUser", UserArgs.builder()        
+ *         var newUser = new User("newUser", UserArgs.builder()
  *             .email("new{@literal @}example.com")
  *             .build());
  * 
  *         // Create new user_role resource
- *         var newUserWithMonitorWriterRole = new UserRole("newUserWithMonitorWriterRole", UserRoleArgs.builder()        
+ *         var newUserWithMonitorWriterRole = new UserRole("newUserWithMonitorWriterRole", UserRoleArgs.builder()
  *             .roleId(monitorWriterRole.id())
  *             .userId(newUser.id())
  *             .build());

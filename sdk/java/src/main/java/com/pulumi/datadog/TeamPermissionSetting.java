@@ -43,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .description("Example team")
  *             .handle("example-team-updated")
  *             .name("Example Team-updated")
  *             .build());
  * 
- *         var fooTeamPermissionSetting = new TeamPermissionSetting("fooTeamPermissionSetting", TeamPermissionSettingArgs.builder()        
+ *         var fooTeamPermissionSetting = new TeamPermissionSetting("fooTeamPermissionSetting", TeamPermissionSettingArgs.builder()
  *             .teamId(foo.id())
  *             .action("manage_membership")
  *             .value("organization")
