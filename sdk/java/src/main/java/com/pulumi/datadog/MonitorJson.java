@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitorJson = new MonitorJson("monitorJson", MonitorJsonArgs.builder()        
+ *         var monitorJson = new MonitorJson("monitorJson", MonitorJsonArgs.builder()
  *             .monitor("""
  * {
  *     "name": "Example monitor - service check",

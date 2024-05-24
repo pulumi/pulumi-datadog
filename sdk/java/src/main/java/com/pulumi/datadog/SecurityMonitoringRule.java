@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myrule = new SecurityMonitoringRule("myrule", SecurityMonitoringRuleArgs.builder()        
+ *         var myrule = new SecurityMonitoringRule("myrule", SecurityMonitoringRuleArgs.builder()
  *             .name("My rule")
  *             .message("The rule has triggered.")
  *             .enabled(true)

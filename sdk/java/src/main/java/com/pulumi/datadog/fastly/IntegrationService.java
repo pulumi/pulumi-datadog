@@ -45,13 +45,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()        
+ *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()
  *             .apiKey("ABCDEFG123")
  *             .name("test-name")
  *             .build());
  * 
  *         // Create new integration_fastly_service resource
- *         var fooIntegrationService = new IntegrationService("fooIntegrationService", IntegrationServiceArgs.builder()        
+ *         var fooIntegrationService = new IntegrationService("fooIntegrationService", IntegrationServiceArgs.builder()
  *             .accountId(foo.id())
  *             .tags(            
  *                 "mytag",

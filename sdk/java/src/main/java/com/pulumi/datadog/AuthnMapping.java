@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a new AuthN mapping
- *         var devRoRoleMapping = new AuthnMapping("devRoRoleMapping", AuthnMappingArgs.builder()        
+ *         var devRoRoleMapping = new AuthnMapping("devRoRoleMapping", AuthnMappingArgs.builder()
  *             .key("Member-of")
  *             .value("Development")
  *             .role(roRole.applyValue(getRoleResult -> getRoleResult.id()))

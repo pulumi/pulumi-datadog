@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create a new Datadog - Amazon Web Services integration log collection
- *         var main = new IntegrationLogCollection("main", IntegrationLogCollectionArgs.builder()        
+ *         var main = new IntegrationLogCollection("main", IntegrationLogCollectionArgs.builder()
  *             .accountId("1234567890")
  *             .services("lambda")
  *             .build());

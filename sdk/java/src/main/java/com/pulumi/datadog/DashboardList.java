@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var time = new Dashboard("time", DashboardArgs.builder()        
+ *         var time = new Dashboard("time", DashboardArgs.builder()
  *             .title("TF Test Layout Dashboard")
  *             .description("Created using the Datadog provider in Pulumi")
  *             .layoutType("ordered")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var screen = new Dashboard("screen", DashboardArgs.builder()        
+ *         var screen = new Dashboard("screen", DashboardArgs.builder()
  *             .title("TF Test Free Layout Dashboard")
  *             .description("Created using the Datadog provider in Pulumi")
  *             .layoutType("free")
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create a new Dashboard List with two Dashboards
- *         var newList = new DashboardList("newList", DashboardListArgs.builder()        
+ *         var newList = new DashboardList("newList", DashboardListArgs.builder()
  *             .name("Automated Created List")
  *             .dashItems(            
  *                 DashboardListDashItemArgs.builder()

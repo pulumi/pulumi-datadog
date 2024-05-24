@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Ordered Layout
- *         var orderedDashboard = new Dashboard("orderedDashboard", DashboardArgs.builder()        
+ *         var orderedDashboard = new Dashboard("orderedDashboard", DashboardArgs.builder()
  *             .title("Ordered Layout Dashboard")
  *             .description("Created using the Datadog provider in Pulumi")
  *             .layoutType("ordered")
@@ -486,7 +486,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example Free Layout
- *         var freeDashboard = new Dashboard("freeDashboard", DashboardArgs.builder()        
+ *         var freeDashboard = new Dashboard("freeDashboard", DashboardArgs.builder()
  *             .title("Free Layout Dashboard")
  *             .description("Created using the Datadog provider in Pulumi")
  *             .layoutType("free")

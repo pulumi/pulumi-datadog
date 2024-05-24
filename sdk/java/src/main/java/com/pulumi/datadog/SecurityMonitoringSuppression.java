@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mySuppression = new SecurityMonitoringSuppression("mySuppression", SecurityMonitoringSuppressionArgs.builder()        
+ *         var mySuppression = new SecurityMonitoringSuppression("mySuppression", SecurityMonitoringSuppressionArgs.builder()
  *             .name("My suppression")
  *             .description("Suppression for low severity CloudTrail signals from test environments limited to 2024")
  *             .enabled(true)

@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFilter = new SecurityMonitoringFilter("myFilter", SecurityMonitoringFilterArgs.builder()        
+ *         var myFilter = new SecurityMonitoringFilter("myFilter", SecurityMonitoringFilterArgs.builder()
  *             .name("My filter")
  *             .query("The filter is filtering.")
  *             .isEnabled(true)

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Create APM retention filter
- *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()        
+ *         var foo = new ApmRetentionFilter("foo", ApmRetentionFilterArgs.builder()
  *             .name("Sample order")
  *             .rate("1.0")
  *             .filter(ApmRetentionFilterFilterArgs.builder()
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Create APM reention filter order
- *         var bar = new ApmRetentionFilterOrder("bar", ApmRetentionFilterOrderArgs.builder()        
+ *         var bar = new ApmRetentionFilterOrder("bar", ApmRetentionFilterOrderArgs.builder()
  *             .filterIds(foo.id())
  *             .build());
  * 
