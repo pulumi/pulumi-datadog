@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testingFoo = new ServiceObject("testingFoo", ServiceObjectArgs.builder()        
+ *         var testingFoo = new ServiceObject("testingFoo", ServiceObjectArgs.builder()
  *             .serviceName("testing_foo")
  *             .serviceKey("9876543210123456789")
  *             .build());
  * 
- *         var testingBar = new ServiceObject("testingBar", ServiceObjectArgs.builder()        
+ *         var testingBar = new ServiceObject("testingBar", ServiceObjectArgs.builder()
  *             .serviceName("testing_bar")
  *             .serviceKey("54321098765432109876")
  *             .build());

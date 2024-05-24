@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         final var bar = DatadogFunctions.getPermissions();
  * 
  *         // Create a new Datadog role
- *         var foo = new Role("foo", RoleArgs.builder()        
+ *         var foo = new Role("foo", RoleArgs.builder()
  *             .name("foo")
  *             .permissions(            
  *                 RolePermissionArgs.builder()

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new MonitorConfigPolicy("test", MonitorConfigPolicyArgs.builder()        
+ *         var test = new MonitorConfigPolicy("test", MonitorConfigPolicyArgs.builder()
  *             .policyType("tag")
  *             .tagPolicy(MonitorConfigPolicyTagPolicyArgs.builder()
  *                 .tagKey("env")

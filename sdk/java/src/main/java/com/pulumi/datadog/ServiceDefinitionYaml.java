@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Service Definition with v2.2 Schema Definition
- *         var serviceDefinitionV22 = new ServiceDefinitionYaml("serviceDefinitionV22", ServiceDefinitionYamlArgs.builder()        
+ *         var serviceDefinitionV22 = new ServiceDefinitionYaml("serviceDefinitionV22", ServiceDefinitionYamlArgs.builder()
  *             .serviceDefinition("""
  * schema-version: v2.2
  * dd-service: shopping-cart
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Service Definition with v2.1 Schema Definition
- *         var serviceDefinitionV21 = new ServiceDefinitionYaml("serviceDefinitionV21", ServiceDefinitionYamlArgs.builder()        
+ *         var serviceDefinitionV21 = new ServiceDefinitionYaml("serviceDefinitionV21", ServiceDefinitionYamlArgs.builder()
  *             .serviceDefinition("""
  * schema-version: v2.1
  * dd-service: shopping-cart
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Service Definition with v2 Schema Definition
- *         var serviceDefinitionV2 = new ServiceDefinitionYaml("serviceDefinitionV2", ServiceDefinitionYamlArgs.builder()        
+ *         var serviceDefinitionV2 = new ServiceDefinitionYaml("serviceDefinitionV2", ServiceDefinitionYamlArgs.builder()
  *             .serviceDefinition("""
  * schema-version: v2
  * dd-service: shopping-cart
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Service Definition with backstage.io Schema
- *         var serviceDefinitionBackstage = new ServiceDefinitionYaml("serviceDefinitionBackstage", ServiceDefinitionYamlArgs.builder()        
+ *         var serviceDefinitionBackstage = new ServiceDefinitionYaml("serviceDefinitionBackstage", ServiceDefinitionYamlArgs.builder()
  *             .serviceDefinition("""
  * apiVersion: backstage.io/v1alpha1
  * kind: Component

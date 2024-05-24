@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var samplePipelineOrder = new LogsPipelineOrder("samplePipelineOrder", LogsPipelineOrderArgs.builder()        
+ *         var samplePipelineOrder = new LogsPipelineOrder("samplePipelineOrder", LogsPipelineOrderArgs.builder()
  *             .name("sample_pipeline_order")
  *             .pipelines(            
  *                 samplePipeline.id(),

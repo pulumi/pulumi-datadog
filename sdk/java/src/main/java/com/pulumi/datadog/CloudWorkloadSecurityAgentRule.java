@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myAgentRule = new CloudWorkloadSecurityAgentRule("myAgentRule", CloudWorkloadSecurityAgentRuleArgs.builder()        
+ *         var myAgentRule = new CloudWorkloadSecurityAgentRule("myAgentRule", CloudWorkloadSecurityAgentRuleArgs.builder()
  *             .name("my_agent_rule")
  *             .description("My agent rule")
  *             .enabled(true)

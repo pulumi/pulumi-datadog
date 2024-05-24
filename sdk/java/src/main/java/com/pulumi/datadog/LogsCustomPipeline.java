@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var samplePipeline = new LogsCustomPipeline("samplePipeline", LogsCustomPipelineArgs.builder()        
+ *         var samplePipeline = new LogsCustomPipeline("samplePipeline", LogsCustomPipelineArgs.builder()
  *             .filters(LogsCustomPipelineFilterArgs.builder()
  *                 .query("source:foo")
  *                 .build())

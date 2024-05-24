@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo = new Team("foo", TeamArgs.builder()        
+ *         var foo = new Team("foo", TeamArgs.builder()
  *             .description("Example team")
  *             .handle("example-team-updated")
  *             .name("Example Team-updated")
  *             .build());
  * 
  *         // Create new team_link resource
- *         var fooTeamLink = new TeamLink("fooTeamLink", TeamLinkArgs.builder()        
+ *         var fooTeamLink = new TeamLink("fooTeamLink", TeamLinkArgs.builder()
  *             .teamId(foo.id())
  *             .label("Link label")
  *             .position("Example link")

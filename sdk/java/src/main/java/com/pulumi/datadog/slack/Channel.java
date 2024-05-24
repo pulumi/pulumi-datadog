@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testChannel = new Channel("testChannel", ChannelArgs.builder()        
+ *         var testChannel = new Channel("testChannel", ChannelArgs.builder()
  *             .accountName("foo")
  *             .channelName("#test_channel")
  *             .display(ChannelDisplayArgs.builder()

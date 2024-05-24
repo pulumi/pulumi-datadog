@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myrule = new CloudConfigurationRule("myrule", CloudConfigurationRuleArgs.builder()        
+ *         var myrule = new CloudConfigurationRule("myrule", CloudConfigurationRuleArgs.builder()
  *             .name("My cloud configuration rule")
  *             .message("Rule has triggered")
  *             .enabled(true)
