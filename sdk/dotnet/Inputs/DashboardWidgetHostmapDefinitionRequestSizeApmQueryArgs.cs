@@ -19,14 +19,14 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
-        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs>? _groupBies;
+        private InputList<Inputs.DashboardWidgetGroupByArgs>? _groupBies;
 
         /// <summary>
         /// Multiple `group_by` blocks are allowed using the structure below.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs> GroupBies
+        public InputList<Inputs.DashboardWidgetGroupByArgs> GroupBies
         {
-            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs>());
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupByArgs>());
             set => _groupBies = value;
         }
 

@@ -6,8 +6,8 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -40,13 +40,13 @@ public final class DashboardWidgetDistributionDefinitionRequestRumQueryArgs exte
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
 
     /**
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public Optional<Output<List<DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -150,7 +150,7 @@ public final class DashboardWidgetDistributionDefinitionRequestRumQueryArgs exte
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -161,7 +161,7 @@ public final class DashboardWidgetDistributionDefinitionRequestRumQueryArgs exte
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -171,7 +171,7 @@ public final class DashboardWidgetDistributionDefinitionRequestRumQueryArgs exte
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

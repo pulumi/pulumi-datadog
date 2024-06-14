@@ -5,8 +5,8 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -25,7 +25,7 @@ public final class DashboardWidgetChangeDefinitionRequestRumQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetChangeDefinitionRequestRumQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetChangeDefinitionRequestRumQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetChangeDefinitionRequestRumQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetChangeDefinitionRequestRumQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetChangeDefinitionRequestRumQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetChangeDefinitionRequestRumQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetChangeDefinitionRequestRumQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetChangeDefinitionRequestRumQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

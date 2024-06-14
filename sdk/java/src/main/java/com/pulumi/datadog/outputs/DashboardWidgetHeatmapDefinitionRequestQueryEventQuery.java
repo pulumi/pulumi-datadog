@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute;
-import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,7 +30,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    private @Nullable List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return An array of index names to query in the stream.
      * 
@@ -71,7 +71,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    public List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -114,7 +114,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
     public static final class Builder {
         private List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute> computes;
         private String dataSource;
-        private @Nullable List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch search;
@@ -151,12 +151,12 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

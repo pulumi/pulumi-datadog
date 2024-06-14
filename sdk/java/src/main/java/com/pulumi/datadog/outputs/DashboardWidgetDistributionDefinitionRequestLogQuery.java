@@ -5,8 +5,8 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -25,7 +25,7 @@ public final class DashboardWidgetDistributionDefinitionRequestLogQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetDistributionDefinitionRequestLogQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetDistributionDefinitionRequestLogQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetDistributionDefinitionRequestLogQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

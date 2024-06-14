@@ -19,14 +19,14 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
-        private InputList<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupByGetArgs>? _groupBies;
+        private InputList<Inputs.DashboardWidgetGroupByGetArgs>? _groupBies;
 
         /// <summary>
         /// Multiple `group_by` blocks are allowed using the structure below.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupByGetArgs> GroupBies
+        public InputList<Inputs.DashboardWidgetGroupByGetArgs> GroupBies
         {
-            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGroupByGetArgs>());
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupByGetArgs>());
             set => _groupBies = value;
         }
 

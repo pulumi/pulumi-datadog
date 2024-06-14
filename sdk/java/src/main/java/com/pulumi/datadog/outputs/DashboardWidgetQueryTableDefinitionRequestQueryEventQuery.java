@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute;
-import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,7 +30,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return An array of index names to query in the stream.
      * 
@@ -71,7 +71,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    public List<DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -114,7 +114,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
     public static final class Builder {
         private List<DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute> computes;
         private String dataSource;
-        private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch search;
@@ -151,12 +151,12 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

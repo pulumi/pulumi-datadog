@@ -6,8 +6,8 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiComputeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -40,13 +40,13 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
 
     /**
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public Optional<Output<List<DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -150,7 +150,7 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -161,7 +161,7 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -171,7 +171,7 @@ public final class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

@@ -19,14 +19,14 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
         [Input("groupBies")]
-        private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs>? _groupBies;
+        private InputList<Inputs.DashboardWidgetGroupByGetArgs>? _groupBies;
 
         /// <summary>
         /// Multiple `group_by` blocks are allowed using the structure below.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs> GroupBies
+        public InputList<Inputs.DashboardWidgetGroupByGetArgs> GroupBies
         {
-            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByGetArgs>());
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupByGetArgs>());
             set => _groupBies = value;
         }
 

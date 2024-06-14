@@ -31,14 +31,14 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> DataSource { get; set; } = null!;
 
         [Input("groupBies")]
-        private InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByGetArgs>? _groupBies;
+        private InputList<Inputs.DashboardWidgetGroupByGetArgs>? _groupBies;
 
         /// <summary>
         /// Group by options.
         /// </summary>
-        public InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByGetArgs> GroupBies
+        public InputList<Inputs.DashboardWidgetGroupByGetArgs> GroupBies
         {
-            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByGetArgs>());
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupByGetArgs>());
             set => _groupBies = value;
         }
 

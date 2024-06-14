@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXApmQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXApmQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXApmQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestXApmQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

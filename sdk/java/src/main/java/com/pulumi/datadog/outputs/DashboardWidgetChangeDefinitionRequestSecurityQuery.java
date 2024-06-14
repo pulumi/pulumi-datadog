@@ -5,8 +5,8 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -25,7 +25,7 @@ public final class DashboardWidgetChangeDefinitionRequestSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetChangeDefinitionRequestSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetChangeDefinitionRequestSecurityQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetChangeDefinitionRequestSecurityQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

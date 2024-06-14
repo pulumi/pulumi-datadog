@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

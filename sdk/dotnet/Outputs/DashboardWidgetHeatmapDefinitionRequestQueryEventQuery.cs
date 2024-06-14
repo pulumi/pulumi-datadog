@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Group by options.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> GroupBies;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupBy> GroupBies;
         /// <summary>
         /// An array of index names to query in the stream.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
 
             string dataSource,
 
-            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies,
+            ImmutableArray<Outputs.DashboardWidgetGroupBy> groupBies,
 
             ImmutableArray<string> indexes,
 

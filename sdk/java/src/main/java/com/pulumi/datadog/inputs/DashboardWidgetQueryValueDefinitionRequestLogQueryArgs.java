@@ -5,8 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -40,13 +40,13 @@ public final class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs extend
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
 
     /**
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public Optional<Output<List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -150,7 +150,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs extend
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -161,7 +161,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs extend
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -171,7 +171,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs extend
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

@@ -32,8 +32,6 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestArgs',
     'DashboardWidgetChangeDefinitionRequestApmQueryArgs',
     'DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetChangeDefinitionRequestFormulaArgs',
     'DashboardWidgetChangeDefinitionRequestFormulaConditionalFormatArgs',
@@ -41,8 +39,6 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetChangeDefinitionRequestLogQueryArgs',
     'DashboardWidgetChangeDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetChangeDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetChangeDefinitionRequestProcessQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQueryArgs',
@@ -51,47 +47,33 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetChangeDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetChangeDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetCheckStatusDefinitionArgs',
     'DashboardWidgetDistributionDefinitionArgs',
     'DashboardWidgetDistributionDefinitionRequestArgs',
     'DashboardWidgetDistributionDefinitionRequestApmQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumnArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetDistributionDefinitionRequestProcessQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestRumQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetDistributionDefinitionRequestStyleArgs',
     'DashboardWidgetEventStreamDefinitionArgs',
@@ -106,8 +88,6 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetGeomapDefinitionRequestLogQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQueryArgs',
@@ -115,19 +95,17 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetGeomapDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetGeomapDefinitionStyleArgs',
     'DashboardWidgetGeomapDefinitionViewArgs',
+    'DashboardWidgetGroupByArgs',
+    'DashboardWidgetGroupBySortQueryArgs',
     'DashboardWidgetGroupDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetArgs',
     'DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs',
@@ -137,8 +115,6 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionRequestArgs',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetHeatmapDefinitionRequestFormulaArgs',
     'DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs',
@@ -146,8 +122,6 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetHeatmapDefinitionRequestProcessQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryArgs',
@@ -156,21 +130,15 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetHeatmapDefinitionRequestStyleArgs',
     'DashboardWidgetHeatmapDefinitionYaxisArgs',
@@ -180,46 +148,30 @@ __all__ = [
     'DashboardWidgetHostmapDefinitionRequestFillArgs',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestFillProcessQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeProcessQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs',
     'DashboardWidgetHostmapDefinitionStyleArgs',
     'DashboardWidgetIframeDefinitionArgs',
@@ -242,8 +194,6 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs',
@@ -254,8 +204,6 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryArgs',
@@ -264,34 +212,24 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionArgs',
     'DashboardWidgetQueryValueDefinitionCustomLinkArgs',
     'DashboardWidgetQueryValueDefinitionRequestArgs',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQueryArgs',
-    'DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs',
     'DashboardWidgetQueryValueDefinitionRequestFormulaArgs',
@@ -300,8 +238,6 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionRequestProcessQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryArgs',
@@ -310,21 +246,15 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs',
@@ -342,8 +272,6 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs',
-    'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs',
@@ -351,46 +279,30 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionRequestXArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestYArgs',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiComputeArgs',
     'DashboardWidgetScatterplotDefinitionXaxisArgs',
     'DashboardWidgetScatterplotDefinitionYaxisArgs',
@@ -416,13 +328,9 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestArgs',
     'DashboardWidgetSunburstDefinitionRequestApmQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestAuditQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestAuditQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestFormulaArgs',
     'DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormatArgs',
@@ -430,13 +338,9 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetSunburstDefinitionRequestLogQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestProcessQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryArgs',
@@ -445,21 +349,15 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetSunburstDefinitionRequestStyleArgs',
     'DashboardWidgetTimeseriesDefinitionArgs',
@@ -469,13 +367,9 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestArgs',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaArgs',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs',
@@ -483,14 +377,10 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestMetadataArgs',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryArgs',
@@ -499,21 +389,15 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestStyleArgs',
     'DashboardWidgetTimeseriesDefinitionRightYaxisArgs',
@@ -523,13 +407,9 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestArgs',
     'DashboardWidgetToplistDefinitionRequestApmQueryArgs',
     'DashboardWidgetToplistDefinitionRequestApmQueryComputeQueryArgs',
-    'DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestAuditQueryArgs',
     'DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs',
-    'DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestConditionalFormatArgs',
     'DashboardWidgetToplistDefinitionRequestFormulaArgs',
@@ -538,8 +418,6 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestFormulaStyleArgs',
     'DashboardWidgetToplistDefinitionRequestLogQueryArgs',
     'DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs',
-    'DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestProcessQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQueryArgs',
@@ -548,21 +426,15 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetToplistDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQueryProcessQueryArgs',
     'DashboardWidgetToplistDefinitionRequestQuerySloQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs',
-    'DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryArgs',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetToplistDefinitionRequestStyleArgs',
     'DashboardWidgetTopologyMapDefinitionArgs',
@@ -582,8 +454,6 @@ __all__ = [
     'DashboardWidgetTreemapDefinitionRequestQueryCloudCostQueryArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs',
-    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs',
-    'DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryMetricQueryArgs',
     'DashboardWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
@@ -3192,13 +3062,13 @@ class DashboardWidgetChangeDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -3238,14 +3108,14 @@ class DashboardWidgetChangeDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -3325,114 +3195,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -3822,13 +3584,13 @@ class DashboardWidgetChangeDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -3868,14 +3630,14 @@ class DashboardWidgetChangeDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -3955,114 +3717,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -4704,7 +4358,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -4712,7 +4366,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -4767,14 +4421,14 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -4866,114 +4520,6 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -5336,13 +4882,13 @@ class DashboardWidgetChangeDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -5382,14 +4928,14 @@ class DashboardWidgetChangeDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -5472,114 +5018,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetChangeDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -5638,13 +5076,13 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -5684,14 +5122,14 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -5771,114 +5209,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -6339,13 +5669,13 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -6385,14 +5715,14 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -6472,114 +5802,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -6825,13 +6047,13 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -6871,14 +6093,14 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -6958,114 +6180,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -7197,13 +6311,13 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -7243,14 +6357,14 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -7333,114 +6447,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -7499,13 +6505,13 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -7545,14 +6551,14 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -7632,114 +6638,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -8726,13 +7624,13 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -8772,14 +7670,14 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -8859,114 +7757,6 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -9538,7 +8328,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -9546,7 +8336,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -9601,14 +8391,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -9700,114 +8490,6 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -10170,13 +8852,13 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -10216,14 +8898,14 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -10303,114 +8985,6 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -10524,6 +9098,114 @@ class DashboardWidgetGeomapDefinitionViewArgs:
     @focus.setter
     def focus(self, value: pulumi.Input[str]):
         pulumi.set(self, "focus", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupByArgs:
+    def __init__(__self__, *,
+                 facet: Optional[pulumi.Input[str]] = None,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 sort_query: Optional[pulumi.Input['DashboardWidgetGroupBySortQueryArgs']] = None):
+        """
+        :param pulumi.Input[str] facet: The facet name.
+        :param pulumi.Input[int] limit: The maximum number of items in the group.
+        :param pulumi.Input['DashboardWidgetGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
+        """
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if sort_query is not None:
+            pulumi.set(__self__, "sort_query", sort_query)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[pulumi.Input[str]]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "facet", value)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of items in the group.
+        """
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter(name="sortQuery")
+    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupBySortQueryArgs']]:
+        """
+        A list of exactly one element describing the sort query to use.
+        """
+        return pulumi.get(self, "sort_query")
+
+    @sort_query.setter
+    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupBySortQueryArgs']]):
+        pulumi.set(self, "sort_query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupBySortQueryArgs:
+    def __init__(__self__, *,
+                 aggregation: pulumi.Input[str],
+                 order: pulumi.Input[str],
+                 facet: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aggregation: The aggregation method.
+        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
+        :param pulumi.Input[str] facet: The facet name.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "order", order)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> pulumi.Input[str]:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        """
+        Widget sorting methods. Valid values are `asc`, `desc`.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[pulumi.Input[str]]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @facet.setter
+    def facet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -11686,13 +10368,13 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -11732,14 +10414,14 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -11819,114 +10501,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -12316,13 +10890,13 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -12362,14 +10936,14 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -12449,114 +11023,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -13198,7 +11664,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -13206,7 +11672,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -13261,14 +11727,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -13360,114 +11826,6 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -13830,13 +12188,13 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -13876,14 +12234,14 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -13966,114 +12324,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -14132,13 +12382,13 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -14178,14 +12428,14 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -14265,114 +12515,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -14940,13 +13082,13 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -14986,14 +13128,14 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -15076,114 +13218,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -15242,13 +13276,13 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -15288,14 +13322,14 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -15375,114 +13409,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -15614,13 +13540,13 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -15660,14 +13586,14 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -15750,114 +13676,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -15916,13 +13734,13 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -15962,14 +13780,14 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -16049,114 +13867,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -16321,13 +14031,13 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -16367,14 +14077,14 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -16457,114 +14167,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -16623,13 +14225,13 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -16669,14 +14271,14 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -16756,114 +14358,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -16995,13 +14489,13 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -17041,14 +14535,14 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -17131,114 +14625,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -17297,13 +14683,13 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -17343,14 +14729,14 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -17430,114 +14816,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -19348,13 +16626,13 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -19394,14 +16672,14 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -19481,114 +16759,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -20310,13 +17480,13 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -20356,14 +17526,14 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -20443,114 +17613,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -21192,7 +18254,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -21200,7 +18262,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -21255,14 +18317,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -21354,114 +18416,6 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -21824,13 +18778,13 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -21870,14 +18824,14 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -21960,114 +18914,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -22126,13 +18972,13 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -22172,14 +19018,14 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -22259,114 +19105,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -22857,13 +19595,13 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -22903,14 +19641,14 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -22993,114 +19731,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -23159,13 +19789,13 @@ class DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -23205,14 +19835,14 @@ class DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -23292,114 +19922,6 @@ class DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -23937,13 +20459,13 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -23983,14 +20505,14 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -24070,114 +20592,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -24819,7 +21233,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -24827,7 +21241,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -24882,14 +21296,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -24981,114 +21395,6 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -25451,13 +21757,13 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -25497,14 +21803,14 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -25587,114 +21893,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -25753,13 +21951,13 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -25799,14 +21997,14 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -25886,114 +22084,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -27275,7 +23365,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -27283,7 +23373,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -27338,14 +23428,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -27437,114 +23527,6 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -28026,13 +24008,13 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -28072,14 +24054,14 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -28162,114 +24144,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -28328,13 +24202,13 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -28374,14 +24248,14 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -28461,114 +24335,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -28700,13 +24466,13 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -28746,14 +24512,14 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -28836,114 +24602,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -29002,13 +24660,13 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -29048,14 +24706,14 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -29135,114 +24793,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -29423,13 +24973,13 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -29469,14 +25019,14 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -29559,114 +25109,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -29725,13 +25167,13 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -29771,14 +25213,14 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -29858,114 +25300,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -30097,13 +25431,13 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -30143,14 +25477,14 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -30233,114 +25567,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -30399,13 +25625,13 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -30445,14 +25671,14 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -30532,114 +25758,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -32348,13 +27466,13 @@ class DashboardWidgetSunburstDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -32394,14 +27512,14 @@ class DashboardWidgetSunburstDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -32484,114 +27602,6 @@ class DashboardWidgetSunburstDefinitionRequestApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetSunburstDefinitionRequestApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -32650,13 +27660,13 @@ class DashboardWidgetSunburstDefinitionRequestAuditQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -32696,14 +27706,14 @@ class DashboardWidgetSunburstDefinitionRequestAuditQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -32783,114 +27793,6 @@ class DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestAuditQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -33280,13 +28182,13 @@ class DashboardWidgetSunburstDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -33326,14 +28228,14 @@ class DashboardWidgetSunburstDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -33416,114 +28318,6 @@ class DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetSunburstDefinitionRequestLogQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -33582,13 +28376,13 @@ class DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -33628,14 +28422,14 @@ class DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -33715,114 +28509,6 @@ class DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -34464,7 +29150,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -34472,7 +29158,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -34527,14 +29213,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -34626,114 +29312,6 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -35096,13 +29674,13 @@ class DashboardWidgetSunburstDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -35142,14 +29720,14 @@ class DashboardWidgetSunburstDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -35232,114 +29810,6 @@ class DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -35398,13 +29868,13 @@ class DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -35444,14 +29914,14 @@ class DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -35531,114 +30001,6 @@ class DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetSunburstDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -36340,13 +30702,13 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -36386,14 +30748,14 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -36476,114 +30838,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -36642,13 +30896,13 @@ class DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -36688,14 +30942,14 @@ class DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -36775,114 +31029,6 @@ class DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -37272,13 +31418,13 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -37318,14 +31464,14 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -37405,114 +31551,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -37612,13 +31650,13 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -37658,14 +31696,14 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -37745,114 +31783,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -38494,7 +32424,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -38502,7 +32432,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -38557,14 +32487,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -38656,114 +32586,6 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -39126,13 +32948,13 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -39172,14 +32994,14 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -39262,114 +33084,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -39428,13 +33142,13 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -39474,14 +33188,14 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -39561,114 +33275,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -40308,13 +33914,13 @@ class DashboardWidgetToplistDefinitionRequestApmQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -40354,14 +33960,14 @@ class DashboardWidgetToplistDefinitionRequestApmQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -40444,114 +34050,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestApmQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -40610,13 +34108,13 @@ class DashboardWidgetToplistDefinitionRequestAuditQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -40656,14 +34154,14 @@ class DashboardWidgetToplistDefinitionRequestAuditQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -40743,114 +34241,6 @@ class DashboardWidgetToplistDefinitionRequestAuditQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestAuditQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -41388,13 +34778,13 @@ class DashboardWidgetToplistDefinitionRequestLogQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -41434,14 +34824,14 @@ class DashboardWidgetToplistDefinitionRequestLogQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -41521,114 +34911,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestLogQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -42270,7 +35552,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -42278,7 +35560,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -42333,14 +35615,14 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -42432,114 +35714,6 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -42902,13 +36076,13 @@ class DashboardWidgetToplistDefinitionRequestRumQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -42948,14 +36122,14 @@ class DashboardWidgetToplistDefinitionRequestRumQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -43038,114 +36212,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs:
 
 
 @pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestRumQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-
-@pulumi.input_type
 class DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
@@ -43204,13 +36270,13 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryArgs:
     def __init__(__self__, *,
                  index: pulumi.Input[str],
                  compute_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs']] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  multi_computes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs']]]] = None,
                  search_query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] index: The name of the index to query.
         :param pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs'] compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Multiple `group_by` blocks are allowed using the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs']]] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
         :param pulumi.Input[str] search_query: The search query to use.
         """
@@ -43250,14 +36316,14 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Multiple `group_by` blocks are allowed using the structure below.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -43337,114 +36403,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs:
     @interval.setter
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: Optional[pulumi.Input[str]] = None,
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort_query: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The facet name.
-        :param pulumi.Input[int] limit: The maximum number of items in the group.
-        :param pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs'] sort_query: A list of exactly one element describing the sort query to use.
-        """
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort_query is not None:
-            pulumi.set(__self__, "sort_query", sort_query)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of items in the group.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter(name="sortQuery")
-    def sort_query(self) -> Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs']]:
-        """
-        A list of exactly one element describing the sort query to use.
-        """
-        return pulumi.get(self, "sort_query")
-
-    @sort_query.setter
-    def sort_query(self, value: Optional[pulumi.Input['DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs']]):
-        pulumi.set(self, "sort_query", value)
-
-
-@pulumi.input_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQueryArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 order: pulumi.Input[str],
-                 facet: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation method.
-        :param pulumi.Input[str] order: Widget sorting methods. Valid values are `asc`, `desc`.
-        :param pulumi.Input[str] facet: The facet name.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
-        """
-        Widget sorting methods. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[str]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[pulumi.Input[str]]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "facet", value)
 
 
 @pulumi.input_type
@@ -44926,7 +37884,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
                  computes: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]],
                  data_source: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]] = None,
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs']] = None,
                  storage: Optional[pulumi.Input[str]] = None):
@@ -44934,7 +37892,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
         :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]] group_bies: Group by options.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: An array of index names to query in the stream.
         :param pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[str] storage: Storage location (private beta).
@@ -44989,14 +37947,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]:
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]:
         """
         Group by options.
         """
         return pulumi.get(self, "group_bies")
 
     @group_bies.setter
-    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]]]):
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
 
     @property
@@ -45088,114 +38046,6 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs:
-    def __init__(__self__, *,
-                 facet: pulumi.Input[str],
-                 limit: Optional[pulumi.Input[int]] = None,
-                 sort: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']] = None):
-        """
-        :param pulumi.Input[str] facet: The event facet.
-        :param pulumi.Input[int] limit: The number of groups to return.
-        :param pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs'] sort: The options for sorting group by results.
-        """
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> pulumi.Input[str]:
-        """
-        The event facet.
-        """
-        return pulumi.get(self, "facet")
-
-    @facet.setter
-    def facet(self, value: pulumi.Input[str]):
-        pulumi.set(self, "facet", value)
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of groups to return.
-        """
-        return pulumi.get(self, "limit")
-
-    @limit.setter
-    def limit(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "limit", value)
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]:
-        """
-        The options for sorting group by results.
-        """
-        return pulumi.get(self, "sort")
-
-    @sort.setter
-    def sort(self, value: Optional[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs']]):
-        pulumi.set(self, "sort", value)
-
-
-@pulumi.input_type
-class DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySortArgs:
-    def __init__(__self__, *,
-                 aggregation: pulumi.Input[str],
-                 metric: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] aggregation: The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        :param pulumi.Input[str] metric: The metric used for sorting group by results.
-        :param pulumi.Input[str] order: Direction of sort. Valid values are `asc`, `desc`.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> pulumi.Input[str]:
-        """
-        The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @aggregation.setter
-    def aggregation(self, value: pulumi.Input[str]):
-        pulumi.set(self, "aggregation", value)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[pulumi.Input[str]]:
-        """
-        The metric used for sorting group by results.
-        """
-        return pulumi.get(self, "metric")
-
-    @metric.setter
-    def metric(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "metric", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
-        """
-        Direction of sort. Valid values are `asc`, `desc`.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type

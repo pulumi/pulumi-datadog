@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

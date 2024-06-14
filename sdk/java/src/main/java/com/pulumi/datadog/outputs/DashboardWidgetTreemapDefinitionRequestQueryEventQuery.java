@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute;
-import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,7 +30,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    private @Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetGroupBy> groupBies;
     /**
      * @return An array of index names to query in the stream.
      * 
@@ -71,7 +71,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      * @return Group by options.
      * 
      */
-    public List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies() {
+    public List<DashboardWidgetGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -114,7 +114,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
     public static final class Builder {
         private List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute> computes;
         private String dataSource;
-        private @Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetGroupBy> groupBies;
         private @Nullable List<String> indexes;
         private String name;
         private @Nullable DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch search;
@@ -151,12 +151,12 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter
