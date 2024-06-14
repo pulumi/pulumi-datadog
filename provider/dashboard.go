@@ -84,8 +84,38 @@ typ:
 		}
 	}
 
+	var deleteTypeSpec func(*schema.TypeSpec)
+	var deleteType func(tokens.Type)
+	deleteTypeSpec = func(typ *schema.TypeSpec) {
+		if typ == nil {
+			return
+		}
+		deleteTypeSpec(typ.AdditionalProperties)
+		deleteTypeSpec(typ.Items)
+
+		if propRef, ok := strings.CutPrefix(typ.Ref, "#/types/"); ok {
+			propRefTok, err := tokens.ParseTypeToken(propRef)
+			contract.AssertNoErrorf(err, "invalid type token")
+			deleteType(propRefTok)
+		}
+	}
+
+	deleteType = func(tok tokens.Type) {
+		t, ok := spec.Types[string(tok)]
+		if !ok {
+			// This type may have already been deleted, so we return early.
+			return
+		}
+
+		for _, prop := range t.ObjectTypeSpec.Properties {
+			deleteTypeSpec(&prop.TypeSpec)
+		}
+
+		delete(spec.Types, string(tok))
+	}
+
 	for _, elided := range elidedRefs {
-		delete(spec.Types, string(elided))
+		deleteType(elided)
 	}
 
 	// We have now deleted all the types we don't want, but that has left dangling
