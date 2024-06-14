@@ -428,7 +428,7 @@ import javax.annotation.Nullable;
  *                         .title("Group Widget")
  *                         .widgets(                        
  *                             DashboardWidgetGroupDefinitionWidgetArgs.builder()
- *                                 .noteDefinition(DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs.builder()
+ *                                 .noteDefinition(DashboardWidgetNoteDefinitionArgs.builder()
  *                                     .content("cluster note widget")
  *                                     .backgroundColor("pink")
  *                                     .fontSize("14")
@@ -439,7 +439,7 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build(),
  *                             DashboardWidgetGroupDefinitionWidgetArgs.builder()
- *                                 .alertGraphDefinition(DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs.builder()
+ *                                 .alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs.builder()
  *                                     .alertId("123")
  *                                     .vizType("toplist")
  *                                     .title("Alert Graph")

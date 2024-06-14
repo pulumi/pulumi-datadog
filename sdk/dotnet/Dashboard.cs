@@ -510,7 +510,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             NoteDefinition = new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs
+    ///                             NoteDefinition = new Datadog.Inputs.DashboardWidgetNoteDefinitionArgs
     ///                             {
     ///                                 Content = "cluster note widget",
     ///                                 BackgroundColor = "pink",
@@ -523,7 +523,7 @@ namespace Pulumi.Datadog
     ///                         },
     ///                         new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs
+    ///                             AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
     ///                             {
     ///                                 AlertId = "123",
     ///                                 VizType = "toplist",

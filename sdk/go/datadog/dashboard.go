@@ -410,7 +410,7 @@ import (
 //							Title:      pulumi.String("Group Widget"),
 //							Widgets: datadog.DashboardWidgetGroupDefinitionWidgetArray{
 //								&datadog.DashboardWidgetGroupDefinitionWidgetArgs{
-//									NoteDefinition: &datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs{
+//									NoteDefinition: &datadog.DashboardWidgetNoteDefinitionArgs{
 //										Content:         pulumi.String("cluster note widget"),
 //										BackgroundColor: pulumi.String("pink"),
 //										FontSize:        pulumi.String("14"),
@@ -421,7 +421,7 @@ import (
 //									},
 //								},
 //								&datadog.DashboardWidgetGroupDefinitionWidgetArgs{
-//									AlertGraphDefinition: &datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs{
+//									AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
 //										AlertId:  pulumi.String("123"),
 //										VizType:  pulumi.String("toplist"),
 //										Title:    pulumi.String("Alert Graph"),

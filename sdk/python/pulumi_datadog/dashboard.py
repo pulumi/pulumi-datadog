@@ -845,7 +845,7 @@ class Dashboard(pulumi.CustomResource):
                         title="Group Widget",
                         widgets=[
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                note_definition=datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs(
+                                note_definition=datadog.DashboardWidgetNoteDefinitionArgs(
                                     content="cluster note widget",
                                     background_color="pink",
                                     font_size="14",
@@ -856,7 +856,7 @@ class Dashboard(pulumi.CustomResource):
                                 ),
                             ),
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                alert_graph_definition=datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs(
+                                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                                     alert_id="123",
                                     viz_type="toplist",
                                     title="Alert Graph",
@@ -1620,7 +1620,7 @@ class Dashboard(pulumi.CustomResource):
                         title="Group Widget",
                         widgets=[
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                note_definition=datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs(
+                                note_definition=datadog.DashboardWidgetNoteDefinitionArgs(
                                     content="cluster note widget",
                                     background_color="pink",
                                     font_size="14",
@@ -1631,7 +1631,7 @@ class Dashboard(pulumi.CustomResource):
                                 ),
                             ),
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                alert_graph_definition=datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs(
+                                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                                     alert_id="123",
                                     viz_type="toplist",
                                     title="Alert Graph",
