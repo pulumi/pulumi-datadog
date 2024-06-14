@@ -15,6 +15,7 @@
 package datadog
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -56,6 +57,59 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 	}
 
 	rerollRecursiveTypes(spec, defs)
+
+	var copyTypeByName func(to, from string)
+	copyTypeByName = func(to, from string) {
+		src, ok := spec.Types[fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, from)]
+		contract.Assertf(ok, "could not find type to copy: %q", from)
+
+		// Deep copy
+		b, err := json.Marshal(src)
+		contract.AssertNoErrorf(err, "deep copy failed")
+		src = schema.ComplexTypeSpec{}
+		err = json.Unmarshal(b, &src)
+		contract.AssertNoErrorf(err, "deep copy failed")
+
+		// Move any subtypes
+		traverseTypes(&src, func(t *schema.TypeSpec) {
+			const prefix = "#/types/"
+			tokStr, ok := strings.CutPrefix(t.Ref, prefix)
+			if !ok {
+				return
+			}
+
+			parts := strings.Split(tokStr, tokens.TokenDelimiter)
+			if rest, ok := strings.CutPrefix(parts[2], from); ok {
+				name := to + rest
+				copyTypeByName(name, parts[2])
+
+				modParts := strings.Split(parts[1], "/")
+				parts[1] = modParts[0] + "/" + name
+				parts[2] = name
+
+				t.Ref = "#/types/" + strings.Join(parts, tokens.TokenDelimiter)
+			}
+		})
+
+		spec.Types[fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, to)] = src
+	}
+
+	copyTypeByName(
+		"DashboardWidgetGroupBy",
+		"DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy",
+	)
+
+	_, ok = spec.Types["datadog:index/DashboardWidgetGroupBySortQuery:DashboardWidgetGroupBySortQuery"]
+	contract.Assertf(ok, "missing type")
+
+	rerollRecursiveTypes(spec, []recType{
+		// {"DashboardWidget", "ApmQuery"},
+		{"DashboardWidget", "GroupBy"},
+	})
+
+	_, ok = spec.Types["datadog:index/DashboardWidgetGroupBySortQuery:DashboardWidgetGroupBySortQuery"]
+	contract.Assertf(ok, "type was deleted")
+
 }
 
 func rerollRecursiveTypes(spec *schema.PackageSpec, defs []recType) {
@@ -124,6 +178,7 @@ typ:
 
 	fixup := func(t *schema.TypeSpec) {
 		const prefix = "#/types/"
+
 		tokStr, ok := strings.CutPrefix(t.Ref, prefix)
 		if !ok {
 			return
@@ -150,10 +205,10 @@ typ:
 		traverseFunctionTypes(&d, fixup)
 		spec.Functions[k] = d
 	}
-	for k, t := range spec.Types {
-		t := t
-		traverseTypes(&t, fixup)
-		spec.Types[k] = t
+	for k, typ := range spec.Types {
+		typ := typ
+		traverseTypes(&typ, fixup)
+		spec.Types[k] = typ
 	}
 }
 
@@ -179,6 +234,12 @@ func traverseObjectTypes(o *schema.ObjectTypeSpec, f func(*schema.TypeSpec)) {
 
 func traversePropertyTypes(o *schema.PropertySpec, f func(*schema.TypeSpec)) {
 	f(&o.TypeSpec)
+	if o.Items != nil {
+		f(o.Items)
+	}
+	if o.AdditionalProperties != nil {
+		f(o.AdditionalProperties)
+	}
 }
 
 func traverseTypes(t *schema.ComplexTypeSpec, f func(*schema.TypeSpec)) {
