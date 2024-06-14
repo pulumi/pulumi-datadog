@@ -6,7 +6,7 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
-	"path/filepath"
+	"path"
 	"strings"
 	"unicode"
 
@@ -25,7 +25,7 @@ const (
 	// packages:
 	datadogPkg = "datadog"
 	// modules:
-	datadogMod  = "index"
+	mainMod     = "index"
 	gcpMod      = "Gcp"
 	awsMod      = "Aws"
 	azureMod    = "Azure"
@@ -129,7 +129,7 @@ func Provider() tfbridge.ProviderInfo {
 			RespectSchemaVersion: true,
 		},
 		Golang: &tfbridge.GolangInfo{
-			ImportBasePath: filepath.Join(
+			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", datadogPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
@@ -138,17 +138,13 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 			RespectSchemaVersion:           true,
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				RespectSchemaVersion: true,
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				},
-			}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			RespectSchemaVersion: true,
+			Requires: map[string]string{
+				"pulumi": ">=3.0.0,<4.0.0",
+			},
+			PyProject: struct{ Enabled bool }{true},
+		},
 		CSharp: &tfbridge.CSharpInfo{
 			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
@@ -158,7 +154,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	strategy := tks.KnownModules("datadog_", datadogMod, []string{
+	strategy := tks.KnownModules("datadog_", mainMod, []string{
 		"integration",
 	},
 		func(module, name string) (string, error) {
