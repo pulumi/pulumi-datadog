@@ -108,6 +108,7 @@ typ:
 		}
 
 		for _, prop := range t.ObjectTypeSpec.Properties {
+			prop := prop
 			deleteTypeSpec(&prop.TypeSpec)
 		}
 
@@ -139,15 +140,18 @@ typ:
 	}
 
 	for k, r := range spec.Resources {
+		r := r
 		traverseResourceTypes(&r, fixup)
 		spec.Resources[k] = r
 
 	}
 	for k, d := range spec.Functions {
+		d := d
 		traverseFunctionTypes(&d, fixup)
 		spec.Functions[k] = d
 	}
 	for k, t := range spec.Types {
+		t := t
 		traverseTypes(&t, fixup)
 		spec.Types[k] = t
 	}
@@ -155,6 +159,7 @@ typ:
 
 func traverseResourceTypes(r *schema.ResourceSpec, f func(*schema.TypeSpec)) {
 	for k, v := range r.InputProperties {
+		v := v
 		traversePropertyTypes(&v, f)
 		r.InputProperties[k] = v
 	}
@@ -166,6 +171,7 @@ func traverseResourceTypes(r *schema.ResourceSpec, f func(*schema.TypeSpec)) {
 
 func traverseObjectTypes(o *schema.ObjectTypeSpec, f func(*schema.TypeSpec)) {
 	for k, v := range o.Properties {
+		v := v
 		traversePropertyTypes(&v, f)
 		o.Properties[k] = v
 	}

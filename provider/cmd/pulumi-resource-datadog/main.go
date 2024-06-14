@@ -18,10 +18,12 @@ package main
 
 import (
 	"context"
+
 	_ "embed"
 
-	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
 	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+
+	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
 )
 
 //go:embed schema-embed.json
