@@ -16,55 +16,55 @@ namespace Pulumi.Datadog.Inputs
         /// The definition for a Change widget.
         /// </summary>
         [Input("changeDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs>? ChangeDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetChangeDefinitionArgs>? ChangeDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
         [Input("geomapDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs>? GeomapDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetGeomapDefinitionArgs>? GeomapDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         [Input("queryTableDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs>? QueryTableDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetQueryTableDefinitionArgs>? QueryTableDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Query Value widget.
         /// </summary>
         [Input("queryValueDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs>? QueryValueDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetQueryValueDefinitionArgs>? QueryValueDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         [Input("scatterplotDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs>? ScatterplotDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetScatterplotDefinitionArgs>? ScatterplotDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
         [Input("sunburstDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs>? SunburstDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetSunburstDefinitionArgs>? SunburstDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
         [Input("timeseriesDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Toplist widget.
         /// </summary>
         [Input("toplistDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs>? ToplistDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetToplistDefinitionArgs>? ToplistDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Treemap widget.
         /// </summary>
         [Input("treemapDefinition")]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs>? TreemapDefinition { get; set; }
+        public Input<Inputs.DashboardWidgetTreemapDefinitionArgs>? TreemapDefinition { get; set; }
 
         public DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs()
         {

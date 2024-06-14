@@ -4,15 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition;
-import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinition;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,110 +23,110 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition {
      * @return The definition for a Change widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition changeDefinition;
+    private @Nullable DashboardWidgetChangeDefinition changeDefinition;
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition geomapDefinition;
+    private @Nullable DashboardWidgetGeomapDefinition geomapDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition queryTableDefinition;
+    private @Nullable DashboardWidgetQueryTableDefinition queryTableDefinition;
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition queryValueDefinition;
+    private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition scatterplotDefinition;
+    private @Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition sunburstDefinition;
+    private @Nullable DashboardWidgetSunburstDefinition sunburstDefinition;
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition timeseriesDefinition;
+    private @Nullable DashboardWidgetTimeseriesDefinition timeseriesDefinition;
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition toplistDefinition;
+    private @Nullable DashboardWidgetToplistDefinition toplistDefinition;
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition treemapDefinition;
+    private @Nullable DashboardWidgetTreemapDefinition treemapDefinition;
 
     private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition() {}
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition> changeDefinition() {
+    public Optional<DashboardWidgetChangeDefinition> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition> geomapDefinition() {
+    public Optional<DashboardWidgetGeomapDefinition> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition> queryTableDefinition() {
+    public Optional<DashboardWidgetQueryTableDefinition> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition> queryValueDefinition() {
+    public Optional<DashboardWidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition> scatterplotDefinition() {
+    public Optional<DashboardWidgetScatterplotDefinition> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition> sunburstDefinition() {
+    public Optional<DashboardWidgetSunburstDefinition> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition> timeseriesDefinition() {
+    public Optional<DashboardWidgetTimeseriesDefinition> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition> toplistDefinition() {
+    public Optional<DashboardWidgetToplistDefinition> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition> treemapDefinition() {
+    public Optional<DashboardWidgetTreemapDefinition> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
 
@@ -139,15 +139,15 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition changeDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition geomapDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition queryTableDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition queryValueDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition scatterplotDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition sunburstDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition timeseriesDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition toplistDefinition;
-        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition treemapDefinition;
+        private @Nullable DashboardWidgetChangeDefinition changeDefinition;
+        private @Nullable DashboardWidgetGeomapDefinition geomapDefinition;
+        private @Nullable DashboardWidgetQueryTableDefinition queryTableDefinition;
+        private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition;
+        private @Nullable DashboardWidgetSunburstDefinition sunburstDefinition;
+        private @Nullable DashboardWidgetTimeseriesDefinition timeseriesDefinition;
+        private @Nullable DashboardWidgetToplistDefinition toplistDefinition;
+        private @Nullable DashboardWidgetTreemapDefinition treemapDefinition;
         public Builder() {}
         public Builder(DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -163,55 +163,55 @@ public final class DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition {
         }
 
         @CustomType.Setter
-        public Builder changeDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinition changeDefinition) {
+        public Builder changeDefinition(@Nullable DashboardWidgetChangeDefinition changeDefinition) {
 
             this.changeDefinition = changeDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder geomapDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinition geomapDefinition) {
+        public Builder geomapDefinition(@Nullable DashboardWidgetGeomapDefinition geomapDefinition) {
 
             this.geomapDefinition = geomapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryTableDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinition queryTableDefinition) {
+        public Builder queryTableDefinition(@Nullable DashboardWidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryValueDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinition queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable DashboardWidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder scatterplotDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinition scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition) {
 
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sunburstDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinition sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable DashboardWidgetSunburstDefinition sunburstDefinition) {
 
             this.sunburstDefinition = sunburstDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder timeseriesDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinition timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable DashboardWidgetTimeseriesDefinition timeseriesDefinition) {
 
             this.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder toplistDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinition toplistDefinition) {
+        public Builder toplistDefinition(@Nullable DashboardWidgetToplistDefinition toplistDefinition) {
 
             this.toplistDefinition = toplistDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder treemapDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinition treemapDefinition) {
+        public Builder treemapDefinition(@Nullable DashboardWidgetTreemapDefinition treemapDefinition) {
 
             this.treemapDefinition = treemapDefinition;
             return this;
