@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaGetArgs>? _formulas;
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
@@ -56,13 +56,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.

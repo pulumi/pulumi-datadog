@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
         /// </summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// Define request for the widget's style.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetToplistDefinitionRequest(
-            Outputs.DashboardWidgetToplistDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestAuditQuery? auditQuery,
 
@@ -62,7 +62,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardWidgetToplistDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestProcessQuery? processQuery,
 
@@ -70,9 +70,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetToplistDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestStyle? style)
         {

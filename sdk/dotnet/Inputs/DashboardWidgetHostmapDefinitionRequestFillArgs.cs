@@ -16,13 +16,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
@@ -40,13 +40,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         public DashboardWidgetHostmapDefinitionRequestFillArgs()
         {

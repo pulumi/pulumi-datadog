@@ -28,19 +28,16 @@ __all__ = [
     'DashboardWidget',
     'DashboardWidgetAlertGraphDefinition',
     'DashboardWidgetAlertValueDefinition',
+    'DashboardWidgetApmQuery',
+    'DashboardWidgetApmQueryComputeQuery',
+    'DashboardWidgetApmQueryMultiCompute',
     'DashboardWidgetChangeDefinition',
     'DashboardWidgetChangeDefinitionCustomLink',
     'DashboardWidgetChangeDefinitionRequest',
-    'DashboardWidgetChangeDefinitionRequestApmQuery',
-    'DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetChangeDefinitionRequestFormula',
     'DashboardWidgetChangeDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetChangeDefinitionRequestFormulaLimit',
     'DashboardWidgetChangeDefinitionRequestFormulaStyle',
-    'DashboardWidgetChangeDefinitionRequestLogQuery',
-    'DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetChangeDefinitionRequestProcessQuery',
     'DashboardWidgetChangeDefinitionRequestQuery',
     'DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery',
@@ -52,30 +49,12 @@ __all__ = [
     'DashboardWidgetChangeDefinitionRequestQueryMetricQuery',
     'DashboardWidgetChangeDefinitionRequestQueryProcessQuery',
     'DashboardWidgetChangeDefinitionRequestQuerySloQuery',
-    'DashboardWidgetChangeDefinitionRequestRumQuery',
-    'DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetChangeDefinitionRequestSecurityQuery',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetCheckStatusDefinition',
     'DashboardWidgetDistributionDefinition',
     'DashboardWidgetDistributionDefinitionRequest',
-    'DashboardWidgetDistributionDefinitionRequestApmQuery',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetDistributionDefinitionRequestApmStatsQuery',
     'DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn',
-    'DashboardWidgetDistributionDefinitionRequestLogQuery',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetDistributionDefinitionRequestProcessQuery',
-    'DashboardWidgetDistributionDefinitionRequestRumQuery',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQuery',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetDistributionDefinitionRequestStyle',
     'DashboardWidgetEventStreamDefinition',
     'DashboardWidgetEventTimelineDefinition',
@@ -87,9 +66,6 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetGeomapDefinitionRequestFormulaLimit',
     'DashboardWidgetGeomapDefinitionRequestFormulaStyle',
-    'DashboardWidgetGeomapDefinitionRequestLogQuery',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetGeomapDefinitionRequestQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery',
@@ -100,9 +76,6 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGeomapDefinitionRequestQuerySloQuery',
-    'DashboardWidgetGeomapDefinitionRequestRumQuery',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute',
     'DashboardWidgetGeomapDefinitionStyle',
     'DashboardWidgetGeomapDefinitionView',
     'DashboardWidgetGroupBy',
@@ -114,16 +87,10 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionCustomLink',
     'DashboardWidgetHeatmapDefinitionEvent',
     'DashboardWidgetHeatmapDefinitionRequest',
-    'DashboardWidgetHeatmapDefinitionRequestApmQuery',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetHeatmapDefinitionRequestFormula',
     'DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetHeatmapDefinitionRequestFormulaLimit',
     'DashboardWidgetHeatmapDefinitionRequestFormulaStyle',
-    'DashboardWidgetHeatmapDefinitionRequestLogQuery',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetHeatmapDefinitionRequestProcessQuery',
     'DashboardWidgetHeatmapDefinitionRequestQuery',
     'DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery',
@@ -135,45 +102,15 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery',
     'DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetHeatmapDefinitionRequestQuerySloQuery',
-    'DashboardWidgetHeatmapDefinitionRequestRumQuery',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQuery',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetHeatmapDefinitionRequestStyle',
     'DashboardWidgetHeatmapDefinitionYaxis',
     'DashboardWidgetHostmapDefinition',
     'DashboardWidgetHostmapDefinitionCustomLink',
     'DashboardWidgetHostmapDefinitionRequest',
     'DashboardWidgetHostmapDefinitionRequestFill',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute',
     'DashboardWidgetHostmapDefinitionRequestFillProcessQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute',
     'DashboardWidgetHostmapDefinitionRequestSize',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute',
     'DashboardWidgetHostmapDefinitionRequestSizeProcessQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute',
     'DashboardWidgetHostmapDefinitionStyle',
     'DashboardWidgetIframeDefinition',
     'DashboardWidgetImageDefinition',
@@ -182,6 +119,9 @@ __all__ = [
     'DashboardWidgetListStreamDefinitionRequestColumn',
     'DashboardWidgetListStreamDefinitionRequestQuery',
     'DashboardWidgetListStreamDefinitionRequestQuerySort',
+    'DashboardWidgetLogQuery',
+    'DashboardWidgetLogQueryComputeQuery',
+    'DashboardWidgetLogQueryMultiCompute',
     'DashboardWidgetLogStreamDefinition',
     'DashboardWidgetLogStreamDefinitionSort',
     'DashboardWidgetManageStatusDefinition',
@@ -193,9 +133,6 @@ __all__ = [
     'DashboardWidgetQueryTableDefinition',
     'DashboardWidgetQueryTableDefinitionCustomLink',
     'DashboardWidgetQueryTableDefinitionRequest',
-    'DashboardWidgetQueryTableDefinitionRequestApmQuery',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQuery',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetQueryTableDefinitionRequestConditionalFormat',
@@ -203,9 +140,6 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestFormulaLimit',
     'DashboardWidgetQueryTableDefinitionRequestFormulaStyle',
-    'DashboardWidgetQueryTableDefinitionRequestLogQuery',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetQueryTableDefinitionRequestProcessQuery',
     'DashboardWidgetQueryTableDefinitionRequestQuery',
     'DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery',
@@ -217,18 +151,9 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery',
     'DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery',
     'DashboardWidgetQueryTableDefinitionRequestQuerySloQuery',
-    'DashboardWidgetQueryTableDefinitionRequestRumQuery',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQuery',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetQueryValueDefinition',
     'DashboardWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetQueryValueDefinitionRequest',
-    'DashboardWidgetQueryValueDefinitionRequestApmQuery',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetQueryValueDefinitionRequestAuditQuery',
     'DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery',
     'DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute',
@@ -237,9 +162,6 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetQueryValueDefinitionRequestFormulaLimit',
     'DashboardWidgetQueryValueDefinitionRequestFormulaStyle',
-    'DashboardWidgetQueryValueDefinitionRequestLogQuery',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetQueryValueDefinitionRequestProcessQuery',
     'DashboardWidgetQueryValueDefinitionRequestQuery',
     'DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery',
@@ -251,14 +173,11 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery',
     'DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery',
     'DashboardWidgetQueryValueDefinitionRequestQuerySloQuery',
-    'DashboardWidgetQueryValueDefinitionRequestRumQuery',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQuery',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackground',
     'DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis',
+    'DashboardWidgetRumQuery',
+    'DashboardWidgetRumQueryComputeQuery',
+    'DashboardWidgetRumQueryMultiCompute',
     'DashboardWidgetRunWorkflowDefinition',
     'DashboardWidgetRunWorkflowDefinitionCustomLink',
     'DashboardWidgetRunWorkflowDefinitionInput',
@@ -278,35 +197,14 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery',
     'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery',
     'DashboardWidgetScatterplotDefinitionRequestX',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute',
     'DashboardWidgetScatterplotDefinitionRequestXProcessQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute',
     'DashboardWidgetScatterplotDefinitionRequestY',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute',
     'DashboardWidgetScatterplotDefinitionRequestYProcessQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute',
     'DashboardWidgetScatterplotDefinitionXaxis',
     'DashboardWidgetScatterplotDefinitionYaxis',
+    'DashboardWidgetSecurityQuery',
+    'DashboardWidgetSecurityQueryComputeQuery',
+    'DashboardWidgetSecurityQueryMultiCompute',
     'DashboardWidgetServiceLevelObjectiveDefinition',
     'DashboardWidgetServicemapDefinition',
     'DashboardWidgetServicemapDefinitionCustomLink',
@@ -327,9 +225,6 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionLegendInline',
     'DashboardWidgetSunburstDefinitionLegendTable',
     'DashboardWidgetSunburstDefinitionRequest',
-    'DashboardWidgetSunburstDefinitionRequestApmQuery',
-    'DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetSunburstDefinitionRequestAuditQuery',
     'DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery',
     'DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute',
@@ -337,9 +232,6 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetSunburstDefinitionRequestFormulaLimit',
     'DashboardWidgetSunburstDefinitionRequestFormulaStyle',
-    'DashboardWidgetSunburstDefinitionRequestLogQuery',
-    'DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetSunburstDefinitionRequestNetworkQuery',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery',
     'DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute',
@@ -354,21 +246,12 @@ __all__ = [
     'DashboardWidgetSunburstDefinitionRequestQueryMetricQuery',
     'DashboardWidgetSunburstDefinitionRequestQueryProcessQuery',
     'DashboardWidgetSunburstDefinitionRequestQuerySloQuery',
-    'DashboardWidgetSunburstDefinitionRequestRumQuery',
-    'DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetSunburstDefinitionRequestSecurityQuery',
-    'DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetSunburstDefinitionRequestStyle',
     'DashboardWidgetTimeseriesDefinition',
     'DashboardWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetTimeseriesDefinitionEvent',
     'DashboardWidgetTimeseriesDefinitionMarker',
     'DashboardWidgetTimeseriesDefinitionRequest',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQuery',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute',
@@ -376,9 +259,6 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaLimit',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaStyle',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetTimeseriesDefinitionRequestMetadata',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQuery',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery',
@@ -394,21 +274,12 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery',
     'DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery',
     'DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetTimeseriesDefinitionRequestStyle',
     'DashboardWidgetTimeseriesDefinitionRightYaxis',
     'DashboardWidgetTimeseriesDefinitionYaxis',
     'DashboardWidgetToplistDefinition',
     'DashboardWidgetToplistDefinitionCustomLink',
     'DashboardWidgetToplistDefinitionRequest',
-    'DashboardWidgetToplistDefinitionRequestApmQuery',
-    'DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery',
-    'DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetToplistDefinitionRequestAuditQuery',
     'DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery',
     'DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute',
@@ -417,9 +288,6 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat',
     'DashboardWidgetToplistDefinitionRequestFormulaLimit',
     'DashboardWidgetToplistDefinitionRequestFormulaStyle',
-    'DashboardWidgetToplistDefinitionRequestLogQuery',
-    'DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery',
-    'DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute',
     'DashboardWidgetToplistDefinitionRequestProcessQuery',
     'DashboardWidgetToplistDefinitionRequestQuery',
     'DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery',
@@ -431,12 +299,6 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryMetricQuery',
     'DashboardWidgetToplistDefinitionRequestQueryProcessQuery',
     'DashboardWidgetToplistDefinitionRequestQuerySloQuery',
-    'DashboardWidgetToplistDefinitionRequestRumQuery',
-    'DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery',
-    'DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetToplistDefinitionRequestSecurityQuery',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetToplistDefinitionRequestStyle',
     'DashboardWidgetTopologyMapDefinition',
     'DashboardWidgetTopologyMapDefinitionCustomLink',
@@ -2586,6 +2448,179 @@ class DashboardWidgetAlertValueDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetApmQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetApmQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetApmQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        """
+        :param str index: The name of the index to query.
+        :param 'DashboardWidgetApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
+        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param Sequence['DashboardWidgetApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        :param str search_query: The search query to use.
+        """
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The name of the index to query.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetApmQueryComputeQuery']:
+        """
+        `compute_query` or `multi_compute` is required. The map keys are listed below.
+        """
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
+        """
+        Multiple `group_by` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetApmQueryMultiCompute']]:
+        """
+        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        """
+        The search query to use.
+        """
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetApmQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetApmQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
 class DashboardWidgetChangeDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2801,32 +2836,32 @@ class DashboardWidgetChangeDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  change_type: Optional[str] = None,
                  compare_to: Optional[str] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestFormula']] = None,
                  increase_good: Optional[bool] = None,
-                 log_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  order_by: Optional[str] = None,
                  order_dir: Optional[str] = None,
                  process_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  show_present: Optional[bool] = None):
         """
-        :param 'DashboardWidgetChangeDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param str change_type: Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
         :param str compare_to: Choose from when to compare current data to. Valid values are `hour_before`, `day_before`, `week_before`, `month_before`.
         :param bool increase_good: A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
-        :param 'DashboardWidgetChangeDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param str order_by: What to order by. Valid values are `change`, `name`, `present`, `past`.
         :param str order_dir: Widget sorting method. Valid values are `asc`, `desc`.
         :param 'DashboardWidgetChangeDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetChangeDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetChangeDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param bool show_present: If set to `true`, displays the current value.
         """
         if apm_query is not None:
@@ -2860,7 +2895,7 @@ class DashboardWidgetChangeDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -2897,7 +2932,7 @@ class DashboardWidgetChangeDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -2942,7 +2977,7 @@ class DashboardWidgetChangeDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -2950,7 +2985,7 @@ class DashboardWidgetChangeDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -2963,179 +2998,6 @@ class DashboardWidgetChangeDefinitionRequest(dict):
         If set to `true`, displays the current value.
         """
         return pulumi.get(self, "show_present")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetChangeDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -3449,179 +3311,6 @@ class DashboardWidgetChangeDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetChangeDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetChangeDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -4668,352 +4357,6 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetChangeDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetChangeDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetChangeDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetCheckStatusDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5295,21 +4638,21 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  apm_stats_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery'] = None,
-                 log_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
-                 rum_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  style: Optional['outputs.DashboardWidgetDistributionDefinitionRequestStyle'] = None):
         """
-        :param 'DashboardWidgetDistributionDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetDistributionDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetDistributionDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetDistributionDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param 'DashboardWidgetDistributionDefinitionRequestStyleArgs' style: The style of the widget graph. One nested block is allowed using the structure below.
         """
         if apm_query is not None:
@@ -5331,7 +4674,7 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -5344,7 +4687,7 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -5368,7 +4711,7 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -5376,7 +4719,7 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -5389,179 +4732,6 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
         The style of the widget graph. One nested block is allowed using the structure below.
         """
         return pulumi.get(self, "style")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetDistributionDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetDistributionDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -5741,179 +4911,6 @@ class DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetDistributionDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5984,352 +4981,6 @@ class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
         Your chosen search term.
         """
         return pulumi.get(self, "search_by")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetDistributionDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetDistributionDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -6862,14 +5513,14 @@ class DashboardWidgetGeomapDefinitionRequest(dict):
 
     def __init__(__self__, *,
                  formulas: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None):
         """
-        :param 'DashboardWidgetGeomapDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetGeomapDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
         """
         if formulas is not None:
             pulumi.set(__self__, "formulas", formulas)
@@ -6889,7 +5540,7 @@ class DashboardWidgetGeomapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -6910,7 +5561,7 @@ class DashboardWidgetGeomapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -7228,179 +5879,6 @@ class DashboardWidgetGeomapDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGeomapDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGeomapDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetGeomapDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetGeomapDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -8371,179 +6849,6 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGeomapDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGeomapDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetGeomapDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -9691,22 +7996,22 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  style: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestStyle'] = None):
         """
-        :param 'DashboardWidgetHeatmapDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetHeatmapDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetHeatmapDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetHeatmapDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param 'DashboardWidgetHeatmapDefinitionRequestStyleArgs' style: The style of the widget graph. One nested block is allowed using the structure below.
         """
         if apm_query is not None:
@@ -9730,7 +8035,7 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -9743,7 +8048,7 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -9772,7 +8077,7 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -9780,7 +8085,7 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -9793,179 +8098,6 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
         The style of the widget graph. One nested block is allowed using the structure below.
         """
         return pulumi.get(self, "style")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHeatmapDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -10279,179 +8411,6 @@ class DashboardWidgetHeatmapDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHeatmapDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -11498,352 +9457,6 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHeatmapDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -12245,19 +9858,19 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery'] = None,
-                 log_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillProcessQuery'] = None,
                  q: Optional[str] = None,
-                 rum_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
-        :param 'DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetHostmapDefinitionRequestFillProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
@@ -12274,7 +9887,7 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -12282,7 +9895,7 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -12306,7 +9919,7 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -12314,357 +9927,11 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -12741,352 +10008,6 @@ class DashboardWidgetHostmapDefinitionRequestFillProcessQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSize(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13114,19 +10035,19 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery'] = None,
-                 log_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeProcessQuery'] = None,
                  q: Optional[str] = None,
-                 rum_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetHostmapDefinitionRequestSizeProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
@@ -13143,7 +10064,7 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -13151,7 +10072,7 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -13175,7 +10096,7 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -13183,357 +10104,11 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -13607,352 +10182,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
         Your chosen search term.
         """
         return pulumi.get(self, "search_by")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -14461,6 +10690,179 @@ class DashboardWidgetListStreamDefinitionRequestQuerySort(dict):
         Widget sorting methods. Valid values are `asc`, `desc`.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class DashboardWidgetLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetLogQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetLogQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetLogQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        """
+        :param str index: The name of the index to query.
+        :param 'DashboardWidgetLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
+        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param Sequence['DashboardWidgetLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        :param str search_query: The search query to use.
+        """
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The name of the index to query.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetLogQueryComputeQuery']:
+        """
+        `compute_query` or `multi_compute` is required. The map keys are listed below.
+        """
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
+        """
+        Multiple `group_by` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetLogQueryMultiCompute']]:
+        """
+        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        """
+        The search query to use.
+        """
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetLogQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetLogQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -15433,32 +11835,32 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
-                 apm_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  apm_stats_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery'] = None,
                  cell_display_modes: Optional[Sequence[str]] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestFormula']] = None,
                  limit: Optional[int] = None,
-                 log_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  order: Optional[str] = None,
                  process_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
         :param str alias: The alias for the column name (defaults to metric name).
-        :param 'DashboardWidgetQueryTableDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param Sequence[str] cell_display_modes: A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
         :param int limit: The number of lines to show in the table.
-        :param 'DashboardWidgetQueryTableDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param str order: The sort order for the rows. Valid values are `asc`, `desc`.
         :param 'DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetQueryTableDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetQueryTableDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -15509,7 +11911,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -15551,7 +11953,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -15588,7 +11990,7 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -15596,184 +11998,11 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -16398,179 +12627,6 @@ class DashboardWidgetQueryTableDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryTableDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -17617,352 +13673,6 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryTableDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetQueryValueDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -18237,26 +13947,26 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
-                 apm_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  audit_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery'] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat']] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
         :param str aggregator: The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
-        :param 'DashboardWidgetQueryValueDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param 'DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs' audit_query: The query to use for this widget.
         :param Sequence['DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
-        :param 'DashboardWidgetQueryValueDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetQueryValueDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetQueryValueDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetQueryValueDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -18291,7 +14001,7 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -18320,7 +14030,7 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -18349,7 +14059,7 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -18357,184 +14067,11 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryValueDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -19156,179 +14693,6 @@ class DashboardWidgetQueryValueDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryValueDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -20375,352 +15739,6 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryValueDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetQueryValueDefinitionTimeseriesBackground(dict):
     def __init__(__self__, *,
                  type: str,
@@ -20832,6 +15850,179 @@ class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis(dict):
         Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
         """
         return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
+class DashboardWidgetRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetRumQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetRumQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetRumQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        """
+        :param str index: The name of the index to query.
+        :param 'DashboardWidgetRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
+        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param Sequence['DashboardWidgetRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        :param str search_query: The search query to use.
+        """
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The name of the index to query.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetRumQueryComputeQuery']:
+        """
+        `compute_query` or `multi_compute` is required. The map keys are listed below.
+        """
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
+        """
+        Multiple `group_by` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetRumQueryMultiCompute']]:
+        """
+        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        """
+        The search query to use.
+        """
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetRumQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetRumQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -22404,20 +17595,20 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
 
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
-                 apm_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery'] = None,
-                 log_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXProcessQuery'] = None,
                  q: Optional[str] = None,
-                 rum_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
         :param str aggregator: Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -22444,7 +17635,7 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -22452,7 +17643,7 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -22476,7 +17667,7 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -22484,357 +17675,11 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -22911,352 +17756,6 @@ class DashboardWidgetScatterplotDefinitionRequestXProcessQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestY(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -23285,20 +17784,20 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
 
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
-                 apm_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery'] = None,
-                 log_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery'] = None,
                  q: Optional[str] = None,
-                 rum_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery'] = None):
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None):
         """
         :param str aggregator: Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYApmQueryArgs' apm_query: The query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetScatterplotDefinitionRequestYProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         """
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
@@ -23325,7 +17824,7 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -23333,7 +17832,7 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -23357,7 +17856,7 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -23365,357 +17864,11 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
         return pulumi.get(self, "security_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -23789,352 +17942,6 @@ class DashboardWidgetScatterplotDefinitionRequestYProcessQuery(dict):
         Your chosen search term.
         """
         return pulumi.get(self, "search_by")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -24303,6 +18110,179 @@ class DashboardWidgetScatterplotDefinitionYaxis(dict):
         Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
         """
         return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
+class DashboardWidgetSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeQuery":
+            suggest = "compute_query"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+        elif key == "searchQuery":
+            suggest = "search_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index: str,
+                 compute_query: Optional['outputs.DashboardWidgetSecurityQueryComputeQuery'] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSecurityQueryMultiCompute']] = None,
+                 search_query: Optional[str] = None):
+        """
+        :param str index: The name of the index to query.
+        :param 'DashboardWidgetSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
+        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
+        :param Sequence['DashboardWidgetSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        :param str search_query: The search query to use.
+        """
+        pulumi.set(__self__, "index", index)
+        if compute_query is not None:
+            pulumi.set(__self__, "compute_query", compute_query)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if multi_computes is not None:
+            pulumi.set(__self__, "multi_computes", multi_computes)
+        if search_query is not None:
+            pulumi.set(__self__, "search_query", search_query)
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        """
+        The name of the index to query.
+        """
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="computeQuery")
+    def compute_query(self) -> Optional['outputs.DashboardWidgetSecurityQueryComputeQuery']:
+        """
+        `compute_query` or `multi_compute` is required. The map keys are listed below.
+        """
+        return pulumi.get(self, "compute_query")
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
+        """
+        Multiple `group_by` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @property
+    @pulumi.getter(name="multiComputes")
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSecurityQueryMultiCompute']]:
+        """
+        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "multi_computes")
+
+    @property
+    @pulumi.getter(name="searchQuery")
+    def search_query(self) -> Optional[str]:
+        """
+        The search query to use.
+        """
+        return pulumi.get(self, "search_query")
+
+
+@pulumi.output_type
+class DashboardWidgetSecurityQueryComputeQuery(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class DashboardWidgetSecurityQueryMultiCompute(dict):
+    def __init__(__self__, *,
+                 aggregation: str,
+                 facet: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        :param str aggregation: The aggregation method.
+        :param str facet: The facet name.
+        :param int interval: Define the time interval in seconds.
+        """
+        pulumi.set(__self__, "aggregation", aggregation)
+        if facet is not None:
+            pulumi.set(__self__, "facet", facet)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> str:
+        """
+        The aggregation method.
+        """
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter
+    def facet(self) -> Optional[str]:
+        """
+        The facet name.
+        """
+        return pulumi.get(self, "facet")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Define the time interval in seconds.
+        """
+        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -25656,26 +19636,26 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  audit_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery'] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  network_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  style: Optional['outputs.DashboardWidgetSunburstDefinitionRequestStyle'] = None):
         """
-        :param 'DashboardWidgetSunburstDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param 'DashboardWidgetSunburstDefinitionRequestAuditQueryArgs' audit_query: The query to use for this widget.
-        :param 'DashboardWidgetSunburstDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs' network_query: The query to use for this widget.
         :param 'DashboardWidgetSunburstDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetSunburstDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetSunburstDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param 'DashboardWidgetSunburstDefinitionRequestStyleArgs' style: Define style for the widget's request.
         """
         if apm_query is not None:
@@ -25703,7 +19683,7 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -25724,7 +19704,7 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -25761,7 +19741,7 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -25769,7 +19749,7 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -25782,179 +19762,6 @@ class DashboardWidgetSunburstDefinitionRequest(dict):
         Define style for the widget's request.
         """
         return pulumi.get(self, "style")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetSunburstDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetSunburstDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetSunburstDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -26441,179 +20248,6 @@ class DashboardWidgetSunburstDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetSunburstDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetSunburstDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetSunburstDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -27833,352 +21467,6 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetSunburstDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetSunburstDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetSunburstDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetSunburstDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetSunburstDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -28621,32 +21909,32 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  audit_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery'] = None,
                  display_type: Optional[str] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  metadatas: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']] = None,
                  network_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery'] = None,
                  on_right_yaxis: Optional[bool] = None,
                  process_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  style: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestStyle'] = None):
         """
-        :param 'DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param 'DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs' audit_query: The query to use for this widget.
         :param str display_type: How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param Sequence['DashboardWidgetTimeseriesDefinitionRequestMetadataArgs'] metadatas: Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
         :param 'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs' network_query: The query to use for this widget.
         :param bool on_right_yaxis: A Boolean indicating whether the request uses the right or left Y-Axis.
         :param 'DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param 'DashboardWidgetTimeseriesDefinitionRequestStyleArgs' style: The style of the widget graph. Exactly one `style` block is allowed using the structure below.
         """
         if apm_query is not None:
@@ -28680,7 +21968,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -28709,7 +21997,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -28762,7 +22050,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -28770,7 +22058,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -28783,179 +22071,6 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
         The style of the widget graph. Exactly one `style` block is allowed using the structure below.
         """
         return pulumi.get(self, "style")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -29442,179 +22557,6 @@ class DashboardWidgetTimeseriesDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -30881,352 +23823,6 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestStyle(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -31664,26 +24260,26 @@ class DashboardWidgetToplistDefinitionRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 apm_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuery'] = None,
+                 apm_query: Optional['outputs.DashboardWidgetApmQuery'] = None,
                  audit_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestAuditQuery'] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']] = None,
                  formulas: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestFormula']] = None,
-                 log_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuery'] = None,
+                 log_query: Optional['outputs.DashboardWidgetLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  queries: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestQuery']] = None,
-                 rum_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuery'] = None,
-                 security_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery'] = None,
+                 rum_query: Optional['outputs.DashboardWidgetRumQuery'] = None,
+                 security_query: Optional['outputs.DashboardWidgetSecurityQuery'] = None,
                  style: Optional['outputs.DashboardWidgetToplistDefinitionRequestStyle'] = None):
         """
-        :param 'DashboardWidgetToplistDefinitionRequestApmQueryArgs' apm_query: The query to use for this widget.
+        :param 'DashboardWidgetApmQueryArgs' apm_query: The query to use for this widget.
         :param 'DashboardWidgetToplistDefinitionRequestAuditQueryArgs' audit_query: The query to use for this widget.
         :param Sequence['DashboardWidgetToplistDefinitionRequestConditionalFormatArgs'] conditional_formats: Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditional_formats` blocks are allowed using the structure below.
-        :param 'DashboardWidgetToplistDefinitionRequestLogQueryArgs' log_query: The query to use for this widget.
+        :param 'DashboardWidgetLogQueryArgs' log_query: The query to use for this widget.
         :param 'DashboardWidgetToplistDefinitionRequestProcessQueryArgs' process_query: The process query to use in the widget. The structure of this block is described below.
         :param str q: The metric query to use for this widget.
-        :param 'DashboardWidgetToplistDefinitionRequestRumQueryArgs' rum_query: The query to use for this widget.
-        :param 'DashboardWidgetToplistDefinitionRequestSecurityQueryArgs' security_query: The query to use for this widget.
+        :param 'DashboardWidgetRumQueryArgs' rum_query: The query to use for this widget.
+        :param 'DashboardWidgetSecurityQueryArgs' security_query: The query to use for this widget.
         :param 'DashboardWidgetToplistDefinitionRequestStyleArgs' style: Define request for the widget's style.
         """
         if apm_query is not None:
@@ -31711,7 +24307,7 @@ class DashboardWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuery']:
+    def apm_query(self) -> Optional['outputs.DashboardWidgetApmQuery']:
         """
         The query to use for this widget.
         """
@@ -31740,7 +24336,7 @@ class DashboardWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuery']:
+    def log_query(self) -> Optional['outputs.DashboardWidgetLogQuery']:
         """
         The query to use for this widget.
         """
@@ -31769,7 +24365,7 @@ class DashboardWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="rumQuery")
-    def rum_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuery']:
+    def rum_query(self) -> Optional['outputs.DashboardWidgetRumQuery']:
         """
         The query to use for this widget.
         """
@@ -31777,7 +24373,7 @@ class DashboardWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="securityQuery")
-    def security_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery']:
+    def security_query(self) -> Optional['outputs.DashboardWidgetSecurityQuery']:
         """
         The query to use for this widget.
         """
@@ -31790,179 +24386,6 @@ class DashboardWidgetToplistDefinitionRequest(dict):
         Define request for the widget's style.
         """
         return pulumi.get(self, "style")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetToplistDefinitionRequestApmQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetToplistDefinitionRequestApmQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -32584,179 +25007,6 @@ class DashboardWidgetToplistDefinitionRequestFormulaStyle(dict):
         Index specifying which color to use within the palette.
         """
         return pulumi.get(self, "palette_index")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetToplistDefinitionRequestLogQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetToplistDefinitionRequestLogQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -33800,352 +26050,6 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
         type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetToplistDefinitionRequestRumQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetToplistDefinitionRequestRumQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "computeQuery":
-            suggest = "compute_query"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "multiComputes":
-            suggest = "multi_computes"
-        elif key == "searchQuery":
-            suggest = "search_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 index: str,
-                 compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery'] = None,
-                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupBy']] = None,
-                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search_query: Optional[str] = None):
-        """
-        :param str index: The name of the index to query.
-        :param 'DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQueryArgs' compute_query: `compute_query` or `multi_compute` is required. The map keys are listed below.
-        :param Sequence['DashboardWidgetGroupByArgs'] group_bies: Multiple `group_by` blocks are allowed using the structure below.
-        :param Sequence['DashboardWidgetToplistDefinitionRequestSecurityQueryMultiComputeArgs'] multi_computes: `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        :param str search_query: The search query to use.
-        """
-        pulumi.set(__self__, "index", index)
-        if compute_query is not None:
-            pulumi.set(__self__, "compute_query", compute_query)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if multi_computes is not None:
-            pulumi.set(__self__, "multi_computes", multi_computes)
-        if search_query is not None:
-            pulumi.set(__self__, "search_query", search_query)
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        """
-        The name of the index to query.
-        """
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="computeQuery")
-    def compute_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery']:
-        """
-        `compute_query` or `multi_compute` is required. The map keys are listed below.
-        """
-        return pulumi.get(self, "compute_query")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupBy']]:
-        """
-        Multiple `group_by` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']]:
-        """
-        `compute_query` or `multi_compute` is required. Multiple `multi_compute` blocks are allowed using the structure below.
-        """
-        return pulumi.get(self, "multi_computes")
-
-    @property
-    @pulumi.getter(name="searchQuery")
-    def search_query(self) -> Optional[str]:
-        """
-        The search query to use.
-        """
-        return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        """
-        :param str aggregation: The aggregation method.
-        :param str facet: The facet name.
-        :param int interval: Define the time interval in seconds.
-        """
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        """
-        The aggregation method.
-        """
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        """
-        The facet name.
-        """
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        """
-        Define the time interval in seconds.
-        """
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type

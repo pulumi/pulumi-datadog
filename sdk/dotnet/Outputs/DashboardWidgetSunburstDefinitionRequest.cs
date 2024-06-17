@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetSunburstDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetSunburstDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetSunburstDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// Define style for the widget's request.
         /// </summary>
@@ -54,13 +54,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetSunburstDefinitionRequest(
-            Outputs.DashboardWidgetSunburstDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             Outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery? auditQuery,
 
             ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardWidgetSunburstDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery? networkQuery,
 
@@ -70,9 +70,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetSunburstDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardWidgetSunburstDefinitionRequestStyle? style)
         {

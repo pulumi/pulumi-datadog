@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetSunburstDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetSunburstDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
@@ -68,13 +68,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetSunburstDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// Define style for the widget's request.

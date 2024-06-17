@@ -17,7 +17,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The metric query to use for this widget.
         /// </summary>
@@ -26,19 +26,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinitionRequest(
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             string? q,
 
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestRumQuery? rumQuery)
+            Outputs.DashboardWidgetRumQuery? rumQuery)
         {
             Formulas = formulas;
             LogQuery = logQuery;

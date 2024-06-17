@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetChangeDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// What to order by. Valid values are `change`, `name`, `present`, `past`.
@@ -86,13 +86,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetChangeDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// If set to `true`, displays the current value.

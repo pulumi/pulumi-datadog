@@ -5,13 +5,13 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestProcessQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestStyleArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,13 +27,13 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
      * 
      */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -49,13 +49,13 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
      * 
      */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -94,13 +94,13 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
      * 
      */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -109,13 +109,13 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
      * 
      */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -171,7 +171,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder apmQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -182,7 +182,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder apmQuery(DashboardWidgetDistributionDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -201,7 +201,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder logQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -212,7 +212,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder logQuery(DashboardWidgetDistributionDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -264,7 +264,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder rumQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -275,7 +275,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder rumQuery(DashboardWidgetDistributionDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -285,7 +285,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder securityQuery(@Nullable Output<DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -296,7 +296,7 @@ public final class DashboardWidgetDistributionDefinitionRequestArgs extends com.
          * @return builder
          * 
          */
-        public Builder securityQuery(DashboardWidgetDistributionDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

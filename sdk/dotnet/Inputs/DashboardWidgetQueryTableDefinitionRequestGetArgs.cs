@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         [Input("apmStatsQuery")]
         public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryGetArgs>? ApmStatsQuery { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The sort order for the rows. Valid values are `asc`, `desc`.
@@ -107,13 +107,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         public DashboardWidgetQueryTableDefinitionRequestGetArgs()
         {

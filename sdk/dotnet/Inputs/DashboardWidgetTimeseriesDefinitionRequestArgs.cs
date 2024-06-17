@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardWidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryArgs>? LogQuery { get; set; }
 
         [Input("metadatas")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataArgs>? _metadatas;
@@ -92,13 +92,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The style of the widget graph. Exactly one `style` block is allowed using the structure below.

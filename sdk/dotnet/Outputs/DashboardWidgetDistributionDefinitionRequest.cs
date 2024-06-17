@@ -16,12 +16,12 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
         /// </summary>
@@ -33,11 +33,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
@@ -45,19 +45,19 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetDistributionDefinitionRequest(
-            Outputs.DashboardWidgetDistributionDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? apmStatsQuery,
 
-            Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? processQuery,
 
             string? q,
 
-            Outputs.DashboardWidgetDistributionDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardWidgetDistributionDefinitionRequestStyle? style)
         {

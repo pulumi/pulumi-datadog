@@ -4,15 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -36,7 +36,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetQueryTableDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardWidgetApmQuery apmQuery;
     private @Nullable DashboardWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
      * @return A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
@@ -58,7 +58,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetQueryTableDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
@@ -79,12 +79,12 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetQueryTableDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSecurityQuery securityQuery;
 
     private DashboardWidgetQueryTableDefinitionRequest() {}
     /**
@@ -105,7 +105,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetQueryTableDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     public Optional<DashboardWidgetQueryTableDefinitionRequestApmStatsQuery> apmStatsQuery() {
@@ -139,7 +139,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetQueryTableDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -170,14 +170,14 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetQueryTableDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetQueryTableDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -192,19 +192,19 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     public static final class Builder {
         private @Nullable String aggregator;
         private @Nullable String alias;
-        private @Nullable DashboardWidgetQueryTableDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<String> cellDisplayModes;
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestFormula> formulas;
         private @Nullable Integer limit;
-        private @Nullable DashboardWidgetQueryTableDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable String order;
         private @Nullable DashboardWidgetQueryTableDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQuery> queries;
-        private @Nullable DashboardWidgetQueryTableDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardWidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
+        private @Nullable DashboardWidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -238,7 +238,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardWidgetQueryTableDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardWidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -283,7 +283,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetQueryTableDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -316,13 +316,13 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetQueryTableDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardWidgetQueryTableDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardWidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

@@ -404,6 +404,59 @@ export interface DashboardWidgetAlertValueDefinition {
     unit?: string;
 }
 
+export interface DashboardWidgetApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: outputs.DashboardWidgetApmQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: outputs.DashboardWidgetGroupBy[];
+    /**
+     * The name of the index to query.
+     */
+    index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: outputs.DashboardWidgetApmQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
+}
+
+export interface DashboardWidgetApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
+}
+
 export interface DashboardWidgetChangeDefinition {
     /**
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
@@ -454,7 +507,7 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
      */
@@ -471,7 +524,7 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * What to order by. Valid values are `change`, `name`, `present`, `past`.
      */
@@ -492,68 +545,15 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * If set to `true`, displays the current value.
      */
     showPresent?: boolean;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormula {
@@ -642,59 +642,6 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
@@ -994,112 +941,6 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetChangeDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetCheckStatusDefinition {
     /**
      * The check to use in the widget.
@@ -1174,12 +1015,12 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery;
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -1191,68 +1032,15 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * The style of the widget graph. One nested block is allowed using the structure below.
      */
     style?: outputs.DashboardWidgetDistributionDefinitionRequestStyle;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
@@ -1305,59 +1093,6 @@ export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn
     order?: string;
 }
 
-export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
     /**
      * A list of processes.
@@ -1375,112 +1110,6 @@ export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
      * Your chosen search term.
      */
     searchBy?: string;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
@@ -1626,7 +1255,7 @@ export interface DashboardWidgetGeomapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The metric query to use for this widget.
      */
@@ -1635,7 +1264,7 @@ export interface DashboardWidgetGeomapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormula {
@@ -1724,59 +1353,6 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuery {
@@ -2055,59 +1631,6 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionStyle {
@@ -2424,12 +1947,12 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     formulas?: outputs.DashboardWidgetHeatmapDefinitionRequestFormula[];
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -2442,68 +1965,15 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * The style of the widget graph. One nested block is allowed using the structure below.
      */
     style?: outputs.DashboardWidgetHeatmapDefinitionRequestStyle;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestFormula {
@@ -2592,59 +2062,6 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
@@ -2944,112 +2361,6 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetHeatmapDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
@@ -3161,11 +2472,11 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -3177,117 +2488,11 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
@@ -3309,121 +2514,15 @@ export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
     searchBy?: string;
 }
 
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetHostmapDefinitionRequestSize {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -3435,117 +2534,11 @@ export interface DashboardWidgetHostmapDefinitionRequestSize {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
@@ -3565,112 +2558,6 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
      * Your chosen search term.
      */
     searchBy?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetHostmapDefinitionStyle {
@@ -3815,6 +2702,59 @@ export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
      * Widget sorting methods. Valid values are `asc`, `desc`.
      */
     order: string;
+}
+
+export interface DashboardWidgetLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: outputs.DashboardWidgetLogQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: outputs.DashboardWidgetGroupBy[];
+    /**
+     * The name of the index to query.
+     */
+    index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: outputs.DashboardWidgetLogQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
+}
+
+export interface DashboardWidgetLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
@@ -4091,7 +3031,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
     /**
      * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
@@ -4109,7 +3049,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The sort order for the rows. Valid values are `asc`, `desc`.
      */
@@ -4126,64 +3066,11 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
@@ -4361,59 +3248,6 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
@@ -4713,112 +3547,6 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetQueryValueDefinition {
     /**
      * A Boolean indicating whether to automatically scale the tile.
@@ -4893,7 +3621,7 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
@@ -4906,7 +3634,7 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -4919,64 +3647,11 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
@@ -5157,59 +3832,6 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
@@ -5509,112 +4131,6 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetQueryValueDefinitionTimeseriesBackground {
     /**
      * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
@@ -5647,6 +4163,59 @@ export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
      * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
      */
     scale?: string;
+}
+
+export interface DashboardWidgetRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: outputs.DashboardWidgetRumQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: outputs.DashboardWidgetGroupBy[];
+    /**
+     * The name of the index to query.
+     */
+    index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: outputs.DashboardWidgetRumQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
+}
+
+export interface DashboardWidgetRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
 }
 
 export interface DashboardWidgetRunWorkflowDefinition {
@@ -6089,11 +4658,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -6105,117 +4674,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
@@ -6237,112 +4700,6 @@ export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
     searchBy?: string;
 }
 
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
@@ -6351,11 +4708,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -6367,117 +4724,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
@@ -6497,112 +4748,6 @@ export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
      * Your chosen search term.
      */
     searchBy?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetScatterplotDefinitionXaxis {
@@ -6649,6 +4794,59 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
      * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
      */
     scale?: string;
+}
+
+export interface DashboardWidgetSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: outputs.DashboardWidgetSecurityQueryComputeQuery;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: outputs.DashboardWidgetGroupBy[];
+    /**
+     * The name of the index to query.
+     */
+    index: string;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: outputs.DashboardWidgetSecurityQueryMultiCompute[];
+    /**
+     * The search query to use.
+     */
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
+}
+
+export interface DashboardWidgetSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: string;
+    /**
+     * The facet name.
+     */
+    facet?: string;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: number;
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
@@ -7006,7 +5204,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
@@ -7015,7 +5213,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The query to use for this widget.
      */
@@ -7032,68 +5230,15 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * Define style for the widget's request.
      */
     style?: outputs.DashboardWidgetSunburstDefinitionRequestStyle;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
@@ -7235,59 +5380,6 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
@@ -7640,112 +5732,6 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetSunburstDefinitionRequestStyle {
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
@@ -7861,7 +5847,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
@@ -7874,7 +5860,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
      */
@@ -7899,68 +5885,15 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      */
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
@@ -8102,59 +6035,6 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
@@ -8518,112 +6398,6 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
     sloQueryType?: string;
 }
 
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
     /**
      * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
@@ -8735,7 +6509,7 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
+    apmQuery?: outputs.DashboardWidgetApmQuery;
     /**
      * The query to use for this widget.
      */
@@ -8748,7 +6522,7 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
+    logQuery?: outputs.DashboardWidgetLogQuery;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -8761,68 +6535,15 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQuery;
+    rumQuery?: outputs.DashboardWidgetRumQuery;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery;
+    securityQuery?: outputs.DashboardWidgetSecurityQuery;
     /**
      * Define request for the widget's style.
      */
     style?: outputs.DashboardWidgetToplistDefinitionRequestStyle;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
@@ -9003,59 +6724,6 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
@@ -9353,112 +7021,6 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: outputs.DashboardWidgetGroupBy[];
-    /**
-     * The name of the index to query.
-     */
-    index: string;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute[];
-    /**
-     * The search query to use.
-     */
-    searchQuery?: string;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: string;
-    /**
-     * The facet name.
-     */
-    facet?: string;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {

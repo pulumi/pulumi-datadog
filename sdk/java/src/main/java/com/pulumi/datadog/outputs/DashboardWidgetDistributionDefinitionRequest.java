@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,13 +22,13 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetDistributionDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardWidgetApmQuery apmQuery;
     private @Nullable DashboardWidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetDistributionDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below.
      * 
@@ -43,12 +43,12 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetDistributionDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
@@ -60,7 +60,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetDistributionDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     public Optional<DashboardWidgetDistributionDefinitionRequestApmStatsQuery> apmStatsQuery() {
@@ -70,7 +70,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetDistributionDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -91,14 +91,14 @@ public final class DashboardWidgetDistributionDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetDistributionDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetDistributionDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -118,13 +118,13 @@ public final class DashboardWidgetDistributionDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardWidgetDistributionDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable DashboardWidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
-        private @Nullable DashboardWidgetDistributionDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetDistributionDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
-        private @Nullable DashboardWidgetDistributionDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardWidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
+        private @Nullable DashboardWidgetSecurityQuery securityQuery;
         private @Nullable DashboardWidgetDistributionDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardWidgetDistributionDefinitionRequest defaults) {
@@ -140,7 +140,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardWidgetDistributionDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardWidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -152,7 +152,7 @@ public final class DashboardWidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetDistributionDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -170,13 +170,13 @@ public final class DashboardWidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetDistributionDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardWidgetDistributionDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardWidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

@@ -404,6 +404,59 @@ export interface DashboardWidgetAlertValueDefinition {
     unit?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetApmQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetApmQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetApmQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetApmQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetApmQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetChangeDefinition {
     /**
      * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
@@ -454,7 +507,7 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
      */
@@ -471,7 +524,7 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * What to order by. Valid values are `change`, `name`, `present`, `past`.
      */
@@ -492,68 +545,15 @@ export interface DashboardWidgetChangeDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * If set to `true`, displays the current value.
      */
     showPresent?: pulumi.Input<boolean>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestFormula {
@@ -642,59 +642,6 @@ export interface DashboardWidgetChangeDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
@@ -994,112 +941,6 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetChangeDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetCheckStatusDefinition {
     /**
      * The check to use in the widget.
@@ -1174,12 +1015,12 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -1191,68 +1032,15 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * The style of the widget graph. One nested block is allowed using the structure below.
      */
     style?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestStyle>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmStatsQuery {
@@ -1305,59 +1093,6 @@ export interface DashboardWidgetDistributionDefinitionRequestApmStatsQueryColumn
     order?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
     /**
      * A list of processes.
@@ -1375,112 +1110,6 @@ export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
      * Your chosen search term.
      */
     searchBy?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
@@ -1626,7 +1255,7 @@ export interface DashboardWidgetGeomapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The metric query to use for this widget.
      */
@@ -1635,7 +1264,7 @@ export interface DashboardWidgetGeomapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormula {
@@ -1724,59 +1353,6 @@ export interface DashboardWidgetGeomapDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuery {
@@ -2055,59 +1631,6 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGeomapDefinitionStyle {
@@ -2424,12 +1947,12 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestFormula>[]>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -2442,68 +1965,15 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * The style of the widget graph. One nested block is allowed using the structure below.
      */
     style?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestStyle>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestFormula {
@@ -2592,59 +2062,6 @@ export interface DashboardWidgetHeatmapDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
@@ -2944,112 +2361,6 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetHeatmapDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
@@ -3161,11 +2472,11 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -3177,117 +2488,11 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
@@ -3309,121 +2514,15 @@ export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
     searchBy?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetHostmapDefinitionRequestSize {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -3435,117 +2534,11 @@ export interface DashboardWidgetHostmapDefinitionRequestSize {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
@@ -3565,112 +2558,6 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
      * Your chosen search term.
      */
     searchBy?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetHostmapDefinitionStyle {
@@ -3815,6 +2702,59 @@ export interface DashboardWidgetListStreamDefinitionRequestQuerySort {
      * Widget sorting methods. Valid values are `asc`, `desc`.
      */
     order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetLogQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetLogQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetLogQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetLogQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetLogQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
@@ -4091,7 +3031,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery>;
     /**
      * A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
@@ -4109,7 +3049,7 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The sort order for the rows. Valid values are `asc`, `desc`.
      */
@@ -4126,64 +3066,11 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
@@ -4361,59 +3248,6 @@ export interface DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
@@ -4713,112 +3547,6 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetQueryValueDefinition {
     /**
      * A Boolean indicating whether to automatically scale the tile.
@@ -4893,7 +3621,7 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
@@ -4906,7 +3634,7 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -4919,64 +3647,11 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
@@ -5157,59 +3832,6 @@ export interface DashboardWidgetQueryValueDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
@@ -5509,112 +4131,6 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetQueryValueDefinitionTimeseriesBackground {
     /**
      * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
@@ -5647,6 +4163,59 @@ export interface DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
      * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
      */
     scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetRumQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetRumQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRumQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetRumQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetRumQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetRunWorkflowDefinition {
@@ -6089,11 +4658,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -6105,117 +4674,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
@@ -6237,112 +4700,6 @@ export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
     searchBy?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
@@ -6351,11 +4708,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -6367,117 +4724,11 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
@@ -6497,112 +4748,6 @@ export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
      * Your chosen search term.
      */
     searchBy?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionXaxis {
@@ -6649,6 +4794,59 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
      * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
      */
     scale?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSecurityQuery {
+    /**
+     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
+     */
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQueryComputeQuery>;
+    /**
+     * Multiple `groupBy` blocks are allowed using the structure below.
+     */
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    /**
+     * The name of the index to query.
+     */
+    index: pulumi.Input<string>;
+    /**
+     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+     */
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSecurityQueryMultiCompute>[]>;
+    /**
+     * The search query to use.
+     */
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSecurityQueryComputeQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSecurityQueryMultiCompute {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Define the time interval in seconds.
+     */
+    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
@@ -7006,7 +5204,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
@@ -7015,7 +5213,7 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The query to use for this widget.
      */
@@ -7032,68 +5230,15 @@ export interface DashboardWidgetSunburstDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * Define style for the widget's request.
      */
     style?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestStyle>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
@@ -7235,59 +5380,6 @@ export interface DashboardWidgetSunburstDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
@@ -7640,112 +5732,6 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetSunburstDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetSunburstDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetSunburstDefinitionRequestStyle {
     /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
@@ -7861,7 +5847,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
@@ -7874,7 +5860,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
      */
@@ -7899,68 +5885,15 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      */
     style?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestStyle>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
@@ -8102,59 +6035,6 @@ export interface DashboardWidgetTimeseriesDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
@@ -8518,112 +6398,6 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
     sloQueryType?: pulumi.Input<string>;
 }
 
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
     /**
      * The type of lines displayed. Valid values are `dashed`, `dotted`, `solid`.
@@ -8735,7 +6509,7 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    apmQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQuery>;
+    apmQuery?: pulumi.Input<inputs.DashboardWidgetApmQuery>;
     /**
      * The query to use for this widget.
      */
@@ -8748,7 +6522,7 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    logQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQuery>;
+    logQuery?: pulumi.Input<inputs.DashboardWidgetLogQuery>;
     /**
      * The process query to use in the widget. The structure of this block is described below.
      */
@@ -8761,68 +6535,15 @@ export interface DashboardWidgetToplistDefinitionRequest {
     /**
      * The query to use for this widget.
      */
-    rumQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestRumQuery>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetRumQuery>;
     /**
      * The query to use for this widget.
      */
-    securityQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestSecurityQuery>;
+    securityQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQuery>;
     /**
      * Define request for the widget's style.
      */
     style?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestStyle>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
@@ -9003,59 +6724,6 @@ export interface DashboardWidgetToplistDefinitionRequestFormulaStyle {
      * Index specifying which color to use within the palette.
      */
     paletteIndex?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
@@ -9353,112 +7021,6 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQuery {
-    /**
-     * `computeQuery` or `multiCompute` is required. The map keys are listed below.
-     */
-    computeQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery>;
-    /**
-     * Multiple `groupBy` blocks are allowed using the structure below.
-     */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
-    /**
-     * The name of the index to query.
-     */
-    index: pulumi.Input<string>;
-    /**
-     * `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-     */
-    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute>[]>;
-    /**
-     * The search query to use.
-     */
-    searchQuery?: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
-}
-
-export interface DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Define the time interval in seconds.
-     */
-    interval?: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {

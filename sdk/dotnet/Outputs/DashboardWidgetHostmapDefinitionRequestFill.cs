@@ -16,11 +16,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
         /// </summary>
@@ -32,25 +32,25 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetHostmapDefinitionRequestFill(
-            Outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
-            Outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetHostmapDefinitionRequestFillProcessQuery? processQuery,
 
             string? q,
 
-            Outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery? securityQuery)
+            Outputs.DashboardWidgetSecurityQuery? securityQuery)
         {
             ApmQuery = apmQuery;
             LogQuery = logQuery;
