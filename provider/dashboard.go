@@ -94,22 +94,18 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 		spec.Types[fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, to)] = src
 	}
 
-	copyTypeByName(
-		"DashboardWidgetGroupBy",
-		"DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy",
-	)
-
-	_, ok = spec.Types["datadog:index/DashboardWidgetGroupBySortQuery:DashboardWidgetGroupBySortQuery"]
-	contract.Assertf(ok, "missing type")
+	mkRec := func(prefix, postfix, example string) recType {
+		copyTypeByName(prefix+postfix, example)
+		return recType{prefix, postfix}
+	}
 
 	rerollRecursiveTypes(spec, []recType{
-		// {"DashboardWidget", "ApmQuery"},
-		{"DashboardWidget", "GroupBy"},
+		mkRec("DashboardWidget", "RumQuery", "DashboardWidgetToplistDefinitionRequestRumQuery"),
+		mkRec("DashboardWidget", "SecurityQuery", "DashboardWidgetToplistDefinitionRequestSecurityQuery"),
+		mkRec("DashboardWidget", "ApmQuery", "DashboardWidgetQueryTableDefinitionRequestApmQuery"),
+		mkRec("DashboardWidget", "GroupBy", "DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy"),
+		mkRec("DashboardWidget", "LogQuery", "DashboardWidgetHostmapDefinitionRequestFillLogQuery"),
 	})
-
-	_, ok = spec.Types["datadog:index/DashboardWidgetGroupBySortQuery:DashboardWidgetGroupBySortQuery"]
-	contract.Assertf(ok, "type was deleted")
-
 }
 
 func rerollRecursiveTypes(spec *schema.PackageSpec, defs []recType) {
