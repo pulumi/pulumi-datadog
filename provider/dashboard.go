@@ -15,7 +15,6 @@
 package datadog
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -25,6 +24,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
+	"github.com/pulumi/pulumi-datadog/provider/v4/psed"
 )
 
 type recType struct{ prefix, suffix string }
@@ -58,44 +59,12 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 
 	rerollRecursiveTypes(spec, defs)
 
-	var copyTypeByName func(to, from string)
-	copyTypeByName = func(to, from string) {
-		src, ok := spec.Types[fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, from)]
-		contract.Assertf(ok, "could not find type to copy: %q", from)
-
-		// Deep copy
-		b, err := json.Marshal(src)
-		contract.AssertNoErrorf(err, "deep copy failed")
-		src = schema.ComplexTypeSpec{}
-		err = json.Unmarshal(b, &src)
-		contract.AssertNoErrorf(err, "deep copy failed")
-
-		// Move any subtypes
-		traverseTypes(&src, func(t *schema.TypeSpec) {
-			const prefix = "#/types/"
-			tokStr, ok := strings.CutPrefix(t.Ref, prefix)
-			if !ok {
-				return
-			}
-
-			parts := strings.Split(tokStr, tokens.TokenDelimiter)
-			if rest, ok := strings.CutPrefix(parts[2], from); ok {
-				name := to + rest
-				copyTypeByName(name, parts[2])
-
-				modParts := strings.Split(parts[1], "/")
-				parts[1] = modParts[0] + "/" + name
-				parts[2] = name
-
-				t.Ref = "#/types/" + strings.Join(parts, tokens.TokenDelimiter)
-			}
-		})
-
-		spec.Types[fmt.Sprintf("%s:%s/%s:%[3]s", datadogPkg, mainMod, to)] = src
-	}
-
 	mkRec := func(prefix, postfix, example string) recType {
-		copyTypeByName(prefix+postfix, example)
+
+		psed.CopyType(spec,
+			tokens.Type(datadogPkg+":"+mainMod+"/"+example+":"+example),
+			tokens.Type(datadogPkg+":"+mainMod+"/"+prefix+postfix+":"+prefix+postfix),
+		)
 		return recType{prefix, postfix}
 	}
 
@@ -103,7 +72,6 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 		mkRec("DashboardWidget", "RumQuery", "DashboardWidgetToplistDefinitionRequestRumQuery"),
 		mkRec("DashboardWidget", "SecurityQuery", "DashboardWidgetToplistDefinitionRequestSecurityQuery"),
 		mkRec("DashboardWidget", "ApmQuery", "DashboardWidgetQueryTableDefinitionRequestApmQuery"),
-		mkRec("DashboardWidget", "GroupBy", "DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy"),
 		mkRec("DashboardWidget", "LogQuery", "DashboardWidgetHostmapDefinitionRequestFillLogQuery"),
 	})
 }
@@ -128,45 +96,18 @@ typ:
 
 		for _, def := range defs {
 			if def.has(tok) {
+				contract.AssertNoErrorf(
+					psed.AssertSuperSetOf(spec, tok, tokens.Type(def.canonical())),
+					"Attempted to introduce a breaking change",
+				)
 				elidedRefs = append(elidedRefs, tok)
 				continue typ
 			}
 		}
 	}
 
-	var deleteTypeSpec func(*schema.TypeSpec)
-	var deleteType func(tokens.Type)
-	deleteTypeSpec = func(typ *schema.TypeSpec) {
-		if typ == nil {
-			return
-		}
-		deleteTypeSpec(typ.AdditionalProperties)
-		deleteTypeSpec(typ.Items)
-
-		if propRef, ok := strings.CutPrefix(typ.Ref, "#/types/"); ok {
-			propRefTok, err := tokens.ParseTypeToken(propRef)
-			contract.AssertNoErrorf(err, "invalid type token")
-			deleteType(propRefTok)
-		}
-	}
-
-	deleteType = func(tok tokens.Type) {
-		t, ok := spec.Types[string(tok)]
-		if !ok {
-			// This type may have already been deleted, so we return early.
-			return
-		}
-
-		for _, prop := range t.ObjectTypeSpec.Properties {
-			prop := prop
-			deleteTypeSpec(&prop.TypeSpec)
-		}
-
-		delete(spec.Types, string(tok))
-	}
-
 	for _, elided := range elidedRefs {
-		deleteType(elided)
+		psed.DeleteType(spec, elided)
 	}
 
 	// We have now deleted all the types we don't want, but that has left dangling
@@ -192,65 +133,18 @@ typ:
 
 	for k, r := range spec.Resources {
 		r := r
-		traverseResourceTypes(&r, fixup)
+		psed.TraverseResourceTypes(&r, fixup)
 		spec.Resources[k] = r
 
 	}
 	for k, d := range spec.Functions {
 		d := d
-		traverseFunctionTypes(&d, fixup)
+		psed.TraverseFunctionTypes(&d, fixup)
 		spec.Functions[k] = d
 	}
 	for k, typ := range spec.Types {
 		typ := typ
-		traverseTypes(&typ, fixup)
+		psed.TraverseTypes(&typ, fixup)
 		spec.Types[k] = typ
-	}
-}
-
-func traverseResourceTypes(r *schema.ResourceSpec, f func(*schema.TypeSpec)) {
-	for k, v := range r.InputProperties {
-		v := v
-		traversePropertyTypes(&v, f)
-		r.InputProperties[k] = v
-	}
-	if r.StateInputs != nil {
-		traverseObjectTypes(r.StateInputs, f)
-	}
-	traverseObjectTypes(&r.ObjectTypeSpec, f)
-}
-
-func traverseObjectTypes(o *schema.ObjectTypeSpec, f func(*schema.TypeSpec)) {
-	for k, v := range o.Properties {
-		v := v
-		traversePropertyTypes(&v, f)
-		o.Properties[k] = v
-	}
-}
-
-func traversePropertyTypes(o *schema.PropertySpec, f func(*schema.TypeSpec)) {
-	f(&o.TypeSpec)
-	if o.Items != nil {
-		f(o.Items)
-	}
-	if o.AdditionalProperties != nil {
-		f(o.AdditionalProperties)
-	}
-}
-
-func traverseTypes(t *schema.ComplexTypeSpec, f func(*schema.TypeSpec)) {
-	traverseObjectTypes(&t.ObjectTypeSpec, f)
-}
-
-func traverseFunctionTypes(t *schema.FunctionSpec, f func(*schema.TypeSpec)) {
-	if t.Inputs != nil {
-		traverseObjectTypes(t.Inputs, f)
-	}
-	if t.Outputs != nil {
-		traverseObjectTypes(t.Outputs, f)
-	}
-	if t.ReturnType != nil {
-		traverseObjectTypes(t.ReturnType.ObjectTypeSpec, f)
-		f(t.ReturnType.TypeSpec)
 	}
 }
