@@ -412,7 +412,7 @@ export interface DashboardWidgetApmQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetApmQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -440,6 +440,36 @@ export interface DashboardWidgetApmQueryComputeQuery {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetApmQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetApmQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetApmQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetApmQueryMultiCompute {
@@ -811,7 +841,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -843,6 +873,36 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute {
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch {
@@ -1503,7 +1563,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -1535,6 +1595,36 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute {
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
@@ -1649,36 +1739,6 @@ export interface DashboardWidgetGeomapDefinitionView {
      * The two-letter ISO code of a country to focus the map on (or `WORLD`).
      */
     focus: pulumi.Input<string>;
-}
-
-export interface DashboardWidgetGroupBy {
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * The maximum number of items in the group.
-     */
-    limit?: pulumi.Input<number>;
-    /**
-     * A list of exactly one element describing the sort query to use.
-     */
-    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupBySortQuery>;
-}
-
-export interface DashboardWidgetGroupBySortQuery {
-    /**
-     * The aggregation method.
-     */
-    aggregation: pulumi.Input<string>;
-    /**
-     * The facet name.
-     */
-    facet?: pulumi.Input<string>;
-    /**
-     * Widget sorting methods. Valid values are `asc`, `desc`.
-     */
-    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinition {
@@ -2231,7 +2291,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -2263,6 +2323,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute {
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch {
@@ -2712,7 +2802,7 @@ export interface DashboardWidgetLogQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetLogQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -2740,6 +2830,36 @@ export interface DashboardWidgetLogQueryComputeQuery {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetLogQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetLogQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetLogQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetLogQueryMultiCompute {
@@ -3417,7 +3537,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -3449,6 +3569,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComput
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
@@ -3662,7 +3812,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -3690,6 +3840,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuer
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
@@ -4001,7 +4181,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -4033,6 +4213,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComput
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
@@ -4173,7 +4383,7 @@ export interface DashboardWidgetRumQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetRumQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -4201,6 +4411,36 @@ export interface DashboardWidgetRumQueryComputeQuery {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetRumQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetRumQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetRumQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetRumQueryMultiCompute {
@@ -4520,7 +4760,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -4552,6 +4792,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch {
@@ -4804,7 +5074,7 @@ export interface DashboardWidgetSecurityQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSecurityQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -4832,6 +5102,36 @@ export interface DashboardWidgetSecurityQueryComputeQuery {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSecurityQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSecurityQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSecurityQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSecurityQueryMultiCompute {
@@ -5249,7 +5549,7 @@ export interface DashboardWidgetSunburstDefinitionRequestAuditQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -5277,6 +5577,36 @@ export interface DashboardWidgetSunburstDefinitionRequestAuditQueryComputeQuery 
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestAuditQueryMultiCompute {
@@ -5390,7 +5720,7 @@ export interface DashboardWidgetSunburstDefinitionRequestNetworkQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -5418,6 +5748,36 @@ export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuer
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute {
@@ -5602,7 +5962,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -5634,6 +5994,36 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute 
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch {
@@ -5904,7 +6294,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -5932,6 +6322,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuer
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
@@ -6056,7 +6476,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -6084,6 +6504,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQu
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
@@ -6268,7 +6718,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -6300,6 +6750,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComput
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
@@ -6554,7 +7034,7 @@ export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
     /**
      * Multiple `groupBy` blocks are allowed using the structure below.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy>[]>;
     /**
      * The name of the index to query.
      */
@@ -6582,6 +7062,36 @@ export interface DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
      * Define the time interval in seconds.
      */
     interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * The maximum number of items in the group.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * A list of exactly one element describing the sort query to use.
+     */
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    /**
+     * The aggregation method.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The facet name.
+     */
+    facet?: pulumi.Input<string>;
+    /**
+     * Widget sorting methods. Valid values are `asc`, `desc`.
+     */
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
@@ -6893,7 +7403,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -6925,6 +7435,36 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
@@ -7413,7 +7953,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
     /**
      * Group by options.
      */
-    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupBy>[]>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy>[]>;
     /**
      * An array of index names to query in the stream.
      */
@@ -7445,6 +7985,36 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute {
      * The measurable attribute to compute.
      */
     metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy {
+    /**
+     * The event facet.
+     */
+    facet: pulumi.Input<string>;
+    /**
+     * The number of groups to return.
+     */
+    limit?: pulumi.Input<number>;
+    /**
+     * The options for sorting group by results.
+     */
+    sort?: pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBySort {
+    /**
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     */
+    aggregation: pulumi.Input<string>;
+    /**
+     * The metric used for sorting group by results.
+     */
+    metric?: pulumi.Input<string>;
+    /**
+     * Direction of sort. Valid values are `asc`, `desc`.
+     */
+    order?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch {

@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetLogQueryComputeQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetLogQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetLogQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetLogQueryGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetLogQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetGroupBy> groupBies() {
+    public List<DashboardWidgetLogQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetLogQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetLogQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetLogQueryGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetLogQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetLogQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetLogQueryGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetLogQueryGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

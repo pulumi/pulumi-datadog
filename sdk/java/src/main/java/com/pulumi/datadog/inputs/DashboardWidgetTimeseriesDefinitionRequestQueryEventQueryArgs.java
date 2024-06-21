@@ -5,8 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -55,13 +55,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs>> groupBies;
 
     /**
      * @return Group by options.
      * 
      */
-    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -213,7 +213,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -224,7 +224,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -234,7 +234,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

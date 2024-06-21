@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetToplistDefinitionRequestAuditQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetToplistDefinitionRequestAuditQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetGroupBy> groupBies() {
+    public List<DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetToplistDefinitionRequestAuditQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetToplistDefinitionRequestAuditQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

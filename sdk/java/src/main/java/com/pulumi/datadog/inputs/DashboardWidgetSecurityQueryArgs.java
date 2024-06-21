@@ -5,8 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryComputeQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryMultiComputeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -40,13 +40,13 @@ public final class DashboardWidgetSecurityQueryArgs extends com.pulumi.resources
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetSecurityQueryGroupByArgs>> groupBies;
 
     /**
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetSecurityQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -150,7 +150,7 @@ public final class DashboardWidgetSecurityQueryArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetSecurityQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -161,7 +161,7 @@ public final class DashboardWidgetSecurityQueryArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetSecurityQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -171,7 +171,7 @@ public final class DashboardWidgetSecurityQueryArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetSecurityQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

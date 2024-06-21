@@ -6,8 +6,8 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
@@ -55,13 +55,13 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs ext
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs>> groupBies;
 
     /**
      * @return Group by options.
      * 
      */
-    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -213,7 +213,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs ext
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -224,7 +224,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs ext
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -234,7 +234,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs ext
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 

@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestAuditQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestAuditQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetGroupBy> groupBies() {
+    public List<DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestAuditQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetQueryValueDefinitionRequestAuditQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

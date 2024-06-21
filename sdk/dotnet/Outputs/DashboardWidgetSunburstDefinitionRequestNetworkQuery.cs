@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Multiple `group_by` blocks are allowed using the structure below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DashboardWidgetGroupBy> GroupBies;
+        public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> GroupBies;
         /// <summary>
         /// The name of the index to query.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetSunburstDefinitionRequestNetworkQuery(
             Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery? computeQuery,
 
-            ImmutableArray<Outputs.DashboardWidgetGroupBy> groupBies,
+            ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies,
 
             string index,
 

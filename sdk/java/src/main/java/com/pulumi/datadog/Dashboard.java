@@ -324,9 +324,9 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build(),
  *                             DashboardWidgetTimeseriesDefinitionRequestArgs.builder()
- *                                 .logQuery(DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs.builder()
+ *                                 .logQuery(DashboardWidgetLogQueryArgs.builder()
  *                                     .index("mcnulty")
- *                                     .computeQuery(DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs.builder()
+ *                                     .computeQuery(DashboardWidgetLogQueryComputeQueryArgs.builder()
  *                                         .aggregation("avg")
  *                                         .facet("{@literal @}duration")
  *                                         .interval(5000)
@@ -335,19 +335,19 @@ import javax.annotation.Nullable;
  *                                     .groupBies(DashboardWidgetGroupByArgs.builder()
  *                                         .facet("host")
  *                                         .limit(10)
- *                                         .sortQuery(Map.ofEntries(
- *                                             Map.entry("aggregation", "avg"),
- *                                             Map.entry("order", "desc"),
- *                                             Map.entry("facet", "{@literal @}duration")
- *                                         ))
+ *                                         .sortQuery(DashboardWidgetGroupBySortQueryArgs.builder()
+ *                                             .aggregation("avg")
+ *                                             .order("desc")
+ *                                             .facet("{@literal @}duration")
+ *                                             .build())
  *                                         .build())
  *                                     .build())
  *                                 .displayType("area")
  *                                 .build(),
  *                             DashboardWidgetTimeseriesDefinitionRequestArgs.builder()
- *                                 .apmQuery(DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs.builder()
+ *                                 .apmQuery(DashboardWidgetApmQueryArgs.builder()
  *                                     .index("apm-search")
- *                                     .computeQuery(DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs.builder()
+ *                                     .computeQuery(DashboardWidgetApmQueryComputeQueryArgs.builder()
  *                                         .aggregation("avg")
  *                                         .facet("{@literal @}duration")
  *                                         .interval(5000)
@@ -356,11 +356,11 @@ import javax.annotation.Nullable;
  *                                     .groupBies(DashboardWidgetGroupByArgs.builder()
  *                                         .facet("resource_name")
  *                                         .limit(50)
- *                                         .sortQuery(Map.ofEntries(
- *                                             Map.entry("aggregation", "avg"),
- *                                             Map.entry("order", "desc"),
- *                                             Map.entry("facet", "{@literal @}string_query.interval")
- *                                         ))
+ *                                         .sortQuery(DashboardWidgetGroupBySortQueryArgs.builder()
+ *                                             .aggregation("avg")
+ *                                             .order("desc")
+ *                                             .facet("{@literal @}string_query.interval")
+ *                                             .build())
  *                                         .build())
  *                                     .build())
  *                                 .displayType("bars")

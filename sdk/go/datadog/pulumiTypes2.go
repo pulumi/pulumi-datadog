@@ -13,6 +13,6846 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ServiceLevelObjectiveSliSpecificationTimeSliceQuery struct {
+	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula `pulumi:"formula"`
+	// A list of data-source-specific queries that are in the formula.
+	Queries []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery `pulumi:"queries"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs struct {
+	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput `pulumi:"formula"`
+	// A list of data-source-specific queries that are in the formula.
+	Queries ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput `pulumi:"queries"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Formula() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		return v.Formula
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+// A list of data-source-specific queries that are in the formula.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		return v.Queries
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQuery
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Formula() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		if v == nil {
+			return nil
+		}
+		return &v.Formula
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+// A list of data-source-specific queries that are in the formula.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput) Queries() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQuery) []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Queries
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula struct {
+	// The formula string, which is an expression involving named queries.
+	FormulaExpression string `pulumi:"formulaExpression"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs struct {
+	// The formula string, which is an expression involving named queries.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput)
+}
+
+// The formula string, which is an expression involving named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput) FormulaExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput)
+}
+
+// The formula string, which is an expression involving named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput) FormulaExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FormulaExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery struct {
+	// A timeseries formula and functions metrics query.
+	MetricQuery *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery `pulumi:"metricQuery"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs struct {
+	// A timeseries formula and functions metrics query.
+	MetricQuery ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput `pulumi:"metricQuery"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray{ ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{...} }
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray []ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return o
+}
+
+// A timeseries formula and functions metrics query.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput) MetricQuery() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		return v.MetricQuery
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery {
+		return vs[0].([]ServiceLevelObjectiveSliSpecificationTimeSliceQueryQuery)[vs[1].(int)]
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery struct {
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource *string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// The metrics query definition.
+	Query string `pulumi:"query"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs struct {
+	// The data source for metrics queries. Defaults to `"metrics"`.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput).ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs, ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtr and ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrType) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The metrics query definition.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput)
+}
+
+// The data source for metrics queries. Defaults to `"metrics"`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the query for use in formulas.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metrics query definition.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveThreshold struct {
+	// The objective's target in `(0,100)`.
+	Target float64 `pulumi:"target"`
+	// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+	TargetDisplay *string `pulumi:"targetDisplay"`
+	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	Timeframe string `pulumi:"timeframe"`
+	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	Warning *float64 `pulumi:"warning"`
+	// A string representation of the warning target (see the description of the targetDisplay field for details).
+	WarningDisplay *string `pulumi:"warningDisplay"`
+}
+
+// ServiceLevelObjectiveThresholdInput is an input type that accepts ServiceLevelObjectiveThresholdArgs and ServiceLevelObjectiveThresholdOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveThresholdInput` via:
+//
+//	ServiceLevelObjectiveThresholdArgs{...}
+type ServiceLevelObjectiveThresholdInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveThresholdOutput() ServiceLevelObjectiveThresholdOutput
+	ToServiceLevelObjectiveThresholdOutputWithContext(context.Context) ServiceLevelObjectiveThresholdOutput
+}
+
+type ServiceLevelObjectiveThresholdArgs struct {
+	// The objective's target in `(0,100)`.
+	Target pulumi.Float64Input `pulumi:"target"`
+	// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+	TargetDisplay pulumi.StringPtrInput `pulumi:"targetDisplay"`
+	// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+	Timeframe pulumi.StringInput `pulumi:"timeframe"`
+	// The objective's warning value in `(0,100)`. This must be greater than the target value.
+	Warning pulumi.Float64PtrInput `pulumi:"warning"`
+	// A string representation of the warning target (see the description of the targetDisplay field for details).
+	WarningDisplay pulumi.StringPtrInput `pulumi:"warningDisplay"`
+}
+
+func (ServiceLevelObjectiveThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveThreshold)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveThresholdArgs) ToServiceLevelObjectiveThresholdOutput() ServiceLevelObjectiveThresholdOutput {
+	return i.ToServiceLevelObjectiveThresholdOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveThresholdArgs) ToServiceLevelObjectiveThresholdOutputWithContext(ctx context.Context) ServiceLevelObjectiveThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveThresholdOutput)
+}
+
+// ServiceLevelObjectiveThresholdArrayInput is an input type that accepts ServiceLevelObjectiveThresholdArray and ServiceLevelObjectiveThresholdArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveThresholdArrayInput` via:
+//
+//	ServiceLevelObjectiveThresholdArray{ ServiceLevelObjectiveThresholdArgs{...} }
+type ServiceLevelObjectiveThresholdArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveThresholdArrayOutput() ServiceLevelObjectiveThresholdArrayOutput
+	ToServiceLevelObjectiveThresholdArrayOutputWithContext(context.Context) ServiceLevelObjectiveThresholdArrayOutput
+}
+
+type ServiceLevelObjectiveThresholdArray []ServiceLevelObjectiveThresholdInput
+
+func (ServiceLevelObjectiveThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveThreshold)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveThresholdArray) ToServiceLevelObjectiveThresholdArrayOutput() ServiceLevelObjectiveThresholdArrayOutput {
+	return i.ToServiceLevelObjectiveThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveThresholdArray) ToServiceLevelObjectiveThresholdArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveThresholdArrayOutput)
+}
+
+type ServiceLevelObjectiveThresholdOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveThreshold)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveThresholdOutput) ToServiceLevelObjectiveThresholdOutput() ServiceLevelObjectiveThresholdOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveThresholdOutput) ToServiceLevelObjectiveThresholdOutputWithContext(ctx context.Context) ServiceLevelObjectiveThresholdOutput {
+	return o
+}
+
+// The objective's target in `(0,100)`.
+func (o ServiceLevelObjectiveThresholdOutput) Target() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) float64 { return v.Target }).(pulumi.Float64Output)
+}
+
+// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+func (o ServiceLevelObjectiveThresholdOutput) TargetDisplay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) *string { return v.TargetDisplay }).(pulumi.StringPtrOutput)
+}
+
+// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
+func (o ServiceLevelObjectiveThresholdOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) string { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// The objective's warning value in `(0,100)`. This must be greater than the target value.
+func (o ServiceLevelObjectiveThresholdOutput) Warning() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) *float64 { return v.Warning }).(pulumi.Float64PtrOutput)
+}
+
+// A string representation of the warning target (see the description of the targetDisplay field for details).
+func (o ServiceLevelObjectiveThresholdOutput) WarningDisplay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveThreshold) *string { return v.WarningDisplay }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLevelObjectiveThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveThreshold)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveThresholdArrayOutput) ToServiceLevelObjectiveThresholdArrayOutput() ServiceLevelObjectiveThresholdArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveThresholdArrayOutput) ToServiceLevelObjectiveThresholdArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveThresholdArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveThresholdArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveThreshold {
+		return vs[0].([]ServiceLevelObjectiveThreshold)[vs[1].(int)]
+	}).(ServiceLevelObjectiveThresholdOutput)
+}
+
+type SpansMetricCompute struct {
+	// The type of aggregation to use. This field can't be updated after creation.
+	AggregationType string `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+	IncludePercentiles *bool `pulumi:"includePercentiles"`
+	// The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+	Path *string `pulumi:"path"`
+}
+
+// SpansMetricComputeInput is an input type that accepts SpansMetricComputeArgs and SpansMetricComputeOutput values.
+// You can construct a concrete instance of `SpansMetricComputeInput` via:
+//
+//	SpansMetricComputeArgs{...}
+type SpansMetricComputeInput interface {
+	pulumi.Input
+
+	ToSpansMetricComputeOutput() SpansMetricComputeOutput
+	ToSpansMetricComputeOutputWithContext(context.Context) SpansMetricComputeOutput
+}
+
+type SpansMetricComputeArgs struct {
+	// The type of aggregation to use. This field can't be updated after creation.
+	AggregationType pulumi.StringInput `pulumi:"aggregationType"`
+	// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+	IncludePercentiles pulumi.BoolPtrInput `pulumi:"includePercentiles"`
+	// The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (SpansMetricComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricCompute)(nil)).Elem()
+}
+
+func (i SpansMetricComputeArgs) ToSpansMetricComputeOutput() SpansMetricComputeOutput {
+	return i.ToSpansMetricComputeOutputWithContext(context.Background())
+}
+
+func (i SpansMetricComputeArgs) ToSpansMetricComputeOutputWithContext(ctx context.Context) SpansMetricComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricComputeOutput)
+}
+
+func (i SpansMetricComputeArgs) ToSpansMetricComputePtrOutput() SpansMetricComputePtrOutput {
+	return i.ToSpansMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i SpansMetricComputeArgs) ToSpansMetricComputePtrOutputWithContext(ctx context.Context) SpansMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricComputeOutput).ToSpansMetricComputePtrOutputWithContext(ctx)
+}
+
+// SpansMetricComputePtrInput is an input type that accepts SpansMetricComputeArgs, SpansMetricComputePtr and SpansMetricComputePtrOutput values.
+// You can construct a concrete instance of `SpansMetricComputePtrInput` via:
+//
+//	        SpansMetricComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpansMetricComputePtrInput interface {
+	pulumi.Input
+
+	ToSpansMetricComputePtrOutput() SpansMetricComputePtrOutput
+	ToSpansMetricComputePtrOutputWithContext(context.Context) SpansMetricComputePtrOutput
+}
+
+type spansMetricComputePtrType SpansMetricComputeArgs
+
+func SpansMetricComputePtr(v *SpansMetricComputeArgs) SpansMetricComputePtrInput {
+	return (*spansMetricComputePtrType)(v)
+}
+
+func (*spansMetricComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpansMetricCompute)(nil)).Elem()
+}
+
+func (i *spansMetricComputePtrType) ToSpansMetricComputePtrOutput() SpansMetricComputePtrOutput {
+	return i.ToSpansMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (i *spansMetricComputePtrType) ToSpansMetricComputePtrOutputWithContext(ctx context.Context) SpansMetricComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricComputePtrOutput)
+}
+
+type SpansMetricComputeOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricCompute)(nil)).Elem()
+}
+
+func (o SpansMetricComputeOutput) ToSpansMetricComputeOutput() SpansMetricComputeOutput {
+	return o
+}
+
+func (o SpansMetricComputeOutput) ToSpansMetricComputeOutputWithContext(ctx context.Context) SpansMetricComputeOutput {
+	return o
+}
+
+func (o SpansMetricComputeOutput) ToSpansMetricComputePtrOutput() SpansMetricComputePtrOutput {
+	return o.ToSpansMetricComputePtrOutputWithContext(context.Background())
+}
+
+func (o SpansMetricComputeOutput) ToSpansMetricComputePtrOutputWithContext(ctx context.Context) SpansMetricComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpansMetricCompute) *SpansMetricCompute {
+		return &v
+	}).(SpansMetricComputePtrOutput)
+}
+
+// The type of aggregation to use. This field can't be updated after creation.
+func (o SpansMetricComputeOutput) AggregationType() pulumi.StringOutput {
+	return o.ApplyT(func(v SpansMetricCompute) string { return v.AggregationType }).(pulumi.StringOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+func (o SpansMetricComputeOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpansMetricCompute) *bool { return v.IncludePercentiles }).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+func (o SpansMetricComputeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpansMetricCompute) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type SpansMetricComputePtrOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpansMetricCompute)(nil)).Elem()
+}
+
+func (o SpansMetricComputePtrOutput) ToSpansMetricComputePtrOutput() SpansMetricComputePtrOutput {
+	return o
+}
+
+func (o SpansMetricComputePtrOutput) ToSpansMetricComputePtrOutputWithContext(ctx context.Context) SpansMetricComputePtrOutput {
+	return o
+}
+
+func (o SpansMetricComputePtrOutput) Elem() SpansMetricComputeOutput {
+	return o.ApplyT(func(v *SpansMetricCompute) SpansMetricCompute {
+		if v != nil {
+			return *v
+		}
+		var ret SpansMetricCompute
+		return ret
+	}).(SpansMetricComputeOutput)
+}
+
+// The type of aggregation to use. This field can't be updated after creation.
+func (o SpansMetricComputePtrOutput) AggregationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpansMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AggregationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Toggle to include or exclude percentile aggregations for distribution metrics. Only present when the `aggregationType` is `distribution`.
+func (o SpansMetricComputePtrOutput) IncludePercentiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpansMetricCompute) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePercentiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The path to the value the span-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+func (o SpansMetricComputePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpansMetricCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpansMetricFilter struct {
+	// The search query - following the span search syntax. Defaults to `"*"`.
+	Query *string `pulumi:"query"`
+}
+
+// SpansMetricFilterInput is an input type that accepts SpansMetricFilterArgs and SpansMetricFilterOutput values.
+// You can construct a concrete instance of `SpansMetricFilterInput` via:
+//
+//	SpansMetricFilterArgs{...}
+type SpansMetricFilterInput interface {
+	pulumi.Input
+
+	ToSpansMetricFilterOutput() SpansMetricFilterOutput
+	ToSpansMetricFilterOutputWithContext(context.Context) SpansMetricFilterOutput
+}
+
+type SpansMetricFilterArgs struct {
+	// The search query - following the span search syntax. Defaults to `"*"`.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (SpansMetricFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricFilter)(nil)).Elem()
+}
+
+func (i SpansMetricFilterArgs) ToSpansMetricFilterOutput() SpansMetricFilterOutput {
+	return i.ToSpansMetricFilterOutputWithContext(context.Background())
+}
+
+func (i SpansMetricFilterArgs) ToSpansMetricFilterOutputWithContext(ctx context.Context) SpansMetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricFilterOutput)
+}
+
+func (i SpansMetricFilterArgs) ToSpansMetricFilterPtrOutput() SpansMetricFilterPtrOutput {
+	return i.ToSpansMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i SpansMetricFilterArgs) ToSpansMetricFilterPtrOutputWithContext(ctx context.Context) SpansMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricFilterOutput).ToSpansMetricFilterPtrOutputWithContext(ctx)
+}
+
+// SpansMetricFilterPtrInput is an input type that accepts SpansMetricFilterArgs, SpansMetricFilterPtr and SpansMetricFilterPtrOutput values.
+// You can construct a concrete instance of `SpansMetricFilterPtrInput` via:
+//
+//	        SpansMetricFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpansMetricFilterPtrInput interface {
+	pulumi.Input
+
+	ToSpansMetricFilterPtrOutput() SpansMetricFilterPtrOutput
+	ToSpansMetricFilterPtrOutputWithContext(context.Context) SpansMetricFilterPtrOutput
+}
+
+type spansMetricFilterPtrType SpansMetricFilterArgs
+
+func SpansMetricFilterPtr(v *SpansMetricFilterArgs) SpansMetricFilterPtrInput {
+	return (*spansMetricFilterPtrType)(v)
+}
+
+func (*spansMetricFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpansMetricFilter)(nil)).Elem()
+}
+
+func (i *spansMetricFilterPtrType) ToSpansMetricFilterPtrOutput() SpansMetricFilterPtrOutput {
+	return i.ToSpansMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *spansMetricFilterPtrType) ToSpansMetricFilterPtrOutputWithContext(ctx context.Context) SpansMetricFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricFilterPtrOutput)
+}
+
+type SpansMetricFilterOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricFilter)(nil)).Elem()
+}
+
+func (o SpansMetricFilterOutput) ToSpansMetricFilterOutput() SpansMetricFilterOutput {
+	return o
+}
+
+func (o SpansMetricFilterOutput) ToSpansMetricFilterOutputWithContext(ctx context.Context) SpansMetricFilterOutput {
+	return o
+}
+
+func (o SpansMetricFilterOutput) ToSpansMetricFilterPtrOutput() SpansMetricFilterPtrOutput {
+	return o.ToSpansMetricFilterPtrOutputWithContext(context.Background())
+}
+
+func (o SpansMetricFilterOutput) ToSpansMetricFilterPtrOutputWithContext(ctx context.Context) SpansMetricFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpansMetricFilter) *SpansMetricFilter {
+		return &v
+	}).(SpansMetricFilterPtrOutput)
+}
+
+// The search query - following the span search syntax. Defaults to `"*"`.
+func (o SpansMetricFilterOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpansMetricFilter) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+type SpansMetricFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpansMetricFilter)(nil)).Elem()
+}
+
+func (o SpansMetricFilterPtrOutput) ToSpansMetricFilterPtrOutput() SpansMetricFilterPtrOutput {
+	return o
+}
+
+func (o SpansMetricFilterPtrOutput) ToSpansMetricFilterPtrOutputWithContext(ctx context.Context) SpansMetricFilterPtrOutput {
+	return o
+}
+
+func (o SpansMetricFilterPtrOutput) Elem() SpansMetricFilterOutput {
+	return o.ApplyT(func(v *SpansMetricFilter) SpansMetricFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SpansMetricFilter
+		return ret
+	}).(SpansMetricFilterOutput)
+}
+
+// The search query - following the span search syntax. Defaults to `"*"`.
+func (o SpansMetricFilterPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpansMetricFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpansMetricGroupBy struct {
+	// The path to the value the span-based metric will be aggregated over.
+	Path string `pulumi:"path"`
+	// Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+	TagName *string `pulumi:"tagName"`
+}
+
+// SpansMetricGroupByInput is an input type that accepts SpansMetricGroupByArgs and SpansMetricGroupByOutput values.
+// You can construct a concrete instance of `SpansMetricGroupByInput` via:
+//
+//	SpansMetricGroupByArgs{...}
+type SpansMetricGroupByInput interface {
+	pulumi.Input
+
+	ToSpansMetricGroupByOutput() SpansMetricGroupByOutput
+	ToSpansMetricGroupByOutputWithContext(context.Context) SpansMetricGroupByOutput
+}
+
+type SpansMetricGroupByArgs struct {
+	// The path to the value the span-based metric will be aggregated over.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+	TagName pulumi.StringPtrInput `pulumi:"tagName"`
+}
+
+func (SpansMetricGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricGroupBy)(nil)).Elem()
+}
+
+func (i SpansMetricGroupByArgs) ToSpansMetricGroupByOutput() SpansMetricGroupByOutput {
+	return i.ToSpansMetricGroupByOutputWithContext(context.Background())
+}
+
+func (i SpansMetricGroupByArgs) ToSpansMetricGroupByOutputWithContext(ctx context.Context) SpansMetricGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricGroupByOutput)
+}
+
+// SpansMetricGroupByArrayInput is an input type that accepts SpansMetricGroupByArray and SpansMetricGroupByArrayOutput values.
+// You can construct a concrete instance of `SpansMetricGroupByArrayInput` via:
+//
+//	SpansMetricGroupByArray{ SpansMetricGroupByArgs{...} }
+type SpansMetricGroupByArrayInput interface {
+	pulumi.Input
+
+	ToSpansMetricGroupByArrayOutput() SpansMetricGroupByArrayOutput
+	ToSpansMetricGroupByArrayOutputWithContext(context.Context) SpansMetricGroupByArrayOutput
+}
+
+type SpansMetricGroupByArray []SpansMetricGroupByInput
+
+func (SpansMetricGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpansMetricGroupBy)(nil)).Elem()
+}
+
+func (i SpansMetricGroupByArray) ToSpansMetricGroupByArrayOutput() SpansMetricGroupByArrayOutput {
+	return i.ToSpansMetricGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i SpansMetricGroupByArray) ToSpansMetricGroupByArrayOutputWithContext(ctx context.Context) SpansMetricGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpansMetricGroupByArrayOutput)
+}
+
+type SpansMetricGroupByOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpansMetricGroupBy)(nil)).Elem()
+}
+
+func (o SpansMetricGroupByOutput) ToSpansMetricGroupByOutput() SpansMetricGroupByOutput {
+	return o
+}
+
+func (o SpansMetricGroupByOutput) ToSpansMetricGroupByOutputWithContext(ctx context.Context) SpansMetricGroupByOutput {
+	return o
+}
+
+// The path to the value the span-based metric will be aggregated over.
+func (o SpansMetricGroupByOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SpansMetricGroupBy) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Eventual name of the tag that gets created. By default, the path attribute is used as the tag name.
+func (o SpansMetricGroupByOutput) TagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpansMetricGroupBy) *string { return v.TagName }).(pulumi.StringPtrOutput)
+}
+
+type SpansMetricGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (SpansMetricGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpansMetricGroupBy)(nil)).Elem()
+}
+
+func (o SpansMetricGroupByArrayOutput) ToSpansMetricGroupByArrayOutput() SpansMetricGroupByArrayOutput {
+	return o
+}
+
+func (o SpansMetricGroupByArrayOutput) ToSpansMetricGroupByArrayOutputWithContext(ctx context.Context) SpansMetricGroupByArrayOutput {
+	return o
+}
+
+func (o SpansMetricGroupByArrayOutput) Index(i pulumi.IntInput) SpansMetricGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpansMetricGroupBy {
+		return vs[0].([]SpansMetricGroupBy)[vs[1].(int)]
+	}).(SpansMetricGroupByOutput)
+}
+
+type SyntheticsGlobalVariableOptions struct {
+	// Parameters needed for MFA/TOTP.
+	TotpParameters *SyntheticsGlobalVariableOptionsTotpParameters `pulumi:"totpParameters"`
+}
+
+// SyntheticsGlobalVariableOptionsInput is an input type that accepts SyntheticsGlobalVariableOptionsArgs and SyntheticsGlobalVariableOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsInput` via:
+//
+//	SyntheticsGlobalVariableOptionsArgs{...}
+type SyntheticsGlobalVariableOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput
+	ToSyntheticsGlobalVariableOptionsOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsOutput
+}
+
+type SyntheticsGlobalVariableOptionsArgs struct {
+	// Parameters needed for MFA/TOTP.
+	TotpParameters SyntheticsGlobalVariableOptionsTotpParametersPtrInput `pulumi:"totpParameters"`
+}
+
+func (SyntheticsGlobalVariableOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput {
+	return i.ToSyntheticsGlobalVariableOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsOutput)
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsArgs) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsOutput).ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableOptionsPtrInput is an input type that accepts SyntheticsGlobalVariableOptionsArgs, SyntheticsGlobalVariableOptionsPtr and SyntheticsGlobalVariableOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsPtrInput` via:
+//
+//	        SyntheticsGlobalVariableOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput
+	ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsPtrOutput
+}
+
+type syntheticsGlobalVariableOptionsPtrType SyntheticsGlobalVariableOptionsArgs
+
+func SyntheticsGlobalVariableOptionsPtr(v *SyntheticsGlobalVariableOptionsArgs) SyntheticsGlobalVariableOptionsPtrInput {
+	return (*syntheticsGlobalVariableOptionsPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableOptionsPtrType) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableOptionsPtrType) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsOutput() SyntheticsGlobalVariableOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return o.ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableOptionsOutput) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptions {
+		return &v
+	}).(SyntheticsGlobalVariableOptionsPtrOutput)
+}
+
+// Parameters needed for MFA/TOTP.
+func (o SyntheticsGlobalVariableOptionsOutput) TotpParameters() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptionsTotpParameters {
+		return v.TotpParameters
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) ToSyntheticsGlobalVariableOptionsPtrOutput() SyntheticsGlobalVariableOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) ToSyntheticsGlobalVariableOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsPtrOutput) Elem() SyntheticsGlobalVariableOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptions) SyntheticsGlobalVariableOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableOptions
+		return ret
+	}).(SyntheticsGlobalVariableOptionsOutput)
+}
+
+// Parameters needed for MFA/TOTP.
+func (o SyntheticsGlobalVariableOptionsPtrOutput) TotpParameters() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptions) *SyntheticsGlobalVariableOptionsTotpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.TotpParameters
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParameters struct {
+	// Number of digits for the OTP.
+	Digits int `pulumi:"digits"`
+	// Interval for which to refresh the token (in seconds).
+	RefreshInterval int `pulumi:"refreshInterval"`
+}
+
+// SyntheticsGlobalVariableOptionsTotpParametersInput is an input type that accepts SyntheticsGlobalVariableOptionsTotpParametersArgs and SyntheticsGlobalVariableOptionsTotpParametersOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsTotpParametersInput` via:
+//
+//	SyntheticsGlobalVariableOptionsTotpParametersArgs{...}
+type SyntheticsGlobalVariableOptionsTotpParametersInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput
+	ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersArgs struct {
+	// Number of digits for the OTP.
+	Digits pulumi.IntInput `pulumi:"digits"`
+	// Interval for which to refresh the token (in seconds).
+	RefreshInterval pulumi.IntInput `pulumi:"refreshInterval"`
+}
+
+func (SyntheticsGlobalVariableOptionsTotpParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableOptionsTotpParametersArgs) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersOutput).ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableOptionsTotpParametersPtrInput is an input type that accepts SyntheticsGlobalVariableOptionsTotpParametersArgs, SyntheticsGlobalVariableOptionsTotpParametersPtr and SyntheticsGlobalVariableOptionsTotpParametersPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableOptionsTotpParametersPtrInput` via:
+//
+//	        SyntheticsGlobalVariableOptionsTotpParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableOptionsTotpParametersPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput
+	ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput
+}
+
+type syntheticsGlobalVariableOptionsTotpParametersPtrType SyntheticsGlobalVariableOptionsTotpParametersArgs
+
+func SyntheticsGlobalVariableOptionsTotpParametersPtr(v *SyntheticsGlobalVariableOptionsTotpParametersArgs) SyntheticsGlobalVariableOptionsTotpParametersPtrInput {
+	return (*syntheticsGlobalVariableOptionsTotpParametersPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableOptionsTotpParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableOptionsTotpParametersPtrType) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return i.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableOptionsTotpParametersPtrType) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsTotpParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersOutput() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableOptionsTotpParameters) *SyntheticsGlobalVariableOptionsTotpParameters {
+		return &v
+	}).(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput)
+}
+
+// Number of digits for the OTP.
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) Digits() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.Digits }).(pulumi.IntOutput)
+}
+
+// Interval for which to refresh the token (in seconds).
+func (o SyntheticsGlobalVariableOptionsTotpParametersOutput) RefreshInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableOptionsTotpParameters) int { return v.RefreshInterval }).(pulumi.IntOutput)
+}
+
+type SyntheticsGlobalVariableOptionsTotpParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableOptionsTotpParameters)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutput() SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) ToSyntheticsGlobalVariableOptionsTotpParametersPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOptionsTotpParametersPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Elem() SyntheticsGlobalVariableOptionsTotpParametersOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) SyntheticsGlobalVariableOptionsTotpParameters {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableOptionsTotpParameters
+		return ret
+	}).(SyntheticsGlobalVariableOptionsTotpParametersOutput)
+}
+
+// Number of digits for the OTP.
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) Digits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Digits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval for which to refresh the token (in seconds).
+func (o SyntheticsGlobalVariableOptionsTotpParametersPtrOutput) RefreshInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableOptionsTotpParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptions struct {
+	// Required when type = `httpHeader`. Defines the header to use to extract the value
+	Field *string `pulumi:"field"`
+	// When type is `localVariable`, name of the local variable to use to extract the value.
+	LocalVariableName *string                                         `pulumi:"localVariableName"`
+	Parser            *SyntheticsGlobalVariableParseTestOptionsParser `pulumi:"parser"`
+	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsGlobalVariableParseTestOptionsInput is an input type that accepts SyntheticsGlobalVariableParseTestOptionsArgs and SyntheticsGlobalVariableParseTestOptionsOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableParseTestOptionsInput` via:
+//
+//	SyntheticsGlobalVariableParseTestOptionsArgs{...}
+type SyntheticsGlobalVariableParseTestOptionsInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableParseTestOptionsOutput() SyntheticsGlobalVariableParseTestOptionsOutput
+	ToSyntheticsGlobalVariableParseTestOptionsOutputWithContext(context.Context) SyntheticsGlobalVariableParseTestOptionsOutput
+}
+
+type SyntheticsGlobalVariableParseTestOptionsArgs struct {
+	// Required when type = `httpHeader`. Defines the header to use to extract the value
+	Field pulumi.StringPtrInput `pulumi:"field"`
+	// When type is `localVariable`, name of the local variable to use to extract the value.
+	LocalVariableName pulumi.StringPtrInput                                  `pulumi:"localVariableName"`
+	Parser            SyntheticsGlobalVariableParseTestOptionsParserPtrInput `pulumi:"parser"`
+	// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsGlobalVariableParseTestOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptions)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsArgs) ToSyntheticsGlobalVariableParseTestOptionsOutput() SyntheticsGlobalVariableParseTestOptionsOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsArgs) ToSyntheticsGlobalVariableParseTestOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsOutput)
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsArgs) ToSyntheticsGlobalVariableParseTestOptionsPtrOutput() SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsArgs) ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsOutput).ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableParseTestOptionsPtrInput is an input type that accepts SyntheticsGlobalVariableParseTestOptionsArgs, SyntheticsGlobalVariableParseTestOptionsPtr and SyntheticsGlobalVariableParseTestOptionsPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableParseTestOptionsPtrInput` via:
+//
+//	        SyntheticsGlobalVariableParseTestOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableParseTestOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableParseTestOptionsPtrOutput() SyntheticsGlobalVariableParseTestOptionsPtrOutput
+	ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(context.Context) SyntheticsGlobalVariableParseTestOptionsPtrOutput
+}
+
+type syntheticsGlobalVariableParseTestOptionsPtrType SyntheticsGlobalVariableParseTestOptionsArgs
+
+func SyntheticsGlobalVariableParseTestOptionsPtr(v *SyntheticsGlobalVariableParseTestOptionsArgs) SyntheticsGlobalVariableParseTestOptionsPtrInput {
+	return (*syntheticsGlobalVariableParseTestOptionsPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableParseTestOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableParseTestOptions)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableParseTestOptionsPtrType) ToSyntheticsGlobalVariableParseTestOptionsPtrOutput() SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableParseTestOptionsPtrType) ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsPtrOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptionsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableParseTestOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) ToSyntheticsGlobalVariableParseTestOptionsOutput() SyntheticsGlobalVariableParseTestOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) ToSyntheticsGlobalVariableParseTestOptionsOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) ToSyntheticsGlobalVariableParseTestOptionsPtrOutput() SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return o.ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableParseTestOptions) *SyntheticsGlobalVariableParseTestOptions {
+		return &v
+	}).(SyntheticsGlobalVariableParseTestOptionsPtrOutput)
+}
+
+// Required when type = `httpHeader`. Defines the header to use to extract the value
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptions) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+// When type is `localVariable`, name of the local variable to use to extract the value.
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) LocalVariableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptions) *string { return v.LocalVariableName }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) Parser() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptions) *SyntheticsGlobalVariableParseTestOptionsParser {
+		return v.Parser
+	}).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
+}
+
+// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+func (o SyntheticsGlobalVariableParseTestOptionsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptions) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableParseTestOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableParseTestOptions)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) ToSyntheticsGlobalVariableParseTestOptionsPtrOutput() SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) ToSyntheticsGlobalVariableParseTestOptionsPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Elem() SyntheticsGlobalVariableParseTestOptionsOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) SyntheticsGlobalVariableParseTestOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableParseTestOptions
+		return ret
+	}).(SyntheticsGlobalVariableParseTestOptionsOutput)
+}
+
+// Required when type = `httpHeader`. Defines the header to use to extract the value
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Field
+	}).(pulumi.StringPtrOutput)
+}
+
+// When type is `localVariable`, name of the local variable to use to extract the value.
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) LocalVariableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalVariableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Parser() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) *SyntheticsGlobalVariableParseTestOptionsParser {
+		if v == nil {
+			return nil
+		}
+		return v.Parser
+	}).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
+}
+
+// Defines the source to use to extract the value. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+func (o SyntheticsGlobalVariableParseTestOptionsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptionsParser struct {
+	// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+	Type string `pulumi:"type"`
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
+	Value *string `pulumi:"value"`
+}
+
+// SyntheticsGlobalVariableParseTestOptionsParserInput is an input type that accepts SyntheticsGlobalVariableParseTestOptionsParserArgs and SyntheticsGlobalVariableParseTestOptionsParserOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableParseTestOptionsParserInput` via:
+//
+//	SyntheticsGlobalVariableParseTestOptionsParserArgs{...}
+type SyntheticsGlobalVariableParseTestOptionsParserInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableParseTestOptionsParserOutput() SyntheticsGlobalVariableParseTestOptionsParserOutput
+	ToSyntheticsGlobalVariableParseTestOptionsParserOutputWithContext(context.Context) SyntheticsGlobalVariableParseTestOptionsParserOutput
+}
+
+type SyntheticsGlobalVariableParseTestOptionsParserArgs struct {
+	// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value for the parser to use, required for type `jsonPath` or `regex`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SyntheticsGlobalVariableParseTestOptionsParserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsParser)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsParserArgs) ToSyntheticsGlobalVariableParseTestOptionsParserOutput() SyntheticsGlobalVariableParseTestOptionsParserOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsParserOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsParserArgs) ToSyntheticsGlobalVariableParseTestOptionsParserOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsParserOutput)
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsParserArgs) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutput() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariableParseTestOptionsParserArgs) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsParserOutput).ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(ctx)
+}
+
+// SyntheticsGlobalVariableParseTestOptionsParserPtrInput is an input type that accepts SyntheticsGlobalVariableParseTestOptionsParserArgs, SyntheticsGlobalVariableParseTestOptionsParserPtr and SyntheticsGlobalVariableParseTestOptionsParserPtrOutput values.
+// You can construct a concrete instance of `SyntheticsGlobalVariableParseTestOptionsParserPtrInput` via:
+//
+//	        SyntheticsGlobalVariableParseTestOptionsParserArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsGlobalVariableParseTestOptionsParserPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutput() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput
+	ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(context.Context) SyntheticsGlobalVariableParseTestOptionsParserPtrOutput
+}
+
+type syntheticsGlobalVariableParseTestOptionsParserPtrType SyntheticsGlobalVariableParseTestOptionsParserArgs
+
+func SyntheticsGlobalVariableParseTestOptionsParserPtr(v *SyntheticsGlobalVariableParseTestOptionsParserArgs) SyntheticsGlobalVariableParseTestOptionsParserPtrInput {
+	return (*syntheticsGlobalVariableParseTestOptionsParserPtrType)(v)
+}
+
+func (*syntheticsGlobalVariableParseTestOptionsParserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableParseTestOptionsParser)(nil)).Elem()
+}
+
+func (i *syntheticsGlobalVariableParseTestOptionsParserPtrType) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutput() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return i.ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsGlobalVariableParseTestOptionsParserPtrType) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptionsParserOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableParseTestOptionsParserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsParser)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) ToSyntheticsGlobalVariableParseTestOptionsParserOutput() SyntheticsGlobalVariableParseTestOptionsParserOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) ToSyntheticsGlobalVariableParseTestOptionsParserOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutput() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o.ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariableParseTestOptionsParser) *SyntheticsGlobalVariableParseTestOptionsParser {
+		return &v
+	}).(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput)
+}
+
+// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptionsParser) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value for the parser to use, required for type `jsonPath` or `regex`.
+func (o SyntheticsGlobalVariableParseTestOptionsParserOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsGlobalVariableParseTestOptionsParser) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsGlobalVariableParseTestOptionsParserPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsGlobalVariableParseTestOptionsParser)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutput() SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) ToSyntheticsGlobalVariableParseTestOptionsParserPtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariableParseTestOptionsParserPtrOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Elem() SyntheticsGlobalVariableParseTestOptionsParserOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptionsParser) SyntheticsGlobalVariableParseTestOptionsParser {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariableParseTestOptionsParser
+		return ret
+	}).(SyntheticsGlobalVariableParseTestOptionsParserOutput)
+}
+
+// Type of parser to extract the value. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptionsParser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value for the parser to use, required for type `jsonPath` or `regex`.
+func (o SyntheticsGlobalVariableParseTestOptionsParserPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariableParseTestOptionsParser) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsPrivateLocationMetadata struct {
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
+}
+
+// SyntheticsPrivateLocationMetadataInput is an input type that accepts SyntheticsPrivateLocationMetadataArgs and SyntheticsPrivateLocationMetadataOutput values.
+// You can construct a concrete instance of `SyntheticsPrivateLocationMetadataInput` via:
+//
+//	SyntheticsPrivateLocationMetadataArgs{...}
+type SyntheticsPrivateLocationMetadataInput interface {
+	pulumi.Input
+
+	ToSyntheticsPrivateLocationMetadataOutput() SyntheticsPrivateLocationMetadataOutput
+	ToSyntheticsPrivateLocationMetadataOutputWithContext(context.Context) SyntheticsPrivateLocationMetadataOutput
+}
+
+type SyntheticsPrivateLocationMetadataArgs struct {
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles pulumi.StringArrayInput `pulumi:"restrictedRoles"`
+}
+
+func (SyntheticsPrivateLocationMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsPrivateLocationMetadata)(nil)).Elem()
+}
+
+func (i SyntheticsPrivateLocationMetadataArgs) ToSyntheticsPrivateLocationMetadataOutput() SyntheticsPrivateLocationMetadataOutput {
+	return i.ToSyntheticsPrivateLocationMetadataOutputWithContext(context.Background())
+}
+
+func (i SyntheticsPrivateLocationMetadataArgs) ToSyntheticsPrivateLocationMetadataOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationMetadataOutput)
+}
+
+func (i SyntheticsPrivateLocationMetadataArgs) ToSyntheticsPrivateLocationMetadataPtrOutput() SyntheticsPrivateLocationMetadataPtrOutput {
+	return i.ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsPrivateLocationMetadataArgs) ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationMetadataOutput).ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(ctx)
+}
+
+// SyntheticsPrivateLocationMetadataPtrInput is an input type that accepts SyntheticsPrivateLocationMetadataArgs, SyntheticsPrivateLocationMetadataPtr and SyntheticsPrivateLocationMetadataPtrOutput values.
+// You can construct a concrete instance of `SyntheticsPrivateLocationMetadataPtrInput` via:
+//
+//	        SyntheticsPrivateLocationMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsPrivateLocationMetadataPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsPrivateLocationMetadataPtrOutput() SyntheticsPrivateLocationMetadataPtrOutput
+	ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(context.Context) SyntheticsPrivateLocationMetadataPtrOutput
+}
+
+type syntheticsPrivateLocationMetadataPtrType SyntheticsPrivateLocationMetadataArgs
+
+func SyntheticsPrivateLocationMetadataPtr(v *SyntheticsPrivateLocationMetadataArgs) SyntheticsPrivateLocationMetadataPtrInput {
+	return (*syntheticsPrivateLocationMetadataPtrType)(v)
+}
+
+func (*syntheticsPrivateLocationMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsPrivateLocationMetadata)(nil)).Elem()
+}
+
+func (i *syntheticsPrivateLocationMetadataPtrType) ToSyntheticsPrivateLocationMetadataPtrOutput() SyntheticsPrivateLocationMetadataPtrOutput {
+	return i.ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsPrivateLocationMetadataPtrType) ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationMetadataPtrOutput)
+}
+
+type SyntheticsPrivateLocationMetadataOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsPrivateLocationMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsPrivateLocationMetadata)(nil)).Elem()
+}
+
+func (o SyntheticsPrivateLocationMetadataOutput) ToSyntheticsPrivateLocationMetadataOutput() SyntheticsPrivateLocationMetadataOutput {
+	return o
+}
+
+func (o SyntheticsPrivateLocationMetadataOutput) ToSyntheticsPrivateLocationMetadataOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataOutput {
+	return o
+}
+
+func (o SyntheticsPrivateLocationMetadataOutput) ToSyntheticsPrivateLocationMetadataPtrOutput() SyntheticsPrivateLocationMetadataPtrOutput {
+	return o.ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsPrivateLocationMetadataOutput) ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsPrivateLocationMetadata) *SyntheticsPrivateLocationMetadata {
+		return &v
+	}).(SyntheticsPrivateLocationMetadataPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsPrivateLocationMetadataOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsPrivateLocationMetadata) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+type SyntheticsPrivateLocationMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsPrivateLocationMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsPrivateLocationMetadata)(nil)).Elem()
+}
+
+func (o SyntheticsPrivateLocationMetadataPtrOutput) ToSyntheticsPrivateLocationMetadataPtrOutput() SyntheticsPrivateLocationMetadataPtrOutput {
+	return o
+}
+
+func (o SyntheticsPrivateLocationMetadataPtrOutput) ToSyntheticsPrivateLocationMetadataPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationMetadataPtrOutput {
+	return o
+}
+
+func (o SyntheticsPrivateLocationMetadataPtrOutput) Elem() SyntheticsPrivateLocationMetadataOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocationMetadata) SyntheticsPrivateLocationMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsPrivateLocationMetadata
+		return ret
+	}).(SyntheticsPrivateLocationMetadataOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsPrivateLocationMetadataPtrOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocationMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+type SyntheticsTestApiStep struct {
+	// Determines whether or not to continue with test if this step fails.
+	AllowFailure *bool `pulumi:"allowFailure"`
+	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+	Assertions []SyntheticsTestApiStepAssertion `pulumi:"assertions"`
+	// Values to parse and save as variables from the response.
+	ExtractedValues []SyntheticsTestApiStepExtractedValue `pulumi:"extractedValues"`
+	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+	IsCritical *bool `pulumi:"isCritical"`
+	// The name of the step.
+	Name string `pulumi:"name"`
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth *SyntheticsTestApiStepRequestBasicauth `pulumi:"requestBasicauth"`
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+	RequestClientCertificate *SyntheticsTestApiStepRequestClientCertificate `pulumi:"requestClientCertificate"`
+	// The request for the api step.
+	RequestDefinition *SyntheticsTestApiStepRequestDefinition `pulumi:"requestDefinition"`
+	// Header name and value map.
+	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// The proxy to perform the test.
+	RequestProxy *SyntheticsTestApiStepRequestProxy `pulumi:"requestProxy"`
+	// Query arguments name and value map.
+	RequestQuery map[string]interface{}      `pulumi:"requestQuery"`
+	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	Subtype *string `pulumi:"subtype"`
+}
+
+// SyntheticsTestApiStepInput is an input type that accepts SyntheticsTestApiStepArgs and SyntheticsTestApiStepOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepInput` via:
+//
+//	SyntheticsTestApiStepArgs{...}
+type SyntheticsTestApiStepInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepOutput() SyntheticsTestApiStepOutput
+	ToSyntheticsTestApiStepOutputWithContext(context.Context) SyntheticsTestApiStepOutput
+}
+
+type SyntheticsTestApiStepArgs struct {
+	// Determines whether or not to continue with test if this step fails.
+	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
+	// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+	Assertions SyntheticsTestApiStepAssertionArrayInput `pulumi:"assertions"`
+	// Values to parse and save as variables from the response.
+	ExtractedValues SyntheticsTestApiStepExtractedValueArrayInput `pulumi:"extractedValues"`
+	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+	IsCritical pulumi.BoolPtrInput `pulumi:"isCritical"`
+	// The name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth SyntheticsTestApiStepRequestBasicauthPtrInput `pulumi:"requestBasicauth"`
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+	RequestClientCertificate SyntheticsTestApiStepRequestClientCertificatePtrInput `pulumi:"requestClientCertificate"`
+	// The request for the api step.
+	RequestDefinition SyntheticsTestApiStepRequestDefinitionPtrInput `pulumi:"requestDefinition"`
+	// Header name and value map.
+	RequestHeaders pulumi.MapInput `pulumi:"requestHeaders"`
+	// The proxy to perform the test.
+	RequestProxy SyntheticsTestApiStepRequestProxyPtrInput `pulumi:"requestProxy"`
+	// Query arguments name and value map.
+	RequestQuery pulumi.MapInput                    `pulumi:"requestQuery"`
+	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
+	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
+}
+
+func (SyntheticsTestApiStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepArgs) ToSyntheticsTestApiStepOutput() SyntheticsTestApiStepOutput {
+	return i.ToSyntheticsTestApiStepOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepArgs) ToSyntheticsTestApiStepOutputWithContext(ctx context.Context) SyntheticsTestApiStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepOutput)
+}
+
+// SyntheticsTestApiStepArrayInput is an input type that accepts SyntheticsTestApiStepArray and SyntheticsTestApiStepArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepArrayInput` via:
+//
+//	SyntheticsTestApiStepArray{ SyntheticsTestApiStepArgs{...} }
+type SyntheticsTestApiStepArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepArrayOutput() SyntheticsTestApiStepArrayOutput
+	ToSyntheticsTestApiStepArrayOutputWithContext(context.Context) SyntheticsTestApiStepArrayOutput
+}
+
+type SyntheticsTestApiStepArray []SyntheticsTestApiStepInput
+
+func (SyntheticsTestApiStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepArray) ToSyntheticsTestApiStepArrayOutput() SyntheticsTestApiStepArrayOutput {
+	return i.ToSyntheticsTestApiStepArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepArray) ToSyntheticsTestApiStepArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepArrayOutput)
+}
+
+type SyntheticsTestApiStepOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepOutput) ToSyntheticsTestApiStepOutput() SyntheticsTestApiStepOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepOutput) ToSyntheticsTestApiStepOutputWithContext(ctx context.Context) SyntheticsTestApiStepOutput {
+	return o
+}
+
+// Determines whether or not to continue with test if this step fails.
+func (o SyntheticsTestApiStepOutput) AllowFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *bool { return v.AllowFailure }).(pulumi.BoolPtrOutput)
+}
+
+// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+func (o SyntheticsTestApiStepOutput) Assertions() SyntheticsTestApiStepAssertionArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) []SyntheticsTestApiStepAssertion { return v.Assertions }).(SyntheticsTestApiStepAssertionArrayOutput)
+}
+
+// Values to parse and save as variables from the response.
+func (o SyntheticsTestApiStepOutput) ExtractedValues() SyntheticsTestApiStepExtractedValueArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) []SyntheticsTestApiStepExtractedValue { return v.ExtractedValues }).(SyntheticsTestApiStepExtractedValueArrayOutput)
+}
+
+// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+func (o SyntheticsTestApiStepOutput) IsCritical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *bool { return v.IsCritical }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the step.
+func (o SyntheticsTestApiStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestApiStepOutput) RequestBasicauth() SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestBasicauth { return v.RequestBasicauth }).(SyntheticsTestApiStepRequestBasicauthPtrOutput)
+}
+
+// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestApiStepOutput) RequestClientCertificate() SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestClientCertificate {
+		return v.RequestClientCertificate
+	}).(SyntheticsTestApiStepRequestClientCertificatePtrOutput)
+}
+
+// The request for the api step.
+func (o SyntheticsTestApiStepOutput) RequestDefinition() SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestDefinition { return v.RequestDefinition }).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
+}
+
+// Header name and value map.
+func (o SyntheticsTestApiStepOutput) RequestHeaders() pulumi.MapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestHeaders }).(pulumi.MapOutput)
+}
+
+// The proxy to perform the test.
+func (o SyntheticsTestApiStepOutput) RequestProxy() SyntheticsTestApiStepRequestProxyPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestProxy { return v.RequestProxy }).(SyntheticsTestApiStepRequestProxyPtrOutput)
+}
+
+// Query arguments name and value map.
+func (o SyntheticsTestApiStepOutput) RequestQuery() pulumi.MapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestQuery }).(pulumi.MapOutput)
+}
+
+func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRetry { return v.Retry }).(SyntheticsTestApiStepRetryPtrOutput)
+}
+
+// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+func (o SyntheticsTestApiStepOutput) Subtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *string { return v.Subtype }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepArrayOutput) ToSyntheticsTestApiStepArrayOutput() SyntheticsTestApiStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepArrayOutput) ToSyntheticsTestApiStepArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTestApiStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestApiStep {
+		return vs[0].([]SyntheticsTestApiStep)[vs[1].(int)]
+	}).(SyntheticsTestApiStepOutput)
+}
+
+type SyntheticsTestApiStepAssertion struct {
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// If assertion type is `header`, this is the header name.
+	Property *string `pulumi:"property"`
+	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	Target *string `pulumi:"target"`
+	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+	Targetjsonpath *SyntheticsTestApiStepAssertionTargetjsonpath `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+	Targetxpath *SyntheticsTestApiStepAssertionTargetxpath `pulumi:"targetxpath"`
+	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+	TimingsScope *string `pulumi:"timingsScope"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestApiStepAssertionInput is an input type that accepts SyntheticsTestApiStepAssertionArgs and SyntheticsTestApiStepAssertionOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionInput` via:
+//
+//	SyntheticsTestApiStepAssertionArgs{...}
+type SyntheticsTestApiStepAssertionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionOutput() SyntheticsTestApiStepAssertionOutput
+	ToSyntheticsTestApiStepAssertionOutputWithContext(context.Context) SyntheticsTestApiStepAssertionOutput
+}
+
+type SyntheticsTestApiStepAssertionArgs struct {
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// If assertion type is `header`, this is the header name.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+	Targetjsonpath SyntheticsTestApiStepAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+	Targetxpath SyntheticsTestApiStepAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
+	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestApiStepAssertionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertion)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepAssertionArgs) ToSyntheticsTestApiStepAssertionOutput() SyntheticsTestApiStepAssertionOutput {
+	return i.ToSyntheticsTestApiStepAssertionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionArgs) ToSyntheticsTestApiStepAssertionOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionOutput)
+}
+
+// SyntheticsTestApiStepAssertionArrayInput is an input type that accepts SyntheticsTestApiStepAssertionArray and SyntheticsTestApiStepAssertionArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionArrayInput` via:
+//
+//	SyntheticsTestApiStepAssertionArray{ SyntheticsTestApiStepAssertionArgs{...} }
+type SyntheticsTestApiStepAssertionArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionArrayOutput() SyntheticsTestApiStepAssertionArrayOutput
+	ToSyntheticsTestApiStepAssertionArrayOutputWithContext(context.Context) SyntheticsTestApiStepAssertionArrayOutput
+}
+
+type SyntheticsTestApiStepAssertionArray []SyntheticsTestApiStepAssertionInput
+
+func (SyntheticsTestApiStepAssertionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepAssertion)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepAssertionArray) ToSyntheticsTestApiStepAssertionArrayOutput() SyntheticsTestApiStepAssertionArrayOutput {
+	return i.ToSyntheticsTestApiStepAssertionArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionArray) ToSyntheticsTestApiStepAssertionArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionArrayOutput)
+}
+
+type SyntheticsTestApiStepAssertionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertion)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionOutput) ToSyntheticsTestApiStepAssertionOutput() SyntheticsTestApiStepAssertionOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionOutput) ToSyntheticsTestApiStepAssertionOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionOutput {
+	return o
+}
+
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+func (o SyntheticsTestApiStepAssertionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// If assertion type is `header`, this is the header name.
+func (o SyntheticsTestApiStepAssertionOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+func (o SyntheticsTestApiStepAssertionOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestApiStepAssertionOutput) Targetjsonpath() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *SyntheticsTestApiStepAssertionTargetjsonpath {
+		return v.Targetjsonpath
+	}).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
+}
+
+// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestApiStepAssertionOutput) Targetxpath() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *SyntheticsTestApiStepAssertionTargetxpath {
+		return v.Targetxpath
+	}).(SyntheticsTestApiStepAssertionTargetxpathPtrOutput)
+}
+
+// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+func (o SyntheticsTestApiStepAssertionOutput) TimingsScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+func (o SyntheticsTestApiStepAssertionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestApiStepAssertionArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepAssertion)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionArrayOutput) ToSyntheticsTestApiStepAssertionArrayOutput() SyntheticsTestApiStepAssertionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionArrayOutput) ToSyntheticsTestApiStepAssertionArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsTestApiStepAssertionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestApiStepAssertion {
+		return vs[0].([]SyntheticsTestApiStepAssertion)[vs[1].(int)]
+	}).(SyntheticsTestApiStepAssertionOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonpath struct {
+	// The JSON path to assert.
+	Jsonpath string `pulumi:"jsonpath"`
+	// The specific operator to use on the path.
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue *string `pulumi:"targetvalue"`
+}
+
+// SyntheticsTestApiStepAssertionTargetjsonpathInput is an input type that accepts SyntheticsTestApiStepAssertionTargetjsonpathArgs and SyntheticsTestApiStepAssertionTargetjsonpathOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetjsonpathInput` via:
+//
+//	SyntheticsTestApiStepAssertionTargetjsonpathArgs{...}
+type SyntheticsTestApiStepAssertionTargetjsonpathInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetjsonpathOutput() SyntheticsTestApiStepAssertionTargetjsonpathOutput
+	ToSyntheticsTestApiStepAssertionTargetjsonpathOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetjsonpathOutput
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonpathArgs struct {
+	// The JSON path to assert.
+	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
+	// The specific operator to use on the path.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
+}
+
+func (SyntheticsTestApiStepAssertionTargetjsonpathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonpathArgs) ToSyntheticsTestApiStepAssertionTargetjsonpathOutput() SyntheticsTestApiStepAssertionTargetjsonpathOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonpathOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonpathArgs) ToSyntheticsTestApiStepAssertionTargetjsonpathOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonpathOutput)
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonpathArgs) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutput() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonpathArgs) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonpathOutput).ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepAssertionTargetjsonpathPtrInput is an input type that accepts SyntheticsTestApiStepAssertionTargetjsonpathArgs, SyntheticsTestApiStepAssertionTargetjsonpathPtr and SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetjsonpathPtrInput` via:
+//
+//	        SyntheticsTestApiStepAssertionTargetjsonpathArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepAssertionTargetjsonpathPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutput() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput
+	ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput
+}
+
+type syntheticsTestApiStepAssertionTargetjsonpathPtrType SyntheticsTestApiStepAssertionTargetjsonpathArgs
+
+func SyntheticsTestApiStepAssertionTargetjsonpathPtr(v *SyntheticsTestApiStepAssertionTargetjsonpathArgs) SyntheticsTestApiStepAssertionTargetjsonpathPtrInput {
+	return (*syntheticsTestApiStepAssertionTargetjsonpathPtrType)(v)
+}
+
+func (*syntheticsTestApiStepAssertionTargetjsonpathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepAssertionTargetjsonpathPtrType) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutput() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepAssertionTargetjsonpathPtrType) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonpathOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetjsonpathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathOutput() SyntheticsTestApiStepAssertionTargetjsonpathOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutput() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return o.ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepAssertionTargetjsonpath) *SyntheticsTestApiStepAssertionTargetjsonpath {
+		return &v
+	}).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
+}
+
+// The JSON path to assert.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutput() SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) ToSyntheticsTestApiStepAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elem() SyntheticsTestApiStepAssertionTargetjsonpathOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) SyntheticsTestApiStepAssertionTargetjsonpath {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepAssertionTargetjsonpath
+		return ret
+	}).(SyntheticsTestApiStepAssertionTargetjsonpathOutput)
+}
+
+// The JSON path to assert.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Jsonpath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetxpath struct {
+	// The specific operator to use on the path.
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue *string `pulumi:"targetvalue"`
+	// The xpath to assert.
+	Xpath string `pulumi:"xpath"`
+}
+
+// SyntheticsTestApiStepAssertionTargetxpathInput is an input type that accepts SyntheticsTestApiStepAssertionTargetxpathArgs and SyntheticsTestApiStepAssertionTargetxpathOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetxpathInput` via:
+//
+//	SyntheticsTestApiStepAssertionTargetxpathArgs{...}
+type SyntheticsTestApiStepAssertionTargetxpathInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetxpathOutput() SyntheticsTestApiStepAssertionTargetxpathOutput
+	ToSyntheticsTestApiStepAssertionTargetxpathOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetxpathOutput
+}
+
+type SyntheticsTestApiStepAssertionTargetxpathArgs struct {
+	// The specific operator to use on the path.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
+	// The xpath to assert.
+	Xpath pulumi.StringInput `pulumi:"xpath"`
+}
+
+func (SyntheticsTestApiStepAssertionTargetxpathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpath)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepAssertionTargetxpathArgs) ToSyntheticsTestApiStepAssertionTargetxpathOutput() SyntheticsTestApiStepAssertionTargetxpathOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetxpathOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetxpathArgs) ToSyntheticsTestApiStepAssertionTargetxpathOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetxpathOutput)
+}
+
+func (i SyntheticsTestApiStepAssertionTargetxpathArgs) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutput() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetxpathArgs) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetxpathOutput).ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepAssertionTargetxpathPtrInput is an input type that accepts SyntheticsTestApiStepAssertionTargetxpathArgs, SyntheticsTestApiStepAssertionTargetxpathPtr and SyntheticsTestApiStepAssertionTargetxpathPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetxpathPtrInput` via:
+//
+//	        SyntheticsTestApiStepAssertionTargetxpathArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepAssertionTargetxpathPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetxpathPtrOutput() SyntheticsTestApiStepAssertionTargetxpathPtrOutput
+	ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetxpathPtrOutput
+}
+
+type syntheticsTestApiStepAssertionTargetxpathPtrType SyntheticsTestApiStepAssertionTargetxpathArgs
+
+func SyntheticsTestApiStepAssertionTargetxpathPtr(v *SyntheticsTestApiStepAssertionTargetxpathArgs) SyntheticsTestApiStepAssertionTargetxpathPtrInput {
+	return (*syntheticsTestApiStepAssertionTargetxpathPtrType)(v)
+}
+
+func (*syntheticsTestApiStepAssertionTargetxpathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetxpath)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepAssertionTargetxpathPtrType) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutput() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepAssertionTargetxpathPtrType) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetxpathPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetxpathOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetxpathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToSyntheticsTestApiStepAssertionTargetxpathOutput() SyntheticsTestApiStepAssertionTargetxpathOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToSyntheticsTestApiStepAssertionTargetxpathOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutput() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return o.ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepAssertionTargetxpath) *SyntheticsTestApiStepAssertionTargetxpath {
+		return &v
+	}).(SyntheticsTestApiStepAssertionTargetxpathPtrOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
+}
+
+// The xpath to assert.
+func (o SyntheticsTestApiStepAssertionTargetxpathOutput) Xpath() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetxpath) string { return v.Xpath }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetxpathPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetxpathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetxpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutput() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) ToSyntheticsTestApiStepAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Elem() SyntheticsTestApiStepAssertionTargetxpathOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) SyntheticsTestApiStepAssertionTargetxpath {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepAssertionTargetxpath
+		return ret
+	}).(SyntheticsTestApiStepAssertionTargetxpathOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The xpath to assert.
+func (o SyntheticsTestApiStepAssertionTargetxpathPtrOutput) Xpath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Xpath
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepExtractedValue struct {
+	// When type is `httpHeader`, name of the header to use to extract the value.
+	Field  *string                                   `pulumi:"field"`
+	Name   string                                    `pulumi:"name"`
+	Parser SyntheticsTestApiStepExtractedValueParser `pulumi:"parser"`
+	// Determines whether or not the extracted value will be obfuscated.
+	Secure *bool `pulumi:"secure"`
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestApiStepExtractedValueInput is an input type that accepts SyntheticsTestApiStepExtractedValueArgs and SyntheticsTestApiStepExtractedValueOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepExtractedValueInput` via:
+//
+//	SyntheticsTestApiStepExtractedValueArgs{...}
+type SyntheticsTestApiStepExtractedValueInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepExtractedValueOutput() SyntheticsTestApiStepExtractedValueOutput
+	ToSyntheticsTestApiStepExtractedValueOutputWithContext(context.Context) SyntheticsTestApiStepExtractedValueOutput
+}
+
+type SyntheticsTestApiStepExtractedValueArgs struct {
+	// When type is `httpHeader`, name of the header to use to extract the value.
+	Field  pulumi.StringPtrInput                          `pulumi:"field"`
+	Name   pulumi.StringInput                             `pulumi:"name"`
+	Parser SyntheticsTestApiStepExtractedValueParserInput `pulumi:"parser"`
+	// Determines whether or not the extracted value will be obfuscated.
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
+	// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestApiStepExtractedValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepExtractedValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepExtractedValueArgs) ToSyntheticsTestApiStepExtractedValueOutput() SyntheticsTestApiStepExtractedValueOutput {
+	return i.ToSyntheticsTestApiStepExtractedValueOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepExtractedValueArgs) ToSyntheticsTestApiStepExtractedValueOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepExtractedValueOutput)
+}
+
+// SyntheticsTestApiStepExtractedValueArrayInput is an input type that accepts SyntheticsTestApiStepExtractedValueArray and SyntheticsTestApiStepExtractedValueArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepExtractedValueArrayInput` via:
+//
+//	SyntheticsTestApiStepExtractedValueArray{ SyntheticsTestApiStepExtractedValueArgs{...} }
+type SyntheticsTestApiStepExtractedValueArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepExtractedValueArrayOutput() SyntheticsTestApiStepExtractedValueArrayOutput
+	ToSyntheticsTestApiStepExtractedValueArrayOutputWithContext(context.Context) SyntheticsTestApiStepExtractedValueArrayOutput
+}
+
+type SyntheticsTestApiStepExtractedValueArray []SyntheticsTestApiStepExtractedValueInput
+
+func (SyntheticsTestApiStepExtractedValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepExtractedValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepExtractedValueArray) ToSyntheticsTestApiStepExtractedValueArrayOutput() SyntheticsTestApiStepExtractedValueArrayOutput {
+	return i.ToSyntheticsTestApiStepExtractedValueArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepExtractedValueArray) ToSyntheticsTestApiStepExtractedValueArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepExtractedValueArrayOutput)
+}
+
+type SyntheticsTestApiStepExtractedValueOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepExtractedValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepExtractedValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepExtractedValueOutput) ToSyntheticsTestApiStepExtractedValueOutput() SyntheticsTestApiStepExtractedValueOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepExtractedValueOutput) ToSyntheticsTestApiStepExtractedValueOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueOutput {
+	return o
+}
+
+// When type is `httpHeader`, name of the header to use to extract the value.
+func (o SyntheticsTestApiStepExtractedValueOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestApiStepExtractedValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SyntheticsTestApiStepExtractedValueOutput) Parser() SyntheticsTestApiStepExtractedValueParserOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) SyntheticsTestApiStepExtractedValueParser { return v.Parser }).(SyntheticsTestApiStepExtractedValueParserOutput)
+}
+
+// Determines whether or not the extracted value will be obfuscated.
+func (o SyntheticsTestApiStepExtractedValueOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
+}
+
+// Property of the Synthetics Test Response to use for the variable. Valid values are `httpBody`, `httpHeader`, `localVariable`.
+func (o SyntheticsTestApiStepExtractedValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValue) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestApiStepExtractedValueArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepExtractedValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepExtractedValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepExtractedValueArrayOutput) ToSyntheticsTestApiStepExtractedValueArrayOutput() SyntheticsTestApiStepExtractedValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepExtractedValueArrayOutput) ToSyntheticsTestApiStepExtractedValueArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepExtractedValueArrayOutput) Index(i pulumi.IntInput) SyntheticsTestApiStepExtractedValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestApiStepExtractedValue {
+		return vs[0].([]SyntheticsTestApiStepExtractedValue)[vs[1].(int)]
+	}).(SyntheticsTestApiStepExtractedValueOutput)
+}
+
+type SyntheticsTestApiStepExtractedValueParser struct {
+	// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+	Type string `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value *string `pulumi:"value"`
+}
+
+// SyntheticsTestApiStepExtractedValueParserInput is an input type that accepts SyntheticsTestApiStepExtractedValueParserArgs and SyntheticsTestApiStepExtractedValueParserOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepExtractedValueParserInput` via:
+//
+//	SyntheticsTestApiStepExtractedValueParserArgs{...}
+type SyntheticsTestApiStepExtractedValueParserInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepExtractedValueParserOutput() SyntheticsTestApiStepExtractedValueParserOutput
+	ToSyntheticsTestApiStepExtractedValueParserOutputWithContext(context.Context) SyntheticsTestApiStepExtractedValueParserOutput
+}
+
+type SyntheticsTestApiStepExtractedValueParserArgs struct {
+	// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Regex or JSON path used for the parser. Not used with type `raw`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SyntheticsTestApiStepExtractedValueParserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepExtractedValueParser)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepExtractedValueParserArgs) ToSyntheticsTestApiStepExtractedValueParserOutput() SyntheticsTestApiStepExtractedValueParserOutput {
+	return i.ToSyntheticsTestApiStepExtractedValueParserOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepExtractedValueParserArgs) ToSyntheticsTestApiStepExtractedValueParserOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueParserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepExtractedValueParserOutput)
+}
+
+type SyntheticsTestApiStepExtractedValueParserOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepExtractedValueParserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepExtractedValueParser)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepExtractedValueParserOutput) ToSyntheticsTestApiStepExtractedValueParserOutput() SyntheticsTestApiStepExtractedValueParserOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepExtractedValueParserOutput) ToSyntheticsTestApiStepExtractedValueParserOutputWithContext(ctx context.Context) SyntheticsTestApiStepExtractedValueParserOutput {
+	return o
+}
+
+// Type of parser for a Synthetics global variable from a synthetics test. Valid values are `raw`, `jsonPath`, `regex`, `xPath`.
+func (o SyntheticsTestApiStepExtractedValueParserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValueParser) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Regex or JSON path used for the parser. Not used with type `raw`.
+func (o SyntheticsTestApiStepExtractedValueParserOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepExtractedValueParser) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestBasicauth struct {
+	// Access key for `SIGV4` authentication.
+	AccessKey *string `pulumi:"accessKey"`
+	// Access token url for `oauth-client` or `oauth-rop` authentication.
+	AccessTokenUrl *string `pulumi:"accessTokenUrl"`
+	// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Audience *string `pulumi:"audience"`
+	// Client ID for `oauth-client` or `oauth-rop` authentication.
+	ClientId *string `pulumi:"clientId"`
+	// Client secret for `oauth-client` or `oauth-rop` authentication.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Domain for `ntlm` authentication.
+	Domain *string `pulumi:"domain"`
+	// Password for authentication.
+	Password *string `pulumi:"password"`
+	// Region for `SIGV4` authentication.
+	Region *string `pulumi:"region"`
+	// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Resource *string `pulumi:"resource"`
+	// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Scope *string `pulumi:"scope"`
+	// Secret key for `SIGV4` authentication.
+	SecretKey *string `pulumi:"secretKey"`
+	// Service name for `SIGV4` authentication.
+	ServiceName *string `pulumi:"serviceName"`
+	// Session token for `SIGV4` authentication.
+	SessionToken *string `pulumi:"sessionToken"`
+	// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+	TokenApiAuthentication *string `pulumi:"tokenApiAuthentication"`
+	// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+	Type *string `pulumi:"type"`
+	// Username for authentication.
+	Username *string `pulumi:"username"`
+	// Workstation for `ntlm` authentication.
+	Workstation *string `pulumi:"workstation"`
+}
+
+// SyntheticsTestApiStepRequestBasicauthInput is an input type that accepts SyntheticsTestApiStepRequestBasicauthArgs and SyntheticsTestApiStepRequestBasicauthOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestBasicauthInput` via:
+//
+//	SyntheticsTestApiStepRequestBasicauthArgs{...}
+type SyntheticsTestApiStepRequestBasicauthInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestBasicauthOutput() SyntheticsTestApiStepRequestBasicauthOutput
+	ToSyntheticsTestApiStepRequestBasicauthOutputWithContext(context.Context) SyntheticsTestApiStepRequestBasicauthOutput
+}
+
+type SyntheticsTestApiStepRequestBasicauthArgs struct {
+	// Access key for `SIGV4` authentication.
+	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
+	// Access token url for `oauth-client` or `oauth-rop` authentication.
+	AccessTokenUrl pulumi.StringPtrInput `pulumi:"accessTokenUrl"`
+	// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Client ID for `oauth-client` or `oauth-rop` authentication.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Client secret for `oauth-client` or `oauth-rop` authentication.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Domain for `ntlm` authentication.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Password for authentication.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Region for `SIGV4` authentication.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Secret key for `SIGV4` authentication.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// Service name for `SIGV4` authentication.
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	// Session token for `SIGV4` authentication.
+	SessionToken pulumi.StringPtrInput `pulumi:"sessionToken"`
+	// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+	TokenApiAuthentication pulumi.StringPtrInput `pulumi:"tokenApiAuthentication"`
+	// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Username for authentication.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+	// Workstation for `ntlm` authentication.
+	Workstation pulumi.StringPtrInput `pulumi:"workstation"`
+}
+
+func (SyntheticsTestApiStepRequestBasicauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestBasicauth)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestBasicauthArgs) ToSyntheticsTestApiStepRequestBasicauthOutput() SyntheticsTestApiStepRequestBasicauthOutput {
+	return i.ToSyntheticsTestApiStepRequestBasicauthOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestBasicauthArgs) ToSyntheticsTestApiStepRequestBasicauthOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestBasicauthOutput)
+}
+
+func (i SyntheticsTestApiStepRequestBasicauthArgs) ToSyntheticsTestApiStepRequestBasicauthPtrOutput() SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestBasicauthArgs) ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestBasicauthOutput).ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestBasicauthPtrInput is an input type that accepts SyntheticsTestApiStepRequestBasicauthArgs, SyntheticsTestApiStepRequestBasicauthPtr and SyntheticsTestApiStepRequestBasicauthPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestBasicauthPtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestBasicauthArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestBasicauthPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestBasicauthPtrOutput() SyntheticsTestApiStepRequestBasicauthPtrOutput
+	ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestBasicauthPtrOutput
+}
+
+type syntheticsTestApiStepRequestBasicauthPtrType SyntheticsTestApiStepRequestBasicauthArgs
+
+func SyntheticsTestApiStepRequestBasicauthPtr(v *SyntheticsTestApiStepRequestBasicauthArgs) SyntheticsTestApiStepRequestBasicauthPtrInput {
+	return (*syntheticsTestApiStepRequestBasicauthPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestBasicauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestBasicauth)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestBasicauthPtrType) ToSyntheticsTestApiStepRequestBasicauthPtrOutput() SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestBasicauthPtrType) ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestBasicauthPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestBasicauthOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestBasicauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestBasicauth)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ToSyntheticsTestApiStepRequestBasicauthOutput() SyntheticsTestApiStepRequestBasicauthOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ToSyntheticsTestApiStepRequestBasicauthOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ToSyntheticsTestApiStepRequestBasicauthPtrOutput() SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return o.ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestBasicauth) *SyntheticsTestApiStepRequestBasicauth {
+		return &v
+	}).(SyntheticsTestApiStepRequestBasicauthPtrOutput)
+}
+
+// Access key for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Access token url for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) AccessTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.AccessTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client secret for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Domain for `ntlm` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Password for authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Region for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Secret key for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// Service name for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+// Session token for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) SessionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.SessionToken }).(pulumi.StringPtrOutput)
+}
+
+// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) TokenApiAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.TokenApiAuthentication }).(pulumi.StringPtrOutput)
+}
+
+// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// Workstation for `ntlm` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthOutput) Workstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestBasicauth) *string { return v.Workstation }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestBasicauthPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestBasicauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestBasicauth)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) ToSyntheticsTestApiStepRequestBasicauthPtrOutput() SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) ToSyntheticsTestApiStepRequestBasicauthPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestBasicauthPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Elem() SyntheticsTestApiStepRequestBasicauthOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) SyntheticsTestApiStepRequestBasicauth {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestBasicauth
+		return ret
+	}).(SyntheticsTestApiStepRequestBasicauthOutput)
+}
+
+// Access key for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) AccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Access token url for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) AccessTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Audience for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client secret for `oauth-client` or `oauth-rop` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Domain for `ntlm` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password for authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Resource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scope for `oauth-client` or `oauth-rop` authentication. Defaults to `""`.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret key for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Service name for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session token for `SIGV4` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) SessionToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Token API Authentication for `oauth-client` or `oauth-rop` authentication. Valid values are `header`, `body`.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) TokenApiAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenApiAuthentication
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of basic authentication to use when performing the test. Defaults to `"web"`.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workstation for `ntlm` authentication.
+func (o SyntheticsTestApiStepRequestBasicauthPtrOutput) Workstation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestBasicauth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workstation
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificate struct {
+	Cert SyntheticsTestApiStepRequestClientCertificateCert `pulumi:"cert"`
+	Key  SyntheticsTestApiStepRequestClientCertificateKey  `pulumi:"key"`
+}
+
+// SyntheticsTestApiStepRequestClientCertificateInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateArgs and SyntheticsTestApiStepRequestClientCertificateOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificateInput` via:
+//
+//	SyntheticsTestApiStepRequestClientCertificateArgs{...}
+type SyntheticsTestApiStepRequestClientCertificateInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificateOutput() SyntheticsTestApiStepRequestClientCertificateOutput
+	ToSyntheticsTestApiStepRequestClientCertificateOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificateOutput
+}
+
+type SyntheticsTestApiStepRequestClientCertificateArgs struct {
+	Cert SyntheticsTestApiStepRequestClientCertificateCertInput `pulumi:"cert"`
+	Key  SyntheticsTestApiStepRequestClientCertificateKeyInput  `pulumi:"key"`
+}
+
+func (SyntheticsTestApiStepRequestClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificate)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateArgs) ToSyntheticsTestApiStepRequestClientCertificateOutput() SyntheticsTestApiStepRequestClientCertificateOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateArgs) ToSyntheticsTestApiStepRequestClientCertificateOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateOutput)
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateArgs) ToSyntheticsTestApiStepRequestClientCertificatePtrOutput() SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateArgs) ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateOutput).ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestClientCertificatePtrInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateArgs, SyntheticsTestApiStepRequestClientCertificatePtr and SyntheticsTestApiStepRequestClientCertificatePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificatePtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestClientCertificateArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestClientCertificatePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificatePtrOutput() SyntheticsTestApiStepRequestClientCertificatePtrOutput
+	ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificatePtrOutput
+}
+
+type syntheticsTestApiStepRequestClientCertificatePtrType SyntheticsTestApiStepRequestClientCertificateArgs
+
+func SyntheticsTestApiStepRequestClientCertificatePtr(v *SyntheticsTestApiStepRequestClientCertificateArgs) SyntheticsTestApiStepRequestClientCertificatePtrInput {
+	return (*syntheticsTestApiStepRequestClientCertificatePtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestClientCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificate)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificatePtrType) ToSyntheticsTestApiStepRequestClientCertificatePtrOutput() SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificatePtrType) ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificatePtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificate)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) ToSyntheticsTestApiStepRequestClientCertificateOutput() SyntheticsTestApiStepRequestClientCertificateOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) ToSyntheticsTestApiStepRequestClientCertificateOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) ToSyntheticsTestApiStepRequestClientCertificatePtrOutput() SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return o.ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestClientCertificate) *SyntheticsTestApiStepRequestClientCertificate {
+		return &v
+	}).(SyntheticsTestApiStepRequestClientCertificatePtrOutput)
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) Cert() SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificate) SyntheticsTestApiStepRequestClientCertificateCert {
+		return v.Cert
+	}).(SyntheticsTestApiStepRequestClientCertificateCertOutput)
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateOutput) Key() SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificate) SyntheticsTestApiStepRequestClientCertificateKey {
+		return v.Key
+	}).(SyntheticsTestApiStepRequestClientCertificateKeyOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificate)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) ToSyntheticsTestApiStepRequestClientCertificatePtrOutput() SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) ToSyntheticsTestApiStepRequestClientCertificatePtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificatePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Elem() SyntheticsTestApiStepRequestClientCertificateOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificate) SyntheticsTestApiStepRequestClientCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestClientCertificate
+		return ret
+	}).(SyntheticsTestApiStepRequestClientCertificateOutput)
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Cert() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificate) *SyntheticsTestApiStepRequestClientCertificateCert {
+		if v == nil {
+			return nil
+		}
+		return &v.Cert
+	}).(SyntheticsTestApiStepRequestClientCertificateCertPtrOutput)
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificatePtrOutput) Key() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificate) *SyntheticsTestApiStepRequestClientCertificateKey {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateCert struct {
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
+	Filename *string `pulumi:"filename"`
+}
+
+// SyntheticsTestApiStepRequestClientCertificateCertInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateCertArgs and SyntheticsTestApiStepRequestClientCertificateCertOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificateCertInput` via:
+//
+//	SyntheticsTestApiStepRequestClientCertificateCertArgs{...}
+type SyntheticsTestApiStepRequestClientCertificateCertInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificateCertOutput() SyntheticsTestApiStepRequestClientCertificateCertOutput
+	ToSyntheticsTestApiStepRequestClientCertificateCertOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificateCertOutput
+}
+
+type SyntheticsTestApiStepRequestClientCertificateCertArgs struct {
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SyntheticsTestApiStepRequestClientCertificateCertArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateCertArgs) ToSyntheticsTestApiStepRequestClientCertificateCertOutput() SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateCertOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateCertArgs) ToSyntheticsTestApiStepRequestClientCertificateCertOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateCertOutput)
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateCertArgs) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutput() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateCertArgs) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateCertOutput).ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestClientCertificateCertPtrInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateCertArgs, SyntheticsTestApiStepRequestClientCertificateCertPtr and SyntheticsTestApiStepRequestClientCertificateCertPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificateCertPtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestClientCertificateCertArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestClientCertificateCertPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutput() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput
+	ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificateCertPtrOutput
+}
+
+type syntheticsTestApiStepRequestClientCertificateCertPtrType SyntheticsTestApiStepRequestClientCertificateCertArgs
+
+func SyntheticsTestApiStepRequestClientCertificateCertPtr(v *SyntheticsTestApiStepRequestClientCertificateCertArgs) SyntheticsTestApiStepRequestClientCertificateCertPtrInput {
+	return (*syntheticsTestApiStepRequestClientCertificateCertPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestClientCertificateCertPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificateCertPtrType) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutput() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificateCertPtrType) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateCertPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateCertOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificateCertOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToSyntheticsTestApiStepRequestClientCertificateCertOutput() SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToSyntheticsTestApiStepRequestClientCertificateCertOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutput() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return o.ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestClientCertificateCert) *SyntheticsTestApiStepRequestClientCertificateCert {
+		return &v
+	}).(SyntheticsTestApiStepRequestClientCertificateCertPtrOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// File name for the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateCertOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateCert) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateCertPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificateCert)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutput() SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) ToSyntheticsTestApiStepRequestClientCertificateCertPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateCertPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Elem() SyntheticsTestApiStepRequestClientCertificateCertOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) SyntheticsTestApiStepRequestClientCertificateCert {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestClientCertificateCert
+		return ret
+	}).(SyntheticsTestApiStepRequestClientCertificateCertOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateCertPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateCert) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateKey struct {
+	// Content of the certificate.
+	Content string `pulumi:"content"`
+	// File name for the certificate.
+	Filename *string `pulumi:"filename"`
+}
+
+// SyntheticsTestApiStepRequestClientCertificateKeyInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateKeyArgs and SyntheticsTestApiStepRequestClientCertificateKeyOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificateKeyInput` via:
+//
+//	SyntheticsTestApiStepRequestClientCertificateKeyArgs{...}
+type SyntheticsTestApiStepRequestClientCertificateKeyInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificateKeyOutput() SyntheticsTestApiStepRequestClientCertificateKeyOutput
+	ToSyntheticsTestApiStepRequestClientCertificateKeyOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificateKeyOutput
+}
+
+type SyntheticsTestApiStepRequestClientCertificateKeyArgs struct {
+	// Content of the certificate.
+	Content pulumi.StringInput `pulumi:"content"`
+	// File name for the certificate.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SyntheticsTestApiStepRequestClientCertificateKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateKeyArgs) ToSyntheticsTestApiStepRequestClientCertificateKeyOutput() SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateKeyOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateKeyArgs) ToSyntheticsTestApiStepRequestClientCertificateKeyOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateKeyOutput)
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateKeyArgs) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutput() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestClientCertificateKeyArgs) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateKeyOutput).ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestClientCertificateKeyPtrInput is an input type that accepts SyntheticsTestApiStepRequestClientCertificateKeyArgs, SyntheticsTestApiStepRequestClientCertificateKeyPtr and SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestClientCertificateKeyPtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestClientCertificateKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestClientCertificateKeyPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutput() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput
+	ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput
+}
+
+type syntheticsTestApiStepRequestClientCertificateKeyPtrType SyntheticsTestApiStepRequestClientCertificateKeyArgs
+
+func SyntheticsTestApiStepRequestClientCertificateKeyPtr(v *SyntheticsTestApiStepRequestClientCertificateKeyArgs) SyntheticsTestApiStepRequestClientCertificateKeyPtrInput {
+	return (*syntheticsTestApiStepRequestClientCertificateKeyPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestClientCertificateKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificateKeyPtrType) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutput() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestClientCertificateKeyPtrType) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateKeyOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificateKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyOutput() SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutput() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return o.ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestClientCertificateKey) *SyntheticsTestApiStepRequestClientCertificateKey {
+		return &v
+	}).(SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// File name for the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateKeyOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestClientCertificateKey) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestClientCertificateKey)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutput() SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) ToSyntheticsTestApiStepRequestClientCertificateKeyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Elem() SyntheticsTestApiStepRequestClientCertificateKeyOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) SyntheticsTestApiStepRequestClientCertificateKey {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestClientCertificateKey
+		return ret
+	}).(SyntheticsTestApiStepRequestClientCertificateKeyOutput)
+}
+
+// Content of the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for the certificate.
+func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestClientCertificateKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestDefinition struct {
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	AllowInsecure *bool `pulumi:"allowInsecure"`
+	// The request body.
+	Body *string `pulumi:"body"`
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+	BodyType *string `pulumi:"bodyType"`
+	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+	CallType *string `pulumi:"callType"`
+	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+	CertificateDomains []string `pulumi:"certificateDomains"`
+	// DNS server to use for DNS tests (`subtype = "dns"`).
+	DnsServer *string `pulumi:"dnsServer"`
+	// DNS server port to use for DNS tests.
+	DnsServerPort *int `pulumi:"dnsServerPort"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects *bool `pulumi:"followRedirects"`
+	// Host name to perform the test with.
+	Host *string `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion *string `pulumi:"httpVersion"`
+	// For UDP and websocket tests, message to send with the request.
+	Message *string `pulumi:"message"`
+	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+	Method *string `pulumi:"method"`
+	// Determines whether or not to save the response body.
+	NoSavingResponseBody *bool `pulumi:"noSavingResponseBody"`
+	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+	NumberOfPackets *int `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies *bool `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile *string `pulumi:"plainProtoFile"`
+	// Port to use when performing the test.
+	Port *int `pulumi:"port"`
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plainProtoFile` instead.
+	ProtoJsonDescriptor *string `pulumi:"protoJsonDescriptor"`
+	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+	Servername *string `pulumi:"servername"`
+	// The gRPC service on which you want to perform the gRPC call.
+	Service *string `pulumi:"service"`
+	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+	ShouldTrackHops *bool `pulumi:"shouldTrackHops"`
+	// Timeout in seconds for the test. Defaults to `60`.
+	Timeout *int `pulumi:"timeout"`
+	// The URL to send the request to.
+	Url *string `pulumi:"url"`
+}
+
+// SyntheticsTestApiStepRequestDefinitionInput is an input type that accepts SyntheticsTestApiStepRequestDefinitionArgs and SyntheticsTestApiStepRequestDefinitionOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestDefinitionInput` via:
+//
+//	SyntheticsTestApiStepRequestDefinitionArgs{...}
+type SyntheticsTestApiStepRequestDefinitionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestDefinitionOutput() SyntheticsTestApiStepRequestDefinitionOutput
+	ToSyntheticsTestApiStepRequestDefinitionOutputWithContext(context.Context) SyntheticsTestApiStepRequestDefinitionOutput
+}
+
+type SyntheticsTestApiStepRequestDefinitionArgs struct {
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
+	// The request body.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+	BodyType pulumi.StringPtrInput `pulumi:"bodyType"`
+	// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+	CallType pulumi.StringPtrInput `pulumi:"callType"`
+	// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+	CertificateDomains pulumi.StringArrayInput `pulumi:"certificateDomains"`
+	// DNS server to use for DNS tests (`subtype = "dns"`).
+	DnsServer pulumi.StringPtrInput `pulumi:"dnsServer"`
+	// DNS server port to use for DNS tests.
+	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// Host name to perform the test with.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// For UDP and websocket tests, message to send with the request.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// Determines whether or not to save the response body.
+	NoSavingResponseBody pulumi.BoolPtrInput `pulumi:"noSavingResponseBody"`
+	// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+	NumberOfPackets pulumi.IntPtrInput `pulumi:"numberOfPackets"`
+	// Persist cookies across redirects.
+	PersistCookies pulumi.BoolPtrInput `pulumi:"persistCookies"`
+	// The content of a proto file as a string.
+	PlainProtoFile pulumi.StringPtrInput `pulumi:"plainProtoFile"`
+	// Port to use when performing the test.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+	//
+	// Deprecated: Use `plainProtoFile` instead.
+	ProtoJsonDescriptor pulumi.StringPtrInput `pulumi:"protoJsonDescriptor"`
+	// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+	Servername pulumi.StringPtrInput `pulumi:"servername"`
+	// The gRPC service on which you want to perform the gRPC call.
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+	ShouldTrackHops pulumi.BoolPtrInput `pulumi:"shouldTrackHops"`
+	// Timeout in seconds for the test. Defaults to `60`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// The URL to send the request to.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (SyntheticsTestApiStepRequestDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestDefinition)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestDefinitionArgs) ToSyntheticsTestApiStepRequestDefinitionOutput() SyntheticsTestApiStepRequestDefinitionOutput {
+	return i.ToSyntheticsTestApiStepRequestDefinitionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestDefinitionArgs) ToSyntheticsTestApiStepRequestDefinitionOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestDefinitionOutput)
+}
+
+func (i SyntheticsTestApiStepRequestDefinitionArgs) ToSyntheticsTestApiStepRequestDefinitionPtrOutput() SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestDefinitionArgs) ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestDefinitionOutput).ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestDefinitionPtrInput is an input type that accepts SyntheticsTestApiStepRequestDefinitionArgs, SyntheticsTestApiStepRequestDefinitionPtr and SyntheticsTestApiStepRequestDefinitionPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestDefinitionPtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestDefinitionPtrOutput() SyntheticsTestApiStepRequestDefinitionPtrOutput
+	ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestDefinitionPtrOutput
+}
+
+type syntheticsTestApiStepRequestDefinitionPtrType SyntheticsTestApiStepRequestDefinitionArgs
+
+func SyntheticsTestApiStepRequestDefinitionPtr(v *SyntheticsTestApiStepRequestDefinitionArgs) SyntheticsTestApiStepRequestDefinitionPtrInput {
+	return (*syntheticsTestApiStepRequestDefinitionPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestDefinition)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestDefinitionPtrType) ToSyntheticsTestApiStepRequestDefinitionPtrOutput() SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestDefinitionPtrType) ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestDefinitionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestDefinition)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepRequestDefinitionOutput() SyntheticsTestApiStepRequestDefinitionOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepRequestDefinitionOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepRequestDefinitionPtrOutput() SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return o.ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestDefinition) *SyntheticsTestApiStepRequestDefinition {
+		return &v
+	}).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
+}
+
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
+}
+
+// The request body.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) BodyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.BodyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) CallType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.CallType }).(pulumi.StringPtrOutput)
+}
+
+// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) CertificateDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) []string { return v.CertificateDomains }).(pulumi.StringArrayOutput)
+}
+
+// DNS server to use for DNS tests (`subtype = "dns"`).
+func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.DnsServer }).(pulumi.StringPtrOutput)
+}
+
+// DNS server port to use for DNS tests.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) DnsServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.DnsServerPort }).(pulumi.IntPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// Host name to perform the test with.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// For UDP and websocket tests, message to send with the request.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not to save the response body.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) NoSavingResponseBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.NoSavingResponseBody }).(pulumi.BoolPtrOutput)
+}
+
+// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) NumberOfPackets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.NumberOfPackets }).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.PersistCookies }).(pulumi.BoolPtrOutput)
+}
+
+// The content of a proto file as a string.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.PlainProtoFile }).(pulumi.StringPtrOutput)
+}
+
+// Port to use when performing the test.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plainProtoFile` instead.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.ProtoJsonDescriptor }).(pulumi.StringPtrOutput)
+}
+
+// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Servername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Servername }).(pulumi.StringPtrOutput)
+}
+
+// The gRPC service on which you want to perform the gRPC call.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+func (o SyntheticsTestApiStepRequestDefinitionOutput) ShouldTrackHops() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.ShouldTrackHops }).(pulumi.BoolPtrOutput)
+}
+
+// Timeout in seconds for the test. Defaults to `60`.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The URL to send the request to.
+func (o SyntheticsTestApiStepRequestDefinitionOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestDefinition)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ToSyntheticsTestApiStepRequestDefinitionPtrOutput() SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ToSyntheticsTestApiStepRequestDefinitionPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestDefinitionPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Elem() SyntheticsTestApiStepRequestDefinitionOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) SyntheticsTestApiStepRequestDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestDefinition
+		return ret
+	}).(SyntheticsTestApiStepRequestDefinitionOutput)
+}
+
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowInsecure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The request body.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) BodyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BodyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CallType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CallType
+	}).(pulumi.StringPtrOutput)
+}
+
+// By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) CertificateDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateDomains
+	}).(pulumi.StringArrayOutput)
+}
+
+// DNS server to use for DNS tests (`subtype = "dns"`).
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// DNS server port to use for DNS tests.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) DnsServerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FollowRedirects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Host name to perform the test with.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// For UDP and websocket tests, message to send with the request.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not to save the response body.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) NoSavingResponseBody() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoSavingResponseBody
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) NumberOfPackets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfPackets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Persist cookies across redirects.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PersistCookies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistCookies
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The content of a proto file as a string.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) PlainProtoFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainProtoFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port to use when performing the test.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
+//
+// Deprecated: Use `plainProtoFile` instead.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ProtoJsonDescriptor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtoJsonDescriptor
+	}).(pulumi.StringPtrOutput)
+}
+
+// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Servername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Servername
+	}).(pulumi.StringPtrOutput)
+}
+
+// The gRPC service on which you want to perform the gRPC call.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ShouldTrackHops() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShouldTrackHops
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Timeout in seconds for the test. Defaults to `60`.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// The URL to send the request to.
+func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestProxy struct {
+	// Header name and value map.
+	Headers map[string]interface{} `pulumi:"headers"`
+	// URL of the proxy to perform the test.
+	Url string `pulumi:"url"`
+}
+
+// SyntheticsTestApiStepRequestProxyInput is an input type that accepts SyntheticsTestApiStepRequestProxyArgs and SyntheticsTestApiStepRequestProxyOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestProxyInput` via:
+//
+//	SyntheticsTestApiStepRequestProxyArgs{...}
+type SyntheticsTestApiStepRequestProxyInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestProxyOutput() SyntheticsTestApiStepRequestProxyOutput
+	ToSyntheticsTestApiStepRequestProxyOutputWithContext(context.Context) SyntheticsTestApiStepRequestProxyOutput
+}
+
+type SyntheticsTestApiStepRequestProxyArgs struct {
+	// Header name and value map.
+	Headers pulumi.MapInput `pulumi:"headers"`
+	// URL of the proxy to perform the test.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (SyntheticsTestApiStepRequestProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestProxy)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestProxyArgs) ToSyntheticsTestApiStepRequestProxyOutput() SyntheticsTestApiStepRequestProxyOutput {
+	return i.ToSyntheticsTestApiStepRequestProxyOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestProxyArgs) ToSyntheticsTestApiStepRequestProxyOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestProxyOutput)
+}
+
+func (i SyntheticsTestApiStepRequestProxyArgs) ToSyntheticsTestApiStepRequestProxyPtrOutput() SyntheticsTestApiStepRequestProxyPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestProxyArgs) ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestProxyOutput).ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRequestProxyPtrInput is an input type that accepts SyntheticsTestApiStepRequestProxyArgs, SyntheticsTestApiStepRequestProxyPtr and SyntheticsTestApiStepRequestProxyPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestProxyPtrInput` via:
+//
+//	        SyntheticsTestApiStepRequestProxyArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRequestProxyPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestProxyPtrOutput() SyntheticsTestApiStepRequestProxyPtrOutput
+	ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(context.Context) SyntheticsTestApiStepRequestProxyPtrOutput
+}
+
+type syntheticsTestApiStepRequestProxyPtrType SyntheticsTestApiStepRequestProxyArgs
+
+func SyntheticsTestApiStepRequestProxyPtr(v *SyntheticsTestApiStepRequestProxyArgs) SyntheticsTestApiStepRequestProxyPtrInput {
+	return (*syntheticsTestApiStepRequestProxyPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRequestProxyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestProxy)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRequestProxyPtrType) ToSyntheticsTestApiStepRequestProxyPtrOutput() SyntheticsTestApiStepRequestProxyPtrOutput {
+	return i.ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRequestProxyPtrType) ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestProxyPtrOutput)
+}
+
+type SyntheticsTestApiStepRequestProxyOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestProxy)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestProxyOutput) ToSyntheticsTestApiStepRequestProxyOutput() SyntheticsTestApiStepRequestProxyOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestProxyOutput) ToSyntheticsTestApiStepRequestProxyOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestProxyOutput) ToSyntheticsTestApiStepRequestProxyPtrOutput() SyntheticsTestApiStepRequestProxyPtrOutput {
+	return o.ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRequestProxyOutput) ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRequestProxy) *SyntheticsTestApiStepRequestProxy {
+		return &v
+	}).(SyntheticsTestApiStepRequestProxyPtrOutput)
+}
+
+// Header name and value map.
+func (o SyntheticsTestApiStepRequestProxyOutput) Headers() pulumi.MapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestProxy) map[string]interface{} { return v.Headers }).(pulumi.MapOutput)
+}
+
+// URL of the proxy to perform the test.
+func (o SyntheticsTestApiStepRequestProxyOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestProxy) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestApiStepRequestProxyPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestProxyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRequestProxy)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) ToSyntheticsTestApiStepRequestProxyPtrOutput() SyntheticsTestApiStepRequestProxyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) ToSyntheticsTestApiStepRequestProxyPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestProxyPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) Elem() SyntheticsTestApiStepRequestProxyOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestProxy) SyntheticsTestApiStepRequestProxy {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRequestProxy
+		return ret
+	}).(SyntheticsTestApiStepRequestProxyOutput)
+}
+
+// Header name and value map.
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) Headers() pulumi.MapOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestProxy) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.MapOutput)
+}
+
+// URL of the proxy to perform the test.
+func (o SyntheticsTestApiStepRequestProxyPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRequestProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	Count *int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	Interval *int `pulumi:"interval"`
+}
+
+// SyntheticsTestApiStepRetryInput is an input type that accepts SyntheticsTestApiStepRetryArgs and SyntheticsTestApiStepRetryOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRetryInput` via:
+//
+//	SyntheticsTestApiStepRetryArgs{...}
+type SyntheticsTestApiStepRetryInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRetryOutput() SyntheticsTestApiStepRetryOutput
+	ToSyntheticsTestApiStepRetryOutputWithContext(context.Context) SyntheticsTestApiStepRetryOutput
+}
+
+type SyntheticsTestApiStepRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (SyntheticsTestApiStepRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRetry)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRetryArgs) ToSyntheticsTestApiStepRetryOutput() SyntheticsTestApiStepRetryOutput {
+	return i.ToSyntheticsTestApiStepRetryOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRetryArgs) ToSyntheticsTestApiStepRetryOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRetryOutput)
+}
+
+func (i SyntheticsTestApiStepRetryArgs) ToSyntheticsTestApiStepRetryPtrOutput() SyntheticsTestApiStepRetryPtrOutput {
+	return i.ToSyntheticsTestApiStepRetryPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRetryArgs) ToSyntheticsTestApiStepRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRetryOutput).ToSyntheticsTestApiStepRetryPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepRetryPtrInput is an input type that accepts SyntheticsTestApiStepRetryArgs, SyntheticsTestApiStepRetryPtr and SyntheticsTestApiStepRetryPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRetryPtrInput` via:
+//
+//	        SyntheticsTestApiStepRetryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepRetryPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRetryPtrOutput() SyntheticsTestApiStepRetryPtrOutput
+	ToSyntheticsTestApiStepRetryPtrOutputWithContext(context.Context) SyntheticsTestApiStepRetryPtrOutput
+}
+
+type syntheticsTestApiStepRetryPtrType SyntheticsTestApiStepRetryArgs
+
+func SyntheticsTestApiStepRetryPtr(v *SyntheticsTestApiStepRetryArgs) SyntheticsTestApiStepRetryPtrInput {
+	return (*syntheticsTestApiStepRetryPtrType)(v)
+}
+
+func (*syntheticsTestApiStepRetryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRetry)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepRetryPtrType) ToSyntheticsTestApiStepRetryPtrOutput() SyntheticsTestApiStepRetryPtrOutput {
+	return i.ToSyntheticsTestApiStepRetryPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepRetryPtrType) ToSyntheticsTestApiStepRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRetryPtrOutput)
+}
+
+type SyntheticsTestApiStepRetryOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryOutput() SyntheticsTestApiStepRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryPtrOutput() SyntheticsTestApiStepRetryPtrOutput {
+	return o.ToSyntheticsTestApiStepRetryPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepRetryOutput) ToSyntheticsTestApiStepRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepRetry) *SyntheticsTestApiStepRetry {
+		return &v
+	}).(SyntheticsTestApiStepRetryPtrOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+func (o SyntheticsTestApiStepRetryOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+func (o SyntheticsTestApiStepRetryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestApiStepRetryPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRetryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepRetry)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRetryPtrOutput) ToSyntheticsTestApiStepRetryPtrOutput() SyntheticsTestApiStepRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRetryPtrOutput) ToSyntheticsTestApiStepRetryPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepRetryPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRetryPtrOutput) Elem() SyntheticsTestApiStepRetryOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) SyntheticsTestApiStepRetry {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepRetry
+		return ret
+	}).(SyntheticsTestApiStepRetryOutput)
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert. Defaults to `0`.
+func (o SyntheticsTestApiStepRetryPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds. Defaults to `300`.
+func (o SyntheticsTestApiStepRetryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepRetry) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestAssertion struct {
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator string `pulumi:"operator"`
+	// If assertion type is `header`, this is the header name.
+	Property *string `pulumi:"property"`
+	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	Target *string `pulumi:"target"`
+	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+	Targetjsonpath *SyntheticsTestAssertionTargetjsonpath `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+	Targetxpath *SyntheticsTestAssertionTargetxpath `pulumi:"targetxpath"`
+	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+	TimingsScope *string `pulumi:"timingsScope"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestAssertionInput is an input type that accepts SyntheticsTestAssertionArgs and SyntheticsTestAssertionOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionInput` via:
+//
+//	SyntheticsTestAssertionArgs{...}
+type SyntheticsTestAssertionInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionOutput() SyntheticsTestAssertionOutput
+	ToSyntheticsTestAssertionOutputWithContext(context.Context) SyntheticsTestAssertionOutput
+}
+
+type SyntheticsTestAssertionArgs struct {
+	// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// If assertion type is `header`, this is the header name.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+	Targetjsonpath SyntheticsTestAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+	Targetxpath SyntheticsTestAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
+	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestAssertionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertion)(nil)).Elem()
+}
+
+func (i SyntheticsTestAssertionArgs) ToSyntheticsTestAssertionOutput() SyntheticsTestAssertionOutput {
+	return i.ToSyntheticsTestAssertionOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionArgs) ToSyntheticsTestAssertionOutputWithContext(ctx context.Context) SyntheticsTestAssertionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionOutput)
+}
+
+// SyntheticsTestAssertionArrayInput is an input type that accepts SyntheticsTestAssertionArray and SyntheticsTestAssertionArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionArrayInput` via:
+//
+//	SyntheticsTestAssertionArray{ SyntheticsTestAssertionArgs{...} }
+type SyntheticsTestAssertionArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionArrayOutput() SyntheticsTestAssertionArrayOutput
+	ToSyntheticsTestAssertionArrayOutputWithContext(context.Context) SyntheticsTestAssertionArrayOutput
+}
+
+type SyntheticsTestAssertionArray []SyntheticsTestAssertionInput
+
+func (SyntheticsTestAssertionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestAssertion)(nil)).Elem()
+}
+
+func (i SyntheticsTestAssertionArray) ToSyntheticsTestAssertionArrayOutput() SyntheticsTestAssertionArrayOutput {
+	return i.ToSyntheticsTestAssertionArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionArray) ToSyntheticsTestAssertionArrayOutputWithContext(ctx context.Context) SyntheticsTestAssertionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionArrayOutput)
+}
+
+type SyntheticsTestAssertionOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertion)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionOutput) ToSyntheticsTestAssertionOutput() SyntheticsTestAssertionOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionOutput) ToSyntheticsTestAssertionOutputWithContext(ctx context.Context) SyntheticsTestAssertionOutput {
+	return o
+}
+
+// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+func (o SyntheticsTestAssertionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// If assertion type is `header`, this is the header name.
+func (o SyntheticsTestAssertionOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+func (o SyntheticsTestAssertionOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestAssertionOutput) Targetjsonpath() SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *SyntheticsTestAssertionTargetjsonpath { return v.Targetjsonpath }).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
+}
+
+// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestAssertionOutput) Targetxpath() SyntheticsTestAssertionTargetxpathPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *SyntheticsTestAssertionTargetxpath { return v.Targetxpath }).(SyntheticsTestAssertionTargetxpathPtrOutput)
+}
+
+// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
+func (o SyntheticsTestAssertionOutput) TimingsScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+func (o SyntheticsTestAssertionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestAssertionArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestAssertion)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionArrayOutput) ToSyntheticsTestAssertionArrayOutput() SyntheticsTestAssertionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionArrayOutput) ToSyntheticsTestAssertionArrayOutputWithContext(ctx context.Context) SyntheticsTestAssertionArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsTestAssertionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestAssertion {
+		return vs[0].([]SyntheticsTestAssertion)[vs[1].(int)]
+	}).(SyntheticsTestAssertionOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonpath struct {
+	// The JSON path to assert.
+	Jsonpath string `pulumi:"jsonpath"`
+	// The specific operator to use on the path.
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue *string `pulumi:"targetvalue"`
+}
+
+// SyntheticsTestAssertionTargetjsonpathInput is an input type that accepts SyntheticsTestAssertionTargetjsonpathArgs and SyntheticsTestAssertionTargetjsonpathOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetjsonpathInput` via:
+//
+//	SyntheticsTestAssertionTargetjsonpathArgs{...}
+type SyntheticsTestAssertionTargetjsonpathInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetjsonpathOutput() SyntheticsTestAssertionTargetjsonpathOutput
+	ToSyntheticsTestAssertionTargetjsonpathOutputWithContext(context.Context) SyntheticsTestAssertionTargetjsonpathOutput
+}
+
+type SyntheticsTestAssertionTargetjsonpathArgs struct {
+	// The JSON path to assert.
+	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
+	// The specific operator to use on the path.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
+}
+
+func (SyntheticsTestAssertionTargetjsonpathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (i SyntheticsTestAssertionTargetjsonpathArgs) ToSyntheticsTestAssertionTargetjsonpathOutput() SyntheticsTestAssertionTargetjsonpathOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonpathOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetjsonpathArgs) ToSyntheticsTestAssertionTargetjsonpathOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonpathOutput)
+}
+
+func (i SyntheticsTestAssertionTargetjsonpathArgs) ToSyntheticsTestAssertionTargetjsonpathPtrOutput() SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetjsonpathArgs) ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonpathOutput).ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestAssertionTargetjsonpathPtrInput is an input type that accepts SyntheticsTestAssertionTargetjsonpathArgs, SyntheticsTestAssertionTargetjsonpathPtr and SyntheticsTestAssertionTargetjsonpathPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetjsonpathPtrInput` via:
+//
+//	        SyntheticsTestAssertionTargetjsonpathArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestAssertionTargetjsonpathPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetjsonpathPtrOutput() SyntheticsTestAssertionTargetjsonpathPtrOutput
+	ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(context.Context) SyntheticsTestAssertionTargetjsonpathPtrOutput
+}
+
+type syntheticsTestAssertionTargetjsonpathPtrType SyntheticsTestAssertionTargetjsonpathArgs
+
+func SyntheticsTestAssertionTargetjsonpathPtr(v *SyntheticsTestAssertionTargetjsonpathArgs) SyntheticsTestAssertionTargetjsonpathPtrInput {
+	return (*syntheticsTestAssertionTargetjsonpathPtrType)(v)
+}
+
+func (*syntheticsTestAssertionTargetjsonpathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (i *syntheticsTestAssertionTargetjsonpathPtrType) ToSyntheticsTestAssertionTargetjsonpathPtrOutput() SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestAssertionTargetjsonpathPtrType) ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonpathOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetjsonpathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTargetjsonpathOutput() SyntheticsTestAssertionTargetjsonpathOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTargetjsonpathOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTargetjsonpathPtrOutput() SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return o.ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestAssertionTargetjsonpath) *SyntheticsTestAssertionTargetjsonpath {
+		return &v
+	}).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
+}
+
+// The JSON path to assert.
+func (o SyntheticsTestAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestAssertionTargetjsonpathOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestAssertionTargetjsonpathOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonpathPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetjsonpathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetjsonpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) ToSyntheticsTestAssertionTargetjsonpathPtrOutput() SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) ToSyntheticsTestAssertionTargetjsonpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elem() SyntheticsTestAssertionTargetjsonpathOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) SyntheticsTestAssertionTargetjsonpath {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestAssertionTargetjsonpath
+		return ret
+	}).(SyntheticsTestAssertionTargetjsonpathOutput)
+}
+
+// The JSON path to assert.
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Jsonpath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetxpath struct {
+	// The specific operator to use on the path.
+	Operator string `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue *string `pulumi:"targetvalue"`
+	// The xpath to assert.
+	Xpath string `pulumi:"xpath"`
+}
+
+// SyntheticsTestAssertionTargetxpathInput is an input type that accepts SyntheticsTestAssertionTargetxpathArgs and SyntheticsTestAssertionTargetxpathOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetxpathInput` via:
+//
+//	SyntheticsTestAssertionTargetxpathArgs{...}
+type SyntheticsTestAssertionTargetxpathInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetxpathOutput() SyntheticsTestAssertionTargetxpathOutput
+	ToSyntheticsTestAssertionTargetxpathOutputWithContext(context.Context) SyntheticsTestAssertionTargetxpathOutput
+}
+
+type SyntheticsTestAssertionTargetxpathArgs struct {
+	// The specific operator to use on the path.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Expected matching value.
+	Targetvalue pulumi.StringPtrInput `pulumi:"targetvalue"`
+	// The xpath to assert.
+	Xpath pulumi.StringInput `pulumi:"xpath"`
+}
+
+func (SyntheticsTestAssertionTargetxpathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetxpath)(nil)).Elem()
+}
+
+func (i SyntheticsTestAssertionTargetxpathArgs) ToSyntheticsTestAssertionTargetxpathOutput() SyntheticsTestAssertionTargetxpathOutput {
+	return i.ToSyntheticsTestAssertionTargetxpathOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetxpathArgs) ToSyntheticsTestAssertionTargetxpathOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetxpathOutput)
+}
+
+func (i SyntheticsTestAssertionTargetxpathArgs) ToSyntheticsTestAssertionTargetxpathPtrOutput() SyntheticsTestAssertionTargetxpathPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetxpathArgs) ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetxpathOutput).ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestAssertionTargetxpathPtrInput is an input type that accepts SyntheticsTestAssertionTargetxpathArgs, SyntheticsTestAssertionTargetxpathPtr and SyntheticsTestAssertionTargetxpathPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetxpathPtrInput` via:
+//
+//	        SyntheticsTestAssertionTargetxpathArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestAssertionTargetxpathPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetxpathPtrOutput() SyntheticsTestAssertionTargetxpathPtrOutput
+	ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(context.Context) SyntheticsTestAssertionTargetxpathPtrOutput
+}
+
+type syntheticsTestAssertionTargetxpathPtrType SyntheticsTestAssertionTargetxpathArgs
+
+func SyntheticsTestAssertionTargetxpathPtr(v *SyntheticsTestAssertionTargetxpathArgs) SyntheticsTestAssertionTargetxpathPtrInput {
+	return (*syntheticsTestAssertionTargetxpathPtrType)(v)
+}
+
+func (*syntheticsTestAssertionTargetxpathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetxpath)(nil)).Elem()
+}
+
+func (i *syntheticsTestAssertionTargetxpathPtrType) ToSyntheticsTestAssertionTargetxpathPtrOutput() SyntheticsTestAssertionTargetxpathPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestAssertionTargetxpathPtrType) ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetxpathPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetxpathOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetxpathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetxpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetxpathOutput) ToSyntheticsTestAssertionTargetxpathOutput() SyntheticsTestAssertionTargetxpathOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetxpathOutput) ToSyntheticsTestAssertionTargetxpathOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetxpathOutput) ToSyntheticsTestAssertionTargetxpathPtrOutput() SyntheticsTestAssertionTargetxpathPtrOutput {
+	return o.ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestAssertionTargetxpathOutput) ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestAssertionTargetxpath) *SyntheticsTestAssertionTargetxpath {
+		return &v
+	}).(SyntheticsTestAssertionTargetxpathPtrOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestAssertionTargetxpathOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestAssertionTargetxpathOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) *string { return v.Targetvalue }).(pulumi.StringPtrOutput)
+}
+
+// The xpath to assert.
+func (o SyntheticsTestAssertionTargetxpathOutput) Xpath() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetxpath) string { return v.Xpath }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestAssertionTargetxpathPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetxpathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetxpath)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) ToSyntheticsTestAssertionTargetxpathPtrOutput() SyntheticsTestAssertionTargetxpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) ToSyntheticsTestAssertionTargetxpathPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetxpathPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) Elem() SyntheticsTestAssertionTargetxpathOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) SyntheticsTestAssertionTargetxpath {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestAssertionTargetxpath
+		return ret
+	}).(SyntheticsTestAssertionTargetxpathOutput)
+}
+
+// The specific operator to use on the path.
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Expected matching value.
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) Targetvalue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The xpath to assert.
+func (o SyntheticsTestAssertionTargetxpathPtrOutput) Xpath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetxpath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Xpath
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserStep struct {
+	// Determines if the step should be allowed to fail.
+	AllowFailure *bool `pulumi:"allowFailure"`
+	// Force update of the "element" parameter for the step
+	ForceElementUpdate *bool `pulumi:"forceElementUpdate"`
+	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+	IsCritical *bool `pulumi:"isCritical"`
+	// Name of the step.
+	Name string `pulumi:"name"`
+	// Prevents saving screenshots of the step.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestBrowserStepParams `pulumi:"params"`
+	// Used to override the default timeout of a step.
+	Timeout *int `pulumi:"timeout"`
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestBrowserStepInput is an input type that accepts SyntheticsTestBrowserStepArgs and SyntheticsTestBrowserStepOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepInput` via:
+//
+//	SyntheticsTestBrowserStepArgs{...}
+type SyntheticsTestBrowserStepInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepOutput() SyntheticsTestBrowserStepOutput
+	ToSyntheticsTestBrowserStepOutputWithContext(context.Context) SyntheticsTestBrowserStepOutput
+}
+
+type SyntheticsTestBrowserStepArgs struct {
+	// Determines if the step should be allowed to fail.
+	AllowFailure pulumi.BoolPtrInput `pulumi:"allowFailure"`
+	// Force update of the "element" parameter for the step
+	ForceElementUpdate pulumi.BoolPtrInput `pulumi:"forceElementUpdate"`
+	// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+	IsCritical pulumi.BoolPtrInput `pulumi:"isCritical"`
+	// Name of the step.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Prevents saving screenshots of the step.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// Parameters for the step.
+	Params SyntheticsTestBrowserStepParamsInput `pulumi:"params"`
+	// Used to override the default timeout of a step.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestBrowserStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepArgs) ToSyntheticsTestBrowserStepOutput() SyntheticsTestBrowserStepOutput {
+	return i.ToSyntheticsTestBrowserStepOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepArgs) ToSyntheticsTestBrowserStepOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepOutput)
+}
+
+// SyntheticsTestBrowserStepArrayInput is an input type that accepts SyntheticsTestBrowserStepArray and SyntheticsTestBrowserStepArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepArrayInput` via:
+//
+//	SyntheticsTestBrowserStepArray{ SyntheticsTestBrowserStepArgs{...} }
+type SyntheticsTestBrowserStepArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepArrayOutput() SyntheticsTestBrowserStepArrayOutput
+	ToSyntheticsTestBrowserStepArrayOutputWithContext(context.Context) SyntheticsTestBrowserStepArrayOutput
+}
+
+type SyntheticsTestBrowserStepArray []SyntheticsTestBrowserStepInput
+
+func (SyntheticsTestBrowserStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestBrowserStep)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepArray) ToSyntheticsTestBrowserStepArrayOutput() SyntheticsTestBrowserStepArrayOutput {
+	return i.ToSyntheticsTestBrowserStepArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepArray) ToSyntheticsTestBrowserStepArrayOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepArrayOutput)
+}
+
+type SyntheticsTestBrowserStepOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepOutput) ToSyntheticsTestBrowserStepOutput() SyntheticsTestBrowserStepOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepOutput) ToSyntheticsTestBrowserStepOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepOutput {
+	return o
+}
+
+// Determines if the step should be allowed to fail.
+func (o SyntheticsTestBrowserStepOutput) AllowFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.AllowFailure }).(pulumi.BoolPtrOutput)
+}
+
+// Force update of the "element" parameter for the step
+func (o SyntheticsTestBrowserStepOutput) ForceElementUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.ForceElementUpdate }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+func (o SyntheticsTestBrowserStepOutput) IsCritical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.IsCritical }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the step.
+func (o SyntheticsTestBrowserStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Prevents saving screenshots of the step.
+func (o SyntheticsTestBrowserStepOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// Parameters for the step.
+func (o SyntheticsTestBrowserStepOutput) Params() SyntheticsTestBrowserStepParamsOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) SyntheticsTestBrowserStepParams { return v.Params }).(SyntheticsTestBrowserStepParamsOutput)
+}
+
+// Used to override the default timeout of a step.
+func (o SyntheticsTestBrowserStepOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
+func (o SyntheticsTestBrowserStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStep) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestBrowserStepArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestBrowserStep)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepArrayOutput) ToSyntheticsTestBrowserStepArrayOutput() SyntheticsTestBrowserStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepArrayOutput) ToSyntheticsTestBrowserStepArrayOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepArrayOutput) Index(i pulumi.IntInput) SyntheticsTestBrowserStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestBrowserStep {
+		return vs[0].([]SyntheticsTestBrowserStep)[vs[1].(int)]
+	}).(SyntheticsTestBrowserStepOutput)
+}
+
+type SyntheticsTestBrowserStepParams struct {
+	// Name of the attribute to use for an "assert attribute" step.
+	Attribute *string `pulumi:"attribute"`
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check *string `pulumi:"check"`
+	// Type of click to use for a "click" step.
+	ClickType *string `pulumi:"clickType"`
+	// Javascript code to use for the step.
+	Code *string `pulumi:"code"`
+	// Delay between each key stroke for a "type test" step.
+	Delay *int `pulumi:"delay"`
+	// Element to use for the step, json encoded string.
+	Element *string `pulumi:"element"`
+	// Custom user selector to use for the step.
+	ElementUserLocator *SyntheticsTestBrowserStepParamsElementUserLocator `pulumi:"elementUserLocator"`
+	// Details of the email for an "assert email" step.
+	Email *string `pulumi:"email"`
+	// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
+	File *string `pulumi:"file"`
+	// Details of the files for an "upload files" step, json encoded string.
+	Files *string `pulumi:"files"`
+	// Modifier to use for a "press key" step.
+	Modifiers []string `pulumi:"modifiers"`
+	// ID of the tab to play the subtest.
+	PlayingTabId *string `pulumi:"playingTabId"`
+	// Request for an API step.
+	Request *string `pulumi:"request"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId *string `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value *string `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable *SyntheticsTestBrowserStepParamsVariable `pulumi:"variable"`
+	// For "file upload" steps.
+	WithClick *bool `pulumi:"withClick"`
+	// X coordinates for a "scroll step".
+	X *int `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y *int `pulumi:"y"`
+}
+
+// SyntheticsTestBrowserStepParamsInput is an input type that accepts SyntheticsTestBrowserStepParamsArgs and SyntheticsTestBrowserStepParamsOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsInput` via:
+//
+//	SyntheticsTestBrowserStepParamsArgs{...}
+type SyntheticsTestBrowserStepParamsInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsOutput() SyntheticsTestBrowserStepParamsOutput
+	ToSyntheticsTestBrowserStepParamsOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsOutput
+}
+
+type SyntheticsTestBrowserStepParamsArgs struct {
+	// Name of the attribute to use for an "assert attribute" step.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+	Check pulumi.StringPtrInput `pulumi:"check"`
+	// Type of click to use for a "click" step.
+	ClickType pulumi.StringPtrInput `pulumi:"clickType"`
+	// Javascript code to use for the step.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Delay between each key stroke for a "type test" step.
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
+	// Element to use for the step, json encoded string.
+	Element pulumi.StringPtrInput `pulumi:"element"`
+	// Custom user selector to use for the step.
+	ElementUserLocator SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput `pulumi:"elementUserLocator"`
+	// Details of the email for an "assert email" step.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// Details of the files for an "upload files" step, json encoded string.
+	Files pulumi.StringPtrInput `pulumi:"files"`
+	// Modifier to use for a "press key" step.
+	Modifiers pulumi.StringArrayInput `pulumi:"modifiers"`
+	// ID of the tab to play the subtest.
+	PlayingTabId pulumi.StringPtrInput `pulumi:"playingTabId"`
+	// Request for an API step.
+	Request pulumi.StringPtrInput `pulumi:"request"`
+	// ID of the Synthetics test to use as subtest.
+	SubtestPublicId pulumi.StringPtrInput `pulumi:"subtestPublicId"`
+	// Value of the step.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Details of the variable to extract.
+	Variable SyntheticsTestBrowserStepParamsVariablePtrInput `pulumi:"variable"`
+	// For "file upload" steps.
+	WithClick pulumi.BoolPtrInput `pulumi:"withClick"`
+	// X coordinates for a "scroll step".
+	X pulumi.IntPtrInput `pulumi:"x"`
+	// Y coordinates for a "scroll step".
+	Y pulumi.IntPtrInput `pulumi:"y"`
+}
+
+func (SyntheticsTestBrowserStepParamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParams)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepParamsArgs) ToSyntheticsTestBrowserStepParamsOutput() SyntheticsTestBrowserStepParamsOutput {
+	return i.ToSyntheticsTestBrowserStepParamsOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsArgs) ToSyntheticsTestBrowserStepParamsOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsOutput)
+}
+
+type SyntheticsTestBrowserStepParamsOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParams)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsOutput) ToSyntheticsTestBrowserStepParamsOutput() SyntheticsTestBrowserStepParamsOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsOutput) ToSyntheticsTestBrowserStepParamsOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsOutput {
+	return o
+}
+
+// Name of the attribute to use for an "assert attribute" step.
+func (o SyntheticsTestBrowserStepParamsOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Check type to use for an assertion step. Valid values are `equals`, `notEquals`, `contains`, `notContains`, `startsWith`, `notStartsWith`, `greater`, `lower`, `greaterEquals`, `lowerEquals`, `matchRegex`, `between`, `isEmpty`, `notIsEmpty`.
+func (o SyntheticsTestBrowserStepParamsOutput) Check() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Check }).(pulumi.StringPtrOutput)
+}
+
+// Type of click to use for a "click" step.
+func (o SyntheticsTestBrowserStepParamsOutput) ClickType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.ClickType }).(pulumi.StringPtrOutput)
+}
+
+// Javascript code to use for the step.
+func (o SyntheticsTestBrowserStepParamsOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Delay between each key stroke for a "type test" step.
+func (o SyntheticsTestBrowserStepParamsOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
+}
+
+// Element to use for the step, json encoded string.
+func (o SyntheticsTestBrowserStepParamsOutput) Element() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Element }).(pulumi.StringPtrOutput)
+}
+
+// Custom user selector to use for the step.
+func (o SyntheticsTestBrowserStepParamsOutput) ElementUserLocator() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *SyntheticsTestBrowserStepParamsElementUserLocator {
+		return v.ElementUserLocator
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput)
+}
+
+// Details of the email for an "assert email" step.
+func (o SyntheticsTestBrowserStepParamsOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
+func (o SyntheticsTestBrowserStepParamsOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// Details of the files for an "upload files" step, json encoded string.
+func (o SyntheticsTestBrowserStepParamsOutput) Files() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Files }).(pulumi.StringPtrOutput)
+}
+
+// Modifier to use for a "press key" step.
+func (o SyntheticsTestBrowserStepParamsOutput) Modifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) []string { return v.Modifiers }).(pulumi.StringArrayOutput)
+}
+
+// ID of the tab to play the subtest.
+func (o SyntheticsTestBrowserStepParamsOutput) PlayingTabId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.PlayingTabId }).(pulumi.StringPtrOutput)
+}
+
+// Request for an API step.
+func (o SyntheticsTestBrowserStepParamsOutput) Request() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Request }).(pulumi.StringPtrOutput)
+}
+
+// ID of the Synthetics test to use as subtest.
+func (o SyntheticsTestBrowserStepParamsOutput) SubtestPublicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.SubtestPublicId }).(pulumi.StringPtrOutput)
+}
+
+// Value of the step.
+func (o SyntheticsTestBrowserStepParamsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Details of the variable to extract.
+func (o SyntheticsTestBrowserStepParamsOutput) Variable() SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *SyntheticsTestBrowserStepParamsVariable { return v.Variable }).(SyntheticsTestBrowserStepParamsVariablePtrOutput)
+}
+
+// For "file upload" steps.
+func (o SyntheticsTestBrowserStepParamsOutput) WithClick() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *bool { return v.WithClick }).(pulumi.BoolPtrOutput)
+}
+
+// X coordinates for a "scroll step".
+func (o SyntheticsTestBrowserStepParamsOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.X }).(pulumi.IntPtrOutput)
+}
+
+// Y coordinates for a "scroll step".
+func (o SyntheticsTestBrowserStepParamsOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Y }).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocator struct {
+	// Defaults to `false`.
+	FailTestOnCannotLocate *bool                                                  `pulumi:"failTestOnCannotLocate"`
+	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValue `pulumi:"value"`
+}
+
+// SyntheticsTestBrowserStepParamsElementUserLocatorInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorArgs and SyntheticsTestBrowserStepParamsElementUserLocatorOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsElementUserLocatorInput` via:
+//
+//	SyntheticsTestBrowserStepParamsElementUserLocatorArgs{...}
+type SyntheticsTestBrowserStepParamsElementUserLocatorInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorOutput() SyntheticsTestBrowserStepParamsElementUserLocatorOutput
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorOutput
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorArgs struct {
+	// Defaults to `false`.
+	FailTestOnCannotLocate pulumi.BoolPtrInput                                         `pulumi:"failTestOnCannotLocate"`
+	Value                  SyntheticsTestBrowserStepParamsElementUserLocatorValueInput `pulumi:"value"`
+}
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorOutput() SyntheticsTestBrowserStepParamsElementUserLocatorOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorOutput)
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorOutput).ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorArgs, SyntheticsTestBrowserStepParamsElementUserLocatorPtr and SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput` via:
+//
+//	        SyntheticsTestBrowserStepParamsElementUserLocatorArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput
+}
+
+type syntheticsTestBrowserStepParamsElementUserLocatorPtrType SyntheticsTestBrowserStepParamsElementUserLocatorArgs
+
+func SyntheticsTestBrowserStepParamsElementUserLocatorPtr(v *SyntheticsTestBrowserStepParamsElementUserLocatorArgs) SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput {
+	return (*syntheticsTestBrowserStepParamsElementUserLocatorPtrType)(v)
+}
+
+func (*syntheticsTestBrowserStepParamsElementUserLocatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (i *syntheticsTestBrowserStepParamsElementUserLocatorPtrType) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestBrowserStepParamsElementUserLocatorPtrType) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorOutput() SyntheticsTestBrowserStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return o.ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestBrowserStepParamsElementUserLocator) *SyntheticsTestBrowserStepParamsElementUserLocator {
+		return &v
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput)
+}
+
+// Defaults to `false`.
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) *bool { return v.FailTestOnCannotLocate }).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocator) SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+		return v.Value
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsElementUserLocator)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorPtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Elem() SyntheticsTestBrowserStepParamsElementUserLocatorOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocator) SyntheticsTestBrowserStepParamsElementUserLocator {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestBrowserStepParamsElementUserLocator
+		return ret
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorOutput)
+}
+
+// Defaults to `false`.
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) FailTestOnCannotLocate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocator) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTestOnCannotLocate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput) Value() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocator) *SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorValue struct {
+	// Defaults to `"css"`.
+	Type  *string `pulumi:"type"`
+	Value string  `pulumi:"value"`
+}
+
+// SyntheticsTestBrowserStepParamsElementUserLocatorValueInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs and SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsElementUserLocatorValueInput` via:
+//
+//	SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{...}
+type SyntheticsTestBrowserStepParamsElementUserLocatorValueInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs struct {
+	// Defaults to `"css"`.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput)
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput).ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput is an input type that accepts SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs, SyntheticsTestBrowserStepParamsElementUserLocatorValuePtr and SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput` via:
+//
+//	        SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput
+	ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput
+}
+
+type syntheticsTestBrowserStepParamsElementUserLocatorValuePtrType SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs
+
+func SyntheticsTestBrowserStepParamsElementUserLocatorValuePtr(v *SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput {
+	return (*syntheticsTestBrowserStepParamsElementUserLocatorValuePtrType)(v)
+}
+
+func (*syntheticsTestBrowserStepParamsElementUserLocatorValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (i *syntheticsTestBrowserStepParamsElementUserLocatorValuePtrType) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestBrowserStepParamsElementUserLocatorValuePtrType) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValueOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return o.ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestBrowserStepParamsElementUserLocatorValue) *SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+		return &v
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput)
+}
+
+// Defaults to `"css"`.
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsElementUserLocatorValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsElementUserLocatorValue)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput() SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) ToSyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Elem() SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) SyntheticsTestBrowserStepParamsElementUserLocatorValue {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestBrowserStepParamsElementUserLocatorValue
+		return ret
+	}).(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput)
+}
+
+// Defaults to `"css"`.
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsElementUserLocatorValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsVariable struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example *string `pulumi:"example"`
+	// Name of the extracted variable.
+	Name *string `pulumi:"name"`
+}
+
+// SyntheticsTestBrowserStepParamsVariableInput is an input type that accepts SyntheticsTestBrowserStepParamsVariableArgs and SyntheticsTestBrowserStepParamsVariableOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsVariableInput` via:
+//
+//	SyntheticsTestBrowserStepParamsVariableArgs{...}
+type SyntheticsTestBrowserStepParamsVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsVariableOutput() SyntheticsTestBrowserStepParamsVariableOutput
+	ToSyntheticsTestBrowserStepParamsVariableOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsVariableOutput
+}
+
+type SyntheticsTestBrowserStepParamsVariableArgs struct {
+	// Example of the extracted variable. Defaults to `""`.
+	Example pulumi.StringPtrInput `pulumi:"example"`
+	// Name of the extracted variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SyntheticsTestBrowserStepParamsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserStepParamsVariableArgs) ToSyntheticsTestBrowserStepParamsVariableOutput() SyntheticsTestBrowserStepParamsVariableOutput {
+	return i.ToSyntheticsTestBrowserStepParamsVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsVariableArgs) ToSyntheticsTestBrowserStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsVariableOutput)
+}
+
+func (i SyntheticsTestBrowserStepParamsVariableArgs) ToSyntheticsTestBrowserStepParamsVariablePtrOutput() SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserStepParamsVariableArgs) ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsVariableOutput).ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestBrowserStepParamsVariablePtrInput is an input type that accepts SyntheticsTestBrowserStepParamsVariableArgs, SyntheticsTestBrowserStepParamsVariablePtr and SyntheticsTestBrowserStepParamsVariablePtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserStepParamsVariablePtrInput` via:
+//
+//	        SyntheticsTestBrowserStepParamsVariableArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestBrowserStepParamsVariablePtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserStepParamsVariablePtrOutput() SyntheticsTestBrowserStepParamsVariablePtrOutput
+	ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(context.Context) SyntheticsTestBrowserStepParamsVariablePtrOutput
+}
+
+type syntheticsTestBrowserStepParamsVariablePtrType SyntheticsTestBrowserStepParamsVariableArgs
+
+func SyntheticsTestBrowserStepParamsVariablePtr(v *SyntheticsTestBrowserStepParamsVariableArgs) SyntheticsTestBrowserStepParamsVariablePtrInput {
+	return (*syntheticsTestBrowserStepParamsVariablePtrType)(v)
+}
+
+func (*syntheticsTestBrowserStepParamsVariablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsVariable)(nil)).Elem()
+}
+
+func (i *syntheticsTestBrowserStepParamsVariablePtrType) ToSyntheticsTestBrowserStepParamsVariablePtrOutput() SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return i.ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestBrowserStepParamsVariablePtrType) ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserStepParamsVariablePtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsVariableOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsVariableOutput) ToSyntheticsTestBrowserStepParamsVariableOutput() SyntheticsTestBrowserStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsVariableOutput) ToSyntheticsTestBrowserStepParamsVariableOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsVariableOutput) ToSyntheticsTestBrowserStepParamsVariablePtrOutput() SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return o.ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestBrowserStepParamsVariableOutput) ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestBrowserStepParamsVariable) *SyntheticsTestBrowserStepParamsVariable {
+		return &v
+	}).(SyntheticsTestBrowserStepParamsVariablePtrOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestBrowserStepParamsVariableOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestBrowserStepParamsVariableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserStepParamsVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserStepParamsVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserStepParamsVariablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestBrowserStepParamsVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) ToSyntheticsTestBrowserStepParamsVariablePtrOutput() SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) ToSyntheticsTestBrowserStepParamsVariablePtrOutputWithContext(ctx context.Context) SyntheticsTestBrowserStepParamsVariablePtrOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Elem() SyntheticsTestBrowserStepParamsVariableOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) SyntheticsTestBrowserStepParamsVariable {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestBrowserStepParamsVariable
+		return ret
+	}).(SyntheticsTestBrowserStepParamsVariableOutput)
+}
+
+// Example of the extracted variable. Defaults to `""`.
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Example
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the extracted variable.
+func (o SyntheticsTestBrowserStepParamsVariablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestBrowserStepParamsVariable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestBrowserVariable struct {
+	// Example for the variable. Defaults to `""`.
+	Example *string `pulumi:"example"`
+	// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+	Id *string `pulumi:"id"`
+	// Name of the variable.
+	Name string `pulumi:"name"`
+	// Pattern of the variable. Defaults to `""`.
+	Pattern *string `pulumi:"pattern"`
+	// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+	Secure *bool `pulumi:"secure"`
+	// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestBrowserVariableInput is an input type that accepts SyntheticsTestBrowserVariableArgs and SyntheticsTestBrowserVariableOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserVariableInput` via:
+//
+//	SyntheticsTestBrowserVariableArgs{...}
+type SyntheticsTestBrowserVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserVariableOutput() SyntheticsTestBrowserVariableOutput
+	ToSyntheticsTestBrowserVariableOutputWithContext(context.Context) SyntheticsTestBrowserVariableOutput
+}
+
+type SyntheticsTestBrowserVariableArgs struct {
+	// Example for the variable. Defaults to `""`.
+	Example pulumi.StringPtrInput `pulumi:"example"`
+	// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Pattern of the variable. Defaults to `""`.
+	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
+	// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestBrowserVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserVariableArgs) ToSyntheticsTestBrowserVariableOutput() SyntheticsTestBrowserVariableOutput {
+	return i.ToSyntheticsTestBrowserVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserVariableArgs) ToSyntheticsTestBrowserVariableOutputWithContext(ctx context.Context) SyntheticsTestBrowserVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserVariableOutput)
+}
+
+// SyntheticsTestBrowserVariableArrayInput is an input type that accepts SyntheticsTestBrowserVariableArray and SyntheticsTestBrowserVariableArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestBrowserVariableArrayInput` via:
+//
+//	SyntheticsTestBrowserVariableArray{ SyntheticsTestBrowserVariableArgs{...} }
+type SyntheticsTestBrowserVariableArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestBrowserVariableArrayOutput() SyntheticsTestBrowserVariableArrayOutput
+	ToSyntheticsTestBrowserVariableArrayOutputWithContext(context.Context) SyntheticsTestBrowserVariableArrayOutput
+}
+
+type SyntheticsTestBrowserVariableArray []SyntheticsTestBrowserVariableInput
+
+func (SyntheticsTestBrowserVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestBrowserVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestBrowserVariableArray) ToSyntheticsTestBrowserVariableArrayOutput() SyntheticsTestBrowserVariableArrayOutput {
+	return i.ToSyntheticsTestBrowserVariableArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestBrowserVariableArray) ToSyntheticsTestBrowserVariableArrayOutputWithContext(ctx context.Context) SyntheticsTestBrowserVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestBrowserVariableArrayOutput)
+}
+
+type SyntheticsTestBrowserVariableOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestBrowserVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserVariableOutput) ToSyntheticsTestBrowserVariableOutput() SyntheticsTestBrowserVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserVariableOutput) ToSyntheticsTestBrowserVariableOutputWithContext(ctx context.Context) SyntheticsTestBrowserVariableOutput {
+	return o
+}
+
+// Example for the variable. Defaults to `""`.
+func (o SyntheticsTestBrowserVariableOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
+}
+
+// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
+func (o SyntheticsTestBrowserVariableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the variable.
+func (o SyntheticsTestBrowserVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Pattern of the variable. Defaults to `""`.
+func (o SyntheticsTestBrowserVariableOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether or not the browser test variable is obfuscated. Can only be used with a browser variable of type `text`
+func (o SyntheticsTestBrowserVariableOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
+}
+
+// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
+func (o SyntheticsTestBrowserVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestBrowserVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestBrowserVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestBrowserVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestBrowserVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestBrowserVariableArrayOutput) ToSyntheticsTestBrowserVariableArrayOutput() SyntheticsTestBrowserVariableArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserVariableArrayOutput) ToSyntheticsTestBrowserVariableArrayOutputWithContext(ctx context.Context) SyntheticsTestBrowserVariableArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestBrowserVariableArrayOutput) Index(i pulumi.IntInput) SyntheticsTestBrowserVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestBrowserVariable {
+		return vs[0].([]SyntheticsTestBrowserVariable)[vs[1].(int)]
+	}).(SyntheticsTestBrowserVariableOutput)
+}
+
+type SyntheticsTestConfigVariable struct {
+	Example *string `pulumi:"example"`
+	// When type = `global`, ID of the global variable to use.
+	Id *string `pulumi:"id"`
+	// Name of the variable.
+	Name    string  `pulumi:"name"`
+	Pattern *string `pulumi:"pattern"`
+	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+	Secure *bool `pulumi:"secure"`
+	// Type of test configuration variable. Valid values are `global`, `text`.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestConfigVariableInput is an input type that accepts SyntheticsTestConfigVariableArgs and SyntheticsTestConfigVariableOutput values.
+// You can construct a concrete instance of `SyntheticsTestConfigVariableInput` via:
+//
+//	SyntheticsTestConfigVariableArgs{...}
+type SyntheticsTestConfigVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestConfigVariableOutput() SyntheticsTestConfigVariableOutput
+	ToSyntheticsTestConfigVariableOutputWithContext(context.Context) SyntheticsTestConfigVariableOutput
+}
+
+type SyntheticsTestConfigVariableArgs struct {
+	Example pulumi.StringPtrInput `pulumi:"example"`
+	// When type = `global`, ID of the global variable to use.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the variable.
+	Name    pulumi.StringInput    `pulumi:"name"`
+	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
+	// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+	Secure pulumi.BoolPtrInput `pulumi:"secure"`
+	// Type of test configuration variable. Valid values are `global`, `text`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestConfigVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestConfigVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestConfigVariableArgs) ToSyntheticsTestConfigVariableOutput() SyntheticsTestConfigVariableOutput {
+	return i.ToSyntheticsTestConfigVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestConfigVariableArgs) ToSyntheticsTestConfigVariableOutputWithContext(ctx context.Context) SyntheticsTestConfigVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestConfigVariableOutput)
+}
+
+// SyntheticsTestConfigVariableArrayInput is an input type that accepts SyntheticsTestConfigVariableArray and SyntheticsTestConfigVariableArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestConfigVariableArrayInput` via:
+//
+//	SyntheticsTestConfigVariableArray{ SyntheticsTestConfigVariableArgs{...} }
+type SyntheticsTestConfigVariableArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestConfigVariableArrayOutput() SyntheticsTestConfigVariableArrayOutput
+	ToSyntheticsTestConfigVariableArrayOutputWithContext(context.Context) SyntheticsTestConfigVariableArrayOutput
+}
+
+type SyntheticsTestConfigVariableArray []SyntheticsTestConfigVariableInput
+
+func (SyntheticsTestConfigVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestConfigVariable)(nil)).Elem()
+}
+
+func (i SyntheticsTestConfigVariableArray) ToSyntheticsTestConfigVariableArrayOutput() SyntheticsTestConfigVariableArrayOutput {
+	return i.ToSyntheticsTestConfigVariableArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestConfigVariableArray) ToSyntheticsTestConfigVariableArrayOutputWithContext(ctx context.Context) SyntheticsTestConfigVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestConfigVariableArrayOutput)
+}
+
+type SyntheticsTestConfigVariableOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestConfigVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestConfigVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestConfigVariableOutput) ToSyntheticsTestConfigVariableOutput() SyntheticsTestConfigVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestConfigVariableOutput) ToSyntheticsTestConfigVariableOutputWithContext(ctx context.Context) SyntheticsTestConfigVariableOutput {
+	return o
+}
+
+func (o SyntheticsTestConfigVariableOutput) Example() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) *string { return v.Example }).(pulumi.StringPtrOutput)
+}
+
+// When type = `global`, ID of the global variable to use.
+func (o SyntheticsTestConfigVariableOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the variable.
+func (o SyntheticsTestConfigVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SyntheticsTestConfigVariableOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) *string { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Whether the value of this variable will be obfuscated in test results. Defaults to `false`.
+func (o SyntheticsTestConfigVariableOutput) Secure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
+}
+
+// Type of test configuration variable. Valid values are `global`, `text`.
+func (o SyntheticsTestConfigVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestConfigVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestConfigVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestConfigVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestConfigVariable)(nil)).Elem()
+}
+
+func (o SyntheticsTestConfigVariableArrayOutput) ToSyntheticsTestConfigVariableArrayOutput() SyntheticsTestConfigVariableArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestConfigVariableArrayOutput) ToSyntheticsTestConfigVariableArrayOutputWithContext(ctx context.Context) SyntheticsTestConfigVariableArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestConfigVariableArrayOutput) Index(i pulumi.IntInput) SyntheticsTestConfigVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestConfigVariable {
+		return vs[0].([]SyntheticsTestConfigVariable)[vs[1].(int)]
+	}).(SyntheticsTestConfigVariableOutput)
+}
+
+type SyntheticsTestOptionsList struct {
+	// For SSL test, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	AllowInsecure *bool `pulumi:"allowInsecure"`
+	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Ci *SyntheticsTestOptionsListCi `pulumi:"ci"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors *bool `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp *bool `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects *bool `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion *string `pulumi:"httpVersion"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout *int `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration *int `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+	MinLocationFailed *int `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     *string                                  `pulumi:"monitorName"`
+	MonitorOptions  *SyntheticsTestOptionsListMonitorOptions `pulumi:"monitorOptions"`
+	MonitorPriority *int                                     `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot *bool `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles []string                        `pulumi:"restrictedRoles"`
+	Retry           *SyntheticsTestOptionsListRetry `pulumi:"retry"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings *SyntheticsTestOptionsListRumSettings `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling *SyntheticsTestOptionsListScheduling `pulumi:"scheduling"`
+	// How often the test should run (in seconds).
+	TickEvery int `pulumi:"tickEvery"`
+}
+
+// SyntheticsTestOptionsListInput is an input type that accepts SyntheticsTestOptionsListArgs and SyntheticsTestOptionsListOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListInput` via:
+//
+//	SyntheticsTestOptionsListArgs{...}
+type SyntheticsTestOptionsListInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput
+	ToSyntheticsTestOptionsListOutputWithContext(context.Context) SyntheticsTestOptionsListOutput
+}
+
+type SyntheticsTestOptionsListArgs struct {
+	// For SSL test, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
+	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Ci SyntheticsTestOptionsListCiPtrInput `pulumi:"ci"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors pulumi.BoolPtrInput `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp pulumi.BoolPtrInput `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout pulumi.IntPtrInput `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+	MinFailureDuration pulumi.IntPtrInput `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+	MinLocationFailed pulumi.IntPtrInput `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName     pulumi.StringPtrInput                           `pulumi:"monitorName"`
+	MonitorOptions  SyntheticsTestOptionsListMonitorOptionsPtrInput `pulumi:"monitorOptions"`
+	MonitorPriority pulumi.IntPtrInput                              `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot pulumi.BoolPtrInput `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access.
+	RestrictedRoles pulumi.StringArrayInput                `pulumi:"restrictedRoles"`
+	Retry           SyntheticsTestOptionsListRetryPtrInput `pulumi:"retry"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings SyntheticsTestOptionsListRumSettingsPtrInput `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Scheduling SyntheticsTestOptionsListSchedulingPtrInput `pulumi:"scheduling"`
+	// How often the test should run (in seconds).
+	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
+}
+
+func (SyntheticsTestOptionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput {
+	return i.ToSyntheticsTestOptionsListOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListOutputWithContext(ctx context.Context) SyntheticsTestOptionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListOutput)
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return i.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListArgs) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListOutput).ToSyntheticsTestOptionsListPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListPtrInput is an input type that accepts SyntheticsTestOptionsListArgs, SyntheticsTestOptionsListPtr and SyntheticsTestOptionsListPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListPtrInput` via:
+//
+//	        SyntheticsTestOptionsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput
+	ToSyntheticsTestOptionsListPtrOutputWithContext(context.Context) SyntheticsTestOptionsListPtrOutput
+}
+
+type syntheticsTestOptionsListPtrType SyntheticsTestOptionsListArgs
+
+func SyntheticsTestOptionsListPtr(v *SyntheticsTestOptionsListArgs) SyntheticsTestOptionsListPtrInput {
+	return (*syntheticsTestOptionsListPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListPtrType) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return i.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListPtrType) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListPtrOutput)
+}
+
+type SyntheticsTestOptionsListOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListOutput() SyntheticsTestOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListOutputWithContext(ctx context.Context) SyntheticsTestOptionsListOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return o.ToSyntheticsTestOptionsListPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListOutput) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsList) *SyntheticsTestOptionsList {
+		return &v
+	}).(SyntheticsTestOptionsListPtrOutput)
+}
+
+// For SSL test, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
+}
+
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+func (o SyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
+}
+
+// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.CheckCertificateRevocation }).(pulumi.BoolPtrOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestOptionsListOutput) Ci() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListCi { return v.Ci }).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// Disable Cross-Origin Resource Sharing for browser tests.
+func (o SyntheticsTestOptionsListOutput) DisableCors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableCors }).(pulumi.BoolPtrOutput)
+}
+
+// Disable Content Security Policy for browser tests.
+func (o SyntheticsTestOptionsListOutput) DisableCsp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.DisableCsp }).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+// Ignore server certificate error for browser tests.
+func (o SyntheticsTestOptionsListOutput) IgnoreServerCertificateError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.IgnoreServerCertificateError }).(pulumi.BoolPtrOutput)
+}
+
+// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+func (o SyntheticsTestOptionsListOutput) InitialNavigationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.InitialNavigationTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestOptionsListOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MinFailureDuration }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+func (o SyntheticsTestOptionsListOutput) MinLocationFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MinLocationFailed }).(pulumi.IntPtrOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestOptionsListOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.MonitorName }).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) MonitorOptions() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListMonitorOptions { return v.MonitorOptions }).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *int { return v.MonitorPriority }).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestOptionsListOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.NoScreenshot }).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsTestOptionsListOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListOutput) Retry() SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListRetry { return v.Retry }).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+// The RUM data collection settings for the Synthetic browser test.
+func (o SyntheticsTestOptionsListOutput) RumSettings() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListRumSettings { return v.RumSettings }).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling { return v.Scheduling }).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds).
+func (o SyntheticsTestOptionsListOutput) TickEvery() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
+}
+
+type SyntheticsTestOptionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) ToSyntheticsTestOptionsListPtrOutput() SyntheticsTestOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) ToSyntheticsTestOptionsListPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) Elem() SyntheticsTestOptionsListOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) SyntheticsTestOptionsList {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsList
+		return ret
+	}).(SyntheticsTestOptionsListOutput)
+}
+
+// For SSL test, whether or not the test should allow self signed certificates.
+func (o SyntheticsTestOptionsListPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptSelfSigned
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+func (o SyntheticsTestOptionsListPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowInsecure
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o SyntheticsTestOptionsListPtrOutput) CheckCertificateRevocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CheckCertificateRevocation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o SyntheticsTestOptionsListPtrOutput) Ci() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListCi {
+		if v == nil {
+			return nil
+		}
+		return v.Ci
+	}).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// Disable Cross-Origin Resource Sharing for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) DisableCors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableCors
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Disable Content Security Policy for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) DisableCsp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableCsp
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o SyntheticsTestOptionsListPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FollowRedirects
+	}).(pulumi.BoolPtrOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+func (o SyntheticsTestOptionsListPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ignore server certificate error for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) IgnoreServerCertificateError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreServerCertificateError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+func (o SyntheticsTestOptionsListPtrOutput) InitialNavigationTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialNavigationTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
+func (o SyntheticsTestOptionsListPtrOutput) MinFailureDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinFailureDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of locations in failure required to trigger an alert. Defaults to `1`.
+func (o SyntheticsTestOptionsListPtrOutput) MinLocationFailed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinLocationFailed
+	}).(pulumi.IntPtrOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o SyntheticsTestOptionsListPtrOutput) MonitorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) MonitorOptions() SyntheticsTestOptionsListMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListMonitorOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorOptions
+	}).(SyntheticsTestOptionsListMonitorOptionsPtrOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) MonitorPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorPriority
+	}).(pulumi.IntPtrOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o SyntheticsTestOptionsListPtrOutput) NoScreenshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoScreenshot
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access.
+func (o SyntheticsTestOptionsListPtrOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictedRoles
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SyntheticsTestOptionsListPtrOutput) Retry() SyntheticsTestOptionsListRetryPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListRetry {
+		if v == nil {
+			return nil
+		}
+		return v.Retry
+	}).(SyntheticsTestOptionsListRetryPtrOutput)
+}
+
+// The RUM data collection settings for the Synthetic browser test.
+func (o SyntheticsTestOptionsListPtrOutput) RumSettings() SyntheticsTestOptionsListRumSettingsPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListRumSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RumSettings
+	}).(SyntheticsTestOptionsListRumSettingsPtrOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o SyntheticsTestOptionsListPtrOutput) Scheduling() SyntheticsTestOptionsListSchedulingPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *SyntheticsTestOptionsListScheduling {
+		if v == nil {
+			return nil
+		}
+		return v.Scheduling
+	}).(SyntheticsTestOptionsListSchedulingPtrOutput)
+}
+
+// How often the test should run (in seconds).
+func (o SyntheticsTestOptionsListPtrOutput) TickEvery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsList) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TickEvery
+	}).(pulumi.IntPtrOutput)
+}
+
+type SyntheticsTestOptionsListCi struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule *string `pulumi:"executionRule"`
+}
+
+// SyntheticsTestOptionsListCiInput is an input type that accepts SyntheticsTestOptionsListCiArgs and SyntheticsTestOptionsListCiOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListCiInput` via:
+//
+//	SyntheticsTestOptionsListCiArgs{...}
+type SyntheticsTestOptionsListCiInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput
+	ToSyntheticsTestOptionsListCiOutputWithContext(context.Context) SyntheticsTestOptionsListCiOutput
+}
+
+type SyntheticsTestOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+	ExecutionRule pulumi.StringPtrInput `pulumi:"executionRule"`
+}
+
+func (SyntheticsTestOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput {
+	return i.ToSyntheticsTestOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiOutput)
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestOptionsListCiArgs) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiOutput).ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestOptionsListCiPtrInput is an input type that accepts SyntheticsTestOptionsListCiArgs, SyntheticsTestOptionsListCiPtr and SyntheticsTestOptionsListCiPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestOptionsListCiPtrInput` via:
+//
+//	        SyntheticsTestOptionsListCiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestOptionsListCiPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput
+	ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Context) SyntheticsTestOptionsListCiPtrOutput
+}
+
+type syntheticsTestOptionsListCiPtrType SyntheticsTestOptionsListCiArgs
+
+func SyntheticsTestOptionsListCiPtr(v *SyntheticsTestOptionsListCiArgs) SyntheticsTestOptionsListCiPtrInput {
+	return (*syntheticsTestOptionsListCiPtrType)(v)
+}
+
+func (*syntheticsTestOptionsListCiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i *syntheticsTestOptionsListCiPtrType) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return i.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestOptionsListCiPtrType) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+type SyntheticsTestOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiOutput() SyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return o.ToSyntheticsTestOptionsListCiPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOptionsListCiOutput) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestOptionsListCi) *SyntheticsTestOptionsListCi {
+		return &v
+	}).(SyntheticsTestOptionsListCiPtrOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestOptionsListCiOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestOptionsListCi) *string { return v.ExecutionRule }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestOptionsListCiPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestOptionsListCiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) ToSyntheticsTestOptionsListCiPtrOutput() SyntheticsTestOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) ToSyntheticsTestOptionsListCiPtrOutputWithContext(ctx context.Context) SyntheticsTestOptionsListCiPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestOptionsListCiPtrOutput) Elem() SyntheticsTestOptionsListCiOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListCi) SyntheticsTestOptionsListCi {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestOptionsListCi
+		return ret
+	}).(SyntheticsTestOptionsListCiOutput)
+}
+
+// Execution rule for a Synthetics test. Valid values are `blocking`, `nonBlocking`, `skipped`.
+func (o SyntheticsTestOptionsListCiPtrOutput) ExecutionRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestOptionsListCi) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRule
+	}).(pulumi.StringPtrOutput)
+}
+
 type SyntheticsTestOptionsListMonitorOptions struct {
 	// Specify a renotification frequency in minutes. Values available by default are `0`, `10`, `20`, `30`, `40`, `50`, `60`, `90`, `120`, `180`, `240`, `300`, `360`, `720`, `1440`. Defaults to `0`.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -7625,6 +14465,80 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveThresholdArrayInput)(nil)).Elem(), ServiceLevelObjectiveThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricComputeInput)(nil)).Elem(), SpansMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricComputePtrInput)(nil)).Elem(), SpansMetricComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricFilterInput)(nil)).Elem(), SpansMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricFilterPtrInput)(nil)).Elem(), SpansMetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricGroupByInput)(nil)).Elem(), SpansMetricGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpansMetricGroupByArrayInput)(nil)).Elem(), SpansMetricGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsPtrInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParametersInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsTotpParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableOptionsTotpParametersPtrInput)(nil)).Elem(), SyntheticsGlobalVariableOptionsTotpParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsPtrInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsParserInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsParserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableParseTestOptionsParserPtrInput)(nil)).Elem(), SyntheticsGlobalVariableParseTestOptionsParserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationMetadataInput)(nil)).Elem(), SyntheticsPrivateLocationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationMetadataPtrInput)(nil)).Elem(), SyntheticsPrivateLocationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepInput)(nil)).Elem(), SyntheticsTestApiStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepArrayInput)(nil)).Elem(), SyntheticsTestApiStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionInput)(nil)).Elem(), SyntheticsTestApiStepAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionArrayInput)(nil)).Elem(), SyntheticsTestApiStepAssertionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpathInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpathPtrInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpathInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetxpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpathPtrInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetxpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepExtractedValueInput)(nil)).Elem(), SyntheticsTestApiStepExtractedValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepExtractedValueArrayInput)(nil)).Elem(), SyntheticsTestApiStepExtractedValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepExtractedValueParserInput)(nil)).Elem(), SyntheticsTestApiStepExtractedValueParserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestBasicauthInput)(nil)).Elem(), SyntheticsTestApiStepRequestBasicauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestBasicauthPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestBasicauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificatePtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateCertInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateCertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateCertPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateCertArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateKeyInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateKeyPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestDefinitionInput)(nil)).Elem(), SyntheticsTestApiStepRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestDefinitionPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestProxyInput)(nil)).Elem(), SyntheticsTestApiStepRequestProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRetryInput)(nil)).Elem(), SyntheticsTestApiStepRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRetryPtrInput)(nil)).Elem(), SyntheticsTestApiStepRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionInput)(nil)).Elem(), SyntheticsTestAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionArrayInput)(nil)).Elem(), SyntheticsTestAssertionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpathInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpathPtrInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetxpathInput)(nil)).Elem(), SyntheticsTestAssertionTargetxpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetxpathPtrInput)(nil)).Elem(), SyntheticsTestAssertionTargetxpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepInput)(nil)).Elem(), SyntheticsTestBrowserStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepArrayInput)(nil)).Elem(), SyntheticsTestBrowserStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValueInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsElementUserLocatorValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariableInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepParamsVariablePtrInput)(nil)).Elem(), SyntheticsTestBrowserStepParamsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserVariableInput)(nil)).Elem(), SyntheticsTestBrowserVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserVariableArrayInput)(nil)).Elem(), SyntheticsTestBrowserVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestConfigVariableInput)(nil)).Elem(), SyntheticsTestConfigVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestConfigVariableArrayInput)(nil)).Elem(), SyntheticsTestConfigVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListPtrInput)(nil)).Elem(), SyntheticsTestOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListCiInput)(nil)).Elem(), SyntheticsTestOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListCiPtrInput)(nil)).Elem(), SyntheticsTestOptionsListCiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptionsInput)(nil)).Elem(), SyntheticsTestOptionsListMonitorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListMonitorOptionsPtrInput)(nil)).Elem(), SyntheticsTestOptionsListMonitorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestOptionsListRetryInput)(nil)).Elem(), SyntheticsTestOptionsListRetryArgs{})
@@ -7728,6 +14642,80 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveThresholdArrayOutput{})
+	pulumi.RegisterOutputType(SpansMetricComputeOutput{})
+	pulumi.RegisterOutputType(SpansMetricComputePtrOutput{})
+	pulumi.RegisterOutputType(SpansMetricFilterOutput{})
+	pulumi.RegisterOutputType(SpansMetricFilterPtrOutput{})
+	pulumi.RegisterOutputType(SpansMetricGroupByOutput{})
+	pulumi.RegisterOutputType(SpansMetricGroupByArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsTotpParametersOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOptionsTotpParametersPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsParserOutput{})
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableParseTestOptionsParserPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsPrivateLocationMetadataOutput{})
+	pulumi.RegisterOutputType(SyntheticsPrivateLocationMetadataPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonpathOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetxpathOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetxpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepExtractedValueOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepExtractedValueArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepExtractedValueParserOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestBasicauthOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestBasicauthPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificatePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateCertOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateCertPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateKeyOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestDefinitionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestProxyOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestProxyPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRetryOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRetryPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonpathOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetxpathOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetxpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorValueOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsElementUserLocatorValuePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsVariableOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserStepParamsVariablePtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserVariableOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestBrowserVariableArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestConfigVariableOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestConfigVariableArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListCiOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestOptionsListCiPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListMonitorOptionsOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListMonitorOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestOptionsListRetryOutput{})

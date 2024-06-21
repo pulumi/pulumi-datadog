@@ -4,8 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -25,7 +25,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    private @Nullable List<DashboardWidgetGroupBy> groupBies;
+    private @Nullable List<DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies;
     /**
      * @return The name of the index to query.
      * 
@@ -54,7 +54,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
      * @return Multiple `group_by` blocks are allowed using the structure below.
      * 
      */
-    public List<DashboardWidgetGroupBy> groupBies() {
+    public List<DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies() {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
@@ -89,7 +89,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardWidgetSunburstDefinitionRequestNetworkQueryComputeQuery computeQuery;
-        private @Nullable List<DashboardWidgetGroupBy> groupBies;
+        private @Nullable List<DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies;
         private String index;
         private @Nullable List<DashboardWidgetSunburstDefinitionRequestNetworkQueryMultiCompute> multiComputes;
         private @Nullable String searchQuery;
@@ -110,12 +110,12 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
             return this;
         }
         @CustomType.Setter
-        public Builder groupBies(@Nullable List<DashboardWidgetGroupBy> groupBies) {
+        public Builder groupBies(@Nullable List<DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies) {
 
             this.groupBies = groupBies;
             return this;
         }
-        public Builder groupBies(DashboardWidgetGroupBy... groupBies) {
+        public Builder groupBies(DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy... groupBies) {
             return groupBies(List.of(groupBies));
         }
         @CustomType.Setter

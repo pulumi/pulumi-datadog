@@ -5,8 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -55,13 +55,13 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
      * 
      */
     @Import(name="groupBies")
-    private @Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies;
+    private @Nullable Output<List<DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs>> groupBies;
 
     /**
      * @return Group by options.
      * 
      */
-    public Optional<Output<List<DashboardWidgetGroupByArgs>>> groupBies() {
+    public Optional<Output<List<DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs>>> groupBies() {
         return Optional.ofNullable(this.groupBies);
     }
 
@@ -213,7 +213,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
          * @return builder
          * 
          */
-        public Builder groupBies(@Nullable Output<List<DashboardWidgetGroupByArgs>> groupBies) {
+        public Builder groupBies(@Nullable Output<List<DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs>> groupBies) {
             $.groupBies = groupBies;
             return this;
         }
@@ -224,7 +224,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
          * @return builder
          * 
          */
-        public Builder groupBies(List<DashboardWidgetGroupByArgs> groupBies) {
+        public Builder groupBies(List<DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs> groupBies) {
             return groupBies(Output.of(groupBies));
         }
 
@@ -234,7 +234,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
          * @return builder
          * 
          */
-        public Builder groupBies(DashboardWidgetGroupByArgs... groupBies) {
+        public Builder groupBies(DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs... groupBies) {
             return groupBies(List.of(groupBies));
         }
 
