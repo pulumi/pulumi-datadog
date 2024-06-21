@@ -1,2 +1,7 @@
 name: dashboard
 runtime: go
+
+plugins:
+  providers:
+    - name: datadog
+      path: ../../bin

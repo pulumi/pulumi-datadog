@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := datadog.NewDashboard(ctx, "ordered_dashboard", &datadog.DashboardArgs{
 			Title:       pulumi.String("Ordered Layout Dashboard"),
-			Description: pulumi.String("Created using the Datadog provider in Terraform"),
+			Description: pulumi.String("Created using the Datadog provider in Pulumi"),
 			LayoutType:  pulumi.String("ordered"),
 			Widgets: datadog.DashboardWidgetArray{
 				&datadog.DashboardWidgetArgs{
@@ -454,6 +454,7 @@ func main() {
 		if err != nil {
 			return err
 		}
+
 		_, err = datadog.NewDashboard(ctx, "free_dashboard", &datadog.DashboardArgs{
 			Title:       pulumi.String("Free Layout Dashboard"),
 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
@@ -750,36 +751,11 @@ func main() {
 							},
 						},
 					},
-				},
-				&datadog.DashboardWidgetArgs{
-					PowerpackDefinition: &datadog.DashboardWidgetPowerpackDefinitionArgs{
-						PowerpackId:     pulumi.String("00000000-0000-0000-0000-000000000000"),
-						BackgroundColor: pulumi.String("blue"),
-						BannerImg:       pulumi.String("https://example.org/example.png"),
-						ShowTitle:       pulumi.Bool(true),
-						Title:           pulumi.String("Powerpack Widget"),
-						TemplateVariables: &datadog.DashboardWidgetPowerpackDefinitionTemplateVariablesArgs{
-							ControlledExternallies: datadog.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledExternallyArray{
-								&datadog.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledExternallyArgs{
-									Name: pulumi.String("var_2"),
-									Values: pulumi.StringArray{
-										pulumi.String("autoscaling"),
-									},
-									Prefix: pulumi.String("service_name"),
-								},
-							},
-							ControlledByPowerpacks: datadog.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledByPowerpackArray{
-								&datadog.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledByPowerpackArgs{
-									Name:   pulumi.String("var_3"),
-									Prefix: pulumi.String("timeframe"),
-									Values: pulumi.StringArray{
-										pulumi.String("default"),
-										pulumi.String("values"),
-										pulumi.String("here"),
-									},
-								},
-							},
-						},
+					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+						Height: pulumi.Int(16),
+						Width:  pulumi.Int(28),
+						X:      pulumi.Int(0),
+						Y:      pulumi.Int(83),
 					},
 				},
 			},
@@ -811,9 +787,6 @@ func main() {
 				},
 			},
 		})
-		if err != nil {
-			return err
-		}
-		return nil
+		return err
 	})
 }
