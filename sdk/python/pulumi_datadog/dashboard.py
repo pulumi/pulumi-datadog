@@ -119,13 +119,11 @@ class DashboardArgs:
 
     @property
     @pulumi.getter(name="isReadOnly")
+    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
         """
-        warnings.warn("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""", DeprecationWarning)
-        pulumi.log.warn("""is_read_only is deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
-
         return pulumi.get(self, "is_read_only")
 
     @is_read_only.setter
@@ -329,13 +327,11 @@ class _DashboardState:
 
     @property
     @pulumi.getter(name="isReadOnly")
+    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
         """
-        warnings.warn("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""", DeprecationWarning)
-        pulumi.log.warn("""is_read_only is deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
-
         return pulumi.get(self, "is_read_only")
 
     @is_read_only.setter
@@ -2154,13 +2150,11 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isReadOnly")
+    @_utilities.deprecated("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
     def is_read_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard. Defaults to `false`.
         """
-        warnings.warn("""Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""", DeprecationWarning)
-        pulumi.log.warn("""is_read_only is deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.""")
-
         return pulumi.get(self, "is_read_only")
 
     @property
