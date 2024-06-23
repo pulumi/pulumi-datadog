@@ -20,11 +20,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
         /// </summary>
@@ -36,27 +36,27 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestX(
             string? aggregator,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetScatterplotDefinitionRequestXProcessQuery? processQuery,
 
             string? q,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery? securityQuery)
+            Outputs.DashboardWidgetSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;

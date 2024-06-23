@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardWidgetGeomapDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardWidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The metric query to use for this widget.
@@ -44,7 +44,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardWidgetGeomapDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardWidgetRumQueryArgs>? RumQuery { get; set; }
 
         public DashboardWidgetGeomapDefinitionRequestArgs()
         {

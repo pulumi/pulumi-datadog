@@ -5,11 +5,11 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestFillProcessQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,13 +25,13 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
      * 
      */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -40,13 +40,13 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
      * 
      */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -85,13 +85,13 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
      * 
      */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -100,13 +100,13 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
      * 
      */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -145,7 +145,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder apmQuery(@Nullable Output<DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -156,7 +156,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder apmQuery(DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -166,7 +166,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder logQuery(@Nullable Output<DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -177,7 +177,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder logQuery(DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -229,7 +229,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder rumQuery(@Nullable Output<DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -240,7 +240,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder rumQuery(DashboardWidgetHostmapDefinitionRequestFillRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -250,7 +250,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder securityQuery(@Nullable Output<DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -261,7 +261,7 @@ public final class DashboardWidgetHostmapDefinitionRequestFillArgs extends com.p
          * @return builder
          * 
          */
-        public Builder securityQuery(DashboardWidgetHostmapDefinitionRequestFillSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

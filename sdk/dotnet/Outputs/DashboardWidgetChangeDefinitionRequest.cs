@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetChangeDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
         /// Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetChangeDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// What to order by. Valid values are `change`, `name`, `present`, `past`.
         /// </summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetChangeDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// If set to `true`, displays the current value.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetChangeDefinitionRequest(
-            Outputs.DashboardWidgetChangeDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             string? changeType,
 
@@ -76,7 +76,7 @@ namespace Pulumi.Datadog.Outputs
 
             bool? increaseGood,
 
-            Outputs.DashboardWidgetChangeDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             string? orderBy,
 
@@ -88,9 +88,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetChangeDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetChangeDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
             bool? showPresent)
         {

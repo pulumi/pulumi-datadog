@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
         /// A list of display modes for each table cell. List items one of `number`, `bar`. Valid values are `number`, `bar`.
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The sort order for the rows. Valid values are `asc`, `desc`.
         /// </summary>
@@ -59,11 +59,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetQueryTableDefinitionRequest(
@@ -71,7 +71,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? alias,
 
-            Outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? apmStatsQuery,
 
@@ -83,7 +83,7 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             string? order,
 
@@ -93,9 +93,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery? securityQuery)
+            Outputs.DashboardWidgetSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             Alias = alias;

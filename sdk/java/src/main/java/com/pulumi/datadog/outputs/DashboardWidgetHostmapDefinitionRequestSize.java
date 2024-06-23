@@ -4,11 +4,11 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequestSizeProcessQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,12 +20,12 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetHostmapDefinitionRequestSizeApmQuery apmQuery;
+    private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetHostmapDefinitionRequestSizeLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below.
      * 
@@ -40,26 +40,26 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetHostmapDefinitionRequestSizeRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSecurityQuery securityQuery;
 
     private DashboardWidgetHostmapDefinitionRequestSize() {}
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetHostmapDefinitionRequestSizeApmQuery> apmQuery() {
+    public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetHostmapDefinitionRequestSizeLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -80,14 +80,14 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetHostmapDefinitionRequestSizeRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery> securityQuery() {
+    public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -100,12 +100,12 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardWidgetHostmapDefinitionRequestSizeApmQuery apmQuery;
-        private @Nullable DashboardWidgetHostmapDefinitionRequestSizeLogQuery logQuery;
+        private @Nullable DashboardWidgetApmQuery apmQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetHostmapDefinitionRequestSizeProcessQuery processQuery;
         private @Nullable String q;
-        private @Nullable DashboardWidgetHostmapDefinitionRequestSizeRumQuery rumQuery;
-        private @Nullable DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
+        private @Nullable DashboardWidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(DashboardWidgetHostmapDefinitionRequestSize defaults) {
     	      Objects.requireNonNull(defaults);
@@ -118,13 +118,13 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardWidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -142,13 +142,13 @@ public final class DashboardWidgetHostmapDefinitionRequestSize {
             return this;
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardWidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

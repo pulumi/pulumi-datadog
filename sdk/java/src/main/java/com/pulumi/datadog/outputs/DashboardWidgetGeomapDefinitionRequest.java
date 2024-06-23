@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +21,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetGeomapDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The metric query to use for this widget.
      * 
@@ -32,7 +32,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetGeomapDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
 
     private DashboardWidgetGeomapDefinitionRequest() {}
     public List<DashboardWidgetGeomapDefinitionRequestFormula> formulas() {
@@ -42,7 +42,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetGeomapDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -59,7 +59,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetGeomapDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -73,10 +73,10 @@ public final class DashboardWidgetGeomapDefinitionRequest {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DashboardWidgetGeomapDefinitionRequestFormula> formulas;
-        private @Nullable DashboardWidgetGeomapDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable String q;
         private @Nullable List<DashboardWidgetGeomapDefinitionRequestQuery> queries;
-        private @Nullable DashboardWidgetGeomapDefinitionRequestRumQuery rumQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
         public Builder() {}
         public Builder(DashboardWidgetGeomapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,7 +97,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetGeomapDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -118,7 +118,7 @@ public final class DashboardWidgetGeomapDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetGeomapDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;

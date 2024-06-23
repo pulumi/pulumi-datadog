@@ -737,18 +737,18 @@ class Dashboard(pulumi.CustomResource):
                                 )],
                             ),
                             datadog.DashboardWidgetTimeseriesDefinitionRequestArgs(
-                                log_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs(
+                                log_query=datadog.DashboardWidgetLogQueryArgs(
                                     index="mcnulty",
-                                    compute_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs(
+                                    compute_query=datadog.DashboardWidgetLogQueryComputeQueryArgs(
                                         aggregation="avg",
                                         facet="@duration",
                                         interval=5000,
                                     ),
                                     search_query="status:info",
-                                    group_bies=[datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs(
+                                    group_bies=[datadog.DashboardWidgetLogQueryGroupByArgs(
                                         facet="host",
                                         limit=10,
-                                        sort_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs(
+                                        sort_query=datadog.DashboardWidgetLogQueryGroupBySortQueryArgs(
                                             aggregation="avg",
                                             order="desc",
                                             facet="@duration",
@@ -758,18 +758,18 @@ class Dashboard(pulumi.CustomResource):
                                 display_type="area",
                             ),
                             datadog.DashboardWidgetTimeseriesDefinitionRequestArgs(
-                                apm_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs(
+                                apm_query=datadog.DashboardWidgetApmQueryArgs(
                                     index="apm-search",
-                                    compute_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs(
+                                    compute_query=datadog.DashboardWidgetApmQueryComputeQueryArgs(
                                         aggregation="avg",
                                         facet="@duration",
                                         interval=5000,
                                     ),
                                     search_query="type:web",
-                                    group_bies=[datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs(
+                                    group_bies=[datadog.DashboardWidgetApmQueryGroupByArgs(
                                         facet="resource_name",
                                         limit=50,
-                                        sort_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs(
+                                        sort_query=datadog.DashboardWidgetApmQueryGroupBySortQueryArgs(
                                             aggregation="avg",
                                             order="desc",
                                             facet="@string_query.interval",
@@ -845,7 +845,7 @@ class Dashboard(pulumi.CustomResource):
                         title="Group Widget",
                         widgets=[
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                note_definition=datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs(
+                                note_definition=datadog.DashboardWidgetNoteDefinitionArgs(
                                     content="cluster note widget",
                                     background_color="pink",
                                     font_size="14",
@@ -856,7 +856,7 @@ class Dashboard(pulumi.CustomResource):
                                 ),
                             ),
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                alert_graph_definition=datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs(
+                                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                                     alert_id="123",
                                     viz_type="toplist",
                                     title="Alert Graph",
@@ -1512,18 +1512,18 @@ class Dashboard(pulumi.CustomResource):
                                 )],
                             ),
                             datadog.DashboardWidgetTimeseriesDefinitionRequestArgs(
-                                log_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs(
+                                log_query=datadog.DashboardWidgetLogQueryArgs(
                                     index="mcnulty",
-                                    compute_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs(
+                                    compute_query=datadog.DashboardWidgetLogQueryComputeQueryArgs(
                                         aggregation="avg",
                                         facet="@duration",
                                         interval=5000,
                                     ),
                                     search_query="status:info",
-                                    group_bies=[datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs(
+                                    group_bies=[datadog.DashboardWidgetLogQueryGroupByArgs(
                                         facet="host",
                                         limit=10,
-                                        sort_query=datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs(
+                                        sort_query=datadog.DashboardWidgetLogQueryGroupBySortQueryArgs(
                                             aggregation="avg",
                                             order="desc",
                                             facet="@duration",
@@ -1533,18 +1533,18 @@ class Dashboard(pulumi.CustomResource):
                                 display_type="area",
                             ),
                             datadog.DashboardWidgetTimeseriesDefinitionRequestArgs(
-                                apm_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs(
+                                apm_query=datadog.DashboardWidgetApmQueryArgs(
                                     index="apm-search",
-                                    compute_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs(
+                                    compute_query=datadog.DashboardWidgetApmQueryComputeQueryArgs(
                                         aggregation="avg",
                                         facet="@duration",
                                         interval=5000,
                                     ),
                                     search_query="type:web",
-                                    group_bies=[datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs(
+                                    group_bies=[datadog.DashboardWidgetApmQueryGroupByArgs(
                                         facet="resource_name",
                                         limit=50,
-                                        sort_query=datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs(
+                                        sort_query=datadog.DashboardWidgetApmQueryGroupBySortQueryArgs(
                                             aggregation="avg",
                                             order="desc",
                                             facet="@string_query.interval",
@@ -1620,7 +1620,7 @@ class Dashboard(pulumi.CustomResource):
                         title="Group Widget",
                         widgets=[
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                note_definition=datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs(
+                                note_definition=datadog.DashboardWidgetNoteDefinitionArgs(
                                     content="cluster note widget",
                                     background_color="pink",
                                     font_size="14",
@@ -1631,7 +1631,7 @@ class Dashboard(pulumi.CustomResource):
                                 ),
                             ),
                             datadog.DashboardWidgetGroupDefinitionWidgetArgs(
-                                alert_graph_definition=datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs(
+                                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                                     alert_id="123",
                                     viz_type="toplist",
                                     title="Alert Graph",

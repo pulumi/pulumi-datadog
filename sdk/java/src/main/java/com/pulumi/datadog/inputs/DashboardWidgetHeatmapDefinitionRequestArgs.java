@@ -5,14 +5,14 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestStyleArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,13 +29,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      * 
      */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -51,13 +51,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      * 
      */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -103,13 +103,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      * 
      */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -118,13 +118,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
      * 
      */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -181,7 +181,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder apmQuery(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -192,7 +192,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder apmQuery(DashboardWidgetHeatmapDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -215,7 +215,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder logQuery(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -226,7 +226,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder logQuery(DashboardWidgetHeatmapDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -291,7 +291,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder rumQuery(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -302,7 +302,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder rumQuery(DashboardWidgetHeatmapDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -312,7 +312,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder securityQuery(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -323,7 +323,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder securityQuery(DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

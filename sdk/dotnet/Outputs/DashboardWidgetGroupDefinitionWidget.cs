@@ -16,47 +16,47 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for a Alert Graph widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition? AlertGraphDefinition;
+        public readonly Outputs.DashboardWidgetAlertGraphDefinition? AlertGraphDefinition;
         /// <summary>
         /// The definition for a Alert Value widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition? AlertValueDefinition;
+        public readonly Outputs.DashboardWidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
         /// The definition for a Change widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition? ChangeDefinition;
+        public readonly Outputs.DashboardWidgetChangeDefinition? ChangeDefinition;
         /// <summary>
         /// The definition for a Check Status widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition? CheckStatusDefinition;
+        public readonly Outputs.DashboardWidgetCheckStatusDefinition? CheckStatusDefinition;
         /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition? DistributionDefinition;
+        public readonly Outputs.DashboardWidgetDistributionDefinition? DistributionDefinition;
         /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition? EventStreamDefinition;
+        public readonly Outputs.DashboardWidgetEventStreamDefinition? EventStreamDefinition;
         /// <summary>
         /// The definition for a Event Timeline widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition? EventTimelineDefinition;
+        public readonly Outputs.DashboardWidgetEventTimelineDefinition? EventTimelineDefinition;
         /// <summary>
         /// The definition for a Free Text widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? FreeTextDefinition;
+        public readonly Outputs.DashboardWidgetFreeTextDefinition? FreeTextDefinition;
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition? GeomapDefinition;
+        public readonly Outputs.DashboardWidgetGeomapDefinition? GeomapDefinition;
         /// <summary>
         /// The definition for a Heatmap widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? HeatmapDefinition;
+        public readonly Outputs.DashboardWidgetHeatmapDefinition? HeatmapDefinition;
         /// <summary>
         /// The definition for a Hostmap widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? HostmapDefinition;
+        public readonly Outputs.DashboardWidgetHostmapDefinition? HostmapDefinition;
         /// <summary>
         /// The ID of the widget.
         /// </summary>
@@ -64,87 +64,87 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for an Iframe widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? IframeDefinition;
+        public readonly Outputs.DashboardWidgetIframeDefinition? IframeDefinition;
         /// <summary>
         /// The definition for an Image widget
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
+        public readonly Outputs.DashboardWidgetImageDefinition? ImageDefinition;
         /// <summary>
         /// The definition for a List Stream widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinition? ListStreamDefinition;
+        public readonly Outputs.DashboardWidgetListStreamDefinition? ListStreamDefinition;
         /// <summary>
         /// The definition for an Log Stream widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? LogStreamDefinition;
+        public readonly Outputs.DashboardWidgetLogStreamDefinition? LogStreamDefinition;
         /// <summary>
         /// The definition for an Manage Status widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition? ManageStatusDefinition;
+        public readonly Outputs.DashboardWidgetManageStatusDefinition? ManageStatusDefinition;
         /// <summary>
         /// The definition for a Note widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? NoteDefinition;
+        public readonly Outputs.DashboardWidgetNoteDefinition? NoteDefinition;
         /// <summary>
         /// The definition for a Powerpack widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinition? PowerpackDefinition;
+        public readonly Outputs.DashboardWidgetPowerpackDefinition? PowerpackDefinition;
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
+        public readonly Outputs.DashboardWidgetQueryTableDefinition? QueryTableDefinition;
         /// <summary>
         /// The definition for a Query Value widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition? QueryValueDefinition;
+        public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
         /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition? RunWorkflowDefinition;
+        public readonly Outputs.DashboardWidgetRunWorkflowDefinition? RunWorkflowDefinition;
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition? ScatterplotDefinition;
+        public readonly Outputs.DashboardWidgetScatterplotDefinition? ScatterplotDefinition;
         /// <summary>
         /// The definition for a Service Level Objective widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
+        public readonly Outputs.DashboardWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
         /// <summary>
         /// The definition for a Service Map widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? ServicemapDefinition;
+        public readonly Outputs.DashboardWidgetServicemapDefinition? ServicemapDefinition;
         /// <summary>
         /// The definition for an SLO (Service Level Objective) List widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? SloListDefinition;
+        public readonly Outputs.DashboardWidgetSloListDefinition? SloListDefinition;
         /// <summary>
         /// The definition for a Split Graph widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? SplitGraphDefinition;
+        public readonly Outputs.DashboardWidgetSplitGraphDefinition? SplitGraphDefinition;
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? SunburstDefinition;
+        public readonly Outputs.DashboardWidgetSunburstDefinition? SunburstDefinition;
         /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? TimeseriesDefinition;
+        public readonly Outputs.DashboardWidgetTimeseriesDefinition? TimeseriesDefinition;
         /// <summary>
         /// The definition for a Toplist widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? ToplistDefinition;
+        public readonly Outputs.DashboardWidgetToplistDefinition? ToplistDefinition;
         /// <summary>
         /// The definition for a Topology Map widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition? TopologyMapDefinition;
+        public readonly Outputs.DashboardWidgetTopologyMapDefinition? TopologyMapDefinition;
         /// <summary>
         /// The definition for a Trace Service widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? TraceServiceDefinition;
+        public readonly Outputs.DashboardWidgetTraceServiceDefinition? TraceServiceDefinition;
         /// <summary>
         /// The definition for a Treemap widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition? TreemapDefinition;
+        public readonly Outputs.DashboardWidgetTreemapDefinition? TreemapDefinition;
         /// <summary>
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
@@ -152,71 +152,71 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidget(
-            Outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition? alertGraphDefinition,
+            Outputs.DashboardWidgetAlertGraphDefinition? alertGraphDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition? alertValueDefinition,
+            Outputs.DashboardWidgetAlertValueDefinition? alertValueDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition? changeDefinition,
+            Outputs.DashboardWidgetChangeDefinition? changeDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition? checkStatusDefinition,
+            Outputs.DashboardWidgetCheckStatusDefinition? checkStatusDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition? distributionDefinition,
+            Outputs.DashboardWidgetDistributionDefinition? distributionDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition? eventStreamDefinition,
+            Outputs.DashboardWidgetEventStreamDefinition? eventStreamDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition? eventTimelineDefinition,
+            Outputs.DashboardWidgetEventTimelineDefinition? eventTimelineDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? freeTextDefinition,
+            Outputs.DashboardWidgetFreeTextDefinition? freeTextDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition? geomapDefinition,
+            Outputs.DashboardWidgetGeomapDefinition? geomapDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? heatmapDefinition,
+            Outputs.DashboardWidgetHeatmapDefinition? heatmapDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? hostmapDefinition,
+            Outputs.DashboardWidgetHostmapDefinition? hostmapDefinition,
 
             int? id,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? iframeDefinition,
+            Outputs.DashboardWidgetIframeDefinition? iframeDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? imageDefinition,
+            Outputs.DashboardWidgetImageDefinition? imageDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinition? listStreamDefinition,
+            Outputs.DashboardWidgetListStreamDefinition? listStreamDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? logStreamDefinition,
+            Outputs.DashboardWidgetLogStreamDefinition? logStreamDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition? manageStatusDefinition,
+            Outputs.DashboardWidgetManageStatusDefinition? manageStatusDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? noteDefinition,
+            Outputs.DashboardWidgetNoteDefinition? noteDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinition? powerpackDefinition,
+            Outputs.DashboardWidgetPowerpackDefinition? powerpackDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? queryTableDefinition,
+            Outputs.DashboardWidgetQueryTableDefinition? queryTableDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition? queryValueDefinition,
+            Outputs.DashboardWidgetQueryValueDefinition? queryValueDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinition? runWorkflowDefinition,
+            Outputs.DashboardWidgetRunWorkflowDefinition? runWorkflowDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition? scatterplotDefinition,
+            Outputs.DashboardWidgetScatterplotDefinition? scatterplotDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
+            Outputs.DashboardWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? servicemapDefinition,
+            Outputs.DashboardWidgetServicemapDefinition? servicemapDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetSloListDefinition? sloListDefinition,
+            Outputs.DashboardWidgetSloListDefinition? sloListDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinition? splitGraphDefinition,
+            Outputs.DashboardWidgetSplitGraphDefinition? splitGraphDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinition? sunburstDefinition,
+            Outputs.DashboardWidgetSunburstDefinition? sunburstDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? timeseriesDefinition,
+            Outputs.DashboardWidgetTimeseriesDefinition? timeseriesDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? toplistDefinition,
+            Outputs.DashboardWidgetToplistDefinition? toplistDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinition? topologyMapDefinition,
+            Outputs.DashboardWidgetTopologyMapDefinition? topologyMapDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? traceServiceDefinition,
+            Outputs.DashboardWidgetTraceServiceDefinition? traceServiceDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinition? treemapDefinition,
+            Outputs.DashboardWidgetTreemapDefinition? treemapDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? widgetLayout)
         {

@@ -362,10 +362,10 @@ namespace Pulumi.Datadog
     ///                         },
     ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
     ///                         {
-    ///                             LogQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs
+    ///                             LogQuery = new Datadog.Inputs.DashboardWidgetLogQueryArgs
     ///                             {
     ///                                 Index = "mcnulty",
-    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs
+    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetLogQueryComputeQueryArgs
     ///                                 {
     ///                                     Aggregation = "avg",
     ///                                     Facet = "@duration",
@@ -374,11 +374,11 @@ namespace Pulumi.Datadog
     ///                                 SearchQuery = "status:info",
     ///                                 GroupBies = new[]
     ///                                 {
-    ///                                     new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs
+    ///                                     new Datadog.Inputs.DashboardWidgetLogQueryGroupByArgs
     ///                                     {
     ///                                         Facet = "host",
     ///                                         Limit = 10,
-    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs
+    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetLogQueryGroupBySortQueryArgs
     ///                                         {
     ///                                             Aggregation = "avg",
     ///                                             Order = "desc",
@@ -391,10 +391,10 @@ namespace Pulumi.Datadog
     ///                         },
     ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
     ///                         {
-    ///                             ApmQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs
+    ///                             ApmQuery = new Datadog.Inputs.DashboardWidgetApmQueryArgs
     ///                             {
     ///                                 Index = "apm-search",
-    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs
+    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetApmQueryComputeQueryArgs
     ///                                 {
     ///                                     Aggregation = "avg",
     ///                                     Facet = "@duration",
@@ -403,11 +403,11 @@ namespace Pulumi.Datadog
     ///                                 SearchQuery = "type:web",
     ///                                 GroupBies = new[]
     ///                                 {
-    ///                                     new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs
+    ///                                     new Datadog.Inputs.DashboardWidgetApmQueryGroupByArgs
     ///                                     {
     ///                                         Facet = "resource_name",
     ///                                         Limit = 50,
-    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs
+    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetApmQueryGroupBySortQueryArgs
     ///                                         {
     ///                                             Aggregation = "avg",
     ///                                             Order = "desc",
@@ -510,7 +510,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             NoteDefinition = new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs
+    ///                             NoteDefinition = new Datadog.Inputs.DashboardWidgetNoteDefinitionArgs
     ///                             {
     ///                                 Content = "cluster note widget",
     ///                                 BackgroundColor = "pink",
@@ -523,7 +523,7 @@ namespace Pulumi.Datadog
     ///                         },
     ///                         new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs
+    ///                             AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
     ///                             {
     ///                                 AlertId = "123",
     ///                                 VizType = "toplist",

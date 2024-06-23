@@ -4,15 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestAuditQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestStyle;
 import java.lang.String;
 import java.util.List;
@@ -26,7 +26,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetToplistDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget.
      * 
@@ -42,7 +42,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetToplistDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below.
      * 
@@ -58,12 +58,12 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetToplistDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetToplistDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return Define request for the widget&#39;s style.
      * 
@@ -75,7 +75,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetToplistDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -99,7 +99,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetToplistDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -123,14 +123,14 @@ public final class DashboardWidgetToplistDefinitionRequest {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetToplistDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetToplistDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -150,16 +150,16 @@ public final class DashboardWidgetToplistDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardWidgetToplistDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable DashboardWidgetToplistDefinitionRequestAuditQuery auditQuery;
         private @Nullable List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<DashboardWidgetToplistDefinitionRequestFormula> formulas;
-        private @Nullable DashboardWidgetToplistDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetToplistDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardWidgetToplistDefinitionRequestQuery> queries;
-        private @Nullable DashboardWidgetToplistDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardWidgetToplistDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
+        private @Nullable DashboardWidgetSecurityQuery securityQuery;
         private @Nullable DashboardWidgetToplistDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardWidgetToplistDefinitionRequest defaults) {
@@ -178,7 +178,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardWidgetToplistDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardWidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -208,7 +208,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetToplistDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -235,13 +235,13 @@ public final class DashboardWidgetToplistDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetToplistDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardWidgetToplistDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardWidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

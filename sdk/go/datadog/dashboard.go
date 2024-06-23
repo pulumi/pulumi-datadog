@@ -294,19 +294,19 @@ import (
 //									},
 //								},
 //								&datadog.DashboardWidgetTimeseriesDefinitionRequestArgs{
-//									LogQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs{
+//									LogQuery: &datadog.DashboardWidgetLogQueryArgs{
 //										Index: pulumi.String("mcnulty"),
-//										ComputeQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{
+//										ComputeQuery: &datadog.DashboardWidgetLogQueryComputeQueryArgs{
 //											Aggregation: pulumi.String("avg"),
 //											Facet:       pulumi.String("@duration"),
 //											Interval:    pulumi.Int(5000),
 //										},
 //										SearchQuery: pulumi.String("status:info"),
-//										GroupBies: datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{
-//											&datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{
+//										GroupBies: datadog.DashboardWidgetLogQueryGroupByArray{
+//											&datadog.DashboardWidgetLogQueryGroupByArgs{
 //												Facet: pulumi.String("host"),
 //												Limit: pulumi.Int(10),
-//												SortQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{
+//												SortQuery: &datadog.DashboardWidgetLogQueryGroupBySortQueryArgs{
 //													Aggregation: pulumi.String("avg"),
 //													Order:       pulumi.String("desc"),
 //													Facet:       pulumi.String("@duration"),
@@ -317,19 +317,19 @@ import (
 //									DisplayType: pulumi.String("area"),
 //								},
 //								&datadog.DashboardWidgetTimeseriesDefinitionRequestArgs{
-//									ApmQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryArgs{
+//									ApmQuery: &datadog.DashboardWidgetApmQueryArgs{
 //										Index: pulumi.String("apm-search"),
-//										ComputeQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQueryArgs{
+//										ComputeQuery: &datadog.DashboardWidgetApmQueryComputeQueryArgs{
 //											Aggregation: pulumi.String("avg"),
 //											Facet:       pulumi.String("@duration"),
 //											Interval:    pulumi.Int(5000),
 //										},
 //										SearchQuery: pulumi.String("type:web"),
-//										GroupBies: datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArray{
-//											&datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupByArgs{
+//										GroupBies: datadog.DashboardWidgetApmQueryGroupByArray{
+//											&datadog.DashboardWidgetApmQueryGroupByArgs{
 //												Facet: pulumi.String("resource_name"),
 //												Limit: pulumi.Int(50),
-//												SortQuery: &datadog.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQueryArgs{
+//												SortQuery: &datadog.DashboardWidgetApmQueryGroupBySortQueryArgs{
 //													Aggregation: pulumi.String("avg"),
 //													Order:       pulumi.String("desc"),
 //													Facet:       pulumi.String("@string_query.interval"),
@@ -410,7 +410,7 @@ import (
 //							Title:      pulumi.String("Group Widget"),
 //							Widgets: datadog.DashboardWidgetGroupDefinitionWidgetArray{
 //								&datadog.DashboardWidgetGroupDefinitionWidgetArgs{
-//									NoteDefinition: &datadog.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs{
+//									NoteDefinition: &datadog.DashboardWidgetNoteDefinitionArgs{
 //										Content:         pulumi.String("cluster note widget"),
 //										BackgroundColor: pulumi.String("pink"),
 //										FontSize:        pulumi.String("14"),
@@ -421,7 +421,7 @@ import (
 //									},
 //								},
 //								&datadog.DashboardWidgetGroupDefinitionWidgetArgs{
-//									AlertGraphDefinition: &datadog.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs{
+//									AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
 //										AlertId:  pulumi.String("123"),
 //										VizType:  pulumi.String("toplist"),
 //										Title:    pulumi.String("Alert Graph"),

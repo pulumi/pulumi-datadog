@@ -16,12 +16,12 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below.
         /// </summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget.
         /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequest(
-            Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardWidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery? processQuery,
 
@@ -58,9 +58,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQuery> queries,
 
-            Outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardWidgetRumQuery? rumQuery,
 
-            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestStyle? style)
         {

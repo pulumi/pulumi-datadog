@@ -4,11 +4,11 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery;
-import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,12 +25,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetScatterplotDefinitionRequestYApmQuery apmQuery;
+    private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetScatterplotDefinitionRequestYLogQuery logQuery;
+    private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below.
      * 
@@ -45,12 +45,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetScatterplotDefinitionRequestYRumQuery rumQuery;
+    private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget.
      * 
      */
-    private @Nullable DashboardWidgetScatterplotDefinitionRequestYSecurityQuery securityQuery;
+    private @Nullable DashboardWidgetSecurityQuery securityQuery;
 
     private DashboardWidgetScatterplotDefinitionRequestY() {}
     /**
@@ -64,14 +64,14 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetScatterplotDefinitionRequestYApmQuery> apmQuery() {
+    public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetScatterplotDefinitionRequestYLogQuery> logQuery() {
+    public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -92,14 +92,14 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetScatterplotDefinitionRequestYRumQuery> rumQuery() {
+    public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<DashboardWidgetScatterplotDefinitionRequestYSecurityQuery> securityQuery() {
+    public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -113,12 +113,12 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
-        private @Nullable DashboardWidgetScatterplotDefinitionRequestYApmQuery apmQuery;
-        private @Nullable DashboardWidgetScatterplotDefinitionRequestYLogQuery logQuery;
+        private @Nullable DashboardWidgetApmQuery apmQuery;
+        private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetScatterplotDefinitionRequestYProcessQuery processQuery;
         private @Nullable String q;
-        private @Nullable DashboardWidgetScatterplotDefinitionRequestYRumQuery rumQuery;
-        private @Nullable DashboardWidgetScatterplotDefinitionRequestYSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetRumQuery rumQuery;
+        private @Nullable DashboardWidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(DashboardWidgetScatterplotDefinitionRequestY defaults) {
     	      Objects.requireNonNull(defaults);
@@ -138,13 +138,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardWidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -162,13 +162,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestY {
             return this;
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardWidgetScatterplotDefinitionRequestYSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardWidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

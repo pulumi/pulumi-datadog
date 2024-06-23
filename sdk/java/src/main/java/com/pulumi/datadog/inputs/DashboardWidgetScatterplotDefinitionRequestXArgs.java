@@ -5,11 +5,11 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -40,13 +40,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
      * 
      */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -55,13 +55,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
      * 
      */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -100,13 +100,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
      * 
      */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -115,13 +115,13 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
      * 
      */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget.
      * 
      */
-    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -182,7 +182,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder apmQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -193,7 +193,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder apmQuery(DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -203,7 +203,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder logQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -214,7 +214,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder logQuery(DashboardWidgetScatterplotDefinitionRequestXLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -266,7 +266,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder rumQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -277,7 +277,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder rumQuery(DashboardWidgetScatterplotDefinitionRequestXRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -287,7 +287,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder securityQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -298,7 +298,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * @return builder
          * 
          */
-        public Builder securityQuery(DashboardWidgetScatterplotDefinitionRequestXSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

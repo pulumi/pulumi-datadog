@@ -5,39 +5,39 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetAlertValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetCheckStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetEventStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetEventTimelineDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetFreeTextDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetIframeDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetImageDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetPowerpackDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTopologyMapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTraceServiceDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionArgs;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -53,13 +53,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="alertGraphDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs> alertGraphDefinition;
+    private @Nullable Output<DashboardWidgetAlertGraphDefinitionArgs> alertGraphDefinition;
 
     /**
      * @return The definition for a Alert Graph widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs>> alertGraphDefinition() {
+    public Optional<Output<DashboardWidgetAlertGraphDefinitionArgs>> alertGraphDefinition() {
         return Optional.ofNullable(this.alertGraphDefinition);
     }
 
@@ -68,13 +68,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="alertValueDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs> alertValueDefinition;
+    private @Nullable Output<DashboardWidgetAlertValueDefinitionArgs> alertValueDefinition;
 
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs>> alertValueDefinition() {
+    public Optional<Output<DashboardWidgetAlertValueDefinitionArgs>> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
     }
 
@@ -83,13 +83,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="changeDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs> changeDefinition;
+    private @Nullable Output<DashboardWidgetChangeDefinitionArgs> changeDefinition;
 
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs>> changeDefinition() {
+    public Optional<Output<DashboardWidgetChangeDefinitionArgs>> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
 
@@ -98,13 +98,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="checkStatusDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs> checkStatusDefinition;
+    private @Nullable Output<DashboardWidgetCheckStatusDefinitionArgs> checkStatusDefinition;
 
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs>> checkStatusDefinition() {
+    public Optional<Output<DashboardWidgetCheckStatusDefinitionArgs>> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
     }
 
@@ -113,13 +113,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="distributionDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs> distributionDefinition;
+    private @Nullable Output<DashboardWidgetDistributionDefinitionArgs> distributionDefinition;
 
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs>> distributionDefinition() {
+    public Optional<Output<DashboardWidgetDistributionDefinitionArgs>> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
     }
 
@@ -128,13 +128,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="eventStreamDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs> eventStreamDefinition;
+    private @Nullable Output<DashboardWidgetEventStreamDefinitionArgs> eventStreamDefinition;
 
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs>> eventStreamDefinition() {
+    public Optional<Output<DashboardWidgetEventStreamDefinitionArgs>> eventStreamDefinition() {
         return Optional.ofNullable(this.eventStreamDefinition);
     }
 
@@ -143,13 +143,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="eventTimelineDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs> eventTimelineDefinition;
+    private @Nullable Output<DashboardWidgetEventTimelineDefinitionArgs> eventTimelineDefinition;
 
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs>> eventTimelineDefinition() {
+    public Optional<Output<DashboardWidgetEventTimelineDefinitionArgs>> eventTimelineDefinition() {
         return Optional.ofNullable(this.eventTimelineDefinition);
     }
 
@@ -158,13 +158,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="freeTextDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs> freeTextDefinition;
+    private @Nullable Output<DashboardWidgetFreeTextDefinitionArgs> freeTextDefinition;
 
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs>> freeTextDefinition() {
+    public Optional<Output<DashboardWidgetFreeTextDefinitionArgs>> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
     }
 
@@ -173,13 +173,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="geomapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs> geomapDefinition;
+    private @Nullable Output<DashboardWidgetGeomapDefinitionArgs> geomapDefinition;
 
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs>> geomapDefinition() {
+    public Optional<Output<DashboardWidgetGeomapDefinitionArgs>> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
 
@@ -188,13 +188,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="heatmapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs> heatmapDefinition;
+    private @Nullable Output<DashboardWidgetHeatmapDefinitionArgs> heatmapDefinition;
 
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs>> heatmapDefinition() {
+    public Optional<Output<DashboardWidgetHeatmapDefinitionArgs>> heatmapDefinition() {
         return Optional.ofNullable(this.heatmapDefinition);
     }
 
@@ -203,13 +203,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="hostmapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs> hostmapDefinition;
+    private @Nullable Output<DashboardWidgetHostmapDefinitionArgs> hostmapDefinition;
 
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs>> hostmapDefinition() {
+    public Optional<Output<DashboardWidgetHostmapDefinitionArgs>> hostmapDefinition() {
         return Optional.ofNullable(this.hostmapDefinition);
     }
 
@@ -233,13 +233,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="iframeDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs> iframeDefinition;
+    private @Nullable Output<DashboardWidgetIframeDefinitionArgs> iframeDefinition;
 
     /**
      * @return The definition for an Iframe widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs>> iframeDefinition() {
+    public Optional<Output<DashboardWidgetIframeDefinitionArgs>> iframeDefinition() {
         return Optional.ofNullable(this.iframeDefinition);
     }
 
@@ -248,13 +248,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="imageDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs> imageDefinition;
+    private @Nullable Output<DashboardWidgetImageDefinitionArgs> imageDefinition;
 
     /**
      * @return The definition for an Image widget
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs>> imageDefinition() {
+    public Optional<Output<DashboardWidgetImageDefinitionArgs>> imageDefinition() {
         return Optional.ofNullable(this.imageDefinition);
     }
 
@@ -263,13 +263,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="listStreamDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs> listStreamDefinition;
+    private @Nullable Output<DashboardWidgetListStreamDefinitionArgs> listStreamDefinition;
 
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs>> listStreamDefinition() {
+    public Optional<Output<DashboardWidgetListStreamDefinitionArgs>> listStreamDefinition() {
         return Optional.ofNullable(this.listStreamDefinition);
     }
 
@@ -278,13 +278,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="logStreamDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs> logStreamDefinition;
+    private @Nullable Output<DashboardWidgetLogStreamDefinitionArgs> logStreamDefinition;
 
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs>> logStreamDefinition() {
+    public Optional<Output<DashboardWidgetLogStreamDefinitionArgs>> logStreamDefinition() {
         return Optional.ofNullable(this.logStreamDefinition);
     }
 
@@ -293,13 +293,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="manageStatusDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs> manageStatusDefinition;
+    private @Nullable Output<DashboardWidgetManageStatusDefinitionArgs> manageStatusDefinition;
 
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs>> manageStatusDefinition() {
+    public Optional<Output<DashboardWidgetManageStatusDefinitionArgs>> manageStatusDefinition() {
         return Optional.ofNullable(this.manageStatusDefinition);
     }
 
@@ -308,13 +308,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="noteDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs> noteDefinition;
+    private @Nullable Output<DashboardWidgetNoteDefinitionArgs> noteDefinition;
 
     /**
      * @return The definition for a Note widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs>> noteDefinition() {
+    public Optional<Output<DashboardWidgetNoteDefinitionArgs>> noteDefinition() {
         return Optional.ofNullable(this.noteDefinition);
     }
 
@@ -323,13 +323,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="powerpackDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs> powerpackDefinition;
+    private @Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition;
 
     /**
      * @return The definition for a Powerpack widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs>> powerpackDefinition() {
+    public Optional<Output<DashboardWidgetPowerpackDefinitionArgs>> powerpackDefinition() {
         return Optional.ofNullable(this.powerpackDefinition);
     }
 
@@ -338,13 +338,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="queryTableDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs> queryTableDefinition;
+    private @Nullable Output<DashboardWidgetQueryTableDefinitionArgs> queryTableDefinition;
 
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs>> queryTableDefinition() {
+    public Optional<Output<DashboardWidgetQueryTableDefinitionArgs>> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
 
@@ -353,13 +353,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="queryValueDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs> queryValueDefinition;
+    private @Nullable Output<DashboardWidgetQueryValueDefinitionArgs> queryValueDefinition;
 
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs>> queryValueDefinition() {
+    public Optional<Output<DashboardWidgetQueryValueDefinitionArgs>> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
     }
 
@@ -368,13 +368,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="runWorkflowDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
+    private @Nullable Output<DashboardWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
 
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
+    public Optional<Output<DashboardWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
     }
 
@@ -383,13 +383,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="scatterplotDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs> scatterplotDefinition;
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionArgs> scatterplotDefinition;
 
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs>> scatterplotDefinition() {
+    public Optional<Output<DashboardWidgetScatterplotDefinitionArgs>> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
 
@@ -398,13 +398,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="serviceLevelObjectiveDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition;
+    private @Nullable Output<DashboardWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition;
 
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs>> serviceLevelObjectiveDefinition() {
+    public Optional<Output<DashboardWidgetServiceLevelObjectiveDefinitionArgs>> serviceLevelObjectiveDefinition() {
         return Optional.ofNullable(this.serviceLevelObjectiveDefinition);
     }
 
@@ -413,13 +413,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="servicemapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs> servicemapDefinition;
+    private @Nullable Output<DashboardWidgetServicemapDefinitionArgs> servicemapDefinition;
 
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs>> servicemapDefinition() {
+    public Optional<Output<DashboardWidgetServicemapDefinitionArgs>> servicemapDefinition() {
         return Optional.ofNullable(this.servicemapDefinition);
     }
 
@@ -428,13 +428,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="sloListDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs> sloListDefinition;
+    private @Nullable Output<DashboardWidgetSloListDefinitionArgs> sloListDefinition;
 
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs>> sloListDefinition() {
+    public Optional<Output<DashboardWidgetSloListDefinitionArgs>> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
     }
 
@@ -443,13 +443,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="splitGraphDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
+    private @Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
 
     /**
      * @return The definition for a Split Graph widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
+    public Optional<Output<DashboardWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
         return Optional.ofNullable(this.splitGraphDefinition);
     }
 
@@ -458,13 +458,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="sunburstDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs> sunburstDefinition;
+    private @Nullable Output<DashboardWidgetSunburstDefinitionArgs> sunburstDefinition;
 
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs>> sunburstDefinition() {
+    public Optional<Output<DashboardWidgetSunburstDefinitionArgs>> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
 
@@ -473,13 +473,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="timeseriesDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs> timeseriesDefinition;
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionArgs> timeseriesDefinition;
 
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs>> timeseriesDefinition() {
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionArgs>> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
 
@@ -488,13 +488,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="toplistDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs> toplistDefinition;
+    private @Nullable Output<DashboardWidgetToplistDefinitionArgs> toplistDefinition;
 
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs>> toplistDefinition() {
+    public Optional<Output<DashboardWidgetToplistDefinitionArgs>> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
 
@@ -503,13 +503,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="topologyMapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs> topologyMapDefinition;
+    private @Nullable Output<DashboardWidgetTopologyMapDefinitionArgs> topologyMapDefinition;
 
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs>> topologyMapDefinition() {
+    public Optional<Output<DashboardWidgetTopologyMapDefinitionArgs>> topologyMapDefinition() {
         return Optional.ofNullable(this.topologyMapDefinition);
     }
 
@@ -518,13 +518,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="traceServiceDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs> traceServiceDefinition;
+    private @Nullable Output<DashboardWidgetTraceServiceDefinitionArgs> traceServiceDefinition;
 
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs>> traceServiceDefinition() {
+    public Optional<Output<DashboardWidgetTraceServiceDefinitionArgs>> traceServiceDefinition() {
         return Optional.ofNullable(this.traceServiceDefinition);
     }
 
@@ -533,13 +533,13 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      * 
      */
     @Import(name="treemapDefinition")
-    private @Nullable Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs> treemapDefinition;
+    private @Nullable Output<DashboardWidgetTreemapDefinitionArgs> treemapDefinition;
 
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs>> treemapDefinition() {
+    public Optional<Output<DashboardWidgetTreemapDefinitionArgs>> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
 
@@ -621,7 +621,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder alertGraphDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs> alertGraphDefinition) {
+        public Builder alertGraphDefinition(@Nullable Output<DashboardWidgetAlertGraphDefinitionArgs> alertGraphDefinition) {
             $.alertGraphDefinition = alertGraphDefinition;
             return this;
         }
@@ -632,7 +632,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder alertGraphDefinition(DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionArgs alertGraphDefinition) {
+        public Builder alertGraphDefinition(DashboardWidgetAlertGraphDefinitionArgs alertGraphDefinition) {
             return alertGraphDefinition(Output.of(alertGraphDefinition));
         }
 
@@ -642,7 +642,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder alertValueDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs> alertValueDefinition) {
+        public Builder alertValueDefinition(@Nullable Output<DashboardWidgetAlertValueDefinitionArgs> alertValueDefinition) {
             $.alertValueDefinition = alertValueDefinition;
             return this;
         }
@@ -653,7 +653,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder alertValueDefinition(DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs alertValueDefinition) {
+        public Builder alertValueDefinition(DashboardWidgetAlertValueDefinitionArgs alertValueDefinition) {
             return alertValueDefinition(Output.of(alertValueDefinition));
         }
 
@@ -663,7 +663,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder changeDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs> changeDefinition) {
+        public Builder changeDefinition(@Nullable Output<DashboardWidgetChangeDefinitionArgs> changeDefinition) {
             $.changeDefinition = changeDefinition;
             return this;
         }
@@ -674,7 +674,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder changeDefinition(DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs changeDefinition) {
+        public Builder changeDefinition(DashboardWidgetChangeDefinitionArgs changeDefinition) {
             return changeDefinition(Output.of(changeDefinition));
         }
 
@@ -684,7 +684,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder checkStatusDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs> checkStatusDefinition) {
+        public Builder checkStatusDefinition(@Nullable Output<DashboardWidgetCheckStatusDefinitionArgs> checkStatusDefinition) {
             $.checkStatusDefinition = checkStatusDefinition;
             return this;
         }
@@ -695,7 +695,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder checkStatusDefinition(DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionArgs checkStatusDefinition) {
+        public Builder checkStatusDefinition(DashboardWidgetCheckStatusDefinitionArgs checkStatusDefinition) {
             return checkStatusDefinition(Output.of(checkStatusDefinition));
         }
 
@@ -705,7 +705,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder distributionDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs> distributionDefinition) {
+        public Builder distributionDefinition(@Nullable Output<DashboardWidgetDistributionDefinitionArgs> distributionDefinition) {
             $.distributionDefinition = distributionDefinition;
             return this;
         }
@@ -716,7 +716,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder distributionDefinition(DashboardWidgetGroupDefinitionWidgetDistributionDefinitionArgs distributionDefinition) {
+        public Builder distributionDefinition(DashboardWidgetDistributionDefinitionArgs distributionDefinition) {
             return distributionDefinition(Output.of(distributionDefinition));
         }
 
@@ -726,7 +726,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder eventStreamDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs> eventStreamDefinition) {
+        public Builder eventStreamDefinition(@Nullable Output<DashboardWidgetEventStreamDefinitionArgs> eventStreamDefinition) {
             $.eventStreamDefinition = eventStreamDefinition;
             return this;
         }
@@ -737,7 +737,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder eventStreamDefinition(DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionArgs eventStreamDefinition) {
+        public Builder eventStreamDefinition(DashboardWidgetEventStreamDefinitionArgs eventStreamDefinition) {
             return eventStreamDefinition(Output.of(eventStreamDefinition));
         }
 
@@ -747,7 +747,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder eventTimelineDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs> eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(@Nullable Output<DashboardWidgetEventTimelineDefinitionArgs> eventTimelineDefinition) {
             $.eventTimelineDefinition = eventTimelineDefinition;
             return this;
         }
@@ -758,7 +758,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder eventTimelineDefinition(DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionArgs eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(DashboardWidgetEventTimelineDefinitionArgs eventTimelineDefinition) {
             return eventTimelineDefinition(Output.of(eventTimelineDefinition));
         }
 
@@ -768,7 +768,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder freeTextDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs> freeTextDefinition) {
+        public Builder freeTextDefinition(@Nullable Output<DashboardWidgetFreeTextDefinitionArgs> freeTextDefinition) {
             $.freeTextDefinition = freeTextDefinition;
             return this;
         }
@@ -779,7 +779,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder freeTextDefinition(DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs freeTextDefinition) {
+        public Builder freeTextDefinition(DashboardWidgetFreeTextDefinitionArgs freeTextDefinition) {
             return freeTextDefinition(Output.of(freeTextDefinition));
         }
 
@@ -789,7 +789,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder geomapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs> geomapDefinition) {
+        public Builder geomapDefinition(@Nullable Output<DashboardWidgetGeomapDefinitionArgs> geomapDefinition) {
             $.geomapDefinition = geomapDefinition;
             return this;
         }
@@ -800,7 +800,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder geomapDefinition(DashboardWidgetGroupDefinitionWidgetGeomapDefinitionArgs geomapDefinition) {
+        public Builder geomapDefinition(DashboardWidgetGeomapDefinitionArgs geomapDefinition) {
             return geomapDefinition(Output.of(geomapDefinition));
         }
 
@@ -810,7 +810,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder heatmapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs> heatmapDefinition) {
+        public Builder heatmapDefinition(@Nullable Output<DashboardWidgetHeatmapDefinitionArgs> heatmapDefinition) {
             $.heatmapDefinition = heatmapDefinition;
             return this;
         }
@@ -821,7 +821,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder heatmapDefinition(DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs heatmapDefinition) {
+        public Builder heatmapDefinition(DashboardWidgetHeatmapDefinitionArgs heatmapDefinition) {
             return heatmapDefinition(Output.of(heatmapDefinition));
         }
 
@@ -831,7 +831,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder hostmapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs> hostmapDefinition) {
+        public Builder hostmapDefinition(@Nullable Output<DashboardWidgetHostmapDefinitionArgs> hostmapDefinition) {
             $.hostmapDefinition = hostmapDefinition;
             return this;
         }
@@ -842,7 +842,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder hostmapDefinition(DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs hostmapDefinition) {
+        public Builder hostmapDefinition(DashboardWidgetHostmapDefinitionArgs hostmapDefinition) {
             return hostmapDefinition(Output.of(hostmapDefinition));
         }
 
@@ -873,7 +873,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder iframeDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs> iframeDefinition) {
+        public Builder iframeDefinition(@Nullable Output<DashboardWidgetIframeDefinitionArgs> iframeDefinition) {
             $.iframeDefinition = iframeDefinition;
             return this;
         }
@@ -884,7 +884,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder iframeDefinition(DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs iframeDefinition) {
+        public Builder iframeDefinition(DashboardWidgetIframeDefinitionArgs iframeDefinition) {
             return iframeDefinition(Output.of(iframeDefinition));
         }
 
@@ -894,7 +894,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder imageDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs> imageDefinition) {
+        public Builder imageDefinition(@Nullable Output<DashboardWidgetImageDefinitionArgs> imageDefinition) {
             $.imageDefinition = imageDefinition;
             return this;
         }
@@ -905,7 +905,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder imageDefinition(DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs imageDefinition) {
+        public Builder imageDefinition(DashboardWidgetImageDefinitionArgs imageDefinition) {
             return imageDefinition(Output.of(imageDefinition));
         }
 
@@ -915,7 +915,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder listStreamDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs> listStreamDefinition) {
+        public Builder listStreamDefinition(@Nullable Output<DashboardWidgetListStreamDefinitionArgs> listStreamDefinition) {
             $.listStreamDefinition = listStreamDefinition;
             return this;
         }
@@ -926,7 +926,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder listStreamDefinition(DashboardWidgetGroupDefinitionWidgetListStreamDefinitionArgs listStreamDefinition) {
+        public Builder listStreamDefinition(DashboardWidgetListStreamDefinitionArgs listStreamDefinition) {
             return listStreamDefinition(Output.of(listStreamDefinition));
         }
 
@@ -936,7 +936,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder logStreamDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs> logStreamDefinition) {
+        public Builder logStreamDefinition(@Nullable Output<DashboardWidgetLogStreamDefinitionArgs> logStreamDefinition) {
             $.logStreamDefinition = logStreamDefinition;
             return this;
         }
@@ -947,7 +947,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder logStreamDefinition(DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs logStreamDefinition) {
+        public Builder logStreamDefinition(DashboardWidgetLogStreamDefinitionArgs logStreamDefinition) {
             return logStreamDefinition(Output.of(logStreamDefinition));
         }
 
@@ -957,7 +957,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder manageStatusDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs> manageStatusDefinition) {
+        public Builder manageStatusDefinition(@Nullable Output<DashboardWidgetManageStatusDefinitionArgs> manageStatusDefinition) {
             $.manageStatusDefinition = manageStatusDefinition;
             return this;
         }
@@ -968,7 +968,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder manageStatusDefinition(DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs manageStatusDefinition) {
+        public Builder manageStatusDefinition(DashboardWidgetManageStatusDefinitionArgs manageStatusDefinition) {
             return manageStatusDefinition(Output.of(manageStatusDefinition));
         }
 
@@ -978,7 +978,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder noteDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs> noteDefinition) {
+        public Builder noteDefinition(@Nullable Output<DashboardWidgetNoteDefinitionArgs> noteDefinition) {
             $.noteDefinition = noteDefinition;
             return this;
         }
@@ -989,7 +989,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder noteDefinition(DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs noteDefinition) {
+        public Builder noteDefinition(DashboardWidgetNoteDefinitionArgs noteDefinition) {
             return noteDefinition(Output.of(noteDefinition));
         }
 
@@ -999,7 +999,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder powerpackDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs> powerpackDefinition) {
+        public Builder powerpackDefinition(@Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition) {
             $.powerpackDefinition = powerpackDefinition;
             return this;
         }
@@ -1010,7 +1010,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder powerpackDefinition(DashboardWidgetGroupDefinitionWidgetPowerpackDefinitionArgs powerpackDefinition) {
+        public Builder powerpackDefinition(DashboardWidgetPowerpackDefinitionArgs powerpackDefinition) {
             return powerpackDefinition(Output.of(powerpackDefinition));
         }
 
@@ -1020,7 +1020,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs> queryTableDefinition) {
+        public Builder queryTableDefinition(@Nullable Output<DashboardWidgetQueryTableDefinitionArgs> queryTableDefinition) {
             $.queryTableDefinition = queryTableDefinition;
             return this;
         }
@@ -1031,7 +1031,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs queryTableDefinition) {
+        public Builder queryTableDefinition(DashboardWidgetQueryTableDefinitionArgs queryTableDefinition) {
             return queryTableDefinition(Output.of(queryTableDefinition));
         }
 
@@ -1041,7 +1041,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs> queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable Output<DashboardWidgetQueryValueDefinitionArgs> queryValueDefinition) {
             $.queryValueDefinition = queryValueDefinition;
             return this;
         }
@@ -1052,7 +1052,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs queryValueDefinition) {
+        public Builder queryValueDefinition(DashboardWidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
         }
 
@@ -1062,7 +1062,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder runWorkflowDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
+        public Builder runWorkflowDefinition(@Nullable Output<DashboardWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
             $.runWorkflowDefinition = runWorkflowDefinition;
             return this;
         }
@@ -1073,7 +1073,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder runWorkflowDefinition(DashboardWidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
+        public Builder runWorkflowDefinition(DashboardWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
             return runWorkflowDefinition(Output.of(runWorkflowDefinition));
         }
 
@@ -1083,7 +1083,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs> scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable Output<DashboardWidgetScatterplotDefinitionArgs> scatterplotDefinition) {
             $.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
@@ -1094,7 +1094,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs scatterplotDefinition) {
+        public Builder scatterplotDefinition(DashboardWidgetScatterplotDefinitionArgs scatterplotDefinition) {
             return scatterplotDefinition(Output.of(scatterplotDefinition));
         }
 
@@ -1104,7 +1104,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder serviceLevelObjectiveDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(@Nullable Output<DashboardWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition) {
             $.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             return this;
         }
@@ -1115,7 +1115,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder serviceLevelObjectiveDefinition(DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(DashboardWidgetServiceLevelObjectiveDefinitionArgs serviceLevelObjectiveDefinition) {
             return serviceLevelObjectiveDefinition(Output.of(serviceLevelObjectiveDefinition));
         }
 
@@ -1125,7 +1125,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder servicemapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs> servicemapDefinition) {
+        public Builder servicemapDefinition(@Nullable Output<DashboardWidgetServicemapDefinitionArgs> servicemapDefinition) {
             $.servicemapDefinition = servicemapDefinition;
             return this;
         }
@@ -1136,7 +1136,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder servicemapDefinition(DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs servicemapDefinition) {
+        public Builder servicemapDefinition(DashboardWidgetServicemapDefinitionArgs servicemapDefinition) {
             return servicemapDefinition(Output.of(servicemapDefinition));
         }
 
@@ -1146,7 +1146,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder sloListDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs> sloListDefinition) {
+        public Builder sloListDefinition(@Nullable Output<DashboardWidgetSloListDefinitionArgs> sloListDefinition) {
             $.sloListDefinition = sloListDefinition;
             return this;
         }
@@ -1157,7 +1157,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder sloListDefinition(DashboardWidgetGroupDefinitionWidgetSloListDefinitionArgs sloListDefinition) {
+        public Builder sloListDefinition(DashboardWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
         }
 
@@ -1167,7 +1167,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
+        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
             $.splitGraphDefinition = splitGraphDefinition;
             return this;
         }
@@ -1178,7 +1178,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder splitGraphDefinition(DashboardWidgetGroupDefinitionWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
+        public Builder splitGraphDefinition(DashboardWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
             return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
@@ -1188,7 +1188,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs> sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable Output<DashboardWidgetSunburstDefinitionArgs> sunburstDefinition) {
             $.sunburstDefinition = sunburstDefinition;
             return this;
         }
@@ -1199,7 +1199,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(DashboardWidgetGroupDefinitionWidgetSunburstDefinitionArgs sunburstDefinition) {
+        public Builder sunburstDefinition(DashboardWidgetSunburstDefinitionArgs sunburstDefinition) {
             return sunburstDefinition(Output.of(sunburstDefinition));
         }
 
@@ -1209,7 +1209,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs> timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable Output<DashboardWidgetTimeseriesDefinitionArgs> timeseriesDefinition) {
             $.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
@@ -1220,7 +1220,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs timeseriesDefinition) {
+        public Builder timeseriesDefinition(DashboardWidgetTimeseriesDefinitionArgs timeseriesDefinition) {
             return timeseriesDefinition(Output.of(timeseriesDefinition));
         }
 
@@ -1230,7 +1230,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder toplistDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs> toplistDefinition) {
+        public Builder toplistDefinition(@Nullable Output<DashboardWidgetToplistDefinitionArgs> toplistDefinition) {
             $.toplistDefinition = toplistDefinition;
             return this;
         }
@@ -1241,7 +1241,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder toplistDefinition(DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs toplistDefinition) {
+        public Builder toplistDefinition(DashboardWidgetToplistDefinitionArgs toplistDefinition) {
             return toplistDefinition(Output.of(toplistDefinition));
         }
 
@@ -1251,7 +1251,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder topologyMapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs> topologyMapDefinition) {
+        public Builder topologyMapDefinition(@Nullable Output<DashboardWidgetTopologyMapDefinitionArgs> topologyMapDefinition) {
             $.topologyMapDefinition = topologyMapDefinition;
             return this;
         }
@@ -1262,7 +1262,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder topologyMapDefinition(DashboardWidgetGroupDefinitionWidgetTopologyMapDefinitionArgs topologyMapDefinition) {
+        public Builder topologyMapDefinition(DashboardWidgetTopologyMapDefinitionArgs topologyMapDefinition) {
             return topologyMapDefinition(Output.of(topologyMapDefinition));
         }
 
@@ -1272,7 +1272,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder traceServiceDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs> traceServiceDefinition) {
+        public Builder traceServiceDefinition(@Nullable Output<DashboardWidgetTraceServiceDefinitionArgs> traceServiceDefinition) {
             $.traceServiceDefinition = traceServiceDefinition;
             return this;
         }
@@ -1283,7 +1283,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder traceServiceDefinition(DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs traceServiceDefinition) {
+        public Builder traceServiceDefinition(DashboardWidgetTraceServiceDefinitionArgs traceServiceDefinition) {
             return traceServiceDefinition(Output.of(traceServiceDefinition));
         }
 
@@ -1293,7 +1293,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder treemapDefinition(@Nullable Output<DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs> treemapDefinition) {
+        public Builder treemapDefinition(@Nullable Output<DashboardWidgetTreemapDefinitionArgs> treemapDefinition) {
             $.treemapDefinition = treemapDefinition;
             return this;
         }
@@ -1304,7 +1304,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder treemapDefinition(DashboardWidgetGroupDefinitionWidgetTreemapDefinitionArgs treemapDefinition) {
+        public Builder treemapDefinition(DashboardWidgetTreemapDefinitionArgs treemapDefinition) {
             return treemapDefinition(Output.of(treemapDefinition));
         }
 
