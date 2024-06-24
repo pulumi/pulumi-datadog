@@ -156,7 +156,7 @@ class DashboardList(pulumi.CustomResource):
                     dash_id=screen.id,
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     screen,
                     time,
                 ]))
@@ -235,7 +235,7 @@ class DashboardList(pulumi.CustomResource):
                     dash_id=screen.id,
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     screen,
                     time,
                 ]))

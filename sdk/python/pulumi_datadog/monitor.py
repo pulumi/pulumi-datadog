@@ -326,13 +326,11 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `restricted_roles`.""")
     def locked(self) -> Optional[pulumi.Input[bool]]:
         """
         A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
-        warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-        pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
-
         return pulumi.get(self, "locked")
 
     @locked.setter
@@ -379,6 +377,7 @@ class MonitorArgs:
 
     @property
     @pulumi.getter(name="newHostDelay")
+    @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> Optional[pulumi.Input[int]]:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -386,9 +385,6 @@ class MonitorArgs:
         and monitors not grouped by host. The only case when this should be used is to override the default and set
         `new_host_delay` to zero for monitors grouped by host.
         """
-        warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
-        pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
-
         return pulumi.get(self, "new_host_delay")
 
     @new_host_delay.setter
@@ -903,13 +899,11 @@ class _MonitorState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `restricted_roles`.""")
     def locked(self) -> Optional[pulumi.Input[bool]]:
         """
         A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
-        warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-        pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
-
         return pulumi.get(self, "locked")
 
     @locked.setter
@@ -980,6 +974,7 @@ class _MonitorState:
 
     @property
     @pulumi.getter(name="newHostDelay")
+    @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> Optional[pulumi.Input[int]]:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -987,9 +982,6 @@ class _MonitorState:
         and monitors not grouped by host. The only case when this should be used is to override the default and set
         `new_host_delay` to zero for monitors grouped by host.
         """
-        warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
-        pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
-
         return pulumi.get(self, "new_host_delay")
 
     @new_host_delay.setter
@@ -1747,13 +1739,11 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `restricted_roles`.""")
     def locked(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
-        warnings.warn("""Use `restricted_roles`.""", DeprecationWarning)
-        pulumi.log.warn("""locked is deprecated: Use `restricted_roles`.""")
-
         return pulumi.get(self, "locked")
 
     @property
@@ -1800,6 +1790,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newHostDelay")
+    @_utilities.deprecated("""Use `new_group_delay` except when setting `new_host_delay` to zero.""")
     def new_host_delay(self) -> pulumi.Output[Optional[int]]:
         """
         **Deprecated**. See `new_group_delay`. Time (in seconds) to allow a host to boot and applications to fully start before
@@ -1807,9 +1798,6 @@ class Monitor(pulumi.CustomResource):
         and monitors not grouped by host. The only case when this should be used is to override the default and set
         `new_host_delay` to zero for monitors grouped by host.
         """
-        warnings.warn("""Use `new_group_delay` except when setting `new_host_delay` to zero.""", DeprecationWarning)
-        pulumi.log.warn("""new_host_delay is deprecated: Use `new_group_delay` except when setting `new_host_delay` to zero.""")
-
         return pulumi.get(self, "new_host_delay")
 
     @property
