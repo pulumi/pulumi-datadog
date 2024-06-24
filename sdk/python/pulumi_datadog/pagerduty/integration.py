@@ -152,11 +152,11 @@ class Integration(pulumi.CustomResource):
         testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
             service_name="testing_foo",
             service_key="9876543210123456789",
-            opts=pulumi.ResourceOptions(depends_on=[pd]))
+            opts = pulumi.ResourceOptions(depends_on=[pd]))
         testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
             service_name="testing_bar",
             service_key="54321098765432109876",
-            opts=pulumi.ResourceOptions(depends_on=[pd]))
+            opts = pulumi.ResourceOptions(depends_on=[pd]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,11 +192,11 @@ class Integration(pulumi.CustomResource):
         testing_foo = datadog.pagerduty.ServiceObject("testing_foo",
             service_name="testing_foo",
             service_key="9876543210123456789",
-            opts=pulumi.ResourceOptions(depends_on=[pd]))
+            opts = pulumi.ResourceOptions(depends_on=[pd]))
         testing_bar = datadog.pagerduty.ServiceObject("testing_bar",
             service_name="testing_bar",
             service_key="54321098765432109876",
-            opts=pulumi.ResourceOptions(depends_on=[pd]))
+            opts = pulumi.ResourceOptions(depends_on=[pd]))
         ```
 
         :param str resource_name: The name of the resource.

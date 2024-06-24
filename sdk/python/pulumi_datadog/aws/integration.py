@@ -179,13 +179,11 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")
+    @_utilities.deprecated("""Deprecated in favor of `extended_resource_collection_enabled`.""")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
         """
         Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         """
-        warnings.warn("""Deprecated in favor of `extended_resource_collection_enabled`.""", DeprecationWarning)
-        pulumi.log.warn("""resource_collection_enabled is deprecated: Deprecated in favor of `extended_resource_collection_enabled`.""")
-
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
@@ -397,13 +395,11 @@ class _IntegrationState:
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")
+    @_utilities.deprecated("""Deprecated in favor of `extended_resource_collection_enabled`.""")
     def resource_collection_enabled(self) -> Optional[pulumi.Input[str]]:
         """
         Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         """
-        warnings.warn("""Deprecated in favor of `extended_resource_collection_enabled`.""", DeprecationWarning)
-        pulumi.log.warn("""resource_collection_enabled is deprecated: Deprecated in favor of `extended_resource_collection_enabled`.""")
-
         return pulumi.get(self, "resource_collection_enabled")
 
     @resource_collection_enabled.setter
@@ -738,13 +734,11 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceCollectionEnabled")
+    @_utilities.deprecated("""Deprecated in favor of `extended_resource_collection_enabled`.""")
     def resource_collection_enabled(self) -> pulumi.Output[str]:
         """
         Whether Datadog collects a standard set of resources from your AWS account. **Deprecated.** Deprecated in favor of `extended_resource_collection_enabled`.
         """
-        warnings.warn("""Deprecated in favor of `extended_resource_collection_enabled`.""", DeprecationWarning)
-        pulumi.log.warn("""resource_collection_enabled is deprecated: Deprecated in favor of `extended_resource_collection_enabled`.""")
-
         return pulumi.get(self, "resource_collection_enabled")
 
     @property

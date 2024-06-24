@@ -1636,13 +1636,11 @@ class DashboardTemplateVariableArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `defaults` instead.""")
     def default(self) -> Optional[pulumi.Input[str]]:
         """
         The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
         """
-        warnings.warn("""Use `defaults` instead.""", DeprecationWarning)
-        pulumi.log.warn("""default is deprecated: Use `defaults` instead.""")
-
         return pulumi.get(self, "default")
 
     @default.setter
@@ -1748,13 +1746,11 @@ class DashboardTemplateVariablePresetTemplateVariableArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use `values` instead.""")
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
         """
-        warnings.warn("""Use `values` instead.""", DeprecationWarning)
-        pulumi.log.warn("""value is deprecated: Use `values` instead.""")
-
         return pulumi.get(self, "value")
 
     @value.setter
@@ -79323,13 +79319,11 @@ class SecurityMonitoringRuleQueryArgs:
 
     @property
     @pulumi.getter(name="agentRules")
+    @_utilities.deprecated("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""")
     def agent_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryAgentRuleArgs']]]]:
         """
         **Deprecated**. It won't be applied anymore. **Deprecated.** `agent_rule` has been deprecated in favor of new Agent Rule resource.
         """
-        warnings.warn("""`agent_rule` has been deprecated in favor of new Agent Rule resource.""", DeprecationWarning)
-        pulumi.log.warn("""agent_rules is deprecated: `agent_rule` has been deprecated in favor of new Agent Rule resource.""")
-
         return pulumi.get(self, "agent_rules")
 
     @agent_rules.setter
@@ -79374,13 +79368,11 @@ class SecurityMonitoringRuleQueryArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
     def metric(self) -> Optional[pulumi.Input[str]]:
         """
         The target field to aggregate over when using the `sum`, `max`, or `geo_data` aggregations. **Deprecated.** Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
         """
-        warnings.warn("""Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""metric is deprecated: Configure `metrics` instead. This attribute will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -81619,13 +81611,11 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
 
     @property
     @pulumi.getter(name="protoJsonDescriptor")
+    @_utilities.deprecated("""Use `plain_proto_file` instead.""")
     def proto_json_descriptor(self) -> Optional[pulumi.Input[str]]:
         """
         A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         """
-        warnings.warn("""Use `plain_proto_file` instead.""", DeprecationWarning)
-        pulumi.log.warn("""proto_json_descriptor is deprecated: Use `plain_proto_file` instead.""")
-
         return pulumi.get(self, "proto_json_descriptor")
 
     @proto_json_descriptor.setter
@@ -83952,13 +83942,11 @@ class SyntheticsTestRequestDefinitionArgs:
 
     @property
     @pulumi.getter(name="protoJsonDescriptor")
+    @_utilities.deprecated("""Use `plain_proto_file` instead.""")
     def proto_json_descriptor(self) -> Optional[pulumi.Input[str]]:
         """
         A protobuf JSON descriptor. **Deprecated.** Use `plain_proto_file` instead.
         """
-        warnings.warn("""Use `plain_proto_file` instead.""", DeprecationWarning)
-        pulumi.log.warn("""proto_json_descriptor is deprecated: Use `plain_proto_file` instead.""")
-
         return pulumi.get(self, "proto_json_descriptor")
 
     @proto_json_descriptor.setter
