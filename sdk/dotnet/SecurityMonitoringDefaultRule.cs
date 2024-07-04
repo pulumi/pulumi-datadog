@@ -63,6 +63,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SecurityMonitoringDefaultRuleCase>> Cases { get; private set; } = null!;
 
         /// <summary>
+        /// Custom tags for generated signals.
+        /// </summary>
+        [Output("customTags")]
+        public Output<ImmutableArray<string>> CustomTags { get; private set; } = null!;
+
+        /// <summary>
         /// Enable the rule. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
@@ -144,6 +150,18 @@ namespace Pulumi.Datadog
             set => _cases = value;
         }
 
+        [Input("customTags")]
+        private InputList<string>? _customTags;
+
+        /// <summary>
+        /// Custom tags for generated signals.
+        /// </summary>
+        public InputList<string> CustomTags
+        {
+            get => _customTags ?? (_customTags = new InputList<string>());
+            set => _customTags = value;
+        }
+
         /// <summary>
         /// Enable the rule. Defaults to `true`.
         /// </summary>
@@ -186,6 +204,18 @@ namespace Pulumi.Datadog
         {
             get => _cases ?? (_cases = new InputList<Inputs.SecurityMonitoringDefaultRuleCaseGetArgs>());
             set => _cases = value;
+        }
+
+        [Input("customTags")]
+        private InputList<string>? _customTags;
+
+        /// <summary>
+        /// Custom tags for generated signals.
+        /// </summary>
+        public InputList<string> CustomTags
+        {
+            get => _customTags ?? (_customTags = new InputList<string>());
+            set => _customTags = value;
         }
 
         /// <summary>

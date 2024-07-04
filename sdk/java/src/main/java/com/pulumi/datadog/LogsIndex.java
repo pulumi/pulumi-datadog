@@ -182,14 +182,14 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
         return this.filters;
     }
     /**
-     * The name of the index.
+     * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the index.
+     * @return The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
     public Output<String> name() {

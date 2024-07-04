@@ -17,6 +17,21 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
     public static final SyntheticsTestAssertionTargetjsonpathArgs Empty = new SyntheticsTestAssertionTargetjsonpathArgs();
 
     /**
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * 
+     */
+    @Import(name="elementsoperator")
+    private @Nullable Output<String> elementsoperator;
+
+    /**
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * 
+     */
+    public Optional<Output<String>> elementsoperator() {
+        return Optional.ofNullable(this.elementsoperator);
+    }
+
+    /**
      * The JSON path to assert.
      * 
      */
@@ -64,6 +79,7 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
     private SyntheticsTestAssertionTargetjsonpathArgs() {}
 
     private SyntheticsTestAssertionTargetjsonpathArgs(SyntheticsTestAssertionTargetjsonpathArgs $) {
+        this.elementsoperator = $.elementsoperator;
         this.jsonpath = $.jsonpath;
         this.operator = $.operator;
         this.targetvalue = $.targetvalue;
@@ -85,6 +101,27 @@ public final class SyntheticsTestAssertionTargetjsonpathArgs extends com.pulumi.
 
         public Builder(SyntheticsTestAssertionTargetjsonpathArgs defaults) {
             $ = new SyntheticsTestAssertionTargetjsonpathArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elementsoperator(@Nullable Output<String> elementsoperator) {
+            $.elementsoperator = elementsoperator;
+            return this;
+        }
+
+        /**
+         * @param elementsoperator The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elementsoperator(String elementsoperator) {
+            return elementsoperator(Output.of(elementsoperator));
         }
 
         /**

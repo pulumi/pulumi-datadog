@@ -24,6 +24,7 @@ class SensitiveDataScannerRuleArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
@@ -37,6 +38,7 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
+        :param pulumi.Input[int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -56,6 +58,8 @@ class SensitiveDataScannerRuleArgs:
             pulumi.set(__self__, "namespaces", namespaces)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if standard_pattern_id is not None:
             pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
         if tags is not None:
@@ -160,6 +164,18 @@ class SensitiveDataScannerRuleArgs:
         pulumi.set(self, "pattern", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="standardPatternId")
     def standard_pattern_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -207,6 +223,7 @@ class _SensitiveDataScannerRuleState:
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  text_replacement: Optional[pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs']] = None):
@@ -220,6 +237,7 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
+        :param pulumi.Input[int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -240,6 +258,8 @@ class _SensitiveDataScannerRuleState:
             pulumi.set(__self__, "namespaces", namespaces)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if standard_pattern_id is not None:
             pulumi.set(__self__, "standard_pattern_id", standard_pattern_id)
         if tags is not None:
@@ -344,6 +364,18 @@ class _SensitiveDataScannerRuleState:
         pulumi.set(self, "pattern", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="standardPatternId")
     def standard_pattern_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -393,6 +425,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  text_replacement: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']]] = None,
@@ -416,6 +449,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
+        :param pulumi.Input[int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -458,6 +492,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  standard_pattern_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  text_replacement: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']]] = None,
@@ -480,6 +515,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["namespaces"] = namespaces
             __props__.__dict__["pattern"] = pattern
+            __props__.__dict__["priority"] = priority
             __props__.__dict__["standard_pattern_id"] = standard_pattern_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["text_replacement"] = text_replacement
@@ -501,6 +537,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             pattern: Optional[pulumi.Input[str]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             standard_pattern_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             text_replacement: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']]] = None) -> 'SensitiveDataScannerRule':
@@ -519,6 +556,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[str] pattern: Not included if there is a relationship to a standard pattern.
+        :param pulumi.Input[int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags.
         :param pulumi.Input[pulumi.InputType['SensitiveDataScannerRuleTextReplacementArgs']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
@@ -535,6 +573,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["namespaces"] = namespaces
         __props__.__dict__["pattern"] = pattern
+        __props__.__dict__["priority"] = priority
         __props__.__dict__["standard_pattern_id"] = standard_pattern_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["text_replacement"] = text_replacement
@@ -603,6 +642,14 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         Not included if there is a relationship to a standard pattern.
         """
         return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Output[int]:
+        """
+        Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="standardPatternId")

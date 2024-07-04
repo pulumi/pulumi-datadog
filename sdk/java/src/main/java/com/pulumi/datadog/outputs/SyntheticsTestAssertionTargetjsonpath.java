@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestAssertionTargetjsonpath {
     /**
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * 
+     */
+    private @Nullable String elementsoperator;
+    /**
      * @return The JSON path to assert.
      * 
      */
@@ -29,6 +34,13 @@ public final class SyntheticsTestAssertionTargetjsonpath {
     private @Nullable String targetvalue;
 
     private SyntheticsTestAssertionTargetjsonpath() {}
+    /**
+     * @return The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `&#34;firstElementMatches&#34;`.
+     * 
+     */
+    public Optional<String> elementsoperator() {
+        return Optional.ofNullable(this.elementsoperator);
+    }
     /**
      * @return The JSON path to assert.
      * 
@@ -60,17 +72,25 @@ public final class SyntheticsTestAssertionTargetjsonpath {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String elementsoperator;
         private String jsonpath;
         private String operator;
         private @Nullable String targetvalue;
         public Builder() {}
         public Builder(SyntheticsTestAssertionTargetjsonpath defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.elementsoperator = defaults.elementsoperator;
     	      this.jsonpath = defaults.jsonpath;
     	      this.operator = defaults.operator;
     	      this.targetvalue = defaults.targetvalue;
         }
 
+        @CustomType.Setter
+        public Builder elementsoperator(@Nullable String elementsoperator) {
+
+            this.elementsoperator = elementsoperator;
+            return this;
+        }
         @CustomType.Setter
         public Builder jsonpath(String jsonpath) {
             if (jsonpath == null) {
@@ -95,6 +115,7 @@ public final class SyntheticsTestAssertionTargetjsonpath {
         }
         public SyntheticsTestAssertionTargetjsonpath build() {
             final var _resultValue = new SyntheticsTestAssertionTargetjsonpath();
+            _resultValue.elementsoperator = elementsoperator;
             _resultValue.jsonpath = jsonpath;
             _resultValue.operator = operator;
             _resultValue.targetvalue = targetvalue;

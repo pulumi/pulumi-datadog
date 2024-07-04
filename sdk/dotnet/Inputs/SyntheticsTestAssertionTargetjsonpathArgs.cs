@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestAssertionTargetjsonpathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        /// </summary>
+        [Input("elementsoperator")]
+        public Input<string>? Elementsoperator { get; set; }
+
+        /// <summary>
         /// The JSON path to assert.
         /// </summary>
         [Input("jsonpath", required: true)]

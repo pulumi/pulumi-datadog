@@ -88,28 +88,28 @@ public class AuthnMapping extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * The ID of a role to attach to all users with the corresponding key and value.
+     * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return The ID of a role to attach to all users with the corresponding key and value.
+     * @return The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      * 
      */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
     /**
-     * The ID of a team to add all users with the corresponding key and value to.
+     * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      * 
      */
     @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**
-     * @return The ID of a team to add all users with the corresponding key and value to.
+     * @return The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      * 
      */
     public Output<Optional<String>> team() {

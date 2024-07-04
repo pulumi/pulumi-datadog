@@ -20,359 +20,6 @@ import * as utilities from "./utilities";
  *
  * which you can now use in your request definition:
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Example Usage (Synthetics API test)
- * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testUptime = new datadog.SyntheticsTest("test_uptime", {
- *     name: "An Uptime test on example.org",
- *     type: "api",
- *     subtype: "http",
- *     status: "live",
- *     message: "Notify @pagerduty",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     requestDefinition: {
- *         method: "GET",
- *         url: "https://www.example.org",
- *     },
- *     requestHeaders: {
- *         "Content-Type": "application/json",
- *     },
- *     assertions: [{
- *         type: "statusCode",
- *         operator: "is",
- *         target: "200",
- *     }],
- *     optionsList: {
- *         tickEvery: 900,
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         monitorOptions: {
- *             renotifyInterval: 120,
- *         },
- *     },
- * });
- * // Example Usage (Authenticated API test)
- * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testApi = new datadog.SyntheticsTest("test_api", {
- *     name: "An API test on example.org",
- *     type: "api",
- *     subtype: "http",
- *     status: "live",
- *     message: "Notify @pagerduty",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     requestDefinition: {
- *         method: "GET",
- *         url: "https://www.example.org",
- *     },
- *     requestHeaders: {
- *         "Content-Type": "application/json",
- *         Authentication: "Token: 1234566789",
- *     },
- *     assertions: [{
- *         type: "statusCode",
- *         operator: "is",
- *         target: "200",
- *     }],
- *     optionsList: {
- *         tickEvery: 900,
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         monitorOptions: {
- *             renotifyInterval: 120,
- *         },
- *     },
- * });
- * // Example Usage (Synthetics SSL test)
- * // Create a new Datadog Synthetics API/SSL test on example.org
- * const testSsl = new datadog.SyntheticsTest("test_ssl", {
- *     name: "An API test on example.org",
- *     type: "api",
- *     subtype: "ssl",
- *     status: "live",
- *     message: "Notify @pagerduty",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     requestDefinition: {
- *         host: "example.org",
- *         port: 443,
- *     },
- *     assertions: [{
- *         type: "certificate",
- *         operator: "isInMoreThan",
- *         target: "30",
- *     }],
- *     optionsList: {
- *         tickEvery: 900,
- *         acceptSelfSigned: true,
- *     },
- * });
- * // Example Usage (Synthetics TCP test)
- * // Create a new Datadog Synthetics API/TCP test on example.org
- * const testTcp = new datadog.SyntheticsTest("test_tcp", {
- *     name: "An API test on example.org",
- *     type: "api",
- *     subtype: "tcp",
- *     status: "live",
- *     message: "Notify @pagerduty",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     requestDefinition: {
- *         host: "example.org",
- *         port: 443,
- *     },
- *     assertions: [{
- *         type: "responseTime",
- *         operator: "lessThan",
- *         target: "2000",
- *     }],
- *     configVariables: [{
- *         type: "global",
- *         name: "MY_GLOBAL_VAR",
- *         id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
- *     }],
- *     optionsList: {
- *         tickEvery: 900,
- *     },
- * });
- * // Example Usage (Synthetics DNS test)
- * // Create a new Datadog Synthetics API/DNS test on example.org
- * const testDns = new datadog.SyntheticsTest("test_dns", {
- *     name: "An API test on example.org",
- *     type: "api",
- *     subtype: "dns",
- *     status: "live",
- *     message: "Notify @pagerduty",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     requestDefinition: {
- *         host: "example.org",
- *     },
- *     assertions: [{
- *         type: "recordSome",
- *         operator: "is",
- *         property: "A",
- *         target: "0.0.0.0",
- *     }],
- *     optionsList: {
- *         tickEvery: 900,
- *     },
- * });
- * // Example Usage (Synthetics Multistep API test)
- * // Create a new Datadog Synthetics Multistep API test
- * const testMultiStep = new datadog.SyntheticsTest("test_multi_step", {
- *     name: "Multistep API test",
- *     type: "api",
- *     subtype: "multi",
- *     status: "live",
- *     locations: ["aws:eu-central-1"],
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     apiSteps: [
- *         {
- *             name: "An API test on example.org",
- *             subtype: "http",
- *             assertions: [{
- *                 type: "statusCode",
- *                 operator: "is",
- *                 target: "200",
- *             }],
- *             requestDefinition: {
- *                 method: "GET",
- *                 url: "https://example.org",
- *             },
- *             requestHeaders: {
- *                 "Content-Type": "application/json",
- *                 Authentication: "Token: 1234566789",
- *             },
- *         },
- *         {
- *             name: "An API test on example.org",
- *             subtype: "http",
- *             assertions: [{
- *                 type: "statusCode",
- *                 operator: "is",
- *                 target: "200",
- *             }],
- *             requestDefinition: {
- *                 method: "GET",
- *                 url: "http://example.org",
- *             },
- *         },
- *     ],
- *     optionsList: {
- *         tickEvery: 900,
- *         acceptSelfSigned: true,
- *     },
- * });
- * // Example Usage (Synthetics Browser test)
- * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
- * const testBrowser = new datadog.SyntheticsTest("test_browser", {
- *     name: "A Browser test on example.org",
- *     type: "browser",
- *     status: "paused",
- *     message: "Notify @qa",
- *     deviceIds: ["laptop_large"],
- *     locations: ["aws:eu-central-1"],
- *     tags: [],
- *     requestDefinition: {
- *         method: "GET",
- *         url: "https://app.datadoghq.com",
- *     },
- *     browserSteps: [
- *         {
- *             name: "Check current url",
- *             type: "assertCurrentUrl",
- *             params: {
- *                 check: "contains",
- *                 value: "datadoghq",
- *             },
- *         },
- *         {
- *             name: "Test a downloaded file",
- *             type: "assertFileDownload",
- *             params: {
- *                 file: JSON.stringify({
- *                     md5: "abcdef1234567890",
- *                     sizeCheck: {
- *                         type: "equals",
- *                         value: 1,
- *                     },
- *                     nameCheck: {
- *                         type: "contains",
- *                         value: ".xls",
- *                     },
- *                 }),
- *             },
- *         },
- *     ],
- *     browserVariables: [
- *         {
- *             type: "text",
- *             name: "MY_PATTERN_VAR",
- *             pattern: "{{numeric(3)}}",
- *             example: "597",
- *         },
- *         {
- *             type: "email",
- *             name: "MY_EMAIL_VAR",
- *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
- *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
- *         },
- *         {
- *             type: "global",
- *             name: "MY_GLOBAL_VAR",
- *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
- *         },
- *     ],
- *     optionsList: {
- *         tickEvery: 3600,
- *     },
- * });
- * // Example Usage (GRPC API test)
- * // Create a new Datadog GRPC API test starting on google.org:50050
- * const grpc = new datadog.SyntheticsTest("grpc", {
- *     type: "api",
- *     subtype: "grpc",
- *     requestDefinition: {
- *         method: "GET",
- *         host: "google.com",
- *         port: 50050,
- *         service: "Hello",
- *         plainProtoFile: `syntax = "proto3";
- * option java_multiple_files = true;
- * option java_package = "io.grpc.examples.helloworld";
- * option java_outer_classname = "HelloWorldProto";
- * option objc_class_prefix = "HLW";
- * package helloworld;
- * // The greeting service definition.
- * service Greeter {
- * \x09// Sends a greeting
- * \x09rpc SayHello (HelloRequest) returns (HelloReply) {}
- * }
- * // The request message containing the user's name.
- * message HelloRequest {
- * \x09string name = 1;
- * }
- * // The response message containing the greetings
- * message HelloReply {
- * \x09string message = 1;
- * }
- * `,
- *     },
- *     requestMetadata: {
- *         header: "value",
- *     },
- *     assertions: [
- *         {
- *             type: "responseTime",
- *             operator: "lessThan",
- *             target: "2000",
- *         },
- *         {
- *             operator: "is",
- *             type: "grpcHealthcheckStatus",
- *             target: "1",
- *         },
- *         {
- *             operator: "is",
- *             target: "proto target",
- *             type: "grpcProto",
- *         },
- *         {
- *             operator: "is",
- *             target: "123",
- *             property: "property",
- *             type: "grpcMetadata",
- *         },
- *     ],
- *     locations: ["aws:eu-central-1"],
- *     optionsList: {
- *         tickEvery: 60,
- *     },
- *     name: "GRPC API test",
- *     message: "Notify @datadog.user",
- *     tags: [
- *         "foo:bar",
- *         "baz",
- *     ],
- *     status: "paused",
- * });
- * ```
- *
  * ## Import
  *
  * Synthetics tests can be imported using their public string ID, e.g.
@@ -410,7 +57,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
     }
 
     /**
-     * Steps for multistep api tests
+     * Steps for multi-step api tests
      */
     public readonly apiSteps!: pulumi.Output<outputs.SyntheticsTestApiStep[] | undefined>;
     /**
@@ -433,6 +80,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
+     */
+    public readonly forceDeleteDependencies!: pulumi.Output<boolean | undefined>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      */
@@ -462,6 +113,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      * Required if `type = "api"`. The synthetics test request.
      */
     public readonly requestDefinition!: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
+    /**
+     * Files to be used as part of the request in the test.
+     */
+    public readonly requestFiles!: pulumi.Output<outputs.SyntheticsTestRequestFile[] | undefined>;
     /**
      * Header name and value map.
      */
@@ -498,6 +153,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      * Synthetics test type. Valid values are `api`, `browser`.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Variables defined from JavaScript code for API HTTP tests.
+     */
+    public readonly variablesFromScript!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyntheticsTest resource with the given unique name, arguments, and options.
@@ -518,6 +177,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["browserVariables"] = state ? state.browserVariables : undefined;
             resourceInputs["configVariables"] = state ? state.configVariables : undefined;
             resourceInputs["deviceIds"] = state ? state.deviceIds : undefined;
+            resourceInputs["forceDeleteDependencies"] = state ? state.forceDeleteDependencies : undefined;
             resourceInputs["locations"] = state ? state.locations : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["monitorId"] = state ? state.monitorId : undefined;
@@ -526,6 +186,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
             resourceInputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = state ? state.requestDefinition : undefined;
+            resourceInputs["requestFiles"] = state ? state.requestFiles : undefined;
             resourceInputs["requestHeaders"] = state ? state.requestHeaders : undefined;
             resourceInputs["requestMetadata"] = state ? state.requestMetadata : undefined;
             resourceInputs["requestProxy"] = state ? state.requestProxy : undefined;
@@ -535,6 +196,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["subtype"] = state ? state.subtype : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["variablesFromScript"] = state ? state.variablesFromScript : undefined;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
             if ((!args || args.locations === undefined) && !opts.urn) {
@@ -555,6 +217,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["browserVariables"] = args ? args.browserVariables : undefined;
             resourceInputs["configVariables"] = args ? args.configVariables : undefined;
             resourceInputs["deviceIds"] = args ? args.deviceIds : undefined;
+            resourceInputs["forceDeleteDependencies"] = args ? args.forceDeleteDependencies : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -562,6 +225,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
             resourceInputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
             resourceInputs["requestDefinition"] = args ? args.requestDefinition : undefined;
+            resourceInputs["requestFiles"] = args ? args.requestFiles : undefined;
             resourceInputs["requestHeaders"] = args ? args.requestHeaders : undefined;
             resourceInputs["requestMetadata"] = args ? args.requestMetadata : undefined;
             resourceInputs["requestProxy"] = args ? args.requestProxy : undefined;
@@ -571,6 +235,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             resourceInputs["subtype"] = args ? args.subtype : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["variablesFromScript"] = args ? args.variablesFromScript : undefined;
             resourceInputs["monitorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -583,7 +248,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
  */
 export interface SyntheticsTestState {
     /**
-     * Steps for multistep api tests
+     * Steps for multi-step api tests
      */
     apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
     /**
@@ -606,6 +271,10 @@ export interface SyntheticsTestState {
      * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
+     */
+    forceDeleteDependencies?: pulumi.Input<boolean>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      */
@@ -635,6 +304,10 @@ export interface SyntheticsTestState {
      * Required if `type = "api"`. The synthetics test request.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
+    /**
+     * Files to be used as part of the request in the test.
+     */
+    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[]>;
     /**
      * Header name and value map.
      */
@@ -671,6 +344,10 @@ export interface SyntheticsTestState {
      * Synthetics test type. Valid values are `api`, `browser`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Variables defined from JavaScript code for API HTTP tests.
+     */
+    variablesFromScript?: pulumi.Input<string>;
 }
 
 /**
@@ -678,7 +355,7 @@ export interface SyntheticsTestState {
  */
 export interface SyntheticsTestArgs {
     /**
-     * Steps for multistep api tests
+     * Steps for multi-step api tests
      */
     apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
     /**
@@ -701,6 +378,10 @@ export interface SyntheticsTestArgs {
      * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
+     */
+    forceDeleteDependencies?: pulumi.Input<boolean>;
     /**
      * Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
      */
@@ -726,6 +407,10 @@ export interface SyntheticsTestArgs {
      * Required if `type = "api"`. The synthetics test request.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
+    /**
+     * Files to be used as part of the request in the test.
+     */
+    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestRequestFile>[]>;
     /**
      * Header name and value map.
      */
@@ -762,4 +447,8 @@ export interface SyntheticsTestArgs {
      * Synthetics test type. Valid values are `api`, `browser`.
      */
     type: pulumi.Input<string>;
+    /**
+     * Variables defined from JavaScript code for API HTTP tests.
+     */
+    variablesFromScript?: pulumi.Input<string>;
 }

@@ -66,6 +66,10 @@ export class OrganizationSettings extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicId!: pulumi.Output<string>;
     /**
+     * List of emails used for security event notifications from the organization.
+     */
+    public readonly securityContacts!: pulumi.Output<string[]>;
+    /**
      * Organization settings
      */
     public readonly settings!: pulumi.Output<outputs.OrganizationSettingsSettings>;
@@ -86,10 +90,12 @@ export class OrganizationSettings extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicId"] = state ? state.publicId : undefined;
+            resourceInputs["securityContacts"] = state ? state.securityContacts : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as OrganizationSettingsArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityContacts"] = args ? args.securityContacts : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["publicId"] = undefined /*out*/;
@@ -116,6 +122,10 @@ export interface OrganizationSettingsState {
      */
     publicId?: pulumi.Input<string>;
     /**
+     * List of emails used for security event notifications from the organization.
+     */
+    securityContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Organization settings
      */
     settings?: pulumi.Input<inputs.OrganizationSettingsSettings>;
@@ -129,6 +139,10 @@ export interface OrganizationSettingsArgs {
      * Name for Organization.
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of emails used for security event notifications from the organization.
+     */
+    securityContacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Organization settings
      */

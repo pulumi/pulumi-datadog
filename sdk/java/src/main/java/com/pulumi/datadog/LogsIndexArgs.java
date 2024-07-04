@@ -114,14 +114,14 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the index.
+     * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the index.
+     * @return The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      * 
      */
     public Output<String> name() {
@@ -321,7 +321,7 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the index.
+         * @param name The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class LogsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the index.
+         * @param name The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
          * 
          * @return builder
          * 

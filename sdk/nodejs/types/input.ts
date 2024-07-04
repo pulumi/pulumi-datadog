@@ -9301,7 +9301,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `networkPerformanceQueries`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -21366,6 +21366,10 @@ export interface SyntheticsTestApiStep {
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestApiStepRequestDefinition>;
     /**
+     * Files to be used as part of the request in the test.
+     */
+    requestFiles?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepRequestFile>[]>;
+    /**
      * Header name and value map.
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
@@ -21379,9 +21383,13 @@ export interface SyntheticsTestApiStep {
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     retry?: pulumi.Input<inputs.SyntheticsTestApiStepRetry>;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
      */
     subtype?: pulumi.Input<string>;
+    /**
+     * The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     */
+    value?: pulumi.Input<number>;
 }
 
 export interface SyntheticsTestApiStepAssertion {
@@ -21402,6 +21410,10 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetjsonpath>;
     /**
+     * Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     */
+    targetjsonschema?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetjsonschema>;
+    /**
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetxpath>;
@@ -21410,12 +21422,16 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
+    /**
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     */
+    elementsoperator?: pulumi.Input<string>;
     /**
      * The JSON path to assert.
      */
@@ -21428,6 +21444,17 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
      * Expected matching value.
      */
     targetvalue?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestApiStepAssertionTargetjsonschema {
+    /**
+     * The JSON Schema to validate the body against.
+     */
+    jsonschema: pulumi.Input<string>;
+    /**
+     * The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+     */
+    metaschema?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
@@ -21668,6 +21695,33 @@ export interface SyntheticsTestApiStepRequestDefinition {
     url?: pulumi.Input<string>;
 }
 
+export interface SyntheticsTestApiStepRequestFile {
+    /**
+     * Bucket key of the file.
+     */
+    bucketKey?: pulumi.Input<string>;
+    /**
+     * Content of the file.
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * Name of the file.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Original name of the file.
+     */
+    originalFileName?: pulumi.Input<string>;
+    /**
+     * Size of the file.
+     */
+    size: pulumi.Input<number>;
+    /**
+     * Type of the file.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface SyntheticsTestApiStepRequestProxy {
     /**
      * Header name and value map.
@@ -21708,6 +21762,10 @@ export interface SyntheticsTestAssertion {
      */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetjsonpath>;
     /**
+     * Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     */
+    targetjsonschema?: pulumi.Input<inputs.SyntheticsTestAssertionTargetjsonschema>;
+    /**
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: pulumi.Input<inputs.SyntheticsTestAssertionTargetxpath>;
@@ -21716,12 +21774,16 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: pulumi.Input<string>;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestAssertionTargetjsonpath {
+    /**
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     */
+    elementsoperator?: pulumi.Input<string>;
     /**
      * The JSON path to assert.
      */
@@ -21734,6 +21796,17 @@ export interface SyntheticsTestAssertionTargetjsonpath {
      * Expected matching value.
      */
     targetvalue?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestAssertionTargetjsonschema {
+    /**
+     * The JSON Schema to validate the body against.
+     */
+    jsonschema: pulumi.Input<string>;
+    /**
+     * The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+     */
+    metaschema?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
@@ -21808,7 +21881,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     delay?: pulumi.Input<number>;
     /**
-     * Element to use for the step, json encoded string.
+     * Element to use for the step, JSON encoded string.
      */
     element?: pulumi.Input<string>;
     /**
@@ -21816,7 +21889,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     elementUserLocator?: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsElementUserLocator>;
     /**
-     * Details of the email for an "assert email" step.
+     * Details of the email for an "assert email" step, JSON encoded string.
      */
     email?: pulumi.Input<string>;
     /**
@@ -21824,7 +21897,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     file?: pulumi.Input<string>;
     /**
-     * Details of the files for an "upload files" step, json encoded string.
+     * Details of the files for an "upload files" step, JSON encoded string.
      */
     files?: pulumi.Input<string>;
     /**
@@ -22269,6 +22342,33 @@ export interface SyntheticsTestRequestDefinition {
      * The URL to send the request to.
      */
     url?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestRequestFile {
+    /**
+     * Bucket key of the file.
+     */
+    bucketKey?: pulumi.Input<string>;
+    /**
+     * Content of the file.
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * Name of the file.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Original name of the file.
+     */
+    originalFileName?: pulumi.Input<string>;
+    /**
+     * Size of the file.
+     */
+    size: pulumi.Input<number>;
+    /**
+     * Type of the file.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestRequestProxy {

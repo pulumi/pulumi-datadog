@@ -204,6 +204,21 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Whether or not to validate the Rule.
+     * 
+     */
+    @Import(name="validate")
+    private @Nullable Output<Boolean> validate;
+
+    /**
+     * @return Whether or not to validate the Rule.
+     * 
+     */
+    public Optional<Output<Boolean>> validate() {
+        return Optional.ofNullable(this.validate);
+    }
+
     private SecurityMonitoringRuleArgs() {}
 
     private SecurityMonitoringRuleArgs(SecurityMonitoringRuleArgs $) {
@@ -219,6 +234,7 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
         this.tags = $.tags;
         this.thirdPartyCases = $.thirdPartyCases;
         this.type = $.type;
+        this.validate = $.validate;
     }
 
     public static Builder builder() {
@@ -549,6 +565,27 @@ public final class SecurityMonitoringRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param validate Whether or not to validate the Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(@Nullable Output<Boolean> validate) {
+            $.validate = validate;
+            return this;
+        }
+
+        /**
+         * @param validate Whether or not to validate the Rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(Boolean validate) {
+            return validate(Output.of(validate));
         }
 
         public SecurityMonitoringRuleArgs build() {

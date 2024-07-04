@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

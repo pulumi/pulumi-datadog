@@ -16,7 +16,6 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage Datadog Powerpacks
- * const organization = new datadog.OrganizationSettings("organization", {name: "foo-organization"});
  * const foo = new datadog.Powerpack("foo", {
  *     description: "Created using the Datadog provider in terraform",
  *     liveSpan: "4h",

@@ -42,7 +42,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable Integer delay;
     /**
-     * @return Element to use for the step, json encoded string.
+     * @return Element to use for the step, JSON encoded string.
      * 
      */
     private @Nullable String element;
@@ -52,7 +52,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable SyntheticsTestBrowserStepParamsElementUserLocator elementUserLocator;
     /**
-     * @return Details of the email for an &#34;assert email&#34; step.
+     * @return Details of the email for an &#34;assert email&#34; step, JSON encoded string.
      * 
      */
     private @Nullable String email;
@@ -62,7 +62,7 @@ public final class SyntheticsTestBrowserStepParams {
      */
     private @Nullable String file;
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
      * 
      */
     private @Nullable String files;
@@ -149,7 +149,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.delay);
     }
     /**
-     * @return Element to use for the step, json encoded string.
+     * @return Element to use for the step, JSON encoded string.
      * 
      */
     public Optional<String> element() {
@@ -163,7 +163,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.elementUserLocator);
     }
     /**
-     * @return Details of the email for an &#34;assert email&#34; step.
+     * @return Details of the email for an &#34;assert email&#34; step, JSON encoded string.
      * 
      */
     public Optional<String> email() {
@@ -177,7 +177,7 @@ public final class SyntheticsTestBrowserStepParams {
         return Optional.ofNullable(this.file);
     }
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
      * 
      */
     public Optional<String> files() {

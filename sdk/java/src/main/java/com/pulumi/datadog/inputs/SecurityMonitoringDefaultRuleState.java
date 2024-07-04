@@ -36,6 +36,21 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
     }
 
     /**
+     * Custom tags for generated signals.
+     * 
+     */
+    @Import(name="customTags")
+    private @Nullable Output<List<String>> customTags;
+
+    /**
+     * @return Custom tags for generated signals.
+     * 
+     */
+    public Optional<Output<List<String>>> customTags() {
+        return Optional.ofNullable(this.customTags);
+    }
+
+    /**
      * Enable the rule. Defaults to `true`.
      * 
      */
@@ -99,6 +114,7 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
 
     private SecurityMonitoringDefaultRuleState(SecurityMonitoringDefaultRuleState $) {
         this.cases = $.cases;
+        this.customTags = $.customTags;
         this.enabled = $.enabled;
         this.filters = $.filters;
         this.options = $.options;
@@ -152,6 +168,37 @@ public final class SecurityMonitoringDefaultRuleState extends com.pulumi.resourc
          */
         public Builder cases(SecurityMonitoringDefaultRuleCaseArgs... cases) {
             return cases(List.of(cases));
+        }
+
+        /**
+         * @param customTags Custom tags for generated signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customTags(@Nullable Output<List<String>> customTags) {
+            $.customTags = customTags;
+            return this;
+        }
+
+        /**
+         * @param customTags Custom tags for generated signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customTags(List<String> customTags) {
+            return customTags(Output.of(customTags));
+        }
+
+        /**
+         * @param customTags Custom tags for generated signals.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customTags(String... customTags) {
+            return customTags(List.of(customTags));
         }
 
         /**

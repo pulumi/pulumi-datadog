@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * const fooTeamLink = new datadog.TeamLink("foo", {
  *     teamId: foo.id,
  *     label: "Link label",
- *     position: "Example link",
+ *     position: 0,
  *     url: "https://example.com",
  * });
  * ```

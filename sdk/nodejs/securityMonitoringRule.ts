@@ -131,6 +131,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Whether or not to validate the Rule.
+     */
+    public readonly validate!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SecurityMonitoringRule resource with the given unique name, arguments, and options.
@@ -157,6 +161,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["thirdPartyCases"] = state ? state.thirdPartyCases : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
             if ((!args || args.message === undefined) && !opts.urn) {
@@ -177,6 +182,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thirdPartyCases"] = args ? args.thirdPartyCases : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validate"] = args ? args.validate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityMonitoringRule.__pulumiType, name, resourceInputs, opts);
@@ -235,6 +241,10 @@ export interface SecurityMonitoringRuleState {
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Whether or not to validate the Rule.
+     */
+    validate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -289,4 +299,8 @@ export interface SecurityMonitoringRuleArgs {
      * The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
      */
     type?: pulumi.Input<string>;
+    /**
+     * Whether or not to validate the Rule.
+     */
+    validate?: pulumi.Input<boolean>;
 }

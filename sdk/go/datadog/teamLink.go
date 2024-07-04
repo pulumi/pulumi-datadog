@@ -40,7 +40,7 @@ import (
 //			_, err = datadog.NewTeamLink(ctx, "foo", &datadog.TeamLinkArgs{
 //				TeamId:   foo.ID(),
 //				Label:    pulumi.String("Link label"),
-//				Position: pulumi.Int("Example link"),
+//				Position: pulumi.Int(0),
 //				Url:      pulumi.String("https://example.com"),
 //			})
 //			if err != nil {

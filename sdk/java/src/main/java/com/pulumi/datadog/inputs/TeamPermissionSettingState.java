@@ -46,14 +46,14 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+     * The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+     * @return The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
      * 
      */
     public Optional<Output<String>> value() {
@@ -129,7 +129,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+         * @param value The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TeamPermissionSettingState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param value The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+         * @param value The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
          * 
          * @return builder
          * 

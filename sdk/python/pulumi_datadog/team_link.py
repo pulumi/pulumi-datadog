@@ -179,7 +179,7 @@ class TeamLink(pulumi.CustomResource):
         foo_team_link = datadog.TeamLink("foo",
             team_id=foo.id,
             label="Link label",
-            position="Example link",
+            position=0,
             url="https://example.com")
         ```
 
@@ -219,7 +219,7 @@ class TeamLink(pulumi.CustomResource):
         foo_team_link = datadog.TeamLink("foo",
             team_id=foo.id,
             label="Link label",
-            position="Example link",
+            position=0,
             url="https://example.com")
         ```
 

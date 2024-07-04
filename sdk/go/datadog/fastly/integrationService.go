@@ -56,7 +56,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+// $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
 // ```
 type IntegrationService struct {
 	pulumi.CustomResourceState

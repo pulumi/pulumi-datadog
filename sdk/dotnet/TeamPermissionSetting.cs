@@ -55,7 +55,7 @@ namespace Pulumi.Datadog
         public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Datadog
         public Input<string> TeamId { get; set; } = null!;
 
         /// <summary>
-        /// The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Datadog
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        /// The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -59,6 +59,12 @@ namespace Pulumi.Datadog
         public Output<string> PublicId { get; private set; } = null!;
 
         /// <summary>
+        /// List of emails used for security event notifications from the organization.
+        /// </summary>
+        [Output("securityContacts")]
+        public Output<ImmutableArray<string>> SecurityContacts { get; private set; } = null!;
+
+        /// <summary>
         /// Organization settings
         /// </summary>
         [Output("settings")]
@@ -116,6 +122,18 @@ namespace Pulumi.Datadog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("securityContacts")]
+        private InputList<string>? _securityContacts;
+
+        /// <summary>
+        /// List of emails used for security event notifications from the organization.
+        /// </summary>
+        public InputList<string> SecurityContacts
+        {
+            get => _securityContacts ?? (_securityContacts = new InputList<string>());
+            set => _securityContacts = value;
+        }
+
         /// <summary>
         /// Organization settings
         /// </summary>
@@ -147,6 +165,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("publicId")]
         public Input<string>? PublicId { get; set; }
+
+        [Input("securityContacts")]
+        private InputList<string>? _securityContacts;
+
+        /// <summary>
+        /// List of emails used for security event notifications from the organization.
+        /// </summary>
+        public InputList<string> SecurityContacts
+        {
+            get => _securityContacts ?? (_securityContacts = new InputList<string>());
+            set => _securityContacts = value;
+        }
 
         /// <summary>
         /// Organization settings

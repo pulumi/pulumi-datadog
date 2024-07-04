@@ -9,10 +9,12 @@ import com.pulumi.datadog.outputs.SyntheticsTestApiStepExtractedValue;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestBasicauth;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestClientCertificate;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestDefinition;
+import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestFile;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRequestProxy;
 import com.pulumi.datadog.outputs.SyntheticsTestApiStepRetry;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -64,6 +66,11 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable SyntheticsTestApiStepRequestDefinition requestDefinition;
     /**
+     * @return Files to be used as part of the request in the test.
+     * 
+     */
+    private @Nullable List<SyntheticsTestApiStepRequestFile> requestFiles;
+    /**
      * @return Header name and value map.
      * 
      */
@@ -80,10 +87,15 @@ public final class SyntheticsTestApiStep {
     private @Nullable Map<String,Object> requestQuery;
     private @Nullable SyntheticsTestApiStepRetry retry;
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     private @Nullable String subtype;
+    /**
+     * @return The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     * 
+     */
+    private @Nullable Integer value;
 
     private SyntheticsTestApiStep() {}
     /**
@@ -143,6 +155,13 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.requestDefinition);
     }
     /**
+     * @return Files to be used as part of the request in the test.
+     * 
+     */
+    public List<SyntheticsTestApiStepRequestFile> requestFiles() {
+        return this.requestFiles == null ? List.of() : this.requestFiles;
+    }
+    /**
      * @return Header name and value map.
      * 
      */
@@ -167,11 +186,18 @@ public final class SyntheticsTestApiStep {
         return Optional.ofNullable(this.retry);
     }
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<String> subtype() {
         return Optional.ofNullable(this.subtype);
+    }
+    /**
+     * @return The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     * 
+     */
+    public Optional<Integer> value() {
+        return Optional.ofNullable(this.value);
     }
 
     public static Builder builder() {
@@ -191,11 +217,13 @@ public final class SyntheticsTestApiStep {
         private @Nullable SyntheticsTestApiStepRequestBasicauth requestBasicauth;
         private @Nullable SyntheticsTestApiStepRequestClientCertificate requestClientCertificate;
         private @Nullable SyntheticsTestApiStepRequestDefinition requestDefinition;
+        private @Nullable List<SyntheticsTestApiStepRequestFile> requestFiles;
         private @Nullable Map<String,Object> requestHeaders;
         private @Nullable SyntheticsTestApiStepRequestProxy requestProxy;
         private @Nullable Map<String,Object> requestQuery;
         private @Nullable SyntheticsTestApiStepRetry retry;
         private @Nullable String subtype;
+        private @Nullable Integer value;
         public Builder() {}
         public Builder(SyntheticsTestApiStep defaults) {
     	      Objects.requireNonNull(defaults);
@@ -207,11 +235,13 @@ public final class SyntheticsTestApiStep {
     	      this.requestBasicauth = defaults.requestBasicauth;
     	      this.requestClientCertificate = defaults.requestClientCertificate;
     	      this.requestDefinition = defaults.requestDefinition;
+    	      this.requestFiles = defaults.requestFiles;
     	      this.requestHeaders = defaults.requestHeaders;
     	      this.requestProxy = defaults.requestProxy;
     	      this.requestQuery = defaults.requestQuery;
     	      this.retry = defaults.retry;
     	      this.subtype = defaults.subtype;
+    	      this.value = defaults.value;
         }
 
         @CustomType.Setter
@@ -271,6 +301,15 @@ public final class SyntheticsTestApiStep {
             return this;
         }
         @CustomType.Setter
+        public Builder requestFiles(@Nullable List<SyntheticsTestApiStepRequestFile> requestFiles) {
+
+            this.requestFiles = requestFiles;
+            return this;
+        }
+        public Builder requestFiles(SyntheticsTestApiStepRequestFile... requestFiles) {
+            return requestFiles(List.of(requestFiles));
+        }
+        @CustomType.Setter
         public Builder requestHeaders(@Nullable Map<String,Object> requestHeaders) {
 
             this.requestHeaders = requestHeaders;
@@ -300,6 +339,12 @@ public final class SyntheticsTestApiStep {
             this.subtype = subtype;
             return this;
         }
+        @CustomType.Setter
+        public Builder value(@Nullable Integer value) {
+
+            this.value = value;
+            return this;
+        }
         public SyntheticsTestApiStep build() {
             final var _resultValue = new SyntheticsTestApiStep();
             _resultValue.allowFailure = allowFailure;
@@ -310,11 +355,13 @@ public final class SyntheticsTestApiStep {
             _resultValue.requestBasicauth = requestBasicauth;
             _resultValue.requestClientCertificate = requestClientCertificate;
             _resultValue.requestDefinition = requestDefinition;
+            _resultValue.requestFiles = requestFiles;
             _resultValue.requestHeaders = requestHeaders;
             _resultValue.requestProxy = requestProxy;
             _resultValue.requestQuery = requestQuery;
             _resultValue.retry = retry;
             _resultValue.subtype = subtype;
+            _resultValue.value = value;
             return _resultValue;
         }
     }

@@ -28,13 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Manage Datadog Powerpacks
-//			_, err := datadog.NewOrganizationSettings(ctx, "organization", &datadog.OrganizationSettingsArgs{
-//				Name: pulumi.String("foo-organization"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datadog.NewPowerpack(ctx, "foo", &datadog.PowerpackArgs{
+//			_, err := datadog.NewPowerpack(ctx, "foo", &datadog.PowerpackArgs{
 //				Description: pulumi.String("Created using the Datadog provider in terraform"),
 //				LiveSpan:    pulumi.String("4h"),
 //				Layout: &datadog.PowerpackLayoutArgs{

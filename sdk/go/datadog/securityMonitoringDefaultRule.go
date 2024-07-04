@@ -63,6 +63,8 @@ type SecurityMonitoringDefaultRule struct {
 
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayOutput `pulumi:"cases"`
+	// Custom tags for generated signals.
+	CustomTags pulumi.StringArrayOutput `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
@@ -105,6 +107,8 @@ func GetSecurityMonitoringDefaultRule(ctx *pulumi.Context,
 type securityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
+	// Custom tags for generated signals.
+	CustomTags []string `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
@@ -118,6 +122,8 @@ type securityMonitoringDefaultRuleState struct {
 type SecurityMonitoringDefaultRuleState struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
+	// Custom tags for generated signals.
+	CustomTags pulumi.StringArrayInput
 	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
@@ -135,6 +141,8 @@ func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
 type securityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`
+	// Custom tags for generated signals.
+	CustomTags []string `pulumi:"customTags"`
 	// Enable the rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Additional queries to filter matched events before they are processed.
@@ -147,6 +155,8 @@ type securityMonitoringDefaultRuleArgs struct {
 type SecurityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases SecurityMonitoringDefaultRuleCaseArrayInput
+	// Custom tags for generated signals.
+	CustomTags pulumi.StringArrayInput
 	// Enable the rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Additional queries to filter matched events before they are processed.
@@ -245,6 +255,11 @@ func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutp
 // Cases of the rule, this is used to update notifications.
 func (o SecurityMonitoringDefaultRuleOutput) Cases() SecurityMonitoringDefaultRuleCaseArrayOutput {
 	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRuleCaseArrayOutput { return v.Cases }).(SecurityMonitoringDefaultRuleCaseArrayOutput)
+}
+
+// Custom tags for generated signals.
+func (o SecurityMonitoringDefaultRuleOutput) CustomTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) pulumi.StringArrayOutput { return v.CustomTags }).(pulumi.StringArrayOutput)
 }
 
 // Enable the rule. Defaults to `true`.

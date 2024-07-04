@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
- *
  * ## Example Usage
  *
  * ```typescript

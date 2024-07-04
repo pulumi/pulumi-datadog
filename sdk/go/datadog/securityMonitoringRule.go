@@ -111,6 +111,8 @@ type SecurityMonitoringRule struct {
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayOutput `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Whether or not to validate the Rule.
+	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
 
 // NewSecurityMonitoringRule registers a new resource with the given unique name, arguments, and options.
@@ -173,6 +175,8 @@ type securityMonitoringRuleState struct {
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
+	// Whether or not to validate the Rule.
+	Validate *bool `pulumi:"validate"`
 }
 
 type SecurityMonitoringRuleState struct {
@@ -200,6 +204,8 @@ type SecurityMonitoringRuleState struct {
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
+	// Whether or not to validate the Rule.
+	Validate pulumi.BoolPtrInput
 }
 
 func (SecurityMonitoringRuleState) ElementType() reflect.Type {
@@ -231,6 +237,8 @@ type securityMonitoringRuleArgs struct {
 	ThirdPartyCases []SecurityMonitoringRuleThirdPartyCase `pulumi:"thirdPartyCases"`
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type *string `pulumi:"type"`
+	// Whether or not to validate the Rule.
+	Validate *bool `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a SecurityMonitoringRule resource.
@@ -259,6 +267,8 @@ type SecurityMonitoringRuleArgs struct {
 	ThirdPartyCases SecurityMonitoringRuleThirdPartyCaseArrayInput
 	// The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 	Type pulumi.StringPtrInput
+	// Whether or not to validate the Rule.
+	Validate pulumi.BoolPtrInput
 }
 
 func (SecurityMonitoringRuleArgs) ElementType() reflect.Type {
@@ -408,6 +418,11 @@ func (o SecurityMonitoringRuleOutput) ThirdPartyCases() SecurityMonitoringRuleTh
 // The rule type. Valid values are `applicationSecurity`, `logDetection`, `workloadSecurity`, `signalCorrelation`. Defaults to `"logDetection"`.
 func (o SecurityMonitoringRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to validate the Rule.
+func (o SecurityMonitoringRuleOutput) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
 type SecurityMonitoringRuleArrayOutput struct{ *pulumi.OutputState }

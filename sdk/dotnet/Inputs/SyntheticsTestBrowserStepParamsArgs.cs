@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Delay { get; set; }
 
         /// <summary>
-        /// Element to use for the step, json encoded string.
+        /// Element to use for the step, JSON encoded string.
         /// </summary>
         [Input("element")]
         public Input<string>? Element { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestBrowserStepParamsElementUserLocatorArgs>? ElementUserLocator { get; set; }
 
         /// <summary>
-        /// Details of the email for an "assert email" step.
+        /// Details of the email for an "assert email" step, JSON encoded string.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? File { get; set; }
 
         /// <summary>
-        /// Details of the files for an "upload files" step, json encoded string.
+        /// Details of the files for an "upload files" step, JSON encoded string.
         /// </summary>
         [Input("files")]
         public Input<string>? Files { get; set; }

@@ -72,6 +72,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("requestDefinition")]
         public Input<Inputs.SyntheticsTestApiStepRequestDefinitionGetArgs>? RequestDefinition { get; set; }
 
+        [Input("requestFiles")]
+        private InputList<Inputs.SyntheticsTestApiStepRequestFileGetArgs>? _requestFiles;
+
+        /// <summary>
+        /// Files to be used as part of the request in the test.
+        /// </summary>
+        public InputList<Inputs.SyntheticsTestApiStepRequestFileGetArgs> RequestFiles
+        {
+            get => _requestFiles ?? (_requestFiles = new InputList<Inputs.SyntheticsTestApiStepRequestFileGetArgs>());
+            set => _requestFiles = value;
+        }
+
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
 
@@ -106,10 +118,16 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestApiStepRetryGetArgs>? Retry { get; set; }
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+        /// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
+
+        /// <summary>
+        /// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+        /// </summary>
+        [Input("value")]
+        public Input<int>? Value { get; set; }
 
         public SyntheticsTestApiStepGetArgs()
         {

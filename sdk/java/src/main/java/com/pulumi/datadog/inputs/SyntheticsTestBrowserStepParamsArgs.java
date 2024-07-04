@@ -96,14 +96,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Element to use for the step, json encoded string.
+     * Element to use for the step, JSON encoded string.
      * 
      */
     @Import(name="element")
     private @Nullable Output<String> element;
 
     /**
-     * @return Element to use for the step, json encoded string.
+     * @return Element to use for the step, JSON encoded string.
      * 
      */
     public Optional<Output<String>> element() {
@@ -126,14 +126,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Details of the email for an &#34;assert email&#34; step.
+     * Details of the email for an &#34;assert email&#34; step, JSON encoded string.
      * 
      */
     @Import(name="email")
     private @Nullable Output<String> email;
 
     /**
-     * @return Details of the email for an &#34;assert email&#34; step.
+     * @return Details of the email for an &#34;assert email&#34; step, JSON encoded string.
      * 
      */
     public Optional<Output<String>> email() {
@@ -156,14 +156,14 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
     }
 
     /**
-     * Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * Details of the files for an &#34;upload files&#34; step, JSON encoded string.
      * 
      */
     @Import(name="files")
     private @Nullable Output<String> files;
 
     /**
-     * @return Details of the files for an &#34;upload files&#34; step, json encoded string.
+     * @return Details of the files for an &#34;upload files&#34; step, JSON encoded string.
      * 
      */
     public Optional<Output<String>> files() {
@@ -453,7 +453,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param element Element to use for the step, json encoded string.
+         * @param element Element to use for the step, JSON encoded string.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param element Element to use for the step, json encoded string.
+         * @param element Element to use for the step, JSON encoded string.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param email Details of the email for an &#34;assert email&#34; step.
+         * @param email Details of the email for an &#34;assert email&#34; step, JSON encoded string.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param email Details of the email for an &#34;assert email&#34; step.
+         * @param email Details of the email for an &#34;assert email&#34; step, JSON encoded string.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param files Details of the files for an &#34;upload files&#34; step, json encoded string.
+         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class SyntheticsTestBrowserStepParamsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param files Details of the files for an &#34;upload files&#34; step, json encoded string.
+         * @param files Details of the files for an &#34;upload files&#34; step, JSON encoded string.
          * 
          * @return builder
          * 

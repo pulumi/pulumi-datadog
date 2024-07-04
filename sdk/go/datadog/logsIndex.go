@@ -93,7 +93,7 @@ type LogsIndex struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters LogsIndexFilterArrayOutput `pulumi:"filters"`
-	// The name of the index.
+	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of days before logs are deleted from this index.
 	RetentionDays pulumi.IntOutput `pulumi:"retentionDays"`
@@ -147,7 +147,7 @@ type logsIndexState struct {
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
-	// The name of the index.
+	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name *string `pulumi:"name"`
 	// The number of days before logs are deleted from this index.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -166,7 +166,7 @@ type LogsIndexState struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
-	// The name of the index.
+	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringPtrInput
 	// The number of days before logs are deleted from this index.
 	RetentionDays pulumi.IntPtrInput
@@ -189,7 +189,7 @@ type logsIndexArgs struct {
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
-	// The name of the index.
+	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name string `pulumi:"name"`
 	// The number of days before logs are deleted from this index.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -209,7 +209,7 @@ type LogsIndexArgs struct {
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
-	// The name of the index.
+	// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 	Name pulumi.StringInput
 	// The number of days before logs are deleted from this index.
 	RetentionDays pulumi.IntPtrInput
@@ -332,7 +332,7 @@ func (o LogsIndexOutput) Filters() LogsIndexFilterArrayOutput {
 	return o.ApplyT(func(v *LogsIndex) LogsIndexFilterArrayOutput { return v.Filters }).(LogsIndexFilterArrayOutput)
 }
 
-// The name of the index.
+// The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
 func (o LogsIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogsIndex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -38,6 +38,8 @@ type SensitiveDataScannerRule struct {
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
 	// Not included if there is a relationship to a standard pattern.
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
+	// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrOutput `pulumi:"standardPatternId"`
 	// List of tags.
@@ -95,6 +97,8 @@ type sensitiveDataScannerRuleState struct {
 	Namespaces []string `pulumi:"namespaces"`
 	// Not included if there is a relationship to a standard pattern.
 	Pattern *string `pulumi:"pattern"`
+	// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
 	// List of tags.
@@ -120,6 +124,8 @@ type SensitiveDataScannerRuleState struct {
 	Namespaces pulumi.StringArrayInput
 	// Not included if there is a relationship to a standard pattern.
 	Pattern pulumi.StringPtrInput
+	// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
 	// List of tags.
@@ -149,6 +155,8 @@ type sensitiveDataScannerRuleArgs struct {
 	Namespaces []string `pulumi:"namespaces"`
 	// Not included if there is a relationship to a standard pattern.
 	Pattern *string `pulumi:"pattern"`
+	// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
 	// List of tags.
@@ -175,6 +183,8 @@ type SensitiveDataScannerRuleArgs struct {
 	Namespaces pulumi.StringArrayInput
 	// Not included if there is a relationship to a standard pattern.
 	Pattern pulumi.StringPtrInput
+	// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
 	// List of tags.
@@ -310,6 +320,11 @@ func (o SensitiveDataScannerRuleOutput) Namespaces() pulumi.StringArrayOutput {
 // Not included if there is a relationship to a standard pattern.
 func (o SensitiveDataScannerRuleOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
+}
+
+// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+func (o SensitiveDataScannerRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
 // Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.

@@ -32,14 +32,14 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of a role to attach to all users with the corresponding key and value.
+     * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The ID of a role to attach to all users with the corresponding key and value.
+     * @return The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      * 
      */
     public Optional<Output<String>> role() {
@@ -47,14 +47,14 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of a team to add all users with the corresponding key and value to.
+     * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      * 
      */
     @Import(name="team")
     private @Nullable Output<String> team;
 
     /**
-     * @return The ID of a team to add all users with the corresponding key and value to.
+     * @return The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      * 
      */
     public Optional<Output<String>> team() {
@@ -125,7 +125,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The ID of a role to attach to all users with the corresponding key and value.
+         * @param role The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role The ID of a role to attach to all users with the corresponding key and value.
+         * @param role The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * @param team The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AuthnMappingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param team The ID of a team to add all users with the corresponding key and value to.
+         * @param team The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
          * 
          * @return builder
          * 

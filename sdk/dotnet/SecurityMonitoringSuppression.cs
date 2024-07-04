@@ -25,10 +25,11 @@ namespace Pulumi.Datadog
     ///     var mySuppression = new Datadog.SecurityMonitoringSuppression("my_suppression", new()
     ///     {
     ///         Name = "My suppression",
-    ///         Description = "Suppression for low severity CloudTrail signals from test environments limited to 2024",
+    ///         Description = "Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024",
     ///         Enabled = true,
     ///         RuleQuery = "severity:low source:cloudtrail",
-    ///         SuppressionQuery = "env:test",
+    ///         SuppressionQuery = "@usr.id:john.doe",
+    ///         DataExclusionQuery = "env:test",
     ///         ExpirationDate = "2024-12-31T12:00:00Z",
     ///     });
     /// 

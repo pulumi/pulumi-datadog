@@ -70,6 +70,12 @@ namespace Pulumi.Datadog
         public Output<string?> Pattern { get; private set; } = null!;
 
         /// <summary>
+        /// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        /// </summary>
+        [Output("priority")]
+        public Output<int> Priority { get; private set; } = null!;
+
+        /// <summary>
         /// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         /// </summary>
         [Output("standardPatternId")]
@@ -194,6 +200,12 @@ namespace Pulumi.Datadog
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
+        /// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
         /// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
         /// </summary>
         [Input("standardPatternId")]
@@ -284,6 +296,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
+
+        /// <summary>
+        /// Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
 
         /// <summary>
         /// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
