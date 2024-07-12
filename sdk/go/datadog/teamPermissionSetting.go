@@ -56,7 +56,7 @@ type TeamPermissionSetting struct {
 	Action pulumi.StringOutput `pulumi:"action"`
 	// ID of the team the team permission setting is associated with.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
-	// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+	// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -103,7 +103,7 @@ type teamPermissionSettingState struct {
 	Action *string `pulumi:"action"`
 	// ID of the team the team permission setting is associated with.
 	TeamId *string `pulumi:"teamId"`
-	// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+	// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 	Value *string `pulumi:"value"`
 }
 
@@ -112,7 +112,7 @@ type TeamPermissionSettingState struct {
 	Action pulumi.StringPtrInput
 	// ID of the team the team permission setting is associated with.
 	TeamId pulumi.StringPtrInput
-	// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+	// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 	Value pulumi.StringPtrInput
 }
 
@@ -125,7 +125,7 @@ type teamPermissionSettingArgs struct {
 	Action string `pulumi:"action"`
 	// ID of the team the team permission setting is associated with.
 	TeamId string `pulumi:"teamId"`
-	// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+	// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 	Value string `pulumi:"value"`
 }
 
@@ -135,7 +135,7 @@ type TeamPermissionSettingArgs struct {
 	Action pulumi.StringInput
 	// ID of the team the team permission setting is associated with.
 	TeamId pulumi.StringInput
-	// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+	// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 	Value pulumi.StringInput
 }
 
@@ -236,7 +236,7 @@ func (o TeamPermissionSettingOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamPermissionSetting) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }
 
-// The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+// The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
 func (o TeamPermissionSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamPermissionSetting) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

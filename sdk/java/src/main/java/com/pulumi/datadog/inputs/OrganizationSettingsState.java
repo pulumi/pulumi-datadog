@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.OrganizationSettingsSettingsArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,6 +63,21 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
     }
 
     /**
+     * List of emails used for security event notifications from the organization.
+     * 
+     */
+    @Import(name="securityContacts")
+    private @Nullable Output<List<String>> securityContacts;
+
+    /**
+     * @return List of emails used for security event notifications from the organization.
+     * 
+     */
+    public Optional<Output<List<String>>> securityContacts() {
+        return Optional.ofNullable(this.securityContacts);
+    }
+
+    /**
      * Organization settings
      * 
      */
@@ -82,6 +98,7 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.name = $.name;
         this.publicId = $.publicId;
+        this.securityContacts = $.securityContacts;
         this.settings = $.settings;
     }
 
@@ -164,6 +181,37 @@ public final class OrganizationSettingsState extends com.pulumi.resources.Resour
          */
         public Builder publicId(String publicId) {
             return publicId(Output.of(publicId));
+        }
+
+        /**
+         * @param securityContacts List of emails used for security event notifications from the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityContacts(@Nullable Output<List<String>> securityContacts) {
+            $.securityContacts = securityContacts;
+            return this;
+        }
+
+        /**
+         * @param securityContacts List of emails used for security event notifications from the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityContacts(List<String> securityContacts) {
+            return securityContacts(Output.of(securityContacts));
+        }
+
+        /**
+         * @param securityContacts List of emails used for security event notifications from the organization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityContacts(String... securityContacts) {
+            return securityContacts(List.of(securityContacts));
         }
 
         /**

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
-//
 // ## Example Usage
 //
 // ```go

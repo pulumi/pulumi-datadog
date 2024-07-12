@@ -59,8 +59,6 @@ class AwaitableGetCloudWorkloadSecurityAgentRulesResult(GetCloudWorkloadSecurity
 
 def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudWorkloadSecurityAgentRulesResult:
     """
-    Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-
     ## Example Usage
 
     ```python
@@ -82,8 +80,6 @@ def get_cloud_workload_security_agent_rules(opts: Optional[pulumi.InvokeOptions]
 @_utilities.lift_output_func(get_cloud_workload_security_agent_rules)
 def get_cloud_workload_security_agent_rules_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWorkloadSecurityAgentRulesResult]:
     """
-    Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-
     ## Example Usage
 
     ```python

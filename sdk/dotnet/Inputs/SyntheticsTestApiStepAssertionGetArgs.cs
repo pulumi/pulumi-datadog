@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestApiStepAssertionTargetjsonpathGetArgs>? Targetjsonpath { get; set; }
 
         /// <summary>
+        /// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        [Input("targetjsonschema")]
+        public Input<Inputs.SyntheticsTestApiStepAssertionTargetjsonschemaGetArgs>? Targetjsonschema { get; set; }
+
+        /// <summary>
         /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetxpath")]
@@ -49,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TimingsScope { get; set; }
 
         /// <summary>
-        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Fastly
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+    /// $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:fastly/integrationService:IntegrationService")]

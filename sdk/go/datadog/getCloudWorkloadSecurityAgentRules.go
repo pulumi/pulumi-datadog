@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-//
 // ## Example Usage
 //
 // ```go

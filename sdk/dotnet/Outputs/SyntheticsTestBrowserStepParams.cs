@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Delay;
         /// <summary>
-        /// Element to use for the step, json encoded string.
+        /// Element to use for the step, JSON encoded string.
         /// </summary>
         public readonly string? Element;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParamsElementUserLocator? ElementUserLocator;
         /// <summary>
-        /// Details of the email for an "assert email" step.
+        /// Details of the email for an "assert email" step, JSON encoded string.
         /// </summary>
         public readonly string? Email;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? File;
         /// <summary>
-        /// Details of the files for an "upload files" step, json encoded string.
+        /// Details of the files for an "upload files" step, JSON encoded string.
         /// </summary>
         public readonly string? Files;
         /// <summary>

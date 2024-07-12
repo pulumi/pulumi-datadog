@@ -62,9 +62,9 @@ type AuthnMapping struct {
 
 	// Identity provider key.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The ID of a role to attach to all users with the corresponding key and value.
+	// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The ID of a team to add all users with the corresponding key and value to.
+	// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 	Team pulumi.StringPtrOutput `pulumi:"team"`
 	// Identity provider value.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -108,9 +108,9 @@ func GetAuthnMapping(ctx *pulumi.Context,
 type authnMappingState struct {
 	// Identity provider key.
 	Key *string `pulumi:"key"`
-	// The ID of a role to attach to all users with the corresponding key and value.
+	// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 	Role *string `pulumi:"role"`
-	// The ID of a team to add all users with the corresponding key and value to.
+	// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 	Team *string `pulumi:"team"`
 	// Identity provider value.
 	Value *string `pulumi:"value"`
@@ -119,9 +119,9 @@ type authnMappingState struct {
 type AuthnMappingState struct {
 	// Identity provider key.
 	Key pulumi.StringPtrInput
-	// The ID of a role to attach to all users with the corresponding key and value.
+	// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 	Role pulumi.StringPtrInput
-	// The ID of a team to add all users with the corresponding key and value to.
+	// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 	Team pulumi.StringPtrInput
 	// Identity provider value.
 	Value pulumi.StringPtrInput
@@ -134,9 +134,9 @@ func (AuthnMappingState) ElementType() reflect.Type {
 type authnMappingArgs struct {
 	// Identity provider key.
 	Key string `pulumi:"key"`
-	// The ID of a role to attach to all users with the corresponding key and value.
+	// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 	Role *string `pulumi:"role"`
-	// The ID of a team to add all users with the corresponding key and value to.
+	// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 	Team *string `pulumi:"team"`
 	// Identity provider value.
 	Value string `pulumi:"value"`
@@ -146,9 +146,9 @@ type authnMappingArgs struct {
 type AuthnMappingArgs struct {
 	// Identity provider key.
 	Key pulumi.StringInput
-	// The ID of a role to attach to all users with the corresponding key and value.
+	// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 	Role pulumi.StringPtrInput
-	// The ID of a team to add all users with the corresponding key and value to.
+	// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 	Team pulumi.StringPtrInput
 	// Identity provider value.
 	Value pulumi.StringInput
@@ -246,12 +246,12 @@ func (o AuthnMappingOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthnMapping) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The ID of a role to attach to all users with the corresponding key and value.
+// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
 func (o AuthnMappingOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthnMapping) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a team to add all users with the corresponding key and value to.
+// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
 func (o AuthnMappingOutput) Team() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthnMapping) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
 }

@@ -10441,6 +10441,9 @@
                 "current": "datadog:index/organizationSettings:OrganizationSettings",
                 "majorVersion": 4,
                 "fields": {
+                    "security_contacts": {
+                        "maxItemsOne": false
+                    },
                     "settings": {
                         "maxItemsOne": true,
                         "elem": {
@@ -13269,6 +13272,9 @@
                             }
                         }
                     },
+                    "custom_tags": {
+                        "maxItemsOne": false
+                    },
                     "filter": {
                         "maxItemsOne": false
                     },
@@ -13588,6 +13594,9 @@
                                             "targetjsonpath": {
                                                 "maxItemsOne": true
                                             },
+                                            "targetjsonschema": {
+                                                "maxItemsOne": true
+                                            },
                                             "targetxpath": {
                                                 "maxItemsOne": true
                                             }
@@ -13630,6 +13639,9 @@
                                         }
                                     }
                                 },
+                                "request_file": {
+                                    "maxItemsOne": false
+                                },
                                 "request_proxy": {
                                     "maxItemsOne": true
                                 },
@@ -13644,6 +13656,9 @@
                         "elem": {
                             "fields": {
                                 "targetjsonpath": {
+                                    "maxItemsOne": true
+                                },
+                                "targetjsonschema": {
                                     "maxItemsOne": true
                                 },
                                 "targetxpath": {
@@ -13751,6 +13766,9 @@
                                 }
                             }
                         }
+                    },
+                    "request_file": {
+                        "maxItemsOne": false
                     },
                     "request_proxy": {
                         "maxItemsOne": true

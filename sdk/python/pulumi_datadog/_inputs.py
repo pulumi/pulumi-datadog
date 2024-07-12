@@ -1026,6 +1026,7 @@ __all__ = [
     'SyntheticsTestApiStepArgs',
     'SyntheticsTestApiStepAssertionArgs',
     'SyntheticsTestApiStepAssertionTargetjsonpathArgs',
+    'SyntheticsTestApiStepAssertionTargetjsonschemaArgs',
     'SyntheticsTestApiStepAssertionTargetxpathArgs',
     'SyntheticsTestApiStepExtractedValueArgs',
     'SyntheticsTestApiStepExtractedValueParserArgs',
@@ -1034,10 +1035,12 @@ __all__ = [
     'SyntheticsTestApiStepRequestClientCertificateCertArgs',
     'SyntheticsTestApiStepRequestClientCertificateKeyArgs',
     'SyntheticsTestApiStepRequestDefinitionArgs',
+    'SyntheticsTestApiStepRequestFileArgs',
     'SyntheticsTestApiStepRequestProxyArgs',
     'SyntheticsTestApiStepRetryArgs',
     'SyntheticsTestAssertionArgs',
     'SyntheticsTestAssertionTargetjsonpathArgs',
+    'SyntheticsTestAssertionTargetjsonschemaArgs',
     'SyntheticsTestAssertionTargetxpathArgs',
     'SyntheticsTestBrowserStepArgs',
     'SyntheticsTestBrowserStepParamsArgs',
@@ -1058,6 +1061,7 @@ __all__ = [
     'SyntheticsTestRequestClientCertificateCertArgs',
     'SyntheticsTestRequestClientCertificateKeyArgs',
     'SyntheticsTestRequestDefinitionArgs',
+    'SyntheticsTestRequestFileArgs',
     'SyntheticsTestRequestProxyArgs',
 ]
 
@@ -35825,7 +35829,7 @@ class MonitorVariablesEventQueryArgs:
                  indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network_performance_queries`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -35856,7 +35860,7 @@ class MonitorVariablesEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network_performance_queries`.
         """
         return pulumi.get(self, "data_source")
 
@@ -80386,11 +80390,13 @@ class SyntheticsTestApiStepArgs:
                  request_basicauth: Optional[pulumi.Input['SyntheticsTestApiStepRequestBasicauthArgs']] = None,
                  request_client_certificate: Optional[pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs']] = None,
                  request_definition: Optional[pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs']] = None,
+                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_proxy: Optional[pulumi.Input['SyntheticsTestApiStepRequestProxyArgs']] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestApiStepRetryArgs']] = None,
-                 subtype: Optional[pulumi.Input[str]] = None):
+                 subtype: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: The name of the step.
         :param pulumi.Input[bool] allow_failure: Determines whether or not to continue with test if this step fails.
@@ -80400,10 +80406,12 @@ class SyntheticsTestApiStepArgs:
         :param pulumi.Input['SyntheticsTestApiStepRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs'] request_definition: The request for the api step.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input['SyntheticsTestApiStepRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
+        :param pulumi.Input[int] value: The time to wait in seconds. Minimum value: 0. Maximum value: 180.
         """
         pulumi.set(__self__, "name", name)
         if allow_failure is not None:
@@ -80420,6 +80428,8 @@ class SyntheticsTestApiStepArgs:
             pulumi.set(__self__, "request_client_certificate", request_client_certificate)
         if request_definition is not None:
             pulumi.set(__self__, "request_definition", request_definition)
+        if request_files is not None:
+            pulumi.set(__self__, "request_files", request_files)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
         if request_proxy is not None:
@@ -80430,6 +80440,8 @@ class SyntheticsTestApiStepArgs:
             pulumi.set(__self__, "retry", retry)
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -80528,6 +80540,18 @@ class SyntheticsTestApiStepArgs:
         pulumi.set(self, "request_definition", value)
 
     @property
+    @pulumi.getter(name="requestFiles")
+    def request_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]]]:
+        """
+        Files to be used as part of the request in the test.
+        """
+        return pulumi.get(self, "request_files")
+
+    @request_files.setter
+    def request_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepRequestFileArgs']]]]):
+        pulumi.set(self, "request_files", value)
+
+    @property
     @pulumi.getter(name="requestHeaders")
     def request_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
@@ -80576,13 +80600,25 @@ class SyntheticsTestApiStepArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+        The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
         """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
     def subtype(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subtype", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -80593,14 +80629,16 @@ class SyntheticsTestApiStepAssertionArgs:
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']] = None,
+                 targetjsonschema: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonschemaArgs']] = None,
                  targetxpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetxpathArgs']] = None,
                  timings_scope: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonschemaArgs'] targetjsonschema: Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepAssertionTargetxpathArgs'] targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[str] timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
@@ -80612,6 +80650,8 @@ class SyntheticsTestApiStepAssertionArgs:
             pulumi.set(__self__, "target", target)
         if targetjsonpath is not None:
             pulumi.set(__self__, "targetjsonpath", targetjsonpath)
+        if targetjsonschema is not None:
+            pulumi.set(__self__, "targetjsonschema", targetjsonschema)
         if targetxpath is not None:
             pulumi.set(__self__, "targetxpath", targetxpath)
         if timings_scope is not None:
@@ -80633,7 +80673,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         """
         return pulumi.get(self, "type")
 
@@ -80664,6 +80704,18 @@ class SyntheticsTestApiStepAssertionArgs:
     @targetjsonpath.setter
     def targetjsonpath(self, value: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']]):
         pulumi.set(self, "targetjsonpath", value)
+
+    @property
+    @pulumi.getter
+    def targetjsonschema(self) -> Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonschemaArgs']]:
+        """
+        Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        """
+        return pulumi.get(self, "targetjsonschema")
+
+    @targetjsonschema.setter
+    def targetjsonschema(self, value: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonschemaArgs']]):
+        pulumi.set(self, "targetjsonschema", value)
 
     @property
     @pulumi.getter
@@ -80707,14 +80759,18 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
+                 elementsoperator: Optional[pulumi.Input[str]] = None,
                  targetvalue: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] jsonpath: The JSON path to assert.
         :param pulumi.Input[str] operator: The specific operator to use on the path.
+        :param pulumi.Input[str] elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
         :param pulumi.Input[str] targetvalue: Expected matching value.
         """
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
+        if elementsoperator is not None:
+            pulumi.set(__self__, "elementsoperator", elementsoperator)
         if targetvalue is not None:
             pulumi.set(__self__, "targetvalue", targetvalue)
 
@@ -80744,6 +80800,18 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
+    def elementsoperator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        """
+        return pulumi.get(self, "elementsoperator")
+
+    @elementsoperator.setter
+    def elementsoperator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elementsoperator", value)
+
+    @property
+    @pulumi.getter
     def targetvalue(self) -> Optional[pulumi.Input[str]]:
         """
         Expected matching value.
@@ -80753,6 +80821,44 @@ class SyntheticsTestApiStepAssertionTargetjsonpathArgs:
     @targetvalue.setter
     def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
+
+
+@pulumi.input_type
+class SyntheticsTestApiStepAssertionTargetjsonschemaArgs:
+    def __init__(__self__, *,
+                 jsonschema: pulumi.Input[str],
+                 metaschema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] jsonschema: The JSON Schema to validate the body against.
+        :param pulumi.Input[str] metaschema: The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+        """
+        pulumi.set(__self__, "jsonschema", jsonschema)
+        if metaschema is not None:
+            pulumi.set(__self__, "metaschema", metaschema)
+
+    @property
+    @pulumi.getter
+    def jsonschema(self) -> pulumi.Input[str]:
+        """
+        The JSON Schema to validate the body against.
+        """
+        return pulumi.get(self, "jsonschema")
+
+    @jsonschema.setter
+    def jsonschema(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jsonschema", value)
+
+    @property
+    @pulumi.getter
+    def metaschema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+        """
+        return pulumi.get(self, "metaschema")
+
+    @metaschema.setter
+    def metaschema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metaschema", value)
 
 
 @pulumi.input_type
@@ -81684,6 +81790,106 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
 
 
 @pulumi.input_type
+class SyntheticsTestApiStepRequestFileArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 size: pulumi.Input[int],
+                 type: pulumi.Input[str],
+                 bucket_key: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 original_file_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the file.
+        :param pulumi.Input[int] size: Size of the file.
+        :param pulumi.Input[str] type: Type of the file.
+        :param pulumi.Input[str] bucket_key: Bucket key of the file.
+        :param pulumi.Input[str] content: Content of the file.
+        :param pulumi.Input[str] original_file_name: Original name of the file.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        if bucket_key is not None:
+            pulumi.set(__self__, "bucket_key", bucket_key)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if original_file_name is not None:
+            pulumi.set(__self__, "original_file_name", original_file_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the file.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        Size of the file.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the file.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bucketKey")
+    def bucket_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bucket key of the file.
+        """
+        return pulumi.get(self, "bucket_key")
+
+    @bucket_key.setter
+    def bucket_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_key", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content of the file.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="originalFileName")
+    def original_file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Original name of the file.
+        """
+        return pulumi.get(self, "original_file_name")
+
+    @original_file_name.setter
+    def original_file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "original_file_name", value)
+
+
+@pulumi.input_type
 class SyntheticsTestApiStepRequestProxyArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
@@ -81768,14 +81974,16 @@ class SyntheticsTestAssertionArgs:
                  property: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs']] = None,
+                 targetjsonschema: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonschemaArgs']] = None,
                  targetxpath: Optional[pulumi.Input['SyntheticsTestAssertionTargetxpathArgs']] = None,
                  timings_scope: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        :param pulumi.Input[str] type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
         :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input['SyntheticsTestAssertionTargetjsonschemaArgs'] targetjsonschema: Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestAssertionTargetxpathArgs'] targetxpath: Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input[str] timings_scope: Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
         """
@@ -81787,6 +81995,8 @@ class SyntheticsTestAssertionArgs:
             pulumi.set(__self__, "target", target)
         if targetjsonpath is not None:
             pulumi.set(__self__, "targetjsonpath", targetjsonpath)
+        if targetjsonschema is not None:
+            pulumi.set(__self__, "targetjsonschema", targetjsonschema)
         if targetxpath is not None:
             pulumi.set(__self__, "targetxpath", targetxpath)
         if timings_scope is not None:
@@ -81808,7 +82018,7 @@ class SyntheticsTestAssertionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         """
         return pulumi.get(self, "type")
 
@@ -81839,6 +82049,18 @@ class SyntheticsTestAssertionArgs:
     @targetjsonpath.setter
     def targetjsonpath(self, value: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonpathArgs']]):
         pulumi.set(self, "targetjsonpath", value)
+
+    @property
+    @pulumi.getter
+    def targetjsonschema(self) -> Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonschemaArgs']]:
+        """
+        Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        """
+        return pulumi.get(self, "targetjsonschema")
+
+    @targetjsonschema.setter
+    def targetjsonschema(self, value: Optional[pulumi.Input['SyntheticsTestAssertionTargetjsonschemaArgs']]):
+        pulumi.set(self, "targetjsonschema", value)
 
     @property
     @pulumi.getter
@@ -81882,14 +82104,18 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
     def __init__(__self__, *,
                  jsonpath: pulumi.Input[str],
                  operator: pulumi.Input[str],
+                 elementsoperator: Optional[pulumi.Input[str]] = None,
                  targetvalue: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] jsonpath: The JSON path to assert.
         :param pulumi.Input[str] operator: The specific operator to use on the path.
+        :param pulumi.Input[str] elementsoperator: The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
         :param pulumi.Input[str] targetvalue: Expected matching value.
         """
         pulumi.set(__self__, "jsonpath", jsonpath)
         pulumi.set(__self__, "operator", operator)
+        if elementsoperator is not None:
+            pulumi.set(__self__, "elementsoperator", elementsoperator)
         if targetvalue is not None:
             pulumi.set(__self__, "targetvalue", targetvalue)
 
@@ -81919,6 +82145,18 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
 
     @property
     @pulumi.getter
+    def elementsoperator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        """
+        return pulumi.get(self, "elementsoperator")
+
+    @elementsoperator.setter
+    def elementsoperator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elementsoperator", value)
+
+    @property
+    @pulumi.getter
     def targetvalue(self) -> Optional[pulumi.Input[str]]:
         """
         Expected matching value.
@@ -81928,6 +82166,44 @@ class SyntheticsTestAssertionTargetjsonpathArgs:
     @targetvalue.setter
     def targetvalue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "targetvalue", value)
+
+
+@pulumi.input_type
+class SyntheticsTestAssertionTargetjsonschemaArgs:
+    def __init__(__self__, *,
+                 jsonschema: pulumi.Input[str],
+                 metaschema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] jsonschema: The JSON Schema to validate the body against.
+        :param pulumi.Input[str] metaschema: The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+        """
+        pulumi.set(__self__, "jsonschema", jsonschema)
+        if metaschema is not None:
+            pulumi.set(__self__, "metaschema", metaschema)
+
+    @property
+    @pulumi.getter
+    def jsonschema(self) -> pulumi.Input[str]:
+        """
+        The JSON Schema to validate the body against.
+        """
+        return pulumi.get(self, "jsonschema")
+
+    @jsonschema.setter
+    def jsonschema(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jsonschema", value)
+
+    @property
+    @pulumi.getter
+    def metaschema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+        """
+        return pulumi.get(self, "metaschema")
+
+    @metaschema.setter
+    def metaschema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metaschema", value)
 
 
 @pulumi.input_type
@@ -82143,11 +82419,11 @@ class SyntheticsTestBrowserStepParamsArgs:
         :param pulumi.Input[str] click_type: Type of click to use for a "click" step.
         :param pulumi.Input[str] code: Javascript code to use for the step.
         :param pulumi.Input[int] delay: Delay between each key stroke for a "type test" step.
-        :param pulumi.Input[str] element: Element to use for the step, json encoded string.
+        :param pulumi.Input[str] element: Element to use for the step, JSON encoded string.
         :param pulumi.Input['SyntheticsTestBrowserStepParamsElementUserLocatorArgs'] element_user_locator: Custom user selector to use for the step.
-        :param pulumi.Input[str] email: Details of the email for an "assert email" step.
+        :param pulumi.Input[str] email: Details of the email for an "assert email" step, JSON encoded string.
         :param pulumi.Input[str] file: JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
-        :param pulumi.Input[str] files: Details of the files for an "upload files" step, json encoded string.
+        :param pulumi.Input[str] files: Details of the files for an "upload files" step, JSON encoded string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifiers: Modifier to use for a "press key" step.
         :param pulumi.Input[str] playing_tab_id: ID of the tab to play the subtest.
         :param pulumi.Input[str] request: Request for an API step.
@@ -82261,7 +82537,7 @@ class SyntheticsTestBrowserStepParamsArgs:
     @pulumi.getter
     def element(self) -> Optional[pulumi.Input[str]]:
         """
-        Element to use for the step, json encoded string.
+        Element to use for the step, JSON encoded string.
         """
         return pulumi.get(self, "element")
 
@@ -82285,7 +82561,7 @@ class SyntheticsTestBrowserStepParamsArgs:
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        Details of the email for an "assert email" step.
+        Details of the email for an "assert email" step, JSON encoded string.
         """
         return pulumi.get(self, "email")
 
@@ -82309,7 +82585,7 @@ class SyntheticsTestBrowserStepParamsArgs:
     @pulumi.getter
     def files(self) -> Optional[pulumi.Input[str]]:
         """
-        Details of the files for an "upload files" step, json encoded string.
+        Details of the files for an "upload files" step, JSON encoded string.
         """
         return pulumi.get(self, "files")
 
@@ -84012,6 +84288,106 @@ class SyntheticsTestRequestDefinitionArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class SyntheticsTestRequestFileArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 size: pulumi.Input[int],
+                 type: pulumi.Input[str],
+                 bucket_key: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 original_file_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the file.
+        :param pulumi.Input[int] size: Size of the file.
+        :param pulumi.Input[str] type: Type of the file.
+        :param pulumi.Input[str] bucket_key: Bucket key of the file.
+        :param pulumi.Input[str] content: Content of the file.
+        :param pulumi.Input[str] original_file_name: Original name of the file.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
+        if bucket_key is not None:
+            pulumi.set(__self__, "bucket_key", bucket_key)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if original_file_name is not None:
+            pulumi.set(__self__, "original_file_name", original_file_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the file.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        Size of the file.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the file.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="bucketKey")
+    def bucket_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bucket key of the file.
+        """
+        return pulumi.get(self, "bucket_key")
+
+    @bucket_key.setter
+    def bucket_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_key", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content of the file.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="originalFileName")
+    def original_file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Original name of the file.
+        """
+        return pulumi.get(self, "original_file_name")
+
+    @original_file_name.setter
+    def original_file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "original_file_name", value)
 
 
 @pulumi.input_type

@@ -268,6 +268,20 @@ public class SecurityMonitoringRule extends com.pulumi.resources.CustomResource 
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
+    /**
+     * Whether or not to validate the Rule.
+     * 
+     */
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> validate;
+
+    /**
+     * @return Whether or not to validate the Rule.
+     * 
+     */
+    public Output<Optional<Boolean>> validate() {
+        return Codegen.optional(this.validate);
+    }
 
     /**
      *

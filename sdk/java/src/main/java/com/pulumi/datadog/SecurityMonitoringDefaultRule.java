@@ -92,6 +92,20 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.cases);
     }
     /**
+     * Custom tags for generated signals.
+     * 
+     */
+    @Export(name="customTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> customTags;
+
+    /**
+     * @return Custom tags for generated signals.
+     * 
+     */
+    public Output<Optional<List<String>>> customTags() {
+        return Codegen.optional(this.customTags);
+    }
+    /**
      * Enable the rule. Defaults to `true`.
      * 
      */

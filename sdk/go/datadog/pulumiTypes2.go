@@ -1934,6 +1934,8 @@ type SyntheticsTestApiStep struct {
 	RequestClientCertificate *SyntheticsTestApiStepRequestClientCertificate `pulumi:"requestClientCertificate"`
 	// The request for the api step.
 	RequestDefinition *SyntheticsTestApiStepRequestDefinition `pulumi:"requestDefinition"`
+	// Files to be used as part of the request in the test.
+	RequestFiles []SyntheticsTestApiStepRequestFile `pulumi:"requestFiles"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
 	// The proxy to perform the test.
@@ -1941,8 +1943,10 @@ type SyntheticsTestApiStep struct {
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{}      `pulumi:"requestQuery"`
 	Retry        *SyntheticsTestApiStepRetry `pulumi:"retry"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
 	Subtype *string `pulumi:"subtype"`
+	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+	Value *int `pulumi:"value"`
 }
 
 // SyntheticsTestApiStepInput is an input type that accepts SyntheticsTestApiStepArgs and SyntheticsTestApiStepOutput values.
@@ -1973,6 +1977,8 @@ type SyntheticsTestApiStepArgs struct {
 	RequestClientCertificate SyntheticsTestApiStepRequestClientCertificatePtrInput `pulumi:"requestClientCertificate"`
 	// The request for the api step.
 	RequestDefinition SyntheticsTestApiStepRequestDefinitionPtrInput `pulumi:"requestDefinition"`
+	// Files to be used as part of the request in the test.
+	RequestFiles SyntheticsTestApiStepRequestFileArrayInput `pulumi:"requestFiles"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput `pulumi:"requestHeaders"`
 	// The proxy to perform the test.
@@ -1980,8 +1986,10 @@ type SyntheticsTestApiStepArgs struct {
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput                    `pulumi:"requestQuery"`
 	Retry        SyntheticsTestApiStepRetryPtrInput `pulumi:"retry"`
-	// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+	// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
 	Subtype pulumi.StringPtrInput `pulumi:"subtype"`
+	// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
 func (SyntheticsTestApiStepArgs) ElementType() reflect.Type {
@@ -2077,6 +2085,11 @@ func (o SyntheticsTestApiStepOutput) RequestDefinition() SyntheticsTestApiStepRe
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRequestDefinition { return v.RequestDefinition }).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
 }
 
+// Files to be used as part of the request in the test.
+func (o SyntheticsTestApiStepOutput) RequestFiles() SyntheticsTestApiStepRequestFileArrayOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) []SyntheticsTestApiStepRequestFile { return v.RequestFiles }).(SyntheticsTestApiStepRequestFileArrayOutput)
+}
+
 // Header name and value map.
 func (o SyntheticsTestApiStepOutput) RequestHeaders() pulumi.MapOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestHeaders }).(pulumi.MapOutput)
@@ -2096,9 +2109,14 @@ func (o SyntheticsTestApiStepOutput) Retry() SyntheticsTestApiStepRetryPtrOutput
 	return o.ApplyT(func(v SyntheticsTestApiStep) *SyntheticsTestApiStepRetry { return v.Retry }).(SyntheticsTestApiStepRetryPtrOutput)
 }
 
-// The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+// The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
 func (o SyntheticsTestApiStepOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) *string { return v.Subtype }).(pulumi.StringPtrOutput)
+}
+
+// The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+func (o SyntheticsTestApiStepOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
 
 type SyntheticsTestApiStepArrayOutput struct{ *pulumi.OutputState }
@@ -2130,11 +2148,13 @@ type SyntheticsTestApiStepAssertion struct {
 	Target *string `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath *SyntheticsTestApiStepAssertionTargetjsonpath `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+	Targetjsonschema *SyntheticsTestApiStepAssertionTargetjsonschema `pulumi:"targetjsonschema"`
 	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 	Targetxpath *SyntheticsTestApiStepAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 	Type string `pulumi:"type"`
 }
 
@@ -2158,11 +2178,13 @@ type SyntheticsTestApiStepAssertionArgs struct {
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath SyntheticsTestApiStepAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+	Targetjsonschema SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput `pulumi:"targetjsonschema"`
 	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 	Targetxpath SyntheticsTestApiStepAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2239,6 +2261,13 @@ func (o SyntheticsTestApiStepAssertionOutput) Targetjsonpath() SyntheticsTestApi
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
 }
 
+// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestApiStepAssertionOutput) Targetjsonschema() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *SyntheticsTestApiStepAssertionTargetjsonschema {
+		return v.Targetjsonschema
+	}).(SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput)
+}
+
 // Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 func (o SyntheticsTestApiStepAssertionOutput) Targetxpath() SyntheticsTestApiStepAssertionTargetxpathPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *SyntheticsTestApiStepAssertionTargetxpath {
@@ -2251,7 +2280,7 @@ func (o SyntheticsTestApiStepAssertionOutput) TimingsScope() pulumi.StringPtrOut
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 func (o SyntheticsTestApiStepAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2277,6 +2306,8 @@ func (o SyntheticsTestApiStepAssertionArrayOutput) Index(i pulumi.IntInput) Synt
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpath struct {
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	Elementsoperator *string `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
 	// The specific operator to use on the path.
@@ -2297,6 +2328,8 @@ type SyntheticsTestApiStepAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestApiStepAssertionTargetjsonpathArgs struct {
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	Elementsoperator pulumi.StringPtrInput `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
 	// The specific operator to use on the path.
@@ -2382,6 +2415,11 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) ToSyntheticsTestApiS
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput)
 }
 
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Elementsoperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) *string { return v.Elementsoperator }).(pulumi.StringPtrOutput)
+}
+
 // The JSON path to assert.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
@@ -2421,6 +2459,16 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elem() Synthetics
 	}).(SyntheticsTestApiStepAssertionTargetjsonpathOutput)
 }
 
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Elementsoperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Elementsoperator
+	}).(pulumi.StringPtrOutput)
+}
+
 // The JSON path to assert.
 func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonpath) *string {
@@ -2448,6 +2496,162 @@ func (o SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput) Targetvalue() pul
 			return nil
 		}
 		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonschema struct {
+	// The JSON Schema to validate the body against.
+	Jsonschema string `pulumi:"jsonschema"`
+	// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+	Metaschema *string `pulumi:"metaschema"`
+}
+
+// SyntheticsTestApiStepAssertionTargetjsonschemaInput is an input type that accepts SyntheticsTestApiStepAssertionTargetjsonschemaArgs and SyntheticsTestApiStepAssertionTargetjsonschemaOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetjsonschemaInput` via:
+//
+//	SyntheticsTestApiStepAssertionTargetjsonschemaArgs{...}
+type SyntheticsTestApiStepAssertionTargetjsonschemaInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetjsonschemaOutput() SyntheticsTestApiStepAssertionTargetjsonschemaOutput
+	ToSyntheticsTestApiStepAssertionTargetjsonschemaOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaOutput
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonschemaArgs struct {
+	// The JSON Schema to validate the body against.
+	Jsonschema pulumi.StringInput `pulumi:"jsonschema"`
+	// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+	Metaschema pulumi.StringPtrInput `pulumi:"metaschema"`
+}
+
+func (SyntheticsTestApiStepAssertionTargetjsonschemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonschemaArgs) ToSyntheticsTestApiStepAssertionTargetjsonschemaOutput() SyntheticsTestApiStepAssertionTargetjsonschemaOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonschemaOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonschemaArgs) ToSyntheticsTestApiStepAssertionTargetjsonschemaOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonschemaOutput)
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonschemaArgs) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepAssertionTargetjsonschemaArgs) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonschemaOutput).ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput is an input type that accepts SyntheticsTestApiStepAssertionTargetjsonschemaArgs, SyntheticsTestApiStepAssertionTargetjsonschemaPtr and SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput` via:
+//
+//	        SyntheticsTestApiStepAssertionTargetjsonschemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput
+	ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput
+}
+
+type syntheticsTestApiStepAssertionTargetjsonschemaPtrType SyntheticsTestApiStepAssertionTargetjsonschemaArgs
+
+func SyntheticsTestApiStepAssertionTargetjsonschemaPtr(v *SyntheticsTestApiStepAssertionTargetjsonschemaArgs) SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput {
+	return (*syntheticsTestApiStepAssertionTargetjsonschemaPtrType)(v)
+}
+
+func (*syntheticsTestApiStepAssertionTargetjsonschemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (i *syntheticsTestApiStepAssertionTargetjsonschemaPtrType) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return i.ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestApiStepAssertionTargetjsonschemaPtrType) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonschemaOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetjsonschemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaOutput() SyntheticsTestApiStepAssertionTargetjsonschemaOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return o.ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestApiStepAssertionTargetjsonschema) *SyntheticsTestApiStepAssertionTargetjsonschema {
+		return &v
+	}).(SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput)
+}
+
+// The JSON Schema to validate the body against.
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) Jsonschema() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonschema) string { return v.Jsonschema }).(pulumi.StringOutput)
+}
+
+// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaOutput) Metaschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepAssertionTargetjsonschema) *string { return v.Metaschema }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestApiStepAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput() SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) ToSyntheticsTestApiStepAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) Elem() SyntheticsTestApiStepAssertionTargetjsonschemaOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonschema) SyntheticsTestApiStepAssertionTargetjsonschema {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestApiStepAssertionTargetjsonschema
+		return ret
+	}).(SyntheticsTestApiStepAssertionTargetjsonschemaOutput)
+}
+
+// The JSON Schema to validate the body against.
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) Jsonschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonschema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Jsonschema
+	}).(pulumi.StringPtrOutput)
+}
+
+// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+func (o SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput) Metaschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestApiStepAssertionTargetjsonschema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metaschema
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4282,6 +4486,148 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Url() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type SyntheticsTestApiStepRequestFile struct {
+	// Bucket key of the file.
+	BucketKey *string `pulumi:"bucketKey"`
+	// Content of the file.
+	Content *string `pulumi:"content"`
+	// Name of the file.
+	Name string `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName *string `pulumi:"originalFileName"`
+	// Size of the file.
+	Size int `pulumi:"size"`
+	// Type of the file.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestApiStepRequestFileInput is an input type that accepts SyntheticsTestApiStepRequestFileArgs and SyntheticsTestApiStepRequestFileOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestFileInput` via:
+//
+//	SyntheticsTestApiStepRequestFileArgs{...}
+type SyntheticsTestApiStepRequestFileInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestFileOutput() SyntheticsTestApiStepRequestFileOutput
+	ToSyntheticsTestApiStepRequestFileOutputWithContext(context.Context) SyntheticsTestApiStepRequestFileOutput
+}
+
+type SyntheticsTestApiStepRequestFileArgs struct {
+	// Bucket key of the file.
+	BucketKey pulumi.StringPtrInput `pulumi:"bucketKey"`
+	// Content of the file.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// Name of the file.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName pulumi.StringPtrInput `pulumi:"originalFileName"`
+	// Size of the file.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the file.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestApiStepRequestFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestFileArgs) ToSyntheticsTestApiStepRequestFileOutput() SyntheticsTestApiStepRequestFileOutput {
+	return i.ToSyntheticsTestApiStepRequestFileOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestFileArgs) ToSyntheticsTestApiStepRequestFileOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestFileOutput)
+}
+
+// SyntheticsTestApiStepRequestFileArrayInput is an input type that accepts SyntheticsTestApiStepRequestFileArray and SyntheticsTestApiStepRequestFileArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestApiStepRequestFileArrayInput` via:
+//
+//	SyntheticsTestApiStepRequestFileArray{ SyntheticsTestApiStepRequestFileArgs{...} }
+type SyntheticsTestApiStepRequestFileArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestApiStepRequestFileArrayOutput() SyntheticsTestApiStepRequestFileArrayOutput
+	ToSyntheticsTestApiStepRequestFileArrayOutputWithContext(context.Context) SyntheticsTestApiStepRequestFileArrayOutput
+}
+
+type SyntheticsTestApiStepRequestFileArray []SyntheticsTestApiStepRequestFileInput
+
+func (SyntheticsTestApiStepRequestFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestApiStepRequestFileArray) ToSyntheticsTestApiStepRequestFileArrayOutput() SyntheticsTestApiStepRequestFileArrayOutput {
+	return i.ToSyntheticsTestApiStepRequestFileArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestApiStepRequestFileArray) ToSyntheticsTestApiStepRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestApiStepRequestFileArrayOutput)
+}
+
+type SyntheticsTestApiStepRequestFileOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestApiStepRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestFileOutput) ToSyntheticsTestApiStepRequestFileOutput() SyntheticsTestApiStepRequestFileOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestFileOutput) ToSyntheticsTestApiStepRequestFileOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestFileOutput {
+	return o
+}
+
+// Bucket key of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) BucketKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) *string { return v.BucketKey }).(pulumi.StringPtrOutput)
+}
+
+// Content of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Original name of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) OriginalFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) *string { return v.OriginalFileName }).(pulumi.StringPtrOutput)
+}
+
+// Size of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Type of the file.
+func (o SyntheticsTestApiStepRequestFileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStepRequestFile) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestApiStepRequestFileArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestApiStepRequestFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestApiStepRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestApiStepRequestFileArrayOutput) ToSyntheticsTestApiStepRequestFileArrayOutput() SyntheticsTestApiStepRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestFileArrayOutput) ToSyntheticsTestApiStepRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestApiStepRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestApiStepRequestFileArrayOutput) Index(i pulumi.IntInput) SyntheticsTestApiStepRequestFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestApiStepRequestFile {
+		return vs[0].([]SyntheticsTestApiStepRequestFile)[vs[1].(int)]
+	}).(SyntheticsTestApiStepRequestFileOutput)
+}
+
 type SyntheticsTestApiStepRequestProxy struct {
 	// Header name and value map.
 	Headers map[string]interface{} `pulumi:"headers"`
@@ -4603,11 +4949,13 @@ type SyntheticsTestAssertion struct {
 	Target *string `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath *SyntheticsTestAssertionTargetjsonpath `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+	Targetjsonschema *SyntheticsTestAssertionTargetjsonschema `pulumi:"targetjsonschema"`
 	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 	Targetxpath *SyntheticsTestAssertionTargetxpath `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope *string `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 	Type string `pulumi:"type"`
 }
 
@@ -4631,11 +4979,13 @@ type SyntheticsTestAssertionArgs struct {
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
 	Targetjsonpath SyntheticsTestAssertionTargetjsonpathPtrInput `pulumi:"targetjsonpath"`
+	// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+	Targetjsonschema SyntheticsTestAssertionTargetjsonschemaPtrInput `pulumi:"targetjsonschema"`
 	// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 	Targetxpath SyntheticsTestAssertionTargetxpathPtrInput `pulumi:"targetxpath"`
 	// Timings scope for response time assertions. Valid values are `all`, `withoutDNS`.
 	TimingsScope pulumi.StringPtrInput `pulumi:"timingsScope"`
-	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+	// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4710,6 +5060,11 @@ func (o SyntheticsTestAssertionOutput) Targetjsonpath() SyntheticsTestAssertionT
 	return o.ApplyT(func(v SyntheticsTestAssertion) *SyntheticsTestAssertionTargetjsonpath { return v.Targetjsonpath }).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
 }
 
+// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+func (o SyntheticsTestAssertionOutput) Targetjsonschema() SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertion) *SyntheticsTestAssertionTargetjsonschema { return v.Targetjsonschema }).(SyntheticsTestAssertionTargetjsonschemaPtrOutput)
+}
+
 // Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
 func (o SyntheticsTestAssertionOutput) Targetxpath() SyntheticsTestAssertionTargetxpathPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *SyntheticsTestAssertionTargetxpath { return v.Targetxpath }).(SyntheticsTestAssertionTargetxpathPtrOutput)
@@ -4720,7 +5075,7 @@ func (o SyntheticsTestAssertionOutput) TimingsScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) *string { return v.TimingsScope }).(pulumi.StringPtrOutput)
 }
 
-// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
 func (o SyntheticsTestAssertionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertion) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4746,6 +5101,8 @@ func (o SyntheticsTestAssertionArrayOutput) Index(i pulumi.IntInput) SyntheticsT
 }
 
 type SyntheticsTestAssertionTargetjsonpath struct {
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	Elementsoperator *string `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath string `pulumi:"jsonpath"`
 	// The specific operator to use on the path.
@@ -4766,6 +5123,8 @@ type SyntheticsTestAssertionTargetjsonpathInput interface {
 }
 
 type SyntheticsTestAssertionTargetjsonpathArgs struct {
+	// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+	Elementsoperator pulumi.StringPtrInput `pulumi:"elementsoperator"`
 	// The JSON path to assert.
 	Jsonpath pulumi.StringInput `pulumi:"jsonpath"`
 	// The specific operator to use on the path.
@@ -4851,6 +5210,11 @@ func (o SyntheticsTestAssertionTargetjsonpathOutput) ToSyntheticsTestAssertionTa
 	}).(SyntheticsTestAssertionTargetjsonpathPtrOutput)
 }
 
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+func (o SyntheticsTestAssertionTargetjsonpathOutput) Elementsoperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) *string { return v.Elementsoperator }).(pulumi.StringPtrOutput)
+}
+
 // The JSON path to assert.
 func (o SyntheticsTestAssertionTargetjsonpathOutput) Jsonpath() pulumi.StringOutput {
 	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonpath) string { return v.Jsonpath }).(pulumi.StringOutput)
@@ -4890,6 +5254,16 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elem() SyntheticsTestAss
 	}).(SyntheticsTestAssertionTargetjsonpathOutput)
 }
 
+// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Elementsoperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Elementsoperator
+	}).(pulumi.StringPtrOutput)
+}
+
 // The JSON path to assert.
 func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Jsonpath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonpath) *string {
@@ -4917,6 +5291,162 @@ func (o SyntheticsTestAssertionTargetjsonpathPtrOutput) Targetvalue() pulumi.Str
 			return nil
 		}
 		return v.Targetvalue
+	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonschema struct {
+	// The JSON Schema to validate the body against.
+	Jsonschema string `pulumi:"jsonschema"`
+	// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+	Metaschema *string `pulumi:"metaschema"`
+}
+
+// SyntheticsTestAssertionTargetjsonschemaInput is an input type that accepts SyntheticsTestAssertionTargetjsonschemaArgs and SyntheticsTestAssertionTargetjsonschemaOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetjsonschemaInput` via:
+//
+//	SyntheticsTestAssertionTargetjsonschemaArgs{...}
+type SyntheticsTestAssertionTargetjsonschemaInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetjsonschemaOutput() SyntheticsTestAssertionTargetjsonschemaOutput
+	ToSyntheticsTestAssertionTargetjsonschemaOutputWithContext(context.Context) SyntheticsTestAssertionTargetjsonschemaOutput
+}
+
+type SyntheticsTestAssertionTargetjsonschemaArgs struct {
+	// The JSON Schema to validate the body against.
+	Jsonschema pulumi.StringInput `pulumi:"jsonschema"`
+	// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+	Metaschema pulumi.StringPtrInput `pulumi:"metaschema"`
+}
+
+func (SyntheticsTestAssertionTargetjsonschemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (i SyntheticsTestAssertionTargetjsonschemaArgs) ToSyntheticsTestAssertionTargetjsonschemaOutput() SyntheticsTestAssertionTargetjsonschemaOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonschemaOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetjsonschemaArgs) ToSyntheticsTestAssertionTargetjsonschemaOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonschemaOutput)
+}
+
+func (i SyntheticsTestAssertionTargetjsonschemaArgs) ToSyntheticsTestAssertionTargetjsonschemaPtrOutput() SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestAssertionTargetjsonschemaArgs) ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonschemaOutput).ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(ctx)
+}
+
+// SyntheticsTestAssertionTargetjsonschemaPtrInput is an input type that accepts SyntheticsTestAssertionTargetjsonschemaArgs, SyntheticsTestAssertionTargetjsonschemaPtr and SyntheticsTestAssertionTargetjsonschemaPtrOutput values.
+// You can construct a concrete instance of `SyntheticsTestAssertionTargetjsonschemaPtrInput` via:
+//
+//	        SyntheticsTestAssertionTargetjsonschemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type SyntheticsTestAssertionTargetjsonschemaPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestAssertionTargetjsonschemaPtrOutput() SyntheticsTestAssertionTargetjsonschemaPtrOutput
+	ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(context.Context) SyntheticsTestAssertionTargetjsonschemaPtrOutput
+}
+
+type syntheticsTestAssertionTargetjsonschemaPtrType SyntheticsTestAssertionTargetjsonschemaArgs
+
+func SyntheticsTestAssertionTargetjsonschemaPtr(v *SyntheticsTestAssertionTargetjsonschemaArgs) SyntheticsTestAssertionTargetjsonschemaPtrInput {
+	return (*syntheticsTestAssertionTargetjsonschemaPtrType)(v)
+}
+
+func (*syntheticsTestAssertionTargetjsonschemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (i *syntheticsTestAssertionTargetjsonschemaPtrType) ToSyntheticsTestAssertionTargetjsonschemaPtrOutput() SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return i.ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestAssertionTargetjsonschemaPtrType) ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestAssertionTargetjsonschemaPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonschemaOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetjsonschemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) ToSyntheticsTestAssertionTargetjsonschemaOutput() SyntheticsTestAssertionTargetjsonschemaOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) ToSyntheticsTestAssertionTargetjsonschemaOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) ToSyntheticsTestAssertionTargetjsonschemaPtrOutput() SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return o.ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTestAssertionTargetjsonschema) *SyntheticsTestAssertionTargetjsonschema {
+		return &v
+	}).(SyntheticsTestAssertionTargetjsonschemaPtrOutput)
+}
+
+// The JSON Schema to validate the body against.
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) Jsonschema() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonschema) string { return v.Jsonschema }).(pulumi.StringOutput)
+}
+
+// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+func (o SyntheticsTestAssertionTargetjsonschemaOutput) Metaschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestAssertionTargetjsonschema) *string { return v.Metaschema }).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestAssertionTargetjsonschemaPtrOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestAssertionTargetjsonschemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTestAssertionTargetjsonschema)(nil)).Elem()
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaPtrOutput) ToSyntheticsTestAssertionTargetjsonschemaPtrOutput() SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaPtrOutput) ToSyntheticsTestAssertionTargetjsonschemaPtrOutputWithContext(ctx context.Context) SyntheticsTestAssertionTargetjsonschemaPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestAssertionTargetjsonschemaPtrOutput) Elem() SyntheticsTestAssertionTargetjsonschemaOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonschema) SyntheticsTestAssertionTargetjsonschema {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsTestAssertionTargetjsonschema
+		return ret
+	}).(SyntheticsTestAssertionTargetjsonschemaOutput)
+}
+
+// The JSON Schema to validate the body against.
+func (o SyntheticsTestAssertionTargetjsonschemaPtrOutput) Jsonschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonschema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Jsonschema
+	}).(pulumi.StringPtrOutput)
+}
+
+// The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+func (o SyntheticsTestAssertionTargetjsonschemaPtrOutput) Metaschema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyntheticsTestAssertionTargetjsonschema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metaschema
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5266,15 +5796,15 @@ type SyntheticsTestBrowserStepParams struct {
 	Code *string `pulumi:"code"`
 	// Delay between each key stroke for a "type test" step.
 	Delay *int `pulumi:"delay"`
-	// Element to use for the step, json encoded string.
+	// Element to use for the step, JSON encoded string.
 	Element *string `pulumi:"element"`
 	// Custom user selector to use for the step.
 	ElementUserLocator *SyntheticsTestBrowserStepParamsElementUserLocator `pulumi:"elementUserLocator"`
-	// Details of the email for an "assert email" step.
+	// Details of the email for an "assert email" step, JSON encoded string.
 	Email *string `pulumi:"email"`
 	// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
 	File *string `pulumi:"file"`
-	// Details of the files for an "upload files" step, json encoded string.
+	// Details of the files for an "upload files" step, JSON encoded string.
 	Files *string `pulumi:"files"`
 	// Modifier to use for a "press key" step.
 	Modifiers []string `pulumi:"modifiers"`
@@ -5318,15 +5848,15 @@ type SyntheticsTestBrowserStepParamsArgs struct {
 	Code pulumi.StringPtrInput `pulumi:"code"`
 	// Delay between each key stroke for a "type test" step.
 	Delay pulumi.IntPtrInput `pulumi:"delay"`
-	// Element to use for the step, json encoded string.
+	// Element to use for the step, JSON encoded string.
 	Element pulumi.StringPtrInput `pulumi:"element"`
 	// Custom user selector to use for the step.
 	ElementUserLocator SyntheticsTestBrowserStepParamsElementUserLocatorPtrInput `pulumi:"elementUserLocator"`
-	// Details of the email for an "assert email" step.
+	// Details of the email for an "assert email" step, JSON encoded string.
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// JSON encoded string used for an "assert download" step. Refer to the examples for a usage example showing the schema.
 	File pulumi.StringPtrInput `pulumi:"file"`
-	// Details of the files for an "upload files" step, json encoded string.
+	// Details of the files for an "upload files" step, JSON encoded string.
 	Files pulumi.StringPtrInput `pulumi:"files"`
 	// Modifier to use for a "press key" step.
 	Modifiers pulumi.StringArrayInput `pulumi:"modifiers"`
@@ -5399,7 +5929,7 @@ func (o SyntheticsTestBrowserStepParamsOutput) Delay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *int { return v.Delay }).(pulumi.IntPtrOutput)
 }
 
-// Element to use for the step, json encoded string.
+// Element to use for the step, JSON encoded string.
 func (o SyntheticsTestBrowserStepParamsOutput) Element() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Element }).(pulumi.StringPtrOutput)
 }
@@ -5411,7 +5941,7 @@ func (o SyntheticsTestBrowserStepParamsOutput) ElementUserLocator() SyntheticsTe
 	}).(SyntheticsTestBrowserStepParamsElementUserLocatorPtrOutput)
 }
 
-// Details of the email for an "assert email" step.
+// Details of the email for an "assert email" step, JSON encoded string.
 func (o SyntheticsTestBrowserStepParamsOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
@@ -5421,7 +5951,7 @@ func (o SyntheticsTestBrowserStepParamsOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.File }).(pulumi.StringPtrOutput)
 }
 
-// Details of the files for an "upload files" step, json encoded string.
+// Details of the files for an "upload files" step, JSON encoded string.
 func (o SyntheticsTestBrowserStepParamsOutput) Files() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestBrowserStepParams) *string { return v.Files }).(pulumi.StringPtrOutput)
 }
@@ -9020,6 +9550,148 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
 		}
 		return v.Url
 	}).(pulumi.StringPtrOutput)
+}
+
+type SyntheticsTestRequestFile struct {
+	// Bucket key of the file.
+	BucketKey *string `pulumi:"bucketKey"`
+	// Content of the file.
+	Content *string `pulumi:"content"`
+	// Name of the file.
+	Name string `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName *string `pulumi:"originalFileName"`
+	// Size of the file.
+	Size int `pulumi:"size"`
+	// Type of the file.
+	Type string `pulumi:"type"`
+}
+
+// SyntheticsTestRequestFileInput is an input type that accepts SyntheticsTestRequestFileArgs and SyntheticsTestRequestFileOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestFileInput` via:
+//
+//	SyntheticsTestRequestFileArgs{...}
+type SyntheticsTestRequestFileInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput
+	ToSyntheticsTestRequestFileOutputWithContext(context.Context) SyntheticsTestRequestFileOutput
+}
+
+type SyntheticsTestRequestFileArgs struct {
+	// Bucket key of the file.
+	BucketKey pulumi.StringPtrInput `pulumi:"bucketKey"`
+	// Content of the file.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// Name of the file.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Original name of the file.
+	OriginalFileName pulumi.StringPtrInput `pulumi:"originalFileName"`
+	// Size of the file.
+	Size pulumi.IntInput `pulumi:"size"`
+	// Type of the file.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SyntheticsTestRequestFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestFileArgs) ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput {
+	return i.ToSyntheticsTestRequestFileOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestFileArgs) ToSyntheticsTestRequestFileOutputWithContext(ctx context.Context) SyntheticsTestRequestFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestFileOutput)
+}
+
+// SyntheticsTestRequestFileArrayInput is an input type that accepts SyntheticsTestRequestFileArray and SyntheticsTestRequestFileArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestRequestFileArrayInput` via:
+//
+//	SyntheticsTestRequestFileArray{ SyntheticsTestRequestFileArgs{...} }
+type SyntheticsTestRequestFileArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput
+	ToSyntheticsTestRequestFileArrayOutputWithContext(context.Context) SyntheticsTestRequestFileArrayOutput
+}
+
+type SyntheticsTestRequestFileArray []SyntheticsTestRequestFileInput
+
+func (SyntheticsTestRequestFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (i SyntheticsTestRequestFileArray) ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput {
+	return i.ToSyntheticsTestRequestFileArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestRequestFileArray) ToSyntheticsTestRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestRequestFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestRequestFileArrayOutput)
+}
+
+type SyntheticsTestRequestFileOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestFileOutput) ToSyntheticsTestRequestFileOutput() SyntheticsTestRequestFileOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileOutput) ToSyntheticsTestRequestFileOutputWithContext(ctx context.Context) SyntheticsTestRequestFileOutput {
+	return o
+}
+
+// Bucket key of the file.
+func (o SyntheticsTestRequestFileOutput) BucketKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.BucketKey }).(pulumi.StringPtrOutput)
+}
+
+// Content of the file.
+func (o SyntheticsTestRequestFileOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// Name of the file.
+func (o SyntheticsTestRequestFileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Original name of the file.
+func (o SyntheticsTestRequestFileOutput) OriginalFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) *string { return v.OriginalFileName }).(pulumi.StringPtrOutput)
+}
+
+// Size of the file.
+func (o SyntheticsTestRequestFileOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// Type of the file.
+func (o SyntheticsTestRequestFileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SyntheticsTestRequestFile) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SyntheticsTestRequestFileArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestRequestFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTestRequestFile)(nil)).Elem()
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) ToSyntheticsTestRequestFileArrayOutput() SyntheticsTestRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) ToSyntheticsTestRequestFileArrayOutputWithContext(ctx context.Context) SyntheticsTestRequestFileArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestRequestFileArrayOutput) Index(i pulumi.IntInput) SyntheticsTestRequestFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTestRequestFile {
+		return vs[0].([]SyntheticsTestRequestFile)[vs[1].(int)]
+	}).(SyntheticsTestRequestFileOutput)
 }
 
 type SyntheticsTestRequestProxy struct {
@@ -14497,6 +15169,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionArrayInput)(nil)).Elem(), SyntheticsTestApiStepAssertionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpathInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonpathPtrInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonschemaInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonschemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetjsonschemaPtrInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetjsonschemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpathInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetxpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepAssertionTargetxpathPtrInput)(nil)).Elem(), SyntheticsTestApiStepAssertionTargetxpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepExtractedValueInput)(nil)).Elem(), SyntheticsTestApiStepExtractedValueArgs{})
@@ -14512,6 +15186,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestClientCertificateKeyPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestClientCertificateKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestDefinitionInput)(nil)).Elem(), SyntheticsTestApiStepRequestDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestDefinitionPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestFileInput)(nil)).Elem(), SyntheticsTestApiStepRequestFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestFileArrayInput)(nil)).Elem(), SyntheticsTestApiStepRequestFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestProxyInput)(nil)).Elem(), SyntheticsTestApiStepRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestApiStepRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestApiStepRetryInput)(nil)).Elem(), SyntheticsTestApiStepRetryArgs{})
@@ -14520,6 +15196,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionArrayInput)(nil)).Elem(), SyntheticsTestAssertionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpathInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonpathPtrInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonpathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonschemaInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonschemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetjsonschemaPtrInput)(nil)).Elem(), SyntheticsTestAssertionTargetjsonschemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetxpathInput)(nil)).Elem(), SyntheticsTestAssertionTargetxpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestAssertionTargetxpathPtrInput)(nil)).Elem(), SyntheticsTestAssertionTargetxpathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestBrowserStepInput)(nil)).Elem(), SyntheticsTestBrowserStepArgs{})
@@ -14559,6 +15237,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestClientCertificateKeyPtrInput)(nil)).Elem(), SyntheticsTestRequestClientCertificateKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestDefinitionInput)(nil)).Elem(), SyntheticsTestRequestDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestDefinitionPtrInput)(nil)).Elem(), SyntheticsTestRequestDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestFileInput)(nil)).Elem(), SyntheticsTestRequestFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestFileArrayInput)(nil)).Elem(), SyntheticsTestRequestFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestRequestProxyPtrInput)(nil)).Elem(), SyntheticsTestRequestProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudWorkloadSecurityAgentRulesAgentRuleInput)(nil)).Elem(), GetCloudWorkloadSecurityAgentRulesAgentRuleArgs{})
@@ -14674,6 +15354,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonpathOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonschemaOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetjsonschemaPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetxpathOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepAssertionTargetxpathPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepExtractedValueOutput{})
@@ -14689,6 +15371,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestDefinitionOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestFileOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestFileArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestProxyOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRequestProxyPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestApiStepRetryOutput{})
@@ -14697,6 +15381,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestAssertionArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonpathOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonpathPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonschemaOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetjsonschemaPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetxpathOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestAssertionTargetxpathPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestBrowserStepOutput{})
@@ -14736,6 +15422,8 @@ func init() {
 	pulumi.RegisterOutputType(SyntheticsTestRequestClientCertificateKeyPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestDefinitionOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestFileOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestRequestFileArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestProxyOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestRequestProxyPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudWorkloadSecurityAgentRulesAgentRuleOutput{})

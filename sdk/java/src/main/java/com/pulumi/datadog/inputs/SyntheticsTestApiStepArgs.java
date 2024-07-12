@@ -10,10 +10,12 @@ import com.pulumi.datadog.inputs.SyntheticsTestApiStepExtractedValueArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestBasicauthArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestClientCertificateArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestFileArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestProxyArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestApiStepRetryArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
 import java.util.List;
@@ -148,6 +150,21 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Files to be used as part of the request in the test.
+     * 
+     */
+    @Import(name="requestFiles")
+    private @Nullable Output<List<SyntheticsTestApiStepRequestFileArgs>> requestFiles;
+
+    /**
+     * @return Files to be used as part of the request in the test.
+     * 
+     */
+    public Optional<Output<List<SyntheticsTestApiStepRequestFileArgs>>> requestFiles() {
+        return Optional.ofNullable(this.requestFiles);
+    }
+
+    /**
      * Header name and value map.
      * 
      */
@@ -200,18 +217,33 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     @Import(name="subtype")
     private @Nullable Output<String> subtype;
 
     /**
-     * @return The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+     * @return The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
      * 
      */
     public Optional<Output<String>> subtype() {
         return Optional.ofNullable(this.subtype);
+    }
+
+    /**
+     * The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     * 
+     */
+    @Import(name="value")
+    private @Nullable Output<Integer> value;
+
+    /**
+     * @return The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     * 
+     */
+    public Optional<Output<Integer>> value() {
+        return Optional.ofNullable(this.value);
     }
 
     private SyntheticsTestApiStepArgs() {}
@@ -225,11 +257,13 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         this.requestBasicauth = $.requestBasicauth;
         this.requestClientCertificate = $.requestClientCertificate;
         this.requestDefinition = $.requestDefinition;
+        this.requestFiles = $.requestFiles;
         this.requestHeaders = $.requestHeaders;
         this.requestProxy = $.requestProxy;
         this.requestQuery = $.requestQuery;
         this.retry = $.retry;
         this.subtype = $.subtype;
+        this.value = $.value;
     }
 
     public static Builder builder() {
@@ -439,6 +473,37 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(@Nullable Output<List<SyntheticsTestApiStepRequestFileArgs>> requestFiles) {
+            $.requestFiles = requestFiles;
+            return this;
+        }
+
+        /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(List<SyntheticsTestApiStepRequestFileArgs> requestFiles) {
+            return requestFiles(Output.of(requestFiles));
+        }
+
+        /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(SyntheticsTestApiStepRequestFileArgs... requestFiles) {
+            return requestFiles(List.of(requestFiles));
+        }
+
+        /**
          * @param requestHeaders Header name and value map.
          * 
          * @return builder
@@ -511,7 +576,7 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 
@@ -522,13 +587,34 @@ public final class SyntheticsTestApiStepArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subtype The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `&#34;http&#34;`.
+         * @param subtype The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `&#34;http&#34;`.
          * 
          * @return builder
          * 
          */
         public Builder subtype(String subtype) {
             return subtype(Output.of(subtype));
+        }
+
+        /**
+         * @param value The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(@Nullable Output<Integer> value) {
+            $.value = value;
+            return this;
+        }
+
+        /**
+         * @param value The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder value(Integer value) {
+            return value(Output.of(value));
         }
 
         public SyntheticsTestApiStepArgs build() {

@@ -57,13 +57,13 @@ namespace Pulumi.Datadog
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a role to attach to all users with the corresponding key and value.
+        /// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a team to add all users with the corresponding key and value to.
+        /// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         /// </summary>
         [Output("team")]
         public Output<string?> Team { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Datadog
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The ID of a role to attach to all users with the corresponding key and value.
+        /// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The ID of a team to add all users with the corresponding key and value to.
+        /// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
@@ -159,13 +159,13 @@ namespace Pulumi.Datadog
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The ID of a role to attach to all users with the corresponding key and value.
+        /// The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The ID of a team to add all users with the corresponding key and value to.
+        /// The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }

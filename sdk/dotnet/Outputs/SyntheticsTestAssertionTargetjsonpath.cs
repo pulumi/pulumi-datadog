@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestAssertionTargetjsonpath
     {
         /// <summary>
+        /// The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+        /// </summary>
+        public readonly string? Elementsoperator;
+        /// <summary>
         /// The JSON path to assert.
         /// </summary>
         public readonly string Jsonpath;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestAssertionTargetjsonpath(
+            string? elementsoperator,
+
             string jsonpath,
 
             string @operator,
 
             string? targetvalue)
         {
+            Elementsoperator = elementsoperator;
             Jsonpath = jsonpath;
             Operator = @operator;
             Targetvalue = targetvalue;

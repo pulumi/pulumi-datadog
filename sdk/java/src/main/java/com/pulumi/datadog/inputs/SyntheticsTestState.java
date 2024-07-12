@@ -14,7 +14,9 @@ import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestBasicauthArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestClientCertificateArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestRequestFileArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestRequestProxyArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
@@ -30,14 +32,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     public static final SyntheticsTestState Empty = new SyntheticsTestState();
 
     /**
-     * Steps for multistep api tests
+     * Steps for multi-step api tests
      * 
      */
     @Import(name="apiSteps")
     private @Nullable Output<List<SyntheticsTestApiStepArgs>> apiSteps;
 
     /**
-     * @return Steps for multistep api tests
+     * @return Steps for multi-step api tests
      * 
      */
     public Optional<Output<List<SyntheticsTestApiStepArgs>>> apiSteps() {
@@ -117,6 +119,21 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<List<String>>> deviceIds() {
         return Optional.ofNullable(this.deviceIds);
+    }
+
+    /**
+     * A boolean indicating whether this synthetics test can be deleted even if it&#39;s referenced by other resources (for example, SLOs and composite monitors).
+     * 
+     */
+    @Import(name="forceDeleteDependencies")
+    private @Nullable Output<Boolean> forceDeleteDependencies;
+
+    /**
+     * @return A boolean indicating whether this synthetics test can be deleted even if it&#39;s referenced by other resources (for example, SLOs and composite monitors).
+     * 
+     */
+    public Optional<Output<Boolean>> forceDeleteDependencies() {
+        return Optional.ofNullable(this.forceDeleteDependencies);
     }
 
     /**
@@ -229,6 +246,21 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<SyntheticsTestRequestDefinitionArgs>> requestDefinition() {
         return Optional.ofNullable(this.requestDefinition);
+    }
+
+    /**
+     * Files to be used as part of the request in the test.
+     * 
+     */
+    @Import(name="requestFiles")
+    private @Nullable Output<List<SyntheticsTestRequestFileArgs>> requestFiles;
+
+    /**
+     * @return Files to be used as part of the request in the test.
+     * 
+     */
+    public Optional<Output<List<SyntheticsTestRequestFileArgs>>> requestFiles() {
+        return Optional.ofNullable(this.requestFiles);
     }
 
     /**
@@ -366,6 +398,21 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Variables defined from JavaScript code for API HTTP tests.
+     * 
+     */
+    @Import(name="variablesFromScript")
+    private @Nullable Output<String> variablesFromScript;
+
+    /**
+     * @return Variables defined from JavaScript code for API HTTP tests.
+     * 
+     */
+    public Optional<Output<String>> variablesFromScript() {
+        return Optional.ofNullable(this.variablesFromScript);
+    }
+
     private SyntheticsTestState() {}
 
     private SyntheticsTestState(SyntheticsTestState $) {
@@ -375,6 +422,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         this.browserVariables = $.browserVariables;
         this.configVariables = $.configVariables;
         this.deviceIds = $.deviceIds;
+        this.forceDeleteDependencies = $.forceDeleteDependencies;
         this.locations = $.locations;
         this.message = $.message;
         this.monitorId = $.monitorId;
@@ -383,6 +431,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         this.requestBasicauth = $.requestBasicauth;
         this.requestClientCertificate = $.requestClientCertificate;
         this.requestDefinition = $.requestDefinition;
+        this.requestFiles = $.requestFiles;
         this.requestHeaders = $.requestHeaders;
         this.requestMetadata = $.requestMetadata;
         this.requestProxy = $.requestProxy;
@@ -392,6 +441,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         this.subtype = $.subtype;
         this.tags = $.tags;
         this.type = $.type;
+        this.variablesFromScript = $.variablesFromScript;
     }
 
     public static Builder builder() {
@@ -413,7 +463,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiSteps Steps for multistep api tests
+         * @param apiSteps Steps for multi-step api tests
          * 
          * @return builder
          * 
@@ -424,7 +474,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiSteps Steps for multistep api tests
+         * @param apiSteps Steps for multi-step api tests
          * 
          * @return builder
          * 
@@ -434,7 +484,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiSteps Steps for multistep api tests
+         * @param apiSteps Steps for multi-step api tests
          * 
          * @return builder
          * 
@@ -596,6 +646,27 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
          */
         public Builder deviceIds(String... deviceIds) {
             return deviceIds(List.of(deviceIds));
+        }
+
+        /**
+         * @param forceDeleteDependencies A boolean indicating whether this synthetics test can be deleted even if it&#39;s referenced by other resources (for example, SLOs and composite monitors).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDeleteDependencies(@Nullable Output<Boolean> forceDeleteDependencies) {
+            $.forceDeleteDependencies = forceDeleteDependencies;
+            return this;
+        }
+
+        /**
+         * @param forceDeleteDependencies A boolean indicating whether this synthetics test can be deleted even if it&#39;s referenced by other resources (for example, SLOs and composite monitors).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDeleteDependencies(Boolean forceDeleteDependencies) {
+            return forceDeleteDependencies(Output.of(forceDeleteDependencies));
         }
 
         /**
@@ -762,6 +833,37 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
          */
         public Builder requestDefinition(SyntheticsTestRequestDefinitionArgs requestDefinition) {
             return requestDefinition(Output.of(requestDefinition));
+        }
+
+        /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(@Nullable Output<List<SyntheticsTestRequestFileArgs>> requestFiles) {
+            $.requestFiles = requestFiles;
+            return this;
+        }
+
+        /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(List<SyntheticsTestRequestFileArgs> requestFiles) {
+            return requestFiles(Output.of(requestFiles));
+        }
+
+        /**
+         * @param requestFiles Files to be used as part of the request in the test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestFiles(SyntheticsTestRequestFileArgs... requestFiles) {
+            return requestFiles(List.of(requestFiles));
         }
 
         /**
@@ -961,6 +1063,27 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param variablesFromScript Variables defined from JavaScript code for API HTTP tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variablesFromScript(@Nullable Output<String> variablesFromScript) {
+            $.variablesFromScript = variablesFromScript;
+            return this;
+        }
+
+        /**
+         * @param variablesFromScript Variables defined from JavaScript code for API HTTP tests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder variablesFromScript(String variablesFromScript) {
+            return variablesFromScript(Output.of(variablesFromScript));
         }
 
         public SyntheticsTestState build() {

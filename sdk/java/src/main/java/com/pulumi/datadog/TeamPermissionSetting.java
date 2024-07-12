@@ -93,14 +93,14 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
         return this.teamId;
     }
     /**
-     * The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+     * The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
-     * @return The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+     * @return The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
      * 
      */
     public Output<String> value() {

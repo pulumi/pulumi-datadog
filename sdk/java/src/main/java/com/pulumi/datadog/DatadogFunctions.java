@@ -835,8 +835,6 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getApplicationKey:getApplicationKey", TypeShape.of(GetApplicationKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -874,8 +872,6 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRules(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -913,8 +909,6 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -952,8 +946,6 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRules(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -991,8 +983,6 @@ public final class DatadogFunctions {
         return getCloudWorkloadSecurityAgentRulesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1030,8 +1020,6 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getCloudWorkloadSecurityAgentRules:getCloudWorkloadSecurityAgentRules", TypeShape.of(GetCloudWorkloadSecurityAgentRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
-     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;

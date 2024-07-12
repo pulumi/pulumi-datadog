@@ -69,6 +69,10 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
      */
     public readonly cases!: pulumi.Output<outputs.SecurityMonitoringDefaultRuleCase[] | undefined>;
     /**
+     * Custom tags for generated signals.
+     */
+    public readonly customTags!: pulumi.Output<string[] | undefined>;
+    /**
      * Enable the rule. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -99,6 +103,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringDefaultRuleState | undefined;
             resourceInputs["cases"] = state ? state.cases : undefined;
+            resourceInputs["customTags"] = state ? state.customTags : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
@@ -106,6 +111,7 @@ export class SecurityMonitoringDefaultRule extends pulumi.CustomResource {
         } else {
             const args = argsOrState as SecurityMonitoringDefaultRuleArgs | undefined;
             resourceInputs["cases"] = args ? args.cases : undefined;
+            resourceInputs["customTags"] = args ? args.customTags : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
@@ -124,6 +130,10 @@ export interface SecurityMonitoringDefaultRuleState {
      * Cases of the rule, this is used to update notifications.
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    /**
+     * Custom tags for generated signals.
+     */
+    customTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable the rule. Defaults to `true`.
      */
@@ -150,6 +160,10 @@ export interface SecurityMonitoringDefaultRuleArgs {
      * Cases of the rule, this is used to update notifications.
      */
     cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    /**
+     * Custom tags for generated signals.
+     */
+    customTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable the rule. Defaults to `true`.
      */

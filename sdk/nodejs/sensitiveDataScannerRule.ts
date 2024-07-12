@@ -76,6 +76,10 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
      */
     public readonly pattern!: pulumi.Output<string | undefined>;
     /**
+     * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     */
+    public readonly priority!: pulumi.Output<number>;
+    /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
     public readonly standardPatternId!: pulumi.Output<string | undefined>;
@@ -109,6 +113,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaces"] = state ? state.namespaces : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["standardPatternId"] = state ? state.standardPatternId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["textReplacement"] = state ? state.textReplacement : undefined;
@@ -125,6 +130,7 @@ export class SensitiveDataScannerRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaces"] = args ? args.namespaces : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["standardPatternId"] = args ? args.standardPatternId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["textReplacement"] = args ? args.textReplacement : undefined;
@@ -170,6 +176,10 @@ export interface SensitiveDataScannerRuleState {
      * Not included if there is a relationship to a standard pattern.
      */
     pattern?: pulumi.Input<string>;
+    /**
+     * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     */
+    priority?: pulumi.Input<number>;
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */
@@ -220,6 +230,10 @@ export interface SensitiveDataScannerRuleArgs {
      * Not included if there is a relationship to a standard pattern.
      */
     pattern?: pulumi.Input<string>;
+    /**
+     * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     */
+    priority?: pulumi.Input<number>;
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      */

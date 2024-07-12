@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleIncludedKeywordConfigurationArgs;
 import com.pulumi.datadog.inputs.SensitiveDataScannerRuleTextReplacementArgs;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -140,6 +141,21 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
     }
 
     /**
+     * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     * 
+     */
+    @Import(name="priority")
+    private @Nullable Output<Integer> priority;
+
+    /**
+     * @return Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     * 
+     */
+    public Optional<Output<Integer>> priority() {
+        return Optional.ofNullable(this.priority);
+    }
+
+    /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
      * 
      */
@@ -195,6 +211,7 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
         this.name = $.name;
         this.namespaces = $.namespaces;
         this.pattern = $.pattern;
+        this.priority = $.priority;
         this.standardPatternId = $.standardPatternId;
         this.tags = $.tags;
         this.textReplacement = $.textReplacement;
@@ -404,6 +421,27 @@ public final class SensitiveDataScannerRuleState extends com.pulumi.resources.Re
          */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
+        }
+
+        /**
+         * @param priority Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(@Nullable Output<Integer> priority) {
+            $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param priority Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(Integer priority) {
+            return priority(Output.of(priority));
         }
 
         /**

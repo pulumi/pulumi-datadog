@@ -160,6 +160,12 @@ namespace Pulumi.Datadog
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not to validate the Rule.
+        /// </summary>
+        [Output("validate")]
+        public Output<bool?> Validate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityMonitoringRule resource with the given unique name, arguments, and options.
@@ -314,6 +320,12 @@ namespace Pulumi.Datadog
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Whether or not to validate the Rule.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
+
         public SecurityMonitoringRuleArgs()
         {
         }
@@ -429,6 +441,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Whether or not to validate the Rule.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         public SecurityMonitoringRuleState()
         {

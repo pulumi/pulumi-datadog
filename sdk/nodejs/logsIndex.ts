@@ -106,7 +106,7 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
     /**
-     * The name of the index.
+     * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface LogsIndexState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the index.
+     * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface LogsIndexArgs {
      */
     filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
-     * The name of the index.
+     * The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
      */
     name: pulumi.Input<string>;
     /**

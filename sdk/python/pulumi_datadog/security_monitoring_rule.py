@@ -27,7 +27,8 @@ class SecurityMonitoringRuleArgs:
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SecurityMonitoringRule resource.
         :param pulumi.Input[str] message: Message for generated signals.
@@ -42,6 +43,7 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        :param pulumi.Input[bool] validate: Whether or not to validate the Rule.
         """
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "name", name)
@@ -65,6 +67,8 @@ class SecurityMonitoringRuleArgs:
             pulumi.set(__self__, "third_party_cases", third_party_cases)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -210,6 +214,18 @@ class SecurityMonitoringRuleArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate the Rule.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
 
 @pulumi.input_type
 class _SecurityMonitoringRuleState:
@@ -225,7 +241,8 @@ class _SecurityMonitoringRuleState:
                  signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleSignalQueryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SecurityMonitoringRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
@@ -240,6 +257,7 @@ class _SecurityMonitoringRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleThirdPartyCaseArgs']]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        :param pulumi.Input[bool] validate: Whether or not to validate the Rule.
         """
         if cases is not None:
             pulumi.set(__self__, "cases", cases)
@@ -265,6 +283,8 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "third_party_cases", third_party_cases)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
 
     @property
     @pulumi.getter
@@ -410,6 +430,18 @@ class _SecurityMonitoringRuleState:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate the Rule.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
 
 class SecurityMonitoringRule(pulumi.CustomResource):
     @overload
@@ -428,6 +460,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
@@ -491,6 +524,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        :param pulumi.Input[bool] validate: Whether or not to validate the Rule.
         """
         ...
     @overload
@@ -573,6 +607,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -598,6 +633,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["third_party_cases"] = third_party_cases
             __props__.__dict__["type"] = type
+            __props__.__dict__["validate"] = validate
         super(SecurityMonitoringRule, __self__).__init__(
             'datadog:index/securityMonitoringRule:SecurityMonitoringRule',
             resource_name,
@@ -619,7 +655,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             signal_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleSignalQueryArgs']]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             third_party_cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'SecurityMonitoringRule':
+            type: Optional[pulumi.Input[str]] = None,
+            validate: Optional[pulumi.Input[bool]] = None) -> 'SecurityMonitoringRule':
         """
         Get an existing SecurityMonitoringRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -639,6 +676,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleThirdPartyCaseArgs']]]] third_party_cases: Cases for generating signals for third-party rules. Only required and accepted for third-party rules
         :param pulumi.Input[str] type: The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
+        :param pulumi.Input[bool] validate: Whether or not to validate the Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -656,6 +694,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["third_party_cases"] = third_party_cases
         __props__.__dict__["type"] = type
+        __props__.__dict__["validate"] = validate
         return SecurityMonitoringRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -753,4 +792,12 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         The rule type. Valid values are `application_security`, `log_detection`, `workload_security`, `signal_correlation`. Defaults to `"log_detection"`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not to validate the Rule.
+        """
+        return pulumi.get(self, "validate")
 

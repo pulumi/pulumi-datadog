@@ -22,8 +22,8 @@ class AuthnMappingArgs:
         The set of arguments for constructing a AuthnMapping resource.
         :param pulumi.Input[str] key: Identity provider key.
         :param pulumi.Input[str] value: Identity provider value.
-        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
-        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
+        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -60,7 +60,7 @@ class AuthnMappingArgs:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a role to attach to all users with the corresponding key and value.
+        The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         """
         return pulumi.get(self, "role")
 
@@ -72,7 +72,7 @@ class AuthnMappingArgs:
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a team to add all users with the corresponding key and value to.
+        The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         """
         return pulumi.get(self, "team")
 
@@ -91,8 +91,8 @@ class _AuthnMappingState:
         """
         Input properties used for looking up and filtering AuthnMapping resources.
         :param pulumi.Input[str] key: Identity provider key.
-        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
-        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
+        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         :param pulumi.Input[str] value: Identity provider value.
         """
         if key is not None:
@@ -120,7 +120,7 @@ class _AuthnMappingState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a role to attach to all users with the corresponding key and value.
+        The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         """
         return pulumi.get(self, "role")
 
@@ -132,7 +132,7 @@ class _AuthnMappingState:
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a team to add all users with the corresponding key and value to.
+        The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         """
         return pulumi.get(self, "team")
 
@@ -192,8 +192,8 @@ class AuthnMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Identity provider key.
-        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
-        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
+        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         :param pulumi.Input[str] value: Identity provider value.
         """
         ...
@@ -286,8 +286,8 @@ class AuthnMapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key: Identity provider key.
-        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value.
-        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to.
+        :param pulumi.Input[str] role: The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
+        :param pulumi.Input[str] team: The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         :param pulumi.Input[str] value: Identity provider value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -312,7 +312,7 @@ class AuthnMapping(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a role to attach to all users with the corresponding key and value.
+        The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
         """
         return pulumi.get(self, "role")
 
@@ -320,7 +320,7 @@ class AuthnMapping(pulumi.CustomResource):
     @pulumi.getter
     def team(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of a team to add all users with the corresponding key and value to.
+        The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
         """
         return pulumi.get(self, "team")
 

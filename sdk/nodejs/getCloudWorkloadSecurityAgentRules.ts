@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -39,8 +37,6 @@ export interface GetCloudWorkloadSecurityAgentRulesResult {
     readonly id: string;
 }
 /**
- * Use this data source to retrieve information about existing Cloud Workload Security Agent Rules for use in other resources.
- *
  * ## Example Usage
  *
  * ```typescript

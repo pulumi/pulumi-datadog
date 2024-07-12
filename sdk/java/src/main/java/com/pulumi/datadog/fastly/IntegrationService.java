@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import datadog:fastly/integrationService:IntegrationService new_list &#34;service-id&#34;
+ * $ pulumi import datadog:fastly/integrationService:IntegrationService new_list &#34;account-id:service-id&#34;
  * ```
  * 
  */

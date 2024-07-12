@@ -54,6 +54,8 @@ type OrganizationSettings struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringOutput `pulumi:"publicId"`
+	// List of emails used for security event notifications from the organization.
+	SecurityContacts pulumi.StringArrayOutput `pulumi:"securityContacts"`
 	// Organization settings
 	Settings OrganizationSettingsSettingsOutput `pulumi:"settings"`
 }
@@ -94,6 +96,8 @@ type organizationSettingsState struct {
 	Name *string `pulumi:"name"`
 	// The `publicId` of the organization you are operating within.
 	PublicId *string `pulumi:"publicId"`
+	// List of emails used for security event notifications from the organization.
+	SecurityContacts []string `pulumi:"securityContacts"`
 	// Organization settings
 	Settings *OrganizationSettingsSettings `pulumi:"settings"`
 }
@@ -105,6 +109,8 @@ type OrganizationSettingsState struct {
 	Name pulumi.StringPtrInput
 	// The `publicId` of the organization you are operating within.
 	PublicId pulumi.StringPtrInput
+	// List of emails used for security event notifications from the organization.
+	SecurityContacts pulumi.StringArrayInput
 	// Organization settings
 	Settings OrganizationSettingsSettingsPtrInput
 }
@@ -116,6 +122,8 @@ func (OrganizationSettingsState) ElementType() reflect.Type {
 type organizationSettingsArgs struct {
 	// Name for Organization.
 	Name *string `pulumi:"name"`
+	// List of emails used for security event notifications from the organization.
+	SecurityContacts []string `pulumi:"securityContacts"`
 	// Organization settings
 	Settings *OrganizationSettingsSettings `pulumi:"settings"`
 }
@@ -124,6 +132,8 @@ type organizationSettingsArgs struct {
 type OrganizationSettingsArgs struct {
 	// Name for Organization.
 	Name pulumi.StringPtrInput
+	// List of emails used for security event notifications from the organization.
+	SecurityContacts pulumi.StringArrayInput
 	// Organization settings
 	Settings OrganizationSettingsSettingsPtrInput
 }
@@ -228,6 +238,11 @@ func (o OrganizationSettingsOutput) Name() pulumi.StringPtrOutput {
 // The `publicId` of the organization you are operating within.
 func (o OrganizationSettingsOutput) PublicId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringOutput { return v.PublicId }).(pulumi.StringOutput)
+}
+
+// List of emails used for security event notifications from the organization.
+func (o OrganizationSettingsOutput) SecurityContacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationSettings) pulumi.StringArrayOutput { return v.SecurityContacts }).(pulumi.StringArrayOutput)
 }
 
 // Organization settings

@@ -309,7 +309,6 @@ class Powerpack(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage Datadog Powerpacks
-        organization = datadog.OrganizationSettings("organization", name="foo-organization")
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
             live_span="4h",
@@ -367,7 +366,6 @@ class Powerpack(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage Datadog Powerpacks
-        organization = datadog.OrganizationSettings("organization", name="foo-organization")
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
             live_span="4h",

@@ -34,7 +34,7 @@ namespace Pulumi.Datadog
     ///     {
     ///         TeamId = foo.Id,
     ///         Label = "Link label",
-    ///         Position = "Example link",
+    ///         Position = 0,
     ///         Url = "https://example.com",
     ///     });
     /// 

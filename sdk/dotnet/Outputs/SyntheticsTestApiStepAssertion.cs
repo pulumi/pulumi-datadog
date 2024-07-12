@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? Targetjsonpath;
         /// <summary>
+        /// Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+        /// </summary>
+        public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonschema? Targetjsonschema;
+        /// <summary>
         /// Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetxpath? Targetxpath;
@@ -38,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? TimingsScope;
         /// <summary>
-        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+        /// Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
         /// </summary>
         public readonly string Type;
 
@@ -52,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? targetjsonpath,
 
+            Outputs.SyntheticsTestApiStepAssertionTargetjsonschema? targetjsonschema,
+
             Outputs.SyntheticsTestApiStepAssertionTargetxpath? targetxpath,
 
             string? timingsScope,
@@ -62,6 +68,7 @@ namespace Pulumi.Datadog.Outputs
             Property = property;
             Target = target;
             Targetjsonpath = targetjsonpath;
+            Targetjsonschema = targetjsonschema;
             Targetxpath = targetxpath;
             TimingsScope = timingsScope;
             Type = type;

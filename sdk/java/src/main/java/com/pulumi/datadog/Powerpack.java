@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.datadog.OrganizationSettings;
- * import com.pulumi.datadog.OrganizationSettingsArgs;
  * import com.pulumi.datadog.Powerpack;
  * import com.pulumi.datadog.PowerpackArgs;
  * import com.pulumi.datadog.inputs.PowerpackLayoutArgs;
@@ -54,10 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage Datadog Powerpacks
- *         var organization = new OrganizationSettings("organization", OrganizationSettingsArgs.builder()
- *             .name("foo-organization")
- *             .build());
- * 
  *         var foo = new Powerpack("foo", PowerpackArgs.builder()
  *             .description("Created using the Datadog provider in terraform")
  *             .liveSpan("4h")

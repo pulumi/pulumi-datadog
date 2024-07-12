@@ -164,8 +164,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
-
         ## Example Usage
 
         ```python
@@ -201,8 +199,6 @@ class CloudWorkloadSecurityAgentRule(pulumi.CustomResource):
                  args: CloudWorkloadSecurityAgentRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules.
-
         ## Example Usage
 
         ```python

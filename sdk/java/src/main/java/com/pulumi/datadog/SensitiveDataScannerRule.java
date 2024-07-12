@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.SensitiveDataScannerRuleState;
 import com.pulumi.datadog.outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration;
 import com.pulumi.datadog.outputs.SensitiveDataScannerRuleTextReplacement;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -141,6 +142,20 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      */
     public Output<Optional<String>> pattern() {
         return Codegen.optional(this.pattern);
+    }
+    /**
+     * Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     * 
+     */
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    private Output<Integer> priority;
+
+    /**
+     * @return Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
+     * 
+     */
+    public Output<Integer> priority() {
+        return this.priority;
     }
     /**
      * Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.

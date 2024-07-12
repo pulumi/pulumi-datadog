@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var fooTeamLink = new TeamLink("fooTeamLink", TeamLinkArgs.builder()
  *             .teamId(foo.id())
  *             .label("Link label")
- *             .position("Example link")
+ *             .position(0)
  *             .url("https://example.com")
  *             .build());
  * 

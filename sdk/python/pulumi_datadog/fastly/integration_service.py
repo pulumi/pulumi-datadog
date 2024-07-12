@@ -156,7 +156,7 @@ class IntegrationService(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,7 +196,7 @@ class IntegrationService(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "service-id"
+        $ pulumi import datadog:fastly/integrationService:IntegrationService new_list "account-id:service-id"
         ```
 
         :param str resource_name: The name of the resource.

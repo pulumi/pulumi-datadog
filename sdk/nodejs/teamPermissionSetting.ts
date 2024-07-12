@@ -62,7 +62,7 @@ export class TeamPermissionSetting extends pulumi.CustomResource {
      */
     public readonly teamId!: pulumi.Output<string>;
     /**
-     * The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+     * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -115,7 +115,7 @@ export interface TeamPermissionSettingState {
      */
     teamId?: pulumi.Input<string>;
     /**
-     * The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+     * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      */
     value?: pulumi.Input<string>;
 }
@@ -133,7 +133,7 @@ export interface TeamPermissionSettingArgs {
      */
     teamId: pulumi.Input<string>;
     /**
-     * The action value. Valid values are `admins`, `members`, `organization`, `userAccessManage`, `teamsManage`.
+     * The action value. Valid values are dependent on the action. `manageMembership` action allows `admins`, `members`, `organization`, `userAccessManage` values. `edit` action allows `admins`, `members`, `teamsManage` values.
      */
     value: pulumi.Input<string>;
 }

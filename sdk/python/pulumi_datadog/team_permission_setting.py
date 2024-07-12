@@ -21,7 +21,7 @@ class TeamPermissionSettingArgs:
         The set of arguments for constructing a TeamPermissionSetting resource.
         :param pulumi.Input[str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
-        :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        :param pulumi.Input[str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "team_id", team_id)
@@ -55,7 +55,7 @@ class TeamPermissionSettingArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         return pulumi.get(self, "value")
 
@@ -74,7 +74,7 @@ class _TeamPermissionSettingState:
         Input properties used for looking up and filtering TeamPermissionSetting resources.
         :param pulumi.Input[str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
-        :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        :param pulumi.Input[str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -111,7 +111,7 @@ class _TeamPermissionSettingState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         return pulumi.get(self, "value")
 
@@ -152,7 +152,7 @@ class TeamPermissionSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
-        :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        :param pulumi.Input[str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         ...
     @overload
@@ -237,7 +237,7 @@ class TeamPermissionSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The identifier for the action. Valid values are `manage_membership`, `edit`.
         :param pulumi.Input[str] team_id: ID of the team the team permission setting is associated with.
-        :param pulumi.Input[str] value: The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        :param pulumi.Input[str] value: The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,7 +268,7 @@ class TeamPermissionSetting(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        The action value. Valid values are `admins`, `members`, `organization`, `user_access_manage`, `teams_manage`.
+        The action value. Valid values are dependent on the action. `manage_membership` action allows `admins`, `members`, `organization`, `user_access_manage` values. `edit` action allows `admins`, `members`, `teams_manage` values.
         """
         return pulumi.get(self, "value")
 

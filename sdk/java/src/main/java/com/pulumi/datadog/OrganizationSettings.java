@@ -12,6 +12,7 @@ import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.OrganizationSettingsState;
 import com.pulumi.datadog.outputs.OrganizationSettingsSettings;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -104,6 +105,20 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      */
     public Output<String> publicId() {
         return this.publicId;
+    }
+    /**
+     * List of emails used for security event notifications from the organization.
+     * 
+     */
+    @Export(name="securityContacts", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> securityContacts;
+
+    /**
+     * @return List of emails used for security event notifications from the organization.
+     * 
+     */
+    public Output<List<String>> securityContacts() {
+        return this.securityContacts;
     }
     /**
      * Organization settings

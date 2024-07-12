@@ -66,11 +66,11 @@ export class AuthnMapping extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The ID of a role to attach to all users with the corresponding key and value.
+     * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The ID of a team to add all users with the corresponding key and value to.
+     * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
     public readonly team!: pulumi.Output<string | undefined>;
     /**
@@ -122,11 +122,11 @@ export interface AuthnMappingState {
      */
     key?: pulumi.Input<string>;
     /**
-     * The ID of a role to attach to all users with the corresponding key and value.
+     * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
     role?: pulumi.Input<string>;
     /**
-     * The ID of a team to add all users with the corresponding key and value to.
+     * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
     team?: pulumi.Input<string>;
     /**
@@ -144,11 +144,11 @@ export interface AuthnMappingArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * The ID of a role to attach to all users with the corresponding key and value.
+     * The ID of a role to attach to all users with the corresponding key and value. Cannot be used in conjunction with `team`.
      */
     role?: pulumi.Input<string>;
     /**
-     * The ID of a team to add all users with the corresponding key and value to.
+     * The ID of a team to add all users with the corresponding key and value to. Cannot be used in conjunction with `role`.
      */
     team?: pulumi.Input<string>;
     /**

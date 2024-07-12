@@ -9955,7 +9955,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: outputs.MonitorVariablesEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `networkPerformanceQueries`.
      */
     dataSource: string;
     /**
@@ -22020,6 +22020,10 @@ export interface SyntheticsTestApiStep {
      */
     requestDefinition?: outputs.SyntheticsTestApiStepRequestDefinition;
     /**
+     * Files to be used as part of the request in the test.
+     */
+    requestFiles?: outputs.SyntheticsTestApiStepRequestFile[];
+    /**
      * Header name and value map.
      */
     requestHeaders?: {[key: string]: any};
@@ -22033,9 +22037,13 @@ export interface SyntheticsTestApiStep {
     requestQuery?: {[key: string]: any};
     retry?: outputs.SyntheticsTestApiStepRetry;
     /**
-     * The subtype of the Synthetic multistep API test step. Valid values are `http`, `grpc`. Defaults to `"http"`.
+     * The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
      */
     subtype?: string;
+    /**
+     * The time to wait in seconds. Minimum value: 0. Maximum value: 180.
+     */
+    value?: number;
 }
 
 export interface SyntheticsTestApiStepAssertion {
@@ -22056,6 +22064,10 @@ export interface SyntheticsTestApiStepAssertion {
      */
     targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
     /**
+     * Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     */
+    targetjsonschema?: outputs.SyntheticsTestApiStepAssertionTargetjsonschema;
+    /**
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: outputs.SyntheticsTestApiStepAssertionTargetxpath;
@@ -22064,12 +22076,16 @@ export interface SyntheticsTestApiStepAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      */
     type: string;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetjsonpath {
+    /**
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     */
+    elementsoperator?: string;
     /**
      * The JSON path to assert.
      */
@@ -22082,6 +22098,17 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
      * Expected matching value.
      */
     targetvalue?: string;
+}
+
+export interface SyntheticsTestApiStepAssertionTargetjsonschema {
+    /**
+     * The JSON Schema to validate the body against.
+     */
+    jsonschema: string;
+    /**
+     * The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+     */
+    metaschema?: string;
 }
 
 export interface SyntheticsTestApiStepAssertionTargetxpath {
@@ -22322,6 +22349,33 @@ export interface SyntheticsTestApiStepRequestDefinition {
     url?: string;
 }
 
+export interface SyntheticsTestApiStepRequestFile {
+    /**
+     * Bucket key of the file.
+     */
+    bucketKey: string;
+    /**
+     * Content of the file.
+     */
+    content?: string;
+    /**
+     * Name of the file.
+     */
+    name: string;
+    /**
+     * Original name of the file.
+     */
+    originalFileName?: string;
+    /**
+     * Size of the file.
+     */
+    size: number;
+    /**
+     * Type of the file.
+     */
+    type: string;
+}
+
 export interface SyntheticsTestApiStepRequestProxy {
     /**
      * Header name and value map.
@@ -22362,6 +22416,10 @@ export interface SyntheticsTestAssertion {
      */
     targetjsonpath?: outputs.SyntheticsTestAssertionTargetjsonpath;
     /**
+     * Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     */
+    targetjsonschema?: outputs.SyntheticsTestAssertionTargetjsonschema;
+    /**
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      */
     targetxpath?: outputs.SyntheticsTestAssertionTargetxpath;
@@ -22370,12 +22428,16 @@ export interface SyntheticsTestAssertion {
      */
     timingsScope?: string;
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      */
     type: string;
 }
 
 export interface SyntheticsTestAssertionTargetjsonpath {
+    /**
+     * The element from the list of results to assert on. Select from `firstElementMatches` (the first element in the list), `everyElementMatches` (every element in the list), `atLeastOneElementMatches` (at least one element in the list), or `serializationMatches` (the serialized value of the list). Defaults to `firstElementMatches`. Defaults to `"firstElementMatches"`.
+     */
+    elementsoperator?: string;
     /**
      * The JSON path to assert.
      */
@@ -22388,6 +22450,17 @@ export interface SyntheticsTestAssertionTargetjsonpath {
      * Expected matching value.
      */
     targetvalue?: string;
+}
+
+export interface SyntheticsTestAssertionTargetjsonschema {
+    /**
+     * The JSON Schema to validate the body against.
+     */
+    jsonschema: string;
+    /**
+     * The meta schema to use for the JSON Schema. Defaults to `"draft-07"`.
+     */
+    metaschema?: string;
 }
 
 export interface SyntheticsTestAssertionTargetxpath {
@@ -22462,7 +22535,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     delay?: number;
     /**
-     * Element to use for the step, json encoded string.
+     * Element to use for the step, JSON encoded string.
      */
     element?: string;
     /**
@@ -22470,7 +22543,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     elementUserLocator?: outputs.SyntheticsTestBrowserStepParamsElementUserLocator;
     /**
-     * Details of the email for an "assert email" step.
+     * Details of the email for an "assert email" step, JSON encoded string.
      */
     email?: string;
     /**
@@ -22478,7 +22551,7 @@ export interface SyntheticsTestBrowserStepParams {
      */
     file?: string;
     /**
-     * Details of the files for an "upload files" step, json encoded string.
+     * Details of the files for an "upload files" step, JSON encoded string.
      */
     files?: string;
     /**
@@ -22923,6 +22996,33 @@ export interface SyntheticsTestRequestDefinition {
      * The URL to send the request to.
      */
     url?: string;
+}
+
+export interface SyntheticsTestRequestFile {
+    /**
+     * Bucket key of the file.
+     */
+    bucketKey: string;
+    /**
+     * Content of the file.
+     */
+    content?: string;
+    /**
+     * Name of the file.
+     */
+    name: string;
+    /**
+     * Original name of the file.
+     */
+    originalFileName?: string;
+    /**
+     * Size of the file.
+     */
+    size: number;
+    /**
+     * Type of the file.
+     */
+    type: string;
 }
 
 export interface SyntheticsTestRequestProxy {

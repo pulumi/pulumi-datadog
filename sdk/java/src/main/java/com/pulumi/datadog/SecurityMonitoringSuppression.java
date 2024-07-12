@@ -45,10 +45,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var mySuppression = new SecurityMonitoringSuppression("mySuppression", SecurityMonitoringSuppressionArgs.builder()
  *             .name("My suppression")
- *             .description("Suppression for low severity CloudTrail signals from test environments limited to 2024")
+ *             .description("Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024")
  *             .enabled(true)
  *             .ruleQuery("severity:low source:cloudtrail")
- *             .suppressionQuery("env:test")
+ *             .suppressionQuery("{@literal @}usr.id:john.doe")
+ *             .dataExclusionQuery("env:test")
  *             .expirationDate("2024-12-31T12:00:00Z")
  *             .build());
  * 

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetjsonpathArgs;
+import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetjsonschemaArgs;
 import com.pulumi.datadog.inputs.SyntheticsTestAssertionTargetxpathArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -79,6 +80,21 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    @Import(name="targetjsonschema")
+    private @Nullable Output<SyntheticsTestAssertionTargetjsonschemaArgs> targetjsonschema;
+
+    /**
+     * @return Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+     * 
+     */
+    public Optional<Output<SyntheticsTestAssertionTargetjsonschemaArgs>> targetjsonschema() {
+        return Optional.ofNullable(this.targetjsonschema);
+    }
+
+    /**
      * Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
      * 
      */
@@ -109,14 +125,14 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+     * @return Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
      * 
      */
     public Output<String> type() {
@@ -130,6 +146,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         this.property = $.property;
         this.target = $.target;
         this.targetjsonpath = $.targetjsonpath;
+        this.targetjsonschema = $.targetjsonschema;
         this.targetxpath = $.targetxpath;
         this.timingsScope = $.timingsScope;
         this.type = $.type;
@@ -238,6 +255,27 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param targetjsonschema Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetjsonschema(@Nullable Output<SyntheticsTestAssertionTargetjsonschemaArgs> targetjsonschema) {
+            $.targetjsonschema = targetjsonschema;
+            return this;
+        }
+
+        /**
+         * @param targetjsonschema Expected structure if `operator` is `validatesJSONSchema`. Exactly one nested block is allowed with the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetjsonschema(SyntheticsTestAssertionTargetjsonschemaArgs targetjsonschema) {
+            return targetjsonschema(Output.of(targetjsonschema));
+        }
+
+        /**
          * @param targetxpath Expected structure if `operator` is `validatesXPath`. Exactly one nested block is allowed with the structure below.
          * 
          * @return builder
@@ -280,7 +318,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
          * 
          * @return builder
          * 
@@ -291,7 +329,7 @@ public final class SyntheticsTestAssertionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`.
+         * @param type Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`, `receivedMessage`, `grpcHealthcheckStatus`, `grpcMetadata`, `grpcProto`, `connection`, `bodyHash`.
          * 
          * @return builder
          * 

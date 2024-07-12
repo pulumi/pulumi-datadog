@@ -17,14 +17,18 @@ __all__ = ['OrganizationSettingsArgs', 'OrganizationSettings']
 class OrganizationSettingsArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
         """
         The set of arguments for constructing a OrganizationSettings resource.
         :param pulumi.Input[str] name: Name for Organization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_contacts: List of emails used for security event notifications from the organization.
         :param pulumi.Input['OrganizationSettingsSettingsArgs'] settings: Organization settings
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if security_contacts is not None:
+            pulumi.set(__self__, "security_contacts", security_contacts)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
@@ -39,6 +43,18 @@ class OrganizationSettingsArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="securityContacts")
+    def security_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of emails used for security event notifications from the organization.
+        """
+        return pulumi.get(self, "security_contacts")
+
+    @security_contacts.setter
+    def security_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_contacts", value)
 
     @property
     @pulumi.getter
@@ -59,12 +75,14 @@ class _OrganizationSettingsState:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_id: Optional[pulumi.Input[str]] = None,
+                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input['OrganizationSettingsSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering OrganizationSettings resources.
         :param pulumi.Input[str] description: Description of the organization.
         :param pulumi.Input[str] name: Name for Organization.
         :param pulumi.Input[str] public_id: The `public_id` of the organization you are operating within.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_contacts: List of emails used for security event notifications from the organization.
         :param pulumi.Input['OrganizationSettingsSettingsArgs'] settings: Organization settings
         """
         if description is not None:
@@ -73,6 +91,8 @@ class _OrganizationSettingsState:
             pulumi.set(__self__, "name", name)
         if public_id is not None:
             pulumi.set(__self__, "public_id", public_id)
+        if security_contacts is not None:
+            pulumi.set(__self__, "security_contacts", security_contacts)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
 
@@ -113,6 +133,18 @@ class _OrganizationSettingsState:
         pulumi.set(self, "public_id", value)
 
     @property
+    @pulumi.getter(name="securityContacts")
+    def security_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of emails used for security event notifications from the organization.
+        """
+        return pulumi.get(self, "security_contacts")
+
+    @security_contacts.setter
+    def security_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_contacts", value)
+
+    @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['OrganizationSettingsSettingsArgs']]:
         """
@@ -131,6 +163,7 @@ class OrganizationSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[pulumi.InputType['OrganizationSettingsSettingsArgs']]] = None,
                  __props__=None):
         """
@@ -155,6 +188,7 @@ class OrganizationSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name for Organization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_contacts: List of emails used for security event notifications from the organization.
         :param pulumi.Input[pulumi.InputType['OrganizationSettingsSettingsArgs']] settings: Organization settings
         """
         ...
@@ -198,6 +232,7 @@ class OrganizationSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[pulumi.InputType['OrganizationSettingsSettingsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -209,6 +244,7 @@ class OrganizationSettings(pulumi.CustomResource):
             __props__ = OrganizationSettingsArgs.__new__(OrganizationSettingsArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["security_contacts"] = security_contacts
             __props__.__dict__["settings"] = settings
             __props__.__dict__["description"] = None
             __props__.__dict__["public_id"] = None
@@ -225,6 +261,7 @@ class OrganizationSettings(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_id: Optional[pulumi.Input[str]] = None,
+            security_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             settings: Optional[pulumi.Input[pulumi.InputType['OrganizationSettingsSettingsArgs']]] = None) -> 'OrganizationSettings':
         """
         Get an existing OrganizationSettings resource's state with the given name, id, and optional extra
@@ -236,6 +273,7 @@ class OrganizationSettings(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the organization.
         :param pulumi.Input[str] name: Name for Organization.
         :param pulumi.Input[str] public_id: The `public_id` of the organization you are operating within.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_contacts: List of emails used for security event notifications from the organization.
         :param pulumi.Input[pulumi.InputType['OrganizationSettingsSettingsArgs']] settings: Organization settings
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -245,6 +283,7 @@ class OrganizationSettings(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["public_id"] = public_id
+        __props__.__dict__["security_contacts"] = security_contacts
         __props__.__dict__["settings"] = settings
         return OrganizationSettings(resource_name, opts=opts, __props__=__props__)
 
@@ -271,6 +310,14 @@ class OrganizationSettings(pulumi.CustomResource):
         The `public_id` of the organization you are operating within.
         """
         return pulumi.get(self, "public_id")
+
+    @property
+    @pulumi.getter(name="securityContacts")
+    def security_contacts(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of emails used for security event notifications from the organization.
+        """
+        return pulumi.get(self, "security_contacts")
 
     @property
     @pulumi.getter

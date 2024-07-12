@@ -29,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewSecurityMonitoringSuppression(ctx, "my_suppression", &datadog.SecurityMonitoringSuppressionArgs{
-//				Name:             pulumi.String("My suppression"),
-//				Description:      pulumi.String("Suppression for low severity CloudTrail signals from test environments limited to 2024"),
-//				Enabled:          pulumi.Bool(true),
-//				RuleQuery:        pulumi.String("severity:low source:cloudtrail"),
-//				SuppressionQuery: pulumi.String("env:test"),
-//				ExpirationDate:   pulumi.String("2024-12-31T12:00:00Z"),
+//				Name:               pulumi.String("My suppression"),
+//				Description:        pulumi.String("Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024"),
+//				Enabled:            pulumi.Bool(true),
+//				RuleQuery:          pulumi.String("severity:low source:cloudtrail"),
+//				SuppressionQuery:   pulumi.String("@usr.id:john.doe"),
+//				DataExclusionQuery: pulumi.String("env:test"),
+//				ExpirationDate:     pulumi.String("2024-12-31T12:00:00Z"),
 //			})
 //			if err != nil {
 //				return err
