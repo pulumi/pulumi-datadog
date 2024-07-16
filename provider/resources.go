@@ -83,7 +83,7 @@ var metadata []byte
 
 func Provider() tfbridge.ProviderInfo {
 	p := pfbridge.MuxShimWithPF(context.Background(),
-		shimv2.NewProvider(datadog.Provider()),
+		shimv2.NewProvider(datadog.Provider(), shimv2.WithPlanResourceChange(func(tfResourceType string) bool { return true })),
 		fwprovider.New(),
 	)
 	prov := tfbridge.ProviderInfo{
