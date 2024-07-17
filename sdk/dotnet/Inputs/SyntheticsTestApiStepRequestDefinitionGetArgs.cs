@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepRequestDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        /// Allows loading insecure content for a request in an API test or in a multistep API test step.
         /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShouldTrackHops { get; set; }
 
         /// <summary>
-        /// Timeout in seconds for the test. Defaults to `60`.
+        /// Timeout in seconds for the test.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

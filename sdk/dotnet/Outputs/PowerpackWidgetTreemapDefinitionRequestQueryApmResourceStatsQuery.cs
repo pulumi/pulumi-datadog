@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery
     {
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        public readonly string? CrossOrgUuids;
+        /// <summary>
         /// The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
         /// </summary>
         public readonly string DataSource;
@@ -56,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(
+            string? crossOrgUuids,
+
             string dataSource,
 
             string env,
@@ -76,6 +82,7 @@ namespace Pulumi.Datadog.Outputs
 
             string stat)
         {
+            CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             Env = env;
             GroupBies = groupBies;

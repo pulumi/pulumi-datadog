@@ -22,6 +22,11 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     private List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute> computes;
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
@@ -59,6 +64,13 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     public List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute> computes() {
         return this.computes;
+    }
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
      * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
@@ -113,6 +125,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
     @CustomType.Builder
     public static final class Builder {
         private List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute> computes;
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private @Nullable List<DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy> groupBies;
         private @Nullable List<String> indexes;
@@ -123,6 +136,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
         public Builder(DashboardWidgetHeatmapDefinitionRequestQueryEventQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computes = defaults.computes;
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.groupBies = defaults.groupBies;
     	      this.indexes = defaults.indexes;
@@ -141,6 +155,12 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
         }
         public Builder computes(DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute... computes) {
             return computes(List.of(computes));
+        }
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
+            return this;
         }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
@@ -191,6 +211,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
         public DashboardWidgetHeatmapDefinitionRequestQueryEventQuery build() {
             final var _resultValue = new DashboardWidgetHeatmapDefinitionRequestQueryEventQuery();
             _resultValue.computes = computes;
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.groupBies = groupBies;
             _resultValue.indexes = indexes;

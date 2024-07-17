@@ -85,7 +85,7 @@ def get_application_key(exact_match: Optional[bool] = None,
                         name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationKeyResult:
     """
-    Use this data source to retrieve information about an existing application key.
+    Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the ApplicationKey resource to manage application keys in your Datadog account.
 
     ## Example Usage
 
@@ -121,7 +121,7 @@ def get_application_key_output(exact_match: Optional[pulumi.Input[Optional[bool]
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationKeyResult]:
     """
-    Use this data source to retrieve information about an existing application key.
+    Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the ApplicationKey resource to manage application keys in your Datadog account.
 
     ## Example Usage
 

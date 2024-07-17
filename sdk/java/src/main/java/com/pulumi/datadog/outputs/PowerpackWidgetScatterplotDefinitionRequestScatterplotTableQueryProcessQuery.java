@@ -21,6 +21,11 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     private @Nullable String aggregator;
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for process queries. Valid values are `process`, `container`.
      * 
      */
@@ -68,6 +73,13 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
+    }
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
      * @return The data source for process queries. Valid values are `process`, `container`.
@@ -136,6 +148,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private @Nullable Boolean isNormalizedCpu;
         private @Nullable Integer limit;
@@ -148,6 +161,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public Builder(PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregator = defaults.aggregator;
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.isNormalizedCpu = defaults.isNormalizedCpu;
     	      this.limit = defaults.limit;
@@ -162,6 +176,12 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public Builder aggregator(@Nullable String aggregator) {
 
             this.aggregator = aggregator;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
             return this;
         }
         @CustomType.Setter
@@ -224,6 +244,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery build() {
             final var _resultValue = new PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery();
             _resultValue.aggregator = aggregator;
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.isNormalizedCpu = isNormalizedCpu;
             _resultValue.limit = limit;

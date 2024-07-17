@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        public readonly string? CrossOrgUuids;
+        /// <summary>
         /// The data source for process queries. Valid values are `process`, `container`.
         /// </summary>
         public readonly string DataSource;
@@ -54,6 +58,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(
             string? aggregator,
 
+            string? crossOrgUuids,
+
             string dataSource,
 
             bool? isNormalizedCpu,
@@ -71,6 +77,7 @@ namespace Pulumi.Datadog.Outputs
             string? textFilter)
         {
             Aggregator = aggregator;
+            CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             IsNormalizedCpu = isNormalizedCpu;
             Limit = limit;

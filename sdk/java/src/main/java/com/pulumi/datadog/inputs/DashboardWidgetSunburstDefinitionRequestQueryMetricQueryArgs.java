@@ -32,6 +32,21 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs 
     }
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
@@ -80,6 +95,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs 
 
     private DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs(DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs $) {
         this.aggregator = $.aggregator;
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.name = $.name;
         this.query = $.query;
@@ -122,6 +138,27 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryMetricQueryArgs 
          */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

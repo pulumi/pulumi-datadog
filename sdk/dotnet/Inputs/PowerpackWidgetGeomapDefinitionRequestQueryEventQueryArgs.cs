@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        [Input("crossOrgUuids")]
+        public Input<string>? CrossOrgUuids { get; set; }
+
+        /// <summary>
         /// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         /// </summary>
         [Input("dataSource", required: true)]

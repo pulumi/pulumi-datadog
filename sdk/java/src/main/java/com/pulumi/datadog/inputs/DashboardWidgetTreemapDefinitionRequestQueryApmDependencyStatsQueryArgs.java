@@ -18,6 +18,21 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStat
     public static final DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs Empty = new DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs();
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
      * 
      */
@@ -170,6 +185,7 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStat
     private DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs() {}
 
     private DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs(DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs $) {
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.env = $.env;
         this.isUpstream = $.isUpstream;
@@ -198,6 +214,27 @@ public final class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStat
 
         public Builder(DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs defaults) {
             $ = new DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQueryArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

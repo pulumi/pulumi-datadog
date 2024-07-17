@@ -60,7 +60,7 @@ class SyntheticsTestArgs:
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -332,7 +332,7 @@ class SyntheticsTestArgs:
     @pulumi.getter(name="requestMetadata")
     def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Metadata to include when performing the gRPC test.
+        Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 
@@ -460,7 +460,7 @@ class _SyntheticsTestState:
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestRequestFileArgs']]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
         :param pulumi.Input['SyntheticsTestRequestProxyArgs'] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -728,7 +728,7 @@ class _SyntheticsTestState:
     @pulumi.getter(name="requestMetadata")
     def request_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Metadata to include when performing the gRPC test.
+        Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 
@@ -878,6 +878,443 @@ class SyntheticsTest(pulumi.CustomResource):
 
         which you can now use in your request definition:
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_uptime = datadog.SyntheticsTest("test_uptime",
+            name="An Uptime test on example.org",
+            type="api",
+            subtype="http",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+            },
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="statusCode",
+                operator="is",
+                target="200",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+            ))
+        # Example Usage (Authenticated API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_api = datadog.SyntheticsTest("test_api",
+            name="An API test on example.org",
+            type="api",
+            subtype="http",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+                "Authentication": "Token: 1234566789",
+            },
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="statusCode",
+                operator="is",
+                target="200",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+            ))
+        # Example Usage (Synthetics SSL test)
+        # Create a new Datadog Synthetics API/SSL test on example.org
+        test_ssl = datadog.SyntheticsTest("test_ssl",
+            name="An API test on example.org",
+            type="api",
+            subtype="ssl",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="certificate",
+                operator="isInMoreThan",
+                target="30",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                accept_self_signed=True,
+            ))
+        # Example Usage (Synthetics TCP test)
+        # Create a new Datadog Synthetics API/TCP test on example.org
+        test_tcp = datadog.SyntheticsTest("test_tcp",
+            name="An API test on example.org",
+            type="api",
+            subtype="tcp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="responseTime",
+                operator="lessThan",
+                target="2000",
+            )],
+            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
+                type="global",
+                name="MY_GLOBAL_VAR",
+                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (Synthetics DNS test)
+        # Create a new Datadog Synthetics API/DNS test on example.org
+        test_dns = datadog.SyntheticsTest("test_dns",
+            name="An API test on example.org",
+            type="api",
+            subtype="dns",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="recordSome",
+                operator="is",
+                property="A",
+                target="0.0.0.0",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (Synthetics Multistep API test)
+        # Create a new Datadog Synthetics Multistep API test
+        test_multi_step = datadog.SyntheticsTest("test_multi_step",
+            name="Multistep API test",
+            type="api",
+            subtype="multi",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            api_steps=[
+                datadog.SyntheticsTestApiStepArgs(
+                    name="An API test on example.org",
+                    subtype="http",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://www.example.org",
+                    ),
+                    request_headers={
+                        "Content-Type": "application/json",
+                        "Authentication": "Token: 1234566789",
+                    },
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="An API test on example.org",
+                    subtype="http",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="A gRPC health check on example.org",
+                    subtype="grpc",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        host="example.org",
+                        port=443,
+                        call_type="healthcheck",
+                        service="greeter.Greeter",
+                    ),
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="A gRPC behavior check on example.org",
+                    subtype="grpc",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        host="example.org",
+                        port=443,
+                        call_type="unary",
+                        service="greeter.Greeter",
+                        method="SayHello",
+                        message="{\\"name\\": \\"John\\"}",
+                        plain_proto_file=\"\"\"syntax = "proto3";
+
+        package greeter;
+
+        // The greeting service definition.
+        service Greeter {
+          // Sends a greeting
+          rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+
+        // The request message containing the user's name.
+        message HelloRequest {
+          string name = 1;
+        }
+
+        // The response message containing the greetings
+        message HelloReply {
+          string message = 1;
+        }
+        \"\"\",
+                    ),
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                accept_self_signed=True,
+            ))
+        # Example Usage (Synthetics Browser test)
+        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
+        test_browser = datadog.SyntheticsTest("test_browser",
+            name="A Browser test on example.org",
+            type="browser",
+            status="paused",
+            message="Notify @qa",
+            device_ids=["laptop_large"],
+            locations=["aws:eu-central-1"],
+            tags=[],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            browser_steps=[
+                datadog.SyntheticsTestBrowserStepArgs(
+                    name="Check current url",
+                    type="assertCurrentUrl",
+                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                        check="contains",
+                        value="datadoghq",
+                    ),
+                ),
+                datadog.SyntheticsTestBrowserStepArgs(
+                    name="Test a downloaded file",
+                    type="assertFileDownload",
+                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                        file=json.dumps({
+                            "md5": "abcdef1234567890",
+                            "sizeCheck": {
+                                "type": "equals",
+                                "value": 1,
+                            },
+                            "nameCheck": {
+                                "type": "contains",
+                                "value": ".xls",
+                            },
+                        }),
+                    ),
+                ),
+            ],
+            browser_variables=[
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="text",
+                    name="MY_PATTERN_VAR",
+                    pattern="{{numeric(3)}}",
+                    example="597",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="email",
+                    name="MY_EMAIL_VAR",
+                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="global",
+                    name="MY_GLOBAL_VAR",
+                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=3600,
+            ))
+        # Example Usage (GRPC API behavior check test)
+        # Create a new Datadog GRPC API test calling host example.org on port 443
+        # targeting service `greeter.Greeter` with the method `SayHello`
+        # and the message {"name": "John"}
+        test_grpc_unary = datadog.SyntheticsTest("test_grpc_unary",
+            name="GRPC API behavior check test",
+            type="api",
+            subtype="grpc",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+                call_type="unary",
+                service="greeter.Greeter",
+                method="SayHello",
+                message="{\\"name\\": \\"John\\"}",
+                plain_proto_file=\"\"\"syntax = "proto3";
+
+        package greeter;
+
+        // The greeting service definition.
+        service Greeter {
+          // Sends a greeting
+          rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+
+        // The request message containing the user's name.
+        message HelloRequest {
+          string name = 1;
+        }
+
+        // The response message containing the greetings
+        message HelloReply {
+          string message = 1;
+        }
+        \"\"\",
+            ),
+            request_metadata={
+                "header": "value",
+            },
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    type="responseTime",
+                    operator="lessThan",
+                    target="2000",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcHealthcheckStatus",
+                    target="1",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcProto",
+                    target="proto target",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    property="property",
+                    type="grpcMetadata",
+                    target="123",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (GRPC API health check test)
+        # Create a new Datadog GRPC API test calling host example.org on port 443
+        # testing the overall health of the service
+        test_grpc_health = datadog.SyntheticsTest("test_grpc_health",
+            name="GRPC API health check test",
+            type="api",
+            subtype="grpc",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+                call_type="healthcheck",
+                service="greeter.Greeter",
+            ),
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    type="responseTime",
+                    operator="lessThan",
+                    target="2000",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcHealthcheckStatus",
+                    target="1",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        ```
+
         ## Import
 
         Synthetics tests can be imported using their public string ID, e.g.
@@ -903,7 +1340,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -932,6 +1369,443 @@ class SyntheticsTest(pulumi.CustomResource):
         to
 
         which you can now use in your request definition:
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Example Usage (Synthetics API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_uptime = datadog.SyntheticsTest("test_uptime",
+            name="An Uptime test on example.org",
+            type="api",
+            subtype="http",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+            },
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="statusCode",
+                operator="is",
+                target="200",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+            ))
+        # Example Usage (Authenticated API test)
+        # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+        test_api = datadog.SyntheticsTest("test_api",
+            name="An API test on example.org",
+            type="api",
+            subtype="http",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            request_headers={
+                "Content-Type": "application/json",
+                "Authentication": "Token: 1234566789",
+            },
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="statusCode",
+                operator="is",
+                target="200",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                retry=datadog.SyntheticsTestOptionsListRetryArgs(
+                    count=2,
+                    interval=300,
+                ),
+                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
+                    renotify_interval=120,
+                ),
+            ))
+        # Example Usage (Synthetics SSL test)
+        # Create a new Datadog Synthetics API/SSL test on example.org
+        test_ssl = datadog.SyntheticsTest("test_ssl",
+            name="An API test on example.org",
+            type="api",
+            subtype="ssl",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="certificate",
+                operator="isInMoreThan",
+                target="30",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                accept_self_signed=True,
+            ))
+        # Example Usage (Synthetics TCP test)
+        # Create a new Datadog Synthetics API/TCP test on example.org
+        test_tcp = datadog.SyntheticsTest("test_tcp",
+            name="An API test on example.org",
+            type="api",
+            subtype="tcp",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="responseTime",
+                operator="lessThan",
+                target="2000",
+            )],
+            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
+                type="global",
+                name="MY_GLOBAL_VAR",
+                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (Synthetics DNS test)
+        # Create a new Datadog Synthetics API/DNS test on example.org
+        test_dns = datadog.SyntheticsTest("test_dns",
+            name="An API test on example.org",
+            type="api",
+            subtype="dns",
+            status="live",
+            message="Notify @pagerduty",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+            ),
+            assertions=[datadog.SyntheticsTestAssertionArgs(
+                type="recordSome",
+                operator="is",
+                property="A",
+                target="0.0.0.0",
+            )],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (Synthetics Multistep API test)
+        # Create a new Datadog Synthetics Multistep API test
+        test_multi_step = datadog.SyntheticsTest("test_multi_step",
+            name="Multistep API test",
+            type="api",
+            subtype="multi",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            api_steps=[
+                datadog.SyntheticsTestApiStepArgs(
+                    name="An API test on example.org",
+                    subtype="http",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://www.example.org",
+                    ),
+                    request_headers={
+                        "Content-Type": "application/json",
+                        "Authentication": "Token: 1234566789",
+                    },
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="An API test on example.org",
+                    subtype="http",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="A gRPC health check on example.org",
+                    subtype="grpc",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        host="example.org",
+                        port=443,
+                        call_type="healthcheck",
+                        service="greeter.Greeter",
+                    ),
+                ),
+                datadog.SyntheticsTestApiStepArgs(
+                    name="A gRPC behavior check on example.org",
+                    subtype="grpc",
+                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
+                        type="statusCode",
+                        operator="is",
+                        target="200",
+                    )],
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        host="example.org",
+                        port=443,
+                        call_type="unary",
+                        service="greeter.Greeter",
+                        method="SayHello",
+                        message="{\\"name\\": \\"John\\"}",
+                        plain_proto_file=\"\"\"syntax = "proto3";
+
+        package greeter;
+
+        // The greeting service definition.
+        service Greeter {
+          // Sends a greeting
+          rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+
+        // The request message containing the user's name.
+        message HelloRequest {
+          string name = 1;
+        }
+
+        // The response message containing the greetings
+        message HelloReply {
+          string message = 1;
+        }
+        \"\"\",
+                    ),
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+                accept_self_signed=True,
+            ))
+        # Example Usage (Synthetics Browser test)
+        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
+        test_browser = datadog.SyntheticsTest("test_browser",
+            name="A Browser test on example.org",
+            type="browser",
+            status="paused",
+            message="Notify @qa",
+            device_ids=["laptop_large"],
+            locations=["aws:eu-central-1"],
+            tags=[],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                method="GET",
+                url="https://www.example.org",
+            ),
+            browser_steps=[
+                datadog.SyntheticsTestBrowserStepArgs(
+                    name="Check current url",
+                    type="assertCurrentUrl",
+                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                        check="contains",
+                        value="datadoghq",
+                    ),
+                ),
+                datadog.SyntheticsTestBrowserStepArgs(
+                    name="Test a downloaded file",
+                    type="assertFileDownload",
+                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
+                        file=json.dumps({
+                            "md5": "abcdef1234567890",
+                            "sizeCheck": {
+                                "type": "equals",
+                                "value": 1,
+                            },
+                            "nameCheck": {
+                                "type": "contains",
+                                "value": ".xls",
+                            },
+                        }),
+                    ),
+                ),
+            ],
+            browser_variables=[
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="text",
+                    name="MY_PATTERN_VAR",
+                    pattern="{{numeric(3)}}",
+                    example="597",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="email",
+                    name="MY_EMAIL_VAR",
+                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                ),
+                datadog.SyntheticsTestBrowserVariableArgs(
+                    type="global",
+                    name="MY_GLOBAL_VAR",
+                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=3600,
+            ))
+        # Example Usage (GRPC API behavior check test)
+        # Create a new Datadog GRPC API test calling host example.org on port 443
+        # targeting service `greeter.Greeter` with the method `SayHello`
+        # and the message {"name": "John"}
+        test_grpc_unary = datadog.SyntheticsTest("test_grpc_unary",
+            name="GRPC API behavior check test",
+            type="api",
+            subtype="grpc",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+                call_type="unary",
+                service="greeter.Greeter",
+                method="SayHello",
+                message="{\\"name\\": \\"John\\"}",
+                plain_proto_file=\"\"\"syntax = "proto3";
+
+        package greeter;
+
+        // The greeting service definition.
+        service Greeter {
+          // Sends a greeting
+          rpc SayHello (HelloRequest) returns (HelloReply) {}
+        }
+
+        // The request message containing the user's name.
+        message HelloRequest {
+          string name = 1;
+        }
+
+        // The response message containing the greetings
+        message HelloReply {
+          string message = 1;
+        }
+        \"\"\",
+            ),
+            request_metadata={
+                "header": "value",
+            },
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    type="responseTime",
+                    operator="lessThan",
+                    target="2000",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcHealthcheckStatus",
+                    target="1",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcProto",
+                    target="proto target",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    property="property",
+                    type="grpcMetadata",
+                    target="123",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        # Example Usage (GRPC API health check test)
+        # Create a new Datadog GRPC API test calling host example.org on port 443
+        # testing the overall health of the service
+        test_grpc_health = datadog.SyntheticsTest("test_grpc_health",
+            name="GRPC API health check test",
+            type="api",
+            subtype="grpc",
+            status="live",
+            locations=["aws:eu-central-1"],
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
+                host="example.org",
+                port=443,
+                call_type="healthcheck",
+                service="greeter.Greeter",
+            ),
+            assertions=[
+                datadog.SyntheticsTestAssertionArgs(
+                    type="responseTime",
+                    operator="lessThan",
+                    target="2000",
+                ),
+                datadog.SyntheticsTestAssertionArgs(
+                    operator="is",
+                    type="grpcHealthcheckStatus",
+                    target="1",
+                ),
+            ],
+            options_list=datadog.SyntheticsTestOptionsListArgs(
+                tick_every=900,
+            ))
+        ```
 
         ## Import
 
@@ -1083,7 +1957,7 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
-        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC test.
+        :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
@@ -1262,7 +2136,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter(name="requestMetadata")
     def request_metadata(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Metadata to include when performing the gRPC test.
+        Metadata to include when performing the gRPC request.
         """
         return pulumi.get(self, "request_metadata")
 

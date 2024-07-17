@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        [Input("crossOrgUuids")]
+        public Input<string>? CrossOrgUuids { get; set; }
+
+        /// <summary>
         /// The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
         /// </summary>
         [Input("dataSource", required: true)]

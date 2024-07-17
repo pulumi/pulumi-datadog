@@ -182,7 +182,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<string | undefined>;
     public readonly query!: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
@@ -456,7 +456,7 @@ export interface MonitorState {
     /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<string>;
     query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
@@ -625,7 +625,7 @@ export interface MonitorArgs {
     /**
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify on the current status. It will only

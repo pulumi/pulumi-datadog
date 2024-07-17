@@ -38,7 +38,7 @@ class MonitorArgs:
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
                  on_missing_data: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  renotify_occurrences: Optional[pulumi.Input[int]] = None,
                  renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -97,7 +97,7 @@ class MonitorArgs:
                `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
-        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -475,14 +475,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
+    def priority(self) -> Optional[pulumi.Input[str]]:
         """
         Integer from 1 (high) to 5 (low) indicating alert severity.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
+    def priority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -635,7 +635,7 @@ class _MonitorState:
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
                  on_missing_data: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  renotify_occurrences: Optional[pulumi.Input[int]] = None,
@@ -695,7 +695,7 @@ class _MonitorState:
                `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
-        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1072,14 +1072,14 @@ class _MonitorState:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[int]]:
+    def priority(self) -> Optional[pulumi.Input[str]]:
         """
         Integer from 1 (high) to 5 (low) indicating alert severity.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[int]]):
+    def priority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -1256,7 +1256,7 @@ class Monitor(pulumi.CustomResource):
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
                  on_missing_data: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  renotify_occurrences: Optional[pulumi.Input[int]] = None,
@@ -1347,7 +1347,7 @@ class Monitor(pulumi.CustomResource):
                `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
-        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1442,7 +1442,7 @@ class Monitor(pulumi.CustomResource):
                  notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
                  on_missing_data: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  renotify_occurrences: Optional[pulumi.Input[int]] = None,
@@ -1537,7 +1537,7 @@ class Monitor(pulumi.CustomResource):
             notify_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             notify_no_data: Optional[pulumi.Input[bool]] = None,
             on_missing_data: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[int]] = None,
+            priority: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
             renotify_interval: Optional[pulumi.Input[int]] = None,
             renotify_occurrences: Optional[pulumi.Input[int]] = None,
@@ -1602,7 +1602,7 @@ class Monitor(pulumi.CustomResource):
                `Count`, for example `Gauge`, `Measure`, or `Rate`, the monitor shows the last known status. This option is only
                available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors. Valid values are:
                `show_no_data`, `show_and_notify_no_data`, `resolve`, and `default`.
-        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
         :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
@@ -1860,7 +1860,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[int]]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         Integer from 1 (high) to 5 (low) indicating alert severity.
         """

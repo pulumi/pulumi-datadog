@@ -24,6 +24,8 @@ import com.pulumi.datadog.inputs.GetMonitorsArgs;
 import com.pulumi.datadog.inputs.GetMonitorsPlainArgs;
 import com.pulumi.datadog.inputs.GetPermissionsArgs;
 import com.pulumi.datadog.inputs.GetPermissionsPlainArgs;
+import com.pulumi.datadog.inputs.GetPowerpackArgs;
+import com.pulumi.datadog.inputs.GetPowerpackPlainArgs;
 import com.pulumi.datadog.inputs.GetRoleArgs;
 import com.pulumi.datadog.inputs.GetRolePlainArgs;
 import com.pulumi.datadog.inputs.GetRoleUsersArgs;
@@ -71,6 +73,7 @@ import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesResult;
 import com.pulumi.datadog.outputs.GetMonitorResult;
 import com.pulumi.datadog.outputs.GetMonitorsResult;
 import com.pulumi.datadog.outputs.GetPermissionsResult;
+import com.pulumi.datadog.outputs.GetPowerpackResult;
 import com.pulumi.datadog.outputs.GetRoleResult;
 import com.pulumi.datadog.outputs.GetRoleUsersResult;
 import com.pulumi.datadog.outputs.GetRolesResult;
@@ -583,7 +586,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getApmRetentionFiltersOrder:getApmRetentionFiltersOrder", TypeShape.of(GetApmRetentionFiltersOrderResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -625,7 +628,7 @@ public final class DatadogFunctions {
         return getApplicationKey(GetApplicationKeyArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -667,7 +670,7 @@ public final class DatadogFunctions {
         return getApplicationKeyPlain(GetApplicationKeyPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -709,7 +712,7 @@ public final class DatadogFunctions {
         return getApplicationKey(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -751,7 +754,7 @@ public final class DatadogFunctions {
         return getApplicationKeyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -793,7 +796,7 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invoke("datadog:index/getApplicationKey:getApplicationKey", TypeShape.of(GetApplicationKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to retrieve information about an existing application key.
+     * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
      * 
      * ## Example Usage
      * 
@@ -3365,6 +3368,34 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog Powerpack.
+     * 
+     */
+    public static Output<GetPowerpackResult> getPowerpack(GetPowerpackArgs args) {
+        return getPowerpack(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog Powerpack.
+     * 
+     */
+    public static CompletableFuture<GetPowerpackResult> getPowerpackPlain(GetPowerpackPlainArgs args) {
+        return getPowerpackPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog Powerpack.
+     * 
+     */
+    public static Output<GetPowerpackResult> getPowerpack(GetPowerpackArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getPowerpack:getPowerpack", TypeShape.of(GetPowerpackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog Powerpack.
+     * 
+     */
+    public static CompletableFuture<GetPowerpackResult> getPowerpackPlain(GetPowerpackPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getPowerpack:getPowerpack", TypeShape.of(GetPowerpackResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about an existing role for use in other resources.

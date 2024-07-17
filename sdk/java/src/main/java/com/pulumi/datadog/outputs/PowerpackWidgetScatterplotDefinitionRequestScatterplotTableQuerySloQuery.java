@@ -18,6 +18,11 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     private @Nullable String additionalQueryFilters;
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for SLO queries. Valid values are `slo`.
      * 
      */
@@ -55,6 +60,13 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     public Optional<String> additionalQueryFilters() {
         return Optional.ofNullable(this.additionalQueryFilters);
+    }
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
      * @return The data source for SLO queries. Valid values are `slo`.
@@ -109,6 +121,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String additionalQueryFilters;
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private @Nullable String groupMode;
         private String measure;
@@ -119,6 +132,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public Builder(PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalQueryFilters = defaults.additionalQueryFilters;
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.groupMode = defaults.groupMode;
     	      this.measure = defaults.measure;
@@ -131,6 +145,12 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public Builder additionalQueryFilters(@Nullable String additionalQueryFilters) {
 
             this.additionalQueryFilters = additionalQueryFilters;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
             return this;
         }
         @CustomType.Setter
@@ -178,6 +198,7 @@ public final class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQu
         public PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery build() {
             final var _resultValue = new PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery();
             _resultValue.additionalQueryFilters = additionalQueryFilters;
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.groupMode = groupMode;
             _resultValue.measure = measure;

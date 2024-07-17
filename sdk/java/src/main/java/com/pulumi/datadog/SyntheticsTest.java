@@ -44,6 +44,481 @@ import javax.annotation.Nullable;
  * 
  * which you can now use in your request definition:
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.SyntheticsTest;
+ * import com.pulumi.datadog.SyntheticsTestArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestAssertionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListMonitorOptionsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestConfigVariableArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestApiStepArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestApiStepRequestDefinitionArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserStepParamsArgs;
+ * import com.pulumi.datadog.inputs.SyntheticsTestBrowserVariableArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Example Usage (Synthetics API test)
+ *         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ *         var testUptime = new SyntheticsTest("testUptime", SyntheticsTestArgs.builder()
+ *             .name("An Uptime test on example.org")
+ *             .type("api")
+ *             .subtype("http")
+ *             .status("live")
+ *             .message("Notify{@literal @}pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .method("GET")
+ *                 .url("https://www.example.org")
+ *                 .build())
+ *             .requestHeaders(Map.of("Content-Type", "application/json"))
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type("statusCode")
+ *                 .operator("is")
+ *                 .target("200")
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Authenticated API test)
+ *         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ *         var testApi = new SyntheticsTest("testApi", SyntheticsTestArgs.builder()
+ *             .name("An API test on example.org")
+ *             .type("api")
+ *             .subtype("http")
+ *             .status("live")
+ *             .message("Notify{@literal @}pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .method("GET")
+ *                 .url("https://www.example.org")
+ *                 .build())
+ *             .requestHeaders(Map.ofEntries(
+ *                 Map.entry("Content-Type", "application/json"),
+ *                 Map.entry("Authentication", "Token: 1234566789")
+ *             ))
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type("statusCode")
+ *                 .operator("is")
+ *                 .target("200")
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+ *                     .count(2)
+ *                     .interval(300)
+ *                     .build())
+ *                 .monitorOptions(SyntheticsTestOptionsListMonitorOptionsArgs.builder()
+ *                     .renotifyInterval(120)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Synthetics SSL test)
+ *         // Create a new Datadog Synthetics API/SSL test on example.org
+ *         var testSsl = new SyntheticsTest("testSsl", SyntheticsTestArgs.builder()
+ *             .name("An API test on example.org")
+ *             .type("api")
+ *             .subtype("ssl")
+ *             .status("live")
+ *             .message("Notify{@literal @}pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.org")
+ *                 .port(443)
+ *                 .build())
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type("certificate")
+ *                 .operator("isInMoreThan")
+ *                 .target(30)
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .acceptSelfSigned(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Synthetics TCP test)
+ *         // Create a new Datadog Synthetics API/TCP test on example.org
+ *         var testTcp = new SyntheticsTest("testTcp", SyntheticsTestArgs.builder()
+ *             .name("An API test on example.org")
+ *             .type("api")
+ *             .subtype("tcp")
+ *             .status("live")
+ *             .message("Notify{@literal @}pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.org")
+ *                 .port(443)
+ *                 .build())
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type("responseTime")
+ *                 .operator("lessThan")
+ *                 .target(2000)
+ *                 .build())
+ *             .configVariables(SyntheticsTestConfigVariableArgs.builder()
+ *                 .type("global")
+ *                 .name("MY_GLOBAL_VAR")
+ *                 .id("76636cd1-82e2-4aeb-9cfe-51366a8198a2")
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Synthetics DNS test)
+ *         // Create a new Datadog Synthetics API/DNS test on example.org
+ *         var testDns = new SyntheticsTest("testDns", SyntheticsTestArgs.builder()
+ *             .name("An API test on example.org")
+ *             .type("api")
+ *             .subtype("dns")
+ *             .status("live")
+ *             .message("Notify{@literal @}pagerduty")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.org")
+ *                 .build())
+ *             .assertions(SyntheticsTestAssertionArgs.builder()
+ *                 .type("recordSome")
+ *                 .operator("is")
+ *                 .property("A")
+ *                 .target("0.0.0.0")
+ *                 .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Synthetics Multistep API test)
+ *         // Create a new Datadog Synthetics Multistep API test
+ *         var testMultiStep = new SyntheticsTest("testMultiStep", SyntheticsTestArgs.builder()
+ *             .name("Multistep API test")
+ *             .type("api")
+ *             .subtype("multi")
+ *             .status("live")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .apiSteps(            
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("An API test on example.org")
+ *                     .subtype("http")
+ *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type("statusCode")
+ *                         .operator("is")
+ *                         .target("200")
+ *                         .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .method("GET")
+ *                         .url("https://www.example.org")
+ *                         .build())
+ *                     .requestHeaders(Map.ofEntries(
+ *                         Map.entry("Content-Type", "application/json"),
+ *                         Map.entry("Authentication", "Token: 1234566789")
+ *                     ))
+ *                     .build(),
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("An API test on example.org")
+ *                     .subtype("http")
+ *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type("statusCode")
+ *                         .operator("is")
+ *                         .target("200")
+ *                         .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .method("GET")
+ *                         .url("http://example.org")
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("A gRPC health check on example.org")
+ *                     .subtype("grpc")
+ *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type("statusCode")
+ *                         .operator("is")
+ *                         .target("200")
+ *                         .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .host("example.org")
+ *                         .port(443)
+ *                         .callType("healthcheck")
+ *                         .service("greeter.Greeter")
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestApiStepArgs.builder()
+ *                     .name("A gRPC behavior check on example.org")
+ *                     .subtype("grpc")
+ *                     .assertions(SyntheticsTestApiStepAssertionArgs.builder()
+ *                         .type("statusCode")
+ *                         .operator("is")
+ *                         .target("200")
+ *                         .build())
+ *                     .requestDefinition(SyntheticsTestApiStepRequestDefinitionArgs.builder()
+ *                         .host("example.org")
+ *                         .port(443)
+ *                         .callType("unary")
+ *                         .service("greeter.Greeter")
+ *                         .method("SayHello")
+ *                         .message("{\"name\": \"John\"}")
+ *                         .plainProtoFile("""
+ * syntax = "proto3";
+ * 
+ * package greeter;
+ * 
+ * // The greeting service definition.
+ * service Greeter {
+ *   // Sends a greeting
+ *   rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * 
+ * // The request message containing the user's name.
+ * message HelloRequest {
+ *   string name = 1;
+ * }
+ * 
+ * // The response message containing the greetings
+ * message HelloReply {
+ *   string message = 1;
+ * }
+ *                         """)
+ *                         .build())
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .acceptSelfSigned(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (Synthetics Browser test)
+ *         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+ *         var testBrowser = new SyntheticsTest("testBrowser", SyntheticsTestArgs.builder()
+ *             .name("A Browser test on example.org")
+ *             .type("browser")
+ *             .status("paused")
+ *             .message("Notify{@literal @}qa")
+ *             .deviceIds("laptop_large")
+ *             .locations("aws:eu-central-1")
+ *             .tags()
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .method("GET")
+ *                 .url("https://www.example.org")
+ *                 .build())
+ *             .browserSteps(            
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Check current url")
+ *                     .type("assertCurrentUrl")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .check("contains")
+ *                         .value("datadoghq")
+ *                         .build())
+ *                     .build(),
+ *                 SyntheticsTestBrowserStepArgs.builder()
+ *                     .name("Test a downloaded file")
+ *                     .type("assertFileDownload")
+ *                     .params(SyntheticsTestBrowserStepParamsArgs.builder()
+ *                         .file(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty("md5", "abcdef1234567890"),
+ *                                 jsonProperty("sizeCheck", jsonObject(
+ *                                     jsonProperty("type", "equals"),
+ *                                     jsonProperty("value", 1)
+ *                                 )),
+ *                                 jsonProperty("nameCheck", jsonObject(
+ *                                     jsonProperty("type", "contains"),
+ *                                     jsonProperty("value", ".xls")
+ *                                 ))
+ *                             )))
+ *                         .build())
+ *                     .build())
+ *             .browserVariables(            
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type("text")
+ *                     .name("MY_PATTERN_VAR")
+ *                     .pattern("{{numeric(3)}}")
+ *                     .example("597")
+ *                     .build(),
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type("email")
+ *                     .name("MY_EMAIL_VAR")
+ *                     .pattern("jd8-afe-ydv.{{ numeric(10) }}{@literal @}synthetics.dtdg.co")
+ *                     .example("jd8-afe-ydv.4546132139{@literal @}synthetics.dtdg.co")
+ *                     .build(),
+ *                 SyntheticsTestBrowserVariableArgs.builder()
+ *                     .type("global")
+ *                     .name("MY_GLOBAL_VAR")
+ *                     .id("76636cd1-82e2-4aeb-9cfe-51366a8198a2")
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(3600)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (GRPC API behavior check test)
+ *         // Create a new Datadog GRPC API test calling host example.org on port 443
+ *         // targeting service `greeter.Greeter` with the method `SayHello`
+ *         // and the message {"name": "John"}
+ *         var testGrpcUnary = new SyntheticsTest("testGrpcUnary", SyntheticsTestArgs.builder()
+ *             .name("GRPC API behavior check test")
+ *             .type("api")
+ *             .subtype("grpc")
+ *             .status("live")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.org")
+ *                 .port(443)
+ *                 .callType("unary")
+ *                 .service("greeter.Greeter")
+ *                 .method("SayHello")
+ *                 .message("{\"name\": \"John\"}")
+ *                 .plainProtoFile("""
+ * syntax = "proto3";
+ * 
+ * package greeter;
+ * 
+ * // The greeting service definition.
+ * service Greeter {
+ *   // Sends a greeting
+ *   rpc SayHello (HelloRequest) returns (HelloReply) {}
+ * }
+ * 
+ * // The request message containing the user's name.
+ * message HelloRequest {
+ *   string name = 1;
+ * }
+ * 
+ * // The response message containing the greetings
+ * message HelloReply {
+ *   string message = 1;
+ * }
+ *                 """)
+ *                 .build())
+ *             .requestMetadata(Map.of("header", "value"))
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("responseTime")
+ *                     .operator("lessThan")
+ *                     .target("2000")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator("is")
+ *                     .type("grpcHealthcheckStatus")
+ *                     .target(1)
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator("is")
+ *                     .type("grpcProto")
+ *                     .target("proto target")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator("is")
+ *                     .property("property")
+ *                     .type("grpcMetadata")
+ *                     .target("123")
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example Usage (GRPC API health check test)
+ *         // Create a new Datadog GRPC API test calling host example.org on port 443
+ *         // testing the overall health of the service
+ *         var testGrpcHealth = new SyntheticsTest("testGrpcHealth", SyntheticsTestArgs.builder()
+ *             .name("GRPC API health check test")
+ *             .type("api")
+ *             .subtype("grpc")
+ *             .status("live")
+ *             .locations("aws:eu-central-1")
+ *             .tags(            
+ *                 "foo:bar",
+ *                 "foo",
+ *                 "env:test")
+ *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+ *                 .host("example.org")
+ *                 .port(443)
+ *                 .callType("healthcheck")
+ *                 .service("greeter.Greeter")
+ *                 .build())
+ *             .assertions(            
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .type("responseTime")
+ *                     .operator("lessThan")
+ *                     .target("2000")
+ *                     .build(),
+ *                 SyntheticsTestAssertionArgs.builder()
+ *                     .operator("is")
+ *                     .type("grpcHealthcheckStatus")
+ *                     .target(1)
+ *                     .build())
+ *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+ *                 .tickEvery(900)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Synthetics tests can be imported using their public string ID, e.g.
@@ -286,14 +761,14 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestHeaders);
     }
     /**
-     * Metadata to include when performing the gRPC test.
+     * Metadata to include when performing the gRPC request.
      * 
      */
     @Export(name="requestMetadata", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Object>> requestMetadata;
 
     /**
-     * @return Metadata to include when performing the gRPC test.
+     * @return Metadata to include when performing the gRPC request.
      * 
      */
     public Output<Optional<Map<String,Object>>> requestMetadata() {

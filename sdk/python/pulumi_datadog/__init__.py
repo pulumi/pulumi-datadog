@@ -36,6 +36,7 @@ from .get_monitor import *
 from .get_monitor_config_policies import *
 from .get_monitors import *
 from .get_permissions import *
+from .get_powerpack import *
 from .get_role import *
 from .get_role_users import *
 from .get_roles import *

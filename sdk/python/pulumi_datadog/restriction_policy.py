@@ -119,7 +119,7 @@ class RestrictionPolicy(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -159,7 +159,7 @@ class RestrictionPolicy(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+        $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
         ```
 
         :param str resource_name: The name of the resource.

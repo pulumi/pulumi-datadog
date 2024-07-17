@@ -124,16 +124,24 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
+     * 
+     * @deprecated
+     * Use `http_version` in the `options_list` field instead.
      * 
      */
+    @Deprecated /* Use `http_version` in the `options_list` field instead. */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
+     * 
+     * @deprecated
+     * Use `http_version` in the `options_list` field instead.
      * 
      */
+    @Deprecated /* Use `http_version` in the `options_list` field instead. */
     public Optional<Output<String>> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
     }
@@ -312,14 +320,14 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     }
 
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -543,22 +551,30 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `http_version` in the `options_list` field instead.
+         * 
          */
+        @Deprecated /* Use `http_version` in the `options_list` field instead. */
         public Builder httpVersion(@Nullable Output<String> httpVersion) {
             $.httpVersion = httpVersion;
             return this;
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `http_version` in the `options_list` field instead.
+         * 
          */
+        @Deprecated /* Use `http_version` in the `options_list` field instead. */
         public Builder httpVersion(String httpVersion) {
             return httpVersion(Output.of(httpVersion));
         }
@@ -803,7 +819,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param timeout Timeout in seconds for the test. Defaults to `60`.
+         * @param timeout Timeout in seconds for the test.
          * 
          * @return builder
          * 
@@ -814,7 +830,7 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param timeout Timeout in seconds for the test. Defaults to `60`.
+         * @param timeout Timeout in seconds for the test.
          * 
          * @return builder
          * 

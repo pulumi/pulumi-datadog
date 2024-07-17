@@ -11,6 +11,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -27,6 +28,7 @@ public final class GetHostsHostList {
     private Integer muteTimeout;
     private String name;
     private List<String> sources;
+    private Map<String,List<String>> tagsBySource;
     private Boolean up;
 
     private GetHostsHostList() {}
@@ -66,6 +68,9 @@ public final class GetHostsHostList {
     public List<String> sources() {
         return this.sources;
     }
+    public Map<String,List<String>> tagsBySource() {
+        return this.tagsBySource;
+    }
     public Boolean up() {
         return this.up;
     }
@@ -91,6 +96,7 @@ public final class GetHostsHostList {
         private Integer muteTimeout;
         private String name;
         private List<String> sources;
+        private Map<String,List<String>> tagsBySource;
         private Boolean up;
         public Builder() {}
         public Builder(GetHostsHostList defaults) {
@@ -107,6 +113,7 @@ public final class GetHostsHostList {
     	      this.muteTimeout = defaults.muteTimeout;
     	      this.name = defaults.name;
     	      this.sources = defaults.sources;
+    	      this.tagsBySource = defaults.tagsBySource;
     	      this.up = defaults.up;
         }
 
@@ -216,6 +223,14 @@ public final class GetHostsHostList {
             return sources(List.of(sources));
         }
         @CustomType.Setter
+        public Builder tagsBySource(Map<String,List<String>> tagsBySource) {
+            if (tagsBySource == null) {
+              throw new MissingRequiredPropertyException("GetHostsHostList", "tagsBySource");
+            }
+            this.tagsBySource = tagsBySource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder up(Boolean up) {
             if (up == null) {
               throw new MissingRequiredPropertyException("GetHostsHostList", "up");
@@ -237,6 +252,7 @@ public final class GetHostsHostList {
             _resultValue.muteTimeout = muteTimeout;
             _resultValue.name = name;
             _resultValue.sources = sources;
+            _resultValue.tagsBySource = tagsBySource;
             _resultValue.up = up;
             return _resultValue;
         }

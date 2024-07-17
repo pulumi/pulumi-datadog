@@ -208,7 +208,7 @@ namespace Pulumi.Datadog
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<string?> Priority { get; private set; } = null!;
 
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
@@ -485,7 +485,7 @@ namespace Pulumi.Datadog
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
         /// </summary>
         [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        public Input<string>? Priority { get; set; }
 
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -755,7 +755,7 @@ namespace Pulumi.Datadog
         /// Integer from 1 (high) to 5 (low) indicating alert severity.
         /// </summary>
         [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        public Input<string>? Priority { get; set; }
 
         [Input("query")]
         public Input<string>? Query { get; set; }

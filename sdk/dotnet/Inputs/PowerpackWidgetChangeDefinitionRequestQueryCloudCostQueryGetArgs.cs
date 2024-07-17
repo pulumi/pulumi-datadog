@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        [Input("crossOrgUuids")]
+        public Input<string>? CrossOrgUuids { get; set; }
+
+        /// <summary>
         /// The data source for cloud cost queries. Valid values are `cloud_cost`.
         /// </summary>
         [Input("dataSource", required: true)]

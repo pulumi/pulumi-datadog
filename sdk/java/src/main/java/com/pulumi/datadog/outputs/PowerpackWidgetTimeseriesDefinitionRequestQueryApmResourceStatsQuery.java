@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
@@ -65,6 +70,13 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceSta
     private String stat;
 
     private PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery() {}
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
     /**
      * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
@@ -145,6 +157,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceSta
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private String env;
         private @Nullable List<String> groupBies;
@@ -158,6 +171,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceSta
         public Builder() {}
         public Builder(PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.env = defaults.env;
     	      this.groupBies = defaults.groupBies;
@@ -170,6 +184,12 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceSta
     	      this.stat = defaults.stat;
         }
 
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -245,6 +265,7 @@ public final class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceSta
         }
         public PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery build() {
             final var _resultValue = new PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery();
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.env = env;
             _resultValue.groupBies = groupBies;

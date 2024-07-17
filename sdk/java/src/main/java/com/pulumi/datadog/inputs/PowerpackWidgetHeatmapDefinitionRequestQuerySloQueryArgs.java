@@ -32,6 +32,21 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
     }
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for SLO queries. Valid values are `slo`.
      * 
      */
@@ -125,6 +140,7 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
 
     private PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs(PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs $) {
         this.additionalQueryFilters = $.additionalQueryFilters;
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.groupMode = $.groupMode;
         this.measure = $.measure;
@@ -170,6 +186,27 @@ public final class PowerpackWidgetHeatmapDefinitionRequestQuerySloQueryArgs exte
          */
         public Builder additionalQueryFilters(String additionalQueryFilters) {
             return additionalQueryFilters(Output.of(additionalQueryFilters));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

@@ -54,6 +54,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestHeaders;
         /// <summary>
+        /// Metadata to include when performing the gRPC request.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? RequestMetadata;
+        /// <summary>
         /// The proxy to perform the test.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepRequestProxy? RequestProxy;
@@ -93,6 +97,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableDictionary<string, object>? requestHeaders,
 
+            ImmutableDictionary<string, object>? requestMetadata,
+
             Outputs.SyntheticsTestApiStepRequestProxy? requestProxy,
 
             ImmutableDictionary<string, object>? requestQuery,
@@ -113,6 +119,7 @@ namespace Pulumi.Datadog.Outputs
             RequestDefinition = requestDefinition;
             RequestFiles = requestFiles;
             RequestHeaders = requestHeaders;
+            RequestMetadata = requestMetadata;
             RequestProxy = requestProxy;
             RequestQuery = requestQuery;
             Retry = retry;

@@ -18,6 +18,11 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     private @Nullable String aggregator;
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
@@ -40,6 +45,13 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
+    }
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
      * @return The data source for cloud cost queries. Valid values are `cloud_cost`.
@@ -73,6 +85,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private String name;
         private String query;
@@ -80,6 +93,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
         public Builder(DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregator = defaults.aggregator;
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.name = defaults.name;
     	      this.query = defaults.query;
@@ -89,6 +103,12 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
         public Builder aggregator(@Nullable String aggregator) {
 
             this.aggregator = aggregator;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
             return this;
         }
         @CustomType.Setter
@@ -118,6 +138,7 @@ public final class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
         public DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery build() {
             final var _resultValue = new DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery();
             _resultValue.aggregator = aggregator;
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.name = name;
             _resultValue.query = query;

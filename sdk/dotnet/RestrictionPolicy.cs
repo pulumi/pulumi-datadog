@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+    /// $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "&lt;policy_id&gt;"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/restrictionPolicy:RestrictionPolicy")]

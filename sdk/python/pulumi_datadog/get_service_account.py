@@ -21,13 +21,16 @@ class GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
     """
-    def __init__(__self__, disabled=None, email=None, filter=None, filter_status=None, handle=None, icon=None, id=None, name=None, roles=None, status=None, title=None, verified=None):
+    def __init__(__self__, disabled=None, email=None, exact_match=None, filter=None, filter_status=None, handle=None, icon=None, id=None, name=None, roles=None, status=None, title=None, verified=None):
         if disabled and not isinstance(disabled, bool):
             raise TypeError("Expected argument 'disabled' to be a bool")
         pulumi.set(__self__, "disabled", disabled)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
+        if exact_match and not isinstance(exact_match, bool):
+            raise TypeError("Expected argument 'exact_match' to be a bool")
+        pulumi.set(__self__, "exact_match", exact_match)
         if filter and not isinstance(filter, str):
             raise TypeError("Expected argument 'filter' to be a str")
         pulumi.set(__self__, "filter", filter)
@@ -74,6 +77,14 @@ class GetServiceAccountResult:
         Email of the user.
         """
         return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[bool]:
+        """
+        When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+        """
+        return pulumi.get(self, "exact_match")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
         return GetServiceAccountResult(
             disabled=self.disabled,
             email=self.email,
+            exact_match=self.exact_match,
             filter=self.filter,
             filter_status=self.filter_status,
             handle=self.handle,
@@ -176,7 +188,8 @@ class AwaitableGetServiceAccountResult(GetServiceAccountResult):
             verified=self.verified)
 
 
-def get_service_account(filter: Optional[str] = None,
+def get_service_account(exact_match: Optional[bool] = None,
+                        filter: Optional[str] = None,
                         filter_status: Optional[str] = None,
                         id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceAccountResult:
@@ -184,11 +197,13 @@ def get_service_account(filter: Optional[str] = None,
     Use this data source to retrieve information about an existing Datadog service account.
 
 
+    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
     :param str filter: Filter all users and service accounts by name, email, or role.
     :param str filter_status: Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
     :param str id: The service account's ID.
     """
     __args__ = dict()
+    __args__['exactMatch'] = exact_match
     __args__['filter'] = filter
     __args__['filterStatus'] = filter_status
     __args__['id'] = id
@@ -198,6 +213,7 @@ def get_service_account(filter: Optional[str] = None,
     return AwaitableGetServiceAccountResult(
         disabled=pulumi.get(__ret__, 'disabled'),
         email=pulumi.get(__ret__, 'email'),
+        exact_match=pulumi.get(__ret__, 'exact_match'),
         filter=pulumi.get(__ret__, 'filter'),
         filter_status=pulumi.get(__ret__, 'filter_status'),
         handle=pulumi.get(__ret__, 'handle'),
@@ -211,7 +227,8 @@ def get_service_account(filter: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service_account)
-def get_service_account_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
+def get_service_account_output(exact_match: Optional[pulumi.Input[Optional[bool]]] = None,
+                               filter: Optional[pulumi.Input[Optional[str]]] = None,
                                filter_status: Optional[pulumi.Input[Optional[str]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
@@ -219,6 +236,7 @@ def get_service_account_output(filter: Optional[pulumi.Input[Optional[str]]] = N
     Use this data source to retrieve information about an existing Datadog service account.
 
 
+    :param bool exact_match: When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
     :param str filter: Filter all users and service accounts by name, email, or role.
     :param str filter_status: Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
     :param str id: The service account's ID.

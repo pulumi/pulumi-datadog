@@ -435,14 +435,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Integer from 1 (high) to 5 (low) indicating alert severity.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> priority;
+    @Export(name="priority", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> priority;
 
     /**
      * @return Integer from 1 (high) to 5 (low) indicating alert severity.
      * 
      */
-    public Output<Optional<Integer>> priority() {
+    public Output<Optional<String>> priority() {
         return Codegen.optional(this.priority);
     }
     @Export(name="query", refs={String.class}, tree="[0]")

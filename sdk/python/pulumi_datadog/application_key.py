@@ -82,7 +82,7 @@ class ApplicationKey(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
+        Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys. Import functionality for this resource is deprecated and will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use this resource to create and manage new application keys.
 
         ## Example Usage
 
@@ -111,7 +111,7 @@ class ApplicationKey(pulumi.CustomResource):
                  args: ApplicationKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys.
+        Provides a Datadog Application Key resource. This can be used to create and manage Datadog Application Keys. Import functionality for this resource is deprecated and will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use this resource to create and manage new application keys.
 
         ## Example Usage
 

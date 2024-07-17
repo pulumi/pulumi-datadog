@@ -726,6 +726,10 @@ export interface DashboardWidgetChangeDefinitionRequestQuery {
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -768,6 +772,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -816,6 +824,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -834,6 +846,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -918,6 +934,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -936,6 +956,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -975,6 +999,10 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -1448,6 +1476,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQuery {
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -1490,6 +1522,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -1538,6 +1574,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -1556,6 +1596,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -1640,6 +1684,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -1658,6 +1706,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -1697,6 +1749,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -2176,6 +2232,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuery {
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -2218,6 +2278,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -2266,6 +2330,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -2284,6 +2352,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -2368,6 +2440,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -2386,6 +2462,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -2425,6 +2505,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -3422,6 +3506,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuery {
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -3464,6 +3552,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -3512,6 +3604,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -3530,6 +3626,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -3614,6 +3714,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -3632,6 +3736,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -3671,6 +3779,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -4066,6 +4178,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuery {
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -4108,6 +4224,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -4156,6 +4276,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -4174,6 +4298,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -4258,6 +4386,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -4276,6 +4408,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -4315,6 +4451,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -4645,6 +4785,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -4687,6 +4831,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -4735,6 +4883,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -4753,6 +4905,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The compute options.
      */
     computes: outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -4837,6 +4993,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -4855,6 +5015,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -4894,6 +5058,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -5847,6 +6015,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQuery {
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -5889,6 +6061,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStats
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -5937,6 +6113,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -5955,6 +6135,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -6039,6 +6223,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -6057,6 +6245,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -6096,6 +6288,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -6603,6 +6799,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -6645,6 +6845,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -6693,6 +6897,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -6711,6 +6919,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -6795,6 +7007,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -6813,6 +7029,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -6852,6 +7072,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -7288,6 +7512,10 @@ export interface DashboardWidgetToplistDefinitionRequestQuery {
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -7330,6 +7558,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -7378,6 +7610,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -7396,6 +7632,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -7480,6 +7720,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -7498,6 +7742,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -7537,6 +7785,10 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -7838,6 +8090,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQuery {
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -7880,6 +8136,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -7928,6 +8188,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -7946,6 +8210,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -8030,6 +8298,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -8048,6 +8320,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -8087,6 +8363,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -8252,6 +8532,7 @@ export interface GetHostsHostList {
     muteTimeout: number;
     name: string;
     sources: string[];
+    tagsBySource: {[key: string]: string[]};
     up: boolean;
 }
 
@@ -10727,6 +11008,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQuery {
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -10769,6 +11054,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -10817,6 +11106,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -10835,6 +11128,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -10919,6 +11216,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -10937,6 +11238,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -10976,6 +11281,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -12030,6 +12339,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuery {
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -12072,6 +12385,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -12120,6 +12437,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -12138,6 +12459,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -12222,6 +12547,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -12240,6 +12569,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -12279,6 +12612,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -12818,6 +13155,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuery {
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -12860,6 +13201,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -12908,6 +13253,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -12926,6 +13275,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -13010,6 +13363,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -13028,6 +13385,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -13067,6 +13428,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -14909,6 +15274,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuery {
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -14951,6 +15320,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -14999,6 +15372,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -15017,6 +15394,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -15101,6 +15482,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -15119,6 +15504,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -15158,6 +15547,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -15885,6 +16278,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuery {
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -15927,6 +16324,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -15975,6 +16376,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -15993,6 +16398,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -16077,6 +16486,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -16095,6 +16508,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -16134,6 +16551,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -16547,6 +16968,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -16589,6 +17014,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -16637,6 +17066,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -16655,6 +17088,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The compute options.
      */
     computes: outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -16739,6 +17176,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -16757,6 +17198,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -16796,6 +17241,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -18370,6 +18819,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuery {
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -18412,6 +18865,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStats
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -18460,6 +18917,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -18478,6 +18939,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -18562,6 +19027,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -18580,6 +19049,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -18619,6 +19092,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -19458,6 +19935,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuery {
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -19500,6 +19981,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -19548,6 +20033,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -19566,6 +20055,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -19650,6 +20143,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -19668,6 +20165,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -19707,6 +20208,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -20475,6 +20980,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQuery {
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -20517,6 +21026,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -20565,6 +21078,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -20583,6 +21100,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -20667,6 +21188,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -20685,6 +21210,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -20724,6 +21253,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -21191,6 +21724,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuery {
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: string;
@@ -21233,6 +21770,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -21281,6 +21822,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: string;
@@ -21299,6 +21844,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute[];
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -21383,6 +21932,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: string;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: string;
@@ -21401,6 +21954,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -21440,6 +21997,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: string;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: string;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -22028,6 +22589,10 @@ export interface SyntheticsTestApiStep {
      */
     requestHeaders?: {[key: string]: any};
     /**
+     * Metadata to include when performing the gRPC request.
+     */
+    requestMetadata?: {[key: string]: any};
+    /**
      * The proxy to perform the test.
      */
     requestProxy?: outputs.SyntheticsTestApiStepRequestProxy;
@@ -22254,7 +22819,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
     allowInsecure?: boolean;
     /**
@@ -22290,7 +22855,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: string;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: string;
     /**
@@ -22340,7 +22905,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     shouldTrackHops?: boolean;
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      */
     timeout?: number;
     /**
@@ -22673,7 +23238,7 @@ export interface SyntheticsTestOptionsList {
      */
     acceptSelfSigned?: boolean;
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
     allowInsecure?: boolean;
     /**
@@ -22697,7 +23262,7 @@ export interface SyntheticsTestOptionsList {
      */
     followRedirects?: boolean;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: string;
     /**
@@ -22939,7 +23504,9 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: string;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+     *
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      */
     httpVersion?: string;
     /**
@@ -22989,7 +23556,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     shouldTrackHops?: boolean;
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      */
     timeout?: number;
     /**

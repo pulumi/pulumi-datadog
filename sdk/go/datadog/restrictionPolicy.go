@@ -58,7 +58,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list ""
+// $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list "<policy_id>"
 // ```
 type RestrictionPolicy struct {
 	pulumi.CustomResourceState

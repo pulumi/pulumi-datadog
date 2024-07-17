@@ -74,7 +74,7 @@ export class ServiceAccount extends pulumi.CustomResource {
     /**
      * A list a role IDs to assign to the service account.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    public readonly roles!: pulumi.Output<string[]>;
 
     /**
      * Create a ServiceAccount resource with the given unique name, arguments, and options.

@@ -44,7 +44,7 @@ namespace Pulumi.Datadog
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+    /// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "&lt;group_id&gt;"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup")]

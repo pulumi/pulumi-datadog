@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to retrieve information about an existing application key.
+ * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
  *
  * ## Example Usage
  *
@@ -69,7 +69,7 @@ export interface GetApplicationKeyResult {
     readonly name?: string;
 }
 /**
- * Use this data source to retrieve information about an existing application key.
+ * Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
  *
  * ## Example Usage
  *

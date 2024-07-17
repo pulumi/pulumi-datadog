@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list &#34;&#34;
+ * $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list &#34;&lt;group_id&gt;&#34;
  * ```
  * 
  */

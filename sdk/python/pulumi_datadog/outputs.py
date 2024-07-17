@@ -3656,6 +3656,8 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -3682,6 +3684,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -3693,6 +3696,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -3704,6 +3708,8 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -3768,6 +3774,14 @@ class DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -3799,6 +3813,8 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -3827,6 +3843,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -3838,6 +3855,7 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -3849,6 +3867,8 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -3901,6 +3921,14 @@ class DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -3948,6 +3976,8 @@ class DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -3964,18 +3994,22 @@ class DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -4009,6 +4043,14 @@ class DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
@@ -4017,6 +4059,8 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -4035,6 +4079,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch'] = None,
@@ -4043,6 +4088,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetChangeDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -4051,6 +4097,8 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -4083,6 +4131,14 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -4266,7 +4322,9 @@ class DashboardWidgetChangeDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -4284,17 +4342,21 @@ class DashboardWidgetChangeDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -4323,6 +4385,14 @@ class DashboardWidgetChangeDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -4338,6 +4408,8 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -4361,6 +4433,7 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -4371,6 +4444,7 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -4382,6 +4456,8 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -4424,6 +4500,14 @@ class DashboardWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -4477,6 +4561,8 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -4498,6 +4584,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -4506,6 +4593,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -4515,6 +4603,8 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -4553,6 +4643,14 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -6235,6 +6333,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -6261,6 +6361,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -6272,6 +6373,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -6283,6 +6385,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -6347,6 +6451,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -6378,6 +6490,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -6406,6 +6520,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -6417,6 +6532,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -6428,6 +6544,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -6480,6 +6598,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -6527,6 +6653,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -6543,18 +6671,22 @@ class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -6588,6 +6720,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
@@ -6596,6 +6736,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -6614,6 +6756,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -6622,6 +6765,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -6630,6 +6774,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -6662,6 +6808,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -6845,7 +6999,9 @@ class DashboardWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -6863,17 +7019,21 @@ class DashboardWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -6902,6 +7062,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -6917,6 +7085,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -6940,6 +7110,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -6950,6 +7121,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -6961,6 +7133,8 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -7003,6 +7177,14 @@ class DashboardWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -7056,6 +7238,8 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -7077,6 +7261,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -7085,6 +7270,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -7094,6 +7280,8 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -7132,6 +7320,14 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -8823,6 +9019,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -8849,6 +9047,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -8860,6 +9059,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -8871,6 +9071,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -8935,6 +9137,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -8966,6 +9176,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -8994,6 +9206,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -9005,6 +9218,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -9016,6 +9230,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -9068,6 +9284,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -9115,6 +9339,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -9131,18 +9357,22 @@ class DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -9176,6 +9406,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
@@ -9184,6 +9422,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -9202,6 +9442,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -9210,6 +9451,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetHeatmapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -9218,6 +9460,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -9250,6 +9494,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -9433,7 +9685,9 @@ class DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -9451,17 +9705,21 @@ class DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -9490,6 +9748,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -9505,6 +9771,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -9528,6 +9796,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -9538,6 +9807,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -9549,6 +9819,8 @@ class DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -9591,6 +9863,14 @@ class DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -9644,6 +9924,8 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -9665,6 +9947,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -9673,6 +9956,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -9682,6 +9966,8 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -9720,6 +10006,14 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -13224,6 +13518,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -13250,6 +13546,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -13261,6 +13558,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -13272,6 +13570,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -13336,6 +13636,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -13367,6 +13675,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -13395,6 +13705,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -13406,6 +13717,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -13417,6 +13729,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -13469,6 +13783,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -13516,6 +13838,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -13532,18 +13856,22 @@ class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -13577,6 +13905,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
@@ -13585,6 +13921,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -13603,6 +13941,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch'] = None,
@@ -13611,6 +13950,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -13619,6 +13959,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -13651,6 +13993,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -13834,7 +14184,9 @@ class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -13852,17 +14204,21 @@ class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -13891,6 +14247,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -13906,6 +14270,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -13929,6 +14295,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -13939,6 +14306,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -13950,6 +14318,8 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -13992,6 +14362,14 @@ class DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -14045,6 +14423,8 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -14066,6 +14446,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -14074,6 +14455,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -14083,6 +14465,8 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -14121,6 +14505,14 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -15475,6 +15867,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -15501,6 +15895,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -15512,6 +15907,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -15523,6 +15919,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -15587,6 +15985,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -15618,6 +16024,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -15646,6 +16054,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -15657,6 +16066,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -15668,6 +16078,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -15720,6 +16132,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -15767,6 +16187,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -15783,18 +16205,22 @@ class DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -15828,6 +16254,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
@@ -15836,6 +16270,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -15854,6 +16290,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch'] = None,
@@ -15862,6 +16299,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -15870,6 +16308,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -15902,6 +16342,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -16085,7 +16533,9 @@ class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -16103,17 +16553,21 @@ class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -16142,6 +16596,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -16157,6 +16619,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -16180,6 +16644,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -16190,6 +16655,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -16201,6 +16667,8 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -16243,6 +16711,14 @@ class DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -16296,6 +16772,8 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -16317,6 +16795,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -16325,6 +16804,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -16334,6 +16814,8 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -16372,6 +16854,14 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -17488,6 +17978,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -17514,6 +18006,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -17525,6 +18018,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -17536,6 +18030,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -17600,6 +18096,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -17631,6 +18135,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -17659,6 +18165,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -17670,6 +18177,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -17681,6 +18189,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -17733,6 +18243,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -17780,6 +18298,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -17796,18 +18316,22 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -17841,6 +18365,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery(dict):
@@ -17849,6 +18381,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -17867,6 +18401,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  computes: Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch'] = None,
@@ -17875,6 +18410,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         :param Sequence['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs' search: The search options.
@@ -17883,6 +18419,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -17915,6 +18453,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -18098,7 +18644,9 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -18116,17 +18664,21 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -18155,6 +18707,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -18170,6 +18730,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -18193,6 +18755,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -18203,6 +18766,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -18214,6 +18778,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -18256,6 +18822,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -18309,6 +18883,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -18330,6 +18906,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -18338,6 +18915,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -18347,6 +18925,8 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -18385,6 +18965,14 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -21775,6 +22363,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -21801,6 +22391,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -21812,6 +22403,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -21823,6 +22415,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -21887,6 +22481,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -21918,6 +22520,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -21946,6 +22550,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -21957,6 +22562,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -21968,6 +22574,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -22020,6 +22628,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -22067,6 +22683,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -22083,18 +22701,22 @@ class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -22128,6 +22750,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
@@ -22136,6 +22766,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -22154,6 +22786,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearch'] = None,
@@ -22162,6 +22795,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -22170,6 +22804,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -22202,6 +22838,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -22385,7 +23029,9 @@ class DashboardWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -22403,17 +23049,21 @@ class DashboardWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -22442,6 +23092,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -22457,6 +23115,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -22480,6 +23140,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -22490,6 +23151,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -22501,6 +23163,8 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -22543,6 +23207,14 @@ class DashboardWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -22596,6 +23268,8 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -22617,6 +23291,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -22625,6 +23300,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -22634,6 +23310,8 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -22672,6 +23350,14 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -24417,6 +25103,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -24443,6 +25131,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -24454,6 +25143,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -24465,6 +25155,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -24529,6 +25221,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -24560,6 +25260,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -24588,6 +25290,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -24599,6 +25302,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -24610,6 +25314,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -24662,6 +25368,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -24709,6 +25423,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -24725,18 +25441,22 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -24770,6 +25490,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
@@ -24778,6 +25506,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -24796,6 +25526,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch'] = None,
@@ -24804,6 +25535,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -24812,6 +25544,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -24844,6 +25578,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -25027,7 +25769,9 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -25045,17 +25789,21 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -25084,6 +25832,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -25099,6 +25855,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -25122,6 +25880,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -25132,6 +25891,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -25143,6 +25903,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -25185,6 +25947,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -25238,6 +26008,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -25259,6 +26031,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -25267,6 +26040,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -25276,6 +26050,8 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -25314,6 +26090,14 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -26832,6 +27616,8 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -26858,6 +27644,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -26869,6 +27656,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -26880,6 +27668,8 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -26944,6 +27734,14 @@ class DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -26975,6 +27773,8 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -27003,6 +27803,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -27014,6 +27815,7 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -27025,6 +27827,8 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -27077,6 +27881,14 @@ class DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -27124,6 +27936,8 @@ class DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -27140,18 +27954,22 @@ class DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -27185,6 +28003,14 @@ class DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
@@ -27193,6 +28019,8 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -27211,6 +28039,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch'] = None,
@@ -27219,6 +28048,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetToplistDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -27227,6 +28057,8 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -27259,6 +28091,14 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -27442,7 +28282,9 @@ class DashboardWidgetToplistDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -27460,17 +28302,21 @@ class DashboardWidgetToplistDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -27499,6 +28345,14 @@ class DashboardWidgetToplistDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -27514,6 +28368,8 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -27537,6 +28393,7 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -27547,6 +28404,7 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -27558,6 +28416,8 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -27600,6 +28460,14 @@ class DashboardWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -27653,6 +28521,8 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -27674,6 +28544,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -27682,6 +28553,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -27691,6 +28563,8 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -27729,6 +28603,14 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -28758,6 +29640,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -28784,6 +29668,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -28795,6 +29680,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -28806,6 +29692,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -28870,6 +29758,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -28901,6 +29797,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -28929,6 +29827,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -28940,6 +29839,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -28951,6 +29851,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -29003,6 +29905,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -29050,6 +29960,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -29066,18 +29978,22 @@ class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -29111,6 +30027,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
@@ -29119,6 +30043,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -29137,6 +30063,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -29145,6 +30072,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -29153,6 +30081,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -29185,6 +30115,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -29368,7 +30306,9 @@ class DashboardWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -29386,17 +30326,21 @@ class DashboardWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -29425,6 +30369,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -29440,6 +30392,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -29463,6 +30417,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -29473,6 +30428,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -29484,6 +30440,8 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -29526,6 +30484,14 @@ class DashboardWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -29579,6 +30545,8 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -29600,6 +30568,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -29608,6 +30577,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -29617,6 +30587,8 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -29655,6 +30627,14 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -36784,6 +37764,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -36810,6 +37792,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -36821,6 +37804,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -36832,6 +37816,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -36896,6 +37882,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -36927,6 +37921,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -36955,6 +37951,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -36966,6 +37963,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -36977,6 +37975,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -37029,6 +38029,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -37076,6 +38084,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -37092,18 +38102,22 @@ class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -37137,6 +38151,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
@@ -37145,6 +38167,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -37163,6 +38187,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetChangeDefinitionRequestQueryEventQuerySearch'] = None,
@@ -37171,6 +38196,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetChangeDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetChangeDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -37179,6 +38205,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -37211,6 +38239,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -37394,7 +38430,9 @@ class PowerpackWidgetChangeDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -37412,17 +38450,21 @@ class PowerpackWidgetChangeDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -37451,6 +38493,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -37466,6 +38516,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -37489,6 +38541,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -37499,6 +38552,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -37510,6 +38564,8 @@ class PowerpackWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -37552,6 +38608,14 @@ class PowerpackWidgetChangeDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -37605,6 +38669,8 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -37626,6 +38692,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -37634,6 +38701,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -37643,6 +38711,8 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -37681,6 +38751,14 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -41281,6 +42359,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -41307,6 +42387,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -41318,6 +42399,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -41329,6 +42411,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -41393,6 +42477,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -41424,6 +42516,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -41452,6 +42546,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -41463,6 +42558,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -41474,6 +42570,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -41526,6 +42624,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -41573,6 +42679,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -41589,18 +42697,22 @@ class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -41634,6 +42746,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
@@ -41642,6 +42762,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -41660,6 +42782,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -41668,6 +42791,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetGeomapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -41676,6 +42800,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -41708,6 +42834,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -41891,7 +43025,9 @@ class PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -41909,17 +43045,21 @@ class PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -41948,6 +43088,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -41963,6 +43111,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -41986,6 +43136,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -41996,6 +43147,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -42007,6 +43159,8 @@ class PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -42049,6 +43203,14 @@ class PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -42102,6 +43264,8 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -42123,6 +43287,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -42131,6 +43296,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -42140,6 +43306,8 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -42178,6 +43346,14 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -44014,6 +45190,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -44040,6 +45218,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -44051,6 +45230,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -44062,6 +45242,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -44126,6 +45308,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -44157,6 +45347,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -44185,6 +45377,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -44196,6 +45389,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -44207,6 +45401,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -44259,6 +45455,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -44306,6 +45510,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -44322,18 +45528,22 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -44367,6 +45577,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
@@ -44375,6 +45593,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -44393,6 +45613,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -44401,6 +45622,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetHeatmapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -44409,6 +45631,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -44441,6 +45665,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -44624,7 +45856,9 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -44642,17 +45876,21 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -44681,6 +45919,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -44696,6 +45942,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -44719,6 +45967,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -44729,6 +45978,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -44740,6 +45990,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -44782,6 +46034,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -44835,6 +46095,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -44856,6 +46118,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -44864,6 +46127,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -44873,6 +46137,8 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -44911,6 +46177,14 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -51194,6 +52468,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -51220,6 +52496,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -51231,6 +52508,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -51242,6 +52520,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -51306,6 +52586,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -51337,6 +52625,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -51365,6 +52655,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -51376,6 +52667,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -51387,6 +52679,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -51439,6 +52733,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -51486,6 +52788,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -51502,18 +52806,22 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -51547,6 +52855,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
@@ -51555,6 +52871,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -51573,6 +52891,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQuerySearch'] = None,
@@ -51581,6 +52900,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetQueryTableDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -51589,6 +52909,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -51621,6 +52943,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -51804,7 +53134,9 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -51822,17 +53154,21 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -51861,6 +53197,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -51876,6 +53220,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -51899,6 +53245,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -51909,6 +53256,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -51920,6 +53268,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -51962,6 +53312,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -52015,6 +53373,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -52036,6 +53396,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -52044,6 +53405,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -52053,6 +53415,8 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -52091,6 +53455,14 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -54541,6 +55913,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -54567,6 +55941,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -54578,6 +55953,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -54589,6 +55965,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -54653,6 +56031,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -54684,6 +56070,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -54712,6 +56100,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -54723,6 +56112,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -54734,6 +56124,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -54786,6 +56178,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -54833,6 +56233,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -54849,18 +56251,22 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -54894,6 +56300,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
@@ -54902,6 +56316,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -54920,6 +56336,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQuerySearch'] = None,
@@ -54928,6 +56345,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetQueryValueDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -54936,6 +56354,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -54968,6 +56388,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -55151,7 +56579,9 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -55169,17 +56599,21 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -55208,6 +56642,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -55223,6 +56665,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -55246,6 +56690,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -55256,6 +56701,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -55267,6 +56713,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -55309,6 +56757,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -55362,6 +56818,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -55383,6 +56841,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -55391,6 +56850,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -55400,6 +56860,8 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -55438,6 +56900,14 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -56828,6 +58298,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -56854,6 +58326,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -56865,6 +58338,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -56876,6 +58350,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -56940,6 +58416,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDepende
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -56971,6 +58455,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -56999,6 +58485,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -57010,6 +58497,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -57021,6 +58509,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -57073,6 +58563,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourc
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -57120,6 +58618,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -57136,18 +58636,22 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -57181,6 +58685,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQ
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery(dict):
@@ -57189,6 +58701,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -57207,6 +58721,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  computes: Sequence['outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearch'] = None,
@@ -57215,6 +58730,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         :param Sequence['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuerySearchArgs' search: The search options.
@@ -57223,6 +58739,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -57255,6 +58773,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -57438,7 +58964,9 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -57456,17 +58984,21 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -57495,6 +59027,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQuer
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -57510,6 +59050,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -57533,6 +59075,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -57543,6 +59086,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -57554,6 +59098,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -57596,6 +59142,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQue
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -57649,6 +59203,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -57670,6 +59226,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -57678,6 +59235,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -57687,6 +59245,8 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -57725,6 +59285,14 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -63094,6 +64662,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -63120,6 +64690,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -63131,6 +64702,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -63142,6 +64714,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -63206,6 +64780,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -63237,6 +64819,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -63265,6 +64849,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -63276,6 +64861,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -63287,6 +64873,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -63339,6 +64927,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -63386,6 +64982,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -63402,18 +65000,22 @@ class PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -63447,6 +65049,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
@@ -63455,6 +65065,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -63473,6 +65085,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearch'] = None,
@@ -63481,6 +65094,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetSunburstDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -63489,6 +65103,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -63521,6 +65137,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -63704,7 +65328,9 @@ class PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -63722,17 +65348,21 @@ class PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -63761,6 +65391,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -63776,6 +65414,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -63799,6 +65439,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -63809,6 +65450,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -63820,6 +65462,8 @@ class PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -63862,6 +65506,14 @@ class PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -63915,6 +65567,8 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -63936,6 +65590,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -63944,6 +65599,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -63953,6 +65609,8 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -63991,6 +65649,14 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -66832,6 +68498,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -66858,6 +68526,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -66869,6 +68538,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -66880,6 +68550,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -66944,6 +68616,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery(dic
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -66975,6 +68655,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -67003,6 +68685,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -67014,6 +68697,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -67025,6 +68709,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -67077,6 +68763,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery(dict)
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -67124,6 +68818,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -67140,18 +68836,22 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -67185,6 +68885,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
@@ -67193,6 +68901,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -67211,6 +68921,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearch'] = None,
@@ -67219,6 +68930,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -67227,6 +68939,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -67259,6 +68973,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -67442,7 +69164,9 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -67460,17 +69184,21 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -67499,6 +69227,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -67514,6 +69250,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -67537,6 +69275,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -67547,6 +69286,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -67558,6 +69298,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -67600,6 +69342,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -67653,6 +69403,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -67674,6 +69426,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -67682,6 +69435,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -67691,6 +69445,8 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -67729,6 +69485,14 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -70343,6 +72107,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -70369,6 +72135,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -70380,6 +72147,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -70391,6 +72159,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -70455,6 +72225,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -70486,6 +72264,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -70514,6 +72294,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -70525,6 +72306,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -70536,6 +72318,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -70588,6 +72372,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -70635,6 +72427,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -70651,18 +72445,22 @@ class PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -70696,6 +72494,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
@@ -70704,6 +72510,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -70722,6 +72530,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearch'] = None,
@@ -70730,6 +72539,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetToplistDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -70738,6 +72548,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -70770,6 +72582,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -70953,7 +72773,9 @@ class PowerpackWidgetToplistDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -70971,17 +72793,21 @@ class PowerpackWidgetToplistDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -71010,6 +72836,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -71025,6 +72859,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -71048,6 +72884,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -71058,6 +72895,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -71069,6 +72907,8 @@ class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -71111,6 +72951,14 @@ class PowerpackWidgetToplistDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -71164,6 +73012,8 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -71185,6 +73035,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -71193,6 +73044,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -71202,6 +73054,8 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -71240,6 +73094,14 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -72817,6 +74679,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
             suggest = "operation_name"
         elif key == "resourceName":
             suggest = "resource_name"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isUpstream":
             suggest = "is_upstream"
         elif key == "primaryTagName":
@@ -72843,6 +74707,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
                  resource_name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  is_upstream: Optional[bool] = None,
                  primary_tag_name: Optional[str] = None,
                  primary_tag_value: Optional[str] = None):
@@ -72854,6 +74719,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         :param str resource_name: APM resource.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `avg_duration`, `avg_root_duration`, `avg_spans_per_trace`, `error_rate`, `pct_exec_time`, `pct_of_traces`, `total_traces_count`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_upstream: Determines whether stats for upstream or downstream dependencies should be queried.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
         :param str primary_tag_value: Filter APM data by the second primary tag. `primary_tag_name` must also be specified.
@@ -72865,6 +74731,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_upstream is not None:
             pulumi.set(__self__, "is_upstream", is_upstream)
         if primary_tag_name is not None:
@@ -72929,6 +74797,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="isUpstream")
     def is_upstream(self) -> Optional[bool]:
         """
@@ -72960,6 +74836,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
         elif key == "operationName":
@@ -72988,6 +74866,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
                  name: str,
                  service: str,
                  stat: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence[str]] = None,
                  operation_name: Optional[str] = None,
                  primary_tag_name: Optional[str] = None,
@@ -72999,6 +74878,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         :param str name: The name of query for use in formulas.
         :param str service: APM service.
         :param str stat: APM statistic. Valid values are `errors`, `error_rate`, `hits`, `latency_avg`, `latency_distribution`, `latency_max`, `latency_p50`, `latency_p75`, `latency_p90`, `latency_p95`, `latency_p99`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence[str] group_bies: Array of fields to group results by.
         :param str operation_name: Name of operation on service.
         :param str primary_tag_name: The name of the second primary tag used within APM; required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
@@ -73010,6 +74890,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "stat", stat)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if operation_name is not None:
@@ -73062,6 +74944,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery(dict):
         return pulumi.get(self, "stat")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="groupBies")
     def group_bies(self) -> Optional[Sequence[str]]:
         """
@@ -73109,6 +74999,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery. Access the value via the '{suggest}' property getter instead.")
@@ -73125,18 +75017,22 @@ class PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
                  data_source: str,
                  name: str,
                  query: str,
-                 aggregator: Optional[str] = None):
+                 aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None):
         """
         :param str data_source: The data source for cloud cost queries. Valid values are `cloud_cost`.
         :param str name: The name of the query for use in formulas.
         :param str query: The cloud cost query definition.
         :param str aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -73170,6 +75066,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery(dict):
         """
         return pulumi.get(self, "aggregator")
 
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
 
 @pulumi.output_type
 class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
@@ -73178,6 +75082,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupBies":
             suggest = "group_bies"
 
@@ -73196,6 +75102,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
                  computes: Sequence['outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute'],
                  data_source: str,
                  name: str,
+                 cross_org_uuids: Optional[str] = None,
                  group_bies: Optional[Sequence['outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy']] = None,
                  indexes: Optional[Sequence[str]] = None,
                  search: Optional['outputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearch'] = None,
@@ -73204,6 +75111,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         :param Sequence['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
         :param str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         :param str name: The name of query for use in formulas.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
         :param Sequence[str] indexes: An array of index names to query in the stream.
         :param 'PowerpackWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs' search: The search options.
@@ -73212,6 +75120,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         pulumi.set(__self__, "computes", computes)
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "name", name)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if indexes is not None:
@@ -73244,6 +75154,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
         The name of query for use in formulas.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupBies")
@@ -73427,7 +75345,9 @@ class PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSource":
+        if key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
+        elif key == "dataSource":
             suggest = "data_source"
 
         if suggest:
@@ -73445,17 +75365,21 @@ class PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
                  name: str,
                  query: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  data_source: Optional[str] = None):
         """
         :param str name: The name of the query for use in formulas.
         :param str query: The metrics query definition.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str data_source: The data source for metrics queries. Defaults to `"metrics"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if data_source is not None:
             pulumi.set(__self__, "data_source", data_source)
 
@@ -73484,6 +75408,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery(dict):
         return pulumi.get(self, "aggregator")
 
     @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
+
+    @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
         """
@@ -73499,6 +75431,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         suggest = None
         if key == "dataSource":
             suggest = "data_source"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "isNormalizedCpu":
             suggest = "is_normalized_cpu"
         elif key == "tagFilters":
@@ -73522,6 +75456,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
                  metric: str,
                  name: str,
                  aggregator: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  is_normalized_cpu: Optional[bool] = None,
                  limit: Optional[int] = None,
                  sort: Optional[str] = None,
@@ -73532,6 +75467,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         :param str metric: The process metric name.
         :param str name: The name of query for use in formulas.
         :param str aggregator: The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param bool is_normalized_cpu: Whether to normalize the CPU percentages.
         :param int limit: The number of hits to return.
         :param str sort: The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
@@ -73543,6 +75479,8 @@ class PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         pulumi.set(__self__, "name", name)
         if aggregator is not None:
             pulumi.set(__self__, "aggregator", aggregator)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if is_normalized_cpu is not None:
             pulumi.set(__self__, "is_normalized_cpu", is_normalized_cpu)
         if limit is not None:
@@ -73585,6 +75523,14 @@ class PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery(dict):
         The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
         """
         return pulumi.get(self, "aggregator")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="isNormalizedCpu")
@@ -73638,6 +75584,8 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
             suggest = "slo_id"
         elif key == "additionalQueryFilters":
             suggest = "additional_query_filters"
+        elif key == "crossOrgUuids":
+            suggest = "cross_org_uuids"
         elif key == "groupMode":
             suggest = "group_mode"
         elif key == "sloQueryType":
@@ -73659,6 +75607,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
                  measure: str,
                  slo_id: str,
                  additional_query_filters: Optional[str] = None,
+                 cross_org_uuids: Optional[str] = None,
                  group_mode: Optional[str] = None,
                  name: Optional[str] = None,
                  slo_query_type: Optional[str] = None):
@@ -73667,6 +75616,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         :param str measure: SLO measures queries. Valid values are `good_events`, `bad_events`, `slo_status`, `error_budget_remaining`, `burn_rate`, `error_budget_burndown`.
         :param str slo_id: ID of an SLO to query.
         :param str additional_query_filters: Additional filters applied to the SLO query.
+        :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
         :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
@@ -73676,6 +75626,8 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         pulumi.set(__self__, "slo_id", slo_id)
         if additional_query_filters is not None:
             pulumi.set(__self__, "additional_query_filters", additional_query_filters)
+        if cross_org_uuids is not None:
+            pulumi.set(__self__, "cross_org_uuids", cross_org_uuids)
         if group_mode is not None:
             pulumi.set(__self__, "group_mode", group_mode)
         if name is not None:
@@ -73714,6 +75666,14 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         Additional filters applied to the SLO query.
         """
         return pulumi.get(self, "additional_query_filters")
+
+    @property
+    @pulumi.getter(name="crossOrgUuids")
+    def cross_org_uuids(self) -> Optional[str]:
+        """
+        The source organization UUID for cross organization queries. Feature in Private Beta.
+        """
+        return pulumi.get(self, "cross_org_uuids")
 
     @property
     @pulumi.getter(name="groupMode")
@@ -75644,6 +77604,8 @@ class SyntheticsTestApiStep(dict):
             suggest = "request_files"
         elif key == "requestHeaders":
             suggest = "request_headers"
+        elif key == "requestMetadata":
+            suggest = "request_metadata"
         elif key == "requestProxy":
             suggest = "request_proxy"
         elif key == "requestQuery":
@@ -75671,6 +77633,7 @@ class SyntheticsTestApiStep(dict):
                  request_definition: Optional['outputs.SyntheticsTestApiStepRequestDefinition'] = None,
                  request_files: Optional[Sequence['outputs.SyntheticsTestApiStepRequestFile']] = None,
                  request_headers: Optional[Mapping[str, Any]] = None,
+                 request_metadata: Optional[Mapping[str, Any]] = None,
                  request_proxy: Optional['outputs.SyntheticsTestApiStepRequestProxy'] = None,
                  request_query: Optional[Mapping[str, Any]] = None,
                  retry: Optional['outputs.SyntheticsTestApiStepRetry'] = None,
@@ -75687,6 +77650,7 @@ class SyntheticsTestApiStep(dict):
         :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the api step.
         :param Sequence['SyntheticsTestApiStepRequestFileArgs'] request_files: Files to be used as part of the request in the test.
         :param Mapping[str, Any] request_headers: Header name and value map.
+        :param Mapping[str, Any] request_metadata: Metadata to include when performing the gRPC request.
         :param 'SyntheticsTestApiStepRequestProxyArgs' request_proxy: The proxy to perform the test.
         :param Mapping[str, Any] request_query: Query arguments name and value map.
         :param str subtype: The subtype of the Synthetic multi-step API test step. Valid values are `http`, `grpc`, `wait`. Defaults to `"http"`.
@@ -75711,6 +77675,8 @@ class SyntheticsTestApiStep(dict):
             pulumi.set(__self__, "request_files", request_files)
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
+        if request_metadata is not None:
+            pulumi.set(__self__, "request_metadata", request_metadata)
         if request_proxy is not None:
             pulumi.set(__self__, "request_proxy", request_proxy)
         if request_query is not None:
@@ -75801,6 +77767,14 @@ class SyntheticsTestApiStep(dict):
         Header name and value map.
         """
         return pulumi.get(self, "request_headers")
+
+    @property
+    @pulumi.getter(name="requestMetadata")
+    def request_metadata(self) -> Optional[Mapping[str, Any]]:
+        """
+        Metadata to include when performing the gRPC request.
+        """
+        return pulumi.get(self, "request_metadata")
 
     @property
     @pulumi.getter(name="requestProxy")
@@ -76559,7 +78533,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
                  timeout: Optional[int] = None,
                  url: Optional[str] = None):
         """
-        :param bool allow_insecure: Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        :param bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
         :param str body: The request body.
         :param str body_type: Type of the request body. Valid values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `graphql`, `application/octet-stream`, `multipart/form-data`.
         :param str call_type: The type of gRPC call to perform. Valid values are `healthcheck`, `unary`.
@@ -76568,7 +78542,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
         :param str host: Host name to perform the test with.
-        :param str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        :param str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         :param str message: For UDP and websocket tests, message to send with the request.
         :param str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
@@ -76580,7 +78554,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param str servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param str service: The gRPC service on which you want to perform the gRPC call.
         :param bool should_track_hops: This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        :param int timeout: Timeout in seconds for the test. Defaults to `60`.
+        :param int timeout: Timeout in seconds for the test.
         :param str url: The URL to send the request to.
         """
         if allow_insecure is not None:
@@ -76634,7 +78608,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter(name="allowInsecure")
     def allow_insecure(self) -> Optional[bool]:
         """
-        Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        Allows loading insecure content for a request in an API test or in a multistep API test step.
         """
         return pulumi.get(self, "allow_insecure")
 
@@ -76706,7 +78680,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[str]:
         """
-        HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         """
         return pulumi.get(self, "http_version")
 
@@ -76803,7 +78777,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        Timeout in seconds for the test. Defaults to `60`.
+        Timeout in seconds for the test.
         """
         return pulumi.get(self, "timeout")
 
@@ -77921,13 +79895,13 @@ class SyntheticsTestOptionsList(dict):
         """
         :param int tick_every: How often the test should run (in seconds).
         :param bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
-        :param bool allow_insecure: Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        :param bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
         :param bool check_certificate_revocation: For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
         :param 'SyntheticsTestOptionsListCiArgs' ci: CI/CD options for a Synthetic test.
         :param bool disable_cors: Disable Cross-Origin Resource Sharing for browser tests.
         :param bool disable_csp: Disable Content Security Policy for browser tests.
         :param bool follow_redirects: Determines whether or not the API HTTP test should follow redirects.
-        :param str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        :param str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         :param bool ignore_server_certificate_error: Ignore server certificate error for browser tests.
         :param int initial_navigation_timeout: Timeout before declaring the initial step as failed (in seconds) for browser tests.
         :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert (in seconds). Default is `0`.
@@ -78000,7 +79974,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="allowInsecure")
     def allow_insecure(self) -> Optional[bool]:
         """
-        Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        Allows loading insecure content for a request in an API test or in a multistep API test step.
         """
         return pulumi.get(self, "allow_insecure")
 
@@ -78048,7 +80022,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[str]:
         """
-        HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         """
         return pulumi.get(self, "http_version")
 
@@ -78784,7 +80758,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param str host: Host name to perform the test with.
-        :param str http_version: HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        :param str http_version: HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         :param str message: For UDP and websocket tests, message to send with the request.
         :param str method: Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
@@ -78796,7 +80770,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param str servername: For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
         :param str service: The gRPC service on which you want to perform the gRPC call.
         :param bool should_track_hops: This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
-        :param int timeout: Timeout in seconds for the test. Defaults to `60`.
+        :param int timeout: Timeout in seconds for the test.
         :param str url: The URL to send the request to.
         """
         if body is not None:
@@ -78900,9 +80874,10 @@ class SyntheticsTestRequestDefinition(dict):
 
     @property
     @pulumi.getter(name="httpVersion")
+    @_utilities.deprecated("""Use `http_version` in the `options_list` field instead.""")
     def http_version(self) -> Optional[str]:
         """
-        HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         """
         return pulumi.get(self, "http_version")
 
@@ -78999,7 +80974,7 @@ class SyntheticsTestRequestDefinition(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         """
-        Timeout in seconds for the test. Defaults to `60`.
+        Timeout in seconds for the test.
         """
         return pulumi.get(self, "timeout")
 
@@ -79254,6 +81229,7 @@ class GetHostsHostListResult(dict):
                  mute_timeout: int,
                  name: str,
                  sources: Sequence[str],
+                 tags_by_source: Mapping[str, Sequence[str]],
                  up: bool):
         pulumi.set(__self__, "aliases", aliases)
         pulumi.set(__self__, "apps", apps)
@@ -79267,6 +81243,7 @@ class GetHostsHostListResult(dict):
         pulumi.set(__self__, "mute_timeout", mute_timeout)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sources", sources)
+        pulumi.set(__self__, "tags_by_source", tags_by_source)
         pulumi.set(__self__, "up", up)
 
     @property
@@ -79328,6 +81305,11 @@ class GetHostsHostListResult(dict):
     @pulumi.getter
     def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter(name="tagsBySource")
+    def tags_by_source(self) -> Mapping[str, Sequence[str]]:
+        return pulumi.get(self, "tags_by_source")
 
     @property
     @pulumi.getter

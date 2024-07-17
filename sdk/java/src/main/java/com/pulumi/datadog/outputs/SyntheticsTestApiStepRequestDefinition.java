@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SyntheticsTestApiStepRequestDefinition {
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     private @Nullable Boolean allowInsecure;
@@ -60,7 +60,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable String host;
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     private @Nullable String httpVersion;
@@ -124,7 +124,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
      */
     private @Nullable Boolean shouldTrackHops;
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     private @Nullable Integer timeout;
@@ -136,7 +136,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
 
     private SyntheticsTestApiStepRequestDefinition() {}
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Boolean> allowInsecure() {
@@ -199,7 +199,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.host);
     }
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     public Optional<String> httpVersion() {
@@ -287,7 +287,7 @@ public final class SyntheticsTestApiStepRequestDefinition {
         return Optional.ofNullable(this.shouldTrackHops);
     }
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     public Optional<Integer> timeout() {

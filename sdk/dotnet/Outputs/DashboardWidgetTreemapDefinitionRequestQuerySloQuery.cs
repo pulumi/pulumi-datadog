@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AdditionalQueryFilters;
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        public readonly string? CrossOrgUuids;
+        /// <summary>
         /// The data source for SLO queries. Valid values are `slo`.
         /// </summary>
         public readonly string DataSource;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetTreemapDefinitionRequestQuerySloQuery(
             string? additionalQueryFilters,
 
+            string? crossOrgUuids,
+
             string dataSource,
 
             string? groupMode,
@@ -59,6 +65,7 @@ namespace Pulumi.Datadog.Outputs
             string? sloQueryType)
         {
             AdditionalQueryFilters = additionalQueryFilters;
+            CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             GroupMode = groupMode;
             Measure = measure;

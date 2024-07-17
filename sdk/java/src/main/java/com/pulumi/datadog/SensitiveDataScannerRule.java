@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list &#34;&#34;
+ * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list &#34;&lt;rule_id&gt;&#34;
  * ```
  * 
  */
