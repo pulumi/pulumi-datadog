@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceAccountArgs Empty = new GetServiceAccountArgs();
+
+    /**
+     * When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Output<Boolean> exactMatch;
+
+    /**
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    public Optional<Output<Boolean>> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * Filter all users and service accounts by name, email, or role.
@@ -63,6 +79,7 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
     private GetServiceAccountArgs() {}
 
     private GetServiceAccountArgs(GetServiceAccountArgs $) {
+        this.exactMatch = $.exactMatch;
         this.filter = $.filter;
         this.filterStatus = $.filterStatus;
         this.id = $.id;
@@ -84,6 +101,27 @@ public final class GetServiceAccountArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetServiceAccountArgs defaults) {
             $ = new GetServiceAccountArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Output<Boolean> exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
+        }
+
+        /**
+         * @param exactMatch When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(Boolean exactMatch) {
+            return exactMatch(Output.of(exactMatch));
         }
 
         /**

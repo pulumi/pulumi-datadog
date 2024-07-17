@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `datadog.User` resource's `roles` attribute. This resource is in beta and is subject to change.
+    /// Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `datadog.User` resource's `roles` attribute or the `datadog.ServiceAccount` resource's `roles` attribute. This resource is in beta and is subject to change.
     /// 
     /// ## Example Usage
     /// 

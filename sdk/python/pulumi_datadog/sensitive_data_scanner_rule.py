@@ -436,7 +436,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -466,7 +466,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
         ```
 
         :param str resource_name: The name of the resource.

@@ -67,6 +67,7 @@
         "getMonitorConfigPolicies.ts",
         "getMonitors.ts",
         "getPermissions.ts",
+        "getPowerpack.ts",
         "getRole.ts",
         "getRoleUsers.ts",
         "getRoles.ts",

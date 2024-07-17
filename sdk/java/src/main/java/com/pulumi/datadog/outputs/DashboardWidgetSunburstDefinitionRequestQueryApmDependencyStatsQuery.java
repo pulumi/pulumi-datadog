@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
      * 
      */
@@ -65,6 +70,13 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencySta
     private String stat;
 
     private DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery() {}
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
     /**
      * @return The data source for APM Dependency Stats queries. Valid values are `apm_dependency_stats`.
      * 
@@ -145,6 +157,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencySta
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private String env;
         private @Nullable Boolean isUpstream;
@@ -158,6 +171,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencySta
         public Builder() {}
         public Builder(DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.env = defaults.env;
     	      this.isUpstream = defaults.isUpstream;
@@ -170,6 +184,12 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencySta
     	      this.stat = defaults.stat;
         }
 
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -246,6 +266,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryApmDependencySta
         }
         public DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery build() {
             final var _resultValue = new DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery();
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.env = env;
             _resultValue.isUpstream = isUpstream;

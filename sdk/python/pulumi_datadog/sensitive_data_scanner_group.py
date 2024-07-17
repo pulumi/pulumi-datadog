@@ -219,7 +219,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+        $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
         ```
 
         :param str resource_name: The name of the resource.

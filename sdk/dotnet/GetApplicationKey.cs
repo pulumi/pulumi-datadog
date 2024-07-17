@@ -12,7 +12,7 @@ namespace Pulumi.Datadog
     public static class GetApplicationKey
     {
         /// <summary>
-        /// Use this data source to retrieve information about an existing application key.
+        /// Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to retrieve information about an existing application key.
+        /// Use this data source to retrieve information about an existing application key. Deprecated. This will be removed in a future release with prior notice. Securely store your application keys using a secret management system or use the datadog.ApplicationKey resource to manage application keys in your Datadog account.
         /// 
         /// ## Example Usage
         /// 

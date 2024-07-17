@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        public readonly string? CrossOrgUuids;
+        /// <summary>
         /// The data source for cloud cost queries. Valid values are `cloud_cost`.
         /// </summary>
         public readonly string DataSource;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery(
             string? aggregator,
 
+            string? crossOrgUuids,
+
             string dataSource,
 
             string name,
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string query)
         {
             Aggregator = aggregator;
+            CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             Name = name;
             Query = query;

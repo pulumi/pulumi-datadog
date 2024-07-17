@@ -4,6 +4,7 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,6 +14,21 @@ import javax.annotation.Nullable;
 public final class GetServiceAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServiceAccountPlainArgs Empty = new GetServiceAccountPlainArgs();
+
+    /**
+     * When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    @Import(name="exactMatch")
+    private @Nullable Boolean exactMatch;
+
+    /**
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
+    }
 
     /**
      * Filter all users and service accounts by name, email, or role.
@@ -62,6 +78,7 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
     private GetServiceAccountPlainArgs() {}
 
     private GetServiceAccountPlainArgs(GetServiceAccountPlainArgs $) {
+        this.exactMatch = $.exactMatch;
         this.filter = $.filter;
         this.filterStatus = $.filterStatus;
         this.id = $.id;
@@ -83,6 +100,17 @@ public final class GetServiceAccountPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetServiceAccountPlainArgs defaults) {
             $ = new GetServiceAccountPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param exactMatch When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+            $.exactMatch = exactMatch;
+            return this;
         }
 
         /**

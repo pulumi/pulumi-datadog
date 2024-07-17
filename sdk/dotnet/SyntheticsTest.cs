@@ -23,6 +23,607 @@ namespace Pulumi.Datadog
     /// 
     /// which you can now use in your request definition:
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Example Usage (Synthetics API test)
+    ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    ///     var testUptime = new Datadog.SyntheticsTest("test_uptime", new()
+    ///     {
+    ///         Name = "An Uptime test on example.org",
+    ///         Type = "api",
+    ///         Subtype = "http",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         RequestHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "statusCode",
+    ///                 Operator = "is",
+    ///                 Target = "200",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Authenticated API test)
+    ///     // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    ///     var testApi = new Datadog.SyntheticsTest("test_api", new()
+    ///     {
+    ///         Name = "An API test on example.org",
+    ///         Type = "api",
+    ///         Subtype = "http",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         RequestHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///             { "Authentication", "Token: 1234566789" },
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "statusCode",
+    ///                 Operator = "is",
+    ///                 Target = "200",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Interval = 300,
+    ///             },
+    ///             MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
+    ///             {
+    ///                 RenotifyInterval = 120,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics SSL test)
+    ///     // Create a new Datadog Synthetics API/SSL test on example.org
+    ///     var testSsl = new Datadog.SyntheticsTest("test_ssl", new()
+    ///     {
+    ///         Name = "An API test on example.org",
+    ///         Type = "api",
+    ///         Subtype = "ssl",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "certificate",
+    ///                 Operator = "isInMoreThan",
+    ///                 Target = "30",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             AcceptSelfSigned = true,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics TCP test)
+    ///     // Create a new Datadog Synthetics API/TCP test on example.org
+    ///     var testTcp = new Datadog.SyntheticsTest("test_tcp", new()
+    ///     {
+    ///         Name = "An API test on example.org",
+    ///         Type = "api",
+    ///         Subtype = "tcp",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "responseTime",
+    ///                 Operator = "lessThan",
+    ///                 Target = "2000",
+    ///             },
+    ///         },
+    ///         ConfigVariables = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestConfigVariableArgs
+    ///             {
+    ///                 Type = "global",
+    ///                 Name = "MY_GLOBAL_VAR",
+    ///                 Id = "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics DNS test)
+    ///     // Create a new Datadog Synthetics API/DNS test on example.org
+    ///     var testDns = new Datadog.SyntheticsTest("test_dns", new()
+    ///     {
+    ///         Name = "An API test on example.org",
+    ///         Type = "api",
+    ///         Subtype = "dns",
+    ///         Status = "live",
+    ///         Message = "Notify @pagerduty",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "recordSome",
+    ///                 Operator = "is",
+    ///                 Property = "A",
+    ///                 Target = "0.0.0.0",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics Multistep API test)
+    ///     // Create a new Datadog Synthetics Multistep API test
+    ///     var testMultiStep = new Datadog.SyntheticsTest("test_multi_step", new()
+    ///     {
+    ///         Name = "Multistep API test",
+    ///         Type = "api",
+    ///         Subtype = "multi",
+    ///         Status = "live",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         ApiSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "An API test on example.org",
+    ///                 Subtype = "http",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Method = "GET",
+    ///                     Url = "https://www.example.org",
+    ///                 },
+    ///                 RequestHeaders = 
+    ///                 {
+    ///                     { "Content-Type", "application/json" },
+    ///                     { "Authentication", "Token: 1234566789" },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "An API test on example.org",
+    ///                 Subtype = "http",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Method = "GET",
+    ///                     Url = "http://example.org",
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "A gRPC health check on example.org",
+    ///                 Subtype = "grpc",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Host = "example.org",
+    ///                     Port = 443,
+    ///                     CallType = "healthcheck",
+    ///                     Service = "greeter.Greeter",
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestApiStepArgs
+    ///             {
+    ///                 Name = "A gRPC behavior check on example.org",
+    ///                 Subtype = "grpc",
+    ///                 Assertions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.SyntheticsTestApiStepAssertionArgs
+    ///                     {
+    ///                         Type = "statusCode",
+    ///                         Operator = "is",
+    ///                         Target = "200",
+    ///                     },
+    ///                 },
+    ///                 RequestDefinition = new Datadog.Inputs.SyntheticsTestApiStepRequestDefinitionArgs
+    ///                 {
+    ///                     Host = "example.org",
+    ///                     Port = 443,
+    ///                     CallType = "unary",
+    ///                     Service = "greeter.Greeter",
+    ///                     Method = "SayHello",
+    ///                     Message = "{\"name\": \"John\"}",
+    ///                     PlainProtoFile = @"syntax = ""proto3"";
+    /// 
+    /// package greeter;
+    /// 
+    /// // The greeting service definition.
+    /// service Greeter {
+    ///   // Sends a greeting
+    ///   rpc SayHello (HelloRequest) returns (HelloReply) {}
+    /// }
+    /// 
+    /// // The request message containing the user's name.
+    /// message HelloRequest {
+    ///   string name = 1;
+    /// }
+    /// 
+    /// // The response message containing the greetings
+    /// message HelloReply {
+    ///   string message = 1;
+    /// }
+    /// ",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///             AcceptSelfSigned = true,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (Synthetics Browser test)
+    ///     // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+    ///     var testBrowser = new Datadog.SyntheticsTest("test_browser", new()
+    ///     {
+    ///         Name = "A Browser test on example.org",
+    ///         Type = "browser",
+    ///         Status = "paused",
+    ///         Message = "Notify @qa",
+    ///         DeviceIds = new[]
+    ///         {
+    ///             "laptop_large",
+    ///         },
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[] {},
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Method = "GET",
+    ///             Url = "https://www.example.org",
+    ///         },
+    ///         BrowserSteps = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Check current url",
+    ///                 Type = "assertCurrentUrl",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     Check = "contains",
+    ///                     Value = "datadoghq",
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserStepArgs
+    ///             {
+    ///                 Name = "Test a downloaded file",
+    ///                 Type = "assertFileDownload",
+    ///                 Params = new Datadog.Inputs.SyntheticsTestBrowserStepParamsArgs
+    ///                 {
+    ///                     File = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["md5"] = "abcdef1234567890",
+    ///                         ["sizeCheck"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["type"] = "equals",
+    ///                             ["value"] = 1,
+    ///                         },
+    ///                         ["nameCheck"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["type"] = "contains",
+    ///                             ["value"] = ".xls",
+    ///                         },
+    ///                     }),
+    ///                 },
+    ///             },
+    ///         },
+    ///         BrowserVariables = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Type = "text",
+    ///                 Name = "MY_PATTERN_VAR",
+    ///                 Pattern = "{{numeric(3)}}",
+    ///                 Example = "597",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Type = "email",
+    ///                 Name = "MY_EMAIL_VAR",
+    ///                 Pattern = "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+    ///                 Example = "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestBrowserVariableArgs
+    ///             {
+    ///                 Type = "global",
+    ///                 Name = "MY_GLOBAL_VAR",
+    ///                 Id = "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 3600,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (GRPC API behavior check test)
+    ///     // Create a new Datadog GRPC API test calling host example.org on port 443
+    ///     // targeting service `greeter.Greeter` with the method `SayHello`
+    ///     // and the message {"name": "John"}
+    ///     var testGrpcUnary = new Datadog.SyntheticsTest("test_grpc_unary", new()
+    ///     {
+    ///         Name = "GRPC API behavior check test",
+    ///         Type = "api",
+    ///         Subtype = "grpc",
+    ///         Status = "live",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///             CallType = "unary",
+    ///             Service = "greeter.Greeter",
+    ///             Method = "SayHello",
+    ///             Message = "{\"name\": \"John\"}",
+    ///             PlainProtoFile = @"syntax = ""proto3"";
+    /// 
+    /// package greeter;
+    /// 
+    /// // The greeting service definition.
+    /// service Greeter {
+    ///   // Sends a greeting
+    ///   rpc SayHello (HelloRequest) returns (HelloReply) {}
+    /// }
+    /// 
+    /// // The request message containing the user's name.
+    /// message HelloRequest {
+    ///   string name = 1;
+    /// }
+    /// 
+    /// // The response message containing the greetings
+    /// message HelloReply {
+    ///   string message = 1;
+    /// }
+    /// ",
+    ///         },
+    ///         RequestMetadata = 
+    ///         {
+    ///             { "header", "value" },
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "responseTime",
+    ///                 Operator = "lessThan",
+    ///                 Target = "2000",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Type = "grpcHealthcheckStatus",
+    ///                 Target = "1",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Type = "grpcProto",
+    ///                 Target = "proto target",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Property = "property",
+    ///                 Type = "grpcMetadata",
+    ///                 Target = "123",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///     });
+    /// 
+    ///     // Example Usage (GRPC API health check test)
+    ///     // Create a new Datadog GRPC API test calling host example.org on port 443
+    ///     // testing the overall health of the service
+    ///     var testGrpcHealth = new Datadog.SyntheticsTest("test_grpc_health", new()
+    ///     {
+    ///         Name = "GRPC API health check test",
+    ///         Type = "api",
+    ///         Subtype = "grpc",
+    ///         Status = "live",
+    ///         Locations = new[]
+    ///         {
+    ///             "aws:eu-central-1",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             "foo:bar",
+    ///             "foo",
+    ///             "env:test",
+    ///         },
+    ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
+    ///         {
+    ///             Host = "example.org",
+    ///             Port = 443,
+    ///             CallType = "healthcheck",
+    ///             Service = "greeter.Greeter",
+    ///         },
+    ///         Assertions = new[]
+    ///         {
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Type = "responseTime",
+    ///                 Operator = "lessThan",
+    ///                 Target = "2000",
+    ///             },
+    ///             new Datadog.Inputs.SyntheticsTestAssertionArgs
+    ///             {
+    ///                 Operator = "is",
+    ///                 Type = "grpcHealthcheckStatus",
+    ///                 Target = "1",
+    ///             },
+    ///         },
+    ///         OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
+    ///         {
+    ///             TickEvery = 900,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synthetics tests can be imported using their public string ID, e.g.
@@ -134,7 +735,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata to include when performing the gRPC test.
+        /// Metadata to include when performing the gRPC request.
         /// </summary>
         [Output("requestMetadata")]
         public Output<ImmutableDictionary<string, object>?> RequestMetadata { get; private set; } = null!;
@@ -384,7 +985,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _requestMetadata;
 
         /// <summary>
-        /// Metadata to include when performing the gRPC test.
+        /// Metadata to include when performing the gRPC request.
         /// </summary>
         public InputMap<object> RequestMetadata
         {
@@ -617,7 +1218,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _requestMetadata;
 
         /// <summary>
-        /// Metadata to include when performing the gRPC test.
+        /// Metadata to include when performing the gRPC request.
         /// </summary>
         public InputMap<object> RequestMetadata
         {

@@ -36,6 +36,21 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs
     }
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
      * 
      */
@@ -129,6 +144,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs
 
     private DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs(DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs $) {
         this.computes = $.computes;
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.groupBies = $.groupBies;
         this.indexes = $.indexes;
@@ -184,6 +200,27 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs
          */
         public Builder computes(DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs... computes) {
             return computes(List.of(computes));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

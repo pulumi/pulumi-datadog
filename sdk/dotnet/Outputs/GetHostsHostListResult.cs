@@ -25,6 +25,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly int MuteTimeout;
         public readonly string Name;
         public readonly ImmutableArray<string> Sources;
+        public readonly ImmutableDictionary<string, ImmutableArray<string>> TagsBySource;
         public readonly bool Up;
 
         [OutputConstructor]
@@ -53,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> sources,
 
+            ImmutableDictionary<string, ImmutableArray<string>> tagsBySource,
+
             bool up)
         {
             Aliases = aliases;
@@ -67,6 +70,7 @@ namespace Pulumi.Datadog.Outputs
             MuteTimeout = muteTimeout;
             Name = name;
             Sources = sources;
+            TagsBySource = tagsBySource;
             Up = up;
         }
     }

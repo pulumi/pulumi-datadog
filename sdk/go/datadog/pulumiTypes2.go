@@ -1938,6 +1938,8 @@ type SyntheticsTestApiStep struct {
 	RequestFiles []SyntheticsTestApiStepRequestFile `pulumi:"requestFiles"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// Metadata to include when performing the gRPC request.
+	RequestMetadata map[string]interface{} `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy *SyntheticsTestApiStepRequestProxy `pulumi:"requestProxy"`
 	// Query arguments name and value map.
@@ -1981,6 +1983,8 @@ type SyntheticsTestApiStepArgs struct {
 	RequestFiles SyntheticsTestApiStepRequestFileArrayInput `pulumi:"requestFiles"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput `pulumi:"requestHeaders"`
+	// Metadata to include when performing the gRPC request.
+	RequestMetadata pulumi.MapInput `pulumi:"requestMetadata"`
 	// The proxy to perform the test.
 	RequestProxy SyntheticsTestApiStepRequestProxyPtrInput `pulumi:"requestProxy"`
 	// Query arguments name and value map.
@@ -2093,6 +2097,11 @@ func (o SyntheticsTestApiStepOutput) RequestFiles() SyntheticsTestApiStepRequest
 // Header name and value map.
 func (o SyntheticsTestApiStepOutput) RequestHeaders() pulumi.MapOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestHeaders }).(pulumi.MapOutput)
+}
+
+// Metadata to include when performing the gRPC request.
+func (o SyntheticsTestApiStepOutput) RequestMetadata() pulumi.MapOutput {
+	return o.ApplyT(func(v SyntheticsTestApiStep) map[string]interface{} { return v.RequestMetadata }).(pulumi.MapOutput)
 }
 
 // The proxy to perform the test.
@@ -3924,7 +3933,7 @@ func (o SyntheticsTestApiStepRequestClientCertificateKeyPtrOutput) Filename() pu
 }
 
 type SyntheticsTestApiStepRequestDefinition struct {
-	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// The request body.
 	Body *string `pulumi:"body"`
@@ -3942,7 +3951,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	FollowRedirects *bool `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
@@ -3968,7 +3977,7 @@ type SyntheticsTestApiStepRequestDefinition struct {
 	Service *string `pulumi:"service"`
 	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
 	ShouldTrackHops *bool `pulumi:"shouldTrackHops"`
-	// Timeout in seconds for the test. Defaults to `60`.
+	// Timeout in seconds for the test.
 	Timeout *int `pulumi:"timeout"`
 	// The URL to send the request to.
 	Url *string `pulumi:"url"`
@@ -3986,7 +3995,7 @@ type SyntheticsTestApiStepRequestDefinitionInput interface {
 }
 
 type SyntheticsTestApiStepRequestDefinitionArgs struct {
-	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// The request body.
 	Body pulumi.StringPtrInput `pulumi:"body"`
@@ -4004,7 +4013,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
@@ -4030,7 +4039,7 @@ type SyntheticsTestApiStepRequestDefinitionArgs struct {
 	Service pulumi.StringPtrInput `pulumi:"service"`
 	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
 	ShouldTrackHops pulumi.BoolPtrInput `pulumi:"shouldTrackHops"`
-	// Timeout in seconds for the test. Defaults to `60`.
+	// Timeout in seconds for the test.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The URL to send the request to.
 	Url pulumi.StringPtrInput `pulumi:"url"`
@@ -4113,7 +4122,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) ToSyntheticsTestApiStepReq
 	}).(SyntheticsTestApiStepRequestDefinitionPtrOutput)
 }
 
-// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
 }
@@ -4158,7 +4167,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) Host() pulumi.StringPtrOut
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
@@ -4220,7 +4229,7 @@ func (o SyntheticsTestApiStepRequestDefinitionOutput) ShouldTrackHops() pulumi.B
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *bool { return v.ShouldTrackHops }).(pulumi.BoolPtrOutput)
 }
 
-// Timeout in seconds for the test. Defaults to `60`.
+// Timeout in seconds for the test.
 func (o SyntheticsTestApiStepRequestDefinitionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestApiStepRequestDefinition) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -4254,7 +4263,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Elem() SyntheticsTestAp
 	}).(SyntheticsTestApiStepRequestDefinitionOutput)
 }
 
-// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *bool {
 		if v == nil {
@@ -4344,7 +4353,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Host() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *string {
 		if v == nil {
@@ -4466,7 +4475,7 @@ func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) ShouldTrackHops() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Timeout in seconds for the test. Defaults to `60`.
+// Timeout in seconds for the test.
 func (o SyntheticsTestApiStepRequestDefinitionPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestApiStepRequestDefinition) *int {
 		if v == nil {
@@ -6744,7 +6753,7 @@ func (o SyntheticsTestConfigVariableArrayOutput) Index(i pulumi.IntInput) Synthe
 type SyntheticsTestOptionsList struct {
 	// For SSL test, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned *bool `pulumi:"acceptSelfSigned"`
-	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure *bool `pulumi:"allowInsecure"`
 	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation *bool `pulumi:"checkCertificateRevocation"`
@@ -6756,7 +6765,7 @@ type SyntheticsTestOptionsList struct {
 	DisableCsp *bool `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects *bool `pulumi:"followRedirects"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// Ignore server certificate error for browser tests.
 	IgnoreServerCertificateError *bool `pulumi:"ignoreServerCertificateError"`
@@ -6797,7 +6806,7 @@ type SyntheticsTestOptionsListInput interface {
 type SyntheticsTestOptionsListArgs struct {
 	// For SSL test, whether or not the test should allow self signed certificates.
 	AcceptSelfSigned pulumi.BoolPtrInput `pulumi:"acceptSelfSigned"`
-	// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
 	AllowInsecure pulumi.BoolPtrInput `pulumi:"allowInsecure"`
 	// For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
 	CheckCertificateRevocation pulumi.BoolPtrInput `pulumi:"checkCertificateRevocation"`
@@ -6809,7 +6818,7 @@ type SyntheticsTestOptionsListArgs struct {
 	DisableCsp pulumi.BoolPtrInput `pulumi:"disableCsp"`
 	// Determines whether or not the API HTTP test should follow redirects.
 	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// Ignore server certificate error for browser tests.
 	IgnoreServerCertificateError pulumi.BoolPtrInput `pulumi:"ignoreServerCertificateError"`
@@ -6918,7 +6927,7 @@ func (o SyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AcceptSelfSigned }).(pulumi.BoolPtrOutput)
 }
 
-// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.AllowInsecure }).(pulumi.BoolPtrOutput)
 }
@@ -6948,7 +6957,7 @@ func (o SyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 func (o SyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestOptionsList) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
@@ -7049,7 +7058,7 @@ func (o SyntheticsTestOptionsListPtrOutput) AcceptSelfSigned() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
 func (o SyntheticsTestOptionsListPtrOutput) AllowInsecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *bool {
 		if v == nil {
@@ -7109,7 +7118,7 @@ func (o SyntheticsTestOptionsListPtrOutput) FollowRedirects() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
 func (o SyntheticsTestOptionsListPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestOptionsList) *string {
 		if v == nil {
@@ -9042,7 +9051,9 @@ type SyntheticsTestRequestDefinition struct {
 	DnsServerPort *int `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host *string `pulumi:"host"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+	//
+	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 	HttpVersion *string `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message *string `pulumi:"message"`
@@ -9068,7 +9079,7 @@ type SyntheticsTestRequestDefinition struct {
 	Service *string `pulumi:"service"`
 	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
 	ShouldTrackHops *bool `pulumi:"shouldTrackHops"`
-	// Timeout in seconds for the test. Defaults to `60`.
+	// Timeout in seconds for the test.
 	Timeout *int `pulumi:"timeout"`
 	// The URL to send the request to.
 	Url *string `pulumi:"url"`
@@ -9100,7 +9111,9 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	DnsServerPort pulumi.IntPtrInput `pulumi:"dnsServerPort"`
 	// Host name to perform the test with.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+	// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+	//
+	// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
 	// For UDP and websocket tests, message to send with the request.
 	Message pulumi.StringPtrInput `pulumi:"message"`
@@ -9126,7 +9139,7 @@ type SyntheticsTestRequestDefinitionArgs struct {
 	Service pulumi.StringPtrInput `pulumi:"service"`
 	// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
 	ShouldTrackHops pulumi.BoolPtrInput `pulumi:"shouldTrackHops"`
-	// Timeout in seconds for the test. Defaults to `60`.
+	// Timeout in seconds for the test.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// The URL to send the request to.
 	Url pulumi.StringPtrInput `pulumi:"url"`
@@ -9244,7 +9257,9 @@ func (o SyntheticsTestRequestDefinitionOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+//
+// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 func (o SyntheticsTestRequestDefinitionOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
@@ -9306,7 +9321,7 @@ func (o SyntheticsTestRequestDefinitionOutput) ShouldTrackHops() pulumi.BoolPtrO
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *bool { return v.ShouldTrackHops }).(pulumi.BoolPtrOutput)
 }
 
-// Timeout in seconds for the test. Defaults to `60`.
+// Timeout in seconds for the test.
 func (o SyntheticsTestRequestDefinitionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SyntheticsTestRequestDefinition) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -9410,7 +9425,9 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) Host() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+//
+// Deprecated: Use `httpVersion` in the `optionsList` field instead.
 func (o SyntheticsTestRequestDefinitionPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *string {
 		if v == nil {
@@ -9532,7 +9549,7 @@ func (o SyntheticsTestRequestDefinitionPtrOutput) ShouldTrackHops() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Timeout in seconds for the test. Defaults to `60`.
+// Timeout in seconds for the test.
 func (o SyntheticsTestRequestDefinitionPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SyntheticsTestRequestDefinition) *int {
 		if v == nil {
@@ -10114,6 +10131,7 @@ type GetHostsHostList struct {
 	MuteTimeout      int                     `pulumi:"muteTimeout"`
 	Name             string                  `pulumi:"name"`
 	Sources          []string                `pulumi:"sources"`
+	TagsBySource     map[string][]string     `pulumi:"tagsBySource"`
 	Up               bool                    `pulumi:"up"`
 }
 
@@ -10141,6 +10159,7 @@ type GetHostsHostListArgs struct {
 	MuteTimeout      pulumi.IntInput              `pulumi:"muteTimeout"`
 	Name             pulumi.StringInput           `pulumi:"name"`
 	Sources          pulumi.StringArrayInput      `pulumi:"sources"`
+	TagsBySource     pulumi.StringArrayMapInput   `pulumi:"tagsBySource"`
 	Up               pulumi.BoolInput             `pulumi:"up"`
 }
 
@@ -10241,6 +10260,10 @@ func (o GetHostsHostListOutput) Name() pulumi.StringOutput {
 
 func (o GetHostsHostListOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetHostsHostList) []string { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHostsHostListOutput) TagsBySource() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v GetHostsHostList) map[string][]string { return v.TagsBySource }).(pulumi.StringArrayMapOutput)
 }
 
 func (o GetHostsHostListOutput) Up() pulumi.BoolOutput {

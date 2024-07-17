@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list &#34;&#34;
+ * $ pulumi import datadog:index/restrictionPolicy:RestrictionPolicy new_list &#34;&lt;policy_id&gt;&#34;
  * ```
  * 
  */

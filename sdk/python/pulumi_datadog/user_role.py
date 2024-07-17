@@ -98,7 +98,7 @@ class UserRole(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `User` resource's `roles` attribute. This resource is in beta and is subject to change.
+        Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `User` resource's `roles` attribute or the `ServiceAccount` resource's `roles` attribute. This resource is in beta and is subject to change.
 
         ## Example Usage
 
@@ -138,7 +138,7 @@ class UserRole(pulumi.CustomResource):
                  args: UserRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `User` resource's `roles` attribute. This resource is in beta and is subject to change.
+        Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `User` resource's `roles` attribute or the `ServiceAccount` resource's `roles` attribute. This resource is in beta and is subject to change.
 
         ## Example Usage
 

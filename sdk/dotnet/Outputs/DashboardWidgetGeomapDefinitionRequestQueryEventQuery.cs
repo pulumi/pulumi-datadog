@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute> Computes;
         /// <summary>
+        /// The source organization UUID for cross organization queries. Feature in Private Beta.
+        /// </summary>
+        public readonly string? CrossOrgUuids;
+        /// <summary>
         /// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
         /// </summary>
         public readonly string DataSource;
@@ -46,6 +50,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGeomapDefinitionRequestQueryEventQuery(
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute> computes,
 
+            string? crossOrgUuids,
+
             string dataSource,
 
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy> groupBies,
@@ -59,6 +65,7 @@ namespace Pulumi.Datadog.Outputs
             string? storage)
         {
             Computes = computes;
+            CrossOrgUuids = crossOrgUuids;
             DataSource = dataSource;
             GroupBies = groupBies;
             Indexes = indexes;

@@ -12,6 +12,7 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("datadog:index/getServiceAccount:getServiceAccount", {
+        "exactMatch": args.exactMatch,
         "filter": args.filter,
         "filterStatus": args.filterStatus,
         "id": args.id,
@@ -22,6 +23,10 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
  * A collection of arguments for invoking getServiceAccount.
  */
 export interface GetServiceAccountArgs {
+    /**
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     */
+    exactMatch?: boolean;
     /**
      * Filter all users and service accounts by name, email, or role.
      */
@@ -48,6 +53,10 @@ export interface GetServiceAccountResult {
      * Email of the user.
      */
     readonly email: string;
+    /**
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     */
+    readonly exactMatch?: boolean;
     /**
      * Filter all users and service accounts by name, email, or role.
      */
@@ -100,6 +109,10 @@ export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts
  * A collection of arguments for invoking getServiceAccount.
  */
 export interface GetServiceAccountOutputArgs {
+    /**
+     * When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+     */
+    exactMatch?: pulumi.Input<boolean>;
     /**
      * Filter all users and service accounts by name, email, or role.
      */

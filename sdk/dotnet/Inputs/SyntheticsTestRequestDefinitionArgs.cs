@@ -61,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
@@ -133,7 +133,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShouldTrackHops { get; set; }
 
         /// <summary>
-        /// Timeout in seconds for the test. Defaults to `60`.
+        /// Timeout in seconds for the test.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

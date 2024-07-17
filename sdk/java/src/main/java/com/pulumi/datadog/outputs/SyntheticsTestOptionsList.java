@@ -26,7 +26,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean acceptSelfSigned;
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     private @Nullable Boolean allowInsecure;
@@ -56,7 +56,7 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean followRedirects;
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     private @Nullable String httpVersion;
@@ -123,7 +123,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.acceptSelfSigned);
     }
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Boolean> allowInsecure() {
@@ -165,7 +165,7 @@ public final class SyntheticsTestOptionsList {
         return Optional.ofNullable(this.followRedirects);
     }
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     public Optional<String> httpVersion() {

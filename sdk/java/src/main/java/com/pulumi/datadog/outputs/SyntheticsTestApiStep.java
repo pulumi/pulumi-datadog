@@ -76,6 +76,11 @@ public final class SyntheticsTestApiStep {
      */
     private @Nullable Map<String,Object> requestHeaders;
     /**
+     * @return Metadata to include when performing the gRPC request.
+     * 
+     */
+    private @Nullable Map<String,Object> requestMetadata;
+    /**
      * @return The proxy to perform the test.
      * 
      */
@@ -169,6 +174,13 @@ public final class SyntheticsTestApiStep {
         return this.requestHeaders == null ? Map.of() : this.requestHeaders;
     }
     /**
+     * @return Metadata to include when performing the gRPC request.
+     * 
+     */
+    public Map<String,Object> requestMetadata() {
+        return this.requestMetadata == null ? Map.of() : this.requestMetadata;
+    }
+    /**
      * @return The proxy to perform the test.
      * 
      */
@@ -219,6 +231,7 @@ public final class SyntheticsTestApiStep {
         private @Nullable SyntheticsTestApiStepRequestDefinition requestDefinition;
         private @Nullable List<SyntheticsTestApiStepRequestFile> requestFiles;
         private @Nullable Map<String,Object> requestHeaders;
+        private @Nullable Map<String,Object> requestMetadata;
         private @Nullable SyntheticsTestApiStepRequestProxy requestProxy;
         private @Nullable Map<String,Object> requestQuery;
         private @Nullable SyntheticsTestApiStepRetry retry;
@@ -237,6 +250,7 @@ public final class SyntheticsTestApiStep {
     	      this.requestDefinition = defaults.requestDefinition;
     	      this.requestFiles = defaults.requestFiles;
     	      this.requestHeaders = defaults.requestHeaders;
+    	      this.requestMetadata = defaults.requestMetadata;
     	      this.requestProxy = defaults.requestProxy;
     	      this.requestQuery = defaults.requestQuery;
     	      this.retry = defaults.retry;
@@ -316,6 +330,12 @@ public final class SyntheticsTestApiStep {
             return this;
         }
         @CustomType.Setter
+        public Builder requestMetadata(@Nullable Map<String,Object> requestMetadata) {
+
+            this.requestMetadata = requestMetadata;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requestProxy(@Nullable SyntheticsTestApiStepRequestProxy requestProxy) {
 
             this.requestProxy = requestProxy;
@@ -357,6 +377,7 @@ public final class SyntheticsTestApiStep {
             _resultValue.requestDefinition = requestDefinition;
             _resultValue.requestFiles = requestFiles;
             _resultValue.requestHeaders = requestHeaders;
+            _resultValue.requestMetadata = requestMetadata;
             _resultValue.requestProxy = requestProxy;
             _resultValue.requestQuery = requestQuery;
             _resultValue.retry = retry;

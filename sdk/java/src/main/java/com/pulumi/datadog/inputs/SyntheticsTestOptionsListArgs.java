@@ -40,14 +40,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     @Import(name="allowInsecure")
     private @Nullable Output<Boolean> allowInsecure;
 
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Output<Boolean>> allowInsecure() {
@@ -130,14 +130,14 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     public Optional<Output<String>> httpVersion() {
@@ -381,7 +381,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * @param allowInsecure Allows loading insecure content for a request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * @param allowInsecure Allows loading insecure content for a request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
          * 
          * @return builder
          * 

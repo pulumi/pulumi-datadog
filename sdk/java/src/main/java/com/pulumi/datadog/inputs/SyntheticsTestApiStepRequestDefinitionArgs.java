@@ -19,14 +19,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     public static final SyntheticsTestApiStepRequestDefinitionArgs Empty = new SyntheticsTestApiStepRequestDefinitionArgs();
 
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     @Import(name="allowInsecure")
     private @Nullable Output<Boolean> allowInsecure;
 
     /**
-     * @return Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * @return Allows loading insecure content for a request in an API test or in a multistep API test step.
      * 
      */
     public Optional<Output<Boolean>> allowInsecure() {
@@ -154,14 +154,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
      * 
      */
     public Optional<Output<String>> httpVersion() {
@@ -342,14 +342,14 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     }
 
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -418,7 +418,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * @param allowInsecure Allows loading insecure content for a request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param allowInsecure Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+         * @param allowInsecure Allows loading insecure content for a request in an API test or in a multistep API test step.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+         * @param httpVersion HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `&#34;any&#34;`.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param timeout Timeout in seconds for the test. Defaults to `60`.
+         * @param timeout Timeout in seconds for the test.
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param timeout Timeout in seconds for the test. Defaults to `60`.
+         * @param timeout Timeout in seconds for the test.
          * 
          * @return builder
          * 

@@ -52,7 +52,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list ""
+// $ pulumi import datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup new_list "<group_id>"
 // ```
 type SensitiveDataScannerGroup struct {
 	pulumi.CustomResourceState

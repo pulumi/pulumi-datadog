@@ -279,14 +279,14 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Metadata to include when performing the gRPC test.
+     * Metadata to include when performing the gRPC request.
      * 
      */
     @Import(name="requestMetadata")
     private @Nullable Output<Map<String,Object>> requestMetadata;
 
     /**
-     * @return Metadata to include when performing the gRPC test.
+     * @return Metadata to include when performing the gRPC request.
      * 
      */
     public Optional<Output<Map<String,Object>>> requestMetadata() {
@@ -888,7 +888,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestMetadata Metadata to include when performing the gRPC test.
+         * @param requestMetadata Metadata to include when performing the gRPC request.
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class SyntheticsTestState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param requestMetadata Metadata to include when performing the gRPC test.
+         * @param requestMetadata Metadata to include when performing the gRPC request.
          * 
          * @return builder
          * 

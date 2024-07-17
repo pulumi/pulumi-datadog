@@ -32,6 +32,21 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs
     }
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for cloud cost queries. Valid values are `cloud_cost`.
      * 
      */
@@ -80,6 +95,7 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs
 
     private PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs(PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs $) {
         this.aggregator = $.aggregator;
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.name = $.name;
         this.query = $.query;
@@ -122,6 +138,27 @@ public final class PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQueryArgs
          */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

@@ -24,6 +24,8 @@ func LookupServiceAccount(ctx *pulumi.Context, args *LookupServiceAccountArgs, o
 
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountArgs struct {
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users and service accounts by name, email, or role.
 	Filter *string `pulumi:"filter"`
 	// Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
@@ -38,6 +40,8 @@ type LookupServiceAccountResult struct {
 	Disabled bool `pulumi:"disabled"`
 	// Email of the user.
 	Email string `pulumi:"email"`
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	ExactMatch *bool `pulumi:"exactMatch"`
 	// Filter all users and service accounts by name, email, or role.
 	Filter *string `pulumi:"filter"`
 	// Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
@@ -75,6 +79,8 @@ func LookupServiceAccountOutput(ctx *pulumi.Context, args LookupServiceAccountOu
 
 // A collection of arguments for invoking getServiceAccount.
 type LookupServiceAccountOutputArgs struct {
+	// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+	ExactMatch pulumi.BoolPtrInput `pulumi:"exactMatch"`
 	// Filter all users and service accounts by name, email, or role.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
 	// Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
@@ -110,6 +116,11 @@ func (o LookupServiceAccountResultOutput) Disabled() pulumi.BoolOutput {
 // Email of the user.
 func (o LookupServiceAccountResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceAccountResult) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+func (o LookupServiceAccountResultOutput) ExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServiceAccountResult) *bool { return v.ExactMatch }).(pulumi.BoolPtrOutput)
 }
 
 // Filter all users and service accounts by name, email, or role.

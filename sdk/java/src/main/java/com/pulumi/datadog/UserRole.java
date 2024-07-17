@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `datadog.User` resource&#39;s `roles` attribute. This resource is in beta and is subject to change.
+ * Provides a Datadog UserRole resource. This can be used to create and manage Datadog User Roles. Conflicts may occur if used together with the `datadog.User` resource&#39;s `roles` attribute or the `datadog.ServiceAccount` resource&#39;s `roles` attribute. This resource is in beta and is subject to change.
  * 
  * ## Example Usage
  * 

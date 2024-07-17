@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
      */
@@ -65,6 +70,13 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     private String stat;
 
     private PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery() {}
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
     /**
      * @return The data source for APM Resource Stats queries. Valid values are `apm_resource_stats`.
      * 
@@ -145,6 +157,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String crossOrgUuids;
         private String dataSource;
         private String env;
         private @Nullable List<String> groupBies;
@@ -158,6 +171,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         public Builder() {}
         public Builder(PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.env = defaults.env;
     	      this.groupBies = defaults.groupBies;
@@ -170,6 +184,12 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
     	      this.stat = defaults.stat;
         }
 
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -245,6 +265,7 @@ public final class PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQ
         }
         public PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery build() {
             final var _resultValue = new PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery();
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.env = env;
             _resultValue.groupBies = groupBies;

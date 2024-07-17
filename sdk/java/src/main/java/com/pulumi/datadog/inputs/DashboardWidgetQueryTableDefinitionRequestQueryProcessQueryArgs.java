@@ -35,6 +35,21 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryAr
     }
 
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    @Import(name="crossOrgUuids")
+    private @Nullable Output<String> crossOrgUuids;
+
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<Output<String>> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
+    }
+
+    /**
      * The data source for process queries. Valid values are `process`, `container`.
      * 
      */
@@ -158,6 +173,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryAr
 
     private DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs(DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryArgs $) {
         this.aggregator = $.aggregator;
+        this.crossOrgUuids = $.crossOrgUuids;
         this.dataSource = $.dataSource;
         this.isNormalizedCpu = $.isNormalizedCpu;
         this.limit = $.limit;
@@ -205,6 +221,27 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryAr
          */
         public Builder aggregator(String aggregator) {
             return aggregator(Output.of(aggregator));
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(@Nullable Output<String> crossOrgUuids) {
+            $.crossOrgUuids = crossOrgUuids;
+            return this;
+        }
+
+        /**
+         * @param crossOrgUuids The source organization UUID for cross organization queries. Feature in Private Beta.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOrgUuids(String crossOrgUuids) {
+            return crossOrgUuids(Output.of(crossOrgUuids));
         }
 
         /**

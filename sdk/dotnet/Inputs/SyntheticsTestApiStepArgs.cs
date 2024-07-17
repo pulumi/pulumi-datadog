@@ -96,6 +96,18 @@ namespace Pulumi.Datadog.Inputs
             set => _requestHeaders = value;
         }
 
+        [Input("requestMetadata")]
+        private InputMap<object>? _requestMetadata;
+
+        /// <summary>
+        /// Metadata to include when performing the gRPC request.
+        /// </summary>
+        public InputMap<object> RequestMetadata
+        {
+            get => _requestMetadata ?? (_requestMetadata = new InputMap<object>());
+            set => _requestMetadata = value;
+        }
+
         /// <summary>
         /// The proxy to perform the test.
         /// </summary>

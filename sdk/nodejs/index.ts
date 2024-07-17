@@ -160,6 +160,11 @@ export const getPermissions: typeof import("./getPermissions").getPermissions = 
 export const getPermissionsOutput: typeof import("./getPermissions").getPermissionsOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissions","getPermissionsOutput"], () => require("./getPermissions"));
 
+export { GetPowerpackArgs, GetPowerpackResult, GetPowerpackOutputArgs } from "./getPowerpack";
+export const getPowerpack: typeof import("./getPowerpack").getPowerpack = null as any;
+export const getPowerpackOutput: typeof import("./getPowerpack").getPowerpackOutput = null as any;
+utilities.lazyLoad(exports, ["getPowerpack","getPowerpackOutput"], () => require("./getPowerpack"));
+
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;

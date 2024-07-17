@@ -50,9 +50,13 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable String host;
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
+     * 
+     * @deprecated
+     * Use `http_version` in the `options_list` field instead.
      * 
      */
+    @Deprecated /* Use `http_version` in the `options_list` field instead. */
     private @Nullable String httpVersion;
     /**
      * @return For UDP and websocket tests, message to send with the request.
@@ -114,7 +118,7 @@ public final class SyntheticsTestRequestDefinition {
      */
     private @Nullable Boolean shouldTrackHops;
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     private @Nullable Integer timeout;
@@ -175,9 +179,13 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.host);
     }
     /**
-     * @return HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
+     * 
+     * @deprecated
+     * Use `http_version` in the `options_list` field instead.
      * 
      */
+    @Deprecated /* Use `http_version` in the `options_list` field instead. */
     public Optional<String> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
     }
@@ -263,7 +271,7 @@ public final class SyntheticsTestRequestDefinition {
         return Optional.ofNullable(this.shouldTrackHops);
     }
     /**
-     * @return Timeout in seconds for the test. Defaults to `60`.
+     * @return Timeout in seconds for the test.
      * 
      */
     public Optional<Integer> timeout() {

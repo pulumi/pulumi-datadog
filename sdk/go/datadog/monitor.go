@@ -132,8 +132,8 @@ type Monitor struct {
 	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrOutput `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	Query    pulumi.StringOutput `pulumi:"query"`
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	Query    pulumi.StringOutput    `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
@@ -280,7 +280,7 @@ type monitorState struct {
 	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority *int    `pulumi:"priority"`
+	Priority *string `pulumi:"priority"`
 	Query    *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -387,7 +387,7 @@ type MonitorState struct {
 	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority pulumi.IntPtrInput
+	Priority pulumi.StringPtrInput
 	Query    pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -495,8 +495,8 @@ type monitorArgs struct {
 	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData *string `pulumi:"onMissingData"`
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority *int   `pulumi:"priority"`
-	Query    string `pulumi:"query"`
+	Priority *string `pulumi:"priority"`
+	Query    string  `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -600,7 +600,7 @@ type MonitorArgs struct {
 	// `showNoData`, `showAndNotifyNoData`, `resolve`, and `default`.
 	OnMissingData pulumi.StringPtrInput
 	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	Priority pulumi.IntPtrInput
+	Priority pulumi.StringPtrInput
 	Query    pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
@@ -856,8 +856,8 @@ func (o MonitorOutput) OnMissingData() pulumi.StringPtrOutput {
 }
 
 // Integer from 1 (high) to 5 (low) indicating alert severity.
-func (o MonitorOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+func (o MonitorOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
 func (o MonitorOutput) Query() pulumi.StringOutput {

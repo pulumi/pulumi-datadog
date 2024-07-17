@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AcceptSelfSigned;
         /// <summary>
-        /// Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+        /// Allows loading insecure content for a request in an API test or in a multistep API test step.
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>

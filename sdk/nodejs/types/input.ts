@@ -726,6 +726,10 @@ export interface DashboardWidgetChangeDefinitionRequestQuery {
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -768,6 +772,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface DashboardWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -816,6 +824,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -834,6 +846,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -918,6 +934,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -936,6 +956,10 @@ export interface DashboardWidgetChangeDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -975,6 +999,10 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -1448,6 +1476,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQuery {
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -1490,6 +1522,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -1538,6 +1574,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -1556,6 +1596,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -1640,6 +1684,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -1658,6 +1706,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -1697,6 +1749,10 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -2176,6 +2232,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuery {
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -2218,6 +2278,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -2266,6 +2330,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -2284,6 +2352,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -2368,6 +2440,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -2386,6 +2462,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -2425,6 +2505,10 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -3422,6 +3506,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuery {
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -3464,6 +3552,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -3512,6 +3604,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -3530,6 +3626,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -3614,6 +3714,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -3632,6 +3736,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -3671,6 +3779,10 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -4066,6 +4178,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuery {
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -4108,6 +4224,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -4156,6 +4276,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -4174,6 +4298,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -4258,6 +4386,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -4276,6 +4408,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -4315,6 +4451,10 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -4645,6 +4785,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -4687,6 +4831,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -4735,6 +4883,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -4753,6 +4905,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -4837,6 +4993,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -4855,6 +5015,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -4894,6 +5058,10 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -5847,6 +6015,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQuery {
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -5889,6 +6061,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryApmDependencyStats
 }
 
 export interface DashboardWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -5937,6 +6113,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -5955,6 +6135,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -6039,6 +6223,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -6057,6 +6245,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -6096,6 +6288,10 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -6603,6 +6799,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -6645,6 +6845,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencySta
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -6693,6 +6897,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -6711,6 +6919,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -6795,6 +7007,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -6813,6 +7029,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -6852,6 +7072,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -7288,6 +7512,10 @@ export interface DashboardWidgetToplistDefinitionRequestQuery {
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -7330,6 +7558,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -7378,6 +7610,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -7396,6 +7632,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -7480,6 +7720,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -7498,6 +7742,10 @@ export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -7537,6 +7785,10 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -7838,6 +8090,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQuery {
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -7880,6 +8136,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface DashboardWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -7928,6 +8188,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -7946,6 +8210,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -8030,6 +8298,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -8048,6 +8320,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -8087,6 +8363,10 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -10073,6 +10353,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQuery {
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -10115,6 +10399,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface PowerpackWidgetChangeDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -10163,6 +10451,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -10181,6 +10473,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetChangeDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -10265,6 +10561,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -10283,6 +10583,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -10322,6 +10626,10 @@ export interface PowerpackWidgetChangeDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -11376,6 +11684,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuery {
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -11418,6 +11730,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryApmDependencyStatsQu
 }
 
 export interface PowerpackWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -11466,6 +11782,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -11484,6 +11804,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetGeomapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -11568,6 +11892,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -11586,6 +11914,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -11625,6 +11957,10 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -12164,6 +12500,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuery {
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -12206,6 +12546,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetHeatmapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -12254,6 +12598,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -12272,6 +12620,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -12356,6 +12708,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -12374,6 +12730,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -12413,6 +12773,10 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -14255,6 +14619,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuery {
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -14297,6 +14665,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -14345,6 +14717,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -14363,6 +14739,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -14447,6 +14827,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -14465,6 +14849,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -14504,6 +14892,10 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -15231,6 +15623,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuery {
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -15273,6 +15669,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -15321,6 +15721,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -15339,6 +15743,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -15423,6 +15831,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -15441,6 +15853,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -15480,6 +15896,10 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -15893,6 +16313,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -15935,6 +16359,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
 }
 
 export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -15983,6 +16411,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -16001,6 +16433,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -16085,6 +16521,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -16103,6 +16543,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -16142,6 +16586,10 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -17716,6 +18164,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuery {
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -17758,6 +18210,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryApmDependencyStats
 }
 
 export interface PowerpackWidgetSunburstDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -17806,6 +18262,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -17824,6 +18284,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetSunburstDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -17908,6 +18372,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -17926,6 +18394,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -17965,6 +18437,10 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -18804,6 +19280,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuery {
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -18846,6 +19326,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmDependencySta
 }
 
 export interface PowerpackWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -18894,6 +19378,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -18912,6 +19400,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -18996,6 +19488,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -19014,6 +19510,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -19053,6 +19553,10 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -19821,6 +20325,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQuery {
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -19863,6 +20371,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -19911,6 +20423,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -19929,6 +20445,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -20013,6 +20533,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -20031,6 +20555,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -20070,6 +20598,10 @@ export interface PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -20537,6 +21069,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuery {
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQuery {
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
      */
     dataSource: pulumi.Input<string>;
@@ -20579,6 +21115,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryApmDependencyStatsQ
 }
 
 export interface PowerpackWidgetTreemapDefinitionRequestQueryApmResourceStatsQuery {
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
      */
@@ -20627,6 +21167,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryCloudCostQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for cloud cost queries. Valid values are `cloudCost`.
      */
     dataSource: pulumi.Input<string>;
@@ -20645,6 +21189,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      * The compute options.
      */
     computes: pulumi.Input<pulumi.Input<inputs.PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute>[]>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
      */
@@ -20729,6 +21277,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryMetricQuery {
      */
     aggregator?: pulumi.Input<string>;
     /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
+    /**
      * The data source for metrics queries. Defaults to `"metrics"`.
      */
     dataSource?: pulumi.Input<string>;
@@ -20747,6 +21299,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryProcessQuery {
      * The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for process queries. Valid values are `process`, `container`.
      */
@@ -20786,6 +21342,10 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
      * Additional filters applied to the SLO query.
      */
     additionalQueryFilters?: pulumi.Input<string>;
+    /**
+     * The source organization UUID for cross organization queries. Feature in Private Beta.
+     */
+    crossOrgUuids?: pulumi.Input<string>;
     /**
      * The data source for SLO queries. Valid values are `slo`.
      */
@@ -21374,6 +21934,10 @@ export interface SyntheticsTestApiStep {
      */
     requestHeaders?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Metadata to include when performing the gRPC request.
+     */
+    requestMetadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The proxy to perform the test.
      */
     requestProxy?: pulumi.Input<inputs.SyntheticsTestApiStepRequestProxy>;
@@ -21600,7 +22164,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 
 export interface SyntheticsTestApiStepRequestDefinition {
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
@@ -21636,7 +22200,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: pulumi.Input<string>;
     /**
@@ -21686,7 +22250,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     shouldTrackHops?: pulumi.Input<boolean>;
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      */
     timeout?: pulumi.Input<number>;
     /**
@@ -22019,7 +22583,7 @@ export interface SyntheticsTestOptionsList {
      */
     acceptSelfSigned?: pulumi.Input<boolean>;
     /**
-     * Allows loading insecure content for an HTTP request in an API test or in a multistep API test step.
+     * Allows loading insecure content for a request in an API test or in a multistep API test step.
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
@@ -22043,7 +22607,7 @@ export interface SyntheticsTestOptionsList {
      */
     followRedirects?: pulumi.Input<boolean>;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`. Defaults to `"any"`.
      */
     httpVersion?: pulumi.Input<string>;
     /**
@@ -22285,7 +22849,9 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+     * HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
+     *
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      */
     httpVersion?: pulumi.Input<string>;
     /**
@@ -22335,7 +22901,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     shouldTrackHops?: pulumi.Input<boolean>;
     /**
-     * Timeout in seconds for the test. Defaults to `60`.
+     * Timeout in seconds for the test.
      */
     timeout?: pulumi.Input<number>;
     /**

@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list ""
+ * $ pulumi import datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule new_list "<rule_id>"
  * ```
  */
 export class SensitiveDataScannerRule extends pulumi.CustomResource {

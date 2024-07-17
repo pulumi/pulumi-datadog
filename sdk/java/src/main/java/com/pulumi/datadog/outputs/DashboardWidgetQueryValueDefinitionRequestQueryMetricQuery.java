@@ -18,6 +18,11 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     private @Nullable String aggregator;
     /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    private @Nullable String crossOrgUuids;
+    /**
      * @return The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
      * 
      */
@@ -40,6 +45,13 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
+    }
+    /**
+     * @return The source organization UUID for cross organization queries. Feature in Private Beta.
+     * 
+     */
+    public Optional<String> crossOrgUuids() {
+        return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
      * @return The data source for metrics queries. Defaults to `&#34;metrics&#34;`.
@@ -73,6 +85,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
+        private @Nullable String crossOrgUuids;
         private @Nullable String dataSource;
         private String name;
         private String query;
@@ -80,6 +93,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
         public Builder(DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregator = defaults.aggregator;
+    	      this.crossOrgUuids = defaults.crossOrgUuids;
     	      this.dataSource = defaults.dataSource;
     	      this.name = defaults.name;
     	      this.query = defaults.query;
@@ -89,6 +103,12 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
         public Builder aggregator(@Nullable String aggregator) {
 
             this.aggregator = aggregator;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder crossOrgUuids(@Nullable String crossOrgUuids) {
+
+            this.crossOrgUuids = crossOrgUuids;
             return this;
         }
         @CustomType.Setter
@@ -116,6 +136,7 @@ public final class DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
         public DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery build() {
             final var _resultValue = new DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery();
             _resultValue.aggregator = aggregator;
+            _resultValue.crossOrgUuids = crossOrgUuids;
             _resultValue.dataSource = dataSource;
             _resultValue.name = name;
             _resultValue.query = query;

@@ -28,6 +28,12 @@ namespace Pulumi.Datadog
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+        /// </summary>
+        [Input("exactMatch")]
+        public bool? ExactMatch { get; set; }
+
+        /// <summary>
         /// Filter all users and service accounts by name, email, or role.
         /// </summary>
         [Input("filter")]
@@ -53,6 +59,12 @@ namespace Pulumi.Datadog
 
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+        /// </summary>
+        [Input("exactMatch")]
+        public Input<bool>? ExactMatch { get; set; }
+
         /// <summary>
         /// Filter all users and service accounts by name, email, or role.
         /// </summary>
@@ -89,6 +101,10 @@ namespace Pulumi.Datadog
         /// Email of the user.
         /// </summary>
         public readonly string Email;
+        /// <summary>
+        /// When true, `filter` string is exact matched against the user's `email`, followed by `name` attribute.
+        /// </summary>
+        public readonly bool? ExactMatch;
         /// <summary>
         /// Filter all users and service accounts by name, email, or role.
         /// </summary>
@@ -136,6 +152,8 @@ namespace Pulumi.Datadog
 
             string email,
 
+            bool? exactMatch,
+
             string? filter,
 
             string? filterStatus,
@@ -158,6 +176,7 @@ namespace Pulumi.Datadog
         {
             Disabled = disabled;
             Email = email;
+            ExactMatch = exactMatch;
             Filter = filter;
             FilterStatus = filterStatus;
             Handle = handle;

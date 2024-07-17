@@ -25,6 +25,11 @@ public final class GetServiceAccountResult {
      */
     private String email;
     /**
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    private @Nullable Boolean exactMatch;
+    /**
      * @return Filter all users and service accounts by name, email, or role.
      * 
      */
@@ -89,6 +94,13 @@ public final class GetServiceAccountResult {
      */
     public String email() {
         return this.email;
+    }
+    /**
+     * @return When true, `filter` string is exact matched against the user&#39;s `email`, followed by `name` attribute.
+     * 
+     */
+    public Optional<Boolean> exactMatch() {
+        return Optional.ofNullable(this.exactMatch);
     }
     /**
      * @return Filter all users and service accounts by name, email, or role.
@@ -172,6 +184,7 @@ public final class GetServiceAccountResult {
     public static final class Builder {
         private Boolean disabled;
         private String email;
+        private @Nullable Boolean exactMatch;
         private @Nullable String filter;
         private @Nullable String filterStatus;
         private String handle;
@@ -187,6 +200,7 @@ public final class GetServiceAccountResult {
     	      Objects.requireNonNull(defaults);
     	      this.disabled = defaults.disabled;
     	      this.email = defaults.email;
+    	      this.exactMatch = defaults.exactMatch;
     	      this.filter = defaults.filter;
     	      this.filterStatus = defaults.filterStatus;
     	      this.handle = defaults.handle;
@@ -213,6 +227,12 @@ public final class GetServiceAccountResult {
               throw new MissingRequiredPropertyException("GetServiceAccountResult", "email");
             }
             this.email = email;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exactMatch(@Nullable Boolean exactMatch) {
+
+            this.exactMatch = exactMatch;
             return this;
         }
         @CustomType.Setter
@@ -298,6 +318,7 @@ public final class GetServiceAccountResult {
             final var _resultValue = new GetServiceAccountResult();
             _resultValue.disabled = disabled;
             _resultValue.email = email;
+            _resultValue.exactMatch = exactMatch;
             _resultValue.filter = filter;
             _resultValue.filterStatus = filterStatus;
             _resultValue.handle = handle;

@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// HTTP version to use for an HTTP request in an API test or step. Valid values are `http1`, `http2`, `any`.
+        /// HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `http_version` in the `options_list` field instead.
         /// </summary>
         public readonly string? HttpVersion;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? ShouldTrackHops;
         /// <summary>
-        /// Timeout in seconds for the test. Defaults to `60`.
+        /// Timeout in seconds for the test.
         /// </summary>
         public readonly int? Timeout;
         /// <summary>

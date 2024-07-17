@@ -406,13 +406,13 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="priority")
-    private @Nullable Output<Integer> priority;
+    private @Nullable Output<String> priority;
 
     /**
      * @return Integer from 1 (high) to 5 (low) indicating alert severity.
      * 
      */
-    public Optional<Output<Integer>> priority() {
+    public Optional<Output<String>> priority() {
         return Optional.ofNullable(this.priority);
     }
 
@@ -1182,7 +1182,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder priority(@Nullable Output<Integer> priority) {
+        public Builder priority(@Nullable Output<String> priority) {
             $.priority = priority;
             return this;
         }
@@ -1193,7 +1193,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder priority(Integer priority) {
+        public Builder priority(String priority) {
             return priority(Output.of(priority));
         }
 
