@@ -17,9 +17,6 @@ package psed
 import (
 	"strings"
 
-	// "golang.org/x/text/cases"
-	// "golang.org/x/text/language"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
