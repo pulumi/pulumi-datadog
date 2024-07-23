@@ -1024,7 +1024,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -1774,7 +1774,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -2530,7 +2530,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -2842,7 +2842,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -3804,7 +3804,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -4476,7 +4476,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -5083,7 +5083,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -6313,7 +6313,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -7097,7 +7097,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -7810,7 +7810,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -8388,7 +8388,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -9581,7 +9581,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `networkPerformanceQueries`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -10651,7 +10651,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -11982,7 +11982,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -12798,7 +12798,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -13940,7 +13940,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -14917,7 +14917,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -15921,7 +15921,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -16611,7 +16611,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -18462,7 +18462,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -19578,7 +19578,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -20623,7 +20623,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -21367,7 +21367,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     sloId: pulumi.Input<string>;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: pulumi.Input<string>;
 }
@@ -21493,7 +21493,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     decreaseCriticalityBasedOnEnv?: pulumi.Input<boolean>;
     /**
-     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`. Defaults to `"threshold"`.
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
      */
     detectionMethod?: pulumi.Input<string>;
     /**

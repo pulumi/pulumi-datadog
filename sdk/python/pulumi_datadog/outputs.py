@@ -4596,7 +4596,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -4672,7 +4672,7 @@ class DashboardWidgetChangeDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -7273,7 +7273,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -7349,7 +7349,7 @@ class DashboardWidgetGeomapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -9959,7 +9959,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -10035,7 +10035,7 @@ class DashboardWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -11179,7 +11179,7 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.DashboardWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
-        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
+        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
@@ -11202,7 +11202,7 @@ class DashboardWidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -14458,7 +14458,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -14534,7 +14534,7 @@ class DashboardWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -16807,7 +16807,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -16883,7 +16883,7 @@ class DashboardWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -18918,7 +18918,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -18994,7 +18994,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -23303,7 +23303,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -23379,7 +23379,7 @@ class DashboardWidgetSunburstDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -26043,7 +26043,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -26119,7 +26119,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -28556,7 +28556,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -28632,7 +28632,7 @@ class DashboardWidgetToplistDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -30580,7 +30580,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -30656,7 +30656,7 @@ class DashboardWidgetTreemapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -35099,7 +35099,7 @@ class MonitorVariablesEventQuery(dict):
                  indexes: Optional[Sequence[str]] = None):
         """
         :param Sequence['MonitorVariablesEventQueryComputeArgs'] computes: The compute options.
-        :param str data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network_performance_queries`.
+        :param str data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`.
         :param str name: The name of query for use in formulas.
         :param 'MonitorVariablesEventQuerySearchArgs' search: The search options.
         :param Sequence['MonitorVariablesEventQueryGroupByArgs'] group_bies: Group by options.
@@ -35126,7 +35126,7 @@ class MonitorVariablesEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network_performance_queries`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`.
         """
         return pulumi.get(self, "data_source")
 
@@ -38704,7 +38704,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -38780,7 +38780,7 @@ class PowerpackWidgetChangeDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -43299,7 +43299,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -43375,7 +43375,7 @@ class PowerpackWidgetGeomapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -46130,7 +46130,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -46206,7 +46206,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -50090,7 +50090,7 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.PowerpackWidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[str] = None):
         """
-        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
+        :param str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
         :param str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence[str] indexes: List of indexes.
         :param str query_string: Widget query.
@@ -50113,7 +50113,7 @@ class PowerpackWidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -53408,7 +53408,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -53484,7 +53484,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -56853,7 +56853,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -56929,7 +56929,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -59238,7 +59238,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -59314,7 +59314,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery(d
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -65602,7 +65602,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -65678,7 +65678,7 @@ class PowerpackWidgetSunburstDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -69438,7 +69438,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -69514,7 +69514,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -73047,7 +73047,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -73123,7 +73123,7 @@ class PowerpackWidgetToplistDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -75619,7 +75619,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
         :param str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param str group_mode: Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
         :param str name: The name of query for use in formulas.
-        :param str slo_query_type: type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        :param str slo_query_type: type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "measure", measure)
@@ -75695,7 +75695,7 @@ class PowerpackWidgetTreemapDefinitionRequestQuerySloQuery(dict):
     @pulumi.getter(name="sloQueryType")
     def slo_query_type(self) -> Optional[str]:
         """
-        type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         """
         return pulumi.get(self, "slo_query_type")
 
@@ -76089,7 +76089,7 @@ class SecurityMonitoringRuleOptions(dict):
                  third_party_rule_options: Optional['outputs.SecurityMonitoringRuleOptionsThirdPartyRuleOptions'] = None):
         """
         :param bool decrease_criticality_based_on_env: If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce noise. The decrement is applied when the environment tag of the signal starts with `staging`, `test`, or `dev`. Only available when the rule type is `log_detection`. Defaults to `false`.
-        :param str detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `"threshold"`.
+        :param str detection_method: The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `"threshold"`.
         :param int evaluation_window: A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time. Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`.
         :param 'SecurityMonitoringRuleOptionsImpossibleTravelOptionsArgs' impossible_travel_options: Options for rules using the impossible travel detection method.
         :param int keep_alive: Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window (in seconds). Valid values are `0`, `60`, `300`, `600`, `900`, `1800`, `3600`, `7200`, `10800`, `21600`.
@@ -76126,7 +76126,7 @@ class SecurityMonitoringRuleOptions(dict):
     @pulumi.getter(name="detectionMethod")
     def detection_method(self) -> Optional[str]:
         """
-        The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `"threshold"`.
+        The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `"threshold"`.
         """
         return pulumi.get(self, "detection_method")
 
