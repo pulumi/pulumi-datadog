@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> SloId { get; set; } = null!;
 
         /// <summary>
-        /// type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+        /// type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `"metric"`.
         /// </summary>
         [Input("sloQueryType")]
         public Input<string>? SloQueryType { get; set; }

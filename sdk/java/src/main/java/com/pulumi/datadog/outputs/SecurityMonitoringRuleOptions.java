@@ -22,7 +22,7 @@ public final class SecurityMonitoringRuleOptions {
      */
     private @Nullable Boolean decreaseCriticalityBasedOnEnv;
     /**
-     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `&#34;threshold&#34;`.
      * 
      */
     private @Nullable String detectionMethod;
@@ -66,7 +66,7 @@ public final class SecurityMonitoringRuleOptions {
         return Optional.ofNullable(this.decreaseCriticalityBasedOnEnv);
     }
     /**
-     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `&#34;threshold&#34;`.
+     * @return The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `&#34;threshold&#34;`.
      * 
      */
     public Optional<String> detectionMethod() {

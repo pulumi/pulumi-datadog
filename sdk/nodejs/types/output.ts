@@ -1024,7 +1024,7 @@ export interface DashboardWidgetChangeDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -1774,7 +1774,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -2530,7 +2530,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -2842,7 +2842,7 @@ export interface DashboardWidgetListStreamDefinitionRequestColumn {
 
 export interface DashboardWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
      */
     dataSource: string;
     /**
@@ -3804,7 +3804,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -4476,7 +4476,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -5083,7 +5083,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -6313,7 +6313,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -7097,7 +7097,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -7810,7 +7810,7 @@ export interface DashboardWidgetToplistDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -8388,7 +8388,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -10236,7 +10236,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: outputs.MonitorVariablesEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `networkPerformanceQueries`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`.
      */
     dataSource: string;
     /**
@@ -11306,7 +11306,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -12637,7 +12637,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -13453,7 +13453,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -14595,7 +14595,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestColumn {
 
 export interface PowerpackWidgetListStreamDefinitionRequestQuery {
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`.
      */
     dataSource: string;
     /**
@@ -15572,7 +15572,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -16576,7 +16576,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -17266,7 +17266,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -19117,7 +19117,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -20233,7 +20233,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -21278,7 +21278,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -22022,7 +22022,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQuerySloQuery {
      */
     sloId: string;
     /**
-     * type of the SLO to query. Valid values are `metric`. Defaults to `"metric"`.
+     * type of the SLO to query. Valid values are `metric`, `timeSlice`. Defaults to `"metric"`.
      */
     sloQueryType?: string;
 }
@@ -22148,7 +22148,7 @@ export interface SecurityMonitoringRuleOptions {
      */
     decreaseCriticalityBasedOnEnv?: boolean;
     /**
-     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`. Defaults to `"threshold"`.
+     * The detection method. Valid values are `threshold`, `newValue`, `anomalyDetection`, `impossibleTravel`, `hardcoded`, `thirdParty`, `anomalyThreshold`. Defaults to `"threshold"`.
      */
     detectionMethod?: string;
     /**
