@@ -1472,7 +1472,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -2420,7 +2420,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -3360,7 +3360,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -3760,7 +3760,7 @@
             "properties": {
                 "dataSource": {
                     "type": "string",
-                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.\n"
+                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.\n"
                 },
                 "eventSize": {
                     "type": "string",
@@ -4985,7 +4985,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -5836,7 +5836,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -6628,7 +6628,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -8220,7 +8220,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -9231,7 +9231,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -10129,7 +10129,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -10872,7 +10872,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -12576,7 +12576,7 @@
                 },
                 "dataSource": {
                     "type": "string",
-                    "description": "The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network_performance_queries`.\n"
+                    "description": "The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`.\n"
                 },
                 "groupBies": {
                     "type": "array",
@@ -13944,7 +13944,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -15676,7 +15676,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -16738,7 +16738,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -18258,7 +18258,7 @@
             "properties": {
                 "dataSource": {
                     "type": "string",
-                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`.\n"
+                    "description": "Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`.\n"
                 },
                 "eventSize": {
                     "type": "string",
@@ -19496,7 +19496,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -20795,7 +20795,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -21699,7 +21699,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -24119,7 +24119,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -25578,7 +25578,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -26924,7 +26924,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -27891,7 +27891,7 @@
                 },
                 "sloQueryType": {
                     "type": "string",
-                    "description": "type of the SLO to query. Valid values are `metric`. Defaults to `\"metric\"`.\n"
+                    "description": "type of the SLO to query. Valid values are `metric`, `time_slice`. Defaults to `\"metric\"`.\n"
                 }
             },
             "type": "object",
@@ -28091,7 +28091,7 @@
                 },
                 "detectionMethod": {
                     "type": "string",
-                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`. Defaults to `\"threshold\"`.\n"
+                    "description": "The detection method. Valid values are `threshold`, `new_value`, `anomaly_detection`, `impossible_travel`, `hardcoded`, `third_party`, `anomaly_threshold`. Defaults to `\"threshold\"`.\n"
                 },
                 "evaluationWindow": {
                     "type": "integer",
