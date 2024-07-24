@@ -3,11 +3,11 @@ module github.com/pulumi/pulumi-datadog/provider/v4
 go 1.21.12
 
 require (
-	github.com/pulumi/providertest v0.0.13
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.0
-	github.com/pulumi/pulumi/pkg/v3 v3.124.0
-	github.com/pulumi/pulumi/sdk/v3 v3.124.0
+	github.com/pulumi/providertest v0.0.14
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.40.1-0.20240724013245-33763d1356a3
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.87.1-0.20240724013245-33763d1356a3
+	github.com/pulumi/pulumi/pkg/v3 v3.126.0
+	github.com/pulumi/pulumi/sdk/v3 v3.126.0
 	github.com/stretchr/testify v1.9.0
 	github.com/terraform-providers/terraform-provider-datadog v0.0.0
 	golang.org/x/text v0.16.0
