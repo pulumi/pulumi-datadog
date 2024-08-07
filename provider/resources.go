@@ -170,6 +170,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
+		Ena
 	}
 
 	strategy := tks.KnownModules("datadog_", mainMod, []string{
