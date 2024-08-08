@@ -126,7 +126,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CloudWorkloadSecurityAgentRule(String name) {
+    public CloudWorkloadSecurityAgentRule(java.lang.String name) {
         this(name, CloudWorkloadSecurityAgentRuleArgs.Empty);
     }
     /**
@@ -134,7 +134,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CloudWorkloadSecurityAgentRule(String name, CloudWorkloadSecurityAgentRuleArgs args) {
+    public CloudWorkloadSecurityAgentRule(java.lang.String name, CloudWorkloadSecurityAgentRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,15 +143,22 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CloudWorkloadSecurityAgentRule(String name, CloudWorkloadSecurityAgentRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule", name, args == null ? CloudWorkloadSecurityAgentRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CloudWorkloadSecurityAgentRule(java.lang.String name, CloudWorkloadSecurityAgentRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CloudWorkloadSecurityAgentRule(String name, Output<String> id, @Nullable CloudWorkloadSecurityAgentRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule", name, state, makeResourceOptions(options, id));
+    private CloudWorkloadSecurityAgentRule(java.lang.String name, Output<java.lang.String> id, @Nullable CloudWorkloadSecurityAgentRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CloudWorkloadSecurityAgentRuleArgs makeArgs(CloudWorkloadSecurityAgentRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CloudWorkloadSecurityAgentRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -167,7 +174,7 @@ public class CloudWorkloadSecurityAgentRule extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CloudWorkloadSecurityAgentRule get(String name, Output<String> id, @Nullable CloudWorkloadSecurityAgentRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CloudWorkloadSecurityAgentRule get(java.lang.String name, Output<java.lang.String> id, @Nullable CloudWorkloadSecurityAgentRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CloudWorkloadSecurityAgentRule(name, id, state, options);
     }
 }

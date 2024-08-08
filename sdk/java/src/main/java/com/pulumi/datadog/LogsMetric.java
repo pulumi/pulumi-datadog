@@ -43,34 +43,34 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var testingLogsMetric = new LogsMetric("testingLogsMetric", LogsMetricArgs.builder()
  *             .name("testing.logs.metric")
  *             .compute(LogsMetricComputeArgs.builder()
  *                 .aggregationType("distribution")
- *                 .path("{@literal @}duration")
+ *                 .path("}{@literal @}{@code duration")
  *                 .build())
  *             .filter(LogsMetricFilterArgs.builder()
  *                 .query("service:test")
  *                 .build())
  *             .groupBies(            
  *                 LogsMetricGroupByArgs.builder()
- *                     .path("{@literal @}status")
+ *                     .path("}{@literal @}{@code status")
  *                     .tagName("status")
  *                     .build(),
  *                 LogsMetricGroupByArgs.builder()
- *                     .path("{@literal @}version")
+ *                     .path("}{@literal @}{@code version")
  *                     .tagName("version")
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsMetric(String name) {
+    public LogsMetric(java.lang.String name) {
         this(name, LogsMetricArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsMetric(String name, LogsMetricArgs args) {
+    public LogsMetric(java.lang.String name, LogsMetricArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsMetric(String name, LogsMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsMetric:LogsMetric", name, args == null ? LogsMetricArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsMetric(java.lang.String name, LogsMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsMetric:LogsMetric", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsMetric(String name, Output<String> id, @Nullable LogsMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsMetric:LogsMetric", name, state, makeResourceOptions(options, id));
+    private LogsMetric(java.lang.String name, Output<java.lang.String> id, @Nullable LogsMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsMetric:LogsMetric", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsMetricArgs makeArgs(LogsMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsMetricArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class LogsMetric extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsMetric get(String name, Output<String> id, @Nullable LogsMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsMetric get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsMetric(name, id, state, options);
     }
 }

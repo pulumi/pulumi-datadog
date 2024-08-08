@@ -99,7 +99,7 @@ public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RestrictionPolicy(String name) {
+    public RestrictionPolicy(java.lang.String name) {
         this(name, RestrictionPolicyArgs.Empty);
     }
     /**
@@ -107,7 +107,7 @@ public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RestrictionPolicy(String name, RestrictionPolicyArgs args) {
+    public RestrictionPolicy(java.lang.String name, RestrictionPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -116,15 +116,22 @@ public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RestrictionPolicy(String name, RestrictionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/restrictionPolicy:RestrictionPolicy", name, args == null ? RestrictionPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RestrictionPolicy(java.lang.String name, RestrictionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/restrictionPolicy:RestrictionPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RestrictionPolicy(String name, Output<String> id, @Nullable RestrictionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/restrictionPolicy:RestrictionPolicy", name, state, makeResourceOptions(options, id));
+    private RestrictionPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RestrictionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/restrictionPolicy:RestrictionPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RestrictionPolicyArgs makeArgs(RestrictionPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RestrictionPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -140,7 +147,7 @@ public class RestrictionPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RestrictionPolicy get(String name, Output<String> id, @Nullable RestrictionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RestrictionPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RestrictionPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RestrictionPolicy(name, id, state, options);
     }
 }

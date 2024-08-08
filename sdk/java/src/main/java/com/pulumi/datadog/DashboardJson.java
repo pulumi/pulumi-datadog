@@ -38,87 +38,87 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Example Dashboard JSON
  *         var dashboardJson = new DashboardJson("dashboardJson", DashboardJsonArgs.builder()
  *             .dashboard("""
- * {
+ * }{{@code
  *    "title":"Ordered Layout Dashboard",
  *    "description":"Created using the Datadog provider in Pulumi",
  *    "widgets":[
- *       {
+ *       }{{@code
  *          "id":719369537777170,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"alert_graph",
  *             "alert_id":"895605",
  *             "viz_type":"timeseries"
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":2306240030393868,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"alert_value",
  *             "alert_id":"895605",
  *             "unit":"b",
  *             "text_align":"center",
  *             "precision":3
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":6990998850881326,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"alert_value",
  *             "alert_id":"895605",
  *             "unit":"b",
  *             "text_align":"center",
  *             "precision":3
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":3351284044659007,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"change",
  *             "requests":[
- *                {
- *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                }{{@code
+ *                   "q":"avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ",
  *                   "compare_to":"week_before",
  *                   "change_type":"absolute",
  *                   "order_dir":"desc",
  *                   "increase_good":true,
  *                   "order_by":"name",
  *                   "show_present":true
- *                }
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":6450290622996182,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "show_legend":false,
  *             "type":"distribution",
  *             "requests":[
- *                {
- *                   "q":"avg:system.load.1{env:staging} by {account}",
- *                   "style":{
+ *                }{{@code
+ *                   "q":"avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ",
+ *                   "style":}{{@code
  *                      "palette":"warm"
- *                   }
- *                }
+ *                   }}{@code
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":4902842646291536,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"check_status",
  *             "check":"aws.ecs.agent_connected",
@@ -131,43 +131,43 @@ import javax.annotation.Nullable;
  *                "account:demo",
  *                "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk"
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":6392349954822644,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "show_legend":false,
  *             "type":"heatmap",
- *             "yaxis":{
+ *             "yaxis":}{{@code
  *                "scale":"sqrt",
  *                "include_zero":true,
  *                "min":"1",
  *                "max":"2"
- *             },
+ *             }}{@code ,
  *             "requests":[
- *                {
- *                   "q":"avg:system.load.1{env:staging} by {account}",
- *                   "style":{
+ *                }{{@code
+ *                   "q":"avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ",
+ *                   "style":}{{@code
  *                      "palette":"warm"
- *                   }
- *                }
+ *                   }}{@code
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":5222961478940988,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"hostmap",
- *             "requests":{
- *                "fill":{
- *                   "q":"avg:system.load.1{*} by {host}"
- *                },
- *                "size":{
- *                   "q":"avg:memcache.uptime{*} by {host}"
- *                }
- *             },
+ *             "requests":}{{@code
+ *                "fill":}{{@code
+ *                   "q":"avg:system.load.1}{{@code *}}{@code  by }{{@code host}}{@code "
+ *                }}{@code ,
+ *                "size":}{{@code
+ *                   "q":"avg:memcache.uptime}{{@code *}}{@code  by }{{@code host}}{@code "
+ *                }}{@code
+ *             }}{@code ,
  *             "node_type":"container",
  *             "no_metric_hosts":true,
  *             "no_group_hosts":true,
@@ -179,17 +179,17 @@ import javax.annotation.Nullable;
  *                "region:us-east-1",
  *                "aws_account:727006795293"
  *             ],
- *             "style":{
+ *             "style":}{{@code
  *                "palette":"yellow_to_green",
  *                "palette_flip":true,
  *                "fill_min":"10",
  *                "fill_max":"20"
- *             }
- *          }
- *       },
- *       {
+ *             }}{@code
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":8121199734227072,
- *          "definition":{
+ *          "definition":}{{@code
  *             "type":"note",
  *             "content":"note text",
  *             "background_color":"pink",
@@ -198,105 +198,105 @@ import javax.annotation.Nullable;
  *             "show_tick":true,
  *             "tick_pos":"50%",
  *             "tick_edge":"left"
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":1775856835833038,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"query_value",
  *             "requests":[
- *                {
- *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                }{{@code
+ *                   "q":"avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ",
  *                   "aggregator":"sum",
  *                   "conditional_formats":[
- *                      {
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":"<",
  *                         "palette":"white_on_green",
  *                         "value":2
- *                      },
- *                      {
+ *                      }}{@code ,
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":">",
  *                         "palette":"white_on_red",
  *                         "value":2.2
- *                      }
+ *                      }}{@code
  *                   ]
- *                }
+ *                }}{@code
  *             ],
  *             "autoscale":true,
  *             "custom_unit":"xx",
  *             "text_align":"right",
  *             "precision":4
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":8461455966625581,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"query_table",
  *             "requests":[
- *                {
- *                   "q":"avg:system.load.1{env:staging} by {account}",
+ *                }{{@code
+ *                   "q":"avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ",
  *                   "aggregator":"sum",
  *                   "conditional_formats":[
- *                      {
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":"<",
  *                         "palette":"white_on_green",
  *                         "value":2
- *                      },
- *                      {
+ *                      }}{@code ,
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":">",
  *                         "palette":"white_on_red",
  *                         "value":2.2
- *                      }
+ *                      }}{@code
  *                   ],
  *                   "limit":10
- *                }
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":8660006349418736,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"scatterplot",
- *             "requests":{
- *                "x":{
- *                   "q":"avg:system.cpu.user{*} by {service, account}",
+ *             "requests":}{{@code
+ *                "x":}{{@code
+ *                   "q":"avg:system.cpu.user}{{@code *}}{@code  by }{{@code service, account}}{@code ",
  *                   "aggregator":"max"
- *                },
- *                "y":{
- *                   "q":"avg:system.mem.used{*} by {service, account}",
+ *                }}{@code ,
+ *                "y":}{{@code
+ *                   "q":"avg:system.mem.used}{{@code *}}{@code  by }{{@code service, account}}{@code ",
  *                   "aggregator":"min"
- *                }
- *             },
- *             "xaxis":{
+ *                }}{@code
+ *             }}{@code ,
+ *             "xaxis":}{{@code
  *                "scale":"pow",
  *                "label":"x",
  *                "include_zero":true,
  *                "min":"1",
  *                "max":"2000"
- *             },
- *             "yaxis":{
+ *             }}{@code ,
+ *             "yaxis":}{{@code
  *                "scale":"log",
  *                "label":"y",
  *                "include_zero":false,
  *                "min":"5",
  *                "max":"2222"
- *             },
+ *             }}{@code ,
  *             "color_by_groups":[
  *                "account",
  *                "apm-role-group"
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":1669590772917638,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"env: prod, datacenter:dc1, service: master-db",
  *             "title_size":"16",
  *             "title_align":"left",
@@ -306,160 +306,160 @@ import javax.annotation.Nullable;
  *                "env:prod",
  *                "datacenter:dc1"
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":2138829058361817,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "show_legend":true,
  *             "legend_size":"2",
  *             "type":"timeseries",
  *             "requests":[
- *                {
- *                   "q":"avg:system.cpu.user{app:general} by {env}",
+ *                }{{@code
+ *                   "q":"avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ",
  *                   "on_right_yaxis":false,
  *                   "metadata":[
- *                      {
- *                         "expression":"avg:system.cpu.user{app:general} by {env}",
+ *                      }{{@code
+ *                         "expression":"avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ",
  *                         "alias_name":"Alpha"
- *                      }
+ *                      }}{@code
  *                   ],
- *                   "style":{
+ *                   "style":}{{@code
  *                      "palette":"warm",
  *                      "line_type":"dashed",
  *                      "line_width":"thin"
- *                   },
+ *                   }}{@code ,
  *                   "display_type":"line"
- *                },
- *                {
+ *                }}{@code ,
+ *                }{{@code
  *                   "on_right_yaxis":false,
- *                   "log_query":{
+ *                   "log_query":}{{@code
  *                      "index":"mcnulty",
- *                      "search":{
+ *                      "search":}{{@code
  *                         "query":"status:info"
- *                      },
+ *                      }}{@code ,
  *                      "group_by":[
- *                         {
+ *                         }{{@code
  *                            "facet":"host",
- *                            "sort":{
- *                               "facet":"{@literal @}duration",
+ *                            "sort":}{{@code
+ *                               "facet":"}{@literal @}{@code duration",
  *                               "aggregation":"avg",
  *                               "order":"desc"
- *                            },
+ *                            }}{@code ,
  *                            "limit":10
- *                         }
+ *                         }}{@code
  *                      ],
- *                      "compute":{
- *                         "facet":"{@literal @}duration",
+ *                      "compute":}{{@code
+ *                         "facet":"}{@literal @}{@code duration",
  *                         "interval":5000,
  *                         "aggregation":"avg"
- *                      }
- *                   },
+ *                      }}{@code
+ *                   }}{@code ,
  *                   "display_type":"area"
- *                },
- *                {
+ *                }}{@code ,
+ *                }{{@code
  *                   "on_right_yaxis":false,
- *                   "apm_query":{
+ *                   "apm_query":}{{@code
  *                      "index":"apm-search",
- *                      "search":{
+ *                      "search":}{{@code
  *                         "query":"type:web"
- *                      },
+ *                      }}{@code ,
  *                      "group_by":[
- *                         {
+ *                         }{{@code
  *                            "facet":"resource_name",
- *                            "sort":{
- *                               "facet":"{@literal @}string_query.interval",
+ *                            "sort":}{{@code
+ *                               "facet":"}{@literal @}{@code string_query.interval",
  *                               "aggregation":"avg",
  *                               "order":"desc"
- *                            },
+ *                            }}{@code ,
  *                            "limit":50
- *                         }
+ *                         }}{@code
  *                      ],
- *                      "compute":{
- *                         "facet":"{@literal @}duration",
+ *                      "compute":}{{@code
+ *                         "facet":"}{@literal @}{@code duration",
  *                         "interval":5000,
  *                         "aggregation":"avg"
- *                      }
- *                   },
+ *                      }}{@code
+ *                   }}{@code ,
  *                   "display_type":"bars"
- *                },
- *                {
+ *                }}{@code ,
+ *                }{{@code
  *                   "on_right_yaxis":false,
- *                   "process_query":{
+ *                   "process_query":}{{@code
  *                      "search_by":"error",
  *                      "metric":"process.stat.cpu.total_pct",
  *                      "limit":50,
  *                      "filter_by":[
  *                         "active"
  *                      ]
- *                   },
+ *                   }}{@code ,
  *                   "display_type":"area"
- *                }
+ *                }}{@code
  *             ],
- *             "yaxis":{
+ *             "yaxis":}{{@code
  *                "scale":"log",
  *                "include_zero":false,
  *                "max":"100"
- *             },
+ *             }}{@code ,
  *             "events":[
- *                {
+ *                }{{@code
  *                   "q":"sources:test tags:1"
- *                },
- *                {
+ *                }}{@code ,
+ *                }{{@code
  *                   "q":"sources:test tags:2"
- *                }
+ *                }}{@code
  *             ],
  *             "markers":[
- *                {
+ *                }{{@code
  *                   "label":" z=6 ",
  *                   "value":"y = 4",
  *                   "display_type":"error dashed"
- *                },
- *                {
+ *                }}{@code ,
+ *                }{{@code
  *                   "label":" x=8 ",
  *                   "value":"10 < y < 999",
  *                   "display_type":"ok solid"
- *                }
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":7307171374656551,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"toplist",
  *             "requests":[
- *                {
- *                   "q":"avg:system.cpu.user{app:general} by {env}",
+ *                }{{@code
+ *                   "q":"avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ",
  *                   "conditional_formats":[
- *                      {
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":"<",
  *                         "palette":"white_on_green",
  *                         "value":2
- *                      },
- *                      {
+ *                      }}{@code ,
+ *                      }{{@code
  *                         "hide_value":false,
  *                         "comparator":">",
  *                         "palette":"white_on_red",
  *                         "value":2.2
- *                      }
+ *                      }}{@code
  *                   ]
- *                }
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":7086674838553258,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Group Widget",
  *             "type":"group",
  *             "layout_type":"ordered",
  *             "widgets":[
- *                {
+ *                }{{@code
  *                   "id":3726092277657502,
- *                   "definition":{
+ *                   "definition":}{{@code
  *                      "type":"note",
  *                      "content":"cluster note widget",
  *                      "background_color":"pink",
@@ -468,23 +468,23 @@ import javax.annotation.Nullable;
  *                      "show_tick":true,
  *                      "tick_pos":"50%",
  *                      "tick_edge":"left"
- *                   }
- *                },
- *                {
+ *                   }}{@code
+ *                }}{@code ,
+ *                }{{@code
  *                   "id":6376384650558057,
- *                   "definition":{
+ *                   "definition":}{{@code
  *                      "title":"Alert Graph",
  *                      "type":"alert_graph",
  *                      "alert_id":"123",
  *                      "viz_type":"toplist"
- *                   }
- *                }
+ *                   }}{@code
+ *                }}{@code
  *             ]
- *          }
- *       },
- *       {
+ *          }}{@code
+ *       }}{@code ,
+ *       }{{@code
  *          "id":4668903563678912,
- *          "definition":{
+ *          "definition":}{{@code
  *             "title":"Widget Title",
  *             "type":"slo",
  *             "view_type":"detail",
@@ -496,20 +496,20 @@ import javax.annotation.Nullable;
  *             "show_error_budget":true,
  *             "view_mode":"overall",
  *             "global_time_target":"0"
- *          }
- *       }
+ *          }}{@code
+ *       }}{@code
  *    ],
  *    "template_variables":[
- *       {
+ *       }{{@code
  *          "name":"var_1",
  *          "default":"aws",
  *          "prefix":"host"
- *       },
- *       {
+ *       }}{@code ,
+ *       }{{@code
  *          "name":"var_2",
  *          "default":"autoscaling",
  *          "prefix":"service_name"
- *       }
+ *       }}{@code
  *    ],
  *    "layout_type":"ordered",
  *    "is_read_only":true,
@@ -517,26 +517,26 @@ import javax.annotation.Nullable;
  * 
  *    ],
  *    "template_variable_presets":[
- *       {
+ *       }{{@code
  *          "name":"preset_1",
  *          "template_variables":[
- *             {
+ *             }{{@code
  *                "name":"var_1",
  *                "value":"host.dc"
- *             },
- *             {
+ *             }}{@code ,
+ *             }{{@code
  *                "name":"var_2",
  *                "value":"my_service"
- *             }
+ *             }}{@code
  *          ]
- *       }
+ *       }}{@code
  *    ]
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -603,7 +603,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DashboardJson(String name) {
+    public DashboardJson(java.lang.String name) {
         this(name, DashboardJsonArgs.Empty);
     }
     /**
@@ -611,7 +611,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DashboardJson(String name, DashboardJsonArgs args) {
+    public DashboardJson(java.lang.String name, DashboardJsonArgs args) {
         this(name, args, null);
     }
     /**
@@ -620,15 +620,22 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DashboardJson(String name, DashboardJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/dashboardJson:DashboardJson", name, args == null ? DashboardJsonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DashboardJson(java.lang.String name, DashboardJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/dashboardJson:DashboardJson", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DashboardJson(String name, Output<String> id, @Nullable DashboardJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/dashboardJson:DashboardJson", name, state, makeResourceOptions(options, id));
+    private DashboardJson(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/dashboardJson:DashboardJson", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DashboardJsonArgs makeArgs(DashboardJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DashboardJsonArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -644,7 +651,7 @@ public class DashboardJson extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DashboardJson get(String name, Output<String> id, @Nullable DashboardJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DashboardJson get(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DashboardJson(name, id, state, options);
     }
 }

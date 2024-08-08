@@ -299,12 +299,12 @@ class DowntimeSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_timezone: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 monitor_identifier: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleMonitorIdentifierArgs']]] = None,
+                 monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
                  mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleOneTimeScheduleArgs']]] = None,
-                 recurring_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleRecurringScheduleArgs']]] = None,
+                 one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+                 recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -357,12 +357,12 @@ class DowntimeSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_timezone: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 monitor_identifier: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleMonitorIdentifierArgs']]] = None,
+                 monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
                  mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
                  notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 one_time_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleOneTimeScheduleArgs']]] = None,
-                 recurring_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleRecurringScheduleArgs']]] = None,
+                 one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+                 recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -396,12 +396,12 @@ class DowntimeSchedule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             display_timezone: Optional[pulumi.Input[str]] = None,
             message: Optional[pulumi.Input[str]] = None,
-            monitor_identifier: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleMonitorIdentifierArgs']]] = None,
+            monitor_identifier: Optional[pulumi.Input[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
             mute_first_recovery_notification: Optional[pulumi.Input[bool]] = None,
             notify_end_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             notify_end_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            one_time_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleOneTimeScheduleArgs']]] = None,
-            recurring_schedule: Optional[pulumi.Input[pulumi.InputType['DowntimeScheduleRecurringScheduleArgs']]] = None,
+            one_time_schedule: Optional[pulumi.Input[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
+            recurring_schedule: Optional[pulumi.Input[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'DowntimeSchedule':
         """
         Get an existing DowntimeSchedule resource's state with the given name, id, and optional extra

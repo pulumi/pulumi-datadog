@@ -80,12 +80,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Example Ordered Layout
  *         var orderedDashboard = new Dashboard("orderedDashboard", DashboardArgs.builder()
  *             .title("Ordered Layout Dashboard")
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .changeDefinition(DashboardWidgetChangeDefinitionArgs.builder()
  *                         .requests(DashboardWidgetChangeDefinitionRequestArgs.builder()
- *                             .q("avg:system.load.1{env:staging} by {account}")
+ *                             .q("avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ")
  *                             .changeType("absolute")
  *                             .compareTo("week_before")
  *                             .increaseGood(true)
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .distributionDefinition(DashboardWidgetDistributionDefinitionArgs.builder()
  *                         .requests(DashboardWidgetDistributionDefinitionRequestArgs.builder()
- *                             .q("avg:system.load.1{env:staging} by {account}")
+ *                             .q("avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ")
  *                             .style(DashboardWidgetDistributionDefinitionRequestStyleArgs.builder()
  *                                 .palette("warm")
  *                                 .build())
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .heatmapDefinition(DashboardWidgetHeatmapDefinitionArgs.builder()
  *                         .requests(DashboardWidgetHeatmapDefinitionRequestArgs.builder()
- *                             .q("avg:system.load.1{env:staging} by {account}")
+ *                             .q("avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ")
  *                             .style(DashboardWidgetHeatmapDefinitionRequestStyleArgs.builder()
  *                                 .palette("warm")
  *                                 .build())
@@ -181,10 +181,10 @@ import javax.annotation.Nullable;
  *                     .hostmapDefinition(DashboardWidgetHostmapDefinitionArgs.builder()
  *                         .request(DashboardWidgetHostmapDefinitionRequestArgs.builder()
  *                             .fills(DashboardWidgetHostmapDefinitionRequestFillArgs.builder()
- *                                 .q("avg:system.load.1{*} by {host}")
+ *                                 .q("avg:system.load.1}{{@code *}}{@code  by }{{@code host}}{@code ")
  *                                 .build())
  *                             .sizes(DashboardWidgetHostmapDefinitionRequestSizeArgs.builder()
- *                                 .q("avg:memcache.uptime{*} by {host}")
+ *                                 .q("avg:memcache.uptime}{{@code *}}{@code  by }{{@code host}}{@code ")
  *                                 .build())
  *                             .build())
  *                         .nodeType("container")
@@ -219,7 +219,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .queryValueDefinition(DashboardWidgetQueryValueDefinitionArgs.builder()
  *                         .requests(DashboardWidgetQueryValueDefinitionRequestArgs.builder()
- *                             .q("avg:system.load.1{env:staging} by {account}")
+ *                             .q("avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ")
  *                             .aggregator("sum")
  *                             .conditionalFormats(                            
  *                                 DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs.builder()
@@ -244,7 +244,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .queryTableDefinition(DashboardWidgetQueryTableDefinitionArgs.builder()
  *                         .requests(DashboardWidgetQueryTableDefinitionRequestArgs.builder()
- *                             .q("avg:system.load.1{env:staging} by {account}")
+ *                             .q("avg:system.load.1}{{@code env:staging}}{@code  by }{{@code account}}{@code ")
  *                             .aggregator("sum")
  *                             .limit("10")
  *                             .conditionalFormats(                            
@@ -267,11 +267,11 @@ import javax.annotation.Nullable;
  *                     .scatterplotDefinition(DashboardWidgetScatterplotDefinitionArgs.builder()
  *                         .request(DashboardWidgetScatterplotDefinitionRequestArgs.builder()
  *                             .xes(DashboardWidgetScatterplotDefinitionRequestXArgs.builder()
- *                                 .q("avg:system.cpu.user{*} by {service, account}")
+ *                                 .q("avg:system.cpu.user}{{@code *}}{@code  by }{{@code service, account}}{@code ")
  *                                 .aggregator("max")
  *                                 .build())
  *                             .ys(DashboardWidgetScatterplotDefinitionRequestYArgs.builder()
- *                                 .q("avg:system.mem.used{*} by {service, account}")
+ *                                 .q("avg:system.mem.used}{{@code *}}{@code  by }{{@code service, account}}{@code ")
  *                                 .aggregator("min")
  *                                 .build())
  *                             .build())
@@ -311,7 +311,7 @@ import javax.annotation.Nullable;
  *                     .timeseriesDefinition(DashboardWidgetTimeseriesDefinitionArgs.builder()
  *                         .requests(                        
  *                             DashboardWidgetTimeseriesDefinitionRequestArgs.builder()
- *                                 .q("avg:system.cpu.user{app:general} by {env}")
+ *                                 .q("avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ")
  *                                 .displayType("line")
  *                                 .style(DashboardWidgetTimeseriesDefinitionRequestStyleArgs.builder()
  *                                     .palette("warm")
@@ -319,7 +319,7 @@ import javax.annotation.Nullable;
  *                                     .lineWidth("thin")
  *                                     .build())
  *                                 .metadatas(DashboardWidgetTimeseriesDefinitionRequestMetadataArgs.builder()
- *                                     .expression("avg:system.cpu.user{app:general} by {env}")
+ *                                     .expression("avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ")
  *                                     .aliasName("Alpha")
  *                                     .build())
  *                                 .build(),
@@ -328,7 +328,7 @@ import javax.annotation.Nullable;
  *                                     .index("mcnulty")
  *                                     .computeQuery(DashboardWidgetLogQueryComputeQueryArgs.builder()
  *                                         .aggregation("avg")
- *                                         .facet("{@literal @}duration")
+ *                                         .facet("}{@literal @}{@code duration")
  *                                         .interval(5000)
  *                                         .build())
  *                                     .searchQuery("status:info")
@@ -338,7 +338,7 @@ import javax.annotation.Nullable;
  *                                         .sortQuery(DashboardWidgetLogQueryGroupBySortQueryArgs.builder()
  *                                             .aggregation("avg")
  *                                             .order("desc")
- *                                             .facet("{@literal @}duration")
+ *                                             .facet("}{@literal @}{@code duration")
  *                                             .build())
  *                                         .build())
  *                                     .build())
@@ -349,7 +349,7 @@ import javax.annotation.Nullable;
  *                                     .index("apm-search")
  *                                     .computeQuery(DashboardWidgetApmQueryComputeQueryArgs.builder()
  *                                         .aggregation("avg")
- *                                         .facet("{@literal @}duration")
+ *                                         .facet("}{@literal @}{@code duration")
  *                                         .interval(5000)
  *                                         .build())
  *                                     .searchQuery("type:web")
@@ -359,7 +359,7 @@ import javax.annotation.Nullable;
  *                                         .sortQuery(DashboardWidgetApmQueryGroupBySortQueryArgs.builder()
  *                                             .aggregation("avg")
  *                                             .order("desc")
- *                                             .facet("{@literal @}string_query.interval")
+ *                                             .facet("}{@literal @}{@code string_query.interval")
  *                                             .build())
  *                                         .build())
  *                                     .build())
@@ -406,7 +406,7 @@ import javax.annotation.Nullable;
  *                 DashboardWidgetArgs.builder()
  *                     .toplistDefinition(DashboardWidgetToplistDefinitionArgs.builder()
  *                         .requests(DashboardWidgetToplistDefinitionRequestArgs.builder()
- *                             .q("avg:system.cpu.user{app:general} by {env}")
+ *                             .q("avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ")
  *                             .conditionalFormats(                            
  *                                 DashboardWidgetToplistDefinitionRequestConditionalFormatArgs.builder()
  *                                     .comparator("<")
@@ -648,14 +648,14 @@ import javax.annotation.Nullable;
  *                                 DashboardWidgetTimeseriesDefinitionRequestQueryArgs.builder()
  *                                     .metricQuery(DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
  *                                         .dataSource("metrics")
- *                                         .query("avg:system.cpu.user{app:general} by {env}")
+ *                                         .query("avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ")
  *                                         .name("my_query_1")
  *                                         .aggregator("sum")
  *                                         .build())
  *                                     .build(),
  *                                 DashboardWidgetTimeseriesDefinitionRequestQueryArgs.builder()
  *                                     .metricQuery(DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
- *                                         .query("avg:system.cpu.user{app:general} by {env}")
+ *                                         .query("avg:system.cpu.user}{{@code app:general}}{@code  by }{{@code env}}{@code ")
  *                                         .name("my_query_2")
  *                                         .aggregator("sum")
  *                                         .build())
@@ -684,7 +684,7 @@ import javax.annotation.Nullable;
  *                                         .groupBies(DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs.builder()
  *                                             .facet("host")
  *                                             .sort(DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs.builder()
- *                                                 .metric("{@literal @}lambda.max_memory_used")
+ *                                                 .metric("}{@literal @}{@code lambda.max_memory_used")
  *                                                 .aggregation("avg")
  *                                                 .build())
  *                                             .limit(10)
@@ -698,7 +698,7 @@ import javax.annotation.Nullable;
  *                                     .metricQuery(DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
  *                                         .name("MyOverlay")
  *                                         .dataSource("metrics")
- *                                         .query("avg:system.cpu.user{host:COMP-QJWVM2FYT4}")
+ *                                         .query("avg:system.cpu.user}{{@code host:COMP-QJWVM2FYT4}}{@code ")
  *                                         .build())
  *                                     .build())
  *                                 .build())
@@ -745,7 +745,7 @@ import javax.annotation.Nullable;
  *                             .queries(DashboardWidgetTimeseriesDefinitionRequestQueryArgs.builder()
  *                                 .cloudCostQuery(DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQueryArgs.builder()
  *                                     .dataSource("cloud_cost")
- *                                     .query("sum:aws.cost.amortized{*}")
+ *                                     .query("sum:aws.cost.amortized}{{@code *}}{@code ")
  *                                     .name("query1")
  *                                     .aggregator("sum")
  *                                     .build())
@@ -802,8 +802,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -1014,7 +1014,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Dashboard(String name) {
+    public Dashboard(java.lang.String name) {
         this(name, DashboardArgs.Empty);
     }
     /**
@@ -1022,7 +1022,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Dashboard(String name, DashboardArgs args) {
+    public Dashboard(java.lang.String name, DashboardArgs args) {
         this(name, args, null);
     }
     /**
@@ -1031,15 +1031,22 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Dashboard(String name, DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/dashboard:Dashboard", name, args == null ? DashboardArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Dashboard(java.lang.String name, DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/dashboard:Dashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Dashboard(String name, Output<String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/dashboard:Dashboard", name, state, makeResourceOptions(options, id));
+    private Dashboard(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/dashboard:Dashboard", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DashboardArgs makeArgs(DashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DashboardArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -1055,7 +1062,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Dashboard get(String name, Output<String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Dashboard get(java.lang.String name, Output<java.lang.String> id, @Nullable DashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Dashboard(name, id, state, options);
     }
 }

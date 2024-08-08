@@ -37,24 +37,24 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var mySuppression = new SecurityMonitoringSuppression("mySuppression", SecurityMonitoringSuppressionArgs.builder()
  *             .name("My suppression")
  *             .description("Suppression for low severity CloudTrail signals from John Doe, excluding test environments from analysis, limited to 2024")
  *             .enabled(true)
  *             .ruleQuery("severity:low source:cloudtrail")
- *             .suppressionQuery("{@literal @}usr.id:john.doe")
+ *             .suppressionQuery("}{@literal @}{@code usr.id:john.doe")
  *             .dataExclusionQuery("env:test")
  *             .expirationDate("2024-12-31T12:00:00Z")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -173,7 +173,7 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityMonitoringSuppression(String name) {
+    public SecurityMonitoringSuppression(java.lang.String name) {
         this(name, SecurityMonitoringSuppressionArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityMonitoringSuppression(String name, SecurityMonitoringSuppressionArgs args) {
+    public SecurityMonitoringSuppression(java.lang.String name, SecurityMonitoringSuppressionArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,15 +190,22 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityMonitoringSuppression(String name, SecurityMonitoringSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression", name, args == null ? SecurityMonitoringSuppressionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityMonitoringSuppression(java.lang.String name, SecurityMonitoringSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityMonitoringSuppression(String name, Output<String> id, @Nullable SecurityMonitoringSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression", name, state, makeResourceOptions(options, id));
+    private SecurityMonitoringSuppression(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityMonitoringSuppressionArgs makeArgs(SecurityMonitoringSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityMonitoringSuppressionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -214,7 +221,7 @@ public class SecurityMonitoringSuppression extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityMonitoringSuppression get(String name, Output<String> id, @Nullable SecurityMonitoringSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityMonitoringSuppression get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityMonitoringSuppression(name, id, state, options);
     }
 }

@@ -196,7 +196,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DowntimeSchedule(String name) {
+    public DowntimeSchedule(java.lang.String name) {
         this(name, DowntimeScheduleArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DowntimeSchedule(String name, DowntimeScheduleArgs args) {
+    public DowntimeSchedule(java.lang.String name, DowntimeScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,15 +213,22 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DowntimeSchedule(String name, DowntimeScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/downtimeSchedule:DowntimeSchedule", name, args == null ? DowntimeScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DowntimeSchedule(java.lang.String name, DowntimeScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/downtimeSchedule:DowntimeSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DowntimeSchedule(String name, Output<String> id, @Nullable DowntimeScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/downtimeSchedule:DowntimeSchedule", name, state, makeResourceOptions(options, id));
+    private DowntimeSchedule(java.lang.String name, Output<java.lang.String> id, @Nullable DowntimeScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/downtimeSchedule:DowntimeSchedule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DowntimeScheduleArgs makeArgs(DowntimeScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DowntimeScheduleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -237,7 +244,7 @@ public class DowntimeSchedule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DowntimeSchedule get(String name, Output<String> id, @Nullable DowntimeScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DowntimeSchedule get(java.lang.String name, Output<java.lang.String> id, @Nullable DowntimeScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DowntimeSchedule(name, id, state, options);
     }
 }

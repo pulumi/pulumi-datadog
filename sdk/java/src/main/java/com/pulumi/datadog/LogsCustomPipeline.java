@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var samplePipeline = new LogsCustomPipeline("samplePipeline", LogsCustomPipelineArgs.builder()
  *             .filters(LogsCustomPipelineFilterArgs.builder()
  *                 .query("source:foo")
@@ -99,13 +99,13 @@ import javax.annotation.Nullable;
  *                             LogsCustomPipelineProcessorCategoryProcessorCategoryArgs.builder()
  *                                 .name("debug")
  *                                 .filter(LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs.builder()
- *                                     .query("{@literal @}severity: \".\"")
+ *                                     .query("}{@literal @}{@code severity: \".\"")
  *                                     .build())
  *                                 .build(),
  *                             LogsCustomPipelineProcessorCategoryProcessorCategoryArgs.builder()
  *                                 .name("verbose")
  *                                 .filter(LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs.builder()
- *                                     .query("{@literal @}severity: \"-\"")
+ *                                     .query("}{@literal @}{@code severity: \"-\"")
  *                                     .build())
  *                                 .build())
  *                         .name("sample category processor")
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  *                         .source("message")
  *                         .grok(LogsCustomPipelineProcessorGrokParserGrokArgs.builder()
  *                             .supportRules("")
- *                             .matchRules("Rule %{word:my_word2} %{number:my_float2}")
+ *                             .matchRules("Rule %}{{@code word:my_word2}}{@code  %}{{@code number:my_float2}}{@code ")
  *                             .build())
  *                         .name("sample grok parser")
  *                         .isEnabled(true)
@@ -196,7 +196,7 @@ import javax.annotation.Nullable;
  *                 LogsCustomPipelineProcessorArgs.builder()
  *                     .stringBuilderProcessor(LogsCustomPipelineProcessorStringBuilderProcessorArgs.builder()
  *                         .target("user_activity")
- *                         .template("%{user.name} logged in at %{timestamp}")
+ *                         .template("%}{{@code user.name}}{@code  logged in at %}{{@code timestamp}}{@code ")
  *                         .name("sample string builder processor")
  *                         .isEnabled(true)
  *                         .isReplaceMissing(false)
@@ -222,8 +222,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -270,7 +270,7 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsCustomPipeline(String name) {
+    public LogsCustomPipeline(java.lang.String name) {
         this(name, LogsCustomPipelineArgs.Empty);
     }
     /**
@@ -278,7 +278,7 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsCustomPipeline(String name, LogsCustomPipelineArgs args) {
+    public LogsCustomPipeline(java.lang.String name, LogsCustomPipelineArgs args) {
         this(name, args, null);
     }
     /**
@@ -287,15 +287,22 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsCustomPipeline(String name, LogsCustomPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsCustomPipeline:LogsCustomPipeline", name, args == null ? LogsCustomPipelineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsCustomPipeline(java.lang.String name, LogsCustomPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsCustomPipeline:LogsCustomPipeline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsCustomPipeline(String name, Output<String> id, @Nullable LogsCustomPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsCustomPipeline:LogsCustomPipeline", name, state, makeResourceOptions(options, id));
+    private LogsCustomPipeline(java.lang.String name, Output<java.lang.String> id, @Nullable LogsCustomPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsCustomPipeline:LogsCustomPipeline", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsCustomPipelineArgs makeArgs(LogsCustomPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsCustomPipelineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -311,7 +318,7 @@ public class LogsCustomPipeline extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsCustomPipeline get(String name, Output<String> id, @Nullable LogsCustomPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsCustomPipeline get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsCustomPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsCustomPipeline(name, id, state, options);
     }
 }

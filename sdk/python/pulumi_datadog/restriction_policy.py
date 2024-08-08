@@ -89,7 +89,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestrictionPolicyBindingArgs']]]]] = None,
+                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -105,14 +105,14 @@ class RestrictionPolicy(pulumi.CustomResource):
         foo = datadog.RestrictionPolicy("foo",
             resource_id="security-rule:abc-def-ghi",
             bindings=[
-                datadog.RestrictionPolicyBindingArgs(
-                    principals=["role:00000000-0000-1111-0000-000000000000"],
-                    relation="editor",
-                ),
-                datadog.RestrictionPolicyBindingArgs(
-                    principals=["org:10000000-0000-1111-0000-000000000000"],
-                    relation="viewer",
-                ),
+                {
+                    "principals": ["role:00000000-0000-1111-0000-000000000000"],
+                    "relation": "editor",
+                },
+                {
+                    "principals": ["org:10000000-0000-1111-0000-000000000000"],
+                    "relation": "viewer",
+                },
             ])
         ```
 
@@ -145,14 +145,14 @@ class RestrictionPolicy(pulumi.CustomResource):
         foo = datadog.RestrictionPolicy("foo",
             resource_id="security-rule:abc-def-ghi",
             bindings=[
-                datadog.RestrictionPolicyBindingArgs(
-                    principals=["role:00000000-0000-1111-0000-000000000000"],
-                    relation="editor",
-                ),
-                datadog.RestrictionPolicyBindingArgs(
-                    principals=["org:10000000-0000-1111-0000-000000000000"],
-                    relation="viewer",
-                ),
+                {
+                    "principals": ["role:00000000-0000-1111-0000-000000000000"],
+                    "relation": "editor",
+                },
+                {
+                    "principals": ["org:10000000-0000-1111-0000-000000000000"],
+                    "relation": "viewer",
+                },
             ])
         ```
 
@@ -177,7 +177,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestrictionPolicyBindingArgs']]]]] = None,
+                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -202,7 +202,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bindings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestrictionPolicyBindingArgs']]]]] = None,
+            bindings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
             resource_id: Optional[pulumi.Input[str]] = None) -> 'RestrictionPolicy':
         """
         Get an existing RestrictionPolicy resource's state with the given name, id, and optional extra

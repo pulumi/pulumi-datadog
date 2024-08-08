@@ -98,7 +98,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
-                 tag_policy: Optional[pulumi.Input[pulumi.InputType['MonitorConfigPolicyTagPolicyArgs']]] = None,
+                 tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
@@ -111,20 +111,20 @@ class MonitorConfigPolicy(pulumi.CustomResource):
 
         test = datadog.MonitorConfigPolicy("test",
             policy_type="tag",
-            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
-                tag_key="env",
-                tag_key_required=False,
-                valid_tag_values=[
+            tag_policy={
+                "tag_key": "env",
+                "tag_key_required": False,
+                "valid_tag_values": [
                     "staging",
                     "prod",
                 ],
-            ))
+            })
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
-        :param pulumi.Input[pulumi.InputType['MonitorConfigPolicyTagPolicyArgs']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         ...
     @overload
@@ -143,14 +143,14 @@ class MonitorConfigPolicy(pulumi.CustomResource):
 
         test = datadog.MonitorConfigPolicy("test",
             policy_type="tag",
-            tag_policy=datadog.MonitorConfigPolicyTagPolicyArgs(
-                tag_key="env",
-                tag_key_required=False,
-                valid_tag_values=[
+            tag_policy={
+                "tag_key": "env",
+                "tag_key_required": False,
+                "valid_tag_values": [
                     "staging",
                     "prod",
                 ],
-            ))
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,7 +169,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
-                 tag_policy: Optional[pulumi.Input[pulumi.InputType['MonitorConfigPolicyTagPolicyArgs']]] = None,
+                 tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -194,7 +194,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
-            tag_policy: Optional[pulumi.Input[pulumi.InputType['MonitorConfigPolicyTagPolicyArgs']]] = None) -> 'MonitorConfigPolicy':
+            tag_policy: Optional[pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None) -> 'MonitorConfigPolicy':
         """
         Get an existing MonitorConfigPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,7 +203,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_type: The monitor config policy type Valid values are `tag`.
-        :param pulumi.Input[pulumi.InputType['MonitorConfigPolicyTagPolicyArgs']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
