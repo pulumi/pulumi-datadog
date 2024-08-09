@@ -84,7 +84,7 @@ public class LogsIntegrationPipeline extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsIntegrationPipeline(String name) {
+    public LogsIntegrationPipeline(java.lang.String name) {
         this(name, LogsIntegrationPipelineArgs.Empty);
     }
     /**
@@ -92,7 +92,7 @@ public class LogsIntegrationPipeline extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsIntegrationPipeline(String name, @Nullable LogsIntegrationPipelineArgs args) {
+    public LogsIntegrationPipeline(java.lang.String name, @Nullable LogsIntegrationPipelineArgs args) {
         this(name, args, null);
     }
     /**
@@ -101,15 +101,22 @@ public class LogsIntegrationPipeline extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsIntegrationPipeline(String name, @Nullable LogsIntegrationPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, args == null ? LogsIntegrationPipelineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsIntegrationPipeline(java.lang.String name, @Nullable LogsIntegrationPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsIntegrationPipeline(String name, Output<String> id, @Nullable LogsIntegrationPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, state, makeResourceOptions(options, id));
+    private LogsIntegrationPipeline(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIntegrationPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsIntegrationPipelineArgs makeArgs(@Nullable LogsIntegrationPipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsIntegrationPipelineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -125,7 +132,7 @@ public class LogsIntegrationPipeline extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsIntegrationPipeline get(String name, Output<String> id, @Nullable LogsIntegrationPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsIntegrationPipeline get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIntegrationPipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsIntegrationPipeline(name, id, state, options);
     }
 }

@@ -191,7 +191,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -209,9 +209,9 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         mygroup = datadog.SensitiveDataScannerGroup("mygroup",
             name="My new scanning group",
             description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
+            filter={
+                "query": "service:my-service",
+            },
             is_enabled=True,
             product_lists=["apm"])
         ```
@@ -225,7 +225,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Datadog scanning group.
-        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']] filter: Filter object the scanning group applies.
+        :param pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.
@@ -249,9 +249,9 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         mygroup = datadog.SensitiveDataScannerGroup("mygroup",
             name="My new scanning group",
             description="A relevant description",
-            filter=datadog.SensitiveDataScannerGroupFilterArgs(
-                query="service:my-service",
-            ),
+            filter={
+                "query": "service:my-service",
+            },
             is_enabled=True,
             product_lists=["apm"])
         ```
@@ -278,7 +278,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -315,7 +315,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']]] = None,
+            filter: Optional[pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             product_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SensitiveDataScannerGroup':
@@ -327,7 +327,7 @@ class SensitiveDataScannerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Datadog scanning group.
-        :param pulumi.Input[pulumi.InputType['SensitiveDataScannerGroupFilterArgs']] filter: Filter object the scanning group applies.
+        :param pulumi.Input[Union['SensitiveDataScannerGroupFilterArgs', 'SensitiveDataScannerGroupFilterArgsDict']] filter: Filter object the scanning group applies.
         :param pulumi.Input[bool] is_enabled: Whether or not the scanning group is enabled. If the group doesn't contain any rule or if all the rules in it are disabled, the group is force-disabled by our backend
         :param pulumi.Input[str] name: Name of the Datadog scanning group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] product_lists: List of products the scanning group applies. Valid values are `logs`, `rum`, `events`, `apm`.

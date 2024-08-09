@@ -99,7 +99,7 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsIndexOrder(String name) {
+    public LogsIndexOrder(java.lang.String name) {
         this(name, LogsIndexOrderArgs.Empty);
     }
     /**
@@ -107,7 +107,7 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsIndexOrder(String name, LogsIndexOrderArgs args) {
+    public LogsIndexOrder(java.lang.String name, LogsIndexOrderArgs args) {
         this(name, args, null);
     }
     /**
@@ -116,15 +116,22 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsIndexOrder(String name, LogsIndexOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIndexOrder:LogsIndexOrder", name, args == null ? LogsIndexOrderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsIndexOrder(java.lang.String name, LogsIndexOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIndexOrder:LogsIndexOrder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsIndexOrder(String name, Output<String> id, @Nullable LogsIndexOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIndexOrder:LogsIndexOrder", name, state, makeResourceOptions(options, id));
+    private LogsIndexOrder(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIndexOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIndexOrder:LogsIndexOrder", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsIndexOrderArgs makeArgs(LogsIndexOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsIndexOrderArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -140,7 +147,7 @@ public class LogsIndexOrder extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsIndexOrder get(String name, Output<String> id, @Nullable LogsIndexOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsIndexOrder get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIndexOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsIndexOrder(name, id, state, options);
     }
 }

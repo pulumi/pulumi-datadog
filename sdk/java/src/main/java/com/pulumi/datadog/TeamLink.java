@@ -134,7 +134,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamLink(String name) {
+    public TeamLink(java.lang.String name) {
         this(name, TeamLinkArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamLink(String name, TeamLinkArgs args) {
+    public TeamLink(java.lang.String name, TeamLinkArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,15 +151,22 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamLink(String name, TeamLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/teamLink:TeamLink", name, args == null ? TeamLinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamLink(java.lang.String name, TeamLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/teamLink:TeamLink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamLink(String name, Output<String> id, @Nullable TeamLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/teamLink:TeamLink", name, state, makeResourceOptions(options, id));
+    private TeamLink(java.lang.String name, Output<java.lang.String> id, @Nullable TeamLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/teamLink:TeamLink", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamLinkArgs makeArgs(TeamLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamLinkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -175,7 +182,7 @@ public class TeamLink extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamLink get(String name, Output<String> id, @Nullable TeamLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamLink get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamLink(name, id, state, options);
     }
 }

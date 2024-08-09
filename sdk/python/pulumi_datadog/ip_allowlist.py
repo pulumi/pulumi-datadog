@@ -98,7 +98,7 @@ class IpAllowlist(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAllowlistEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
@@ -106,7 +106,7 @@ class IpAllowlist(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the IP Allowlist is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAllowlistEntryArgs']]]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
         ...
     @overload
@@ -133,7 +133,7 @@ class IpAllowlist(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAllowlistEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,7 +158,7 @@ class IpAllowlist(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAllowlistEntryArgs']]]]] = None) -> 'IpAllowlist':
+            entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]]] = None) -> 'IpAllowlist':
         """
         Get an existing IpAllowlist resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -167,7 +167,7 @@ class IpAllowlist(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the IP Allowlist is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAllowlistEntryArgs']]]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpAllowlistEntryArgs', 'IpAllowlistEntryArgsDict']]]] entries: Set of objects containing an IP address or range of IP addresses in the allowlist and an accompanying note.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

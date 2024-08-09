@@ -204,7 +204,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SensitiveDataScannerRule(String name) {
+    public SensitiveDataScannerRule(java.lang.String name) {
         this(name, SensitiveDataScannerRuleArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SensitiveDataScannerRule(String name, SensitiveDataScannerRuleArgs args) {
+    public SensitiveDataScannerRule(java.lang.String name, SensitiveDataScannerRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,15 +221,22 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SensitiveDataScannerRule(String name, SensitiveDataScannerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule", name, args == null ? SensitiveDataScannerRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SensitiveDataScannerRule(java.lang.String name, SensitiveDataScannerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SensitiveDataScannerRule(String name, Output<String> id, @Nullable SensitiveDataScannerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule", name, state, makeResourceOptions(options, id));
+    private SensitiveDataScannerRule(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SensitiveDataScannerRuleArgs makeArgs(SensitiveDataScannerRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SensitiveDataScannerRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +252,7 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SensitiveDataScannerRule get(String name, Output<String> id, @Nullable SensitiveDataScannerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SensitiveDataScannerRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SensitiveDataScannerRule(name, id, state, options);
     }
 }

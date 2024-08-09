@@ -192,7 +192,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsArchive(String name) {
+    public LogsArchive(java.lang.String name) {
         this(name, LogsArchiveArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsArchive(String name, LogsArchiveArgs args) {
+    public LogsArchive(java.lang.String name, LogsArchiveArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsArchive(String name, LogsArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsArchive:LogsArchive", name, args == null ? LogsArchiveArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsArchive(java.lang.String name, LogsArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsArchive:LogsArchive", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsArchive(String name, Output<String> id, @Nullable LogsArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsArchive:LogsArchive", name, state, makeResourceOptions(options, id));
+    private LogsArchive(java.lang.String name, Output<java.lang.String> id, @Nullable LogsArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsArchive:LogsArchive", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsArchiveArgs makeArgs(LogsArchiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsArchiveArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class LogsArchive extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsArchive get(String name, Output<String> id, @Nullable LogsArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsArchive get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsArchiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsArchive(name, id, state, options);
     }
 }
