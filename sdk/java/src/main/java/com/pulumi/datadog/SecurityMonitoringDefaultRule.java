@@ -42,22 +42,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var adefaultrule = new SecurityMonitoringDefaultRule("adefaultrule", SecurityMonitoringDefaultRuleArgs.builder()
  *             .enabled(true)
  *             .cases(SecurityMonitoringDefaultRuleCaseArgs.builder()
  *                 .status("high")
- *                 .notifications("{@literal @}me")
+ *                 .notifications("}{@literal @}{@code me")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -166,7 +166,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityMonitoringDefaultRule(String name) {
+    public SecurityMonitoringDefaultRule(java.lang.String name) {
         this(name, SecurityMonitoringDefaultRuleArgs.Empty);
     }
     /**
@@ -174,7 +174,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityMonitoringDefaultRule(String name, @Nullable SecurityMonitoringDefaultRuleArgs args) {
+    public SecurityMonitoringDefaultRule(java.lang.String name, @Nullable SecurityMonitoringDefaultRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -183,15 +183,22 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityMonitoringDefaultRule(String name, @Nullable SecurityMonitoringDefaultRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", name, args == null ? SecurityMonitoringDefaultRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityMonitoringDefaultRule(java.lang.String name, @Nullable SecurityMonitoringDefaultRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityMonitoringDefaultRule(String name, Output<String> id, @Nullable SecurityMonitoringDefaultRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", name, state, makeResourceOptions(options, id));
+    private SecurityMonitoringDefaultRule(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringDefaultRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityMonitoringDefaultRuleArgs makeArgs(@Nullable SecurityMonitoringDefaultRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityMonitoringDefaultRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -207,7 +214,7 @@ public class SecurityMonitoringDefaultRule extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityMonitoringDefaultRule get(String name, Output<String> id, @Nullable SecurityMonitoringDefaultRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityMonitoringDefaultRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringDefaultRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityMonitoringDefaultRule(name, id, state, options);
     }
 }

@@ -484,11 +484,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
-                 sli_specification: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliSpecificationArgs']]] = None,
+                 query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+                 sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_threshold: Optional[pulumi.Input[float]] = None,
-                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
                  timeframe: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -509,21 +509,21 @@ class ServiceLevelObjective(pulumi.CustomResource):
             name="Example Metric SLO",
             type="metric",
             description="My custom metric SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
-                denominator="sum:my.custom.count.metric{*}.as_count()",
-            ),
+            query={
+                "numerator": "sum:my.custom.count.metric{type:good_events}.as_count()",
+                "denominator": "sum:my.custom.count.metric{*}.as_count()",
+            },
             thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="7d",
-                    target=99.9,
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="30d",
-                    target=99.9,
-                    warning=99.99,
-                ),
+                {
+                    "timeframe": "7d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
+                {
+                    "timeframe": "30d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
             ],
             timeframe="30d",
             target_threshold=99.9,
@@ -544,16 +544,16 @@ class ServiceLevelObjective(pulumi.CustomResource):
                 3,
             ],
             thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="7d",
-                    target=99.9,
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="30d",
-                    target=99.9,
-                    warning=99.99,
-                ),
+                {
+                    "timeframe": "7d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
+                {
+                    "timeframe": "30d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
             ],
             timeframe="30d",
             target_threshold=99.9,
@@ -566,28 +566,28 @@ class ServiceLevelObjective(pulumi.CustomResource):
             name="Example Time Slice SLO",
             type="time_slice",
             description="My custom time slice SLO",
-            sli_specification=datadog.ServiceLevelObjectiveSliSpecificationArgs(
-                time_slice=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceArgs(
-                    query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs(
-                        formula=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs(
-                            formula_expression="query1",
-                        ),
-                        queries=[datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs(
-                            metric_query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs(
-                                name="query1",
-                                query="avg:my.custom.count.metric{*}.as_count()",
-                            ),
-                        )],
-                    ),
-                    comparator=">",
-                    threshold=0.9,
-                ),
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.9,
-                warning=99.99,
-            )],
+            sli_specification={
+                "time_slice": {
+                    "query": {
+                        "formula": {
+                            "formula_expression": "query1",
+                        },
+                        "queries": [{
+                            "metric_query": {
+                                "name": "query1",
+                                "query": "avg:my.custom.count.metric{*}.as_count()",
+                            },
+                        }],
+                    },
+                    "comparator": ">",
+                    "threshold": 0.9,
+                },
+            },
+            thresholds=[{
+                "timeframe": "7d",
+                "target": 99.9,
+                "warning": 99.99,
+            }],
             timeframe="7d",
             target_threshold=99.9,
             warning_threshold=99.99,
@@ -612,11 +612,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[str] name: Name of Datadog service level objective
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliSpecificationArgs']] sli_specification: A map of SLI specifications to use as part of the SLO.
+        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A map of SLI specifications to use as part of the SLO.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
@@ -643,21 +643,21 @@ class ServiceLevelObjective(pulumi.CustomResource):
             name="Example Metric SLO",
             type="metric",
             description="My custom metric SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
-                denominator="sum:my.custom.count.metric{*}.as_count()",
-            ),
+            query={
+                "numerator": "sum:my.custom.count.metric{type:good_events}.as_count()",
+                "denominator": "sum:my.custom.count.metric{*}.as_count()",
+            },
             thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="7d",
-                    target=99.9,
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="30d",
-                    target=99.9,
-                    warning=99.99,
-                ),
+                {
+                    "timeframe": "7d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
+                {
+                    "timeframe": "30d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
             ],
             timeframe="30d",
             target_threshold=99.9,
@@ -678,16 +678,16 @@ class ServiceLevelObjective(pulumi.CustomResource):
                 3,
             ],
             thresholds=[
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="7d",
-                    target=99.9,
-                    warning=99.99,
-                ),
-                datadog.ServiceLevelObjectiveThresholdArgs(
-                    timeframe="30d",
-                    target=99.9,
-                    warning=99.99,
-                ),
+                {
+                    "timeframe": "7d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
+                {
+                    "timeframe": "30d",
+                    "target": 99.9,
+                    "warning": 99.99,
+                },
             ],
             timeframe="30d",
             target_threshold=99.9,
@@ -700,28 +700,28 @@ class ServiceLevelObjective(pulumi.CustomResource):
             name="Example Time Slice SLO",
             type="time_slice",
             description="My custom time slice SLO",
-            sli_specification=datadog.ServiceLevelObjectiveSliSpecificationArgs(
-                time_slice=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceArgs(
-                    query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs(
-                        formula=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs(
-                            formula_expression="query1",
-                        ),
-                        queries=[datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryArgs(
-                            metric_query=datadog.ServiceLevelObjectiveSliSpecificationTimeSliceQueryQueryMetricQueryArgs(
-                                name="query1",
-                                query="avg:my.custom.count.metric{*}.as_count()",
-                            ),
-                        )],
-                    ),
-                    comparator=">",
-                    threshold=0.9,
-                ),
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.9,
-                warning=99.99,
-            )],
+            sli_specification={
+                "time_slice": {
+                    "query": {
+                        "formula": {
+                            "formula_expression": "query1",
+                        },
+                        "queries": [{
+                            "metric_query": {
+                                "name": "query1",
+                                "query": "avg:my.custom.count.metric{*}.as_count()",
+                            },
+                        }],
+                    },
+                    "comparator": ">",
+                    "threshold": 0.9,
+                },
+            },
+            thresholds=[{
+                "timeframe": "7d",
+                "target": 99.9,
+                "warning": 99.99,
+            }],
             timeframe="7d",
             target_threshold=99.9,
             warning_threshold=99.99,
@@ -759,11 +759,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
-                 sli_specification: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliSpecificationArgs']]] = None,
+                 query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+                 sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_threshold: Optional[pulumi.Input[float]] = None,
-                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
                  timeframe: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -812,11 +812,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
-            sli_specification: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliSpecificationArgs']]] = None,
+            query: Optional[pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
+            sli_specification: Optional[pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             target_threshold: Optional[pulumi.Input[float]] = None,
-            thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+            thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
             timeframe: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             validate: Optional[pulumi.Input[bool]] = None,
@@ -833,11 +833,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[str] name: Name of Datadog service level objective
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveSliSpecificationArgs']] sli_specification: A map of SLI specifications to use as part of the SLO.
+        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A map of SLI specifications to use as part of the SLO.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.

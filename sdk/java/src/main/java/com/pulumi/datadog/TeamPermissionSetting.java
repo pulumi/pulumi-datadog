@@ -111,7 +111,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TeamPermissionSetting(String name) {
+    public TeamPermissionSetting(java.lang.String name) {
         this(name, TeamPermissionSettingArgs.Empty);
     }
     /**
@@ -119,7 +119,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TeamPermissionSetting(String name, TeamPermissionSettingArgs args) {
+    public TeamPermissionSetting(java.lang.String name, TeamPermissionSettingArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,15 +128,22 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TeamPermissionSetting(String name, TeamPermissionSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/teamPermissionSetting:TeamPermissionSetting", name, args == null ? TeamPermissionSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TeamPermissionSetting(java.lang.String name, TeamPermissionSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/teamPermissionSetting:TeamPermissionSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TeamPermissionSetting(String name, Output<String> id, @Nullable TeamPermissionSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/teamPermissionSetting:TeamPermissionSetting", name, state, makeResourceOptions(options, id));
+    private TeamPermissionSetting(java.lang.String name, Output<java.lang.String> id, @Nullable TeamPermissionSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/teamPermissionSetting:TeamPermissionSetting", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TeamPermissionSettingArgs makeArgs(TeamPermissionSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TeamPermissionSettingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -152,7 +159,7 @@ public class TeamPermissionSetting extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TeamPermissionSetting get(String name, Output<String> id, @Nullable TeamPermissionSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TeamPermissionSetting get(java.lang.String name, Output<java.lang.String> id, @Nullable TeamPermissionSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TeamPermissionSetting(name, id, state, options);
     }
 }

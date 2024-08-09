@@ -147,7 +147,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SensitiveDataScannerGroup(String name) {
+    public SensitiveDataScannerGroup(java.lang.String name) {
         this(name, SensitiveDataScannerGroupArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SensitiveDataScannerGroup(String name, SensitiveDataScannerGroupArgs args) {
+    public SensitiveDataScannerGroup(java.lang.String name, SensitiveDataScannerGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,15 +164,22 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SensitiveDataScannerGroup(String name, SensitiveDataScannerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", name, args == null ? SensitiveDataScannerGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SensitiveDataScannerGroup(java.lang.String name, SensitiveDataScannerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SensitiveDataScannerGroup(String name, Output<String> id, @Nullable SensitiveDataScannerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", name, state, makeResourceOptions(options, id));
+    private SensitiveDataScannerGroup(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SensitiveDataScannerGroupArgs makeArgs(SensitiveDataScannerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SensitiveDataScannerGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -188,7 +195,7 @@ public class SensitiveDataScannerGroup extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SensitiveDataScannerGroup get(String name, Output<String> id, @Nullable SensitiveDataScannerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SensitiveDataScannerGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SensitiveDataScannerGroup(name, id, state, options);
     }
 }

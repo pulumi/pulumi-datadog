@@ -108,9 +108,9 @@ class UserRole(pulumi.CustomResource):
 
         monitor_writer_role = datadog.Role("monitor_writer_role",
             name="Monitor Writer Role",
-            permissions=[datadog.RolePermissionArgs(
-                id=bar["permissions"]["monitorsWrite"],
-            )])
+            permissions=[{
+                "id": bar["permissions"]["monitorsWrite"],
+            }])
         new_user = datadog.User("new_user", email="new@example.com")
         # Create new user_role resource
         new_user_with_monitor_writer_role = datadog.UserRole("new_user_with_monitor_writer_role",
@@ -148,9 +148,9 @@ class UserRole(pulumi.CustomResource):
 
         monitor_writer_role = datadog.Role("monitor_writer_role",
             name="Monitor Writer Role",
-            permissions=[datadog.RolePermissionArgs(
-                id=bar["permissions"]["monitorsWrite"],
-            )])
+            permissions=[{
+                "id": bar["permissions"]["monitorsWrite"],
+            }])
         new_user = datadog.User("new_user", email="new@example.com")
         # Create new user_role resource
         new_user_with_monitor_writer_role = datadog.UserRole("new_user_with_monitor_writer_role",

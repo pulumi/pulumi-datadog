@@ -139,7 +139,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationSettings(String name) {
+    public OrganizationSettings(java.lang.String name) {
         this(name, OrganizationSettingsArgs.Empty);
     }
     /**
@@ -147,7 +147,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationSettings(String name, @Nullable OrganizationSettingsArgs args) {
+    public OrganizationSettings(java.lang.String name, @Nullable OrganizationSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -156,15 +156,22 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationSettings(String name, @Nullable OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/organizationSettings:OrganizationSettings", name, args == null ? OrganizationSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationSettings(java.lang.String name, @Nullable OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/organizationSettings:OrganizationSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationSettings(String name, Output<String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/organizationSettings:OrganizationSettings", name, state, makeResourceOptions(options, id));
+    private OrganizationSettings(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/organizationSettings:OrganizationSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationSettingsArgs makeArgs(@Nullable OrganizationSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -180,7 +187,7 @@ public class OrganizationSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationSettings get(String name, Output<String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationSettings(name, id, state, options);
     }
 }

@@ -207,7 +207,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]]] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
                  filtered_data_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -227,14 +227,14 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
             query="The filter is filtering.",
             is_enabled=True,
             exclusion_filters=[
-                datadog.SecurityMonitoringFilterExclusionFilterArgs(
-                    name="first",
-                    query="exclude some logs",
-                ),
-                datadog.SecurityMonitoringFilterExclusionFilterArgs(
-                    name="second",
-                    query="exclude some other logs",
-                ),
+                {
+                    "name": "first",
+                    "query": "exclude some logs",
+                },
+                {
+                    "name": "second",
+                    "query": "exclude some other logs",
+                },
             ])
         ```
 
@@ -248,7 +248,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
         :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[str] name: The name of the security filter.
@@ -274,14 +274,14 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
             query="The filter is filtering.",
             is_enabled=True,
             exclusion_filters=[
-                datadog.SecurityMonitoringFilterExclusionFilterArgs(
-                    name="first",
-                    query="exclude some logs",
-                ),
-                datadog.SecurityMonitoringFilterExclusionFilterArgs(
-                    name="second",
-                    query="exclude some other logs",
-                ),
+                {
+                    "name": "first",
+                    "query": "exclude some logs",
+                },
+                {
+                    "name": "second",
+                    "query": "exclude some other logs",
+                },
             ])
         ```
 
@@ -308,7 +308,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]]] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
                  filtered_data_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -344,7 +344,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]]] = None,
+            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]]] = None,
             filtered_data_type: Optional[pulumi.Input[str]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -357,7 +357,7 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringFilterExclusionFilterArgs']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict']]]] exclusion_filters: Exclusion filters to exclude some logs from the security filter.
         :param pulumi.Input[str] filtered_data_type: The filtered data type. Valid values are `logs`. Defaults to `"logs"`.
         :param pulumi.Input[bool] is_enabled: Whether the security filter is enabled.
         :param pulumi.Input[str] name: The name of the security filter.

@@ -145,7 +145,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationSts(String name) {
+    public IntegrationSts(java.lang.String name) {
         this(name, IntegrationStsArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationSts(String name, IntegrationStsArgs args) {
+    public IntegrationSts(java.lang.String name, IntegrationStsArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationSts(String name, IntegrationStsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:gcp/integrationSts:IntegrationSts", name, args == null ? IntegrationStsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationSts(java.lang.String name, IntegrationStsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:gcp/integrationSts:IntegrationSts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationSts(String name, Output<String> id, @Nullable IntegrationStsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:gcp/integrationSts:IntegrationSts", name, state, makeResourceOptions(options, id));
+    private IntegrationSts(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationStsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:gcp/integrationSts:IntegrationSts", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationStsArgs makeArgs(IntegrationStsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationStsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationSts get(String name, Output<String> id, @Nullable IntegrationStsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationSts get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationStsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationSts(name, id, state, options);
     }
 }

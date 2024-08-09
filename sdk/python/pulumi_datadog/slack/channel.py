@@ -129,7 +129,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 display: Optional[pulumi.Input[pulumi.InputType['ChannelDisplayArgs']]] = None,
+                 display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
                  __props__=None):
         """
         Resource for interacting with the Datadog Slack channel API
@@ -143,12 +143,12 @@ class Channel(pulumi.CustomResource):
         test_channel = datadog.slack.Channel("test_channel",
             account_name="foo",
             channel_name="#test_channel",
-            display=datadog.slack.ChannelDisplayArgs(
-                message=True,
-                notified=False,
-                snapshot=False,
-                tags=True,
-            ))
+            display={
+                "message": True,
+                "notified": False,
+                "snapshot": False,
+                "tags": True,
+            })
         ```
 
         ## Import
@@ -163,7 +163,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Slack account name.
         :param pulumi.Input[str] channel_name: Slack channel name.
-        :param pulumi.Input[pulumi.InputType['ChannelDisplayArgs']] display: Configuration options for what is shown in an alert event message.
+        :param pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']] display: Configuration options for what is shown in an alert event message.
         """
         ...
     @overload
@@ -183,12 +183,12 @@ class Channel(pulumi.CustomResource):
         test_channel = datadog.slack.Channel("test_channel",
             account_name="foo",
             channel_name="#test_channel",
-            display=datadog.slack.ChannelDisplayArgs(
-                message=True,
-                notified=False,
-                snapshot=False,
-                tags=True,
-            ))
+            display={
+                "message": True,
+                "notified": False,
+                "snapshot": False,
+                "tags": True,
+            })
         ```
 
         ## Import
@@ -216,7 +216,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  channel_name: Optional[pulumi.Input[str]] = None,
-                 display: Optional[pulumi.Input[pulumi.InputType['ChannelDisplayArgs']]] = None,
+                 display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,7 +247,7 @@ class Channel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
             channel_name: Optional[pulumi.Input[str]] = None,
-            display: Optional[pulumi.Input[pulumi.InputType['ChannelDisplayArgs']]] = None) -> 'Channel':
+            display: Optional[pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']]] = None) -> 'Channel':
         """
         Get an existing Channel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,7 +257,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Slack account name.
         :param pulumi.Input[str] channel_name: Slack channel name.
-        :param pulumi.Input[pulumi.InputType['ChannelDisplayArgs']] display: Configuration options for what is shown in an alert event message.
+        :param pulumi.Input[Union['ChannelDisplayArgs', 'ChannelDisplayArgsDict']] display: Configuration options for what is shown in an alert event message.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

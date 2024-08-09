@@ -41,22 +41,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Create new spans_metric resource
  *         var testingSpansMetric = new SpansMetric("testingSpansMetric", SpansMetricArgs.builder()
  *             .name("testing.span.metric")
  *             .compute(SpansMetricComputeArgs.builder()
  *                 .aggregationType("distribution")
  *                 .includePercentiles(false)
- *                 .path("{@literal @}duration")
+ *                 .path("}{@literal @}{@code duration")
  *                 .build())
  *             .filter(SpansMetricFilterArgs.builder()
- *                 .query("{@literal @}http.status_code:200 service:my-service")
+ *                 .query("}{@literal @}{@code http.status_code:200 service:my-service")
  *                 .build())
  *             .groupBies(SpansMetricGroupByArgs.builder()
  *                 .path("resource_name")
@@ -64,8 +64,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -116,7 +116,7 @@ public class SpansMetric extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpansMetric(String name) {
+    public SpansMetric(java.lang.String name) {
         this(name, SpansMetricArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class SpansMetric extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpansMetric(String name, SpansMetricArgs args) {
+    public SpansMetric(java.lang.String name, SpansMetricArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class SpansMetric extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpansMetric(String name, SpansMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/spansMetric:SpansMetric", name, args == null ? SpansMetricArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SpansMetric(java.lang.String name, SpansMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/spansMetric:SpansMetric", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpansMetric(String name, Output<String> id, @Nullable SpansMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/spansMetric:SpansMetric", name, state, makeResourceOptions(options, id));
+    private SpansMetric(java.lang.String name, Output<java.lang.String> id, @Nullable SpansMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/spansMetric:SpansMetric", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpansMetricArgs makeArgs(SpansMetricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpansMetricArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class SpansMetric extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpansMetric get(String name, Output<String> id, @Nullable SpansMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpansMetric get(java.lang.String name, Output<java.lang.String> id, @Nullable SpansMetricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpansMetric(name, id, state, options);
     }
 }

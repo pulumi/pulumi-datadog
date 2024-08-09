@@ -214,7 +214,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogsIndex(String name) {
+    public LogsIndex(java.lang.String name) {
         this(name, LogsIndexArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogsIndex(String name, LogsIndexArgs args) {
+    public LogsIndex(java.lang.String name, LogsIndexArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,15 +231,22 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogsIndex(String name, LogsIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIndex:LogsIndex", name, args == null ? LogsIndexArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LogsIndex(java.lang.String name, LogsIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIndex:LogsIndex", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogsIndex(String name, Output<String> id, @Nullable LogsIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/logsIndex:LogsIndex", name, state, makeResourceOptions(options, id));
+    private LogsIndex(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/logsIndex:LogsIndex", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LogsIndexArgs makeArgs(LogsIndexArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogsIndexArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -255,7 +262,7 @@ public class LogsIndex extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogsIndex get(String name, Output<String> id, @Nullable LogsIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogsIndex get(java.lang.String name, Output<java.lang.String> id, @Nullable LogsIndexState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogsIndex(name, id, state, options);
     }
 }

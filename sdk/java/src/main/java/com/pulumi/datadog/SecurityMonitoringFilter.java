@@ -168,7 +168,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityMonitoringFilter(String name) {
+    public SecurityMonitoringFilter(java.lang.String name) {
         this(name, SecurityMonitoringFilterArgs.Empty);
     }
     /**
@@ -176,7 +176,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityMonitoringFilter(String name, SecurityMonitoringFilterArgs args) {
+    public SecurityMonitoringFilter(java.lang.String name, SecurityMonitoringFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -185,15 +185,22 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityMonitoringFilter(String name, SecurityMonitoringFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter", name, args == null ? SecurityMonitoringFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityMonitoringFilter(java.lang.String name, SecurityMonitoringFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityMonitoringFilter(String name, Output<String> id, @Nullable SecurityMonitoringFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter", name, state, makeResourceOptions(options, id));
+    private SecurityMonitoringFilter(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityMonitoringFilterArgs makeArgs(SecurityMonitoringFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityMonitoringFilterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -209,7 +216,7 @@ public class SecurityMonitoringFilter extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityMonitoringFilter get(String name, Output<String> id, @Nullable SecurityMonitoringFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityMonitoringFilter get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityMonitoringFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityMonitoringFilter(name, id, state, options);
     }
 }

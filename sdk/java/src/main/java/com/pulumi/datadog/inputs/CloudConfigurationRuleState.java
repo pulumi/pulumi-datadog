@@ -49,14 +49,14 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
      * 
      */
     @Import(name="groupBies")
     private @Nullable Output<List<String>> groupBies;
 
     /**
-     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
      * 
      */
     public Optional<Output<List<String>>> groupBies() {
@@ -270,7 +270,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class CloudConfigurationRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+         * @param groupBies Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
          * 
          * @return builder
          * 

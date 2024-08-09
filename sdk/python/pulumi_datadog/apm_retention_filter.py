@@ -191,7 +191,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['ApmRetentionFilterFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: the status of the retention filter.
-        :param pulumi.Input[pulumi.InputType['ApmRetentionFilterFilterArgs']] filter: The spans filter. Spans matching this filter will be indexed and stored.
+        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
         :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.
@@ -248,7 +248,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['ApmRetentionFilterFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate: Optional[pulumi.Input[str]] = None,
@@ -285,7 +285,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['ApmRetentionFilterFilterArgs']]] = None,
+            filter: Optional[pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
             filter_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rate: Optional[pulumi.Input[str]] = None) -> 'ApmRetentionFilter':
@@ -297,7 +297,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: the status of the retention filter.
-        :param pulumi.Input[pulumi.InputType['ApmRetentionFilterFilterArgs']] filter: The spans filter. Spans matching this filter will be indexed and stored.
+        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[str] name: The name of the retention filter.
         :param pulumi.Input[str] rate: Sample rate to apply to spans going through this retention filter as a string, a value of 1.0 keeps all spans matching the query.

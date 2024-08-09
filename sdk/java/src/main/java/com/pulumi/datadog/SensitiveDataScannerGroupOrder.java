@@ -84,7 +84,7 @@ public class SensitiveDataScannerGroupOrder extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SensitiveDataScannerGroupOrder(String name) {
+    public SensitiveDataScannerGroupOrder(java.lang.String name) {
         this(name, SensitiveDataScannerGroupOrderArgs.Empty);
     }
     /**
@@ -92,7 +92,7 @@ public class SensitiveDataScannerGroupOrder extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SensitiveDataScannerGroupOrder(String name, SensitiveDataScannerGroupOrderArgs args) {
+    public SensitiveDataScannerGroupOrder(java.lang.String name, SensitiveDataScannerGroupOrderArgs args) {
         this(name, args, null);
     }
     /**
@@ -101,15 +101,22 @@ public class SensitiveDataScannerGroupOrder extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SensitiveDataScannerGroupOrder(String name, SensitiveDataScannerGroupOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder", name, args == null ? SensitiveDataScannerGroupOrderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SensitiveDataScannerGroupOrder(java.lang.String name, SensitiveDataScannerGroupOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SensitiveDataScannerGroupOrder(String name, Output<String> id, @Nullable SensitiveDataScannerGroupOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder", name, state, makeResourceOptions(options, id));
+    private SensitiveDataScannerGroupOrder(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerGroupOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SensitiveDataScannerGroupOrderArgs makeArgs(SensitiveDataScannerGroupOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SensitiveDataScannerGroupOrderArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -125,7 +132,7 @@ public class SensitiveDataScannerGroupOrder extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SensitiveDataScannerGroupOrder get(String name, Output<String> id, @Nullable SensitiveDataScannerGroupOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SensitiveDataScannerGroupOrder get(java.lang.String name, Output<java.lang.String> id, @Nullable SensitiveDataScannerGroupOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SensitiveDataScannerGroupOrder(name, id, state, options);
     }
 }

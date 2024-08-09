@@ -163,7 +163,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ChildOrganization(String name) {
+    public ChildOrganization(java.lang.String name) {
         this(name, ChildOrganizationArgs.Empty);
     }
     /**
@@ -171,7 +171,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ChildOrganization(String name, ChildOrganizationArgs args) {
+    public ChildOrganization(java.lang.String name, ChildOrganizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -180,15 +180,22 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ChildOrganization(String name, ChildOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/childOrganization:ChildOrganization", name, args == null ? ChildOrganizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ChildOrganization(java.lang.String name, ChildOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/childOrganization:ChildOrganization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ChildOrganization(String name, Output<String> id, @Nullable ChildOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/childOrganization:ChildOrganization", name, state, makeResourceOptions(options, id));
+    private ChildOrganization(java.lang.String name, Output<java.lang.String> id, @Nullable ChildOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/childOrganization:ChildOrganization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ChildOrganizationArgs makeArgs(ChildOrganizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChildOrganizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -204,7 +211,7 @@ public class ChildOrganization extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ChildOrganization get(String name, Output<String> id, @Nullable ChildOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ChildOrganization get(java.lang.String name, Output<java.lang.String> id, @Nullable ChildOrganizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ChildOrganization(name, id, state, options);
     }
 }

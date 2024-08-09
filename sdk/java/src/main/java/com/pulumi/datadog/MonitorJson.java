@@ -116,7 +116,7 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MonitorJson(String name) {
+    public MonitorJson(java.lang.String name) {
         this(name, MonitorJsonArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MonitorJson(String name, MonitorJsonArgs args) {
+    public MonitorJson(java.lang.String name, MonitorJsonArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,15 +133,22 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MonitorJson(String name, MonitorJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/monitorJson:MonitorJson", name, args == null ? MonitorJsonArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MonitorJson(java.lang.String name, MonitorJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/monitorJson:MonitorJson", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MonitorJson(String name, Output<String> id, @Nullable MonitorJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/monitorJson:MonitorJson", name, state, makeResourceOptions(options, id));
+    private MonitorJson(java.lang.String name, Output<java.lang.String> id, @Nullable MonitorJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/monitorJson:MonitorJson", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MonitorJsonArgs makeArgs(MonitorJsonArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitorJsonArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -157,7 +164,7 @@ public class MonitorJson extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MonitorJson get(String name, Output<String> id, @Nullable MonitorJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MonitorJson get(java.lang.String name, Output<java.lang.String> id, @Nullable MonitorJsonState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MonitorJson(name, id, state, options);
     }
 }

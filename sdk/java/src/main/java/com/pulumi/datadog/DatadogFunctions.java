@@ -5673,19 +5673,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
      *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
-     *             .filterKeyword("foo{@literal @}example.com")
+     *             .filterKeyword("foo}{@literal @}{@code example.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5716,19 +5716,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
      *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
-     *             .filterKeyword("foo{@literal @}example.com")
+     *             .filterKeyword("foo}{@literal @}{@code example.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5759,19 +5759,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
      *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
-     *             .filterKeyword("foo{@literal @}example.com")
+     *             .filterKeyword("foo}{@literal @}{@code example.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5802,19 +5802,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var foo = DatadogFunctions.getTeamMemberships(GetTeamMembershipsArgs.builder()
      *             .teamId("e6723c40-edb1-11ed-b816-da7ad0900002")
-     *             .filterKeyword("foo{@literal @}example.com")
+     *             .filterKeyword("foo}{@literal @}{@code example.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5845,18 +5845,18 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5887,18 +5887,18 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5929,18 +5929,18 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -5971,18 +5971,18 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUser(GetUserArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6013,19 +6013,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6056,19 +6056,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6099,19 +6099,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6142,19 +6142,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6185,19 +6185,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
@@ -6228,19 +6228,19 @@ public final class DatadogFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         final var test = DatadogFunctions.getUsers(GetUsersArgs.builder()
-     *             .filter("user.name{@literal @}company.com")
+     *             .filter("user.name}{@literal @}{@code company.com")
      *             .filterStatus("Active,Pending")
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;

@@ -55,7 +55,7 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IpAllowlist(String name) {
+    public IpAllowlist(java.lang.String name) {
         this(name, IpAllowlistArgs.Empty);
     }
     /**
@@ -63,7 +63,7 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IpAllowlist(String name, IpAllowlistArgs args) {
+    public IpAllowlist(java.lang.String name, IpAllowlistArgs args) {
         this(name, args, null);
     }
     /**
@@ -72,15 +72,22 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IpAllowlist(String name, IpAllowlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/ipAllowlist:IpAllowlist", name, args == null ? IpAllowlistArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IpAllowlist(java.lang.String name, IpAllowlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/ipAllowlist:IpAllowlist", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IpAllowlist(String name, Output<String> id, @Nullable IpAllowlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/ipAllowlist:IpAllowlist", name, state, makeResourceOptions(options, id));
+    private IpAllowlist(java.lang.String name, Output<java.lang.String> id, @Nullable IpAllowlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/ipAllowlist:IpAllowlist", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IpAllowlistArgs makeArgs(IpAllowlistArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IpAllowlistArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -96,7 +103,7 @@ public class IpAllowlist extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IpAllowlist get(String name, Output<String> id, @Nullable IpAllowlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IpAllowlist get(java.lang.String name, Output<java.lang.String> id, @Nullable IpAllowlistState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IpAllowlist(name, id, state, options);
     }
 }

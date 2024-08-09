@@ -75,12 +75,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Example Usage (Synthetics API test)
  *         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  *         var testUptime = new SyntheticsTest("testUptime", SyntheticsTestArgs.builder()
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *             .type("api")
  *             .subtype("http")
  *             .status("live")
- *             .message("Notify{@literal @}pagerduty")
+ *             .message("Notify }{@literal @}{@code pagerduty")
  *             .locations("aws:eu-central-1")
  *             .tags(            
  *                 "foo:bar",
@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .type("api")
  *             .subtype("http")
  *             .status("live")
- *             .message("Notify{@literal @}pagerduty")
+ *             .message("Notify }{@literal @}{@code pagerduty")
  *             .locations("aws:eu-central-1")
  *             .tags(            
  *                 "foo:bar",
@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *             .type("api")
  *             .subtype("ssl")
  *             .status("live")
- *             .message("Notify{@literal @}pagerduty")
+ *             .message("Notify }{@literal @}{@code pagerduty")
  *             .locations("aws:eu-central-1")
  *             .tags(            
  *                 "foo:bar",
@@ -189,7 +189,7 @@ import javax.annotation.Nullable;
  *             .type("api")
  *             .subtype("tcp")
  *             .status("live")
- *             .message("Notify{@literal @}pagerduty")
+ *             .message("Notify }{@literal @}{@code pagerduty")
  *             .locations("aws:eu-central-1")
  *             .tags(            
  *                 "foo:bar",
@@ -221,7 +221,7 @@ import javax.annotation.Nullable;
  *             .type("api")
  *             .subtype("dns")
  *             .status("live")
- *             .message("Notify{@literal @}pagerduty")
+ *             .message("Notify }{@literal @}{@code pagerduty")
  *             .locations("aws:eu-central-1")
  *             .tags(            
  *                 "foo:bar",
@@ -313,27 +313,27 @@ import javax.annotation.Nullable;
  *                         .callType("unary")
  *                         .service("greeter.Greeter")
  *                         .method("SayHello")
- *                         .message("{\"name\": \"John\"}")
+ *                         .message("}{{@code \"name\": \"John\"}}{@code ")
  *                         .plainProtoFile("""
  * syntax = "proto3";
  * 
  * package greeter;
  * 
  * // The greeting service definition.
- * service Greeter {
+ * service Greeter }{{@code
  *   // Sends a greeting
- *   rpc SayHello (HelloRequest) returns (HelloReply) {}
- * }
+ *   rpc SayHello (HelloRequest) returns (HelloReply) }{}{@code
+ * }}{@code
  * 
  * // The request message containing the user's name.
- * message HelloRequest {
+ * message HelloRequest }{{@code
  *   string name = 1;
- * }
+ * }}{@code
  * 
  * // The response message containing the greetings
- * message HelloReply {
+ * message HelloReply }{{@code
  *   string message = 1;
- * }
+ * }}{@code
  *                         """)
  *                         .build())
  *                     .build())
@@ -349,7 +349,7 @@ import javax.annotation.Nullable;
  *             .name("A Browser test on example.org")
  *             .type("browser")
  *             .status("paused")
- *             .message("Notify{@literal @}qa")
+ *             .message("Notify }{@literal @}{@code qa")
  *             .deviceIds("laptop_large")
  *             .locations("aws:eu-central-1")
  *             .tags()
@@ -388,14 +388,14 @@ import javax.annotation.Nullable;
  *                 SyntheticsTestBrowserVariableArgs.builder()
  *                     .type("text")
  *                     .name("MY_PATTERN_VAR")
- *                     .pattern("{{numeric(3)}}")
+ *                     .pattern("}{{{@code numeric(3)}}}{@code ")
  *                     .example("597")
  *                     .build(),
  *                 SyntheticsTestBrowserVariableArgs.builder()
  *                     .type("email")
  *                     .name("MY_EMAIL_VAR")
- *                     .pattern("jd8-afe-ydv.{{ numeric(10) }}{@literal @}synthetics.dtdg.co")
- *                     .example("jd8-afe-ydv.4546132139{@literal @}synthetics.dtdg.co")
+ *                     .pattern("jd8-afe-ydv.}{{{@code  numeric(10) }}}{@literal @}{@code synthetics.dtdg.co")
+ *                     .example("jd8-afe-ydv.4546132139}{@literal @}{@code synthetics.dtdg.co")
  *                     .build(),
  *                 SyntheticsTestBrowserVariableArgs.builder()
  *                     .type("global")
@@ -410,7 +410,7 @@ import javax.annotation.Nullable;
  *         // Example Usage (GRPC API behavior check test)
  *         // Create a new Datadog GRPC API test calling host example.org on port 443
  *         // targeting service `greeter.Greeter` with the method `SayHello`
- *         // and the message {"name": "John"}
+ *         // and the message }{{@code "name": "John"}}{@code
  *         var testGrpcUnary = new SyntheticsTest("testGrpcUnary", SyntheticsTestArgs.builder()
  *             .name("GRPC API behavior check test")
  *             .type("api")
@@ -427,27 +427,27 @@ import javax.annotation.Nullable;
  *                 .callType("unary")
  *                 .service("greeter.Greeter")
  *                 .method("SayHello")
- *                 .message("{\"name\": \"John\"}")
+ *                 .message("}{{@code \"name\": \"John\"}}{@code ")
  *                 .plainProtoFile("""
  * syntax = "proto3";
  * 
  * package greeter;
  * 
  * // The greeting service definition.
- * service Greeter {
+ * service Greeter }{{@code
  *   // Sends a greeting
- *   rpc SayHello (HelloRequest) returns (HelloReply) {}
- * }
+ *   rpc SayHello (HelloRequest) returns (HelloReply) }{}{@code
+ * }}{@code
  * 
  * // The request message containing the user's name.
- * message HelloRequest {
+ * message HelloRequest }{{@code
  *   string name = 1;
- * }
+ * }}{@code
  * 
  * // The response message containing the greetings
- * message HelloReply {
+ * message HelloReply }{{@code
  *   string message = 1;
- * }
+ * }}{@code
  *                 """)
  *                 .build())
  *             .requestMetadata(Map.of("header", "value"))
@@ -513,8 +513,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -891,7 +891,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SyntheticsTest(String name) {
+    public SyntheticsTest(java.lang.String name) {
         this(name, SyntheticsTestArgs.Empty);
     }
     /**
@@ -899,7 +899,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SyntheticsTest(String name, SyntheticsTestArgs args) {
+    public SyntheticsTest(java.lang.String name, SyntheticsTestArgs args) {
         this(name, args, null);
     }
     /**
@@ -908,15 +908,22 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SyntheticsTest(String name, SyntheticsTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/syntheticsTest:SyntheticsTest", name, args == null ? SyntheticsTestArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SyntheticsTest(java.lang.String name, SyntheticsTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/syntheticsTest:SyntheticsTest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SyntheticsTest(String name, Output<String> id, @Nullable SyntheticsTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/syntheticsTest:SyntheticsTest", name, state, makeResourceOptions(options, id));
+    private SyntheticsTest(java.lang.String name, Output<java.lang.String> id, @Nullable SyntheticsTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/syntheticsTest:SyntheticsTest", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SyntheticsTestArgs makeArgs(SyntheticsTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SyntheticsTestArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -932,7 +939,7 @@ public class SyntheticsTest extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SyntheticsTest get(String name, Output<String> id, @Nullable SyntheticsTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SyntheticsTest get(java.lang.String name, Output<java.lang.String> id, @Nullable SyntheticsTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SyntheticsTest(name, id, state, options);
     }
 }

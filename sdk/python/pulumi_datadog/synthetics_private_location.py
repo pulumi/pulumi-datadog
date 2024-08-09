@@ -178,7 +178,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[pulumi.InputType['SyntheticsPrivateLocationMetadataArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -211,7 +211,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the private location.
-        :param pulumi.Input[pulumi.InputType['SyntheticsPrivateLocationMetadataArgs']] metadata: The private location metadata
+        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
@@ -263,7 +263,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 metadata: Optional[pulumi.Input[pulumi.InputType['SyntheticsPrivateLocationMetadataArgs']]] = None,
+                 metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -296,7 +296,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            metadata: Optional[pulumi.Input[pulumi.InputType['SyntheticsPrivateLocationMetadataArgs']]] = None,
+            metadata: Optional[pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SyntheticsPrivateLocation':
         """
@@ -308,7 +308,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[str] description: Description of the private location.
-        :param pulumi.Input[pulumi.InputType['SyntheticsPrivateLocationMetadataArgs']] metadata: The private location metadata
+        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """

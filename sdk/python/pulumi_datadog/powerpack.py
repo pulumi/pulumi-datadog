@@ -291,13 +291,13 @@ class Powerpack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']]] = None,
+                 layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
                  live_span: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  show_title: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog powerpack resource. This can be used to create and manage Datadog powerpacks.
@@ -312,25 +312,25 @@ class Powerpack(pulumi.CustomResource):
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
             live_span="4h",
-            layout=datadog.PowerpackLayoutArgs(
-                height=10,
-                width=3,
-                x=1,
-                y=0,
-            ),
-            template_variables=[datadog.PowerpackTemplateVariableArgs(
-                defaults=["defaults"],
-                name="datacenter",
-            )],
-            widgets=[datadog.PowerpackWidgetArgs(
-                event_stream_definition=datadog.PowerpackWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="right",
-                ),
-            )])
+            layout={
+                "height": 10,
+                "width": 3,
+                "x": 1,
+                "y": 0,
+            },
+            template_variables=[{
+                "defaults": ["defaults"],
+                "name": "datacenter",
+            }],
+            widgets=[{
+                "event_stream_definition": {
+                    "query": "*",
+                    "event_size": "l",
+                    "title": "Widget Title",
+                    "title_size": "16",
+                    "title_align": "right",
+                },
+            }])
         ```
 
         ## Import
@@ -342,13 +342,13 @@ class Powerpack(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the powerpack.
-        :param pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']] layout: The layout of the powerpack on a free-form dashboard.
+        :param pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]] template_variables: The list of template variables for this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]] widgets: The list of widgets to display in the powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]] template_variables: The list of template variables for this powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]] widgets: The list of widgets to display in the powerpack.
         """
         ...
     @overload
@@ -369,25 +369,25 @@ class Powerpack(pulumi.CustomResource):
         foo = datadog.Powerpack("foo",
             description="Created using the Datadog provider in terraform",
             live_span="4h",
-            layout=datadog.PowerpackLayoutArgs(
-                height=10,
-                width=3,
-                x=1,
-                y=0,
-            ),
-            template_variables=[datadog.PowerpackTemplateVariableArgs(
-                defaults=["defaults"],
-                name="datacenter",
-            )],
-            widgets=[datadog.PowerpackWidgetArgs(
-                event_stream_definition=datadog.PowerpackWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="right",
-                ),
-            )])
+            layout={
+                "height": 10,
+                "width": 3,
+                "x": 1,
+                "y": 0,
+            },
+            template_variables=[{
+                "defaults": ["defaults"],
+                "name": "datacenter",
+            }],
+            widgets=[{
+                "event_stream_definition": {
+                    "query": "*",
+                    "event_size": "l",
+                    "title": "Widget Title",
+                    "title_size": "16",
+                    "title_align": "right",
+                },
+            }])
         ```
 
         ## Import
@@ -412,13 +412,13 @@ class Powerpack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 layout: Optional[pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']]] = None,
+                 layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
                  live_span: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  show_title: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,13 +447,13 @@ class Powerpack(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            layout: Optional[pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']]] = None,
+            layout: Optional[pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']]] = None,
             live_span: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             show_title: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]]] = None,
-            widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]]] = None) -> 'Powerpack':
+            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]]] = None,
+            widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]]] = None) -> 'Powerpack':
         """
         Get an existing Powerpack resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,13 +462,13 @@ class Powerpack(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the powerpack.
-        :param pulumi.Input[pulumi.InputType['PowerpackLayoutArgs']] layout: The layout of the powerpack on a free-form dashboard.
+        :param pulumi.Input[Union['PowerpackLayoutArgs', 'PowerpackLayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
         :param pulumi.Input[str] name: The name for the powerpack.
         :param pulumi.Input[bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: List of tags to identify this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackTemplateVariableArgs']]]] template_variables: The list of template variables for this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PowerpackWidgetArgs']]]] widgets: The list of widgets to display in the powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackTemplateVariableArgs', 'PowerpackTemplateVariableArgsDict']]]] template_variables: The list of template variables for this powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackWidgetArgs', 'PowerpackWidgetArgsDict']]]] widgets: The list of widgets to display in the powerpack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
