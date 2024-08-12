@@ -223,7 +223,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
                  exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
@@ -258,14 +258,14 @@ class MetricTagConfiguration(pulumi.CustomResource):
             ],
             exclude_tags_mode=False,
             aggregations=[
-                datadog.MetricTagConfigurationAggregationArgs(
-                    time="avg",
-                    space="min",
-                ),
-                datadog.MetricTagConfigurationAggregationArgs(
-                    time="avg",
-                    space="max",
-                ),
+                {
+                    "time": "avg",
+                    "space": "min",
+                },
+                {
+                    "time": "avg",
+                    "space": "max",
+                },
             ])
         ```
 
@@ -277,7 +277,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
@@ -318,14 +318,14 @@ class MetricTagConfiguration(pulumi.CustomResource):
             ],
             exclude_tags_mode=False,
             aggregations=[
-                datadog.MetricTagConfigurationAggregationArgs(
-                    time="avg",
-                    space="min",
-                ),
-                datadog.MetricTagConfigurationAggregationArgs(
-                    time="avg",
-                    space="max",
-                ),
+                {
+                    "time": "avg",
+                    "space": "min",
+                },
+                {
+                    "time": "avg",
+                    "space": "max",
+                },
             ])
         ```
 
@@ -350,7 +350,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+                 aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
                  exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
                  include_percentiles: Optional[pulumi.Input[bool]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
@@ -387,7 +387,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]]] = None,
+            aggregations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]]] = None,
             exclude_tags_mode: Optional[pulumi.Input[bool]] = None,
             include_percentiles: Optional[pulumi.Input[bool]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
@@ -400,7 +400,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricTagConfigurationAggregationArgs']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict']]]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
         :param pulumi.Input[bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.

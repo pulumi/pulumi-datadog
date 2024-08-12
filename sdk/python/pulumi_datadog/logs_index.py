@@ -289,11 +289,11 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+                 daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
                  daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -308,32 +308,32 @@ class LogsIndex(pulumi.CustomResource):
         sample_index = datadog.LogsIndex("sample_index",
             name="your index",
             daily_limit=200000,
-            daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
-                reset_time="14:00",
-                reset_utc_offset="+02:00",
-            ),
+            daily_limit_reset={
+                "reset_time": "14:00",
+                "reset_utc_offset": "+02:00",
+            },
             daily_limit_warning_threshold_percentage=50,
             retention_days=7,
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
+            filters=[{
+                "query": "*",
+            }],
             exclusion_filters=[
-                datadog.LogsIndexExclusionFilterArgs(
-                    name="Filter coredns logs",
-                    is_enabled=True,
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="app:coredns",
-                        sample_rate=0.97,
-                    )],
-                ),
-                datadog.LogsIndexExclusionFilterArgs(
-                    name="Kubernetes apiserver",
-                    is_enabled=True,
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="service:kube_apiserver",
-                        sample_rate=1,
-                    )],
-                ),
+                {
+                    "name": "Filter coredns logs",
+                    "is_enabled": True,
+                    "filters": [{
+                        "query": "app:coredns",
+                        "sample_rate": 0.97,
+                    }],
+                },
+                {
+                    "name": "Kubernetes apiserver",
+                    "is_enabled": True,
+                    "filters": [{
+                        "query": "service:kube_apiserver",
+                        "sample_rate": 1,
+                    }],
+                },
             ])
         ```
 
@@ -346,11 +346,11 @@ class LogsIndex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """
@@ -371,32 +371,32 @@ class LogsIndex(pulumi.CustomResource):
         sample_index = datadog.LogsIndex("sample_index",
             name="your index",
             daily_limit=200000,
-            daily_limit_reset=datadog.LogsIndexDailyLimitResetArgs(
-                reset_time="14:00",
-                reset_utc_offset="+02:00",
-            ),
+            daily_limit_reset={
+                "reset_time": "14:00",
+                "reset_utc_offset": "+02:00",
+            },
             daily_limit_warning_threshold_percentage=50,
             retention_days=7,
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
+            filters=[{
+                "query": "*",
+            }],
             exclusion_filters=[
-                datadog.LogsIndexExclusionFilterArgs(
-                    name="Filter coredns logs",
-                    is_enabled=True,
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="app:coredns",
-                        sample_rate=0.97,
-                    )],
-                ),
-                datadog.LogsIndexExclusionFilterArgs(
-                    name="Kubernetes apiserver",
-                    is_enabled=True,
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="service:kube_apiserver",
-                        sample_rate=1,
-                    )],
-                ),
+                {
+                    "name": "Filter coredns logs",
+                    "is_enabled": True,
+                    "filters": [{
+                        "query": "app:coredns",
+                        "sample_rate": 0.97,
+                    }],
+                },
+                {
+                    "name": "Kubernetes apiserver",
+                    "is_enabled": True,
+                    "filters": [{
+                        "query": "service:kube_apiserver",
+                        "sample_rate": 1,
+                    }],
+                },
             ])
         ```
 
@@ -422,11 +422,11 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
-                 daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+                 daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
                  daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
                  disable_daily_limit: Optional[pulumi.Input[bool]] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -461,11 +461,11 @@ class LogsIndex(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             daily_limit: Optional[pulumi.Input[int]] = None,
-            daily_limit_reset: Optional[pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']]] = None,
+            daily_limit_reset: Optional[pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']]] = None,
             daily_limit_warning_threshold_percentage: Optional[pulumi.Input[float]] = None,
             disable_daily_limit: Optional[pulumi.Input[bool]] = None,
-            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             retention_days: Optional[pulumi.Input[int]] = None) -> 'LogsIndex':
         """
@@ -476,11 +476,11 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
-        :param pulumi.Input[pulumi.InputType['LogsIndexDailyLimitResetArgs']] daily_limit_reset: Object containing options to override the default daily limit reset time.
+        :param pulumi.Input[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict']] daily_limit_reset: Object containing options to override the default daily limit reset time.
         :param pulumi.Input[float] daily_limit_warning_threshold_percentage: A percentage threshold of the daily quota at which a Datadog warning event is generated.
         :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict']]]] exclusion_filters: List of exclusion filters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index. Index names cannot be modified after creation. If this value is changed, a new index will be created.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """

@@ -154,7 +154,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationResource(String name) {
+    public IntegrationResource(java.lang.String name) {
         this(name, IntegrationResourceArgs.Empty);
     }
     /**
@@ -162,7 +162,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationResource(String name, IntegrationResourceArgs args) {
+    public IntegrationResource(java.lang.String name, IntegrationResourceArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,15 +171,22 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationResource(String name, IntegrationResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:confluent/integrationResource:IntegrationResource", name, args == null ? IntegrationResourceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationResource(java.lang.String name, IntegrationResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:confluent/integrationResource:IntegrationResource", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationResource(String name, Output<String> id, @Nullable IntegrationResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:confluent/integrationResource:IntegrationResource", name, state, makeResourceOptions(options, id));
+    private IntegrationResource(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:confluent/integrationResource:IntegrationResource", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationResourceArgs makeArgs(IntegrationResourceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationResourceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +202,7 @@ public class IntegrationResource extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationResource get(String name, Output<String> id, @Nullable IntegrationResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationResource get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationResourceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationResource(name, id, state, options);
     }
 }

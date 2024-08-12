@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var myrule = new CloudConfigurationRule("myrule", CloudConfigurationRuleArgs.builder()
  *             .name("My cloud configuration rule")
  *             .message("Rule has triggered")
@@ -58,33 +58,33 @@ import javax.annotation.Nullable;
  * import future.keywords.if
  * import future.keywords.in
  * 
- * eval(resource) = "skip" if {
+ * eval(resource) = "skip" if }{{@code
  *     # Logic that evaluates to true if the resource should be skipped
  *     true
- * } else = "pass" {
+ * }}{@code  else = "pass" }{{@code
  *     # Logic that evaluates to true if the resource is compliant
  *     true
- * } else = "fail" {
+ * }}{@code  else = "fail" }{{@code
  *     # Logic that evaluates to true if the resource is not compliant
  *     true
- * }
+ * }}{@code
  * 
  * # This part remains unchanged for all rules
- * results contains result if {
+ * results contains result if }{{@code
  *     some resource in input.resources[input.main_resource_type]
  *     result := dd_output.format(resource, eval(resource))
- * }
+ * }}{@code
  *             """)
  *             .resourceType("aws_s3_bucket")
  *             .relatedResourceTypes()
  *             .severity("high")
- *             .groupBies("{@literal @}resource")
- *             .notifications("{@literal @}channel")
+ *             .groupBies("}{@literal @}{@code resource")
+ *             .notifications("}{@literal @}{@code channel")
  *             .tags("some:tag")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -129,14 +129,14 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.filters);
     }
     /**
-     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+     * Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
      * 
      */
     @Export(name="groupBies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupBies;
 
     /**
-     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g.{@literal @}resource.
+     * @return Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. {@literal @}resource.
      * 
      */
     public Output<Optional<List<String>>> groupBies() {
@@ -259,7 +259,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CloudConfigurationRule(String name) {
+    public CloudConfigurationRule(java.lang.String name) {
         this(name, CloudConfigurationRuleArgs.Empty);
     }
     /**
@@ -267,7 +267,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CloudConfigurationRule(String name, CloudConfigurationRuleArgs args) {
+    public CloudConfigurationRule(java.lang.String name, CloudConfigurationRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -276,15 +276,22 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CloudConfigurationRule(String name, CloudConfigurationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/cloudConfigurationRule:CloudConfigurationRule", name, args == null ? CloudConfigurationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CloudConfigurationRule(java.lang.String name, CloudConfigurationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/cloudConfigurationRule:CloudConfigurationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CloudConfigurationRule(String name, Output<String> id, @Nullable CloudConfigurationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/cloudConfigurationRule:CloudConfigurationRule", name, state, makeResourceOptions(options, id));
+    private CloudConfigurationRule(java.lang.String name, Output<java.lang.String> id, @Nullable CloudConfigurationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/cloudConfigurationRule:CloudConfigurationRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CloudConfigurationRuleArgs makeArgs(CloudConfigurationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CloudConfigurationRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -300,7 +307,7 @@ public class CloudConfigurationRule extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CloudConfigurationRule get(String name, Output<String> id, @Nullable CloudConfigurationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CloudConfigurationRule get(java.lang.String name, Output<java.lang.String> id, @Nullable CloudConfigurationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CloudConfigurationRule(name, id, state, options);
     }
 }

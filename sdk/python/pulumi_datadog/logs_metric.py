@@ -159,9 +159,9 @@ class LogsMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]]] = None,
+                 compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+                 filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -175,22 +175,22 @@ class LogsMetric(pulumi.CustomResource):
 
         testing_logs_metric = datadog.LogsMetric("testing_logs_metric",
             name="testing.logs.metric",
-            compute=datadog.LogsMetricComputeArgs(
-                aggregation_type="distribution",
-                path="@duration",
-            ),
-            filter=datadog.LogsMetricFilterArgs(
-                query="service:test",
-            ),
+            compute={
+                "aggregation_type": "distribution",
+                "path": "@duration",
+            },
+            filter={
+                "query": "service:test",
+            },
             group_bies=[
-                datadog.LogsMetricGroupByArgs(
-                    path="@status",
-                    tag_name="status",
-                ),
-                datadog.LogsMetricGroupByArgs(
-                    path="@version",
-                    tag_name="version",
-                ),
+                {
+                    "path": "@status",
+                    "tag_name": "status",
+                },
+                {
+                    "path": "@version",
+                    "tag_name": "version",
+                },
             ])
         ```
 
@@ -202,9 +202,9 @@ class LogsMetric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
-        :param pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]] group_bies: The rules for the group by.
+        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]] group_bies: The rules for the group by.
         :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
         """
         ...
@@ -224,22 +224,22 @@ class LogsMetric(pulumi.CustomResource):
 
         testing_logs_metric = datadog.LogsMetric("testing_logs_metric",
             name="testing.logs.metric",
-            compute=datadog.LogsMetricComputeArgs(
-                aggregation_type="distribution",
-                path="@duration",
-            ),
-            filter=datadog.LogsMetricFilterArgs(
-                query="service:test",
-            ),
+            compute={
+                "aggregation_type": "distribution",
+                "path": "@duration",
+            },
+            filter={
+                "query": "service:test",
+            },
             group_bies=[
-                datadog.LogsMetricGroupByArgs(
-                    path="@status",
-                    tag_name="status",
-                ),
-                datadog.LogsMetricGroupByArgs(
-                    path="@version",
-                    tag_name="version",
-                ),
+                {
+                    "path": "@status",
+                    "tag_name": "status",
+                },
+                {
+                    "path": "@version",
+                    "tag_name": "version",
+                },
             ])
         ```
 
@@ -264,9 +264,9 @@ class LogsMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: Optional[pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']]] = None,
-                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]]] = None,
+                 compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+                 filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -297,9 +297,9 @@ class LogsMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: Optional[pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']]] = None,
-            group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]]] = None,
+            compute: Optional[pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
+            filter: Optional[pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
+            group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'LogsMetric':
         """
         Get an existing LogsMetric resource's state with the given name, id, and optional extra
@@ -308,9 +308,9 @@ class LogsMetric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
-        :param pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]] group_bies: The rules for the group by.
+        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]] group_bies: The rules for the group by.
         :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

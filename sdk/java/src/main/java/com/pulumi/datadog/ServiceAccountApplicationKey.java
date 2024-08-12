@@ -140,7 +140,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceAccountApplicationKey(String name) {
+    public ServiceAccountApplicationKey(java.lang.String name) {
         this(name, ServiceAccountApplicationKeyArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceAccountApplicationKey(String name, ServiceAccountApplicationKeyArgs args) {
+    public ServiceAccountApplicationKey(java.lang.String name, ServiceAccountApplicationKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,15 +157,22 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceAccountApplicationKey(String name, ServiceAccountApplicationKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey", name, args == null ? ServiceAccountApplicationKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceAccountApplicationKey(java.lang.String name, ServiceAccountApplicationKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceAccountApplicationKey(String name, Output<String> id, @Nullable ServiceAccountApplicationKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey", name, state, makeResourceOptions(options, id));
+    private ServiceAccountApplicationKey(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceAccountApplicationKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceAccountApplicationKeyArgs makeArgs(ServiceAccountApplicationKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceAccountApplicationKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -184,7 +191,7 @@ public class ServiceAccountApplicationKey extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceAccountApplicationKey get(String name, Output<String> id, @Nullable ServiceAccountApplicationKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceAccountApplicationKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceAccountApplicationKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceAccountApplicationKey(name, id, state, options);
     }
 }

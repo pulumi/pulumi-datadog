@@ -308,15 +308,15 @@ class SloCorrection(pulumi.CustomResource):
             name="example slo",
             type="metric",
             description="some updated description about example_slo SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.metric{type:good}.as_count()",
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.5,
-                warning=99.8,
-            )],
+            query={
+                "numerator": "sum:my.metric{type:good}.as_count()",
+                "denominator": "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+            },
+            thresholds=[{
+                "timeframe": "7d",
+                "target": 99.5,
+                "warning": 99.8,
+            }],
             tags=["foo:bar"])
         example_slo_correction = datadog.SloCorrection("example_slo_correction",
             category="Scheduled Maintenance",
@@ -372,15 +372,15 @@ class SloCorrection(pulumi.CustomResource):
             name="example slo",
             type="metric",
             description="some updated description about example_slo SLO",
-            query=datadog.ServiceLevelObjectiveQueryArgs(
-                numerator="sum:my.metric{type:good}.as_count()",
-                denominator="sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
-            ),
-            thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(
-                timeframe="7d",
-                target=99.5,
-                warning=99.8,
-            )],
+            query={
+                "numerator": "sum:my.metric{type:good}.as_count()",
+                "denominator": "sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()",
+            },
+            thresholds=[{
+                "timeframe": "7d",
+                "target": 99.5,
+                "warning": 99.8,
+            }],
             tags=["foo:bar"])
         example_slo_correction = datadog.SloCorrection("example_slo_correction",
             category="Scheduled Maintenance",

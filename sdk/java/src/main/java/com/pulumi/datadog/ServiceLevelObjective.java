@@ -365,7 +365,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceLevelObjective(String name) {
+    public ServiceLevelObjective(java.lang.String name) {
         this(name, ServiceLevelObjectiveArgs.Empty);
     }
     /**
@@ -373,7 +373,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceLevelObjective(String name, ServiceLevelObjectiveArgs args) {
+    public ServiceLevelObjective(java.lang.String name, ServiceLevelObjectiveArgs args) {
         this(name, args, null);
     }
     /**
@@ -382,15 +382,22 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceLevelObjective(String name, ServiceLevelObjectiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, args == null ? ServiceLevelObjectiveArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceLevelObjective(java.lang.String name, ServiceLevelObjectiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceLevelObjective(String name, Output<String> id, @Nullable ServiceLevelObjectiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, state, makeResourceOptions(options, id));
+    private ServiceLevelObjective(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceLevelObjectiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceLevelObjectiveArgs makeArgs(ServiceLevelObjectiveArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceLevelObjectiveArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -406,7 +413,7 @@ public class ServiceLevelObjective extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceLevelObjective get(String name, Output<String> id, @Nullable ServiceLevelObjectiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceLevelObjective get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceLevelObjectiveState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceLevelObjective(name, id, state, options);
     }
 }
