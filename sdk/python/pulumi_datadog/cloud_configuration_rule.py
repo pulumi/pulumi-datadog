@@ -381,7 +381,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -449,7 +449,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.
@@ -536,7 +536,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
                  group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -589,7 +589,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
             group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             message: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -607,7 +607,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether the cloud configuration rule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudConfigurationRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[str] message: The message associated to the rule that will be shown in findings and signals.
         :param pulumi.Input[str] name: The name of the cloud configuration rule.

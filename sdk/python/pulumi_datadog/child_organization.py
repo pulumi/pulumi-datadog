@@ -243,13 +243,13 @@ class ChildOrganization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationApiKeyArgs']]]]] = None,
-            application_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationApplicationKeyArgs']]]]] = None,
+            api_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApiKeyArgs', 'ChildOrganizationApiKeyArgsDict']]]]] = None,
+            application_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApplicationKeyArgs', 'ChildOrganizationApplicationKeyArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationSettingArgs']]]]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationUserArgs']]]]] = None) -> 'ChildOrganization':
+            settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationSettingArgs', 'ChildOrganizationSettingArgsDict']]]]] = None,
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationUserArgs', 'ChildOrganizationUserArgsDict']]]]] = None) -> 'ChildOrganization':
         """
         Get an existing ChildOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,13 +257,13 @@ class ChildOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationApiKeyArgs']]]] api_keys: Datadog API key.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationApplicationKeyArgs']]]] application_keys: An application key with its associated metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApiKeyArgs', 'ChildOrganizationApiKeyArgsDict']]]] api_keys: Datadog API key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationApplicationKeyArgs', 'ChildOrganizationApplicationKeyArgsDict']]]] application_keys: An application key with its associated metadata.
         :param pulumi.Input[str] description: Description of the organization.
         :param pulumi.Input[str] name: Name for Child Organization after creation.
         :param pulumi.Input[str] public_id: The `public_id` of the organization you are operating within.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationSettingArgs']]]] settings: Organization settings
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChildOrganizationUserArgs']]]] users: Information about a user
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationSettingArgs', 'ChildOrganizationSettingArgsDict']]]] settings: Organization settings
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChildOrganizationUserArgs', 'ChildOrganizationUserArgsDict']]]] users: Information about a user
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

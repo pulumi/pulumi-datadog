@@ -838,24 +838,24 @@ class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestApiStepArgs']]]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestAssertionArgs']]]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]]] = None,
+                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
-                 request_basicauth: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']]] = None,
-                 request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
-                 request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]]] = None,
+                 options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+                 request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+                 request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+                 request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
+                 request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -899,28 +899,28 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             request_headers={
                 "Content-Type": "application/json",
             },
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="statusCode",
-                operator="is",
-                target="200",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                retry=datadog.SyntheticsTestOptionsListRetryArgs(
-                    count=2,
-                    interval=300,
-                ),
-                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=120,
-                ),
-            ))
+            assertions=[{
+                "type": "statusCode",
+                "operator": "is",
+                "target": "200",
+            }],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Authenticated API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
         test_api = datadog.SyntheticsTest("test_api",
@@ -935,29 +935,29 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             request_headers={
                 "Content-Type": "application/json",
                 "Authentication": "Token: 1234566789",
             },
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="statusCode",
-                operator="is",
-                target="200",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                retry=datadog.SyntheticsTestOptionsListRetryArgs(
-                    count=2,
-                    interval=300,
-                ),
-                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=120,
-                ),
-            ))
+            assertions=[{
+                "type": "statusCode",
+                "operator": "is",
+                "target": "200",
+            }],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Synthetics SSL test)
         # Create a new Datadog Synthetics API/SSL test on example.org
         test_ssl = datadog.SyntheticsTest("test_ssl",
@@ -972,19 +972,19 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="certificate",
-                operator="isInMoreThan",
-                target="30",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                accept_self_signed=True,
-            ))
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+            },
+            assertions=[{
+                "type": "certificate",
+                "operator": "isInMoreThan",
+                "target": "30",
+            }],
+            options_list={
+                "tick_every": 900,
+                "accept_self_signed": True,
+            })
         # Example Usage (Synthetics TCP test)
         # Create a new Datadog Synthetics API/TCP test on example.org
         test_tcp = datadog.SyntheticsTest("test_tcp",
@@ -999,23 +999,23 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="responseTime",
-                operator="lessThan",
-                target="2000",
-            )],
-            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
-                type="global",
-                name="MY_GLOBAL_VAR",
-                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+            },
+            assertions=[{
+                "type": "responseTime",
+                "operator": "lessThan",
+                "target": "2000",
+            }],
+            config_variables=[{
+                "type": "global",
+                "name": "MY_GLOBAL_VAR",
+                "id": "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+            }],
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (Synthetics DNS test)
         # Create a new Datadog Synthetics API/DNS test on example.org
         test_dns = datadog.SyntheticsTest("test_dns",
@@ -1030,18 +1030,18 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="recordSome",
-                operator="is",
-                property="A",
-                target="0.0.0.0",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            request_definition={
+                "host": "example.org",
+            },
+            assertions=[{
+                "type": "recordSome",
+                "operator": "is",
+                "property": "A",
+                "target": "0.0.0.0",
+            }],
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
         test_multi_step = datadog.SyntheticsTest("test_multi_step",
@@ -1056,67 +1056,67 @@ class SyntheticsTest(pulumi.CustomResource):
                 "env:test",
             ],
             api_steps=[
-                datadog.SyntheticsTestApiStepArgs(
-                    name="An API test on example.org",
-                    subtype="http",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        method="GET",
-                        url="https://www.example.org",
-                    ),
-                    request_headers={
-                        "Content-Type": "application/json",
-                        "Authentication": "Token: 1234566789",
+                {
+                    "name": "An API test on example.org",
+                    "subtype": "http",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "method": "GET",
+                        "url": "https://www.example.org",
                     },
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="An API test on example.org",
-                    subtype="http",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        method="GET",
-                        url="http://example.org",
-                    ),
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="A gRPC health check on example.org",
-                    subtype="grpc",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        host="example.org",
-                        port=443,
-                        call_type="healthcheck",
-                        service="greeter.Greeter",
-                    ),
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="A gRPC behavior check on example.org",
-                    subtype="grpc",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        host="example.org",
-                        port=443,
-                        call_type="unary",
-                        service="greeter.Greeter",
-                        method="SayHello",
-                        message="{\\"name\\": \\"John\\"}",
-                        plain_proto_file=\"\"\"syntax = "proto3";
+                    "request_headers": {
+                        "content__type": "application/json",
+                        "authentication": "Token: 1234566789",
+                    },
+                },
+                {
+                    "name": "An API test on example.org",
+                    "subtype": "http",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "method": "GET",
+                        "url": "http://example.org",
+                    },
+                },
+                {
+                    "name": "A gRPC health check on example.org",
+                    "subtype": "grpc",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "host": "example.org",
+                        "port": 443,
+                        "call_type": "healthcheck",
+                        "service": "greeter.Greeter",
+                    },
+                },
+                {
+                    "name": "A gRPC behavior check on example.org",
+                    "subtype": "grpc",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "host": "example.org",
+                        "port": 443,
+                        "call_type": "unary",
+                        "service": "greeter.Greeter",
+                        "method": "SayHello",
+                        "message": "{\\"name\\": \\"John\\"}",
+                        "plain_proto_file": \"\"\"syntax = "proto3";
 
         package greeter;
 
@@ -1136,13 +1136,13 @@ class SyntheticsTest(pulumi.CustomResource):
           string message = 1;
         }
         \"\"\",
-                    ),
-                ),
+                    },
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                accept_self_signed=True,
-            ))
+            options_list={
+                "tick_every": 900,
+                "accept_self_signed": True,
+            })
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
         test_browser = datadog.SyntheticsTest("test_browser",
@@ -1153,59 +1153,59 @@ class SyntheticsTest(pulumi.CustomResource):
             device_ids=["laptop_large"],
             locations=["aws:eu-central-1"],
             tags=[],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             browser_steps=[
-                datadog.SyntheticsTestBrowserStepArgs(
-                    name="Check current url",
-                    type="assertCurrentUrl",
-                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
-                        check="contains",
-                        value="datadoghq",
-                    ),
-                ),
-                datadog.SyntheticsTestBrowserStepArgs(
-                    name="Test a downloaded file",
-                    type="assertFileDownload",
-                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
-                        file=json.dumps({
+                {
+                    "name": "Check current url",
+                    "type": "assertCurrentUrl",
+                    "params": {
+                        "check": "contains",
+                        "value": "datadoghq",
+                    },
+                },
+                {
+                    "name": "Test a downloaded file",
+                    "type": "assertFileDownload",
+                    "params": {
+                        "file": json.dumps({
                             "md5": "abcdef1234567890",
-                            "sizeCheck": {
+                            "size_check": {
                                 "type": "equals",
                                 "value": 1,
                             },
-                            "nameCheck": {
+                            "name_check": {
                                 "type": "contains",
                                 "value": ".xls",
                             },
                         }),
-                    ),
-                ),
+                    },
+                },
             ],
             browser_variables=[
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="text",
-                    name="MY_PATTERN_VAR",
-                    pattern="{{numeric(3)}}",
-                    example="597",
-                ),
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="email",
-                    name="MY_EMAIL_VAR",
-                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
-                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
-                ),
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="global",
-                    name="MY_GLOBAL_VAR",
-                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
-                ),
+                {
+                    "type": "text",
+                    "name": "MY_PATTERN_VAR",
+                    "pattern": "{{numeric(3)}}",
+                    "example": "597",
+                },
+                {
+                    "type": "email",
+                    "name": "MY_EMAIL_VAR",
+                    "pattern": "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    "example": "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                },
+                {
+                    "type": "global",
+                    "name": "MY_GLOBAL_VAR",
+                    "id": "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=3600,
-            ))
+            options_list={
+                "tick_every": 3600,
+            })
         # Example Usage (GRPC API behavior check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # targeting service `greeter.Greeter` with the method `SayHello`
@@ -1221,14 +1221,14 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-                call_type="unary",
-                service="greeter.Greeter",
-                method="SayHello",
-                message="{\\"name\\": \\"John\\"}",
-                plain_proto_file=\"\"\"syntax = "proto3";
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+                "call_type": "unary",
+                "service": "greeter.Greeter",
+                "method": "SayHello",
+                "message": "{\\"name\\": \\"John\\"}",
+                "plain_proto_file": \"\"\"syntax = "proto3";
 
         package greeter;
 
@@ -1248,36 +1248,36 @@ class SyntheticsTest(pulumi.CustomResource):
           string message = 1;
         }
         \"\"\",
-            ),
+            },
             request_metadata={
                 "header": "value",
             },
             assertions=[
-                datadog.SyntheticsTestAssertionArgs(
-                    type="responseTime",
-                    operator="lessThan",
-                    target="2000",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcHealthcheckStatus",
-                    target="1",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcProto",
-                    target="proto target",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    property="property",
-                    type="grpcMetadata",
-                    target="123",
-                ),
+                {
+                    "type": "responseTime",
+                    "operator": "lessThan",
+                    "target": "2000",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcHealthcheckStatus",
+                    "target": "1",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcProto",
+                    "target": "proto target",
+                },
+                {
+                    "operator": "is",
+                    "property": "property",
+                    "type": "grpcMetadata",
+                    "target": "123",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (GRPC API health check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # testing the overall health of the service
@@ -1292,27 +1292,27 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-                call_type="healthcheck",
-                service="greeter.Greeter",
-            ),
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+                "call_type": "healthcheck",
+                "service": "greeter.Greeter",
+            },
             assertions=[
-                datadog.SyntheticsTestAssertionArgs(
-                    type="responseTime",
-                    operator="lessThan",
-                    target="2000",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcHealthcheckStatus",
-                    target="1",
-                ),
+                {
+                    "type": "responseTime",
+                    "operator": "lessThan",
+                    "target": "2000",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcHealthcheckStatus",
+                    "target": "1",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            options_list={
+                "tick_every": 900,
+            })
         ```
 
         ## Import
@@ -1325,23 +1325,23 @@ class SyntheticsTest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestApiStepArgs']]]] api_steps: Steps for multi-step api tests
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestAssertionArgs']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]] browser_steps: Steps for browser tests.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]] request_files: Files to be used as part of the request in the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -1391,28 +1391,28 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             request_headers={
                 "Content-Type": "application/json",
             },
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="statusCode",
-                operator="is",
-                target="200",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                retry=datadog.SyntheticsTestOptionsListRetryArgs(
-                    count=2,
-                    interval=300,
-                ),
-                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=120,
-                ),
-            ))
+            assertions=[{
+                "type": "statusCode",
+                "operator": "is",
+                "target": "200",
+            }],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Authenticated API test)
         # Create a new Datadog Synthetics API/HTTP test on https://www.example.org
         test_api = datadog.SyntheticsTest("test_api",
@@ -1427,29 +1427,29 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             request_headers={
                 "Content-Type": "application/json",
                 "Authentication": "Token: 1234566789",
             },
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="statusCode",
-                operator="is",
-                target="200",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                retry=datadog.SyntheticsTestOptionsListRetryArgs(
-                    count=2,
-                    interval=300,
-                ),
-                monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(
-                    renotify_interval=120,
-                ),
-            ))
+            assertions=[{
+                "type": "statusCode",
+                "operator": "is",
+                "target": "200",
+            }],
+            options_list={
+                "tick_every": 900,
+                "retry": {
+                    "count": 2,
+                    "interval": 300,
+                },
+                "monitor_options": {
+                    "renotify_interval": 120,
+                },
+            })
         # Example Usage (Synthetics SSL test)
         # Create a new Datadog Synthetics API/SSL test on example.org
         test_ssl = datadog.SyntheticsTest("test_ssl",
@@ -1464,19 +1464,19 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="certificate",
-                operator="isInMoreThan",
-                target="30",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                accept_self_signed=True,
-            ))
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+            },
+            assertions=[{
+                "type": "certificate",
+                "operator": "isInMoreThan",
+                "target": "30",
+            }],
+            options_list={
+                "tick_every": 900,
+                "accept_self_signed": True,
+            })
         # Example Usage (Synthetics TCP test)
         # Create a new Datadog Synthetics API/TCP test on example.org
         test_tcp = datadog.SyntheticsTest("test_tcp",
@@ -1491,23 +1491,23 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="responseTime",
-                operator="lessThan",
-                target="2000",
-            )],
-            config_variables=[datadog.SyntheticsTestConfigVariableArgs(
-                type="global",
-                name="MY_GLOBAL_VAR",
-                id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+            },
+            assertions=[{
+                "type": "responseTime",
+                "operator": "lessThan",
+                "target": "2000",
+            }],
+            config_variables=[{
+                "type": "global",
+                "name": "MY_GLOBAL_VAR",
+                "id": "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+            }],
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (Synthetics DNS test)
         # Create a new Datadog Synthetics API/DNS test on example.org
         test_dns = datadog.SyntheticsTest("test_dns",
@@ -1522,18 +1522,18 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-            ),
-            assertions=[datadog.SyntheticsTestAssertionArgs(
-                type="recordSome",
-                operator="is",
-                property="A",
-                target="0.0.0.0",
-            )],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            request_definition={
+                "host": "example.org",
+            },
+            assertions=[{
+                "type": "recordSome",
+                "operator": "is",
+                "property": "A",
+                "target": "0.0.0.0",
+            }],
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (Synthetics Multistep API test)
         # Create a new Datadog Synthetics Multistep API test
         test_multi_step = datadog.SyntheticsTest("test_multi_step",
@@ -1548,67 +1548,67 @@ class SyntheticsTest(pulumi.CustomResource):
                 "env:test",
             ],
             api_steps=[
-                datadog.SyntheticsTestApiStepArgs(
-                    name="An API test on example.org",
-                    subtype="http",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        method="GET",
-                        url="https://www.example.org",
-                    ),
-                    request_headers={
-                        "Content-Type": "application/json",
-                        "Authentication": "Token: 1234566789",
+                {
+                    "name": "An API test on example.org",
+                    "subtype": "http",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "method": "GET",
+                        "url": "https://www.example.org",
                     },
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="An API test on example.org",
-                    subtype="http",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        method="GET",
-                        url="http://example.org",
-                    ),
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="A gRPC health check on example.org",
-                    subtype="grpc",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        host="example.org",
-                        port=443,
-                        call_type="healthcheck",
-                        service="greeter.Greeter",
-                    ),
-                ),
-                datadog.SyntheticsTestApiStepArgs(
-                    name="A gRPC behavior check on example.org",
-                    subtype="grpc",
-                    assertions=[datadog.SyntheticsTestApiStepAssertionArgs(
-                        type="statusCode",
-                        operator="is",
-                        target="200",
-                    )],
-                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
-                        host="example.org",
-                        port=443,
-                        call_type="unary",
-                        service="greeter.Greeter",
-                        method="SayHello",
-                        message="{\\"name\\": \\"John\\"}",
-                        plain_proto_file=\"\"\"syntax = "proto3";
+                    "request_headers": {
+                        "content__type": "application/json",
+                        "authentication": "Token: 1234566789",
+                    },
+                },
+                {
+                    "name": "An API test on example.org",
+                    "subtype": "http",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "method": "GET",
+                        "url": "http://example.org",
+                    },
+                },
+                {
+                    "name": "A gRPC health check on example.org",
+                    "subtype": "grpc",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "host": "example.org",
+                        "port": 443,
+                        "call_type": "healthcheck",
+                        "service": "greeter.Greeter",
+                    },
+                },
+                {
+                    "name": "A gRPC behavior check on example.org",
+                    "subtype": "grpc",
+                    "assertions": [{
+                        "type": "statusCode",
+                        "operator": "is",
+                        "target": "200",
+                    }],
+                    "request_definition": {
+                        "host": "example.org",
+                        "port": 443,
+                        "call_type": "unary",
+                        "service": "greeter.Greeter",
+                        "method": "SayHello",
+                        "message": "{\\"name\\": \\"John\\"}",
+                        "plain_proto_file": \"\"\"syntax = "proto3";
 
         package greeter;
 
@@ -1628,13 +1628,13 @@ class SyntheticsTest(pulumi.CustomResource):
           string message = 1;
         }
         \"\"\",
-                    ),
-                ),
+                    },
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-                accept_self_signed=True,
-            ))
+            options_list={
+                "tick_every": 900,
+                "accept_self_signed": True,
+            })
         # Example Usage (Synthetics Browser test)
         # Create a new Datadog Synthetics Browser test starting on https://www.example.org
         test_browser = datadog.SyntheticsTest("test_browser",
@@ -1645,59 +1645,59 @@ class SyntheticsTest(pulumi.CustomResource):
             device_ids=["laptop_large"],
             locations=["aws:eu-central-1"],
             tags=[],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
+            request_definition={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
             browser_steps=[
-                datadog.SyntheticsTestBrowserStepArgs(
-                    name="Check current url",
-                    type="assertCurrentUrl",
-                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
-                        check="contains",
-                        value="datadoghq",
-                    ),
-                ),
-                datadog.SyntheticsTestBrowserStepArgs(
-                    name="Test a downloaded file",
-                    type="assertFileDownload",
-                    params=datadog.SyntheticsTestBrowserStepParamsArgs(
-                        file=json.dumps({
+                {
+                    "name": "Check current url",
+                    "type": "assertCurrentUrl",
+                    "params": {
+                        "check": "contains",
+                        "value": "datadoghq",
+                    },
+                },
+                {
+                    "name": "Test a downloaded file",
+                    "type": "assertFileDownload",
+                    "params": {
+                        "file": json.dumps({
                             "md5": "abcdef1234567890",
-                            "sizeCheck": {
+                            "size_check": {
                                 "type": "equals",
                                 "value": 1,
                             },
-                            "nameCheck": {
+                            "name_check": {
                                 "type": "contains",
                                 "value": ".xls",
                             },
                         }),
-                    ),
-                ),
+                    },
+                },
             ],
             browser_variables=[
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="text",
-                    name="MY_PATTERN_VAR",
-                    pattern="{{numeric(3)}}",
-                    example="597",
-                ),
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="email",
-                    name="MY_EMAIL_VAR",
-                    pattern="jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
-                    example="jd8-afe-ydv.4546132139@synthetics.dtdg.co",
-                ),
-                datadog.SyntheticsTestBrowserVariableArgs(
-                    type="global",
-                    name="MY_GLOBAL_VAR",
-                    id="76636cd1-82e2-4aeb-9cfe-51366a8198a2",
-                ),
+                {
+                    "type": "text",
+                    "name": "MY_PATTERN_VAR",
+                    "pattern": "{{numeric(3)}}",
+                    "example": "597",
+                },
+                {
+                    "type": "email",
+                    "name": "MY_EMAIL_VAR",
+                    "pattern": "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+                    "example": "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+                },
+                {
+                    "type": "global",
+                    "name": "MY_GLOBAL_VAR",
+                    "id": "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=3600,
-            ))
+            options_list={
+                "tick_every": 3600,
+            })
         # Example Usage (GRPC API behavior check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # targeting service `greeter.Greeter` with the method `SayHello`
@@ -1713,14 +1713,14 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-                call_type="unary",
-                service="greeter.Greeter",
-                method="SayHello",
-                message="{\\"name\\": \\"John\\"}",
-                plain_proto_file=\"\"\"syntax = "proto3";
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+                "call_type": "unary",
+                "service": "greeter.Greeter",
+                "method": "SayHello",
+                "message": "{\\"name\\": \\"John\\"}",
+                "plain_proto_file": \"\"\"syntax = "proto3";
 
         package greeter;
 
@@ -1740,36 +1740,36 @@ class SyntheticsTest(pulumi.CustomResource):
           string message = 1;
         }
         \"\"\",
-            ),
+            },
             request_metadata={
                 "header": "value",
             },
             assertions=[
-                datadog.SyntheticsTestAssertionArgs(
-                    type="responseTime",
-                    operator="lessThan",
-                    target="2000",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcHealthcheckStatus",
-                    target="1",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcProto",
-                    target="proto target",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    property="property",
-                    type="grpcMetadata",
-                    target="123",
-                ),
+                {
+                    "type": "responseTime",
+                    "operator": "lessThan",
+                    "target": "2000",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcHealthcheckStatus",
+                    "target": "1",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcProto",
+                    "target": "proto target",
+                },
+                {
+                    "operator": "is",
+                    "property": "property",
+                    "type": "grpcMetadata",
+                    "target": "123",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            options_list={
+                "tick_every": 900,
+            })
         # Example Usage (GRPC API health check test)
         # Create a new Datadog GRPC API test calling host example.org on port 443
         # testing the overall health of the service
@@ -1784,27 +1784,27 @@ class SyntheticsTest(pulumi.CustomResource):
                 "foo",
                 "env:test",
             ],
-            request_definition=datadog.SyntheticsTestRequestDefinitionArgs(
-                host="example.org",
-                port=443,
-                call_type="healthcheck",
-                service="greeter.Greeter",
-            ),
+            request_definition={
+                "host": "example.org",
+                "port": 443,
+                "call_type": "healthcheck",
+                "service": "greeter.Greeter",
+            },
             assertions=[
-                datadog.SyntheticsTestAssertionArgs(
-                    type="responseTime",
-                    operator="lessThan",
-                    target="2000",
-                ),
-                datadog.SyntheticsTestAssertionArgs(
-                    operator="is",
-                    type="grpcHealthcheckStatus",
-                    target="1",
-                ),
+                {
+                    "type": "responseTime",
+                    "operator": "lessThan",
+                    "target": "2000",
+                },
+                {
+                    "operator": "is",
+                    "type": "grpcHealthcheckStatus",
+                    "target": "1",
+                },
             ],
-            options_list=datadog.SyntheticsTestOptionsListArgs(
-                tick_every=900,
-            ))
+            options_list={
+                "tick_every": 900,
+            })
         ```
 
         ## Import
@@ -1830,24 +1830,24 @@ class SyntheticsTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestApiStepArgs']]]]] = None,
-                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestAssertionArgs']]]]] = None,
-                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]]] = None,
-                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]]] = None,
-                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]]] = None,
+                 api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+                 browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
                  device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
-                 request_basicauth: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']]] = None,
-                 request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
-                 request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
-                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]]] = None,
+                 options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+                 request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+                 request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+                 request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+                 request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
+                 request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  set_cookie: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1908,25 +1908,25 @@ class SyntheticsTest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestApiStepArgs']]]]] = None,
-            assertions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestAssertionArgs']]]]] = None,
-            browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]]] = None,
-            browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]]] = None,
-            config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]]] = None,
+            api_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
+            assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
+            browser_steps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
+            browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+            config_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
             device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             force_delete_dependencies: Optional[pulumi.Input[bool]] = None,
             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             message: Optional[pulumi.Input[str]] = None,
             monitor_id: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
-            request_basicauth: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']]] = None,
-            request_client_certificate: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']]] = None,
-            request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
-            request_files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]]] = None,
+            options_list: Optional[pulumi.Input[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
+            request_basicauth: Optional[pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
+            request_client_certificate: Optional[pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
+            request_definition: Optional[pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
+            request_files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             request_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-            request_proxy: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']]] = None,
+            request_proxy: Optional[pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             set_cookie: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -1941,24 +1941,24 @@ class SyntheticsTest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestApiStepArgs']]]] api_steps: Steps for multi-step api tests
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestAssertionArgs']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserStepArgs']]]] browser_steps: Steps for browser tests.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestBrowserVariableArgs']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestConfigVariableArgs']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multi-step api tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         :param pulumi.Input[bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations.
         :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
         :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestClientCertificateArgs']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: Required if `type = "api"`. The synthetics test request.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestRequestFileArgs']]]] request_files: Files to be used as part of the request in the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_metadata: Metadata to include when performing the gRPC request.
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestProxyArgs']] request_proxy: The proxy to perform the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
         :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.

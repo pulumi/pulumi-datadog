@@ -37,21 +37,21 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Create new integration_cloudflare_account resource
  *         var foo = new IntegrationAccount("foo", IntegrationAccountArgs.builder()
  *             .apiKey("12345678910abc")
- *             .email("test-email{@literal @}example.com")
+ *             .email("test-email}{@literal @}{@code example.com")
  *             .name("test-name")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -112,7 +112,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccount(String name) {
+    public IntegrationAccount(java.lang.String name) {
         this(name, IntegrationAccountArgs.Empty);
     }
     /**
@@ -120,7 +120,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccount(String name, IntegrationAccountArgs args) {
+    public IntegrationAccount(java.lang.String name, IntegrationAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,15 +129,22 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccount(String name, IntegrationAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:cloudflare/integrationAccount:IntegrationAccount", name, args == null ? IntegrationAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccount(java.lang.String name, IntegrationAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:cloudflare/integrationAccount:IntegrationAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccount(String name, Output<String> id, @Nullable IntegrationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:cloudflare/integrationAccount:IntegrationAccount", name, state, makeResourceOptions(options, id));
+    private IntegrationAccount(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:cloudflare/integrationAccount:IntegrationAccount", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static IntegrationAccountArgs makeArgs(IntegrationAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -156,7 +163,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccount get(String name, Output<String> id, @Nullable IntegrationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccount(name, id, state, options);
     }
 }

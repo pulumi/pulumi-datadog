@@ -146,7 +146,7 @@ class Role(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -164,12 +164,12 @@ class Role(pulumi.CustomResource):
         foo = datadog.Role("foo",
             name="foo",
             permissions=[
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsDowntime"],
-                ),
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsWrite"],
-                ),
+                {
+                    "id": bar.permissions["monitorsDowntime"],
+                },
+                {
+                    "id": bar.permissions["monitorsWrite"],
+                },
             ])
         ```
 
@@ -184,7 +184,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
         ...
@@ -208,12 +208,12 @@ class Role(pulumi.CustomResource):
         foo = datadog.Role("foo",
             name="foo",
             permissions=[
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsDowntime"],
-                ),
-                datadog.RolePermissionArgs(
-                    id=bar.permissions["monitorsWrite"],
-                ),
+                {
+                    "id": bar.permissions["monitorsDowntime"],
+                },
+                {
+                    "id": bar.permissions["monitorsWrite"],
+                },
             ])
         ```
 
@@ -241,7 +241,7 @@ class Role(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -269,7 +269,7 @@ class Role(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
             user_count: Optional[pulumi.Input[int]] = None,
             validate: Optional[pulumi.Input[bool]] = None) -> 'Role':
         """
@@ -280,7 +280,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RolePermissionArgs']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[int] user_count: Number of users that have this role.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """

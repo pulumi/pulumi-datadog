@@ -125,7 +125,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceObject(String name) {
+    public ServiceObject(java.lang.String name) {
         this(name, ServiceObjectArgs.Empty);
     }
     /**
@@ -133,7 +133,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceObject(String name, ServiceObjectArgs args) {
+    public ServiceObject(java.lang.String name, ServiceObjectArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,15 +142,22 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceObject(String name, ServiceObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:opsgenie/serviceObject:ServiceObject", name, args == null ? ServiceObjectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServiceObject(java.lang.String name, ServiceObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:opsgenie/serviceObject:ServiceObject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceObject(String name, Output<String> id, @Nullable ServiceObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("datadog:opsgenie/serviceObject:ServiceObject", name, state, makeResourceOptions(options, id));
+    private ServiceObject(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("datadog:opsgenie/serviceObject:ServiceObject", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServiceObjectArgs makeArgs(ServiceObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceObjectArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -169,7 +176,7 @@ public class ServiceObject extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceObject get(String name, Output<String> id, @Nullable ServiceObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceObject get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceObject(name, id, state, options);
     }
 }

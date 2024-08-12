@@ -97,7 +97,7 @@ class DashboardList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -114,47 +114,47 @@ class DashboardList(pulumi.CustomResource):
             description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
             is_read_only=True,
-            widgets=[datadog.DashboardWidgetArgs(
-                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                    alert_id="1234",
-                    viz_type="timeseries",
-                    title="Widget Title",
-                    live_span="1h",
-                ),
-            )])
+            widgets=[{
+                "alert_graph_definition": {
+                    "alert_id": "1234",
+                    "viz_type": "timeseries",
+                    "title": "Widget Title",
+                    "live_span": "1h",
+                },
+            }])
         screen = datadog.Dashboard("screen",
             title="TF Test Free Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="free",
             is_read_only=False,
-            widgets=[datadog.DashboardWidgetArgs(
-                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="left",
-                    live_span="1h",
-                ),
-                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
-                    height=43,
-                    width=32,
-                    x=5,
-                    y=5,
-                ),
-            )])
+            widgets=[{
+                "event_stream_definition": {
+                    "query": "*",
+                    "event_size": "l",
+                    "title": "Widget Title",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "live_span": "1h",
+                },
+                "widget_layout": {
+                    "height": 43,
+                    "width": 32,
+                    "x": 5,
+                    "y": 5,
+                },
+            }])
         # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("new_list",
             name="Automated Created List",
             dash_items=[
-                datadog.DashboardListDashItemArgs(
-                    type="custom_timeboard",
-                    dash_id=time.id,
-                ),
-                datadog.DashboardListDashItemArgs(
-                    type="custom_screenboard",
-                    dash_id=screen.id,
-                ),
+                {
+                    "type": "custom_timeboard",
+                    "dash_id": time.id,
+                },
+                {
+                    "type": "custom_screenboard",
+                    "dash_id": screen.id,
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[
                     screen,
@@ -170,7 +170,7 @@ class DashboardList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashboard items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
         ...
@@ -193,47 +193,47 @@ class DashboardList(pulumi.CustomResource):
             description="Created using the Datadog provider in Pulumi",
             layout_type="ordered",
             is_read_only=True,
-            widgets=[datadog.DashboardWidgetArgs(
-                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
-                    alert_id="1234",
-                    viz_type="timeseries",
-                    title="Widget Title",
-                    live_span="1h",
-                ),
-            )])
+            widgets=[{
+                "alert_graph_definition": {
+                    "alert_id": "1234",
+                    "viz_type": "timeseries",
+                    "title": "Widget Title",
+                    "live_span": "1h",
+                },
+            }])
         screen = datadog.Dashboard("screen",
             title="TF Test Free Layout Dashboard",
             description="Created using the Datadog provider in Pulumi",
             layout_type="free",
             is_read_only=False,
-            widgets=[datadog.DashboardWidgetArgs(
-                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    query="*",
-                    event_size="l",
-                    title="Widget Title",
-                    title_size="16",
-                    title_align="left",
-                    live_span="1h",
-                ),
-                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
-                    height=43,
-                    width=32,
-                    x=5,
-                    y=5,
-                ),
-            )])
+            widgets=[{
+                "event_stream_definition": {
+                    "query": "*",
+                    "event_size": "l",
+                    "title": "Widget Title",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "live_span": "1h",
+                },
+                "widget_layout": {
+                    "height": 43,
+                    "width": 32,
+                    "x": 5,
+                    "y": 5,
+                },
+            }])
         # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("new_list",
             name="Automated Created List",
             dash_items=[
-                datadog.DashboardListDashItemArgs(
-                    type="custom_timeboard",
-                    dash_id=time.id,
-                ),
-                datadog.DashboardListDashItemArgs(
-                    type="custom_screenboard",
-                    dash_id=screen.id,
-                ),
+                {
+                    "type": "custom_timeboard",
+                    "dash_id": time.id,
+                },
+                {
+                    "type": "custom_screenboard",
+                    "dash_id": screen.id,
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[
                     screen,
@@ -262,7 +262,7 @@ class DashboardList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,7 +287,7 @@ class DashboardList(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+            dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'DashboardList':
         """
         Get an existing DashboardList resource's state with the given name, id, and optional extra
@@ -296,7 +296,7 @@ class DashboardList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashboard items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict']]]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
