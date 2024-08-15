@@ -16,11 +16,12 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiKey")
 }
 
-// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-// path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-// if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-// `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-// https://docs.datadoghq.com/getting_started/site/ for all available regions.
+// The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+// Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+// while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+// `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+// `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+// for all available regions.
 func GetApiUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiUrl")
 }
@@ -28,6 +29,12 @@ func GetApiUrl(ctx *pulumi.Context) string {
 // (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
+}
+
+// [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+// resources.
+func GetDefaultTags(ctx *pulumi.Context) string {
+	return config.Get(ctx, "datadog:defaultTags")
 }
 
 // The HTTP request retry back off base. Defaults to 2.

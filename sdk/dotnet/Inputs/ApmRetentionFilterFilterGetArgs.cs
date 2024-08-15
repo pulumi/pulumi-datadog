@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ApmRetentionFilterFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The search query - following the span search syntax. Defaults to `"*"`.
+        /// The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }

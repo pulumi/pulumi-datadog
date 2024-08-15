@@ -71,7 +71,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * A list a role IDs to assign to the user.
+     * A list of role IDs to assign to the user.
      */
     public readonly roles!: pulumi.Output<string[]>;
     /**
@@ -142,7 +142,7 @@ export interface UserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list a role IDs to assign to the user.
+     * A list of role IDs to assign to the user.
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -176,7 +176,7 @@ export interface UserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list a role IDs to assign to the user.
+     * A list of role IDs to assign to the user.
      */
     roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

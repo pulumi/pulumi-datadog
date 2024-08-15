@@ -19,6 +19,51 @@ import javax.annotation.Nullable;
 /**
  * Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.IpAllowlist;
+ * import com.pulumi.datadog.IpAllowlistArgs;
+ * import com.pulumi.datadog.inputs.IpAllowlistEntryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new IpAllowlist("example", IpAllowlistArgs.builder()
+ *             .enabled(false)
+ *             .entries(            
+ *                 IpAllowlistEntryArgs.builder()
+ *                     .cidrBlock("127.0.0.0/32")
+ *                     .note("1st Example IP Range")
+ *                     .build(),
+ *                 IpAllowlistEntryArgs.builder()
+ *                     .cidrBlock("192.0.2.0/24")
+ *                     .note("2nd Example IP Range")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="datadog:index/ipAllowlist:IpAllowlist")
 public class IpAllowlist extends com.pulumi.resources.CustomResource {

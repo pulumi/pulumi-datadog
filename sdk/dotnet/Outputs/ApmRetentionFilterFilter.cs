@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ApmRetentionFilterFilter
     {
         /// <summary>
-        /// The search query - following the span search syntax. Defaults to `"*"`.
+        /// The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
         /// </summary>
         public readonly string? Query;
 

@@ -987,6 +987,7 @@ __all__ = [
     'PowerpackWidgetTreemapDefinitionRequestQueryProcessQueryArgs',
     'PowerpackWidgetTreemapDefinitionRequestQuerySloQueryArgs',
     'PowerpackWidgetWidgetLayoutArgs',
+    'ProviderDefaultTagsArgs',
     'RestrictionPolicyBindingArgs',
     'RolePermissionArgs',
     'SecurityMonitoringDefaultRuleCaseArgs',
@@ -1070,7 +1071,7 @@ class ApmRetentionFilterFilterArgs:
     def __init__(__self__, *,
                  query: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] query: The search query - following the span search syntax. Defaults to `"*"`.
+        :param pulumi.Input[str] query: The search query - follow the span search syntax, use `AND` between tags and `\\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
         """
         if query is not None:
             pulumi.set(__self__, "query", query)
@@ -1079,7 +1080,7 @@ class ApmRetentionFilterFilterArgs:
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input[str]]:
         """
-        The search query - following the span search syntax. Defaults to `"*"`.
+        The search query - follow the span search syntax, use `AND` between tags and `\\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
         """
         return pulumi.get(self, "query")
 
@@ -4227,7 +4228,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -4265,7 +4266,7 @@ class DashboardWidgetChangeDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -7059,7 +7060,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -7097,7 +7098,7 @@ class DashboardWidgetGeomapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -9925,7 +9926,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -9963,7 +9964,7 @@ class DashboardWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -14709,7 +14710,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -14747,7 +14748,7 @@ class DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -17240,7 +17241,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -17278,7 +17279,7 @@ class DashboardWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -19506,7 +19507,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -19544,7 +19545,7 @@ class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -24089,7 +24090,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -24127,7 +24128,7 @@ class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -27023,7 +27024,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -27061,7 +27062,7 @@ class DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -29703,7 +29704,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -29741,7 +29742,7 @@ class DashboardWidgetToplistDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -31867,7 +31868,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -31905,7 +31906,7 @@ class DashboardWidgetTreemapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -40308,7 +40309,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -40346,7 +40347,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -45254,7 +45255,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -45292,7 +45293,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -48290,7 +48291,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -48328,7 +48329,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -56149,7 +56150,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -56187,7 +56188,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -59888,7 +59889,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -59926,7 +59927,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -62456,7 +62457,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -62494,7 +62495,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -69290,7 +69291,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -69328,7 +69329,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -73432,7 +73433,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -73470,7 +73471,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -77320,7 +77321,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -77358,7 +77359,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -80088,7 +80089,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs:
                  storage: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        :param pulumi.Input[str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         :param pulumi.Input[str] name: The name of query for use in formulas.
         :param pulumi.Input[str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -80126,7 +80127,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -80853,6 +80854,29 @@ class PowerpackWidgetWidgetLayoutArgs:
     @is_column_break.setter
     def is_column_break(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_column_break", value)
+
+
+@pulumi.input_type
+class ProviderDefaultTagsArgs:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

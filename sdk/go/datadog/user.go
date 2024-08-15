@@ -65,7 +65,7 @@ type User struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Name for user.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A list a role IDs to assign to the user.
+	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrOutput `pulumi:"sendUserInvitation"`
@@ -114,7 +114,7 @@ type userState struct {
 	Email *string `pulumi:"email"`
 	// Name for user.
 	Name *string `pulumi:"name"`
-	// A list a role IDs to assign to the user.
+	// A list of role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation *bool `pulumi:"sendUserInvitation"`
@@ -131,7 +131,7 @@ type UserState struct {
 	Email pulumi.StringPtrInput
 	// Name for user.
 	Name pulumi.StringPtrInput
-	// A list a role IDs to assign to the user.
+	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrInput
@@ -152,7 +152,7 @@ type userArgs struct {
 	Email string `pulumi:"email"`
 	// Name for user.
 	Name *string `pulumi:"name"`
-	// A list a role IDs to assign to the user.
+	// A list of role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation *bool `pulumi:"sendUserInvitation"`
@@ -166,7 +166,7 @@ type UserArgs struct {
 	Email pulumi.StringInput
 	// Name for user.
 	Name pulumi.StringPtrInput
-	// A list a role IDs to assign to the user.
+	// A list of role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
 	// Whether an invitation email should be sent when the user is created. Defaults to `true`.
 	SendUserInvitation pulumi.BoolPtrInput
@@ -274,7 +274,7 @@ func (o UserOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A list a role IDs to assign to the user.
+// A list of role IDs to assign to the user.
 func (o UserOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }

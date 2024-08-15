@@ -11,6 +11,37 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides the Datadog IP allowlist resource. This can be used to manage the Datadog IP allowlist
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Datadog.IpAllowlist("example", new()
+    ///     {
+    ///         Enabled = false,
+    ///         Entries = new[]
+    ///         {
+    ///             new Datadog.Inputs.IpAllowlistEntryArgs
+    ///             {
+    ///                 CidrBlock = "127.0.0.0/32",
+    ///                 Note = "1st Example IP Range",
+    ///             },
+    ///             new Datadog.Inputs.IpAllowlistEntryArgs
+    ///             {
+    ///                 CidrBlock = "192.0.2.0/24",
+    ///                 Note = "2nd Example IP Range",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/ipAllowlist:IpAllowlist")]
     public partial class IpAllowlist : global::Pulumi.CustomResource

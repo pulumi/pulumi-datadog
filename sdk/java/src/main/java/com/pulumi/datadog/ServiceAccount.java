@@ -116,14 +116,14 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.name);
     }
     /**
-     * A list a role IDs to assign to the service account.
+     * A list of role IDs to assign to the service account.
      * 
      */
     @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roles;
 
     /**
-     * @return A list a role IDs to assign to the service account.
+     * @return A list of role IDs to assign to the service account.
      * 
      */
     public Output<List<String>> roles() {

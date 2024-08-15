@@ -115,14 +115,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.name);
     }
     /**
-     * A list a role IDs to assign to the user.
+     * A list of role IDs to assign to the user.
      * 
      */
     @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roles;
 
     /**
-     * @return A list a role IDs to assign to the user.
+     * @return A list of role IDs to assign to the user.
      * 
      */
     public Output<List<String>> roles() {

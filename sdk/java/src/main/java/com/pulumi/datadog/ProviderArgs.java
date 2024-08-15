@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ProviderDefaultTagsArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -32,22 +33,24 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-     * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-     * if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-     * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-     * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+     * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+     * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
+     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+     * for all available regions.
      * 
      */
     @Import(name="apiUrl")
     private @Nullable Output<String> apiUrl;
 
     /**
-     * @return The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-     * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-     * if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-     * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-     * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+     * @return The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+     * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+     * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
+     * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+     * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+     * for all available regions.
      * 
      */
     public Optional<Output<String>> apiUrl() {
@@ -67,6 +70,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> appKey() {
         return Optional.ofNullable(this.appKey);
+    }
+
+    /**
+     * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+     * resources.
+     * 
+     */
+    @Import(name="defaultTags", json=true)
+    private @Nullable Output<ProviderDefaultTagsArgs> defaultTags;
+
+    /**
+     * @return [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+     * resources.
+     * 
+     */
+    public Optional<Output<ProviderDefaultTagsArgs>> defaultTags() {
+        return Optional.ofNullable(this.defaultTags);
     }
 
     /**
@@ -167,6 +187,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.apiKey = $.apiKey;
         this.apiUrl = $.apiUrl;
         this.appKey = $.appKey;
+        this.defaultTags = $.defaultTags;
         this.httpClientRetryBackoffBase = $.httpClientRetryBackoffBase;
         this.httpClientRetryBackoffMultiplier = $.httpClientRetryBackoffMultiplier;
         this.httpClientRetryEnabled = $.httpClientRetryEnabled;
@@ -215,11 +236,12 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-         * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-         * if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-         * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-         * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+         * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+         * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
+         * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+         * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+         * for all available regions.
          * 
          * @return builder
          * 
@@ -230,11 +252,12 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-         * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-         * if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-         * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-         * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+         * @param apiUrl The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+         * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+         * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
+         * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+         * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+         * for all available regions.
          * 
          * @return builder
          * 
@@ -262,6 +285,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appKey(String appKey) {
             return appKey(Output.of(appKey));
+        }
+
+        /**
+         * @param defaultTags [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+         * resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultTags(@Nullable Output<ProviderDefaultTagsArgs> defaultTags) {
+            $.defaultTags = defaultTags;
+            return this;
+        }
+
+        /**
+         * @param defaultTags [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+         * resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultTags(ProviderDefaultTagsArgs defaultTags) {
+            return defaultTags(Output.of(defaultTags));
         }
 
         /**

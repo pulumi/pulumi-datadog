@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 apiKey: Optional[str]
 """
@@ -16,16 +17,23 @@ apiKey: Optional[str]
 
 apiUrl: Optional[str]
 """
-The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
-path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
-if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
-`https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
-https://docs.datadoghq.com/getting_started/site/ for all available regions.
+The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use
+`https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+`https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+for all available regions.
 """
 
 appKey: Optional[str]
 """
 (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+"""
+
+defaultTags: Optional[str]
+"""
+[Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+resources.
 """
 
 httpClientRetryBackoffBase: Optional[int]

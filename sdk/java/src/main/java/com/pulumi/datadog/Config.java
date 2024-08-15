@@ -4,6 +4,7 @@
 package com.pulumi.datadog;
 
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.datadog.config.inputs.DefaultTags;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
@@ -19,11 +20,12 @@ public final class Config {
         return Codegen.stringProp("apiKey").config(config).get();
     }
 /**
- * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the `/api/`
- * path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And
- * if you&#39;re working with &#34;EU&#34; version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples:
- * `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See
- * https://docs.datadoghq.com/getting_started/site/ for all available regions.
+ * The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`.
+ * Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value,
+ * while `https://api.datadoghq.com/api/` is not. And if you&#39;re working with &#34;EU&#34; version of Datadog, use
+ * `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`,
+ * `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/
+ * for all available regions.
  * 
  */
     public Optional<String> apiUrl() {
@@ -35,6 +37,14 @@ public final class Config {
  */
     public Optional<String> appKey() {
         return Codegen.stringProp("appKey").config(config).get();
+    }
+/**
+ * [Experimental - Monitors only] Configuration block containing settings to apply default resource tags across all
+ * resources.
+ * 
+ */
+    public Optional<DefaultTags> defaultTags() {
+        return Codegen.objectProp("defaultTags", DefaultTags.class).config(config).get();
     }
 /**
  * The HTTP request retry back off base. Defaults to 2.

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 
 export interface ApmRetentionFilterFilter {
     /**
-     * The search query - following the span search syntax. Defaults to `"*"`.
+     * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
      */
     query?: pulumi.Input<string>;
 }
@@ -851,7 +851,7 @@ export interface DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -1601,7 +1601,7 @@ export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -2357,7 +2357,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -3631,7 +3631,7 @@ export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -4303,7 +4303,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -4910,7 +4910,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -6140,7 +6140,7 @@ export interface DashboardWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -6924,7 +6924,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -7637,7 +7637,7 @@ export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -8215,7 +8215,7 @@ export interface DashboardWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -10478,7 +10478,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -11809,7 +11809,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -12625,7 +12625,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -14744,7 +14744,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -15748,7 +15748,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -16438,7 +16438,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -18289,7 +18289,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -19405,7 +19405,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -20450,7 +20450,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -21194,7 +21194,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -21393,6 +21393,13 @@ export interface PowerpackWidgetWidgetLayout {
      * The position of the widget on the y (vertical) axis. Must be greater than or equal to 0.
      */
     y: pulumi.Input<number>;
+}
+
+export interface ProviderDefaultTags {
+    /**
+     * [Experimental - Monitors only] Resource tags to be applied by default across all resources.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 export interface RestrictionPolicyBinding {
@@ -22948,6 +22955,9 @@ export interface SyntheticsTestRequestProxy {
     url: pulumi.Input<string>;
 }
 export namespace aws {
+}
+
+export namespace config {
 }
 
 export namespace slack {

@@ -64,14 +64,14 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list a role IDs to assign to the service account.
+     * A list of role IDs to assign to the service account.
      * 
      */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
     /**
-     * @return A list a role IDs to assign to the service account.
+     * @return A list of role IDs to assign to the service account.
      * 
      */
     public Optional<Output<List<String>>> roles() {
@@ -169,7 +169,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param roles A list a role IDs to assign to the service account.
+         * @param roles A list of role IDs to assign to the service account.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param roles A list a role IDs to assign to the service account.
+         * @param roles A list of role IDs to assign to the service account.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param roles A list a role IDs to assign to the service account.
+         * @param roles A list of role IDs to assign to the service account.
          * 
          * @return builder
          * 

@@ -13,6 +13,202 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ServiceLevelObjectiveSliSpecificationTimeSlice struct {
+	// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+	Comparator string `pulumi:"comparator"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query ServiceLevelObjectiveSliSpecificationTimeSliceQuery `pulumi:"query"`
+	// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+	QueryIntervalSeconds *int `pulumi:"queryIntervalSeconds"`
+	// The threshold value to which each SLI value will be compared.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSliceInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceArgs and ServiceLevelObjectiveSliSpecificationTimeSliceOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSliceInput` via:
+//
+//	ServiceLevelObjectiveSliSpecificationTimeSliceArgs{...}
+type ServiceLevelObjectiveSliSpecificationTimeSliceInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceArgs struct {
+	// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+	Comparator pulumi.StringInput `pulumi:"comparator"`
+	// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+	Query ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput `pulumi:"query"`
+	// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+	QueryIntervalSeconds pulumi.IntPtrInput `pulumi:"queryIntervalSeconds"`
+	// The threshold value to which each SLI value will be compared.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput).ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx)
+}
+
+// ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput is an input type that accepts ServiceLevelObjectiveSliSpecificationTimeSliceArgs, ServiceLevelObjectiveSliSpecificationTimeSlicePtr and ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput` via:
+//
+//	        ServiceLevelObjectiveSliSpecificationTimeSliceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput
+	ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput
+}
+
+type serviceLevelObjectiveSliSpecificationTimeSlicePtrType ServiceLevelObjectiveSliSpecificationTimeSliceArgs
+
+func ServiceLevelObjectiveSliSpecificationTimeSlicePtr(v *ServiceLevelObjectiveSliSpecificationTimeSliceArgs) ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput {
+	return (*serviceLevelObjectiveSliSpecificationTimeSlicePtrType)(v)
+}
+
+func (*serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return i.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectiveSliSpecificationTimeSlicePtrType) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSliceOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceOutput() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSliceOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjectiveSliSpecificationTimeSlice) *ServiceLevelObjectiveSliSpecificationTimeSlice {
+		return &v
+	}).(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput)
+}
+
+// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Comparator() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) string { return v.Comparator }).(pulumi.StringOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Query() ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		return v.Query
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput)
+}
+
+// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) QueryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) *int { return v.QueryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The threshold value to which each SLI value will be compared.
+func (o ServiceLevelObjectiveSliSpecificationTimeSliceOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceLevelObjectiveSliSpecificationTimeSlice) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjectiveSliSpecificationTimeSlice)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput() ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) ToServiceLevelObjectiveSliSpecificationTimeSlicePtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Elem() ServiceLevelObjectiveSliSpecificationTimeSliceOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) ServiceLevelObjectiveSliSpecificationTimeSlice {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjectiveSliSpecificationTimeSlice
+		return ret
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceOutput)
+}
+
+// The comparator used to compare the SLI value to the threshold. Valid values are `>`, `>=`, `<`, `<=`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Comparator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comparator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A timeseries query, containing named data-source-specific queries and a formula involving the named queries.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Query() ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *ServiceLevelObjectiveSliSpecificationTimeSliceQuery {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput)
+}
+
+// The interval used when querying data, which defines the size of a time slice. Valid values are `60`, `300`. Defaults to `300`.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) QueryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QueryIntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The threshold value to which each SLI value will be compared.
+func (o ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ServiceLevelObjectiveSliSpecificationTimeSlice) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.Float64PtrOutput)
+}
+
 type ServiceLevelObjectiveSliSpecificationTimeSliceQuery struct {
 	// A list that contains exactly one formula, as only a single formula may be used to define a timeseries query for a time-slice SLO.
 	Formula ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormula `pulumi:"formula"`
@@ -15160,6 +15356,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSlicePtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaInput)(nil)).Elem(), ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaArgs{})
@@ -15345,6 +15543,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembershipsTeamMembershipArrayInput)(nil)).Elem(), GetTeamMembershipsTeamMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSlicePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveSliSpecificationTimeSliceQueryFormulaOutput{})

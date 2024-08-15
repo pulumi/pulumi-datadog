@@ -16,14 +16,14 @@ public final class ApmRetentionFilterFilterArgs extends com.pulumi.resources.Res
     public static final ApmRetentionFilterFilterArgs Empty = new ApmRetentionFilterFilterArgs();
 
     /**
-     * The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
+     * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
+     * @return The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
      * 
      */
     public Optional<Output<String>> query() {
@@ -55,7 +55,7 @@ public final class ApmRetentionFilterFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param query The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
+         * @param query The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApmRetentionFilterFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param query The search query - following the span search syntax. Defaults to `&#34;*&#34;`.
+         * @param query The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
          * 
          * @return builder
          * 

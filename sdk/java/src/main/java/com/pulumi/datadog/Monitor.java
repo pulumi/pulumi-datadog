@@ -553,15 +553,15 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> tags;
+    private Output<List<String>> tags;
 
     /**
      * @return A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it&#39;s not currently possible to filter by these tags when querying via the API
      * 
      */
-    public Output<Optional<List<String>>> tags() {
-        return Codegen.optional(this.tags);
+    public Output<List<String>> tags() {
+        return this.tags;
     }
     /**
      * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The
